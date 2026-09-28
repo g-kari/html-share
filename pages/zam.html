@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="日本発の次世代メモリ ZAM と、SAIMEMORY・新光電気工業の協業をわかりやすく解説します。" />
+  <title>次世代メモリ「ZAM」ざっくり解説</title>
+
+  <style>
+    :root {
+      --bg: #0f1115;
+      --panel: #171a21;
+      --panel-2: #1d212a;
+      --text: #f2f4f8;
+      --sub: #aeb6c5;
+      --accent: #7aa2ff;
+      --accent-2: #74e0c1;
+      --border: #2b313d;
+      --warning: #f2c66d;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top left, #18213a 0, transparent 34rem),
+        var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP", sans-serif;
+      line-height: 1.8;
+    }
+
+    main {
+      width: min(920px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 56px 0 80px;
+    }
+
+    h1, h2 { line-height: 1.4; }
+
+    h1 {
+      margin: 0 0 16px;
+      font-size: clamp(2rem, 5vw, 3.4rem);
+    }
+
+    h2 {
+      margin-top: 0;
+      font-size: 1.35rem;
+    }
+
+    p { margin: 0 0 1em; }
+
+    a { color: var(--accent); }
+
+    .lead {
+      color: var(--sub);
+      font-size: 1.1rem;
+      margin-bottom: 32px;
+    }
+
+    .summary {
+      margin: 32px 0;
+      padding: 24px;
+      border: 1px solid #34405c;
+      border-radius: 16px;
+      background: linear-gradient(
+        135deg,
+        rgba(122, 162, 255, 0.12),
+        rgba(116, 224, 193, 0.05)
+      );
+      font-size: 1.15rem;
+    }
+
+    .summary strong { color: #fff; }
+
+    .card {
+      margin: 20px 0;
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: rgba(23, 26, 33, 0.9);
+    }
+
+    .keyword {
+      color: var(--accent-2);
+      font-weight: 700;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    .flow div {
+      padding: 16px;
+      text-align: center;
+      background: var(--panel-2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    .arrow {
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    .note {
+      padding-left: 16px;
+      border-left: 4px solid var(--warning);
+      color: var(--sub);
+    }
+
+    .timeline {
+      display: grid;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .year {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .sources {
+      margin-top: 40px;
+      color: var(--sub);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 640px) {
+      main { padding-top: 32px; }
+      .flow { grid-template-columns: 1fr; }
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 2px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <header>
+      <h1>日本発の次世代メモリ<br>「ZAM」って何？</h1>
+      <p class="lead">
+        SAIMEMORYと新光電気工業の協業ニュースを、
+        「結局なにがすごいの？」という観点でざっくり整理。
+      </p>
+    </header>
+
+    <section class="summary">
+      <strong>一言でいうと：</strong><br>
+      AI向けの
+      <strong>「大容量・高速・省電力な次世代メモリ」</strong>
+      を開発している会社が、
+      半導体を実際の製品として組み上げる技術に強い会社と組んだ。
+      <br><br>
+      つまり、
+      <strong>研究段階から実用化・商用化へ一歩進んだ</strong>
+      というニュース。
+    </section>
+
+    <section class="card">
+      <h2>そもそも、ZAMって何？</h2>
+      <p>
+        AIではGPUの計算速度だけでなく、
+        <span class="keyword">メモリからGPUへどれだけ速くデータを渡せるか</span>
+        がかなり重要です。
+      </p>
+
+      <div class="flow">
+        <div>大量のAIデータ</div>
+        <div class="arrow">↓</div>
+        <div>GPUで計算</div>
+      </div>
+
+      <p>
+        GPUが爆速でも、メモリからデータが来るのを待っていたら、
+        GPUが暇になってしまいます。
+      </p>
+
+      <p>
+        ZAMはこの部分を改善して、
+        <strong>大量のデータを置けて、速く転送できて、消費電力も抑える</strong>
+        ことを狙った技術です。
+      </p>
+
+      <p>
+        主な用途は、生成AIなどを動かす
+        <strong>データセンター向けAI基盤</strong>
+        です。
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>何が普通のメモリと違う？</h2>
+      <p>
+        ポイントは、
+        <strong>メモリチップの配置方法と接続方法</strong>
+        にあります。
+      </p>
+
+      <p>
+        ZAMでは、メモリを立体的に構成する
+        <span class="keyword">「垂直ビルド」</span>
+        という考え方を採用。
+      </p>
+
+      <p>
+        さらに、通常の物理的な配線だけでなく、
+        <strong>磁界を利用してデータをやり取りする接続技術</strong>
+        を利用します。
+      </p>
+
+      <ul>
+        <li>メモリ容量を増やす</li>
+        <li>データ転送を高速化する</li>
+        <li>消費電力を抑える</li>
+        <li>熱を逃がしやすくする</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>今回のニュースは何が重要？</h2>
+      <p>
+        ZAMを開発しているのが
+        <strong>SAIMEMORY</strong>。
+      </p>
+
+      <p>
+        今回協業する
+        <strong>新光電気工業</strong>
+        は、半導体チップを高密度に配置・接続する
+        <span class="keyword">半導体パッケージ技術</span>
+        に強い企業です。
+      </p>
+
+      <div class="flow">
+        <div>
+          SAIMEMORY<br>
+          <small>新しいメモリ技術</small>
+        </div>
+        <div class="arrow">＋</div>
+        <div>
+          新光電気工業<br>
+          <small>製品として実装する技術</small>
+        </div>
+      </div>
+
+      <p>
+        ソフトウェア開発で例えるなら、
+        <strong>
+          「面白い技術をPoCしているチームに、
+          本番環境へ持っていくためのインフラ・製造のプロが加わった」
+        </strong>
+        くらいのイメージです。
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>じゃあ、もう製品になるの？</h2>
+      <p>まだそこまでは行っていません。</p>
+
+      <p>
+        現時点では、
+        <strong>「商用化に向けた技術開発・製造方法の確立を進める」</strong>
+        という段階です。
+      </p>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="year">2026年</div>
+          <div>
+            新光電気工業との協業。
+            製品化に必要なパッケージ・実装技術を開発。
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="year">2027年度</div>
+          <div>試作品の製作を目標。</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="year">2029年度</div>
+          <div>実用化を目標。</div>
+        </div>
+      </div>
+
+      <p class="note">
+        これは目標時期であって、
+        2029年に必ず製品が発売されるという意味ではありません。
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>俺らのPCにも載る？</h2>
+      <p>
+        当面は、
+        <strong>普通のゲーミングPC向けメモリではなく、
+        AIデータセンター向け</strong>
+        と考えた方がいいです。
+      </p>
+
+      <p>
+        なので、近いうちに
+        「DDR5の代わりにZAMを挿す」
+        みたいな話ではありません。
+      </p>
+
+      <p>
+        ただし、この技術が成功して広がれば、
+        将来的にはAIサーバーの
+        <strong>性能・消費電力・設置密度</strong>
+        に効いてくる可能性があります。
+      </p>
+    </section>
+
+    <section class="summary">
+      <strong>つまり今回のニュース：</strong><br><br>
+      ZAMという日本発の次世代AIメモリ技術が、
+      「研究として面白いね」の段階から、
+      <strong>「じゃあ実際に製造可能な製品にしていこう」</strong>
+      という段階へ進んできた。
+      <br><br>
+      ただし、
+      <strong>まだ完成・量産・採用決定ではない。</strong>
+      <br>
+      今後見るべきなのは
+      <strong>2027年度の試作品</strong>
+      と、その性能です。
+    </section>
+
+    <footer class="sources">
+      <p>
+        参考：TECH+「日本発の次世代メモリ『ZAM』が商用化へ前進、
+        SAIMEMORYと新光電気工業が協業」
+      </p>
+      <p>
+        関連情報：
+        SAIMEMORY、新光電気工業、ソフトバンク各社の発表内容をもとに整理。
+      </p>
+    </footer>
+  </main>
+</body>
+</html>
