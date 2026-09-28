@@ -1,0 +1,18 @@
+{
+  "name": "html-share",
+  "compatibility_date": "2026-09-29",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": "./public",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "single-page-application"
+  },
+  "routes": [
+    {
+      "pattern": "share.0g0.xyz",
+      "custom_domain": true
+    }
+  ]
+}
