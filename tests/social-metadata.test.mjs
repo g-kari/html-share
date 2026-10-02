@@ -150,5 +150,7 @@ test("versioned common PNG has correct dimensions, cache policy and deploy build
   assert.equal(image.readUInt32BE(20), 630);
   assert.ok(image.length < 500_000);
   assert.match(await readFile(path.join(root, "public/_headers"), "utf8"), /html-share-card-v1\.png\n  Cache-Control: public, max-age=31536000, immutable/);
-  assert.equal(JSON.parse(await readFile(path.join(root, "wrangler.jsonc"), "utf8")).build.command, "node scripts/generate-index.mjs");
+  const config = JSON.parse(await readFile(path.join(root, "wrangler.jsonc"), "utf8"));
+  assert.equal(config.build.command, "node scripts/generate-index.mjs");
+  assert.deepEqual(config.previews, {});
 });

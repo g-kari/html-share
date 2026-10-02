@@ -123,6 +123,8 @@ Cloudflare Workers Builds で `main` ブランチを接続し、Deploy command �
 npx wrangler deploy
 ```
 
+`wrangler.jsonc` の空の `previews` ブロックは、既存のブランチビルド（`npx wrangler preview`）に対応するための設定です。
+
 `wrangler.jsonc` の build hook がデプロイ前に生成処理を実行するため、GitHub Actions の生成commitを待たずに新しいページにもOGPが入ります。
 
 Static Assets の対象は `./public` のみです。リポジトリの `.git` や Wrangler の一時ファイルは配信されません。
