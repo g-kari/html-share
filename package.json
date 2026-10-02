@@ -1,0 +1,13 @@
+{
+  "name": "html-share",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "build": "node scripts/generate-index.mjs",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "dependencies": {
+    "entities": "8.1.0"
+  }
+}
