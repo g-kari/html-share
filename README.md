@@ -62,7 +62,7 @@ Cloudflare Workers Static Assets の HTML handling により、URLは次のよ�
 
 そのため `public/index.html` は基本的に手編集しません。
 
-手元で再生成する場合:
+手元で再生成する場合（初回は `npm ci --ignore-scripts`）:
 
 ```sh
 node scripts/generate-index.mjs
@@ -81,10 +81,12 @@ node scripts/generate-index.mjs
 
 既存の本文・スタイル・スクリプトは維持します。生成部分は
 `<!-- html-share: social metadata -->` のコメントで区切られ、何度実行しても重複しません。
-生成部分の外に書いたOGP/Twitter/canonicalタグを優先するため、ページ単位のカスタマイズもできます。
+生成部分の外に書いた有効なOGP/Twitter/canonicalタグを優先するため、ページ単位のカスタマイズもできます。
+空のタグは未設定として補完します。`template` 内のタグはメタデータとして使いません。
+HTML文字参照の完全なデコードには、固定バージョンの `entities` をビルド時だけ使用します。
 相対canonical・画像URLは、そのページの公開URLを基準に絶対URLへ変換します。
 独自画像を指定するときは、その画像の `og:image:width`, `og:image:height`,
-`og:image:type`, `og:image:alt` も指定してください。共通画像のサイズを独自画像へ流用しません。
+`og:image:type`, `og:image:alt` も指定してください。共通画像のサイズを独自画像へ流用しません。複数のOG画像を指定する場合は、各画像の直後にその画像の構造化メタデータを記載してください。
 
 ```html
 <meta property="og:image" content="/assets/my-page.png">
@@ -98,9 +100,10 @@ node scripts/generate-index.mjs
 画像を変更するときはファイル名と `scripts/social-metadata.mjs`、`public/_headers`、テストを合わせて更新してください。
 SNS側に古いプレビューが残ることがあります。サイト側の更新後も、各サービスの再クロールまで反映が遅れる場合があります。
 
-検証:
+検証（Node.js 22以上）:
 
 ```sh
+npm ci --ignore-scripts
 node --test tests/*.test.mjs
 node scripts/generate-index.mjs
 npx wrangler deploy --dry-run

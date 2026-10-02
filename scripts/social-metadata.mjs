@@ -1,4 +1,5 @@
 import path from "node:path";
+import { decodeHTML, decodeHTMLAttribute } from "entities";
 
 export const SITE_URL = "https://share.0g0.xyz";
 export const SITE_NAME = "HTML Share";
@@ -6,15 +7,7 @@ export const DEFAULT_IMAGE = `${SITE_URL}/assets/html-share-card-v1.png`;
 const START = "<!-- html-share: social metadata -->";
 const END = "<!-- /html-share: social metadata -->";
 
-export function decodeHtmlEntities(value) {
-  const named = { amp: "&", lt: "<", gt: ">", quot: '"', apos: "'", nbsp: "\u00a0" };
-  return value.replace(/&(#x[\da-f]+|#\d+|amp|lt|gt|quot|apos|nbsp);/gi, (all, entity) => {
-    if (!entity.startsWith("#")) return named[entity.toLowerCase()];
-    const number = entity[1].toLowerCase() === "x" ? parseInt(entity.slice(2), 16) : Number(entity.slice(1));
-    return number > 0 && number <= 0x10ffff && !(number >= 0xd800 && number <= 0xdfff)
-      ? String.fromCodePoint(number) : "\ufffd";
-  });
-}
+export const decodeHtmlEntities = decodeHTML;
 
 export function escapeHtml(value) {
   return value.replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]);
@@ -54,7 +47,7 @@ export function scanTags(html) {
       const quoted = raw.startsWith('"') || raw.startsWith("'");
       const key = attribute[1].toLowerCase();
       if (!attrs.has(key)) attrs.set(key, {
-        value: decodeHtmlEntities(quoted ? raw.slice(1, -1) : raw),
+        value: decodeHTMLAttribute(quoted ? raw.slice(1, -1) : raw),
         start: opener.lastIndex + attribute.index + attribute[0].length - raw.length,
         end: opener.lastIndex + attribute.index + attribute[0].length,
       });
@@ -72,7 +65,15 @@ export function scanTags(html) {
 }
 
 function headTags(html) {
-  const tags = scanTags(html);
+  // Template contents are inert: their tags must never suppress real metadata.
+  let templateDepth = 0;
+  const tags = scanTags(html).filter((tag) => {
+    if (tag.name === "template") {
+      templateDepth = Math.max(0, templateDepth + (tag.closing ? -1 : 1));
+      return false;
+    }
+    return templateDepth === 0;
+  });
   const opening = tags.find((tag) => tag.name === "head" && !tag.closing);
   const closing = tags.find((tag) => tag.name === "head" && tag.closing && tag.start > opening?.end);
   if (!opening || !closing) throw new Error("Shared HTML must contain an explicit <head>...</head>.");
@@ -121,6 +122,14 @@ export function addSocialMetadata(source, relativePath) {
     index = comments.indexOf(ending);
   }
   for (const { start, end } of blocks.reverse()) html = html.slice(0, start) + html.slice(end);
+  // Empty authored tags contain no override. Remove them so crawlers do not
+  // choose an empty first value, and regenerated defaults can still refresh.
+  const managed = /^(og:(type|site_name|title|description|url|image(:url|:secure_url|:type|:width|:height|:alt)?)|twitter:(card|title|description|image(:src|:alt)?))$/;
+  const empty = headTags(html).tags.filter((tag) =>
+    (tag.name === "meta" && managed.test(tag.attrs.get("property")?.value.toLowerCase() || tag.attrs.get("name")?.value.toLowerCase() || "") && !tag.attrs.get("content")?.value.trim()) ||
+    (tag.name === "link" && tag.attrs.get("rel")?.value.toLowerCase().split(/\s+/).includes("canonical") && !tag.attrs.get("href")?.value.trim())
+  );
+  for (const tag of empty.reverse()) html = html.slice(0, tag.start) + html.slice(tag.end);
   let { tags } = headTags(html);
   const routeUrl = SITE_URL + routeFor(relativePath);
   const getMeta = (key) => tags.find((tag) => tag.name === "meta" &&
@@ -143,8 +152,14 @@ export function addSocialMetadata(source, relativePath) {
   const url = canonical?.attrs.get("href")?.value ? absoluteUrl(canonical.attrs.get("href").value, routeUrl) : content("og:url") || routeUrl;
   const title = content("og:title") || details.title;
   const description = content("og:description") || details.description || `${details.title}をHTML Shareで共有しています。`;
-  const image = content("og:image") || content("og:image:url") || DEFAULT_IMAGE;
-  const imageAlt = content("og:image:alt") || (image === DEFAULT_IMAGE ? "HTML Shareのロゴと共有ページを表すカード" : title);
+  const imageRoots = tags.filter((tag) => tag.name === "meta" && /^(og:image|og:image:url)$/.test(tag.attrs.get("property")?.value.toLowerCase() || tag.attrs.get("name")?.value.toLowerCase() || ""));
+  const image = imageRoots[0]?.attrs.get("content")?.value || DEFAULT_IMAGE;
+  const firstImageGroup = imageRoots.length ? tags.slice(tags.indexOf(imageRoots[0]) + 1, imageRoots[1] ? tags.indexOf(imageRoots[1]) : tags.length) : [];
+  const authoredAlt = firstImageGroup.find((tag) => tag.name === "meta" && (tag.attrs.get("property")?.value.toLowerCase() || tag.attrs.get("name")?.value.toLowerCase()) === "og:image:alt")?.attrs.get("content")?.value;
+  const defaultAlt = "HTML Shareのロゴと共有ページを表すカード";
+  const imageAlt = authoredAlt || (image === DEFAULT_IMAGE ? defaultAlt : title);
+  const twitterImage = content("twitter:image") || content("twitter:image:src") || image;
+  const twitterAlt = twitterImage === image ? imageAlt : twitterImage === DEFAULT_IMAGE ? defaultAlt : title;
   const lines = [];
   if (!canonical) lines.push(`<link rel="canonical" href="${escapeHtml(url)}">`);
   function meta(key, value, property = true) {
@@ -157,17 +172,20 @@ export function addSocialMetadata(source, relativePath) {
   meta("og:url", url);
   meta("og:image", image);
   // Do not mislabel the size/type of an explicitly supplied custom image.
-  if (image === DEFAULT_IMAGE) {
+  const imageCount = imageRoots.length;
+  if (image === DEFAULT_IMAGE && imageCount <= 1) {
     meta("og:image:type", "image/png");
     meta("og:image:width", "1200");
     meta("og:image:height", "630");
   }
-  meta("og:image:alt", imageAlt);
+  // With multiple authored images, appending a structured property would
+  // describe the last image rather than the first. Keep their groups intact.
+  if (imageCount <= 1) meta("og:image:alt", imageAlt);
   meta("twitter:card", "summary_large_image", false);
   meta("twitter:title", title, false);
   meta("twitter:description", description, false);
-  meta("twitter:image", image, false);
-  meta("twitter:image:alt", imageAlt, false);
+  meta("twitter:image", twitterImage, false);
+  meta("twitter:image:alt", twitterAlt, false);
   const { closing } = headTags(html);
   const block = `  ${START}\n${lines.map((line) => `  ${line}`).join("\n")}\n  ${END}\n`;
   return html.slice(0, closing.start).replace(/[ \t]*$/, "") + block + html.slice(closing.start);

@@ -8,6 +8,7 @@ on:
       - "scripts/**"
       - "tests/**"
       - "wrangler.jsonc"
+      - "package*.json"
       - ".github/workflows/generate-index.yml"
   pull_request:
     paths:
@@ -15,6 +16,7 @@ on:
       - "scripts/**"
       - "tests/**"
       - "wrangler.jsonc"
+      - "package*.json"
       - ".github/workflows/generate-index.yml"
   workflow_dispatch:
 
@@ -29,6 +31,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
+      - name: Install build dependency
+        run: npm ci --ignore-scripts
       - name: Test metadata and generation
         run: node --test tests/*.test.mjs
 
@@ -59,6 +63,7 @@ jobs:
           for attempt in 1 2 3; do
             git fetch origin main
             git reset --hard origin/main
+            npm ci --ignore-scripts
             node --test tests/*.test.mjs
             node scripts/generate-index.mjs
             if git diff --quiet -- public; then

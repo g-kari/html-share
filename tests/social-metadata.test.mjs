@@ -154,3 +154,49 @@ test("versioned common PNG has correct dimensions, cache policy and deploy build
   assert.equal(config.build.command, "node scripts/generate-index.mjs");
   assert.deepEqual(config.previews, {});
 });
+
+test("complete HTML entities and attribute-specific legacy decoding", () => {
+  const output = addSocialMetadata(document('<title>Caf&eacute; &mdash; &copy; 2026 &NotEqualTilde; &copy</title><meta name="description" content="Caf&eacute; &mdash; &copy; &notit; &copy=x">'), "entities.html");
+  assert.deepEqual(values(output, "og:title"), ["Café — © 2026 ≂̸ ©"]);
+  assert.deepEqual(values(output, "og:description"), ["Café — © &notit; &copy=x"]);
+  assert.equal(addSocialMetadata(output, "entities.html"), output);
+});
+
+test("inert nested template metadata and generated markers are preserved and ignored", () => {
+  const template = '<template><title>Wrong</title><meta name="description" content="Wrong"><meta property="og:title" content="Wrong"><template><meta property="og:image" content="/wrong.png"></template><!-- html-share: social metadata -->inert<!-- /html-share: social metadata --></template>';
+  const source = document(template + '<title>Real</title><meta name="description" content="Real description">');
+  assert.deepEqual(pageDetails(source, "fallback"), { title: "Real", description: "Real description" });
+  const output = addSocialMetadata(source, "template.html");
+  assert.ok(output.includes(template));
+  const active = output.replace(template, "");
+  assert.deepEqual(values(active, "og:title"), ["Real"]);
+  assert.deepEqual(values(active, "og:description"), ["Real description"]);
+  assert.deepEqual(values(active, "og:image"), [DEFAULT_IMAGE]);
+  assert.equal(addSocialMetadata(output, "template.html"), output);
+});
+
+test("empty authored tags do not win over defaults, and generated values can refresh", () => {
+  const source = document('<title>Before</title><link rel="canonical" href=""><meta property="og:title" content=" "><meta property="og:image"><meta property="og:description" content=""><meta name="twitter:image" content="">');
+  const output = addSocialMetadata(source, "empty.html");
+  assert.equal(canonical(output), "https://share.0g0.xyz/empty");
+  assert.deepEqual(values(output, "og:title"), ["Before"]);
+  assert.deepEqual(values(output, "og:image"), [DEFAULT_IMAGE]);
+  assert.deepEqual(values(output, "twitter:image"), [DEFAULT_IMAGE]);
+  assert.equal(addSocialMetadata(output, "empty.html"), output);
+  const updated = addSocialMetadata(output.replace('<title>Before</title>', '<title>After</title>'), "empty.html");
+  assert.deepEqual(values(updated, "og:title"), ["After"]);
+});
+
+test("multiple image groups and independent Twitter image keep correct alt text", () => {
+  const output = addSocialMetadata(document('<title>Page</title><meta property="og:image" content="/first.png"><meta property="og:image:alt" content="First cover"><meta property="og:image" content="/second.png"><meta property="og:image:alt" content="Second cover">'), "images.html");
+  assert.deepEqual(values(output, "og:image:alt"), ["First cover", "Second cover"]);
+  assert.deepEqual(values(output, "twitter:image"), ["https://share.0g0.xyz/first.png"]);
+  assert.deepEqual(values(output, "twitter:image:alt"), ["First cover"]);
+  const noAlt = addSocialMetadata(document('<title>Page</title><meta property="og:image" content="/first.png"><meta property="og:image" content="/second.png">'), "images.html");
+  assert.deepEqual(values(noAlt, "og:image:alt"), []);
+  const separate = addSocialMetadata(document('<title>Page</title><meta name="twitter:image" content="/custom.png">'), "images.html");
+  assert.deepEqual(values(separate, "og:image:alt"), ["HTML Shareのロゴと共有ページを表すカード"]);
+  assert.deepEqual(values(separate, "twitter:image:alt"), ["Page"]);
+  const authored = addSocialMetadata(document('<title>Page</title><meta name="twitter:image" content="/custom.png"><meta name="twitter:image:alt" content="Authored X cover">'), "images.html");
+  assert.deepEqual(values(authored, "twitter:image:alt"), ["Authored X cover"]);
+});
