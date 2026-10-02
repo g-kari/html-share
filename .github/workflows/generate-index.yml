@@ -1,45 +1,73 @@
-name: Generate page index
+name: Generate page index and social metadata
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
     paths:
-      - "public/**/*.html"
-      - "scripts/generate-index.mjs"
+      - "public/**"
+      - "scripts/**"
+      - "tests/**"
+      - "wrangler.jsonc"
+      - ".github/workflows/generate-index.yml"
+  pull_request:
+    paths:
+      - "public/**"
+      - "scripts/**"
+      - "tests/**"
+      - "wrangler.jsonc"
       - ".github/workflows/generate-index.yml"
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  generate:
-    if: github.actor != 'github-actions[bot]'
+  test:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: "22"
+      - name: Test metadata and generation
+        run: node --test tests/*.test.mjs
 
-      - name: Generate index
-        run: node scripts/generate-index.mjs
-
-      - name: Commit generated index
+  generate:
+    needs: test
+    if: github.event_name != 'pull_request' && github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    concurrency:
+      group: html-share-generated-main
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Generate and commit current pages
         shell: bash
         run: |
-          if git diff --quiet -- public/index.html; then
-            echo "public/index.html is already up to date."
-            exit 0
-          fi
-
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add public/index.html
-          git commit -m "chore: regenerate page index"
-          git push
+          # Regenerate from current main on every retry; never overwrite a newer
+          # authored page with output generated from a stale checkout.
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git reset --hard origin/main
+            node --test tests/*.test.mjs
+            node scripts/generate-index.mjs
+            if git diff --quiet -- public; then
+              echo "Generated pages are already up to date."
+              exit 0
+            fi
+            git add public
+            git commit -m "chore: regenerate page index and social metadata"
+            if git push origin HEAD:main; then exit 0; fi
+          done
+          echo "main kept changing; rerun generation after the latest edit."
+          exit 1

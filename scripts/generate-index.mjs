@@ -1,5 +1,6 @@
 import { readdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
+import { addSocialMetadata, escapeHtml, pageDetails, routeFor } from "./social-metadata.mjs";
 
 const publicDir = path.resolve("public");
 const outputFile = path.join(publicDir, "index.html");
@@ -21,61 +22,6 @@ async function walk(dir) {
   return files;
 }
 
-function decodeHtmlEntities(value) {
-  return value
-    .replaceAll("&amp;", "&")
-    .replaceAll("&lt;", "<")
-    .replaceAll("&gt;", ">")
-    .replaceAll("&quot;", '"')
-    .replaceAll("&#39;", "'");
-}
-
-function escapeHtml(value) {
-  return value
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#39;");
-}
-
-function extractTitle(html, fallback) {
-  const match = html.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
-  return match ? decodeHtmlEntities(match[1].replace(/\s+/g, " ").trim()) : fallback;
-}
-
-function extractDescription(html) {
-  const metaTags = html.match(/<meta\b[^>]*>/gi) ?? [];
-
-  for (const tag of metaTags) {
-    const name =
-      tag.match(/\bname\s*=\s*"([^"]*)"/i)?.[1] ??
-      tag.match(/\bname\s*=\s*'([^']*)'/i)?.[1];
-
-    if (name?.toLowerCase() !== "description") continue;
-
-    const content =
-      tag.match(/\bcontent\s*=\s*"([^"]*)"/i)?.[1] ??
-      tag.match(/\bcontent\s*=\s*'([^']*)'/i)?.[1];
-
-    if (content) return decodeHtmlEntities(content.trim());
-  }
-
-  return "";
-}
-
-function routeFor(relativePath) {
-  const normalized = relativePath.split(path.sep).join("/");
-
-  if (normalized === "index.html") return "/";
-
-  if (normalized.endsWith("/index.html")) {
-    return "/" + normalized.slice(0, -"index.html".length);
-  }
-
-  return "/" + normalized.slice(0, -".html".length);
-}
-
 const files = (await walk(publicDir))
   .filter((file) => path.resolve(file) !== path.resolve(outputFile))
   .sort((a, b) => a.localeCompare(b, "ja"));
@@ -87,11 +33,11 @@ for (const file of files) {
   const html = await readFile(file, "utf8");
   const route = routeFor(relativePath);
   const fallbackTitle = path.basename(file, ".html");
+  const details = pageDetails(html, fallbackTitle);
 
   pages.push({
     route,
-    title: extractTitle(html, fallbackTitle),
-    description: extractDescription(html),
+    ...details,
   });
 }
 
@@ -176,5 +122,16 @@ ${cards}
 </html>
 `;
 
-await writeFile(outputFile, html, "utf8");
-console.log(`Generated public/index.html with ${pages.length} page(s).`);
+// Fail the build rather than publish a broken common preview image.
+const image = await readFile(path.join(publicDir, "assets/html-share-card-v1.png"));
+if (!image.subarray(0, 8).equals(Buffer.from([137, 80, 78, 71, 13, 10, 26, 10])) ||
+    image.length < 24 || image.readUInt32BE(16) !== 1200 || image.readUInt32BE(20) !== 630) {
+  throw new Error("The common social image must be a 1200×630 PNG.");
+}
+await writeFile(outputFile, addSocialMetadata(html, "index.html"), "utf8");
+for (const file of files) {
+  const source = await readFile(file, "utf8");
+  const generated = addSocialMetadata(source, path.relative(publicDir, file).split(path.sep).join("/"));
+  if (generated !== source) await writeFile(file, generated, "utf8");
+}
+console.log(`Generated index and social metadata for ${pages.length} page(s).`);
