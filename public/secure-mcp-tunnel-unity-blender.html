@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Secure MCP Tunnel｜WindowsのUnity・Blender接続手順</title>
+<meta name="description" content="WindowsのUnityとBlenderをOpenAI Secure MCP Tunnelで接続する設定ガイド。PowerShellコマンド、2つのTunnel、ChatGPT登録、検証・停止手順を収録。2026年10月3日確認。">
+<style>
+:root{color-scheme:light;--ink:#14252d;--muted:#54646d;--accent:#086980;--line:#d4e0e5;--paper:#fff;--bg:#f2f6f8}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:24px}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI","Noto Sans JP",sans-serif;font-size:17px;line-height:1.9;overflow-wrap:anywhere}
+a{color:var(--accent);text-underline-offset:.18em}a:hover{text-decoration-thickness:2px}a:focus-visible,button:focus-visible{outline:3px solid #e59626;outline-offset:4px}
+.skip{position:absolute;top:-100px;left:12px;background:#fff;padding:12px}.skip:focus{top:12px;z-index:9}.shell{max-width:1140px;margin:auto;padding:36px 28px 56px}.topline{display:flex;justify-content:space-between;gap:16px;align-items:center;color:var(--muted);font-size:14px;margin-bottom:24px}.topline a{text-decoration:none}
+header{margin-bottom:32px}h1{font-size:clamp(30px,5.5vw,46px);line-height:1.25;letter-spacing:-.035em;margin:0 0 12px}.subtitle{font-size:clamp(18px,3vw,23px);line-height:1.55;margin:0 0 15px;color:#274653}.date{font-size:14px;color:var(--muted);margin:0}.status{margin-top:16px;font-size:15px;color:var(--muted)}
+.layout{display:grid;grid-template-columns:240px minmax(0,1fr);gap:36px;align-items:start}.toc{position:sticky;top:24px;padding:5px 0;font-size:15px}.toc h2{font-size:16px;line-height:1.5;margin:0 0 14px}.toc ol{padding:0;list-style:none;margin:0;display:grid;gap:11px}.toc a{display:block;line-height:1.55;text-decoration:none;padding-left:12px;border-left:2px solid var(--line)}.toc a:hover{border-color:var(--accent)}.toc .code-hint{font-size:13px;color:var(--muted);margin-top:22px}
+main{min-width:0;background:var(--paper);padding:32px 34px;border-radius:14px;border:1px solid var(--line)}section+section{margin-top:50px;padding-top:8px}h2{font-size:25px;line-height:1.45;margin:0 0 20px;letter-spacing:-.025em}h3{font-size:19px;line-height:1.6;margin:30px 0 12px}p{margin:0 0 17px}.doc-p{white-space:normal}.doc-p br+br{display:none}.doc-link{font-size:15px}.doc-link strong{font-size:15px}.references .doc-link{margin-bottom:24px}
+.codeblock{margin:20px 0;background:#122731;color:#eef7fa;border-radius:9px;overflow:hidden;min-width:0}.codebar{display:flex;align-items:center;justify-content:space-between;padding:9px 14px;border-bottom:1px solid #33515f;gap:12px;color:#b9d2de;font-size:12px;line-height:1.4}.copy{font:inherit;font-size:13px;line-height:1.4;color:#fff;background:#244552;border:1px solid #617b87;border-radius:5px;padding:7px 11px;cursor:pointer;white-space:nowrap}.copy:hover{background:#335a69}pre{margin:0;padding:17px 18px 20px;overflow-x:auto;max-width:100%;font-size:13.5px;line-height:1.65;tab-size:2}code{font-family:ui-monospace,"Cascadia Code",Consolas,monospace;white-space:pre}pre:focus-visible{outline:3px solid #e59626;outline-offset:-3px}.backtop{text-align:right;margin:34px 0 0;font-size:14px}footer{font-size:13px;color:var(--muted);margin-top:28px;text-align:center}.live{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:850px){.layout{grid-template-columns:minmax(0,1fr);gap:24px}.toc{position:static;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:20px 0}.toc ol{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 16px}.toc .code-hint{margin:16px 0 0}main{padding:27px 24px}}@media(max-width:480px){body{font-size:16px}.shell{padding:24px 14px 40px}.topline{font-size:12px;margin-bottom:24px}header{margin-bottom:25px}.toc ol{grid-template-columns:1fr}.toc{font-size:14px}main{padding:25px 18px;border-radius:10px}h2{font-size:22px}h3{font-size:18px}pre{font-size:12.5px;padding:16px 14px}.codebar{padding:9px 12px}section+section{margin-top:40px}.subtitle{font-size:18px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}@media print{body{background:#fff;font-size:11pt}.shell{max-width:none;padding:0}.layout{display:block}.toc,.topline,.copy,.code-hint,.backtop,footer{display:none}main{border:0;padding:0}header{margin-bottom:30px}section+section{margin-top:30px}h2,h3{break-after:avoid}.codeblock{background:#f5f5f5;color:#111;border:1px solid #ccc;break-inside:avoid}.codebar{color:#333;border-color:#ccc}pre{white-space:pre-wrap;font-size:9pt;overflow:visible}code{white-space:pre-wrap}a{color:#111}}
+</style>
+</head>
+<body>
+<a class="skip" href="#content">本文へ移動</a>
+<div class="shell" id="top">
+<div class="topline"><a href="/">HTML Share</a><span>Windows · Unity · Blender</span></div>
+<header>
+<h1>Secure MCP Tunnel</h1>
+<p class="subtitle">WindowsのUnity・Blenderをクラウドから操作する設定手順</p>
+<p class="date"><time datetime="2026-10-03">2026年10月3日確認</time> / 個人用・非公開接続</p>
+<p class="status">これは設定手順です。PCへのインストール・Tunnel作成・接続検証が実行済みという意味ではありません。例のID・保存先は実際の値へ置き換えてください。</p>
+</header>
+<div class="layout">
+<nav class="toc" aria-label="目次"><h2>目次</h2><ol><li><a href="#overview">1. 接続の全体像</a></li><li><a href="#prepare">2. OpenAI側とWindowsの準備</a></li><li><a href="#unity">3. Unityを接続する</a></li><li><a href="#blender">4. Blenderを接続する</a></li><li><a href="#register">5. クラウド側へ登録し、実際に確認する</a></li><li><a href="#stop-and-recover">6. 停止・復旧と一次資料</a></li><li><a href="#sources">一次資料（本文番号と対応）</a></li></ol><p class="code-hint">コマンドは「コピー」で取得できます。長い行は横へスクロールできます。</p></nav>
+<main id="content">
+<section id="overview"><h2>1. 接続の全体像</h2>
+<p class="doc-p">OpenAI公式のSecure MCP Tunnelを使う。Windows PC上のtunnel-clientがOpenAIへ外向きHTTPS接続を作るため、ルーターのポート開放やUnity・Blenderの公開URLは不要。<a class="ref" href="#source-1">[1]</a></p>
+<p class="doc-p">Unity：OpenAI → Unity用Tunnel → PCのtunnel-client → 127.0.0.1:8080/mcp → Unity Editor</p>
+<p class="doc-p">Blender：OpenAI → Blender用Tunnel → PCのtunnel-client → stdio MCPサーバー → localhost:9876のTCP → Blender</p>
+<p class="doc-p">Blenderの9876番はHTTP MCPではない。tunnel-clientにstdioサーバーを起動させる。UnityとBlenderには別々のtunnel_idを割り当て、tunnel-clientは各IDにつき1プロセスにする。<a class="ref" href="#source-2">[2]</a></p>
+<h3>必要なもの</h3>
+<p class="doc-p">・Unityの対象プロジェクトとBlenderの作業ファイルをバックアップ<br>・Unity側：Git、uv、Python 3.10以上、MCP for Unity<br>・Blender側：Blender 3.0以上、uv、Python 3.10以上、MCP for Blender<br>・OpenAI PlatformのTunnel利用権限とruntime API key<br>・接続先でDeveloper modeとTunnel接続を作成できる状態</p>
+<h3>Unity・Blenderのバージョン</h3>
+<p class="doc-p">Unity 2022.3系のVRChatプロジェクトはその版とBuilt-in設定を維持する。本手順は非公式のCoplayDev/MCP for Unity v10.2.0を使う。Unity 2021.3 LTS以上が対応範囲。<a class="ref" href="#source-3">[3]</a> Unity Technologies公式MCPはUnity 6以上とAI Assistant等が条件なので、今回の接続のためだけに更新しない。<a class="ref" href="#source-4">[4]</a></p>
+<p class="doc-p">Blenderは非公式のahujasid/mcp-for-blender 2.1.3を使う。Blender Lab公式MCPとは別製品で、アドオンとサーバーを混ぜない。<a class="ref" href="#source-5">[5]</a></p>
+<h3>先に守ること</h3>
+<p class="doc-p">接続するとPythonやC#経由で強力な編集・コード実行が可能になる。Tunnelは通信経路を保護するが、PC内の実行をサンドボックス化しない。管理者として起動しない。専用Windowsユーザーや検証用コピーを使い、秘密・個人資料を同じ実行環境に置かない。すべての待受をloopbackに限定し、最初は読むだけの確認から始める。</p>
+</section>
+<section id="prepare"><h2>2. OpenAI側とWindowsの準備</h2>
+<h3>2-1. 先に利用画面を確認する</h3>
+<p class="doc-p">OpenAI PlatformのTunnels管理を開く。ここが使えることと、ChatGPTのDeveloper mode/Tunnel接続が使えることは別条件。<a class="ref" href="#source-1">[1]</a><a class="ref" href="#source-2">[2]</a></p>
+<p class="doc-link"><strong>Tunnels管理<br></strong><a href="https://platform.openai.com/settings/organization/tunnels">https://platform.openai.com/settings/organization/tunnels</a></p>
+<p class="doc-p">管理者にはTunnels Read + Manage、実行用にはRead + Useが必要。Tunnelに自分のPlatform organizationと実際に使うChatGPT workspaceを関連付ける。個人organizationだけでは別workspaceに自動表示されない。<a class="ref" href="#source-1">[1]</a></p>
+<p class="doc-p">Unity用とBlender用の2つのTunnelを作成し、返されたtunnel_idを控える。以下のTUNNEL_UNITY / TUNNEL_BLENDERは、その実IDに置き換える。IDは通常tunnel_に32桁の小文字16進数が続く。<a class="ref" href="#source-2">[2]</a></p>
+<h3>2-2. runtime keyは本人が作成する</h3>
+<p class="doc-link"><strong>Runtime API keys<br></strong><a href="https://platform.openai.com/settings/organization/api-keys">https://platform.openai.com/settings/organization/api-keys</a></p>
+<p class="doc-p">Restrictedを選び、Tunnels Read + Useに絞る。長期稼働プロセスへAdmin keyを渡さない。キーはチャット、Git、plugin package、画面キャプチャに貼らない。<a class="ref" href="#source-2">[2]</a></p>
+<h3>2-3. Windows版tunnel-clientを取得</h3>
+<p class="doc-link"><strong>公式の最新リリース<br></strong><a href="https://github.com/openai/tunnel-client/releases/latest">https://github.com/openai/tunnel-client/releases/latest</a></p>
+<p class="doc-p">確認時点の最新はv0.0.15。Intel/AMD PCはtunnel-client-v0.0.15-windows-amd64.zip、Windows ARMはwindows-arm64.zipを選び、展開する。実行ファイルはtunnel-client.exe。SHA256SUMS.txtとの照合もできる。将来はPlatform指定のサポート版を優先する。<a class="ref" href="#source-6">[6]</a></p>
+<p class="doc-p">以下はPowerShell。展開先の実ファイルに合わせてパスを指定する。例のC:\Tools\OpenAITunnelは任意の保存先。</p>
+<div class="codeblock"><div class="codebar"><span>PowerShell</span><button type="button" class="copy" data-copy="command-1" aria-label="コマンド1をコピー">コピー</button></div><pre tabindex="0" aria-label="PowerShell コマンド"><code id="command-1">$TunnelExe = &quot;C:\Tools\OpenAITunnel\tunnel-client.exe&quot;
+&amp; $TunnelExe --version
+&amp; $TunnelExe help quickstart</code></pre></div>
+<h3>2-4. uvがなければ導入する</h3>
+<div class="codeblock"><div class="codebar"><span>PowerShell</span><button type="button" class="copy" data-copy="command-2" aria-label="コマンド2をコピー">コピー</button></div><pre tabindex="0" aria-label="PowerShell コマンド"><code id="command-2">winget install --id=astral-sh.uv -e</code></pre></div>
+<p class="doc-p">導入後はPowerShellを開き直し、uv --versionとuvx --versionを確認する。Pythonはuvxが必要に応じて用意する。UnityのGit URL導入にはGitもPATH上に必要。<a class="ref" href="#source-3">[3]</a><a class="ref" href="#source-7">[7]</a></p>
+<h3>各Tunnelを起動するPowerShellでキーを読み込む</h3>
+<div class="codeblock"><div class="codebar"><span>PowerShell</span><button type="button" class="copy" data-copy="command-3" aria-label="コマンド3をコピー">コピー</button></div><pre tabindex="0" aria-label="PowerShell コマンド"><code id="command-3">$key = Read-Host &quot;OpenAI runtime API key&quot; -AsSecureString
+$env:CONTROL_PLANE_API_KEY = [System.Net.NetworkCredential]::new(&quot;&quot;, $key).Password
+Remove-Variable key</code></pre></div>
+<p class="doc-p">この入力は本人がローカルで行う。キーをコマンド文字列に直接書かず、現在のPowerShellプロセスだけに渡す。Windowsの同じユーザーで動くプログラムからの隔離は別途必要。</p>
+</section>
+<section id="unity"><h2>3. Unityを接続する</h2>
+<h3>3-1. Unityプロジェクトへパッケージを導入</h3>
+<p class="doc-p">バックアップしたプロジェクトをいつものUnityで開く。Window → Package Manager → ＋ → Add package from git URL…で以下を指定する。<a class="ref" href="#source-3">[3]</a></p>
+<div class="codeblock"><div class="codebar"><span>Package Manager · Git URL</span><button type="button" class="copy" data-copy="command-4" aria-label="コマンド4をコピー">コピー</button></div><pre tabindex="0" aria-label="Package Manager · Git URL コマンド"><code id="command-4">https://github.com/CoplayDev/unity-mcp.git?path=/MCPForUnity#v10.2.0</code></pre></div>
+<p class="doc-p">Window → MCP for Unityを開き、HTTP Localを選ぶ。URLはhttp://127.0.0.1:8080。コンパイルが完了し、エラーがないことを確認する。既存のMCPが導入済みなら、別実装を重ねる前に現在の実装・版を確認する。</p>
+<h3>3-2. 同じ版のローカルMCPサーバーを起動</h3>
+<p class="doc-p">Unity用サーバーのPowerShellで実行する。すでに同じ8080番のサーバーが動いていれば二重起動しない。</p>
+<div class="codeblock"><div class="codebar"><span>PowerShell</span><button type="button" class="copy" data-copy="command-5" aria-label="コマンド5をコピー">コピー</button></div><pre tabindex="0" aria-label="PowerShell コマンド"><code id="command-5">$env:UNITY_MCP_DISABLE_TELEMETRY = &quot;true&quot;
+uvx --from mcpforunityserver==10.2.0 mcp-for-unity `
+  --transport http --http-host 127.0.0.1 --http-port 8080</code></pre></div>
+<p class="doc-p">そのPowerShellは開いたままにする。UnityのMCPウィンドウでConnectを押し、接続状態を確認する。UIからStart Serverした場合は、上の手動サーバーを追加起動しない。<a class="ref" href="#source-3">[3]</a></p>
+<h3>3-3. Unity用Tunnelを起動</h3>
+<p class="doc-p">別のPowerShellで2章の$TunnelExeとruntime keyを設定し、次を実行する。profileの作成は初回だけ。</p>
+<div class="codeblock"><div class="codebar"><span>PowerShell</span><button type="button" class="copy" data-copy="command-6" aria-label="コマンド6をコピー">コピー</button></div><pre tabindex="0" aria-label="PowerShell コマンド"><code id="command-6">$UnityTunnel = &quot;TUNNEL_UNITY&quot;
+&amp; $TunnelExe init --sample sample_mcp_remote_no_auth `
+  --profile unity-local --tunnel-id $UnityTunnel `
+  --mcp-server-url &quot;http://127.0.0.1:8080/mcp&quot;
+&amp; $TunnelExe doctor --profile unity-local --explain `
+  --health.listen-addr &quot;127.0.0.1:8081&quot;
+&amp; $TunnelExe run --profile unity-local `
+  --health.listen-addr &quot;127.0.0.1:8081&quot;</code></pre></div>
+<p class="doc-p">doctorで問題が出たらrunの前に直す。これは非公開loopbackサーバーなので追加のOAuthサーバーは作らない。OpenAIへの認証にはruntime keyとTunnel権限を使う。<a class="ref" href="#source-1">[1]</a><a class="ref" href="#source-2">[2]</a></p>
+<h3>ローカル確認</h3>
+<div class="codeblock"><div class="codebar"><span>PowerShell</span><button type="button" class="copy" data-copy="command-7" aria-label="コマンド7をコピー">コピー</button></div><pre tabindex="0" aria-label="PowerShell コマンド"><code id="command-7">Invoke-WebRequest &quot;http://127.0.0.1:8081/healthz&quot; -UseBasicParsing
+Invoke-WebRequest &quot;http://127.0.0.1:8081/readyz&quot; -UseBasicParsing</code></pre></div>
+<p class="doc-p">別のPowerShellで確認する。両方HTTP 200を確認し、PCのブラウザーでhttp://127.0.0.1:8081/uiを開く。ここでhealthy/readyでも、まだクラウドからUnityの読み取りが成功した証拠にはならない。<a class="ref" href="#source-2">[2]</a></p>
+</section>
+<section id="blender"><h2>4. Blenderを接続する</h2>
+<h3>4-1. アドオンを導入</h3>
+<p class="doc-p">Blenderの作業ファイルを保存する。PowerShellで以下を実行する。対応するアドオンを検出済みのBlenderフォルダーへコピーし、置換時は.bakを残す。<a class="ref" href="#source-5">[5]</a></p>
+<div class="codeblock"><div class="codebar"><span>PowerShell</span><button type="button" class="copy" data-copy="command-8" aria-label="コマンド8をコピー">コピー</button></div><pre tabindex="0" aria-label="PowerShell コマンド"><code id="command-8">$env:DISABLE_TELEMETRY = &quot;true&quot;
+uvx mcp-for-blender@2.1.3 install-addon</code></pre></div>
+<p class="doc-p">BlenderのEdit → Preferences → Add-onsでInterface: MCP for Blenderを有効にする。3D ViewでN → MCP for Blenderを開く。現在のアドオンは自動起動が標準。停止していればConnect to MCP serverを押す。古い版の表示はStart MCP Server等の場合がある。<a class="ref" href="#source-5">[5]</a></p>
+<p class="doc-p">localhost:9876で待ち受ける状態にする。ネットワーク公開、0.0.0.0への変更、ルーター転送はしない。アドオンのTCP通信には認証・暗号化がないため、loopbackを維持する。</p>
+<h3>4-2. Blender用Tunnelがstdioサーバーを起動</h3>
+<p class="doc-p">Blender用のPowerShellで2章の$TunnelExeとruntime keyを設定する。環境変数はtunnel-clientとそのMCP子プロセスに渡る。<a class="ref" href="#source-2">[2]</a><a class="ref" href="#source-5">[5]</a></p>
+<div class="codeblock"><div class="codebar"><span>PowerShell</span><button type="button" class="copy" data-copy="command-9" aria-label="コマンド9をコピー">コピー</button></div><pre tabindex="0" aria-label="PowerShell コマンド"><code id="command-9">$env:DISABLE_TELEMETRY = &quot;true&quot;
+$env:BLENDER_MCP_SAFE_MODE = &quot;1&quot;
+$env:BLENDER_HOST = &quot;localhost&quot;
+$env:BLENDER_PORT = &quot;9876&quot;
+$BlenderTunnel = &quot;TUNNEL_BLENDER&quot;
+$uvxPath = (Get-Command uvx.exe).Source.Replace(&quot;\&quot;, &quot;/&quot;)
+$BlenderCommand = &#x27;&quot;&#x27; + $uvxPath + &#x27;&quot; mcp-for-blender@2.1.3&#x27;
+&amp; $TunnelExe init --sample sample_mcp_stdio_local `
+  --profile blender-local --tunnel-id $BlenderTunnel `
+  --mcp-command $BlenderCommand
+&amp; $TunnelExe doctor --profile blender-local --explain `
+  --health.listen-addr &quot;127.0.0.1:8082&quot;
+&amp; $TunnelExe run --profile blender-local `
+  --health.listen-addr &quot;127.0.0.1:8082&quot;</code></pre></div>
+<p class="doc-p">stdio MCPサーバーはtunnel-clientが起動する。別のClaude/Codex等から同じBlender用サーバーを同時起動しない。BlenderとTunnelのPowerShellを開いたままにする。<a class="ref" href="#source-5">[5]</a></p>
+<h3>ローカル確認</h3>
+<div class="codeblock"><div class="codebar"><span>PowerShell</span><button type="button" class="copy" data-copy="command-10" aria-label="コマンド10をコピー">コピー</button></div><pre tabindex="0" aria-label="PowerShell コマンド"><code id="command-10">Invoke-WebRequest &quot;http://127.0.0.1:8082/healthz&quot; -UseBasicParsing
+Invoke-WebRequest &quot;http://127.0.0.1:8082/readyz&quot; -UseBasicParsing</code></pre></div>
+<p class="doc-p">PCのブラウザーでhttp://127.0.0.1:8082/uiを開く。stdioではreadyでもtools/listをまだ通していない場合があるため、5章のクラウド側チェックまで行う。<a class="ref" href="#source-2">[2]</a></p>
+<p class="doc-p">Safe Modeはexecute_blender_codeへの検査で、完全なsandboxではない。通常の保存・読み込み・import/exportは許可され、直接TCPで送るexecute_codeは検査を通らない。重要ファイルは必ず別コピーにする。<a class="ref" href="#source-5">[5]</a></p>
+</section>
+<section id="register"><h2>5. クラウド側へ登録し、実際に確認する</h2>
+<h3>5-1. ChatGPTに2つの接続を登録</h3>
+<p class="doc-p">WebのChatGPTでSettings → Security and login → Developer modeを有効にする。ChatGPT Pluginsの＋から、Unity PCとBlender PCの2接続を作る。ConnectionはTunnelを選び、対応する実tunnel_idを選択または入力する。作成中は両方のtunnel-clientを稼働させる。<a class="ref" href="#source-8">[8]</a></p>
+<p class="doc-link"><strong>ChatGPT Plugins<br></strong><a href="https://chatgpt.com/plugins">https://chatgpt.com/plugins</a></p>
+<p class="doc-p">今回のローカルMCPは追加OAuthを実装していない構成。認証選択が表示されたらNo Authenticationを使うが、公開HTTPサーバーの無認証公開はしない。runtime keyはPCとOpenAIのTunnel制御用で、ChatGPTのMCP認証欄へ貼るものではない。<a class="ref" href="#source-1">[1]</a><a class="ref" href="#source-2">[2]</a><a class="ref" href="#source-9">[9]</a></p>
+<h3>5-2. 既存のUnity/Blenderスキルと結び付ける</h3>
+<p class="doc-p">接続の作成とツール発見が通った後、登録済み接続のURLからplugin_asdk_app…形式の技術IDを取得する。スキル入りpluginを作成・更新するときは、実際に登録したそのIDを接続先として使用する。packageの.app.jsonとmanifestの参照が正しい接続へ向いていることを確認する。<a class="ref" href="#source-10">[10]</a></p>
+<p class="doc-p">GitHubにplugin packageがあること、スキルがインストール済みであること、Tunnelを作成したことは、それぞれ別段階。packageだけで認証・接続が完了した扱いにしない。必要なmappingが確認できるまで同じpackageを作り直し続けない。</p>
+<h3>5-3. 完了の判定</h3>
+<p class="doc-p">① 登録した各接続で実tools/listが取得できる<br>② Unityは現在のproject名・Unity版・開いているsceneを読み取れる<br>③ Blenderは現在のscene名・object一覧を読み取れる<br>④ dotの実際の会話から同じ接続のツールを呼び、PCの対象状態と一致する結果が返る<br>⑤ ここまで通ってから、バックアップした検証ファイルへ小さい編集を試す</p>
+<p class="doc-p">検証依頼の例：<br>「Unity PCで今開いているプロジェクト名とシーン階層だけ読んで。変更・保存はしない」<br>「Blender PCで今のシーン名とオブジェクト一覧だけ読んで。変更・保存はしない」</p>
+<p class="doc-p">ChatGPTで登録できても、このdotの会話へツールが出なければ、dotでの操作は未接続。その場合は接続設定・正しいapp binding・対象workspaceを確認し、使える状態になるまでPC操作の完了とはしない。</p>
+<h3>プラン・料金の扱い</h3>
+<p class="doc-p">Developer modeの公式技術資料はPro/Plusを含むread/write対応と記載する一方、Help Centerの一部はProをread/fetchのみと記載している。追加購入を先に行わず、実際の接続画面とツール利用可否を確認する。<a class="ref" href="#source-9">[9]</a><a class="ref" href="#source-11">[11]</a> Coplay版はMITの無料OSS。Tunnelのアカウント別課金条件・利用枠はPlatformの表示を確認し、APIモデルを別途使う場合はその利用料金も確認する。</p>
+</section>
+<section id="stop-and-recover"><h2>6. 停止・復旧と一次資料</h2>
+<h3>すぐ止める</h3>
+<p class="doc-p">まず各tunnel-clientのPowerShellでCtrl+C。BlenderのMCP接続も停止し、UnityのMCPウィンドウでDisconnect / Stop Serverを使う。不要になったらChatGPT側の接続を解除し、Platformでruntime keyを失効、Tunnelを削除する。開いた鍵入りPowerShellは閉じる。自動起動を設定した場合はそれも停止する。</p>
+<h3>詰まった箇所ごとの確認</h3>
+<p class="doc-p">・Tunnels access required：PlatformのorganizationとRead/Manage/Use権限を確認。ロール反映には最大30分の場合がある。<a class="ref" href="#source-1">[1]</a><br>・ChatGPTにTunnelが出ない：対象workspace関連付けとRead + Useを確認<br>・healthzは200、readyzは失敗：doctor --explainと/uiのLogsを確認<br>・readyでも道具一覧が出ない：実tools/listとMCP initialization、接続先・認証を確認<br>・Unity8080へつながらない：サーバー、Connect、Unityコンパイル、版10.2.0の組合せを確認<br>・Blender接続失敗：アドオン有効、GUI起動、9876、uvxの実パス、二重サーバーを確認<br>・8081/8082使用中：そのポートの所有プロセスを確認してから、healthポートを別のloopback空きポートへ変更。無関係なプロセスを止めない<br>・ツール変更後：接続のRefreshと新しい会話で確認。公開plugin更新とdeveloper-mode接続更新は別手順。<a class="ref" href="#source-8">[8]</a></p>
+<h3>本人が操作・承認する設定</h3>
+<p class="doc-p">runtime API keyの発行・入力、接続の有効化、ソフトウェア/アドオン導入、実際に許すプロジェクトと編集範囲の決定。こちらに代行させる場合は、PCアクセスと必要な設定変更を具体的に許可する。秘密入力は本人のローカル画面で行う。</p>
+</section>
+<section id="sources" class="references"><h2>一次資料（本文番号と対応）</h2>
+<p class="doc-link" id="source-1"><strong>[1] OpenAI Secure MCP Tunnel<br></strong><a href="https://developers.openai.com/api/docs/guides/secure-mcp-tunnels">https://developers.openai.com/api/docs/guides/secure-mcp-tunnels</a></p>
+<p class="doc-link" id="source-2"><strong>[2] tunnel-client導入・設定<br></strong><a href="https://github.com/openai/tunnel-client/blob/v0.0.15/docs/onboarding.md">https://github.com/openai/tunnel-client/blob/v0.0.15/docs/onboarding.md</a></p>
+<p class="doc-link"><strong>[2] stdio・health・複数プロセスの制約<br></strong><a href="https://github.com/openai/tunnel-client/blob/v0.0.15/docs/configuration.md">https://github.com/openai/tunnel-client/blob/v0.0.15/docs/configuration.md</a></p>
+<p class="doc-link" id="source-3"><strong>[3] Coplay導入 / server<br></strong><a href="https://coplaydev.github.io/unity-mcp/getting-started/install">https://coplaydev.github.io/unity-mcp/getting-started/install</a></p>
+<p class="doc-link"><strong>[3] Unity HTTP接続画面の実装<br></strong><a href="https://github.com/CoplayDev/unity-mcp/blob/v10.2.0/MCPForUnity/Editor/Windows/Components/Connection/McpConnectionSection.cs">一次資料を開く</a></p>
+<p class="doc-link"><strong>[3] Coplay10.2.0起動方法<br></strong><a href="https://pypi.org/project/mcpforunityserver/10.2.0/">https://pypi.org/project/mcpforunityserver/10.2.0/</a></p>
+<p class="doc-link" id="source-4"><strong>[4] Unity Technologies公式MCP条件<br></strong><a href="https://unity.com/blog/unity-ai-mcp-how-to-get-started">https://unity.com/blog/unity-ai-mcp-how-to-get-started</a></p>
+<p class="doc-link" id="source-5"><strong>[5] Blender community MCP<br></strong><a href="https://github.com/ahujasid/mcp-for-blender">https://github.com/ahujasid/mcp-for-blender</a></p>
+<p class="doc-link"><strong>[5] Blender Safe Modeの範囲<br></strong><a href="https://github.com/ahujasid/mcp-for-blender/blob/main/src/blender_mcp/safe_mode.py">https://github.com/ahujasid/mcp-for-blender/blob/main/src/blender_mcp/safe_mode.py</a></p>
+<p class="doc-link" id="source-6"><strong>[6] tunnel-clientリリース<br></strong><a href="https://github.com/openai/tunnel-client/releases/latest">https://github.com/openai/tunnel-client/releases/latest</a></p>
+<p class="doc-link" id="source-7"><strong>[7] uv Windows導入<br></strong><a href="https://docs.astral.sh/uv/getting-started/installation/">https://docs.astral.sh/uv/getting-started/installation/</a></p>
+<p class="doc-link" id="source-8"><strong>[8] ChatGPT接続・検証<br></strong><a href="https://developers.openai.com/plugins/deploy/connect-chatgpt">https://developers.openai.com/plugins/deploy/connect-chatgpt</a></p>
+<p class="doc-link" id="source-9"><strong>[9] Developer mode<br></strong><a href="https://developers.openai.com/api/docs/guides/developer-mode">https://developers.openai.com/api/docs/guides/developer-mode</a></p>
+<p class="doc-link" id="source-10"><strong>[10] 登録済みappとpackageのbinding<br></strong><a href="https://developers.openai.com/plugins/build/plugins">https://developers.openai.com/plugins/build/plugins</a></p>
+<p class="doc-link" id="source-11"><strong>[11] Help CenterのMCP可用性<br></strong><a href="https://help.openai.com/en/articles/12584461-developer-mode-and-mcp-apps-in-chatgpt">https://help.openai.com/en/articles/12584461-developer-mode-and-mcp-apps-in-chatgpt</a></p>
+</section>
+<p class="backtop"><a href="#top">ページの先頭へ</a></p>
+</main>
+</div>
+<footer>APIキーや実際のTunnel IDを公開ページへ書き込まないでください。</footer>
+<div class="live" id="copy-status" role="status" aria-live="polite"></div>
+</div>
+<script>
+(() => {
+  const live = document.getElementById('copy-status');
+  async function copyText(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+      try { await navigator.clipboard.writeText(text); return; } catch (_) {}
+    }
+    const area = document.createElement('textarea');
+    area.value = text; area.readOnly = true;
+    area.style.position = 'fixed'; area.style.opacity = '0';
+    document.body.appendChild(area); area.select();
+    const ok = document.execCommand('copy'); area.remove();
+    if (!ok) throw new Error('copy unavailable');
+  }
+  document.querySelectorAll('.copy').forEach(button => {
+    button.addEventListener('click', async () => {
+      const code = document.getElementById(button.dataset.copy);
+      try {
+        await copyText(code.textContent);
+        button.textContent = 'コピー済み'; live.textContent = 'コマンドをコピーしました';
+        setTimeout(() => { button.textContent = 'コピー'; }, 1800);
+      } catch (_) {
+        button.textContent = '選択してコピー';
+        const selection = window.getSelection(); const range = document.createRange();
+        range.selectNodeContents(code); selection.removeAllRanges(); selection.addRange(range);
+        live.textContent = 'コマンドを選択しました。手動でコピーしてください';
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>
