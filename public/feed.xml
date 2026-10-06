@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Tue, 06 Oct 2026 06:00:48 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 06 Oct 2026 06:15:49 GMT</lastBuildDate>
+    <item>
+      <title>DSH × Ollama Cloud 詳細調査 | DeepSeek・費用・データ送信・選び方</title>
+      <link>https://share.0g0.xyz/dsh-ollama-cloud</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/dsh-ollama-cloud</guid>
+      <description>DeepSeek HarnessとDeepSeek-V4.1-FlashをOllama Cloudで使う構成を一次資料で分解。現行料金、学習利用と別の送信経路、接続手順、Pi・Codex・Claude Code比較、試験計画。2026年10月6日確認。</description>
+      <pubDate>Tue, 06 Oct 2026 06:15:49 GMT</pubDate>
+      <dcterms:created>2026-10-06T06:15:49.000Z</dcterms:created>
+      <dcterms:modified>2026-10-06T06:15:49.000Z</dcterms:modified>
+    </item>
     <item>
       <title>脆弱性レポート | 実悪用・修正版・対処</title>
       <link>https://share.0g0.xyz/vulnerabilities</link>
