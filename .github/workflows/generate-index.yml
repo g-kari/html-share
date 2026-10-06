@@ -1,4 +1,4 @@
-name: Generate page index and social metadata
+name: Generate page index, RSS and social metadata
 
 on:
   push:
@@ -9,6 +9,7 @@ on:
       - "tests/**"
       - "wrangler.jsonc"
       - "package*.json"
+      - ".feed-state.json"
       - ".github/workflows/generate-index.yml"
   pull_request:
     paths:
@@ -17,6 +18,7 @@ on:
       - "tests/**"
       - "wrangler.jsonc"
       - "package*.json"
+      - ".feed-state.json"
       - ".github/workflows/generate-index.yml"
   workflow_dispatch:
 
@@ -33,7 +35,7 @@ jobs:
           node-version: "22"
       - name: Install build dependency
         run: npm ci --ignore-scripts
-      - name: Test metadata and generation
+      - name: Test metadata, RSS and generation
         run: node --test tests/*.test.mjs
 
   generate:
@@ -66,12 +68,12 @@ jobs:
             npm ci --ignore-scripts
             node --test tests/*.test.mjs
             node scripts/generate-index.mjs
-            if git diff --quiet -- public; then
+            if git diff --quiet -- public .feed-state.json && [ -z "$(git ls-files --others --exclude-standard -- public .feed-state.json)" ]; then
               echo "Generated pages are already up to date."
               exit 0
             fi
-            git add public
-            git commit -m "chore: regenerate page index and social metadata"
+            git add public .feed-state.json
+            git commit -m "chore: regenerate page index, RSS and social metadata"
             if git push origin HEAD:main; then exit 0; fi
           done
           echo "main kept changing; rerun generation after the latest edit."

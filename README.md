@@ -5,8 +5,11 @@ ChatGPT から生成した HTML を Cloudflare Workers Static Assets で共有�
 ## Structure
 
 - `public/index.html` - 自動生成されるトップページ / SPA fallback
+- `public/feed.xml` - 自動生成されるRSS 2.0（新規公開・更新）
 - `public/**/*.html` - 共有用HTML
-- `scripts/generate-index.mjs` - HTML一覧・OGP・Twitterカードを生成
+- `scripts/generate-index.mjs` - HTML一覧・RSS・OGP・Twitterカードを生成
+- `scripts/rss-feed.mjs` - RSS・購読リンク・コンテンツ更新日時の共通処理
+- `.feed-state.json` - 生成用の日時・内容ハッシュ（配信対象外）
 - `.github/workflows/generate-index.yml` - 一覧・SNSメタデータの自動再生成
 - `scripts/social-metadata.mjs` - 公開URLとSNSメタデータの共通処理
 - `tests/social-metadata.test.mjs` - Node標準テスト
@@ -56,17 +59,45 @@ Cloudflare Workers Static Assets の HTML handling により、URLは次のよ�
 4. `.html` を外した公開URLを生成
 5. `public/index.html` を再生成
 6. 全ページの `<head>` にOGP・Twitterカードを補完
-7. 差分がある場合だけ `github-actions[bot]` が commit / push
+7. RSSと全ページのRSS autodiscoveryリンクを生成
+8. 差分がある場合だけ `github-actions[bot]` が生成物と日時状態をまとめて commit / push
 
 生成処理は現在の `main` を読み直してから実行します。並行してページが更新された場合も、新しい本文を古い生成結果で上書きしません。PRではテストだけを実行し、`main` に書き込みません。
 
-そのため `public/index.html` は基本的に手編集しません。
+そのため `public/index.html`、`public/feed.xml`、`.feed-state.json` は手編集しません。
 
 手元で再生成する場合（初回は `npm ci --ignore-scripts`）:
 
 ```sh
 node scripts/generate-index.mjs
 ```
+
+## RSS (new pages and updates)
+
+購読URL: https://share.0g0.xyz/feed.xml
+
+トップページにRSSの購読リンクを表示し、全ページの `<head>` に
+`application/rss+xml` の autodiscoveryリンクを補完します。RSS 2.0の各項目は
+公開ページのタイトル・説明・公開URLだけを含みます。本文・Git履歴・リポジトリ内の
+非公開ファイルはフィードに入れません。トップページ自身は項目から除外します。
+
+- ページの新規公開と、本文・タイトル・説明・スタイル等のソース変更を対象にします。
+- 更新順に並び、項目の `pubDate` はそのページの最新の内容公開日時です。
+- `dcterms:created` は最初の公開日時、`dcterms:modified` は最新の更新日時です。
+- 公開URLを固定GUIDとして使い、更新しても同じ項目を更新します。更新の通知・既読扱いはRSSリーダーによって異なります。
+- OGP/RSSの自動生成部分だけの変更、別のファイルの変更、ビルドの再実行では日時が変わりません。
+- ファイルのmtimeや現在時刻は使いません。Gitの内容変更commit日時と保存済みの内容ハッシュを使います。
+- 削除した公開ページはフィードからも除外します。
+- `/feed.xml` はRSSのContent-Typeで配信し、キャッシュは5分です。
+
+初期の既存ページの日時は公開ディレクトリへの追加・内容変更commitから復元しています。
+GitHub Actionsは完全な履歴を取得し、現在の `main` からフィードと日時状態を再生成します。
+Cloudflareのbuild hookも同じ処理を実行します。保存済み状態があれば、浅いcheckoutや
+Gitを含まないソースコピーでも変更のないページの日時を維持できます。
+新しいページや内容を変えたページは、再生成する前にcommitしてください。
+ローカルのGitなしのソースコピーで試す場合だけ、再現可能な日時を
+`SOURCE_DATE_EPOCH`（UNIX秒）で指定できます。日時が判断できない変更はビルドを失敗させ、
+毎回新しい更新として誤配信しないようにします。
 
 ## Social previews (OGP / Twitter Cards)
 

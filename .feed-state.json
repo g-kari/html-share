@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "pages": {
+    "conversational-ai-history.html": {
+      "fingerprint": "1edcf21784a7d73d1c1fd4599d356e965edd8ecea6dbefdfe8523a7444470aeb",
+      "published": "2026-09-30T16:34:49.000Z",
+      "updated": "2026-09-30T16:34:49.000Z"
+    },
+    "minecraft-mod-server-guide.html": {
+      "fingerprint": "8db8ae4419b111762281284dcc414c61932add87077c1069997222dd99471314",
+      "published": "2026-09-30T18:28:11.000Z",
+      "updated": "2026-09-30T18:28:11.000Z"
+    },
+    "secure-mcp-tunnel-unity-blender.html": {
+      "fingerprint": "bf27f02d3803916b0f28da3d19de1bf39d4f3650748aa51fdd7fcbde37a98426",
+      "published": "2026-10-03T06:21:28.000Z",
+      "updated": "2026-10-03T06:21:28.000Z"
+    },
+    "security-incidents.html": {
+      "fingerprint": "dcc943617d79a2d73b5298a1117caa5e101ff464aaa585d3f40db1b076a03a47",
+      "published": "2026-10-02T06:08:44.000Z",
+      "updated": "2026-10-06T02:51:56.000Z"
+    },
+    "test.html": {
+      "fingerprint": "b6bb2885a5f424938319c4aa6ba0365eb7426845eb4d9a731315b4a29964aad0",
+      "published": "2026-09-28T15:03:36.000Z",
+      "updated": "2026-09-28T15:38:43.000Z"
+    },
+    "zam.html": {
+      "fingerprint": "b91d4290d7ef2826c88af9f8805d01df787ade93fb1ec770b7fad57e73d45983",
+      "published": "2026-09-28T15:03:34.000Z",
+      "updated": "2026-09-28T15:03:34.000Z"
+    }
+  }
+}

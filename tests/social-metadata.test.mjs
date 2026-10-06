@@ -127,7 +127,7 @@ test("generator adds future/nested pages, index metadata, stays stable and valid
     await cp(path.join(root, "public/assets"), path.join(temp, "public/assets"), { recursive: true });
     const source = document('<title>Future &amp; page</title><meta name="description" content="Future description">');
     await writeFile(path.join(temp, "public/memo/future.html"), source);
-    const generate = () => execFileSync(process.execPath, [path.join(root, "scripts/generate-index.mjs")], { cwd: temp, stdio: "pipe" });
+    const generate = () => execFileSync(process.execPath, [path.join(root, "scripts/generate-index.mjs")], { cwd: temp, stdio: "pipe", env: { ...process.env, SOURCE_DATE_EPOCH: "1791244800" } });
     generate();
     const first = await readFile(path.join(temp, "public/memo/future.html"), "utf8");
     const index = await readFile(path.join(temp, "public/index.html"), "utf8");

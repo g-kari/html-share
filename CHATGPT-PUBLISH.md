@@ -27,7 +27,7 @@
 4. 内容から短く意味のある英数字slugを決める
 5. `public/<slug>.html` として `main` に commit
 6. `public/index.html` は手編集しない
-7. build hook / GitHub Actions がページ一覧とOGP・Twitterカードを自動生成する
+7. build hook / GitHub Actions がページ一覧・RSS・OGP・Twitterカードを自動生成する
 8. 公開URLとして `https://share.0g0.xyz/<slug>` を返す
 
 ## Routing
@@ -45,6 +45,9 @@ Examples:
 - `scripts/generate-index.mjs` が `public/**/*.html` を再帰的に走査
 - `.github/workflows/generate-index.yml` が index を自動更新
 - `public/index.html` は生成物として扱う
+- `public/feed.xml` と `.feed-state.json` も生成物として扱い、手編集しない
+- RSSの購読URLは `https://share.0g0.xyz/feed.xml`。公開ページを追加・更新すると自動反映される
+- ページの公開URLを固定GUIDとし、内容変更commitの日時で更新する。生成部分だけの再生成は更新にしない
 - 各ページのOGP/Twitterカードは自動補完されるため、通常は手入力不要
 - `<title>` と `meta description` をページごとに設定する
 - 既存の生成コメント内は編集せず、独自OGPタグはコメント外に設定する
