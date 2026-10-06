@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Tue, 06 Oct 2026 06:15:49 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 06 Oct 2026 07:33:54 GMT</lastBuildDate>
+    <item>
+      <title>直近インシデントの教訓｜上位存在としての俯瞰評価</title>
+      <link>https://share.0g0.xyz/security-lessons</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/security-lessons</guid>
+      <description>直近の公式公表4事例を6視点で評価。AWS・Azure・Google Cloud・Cloudflare、EDRとコードの具体策、設定・検証・料金・対応の実装ガイドを追加。</description>
+      <pubDate>Tue, 06 Oct 2026 07:33:54 GMT</pubDate>
+      <dcterms:created>2026-10-06T05:20:44.000Z</dcterms:created>
+      <dcterms:modified>2026-10-06T07:33:54.000Z</dcterms:modified>
+    </item>
     <item>
       <title>DSH × Ollama Cloud 詳細調査 | DeepSeek・費用・データ送信・選び方</title>
       <link>https://share.0g0.xyz/dsh-ollama-cloud</link>
@@ -25,15 +34,6 @@
       <pubDate>Tue, 06 Oct 2026 06:00:48 GMT</pubDate>
       <dcterms:created>2026-10-06T05:47:01.000Z</dcterms:created>
       <dcterms:modified>2026-10-06T06:00:48.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>直近インシデントの教訓｜上位存在としての俯瞰評価</title>
-      <link>https://share.0g0.xyz/security-lessons</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/security-lessons</guid>
-      <description>直近の公式公表4事例を手がかりに、経営・設計開発・運用防御・委託・利用者・社会の6視点から教訓と優先行動を評価。事実と推論を区別した、上位存在モードの補完ページ。</description>
-      <pubDate>Tue, 06 Oct 2026 05:20:44 GMT</pubDate>
-      <dcterms:created>2026-10-06T05:20:44.000Z</dcterms:created>
-      <dcterms:modified>2026-10-06T05:20:44.000Z</dcterms:modified>
     </item>
     <item>
       <title>Pi と Pi Durable — 実装者のための選び方</title>
