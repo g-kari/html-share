@@ -32,6 +32,7 @@
     h1 { margin: 0 0 8px; font-size: clamp(2rem, 6vw, 3.5rem); }
     .lead { margin: 0; color: var(--sub); }
     .count { margin-top: 12px; color: var(--sub); font-size: .95rem; }
+    .rss { color: var(--accent); text-underline-offset: .2em; }
     .grid { display: grid; gap: 14px; }
     .card {
       border: 1px solid var(--border);
@@ -69,12 +70,16 @@
   <meta name="twitter:image" content="https://share.0g0.xyz/assets/html-share-card-v1.png">
   <meta name="twitter:image:alt" content="HTML Shareのロゴと共有ページを表すカード">
   <!-- /html-share: social metadata -->
+  <!-- html-share: rss discovery -->
+  <link rel="alternate" type="application/rss+xml" title="HTML Share RSS" href="https://share.0g0.xyz/feed.xml">
+  <!-- /html-share: rss discovery -->
 </head>
 <body>
   <main>
     <header>
       <h1>HTML Share</h1>
       <p class="lead">共有ページ一覧</p>
+      <p><a class="rss" href="/feed.xml">RSSで新規公開・更新を購読</a></p>
       <p class="count">6 pages</p>
     </header>
     <section class="grid">

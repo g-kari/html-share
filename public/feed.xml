@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dcterms="http://purl.org/dc/terms/">
+  <channel>
+    <title>HTML Share</title>
+    <link>https://share.0g0.xyz/</link>
+    <description>HTML Shareの共有ページの新規公開・更新</description>
+    <language>ja</language>
+    <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
+    <ttl>5</ttl>
+    <lastBuildDate>Tue, 06 Oct 2026 02:51:56 GMT</lastBuildDate>
+    <item>
+      <title>2026年 不正アクセス・情報漏えいウォッチ｜原因・出典・続報</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/security-incidents</guid>
+      <description>2026年の不正アクセス・情報漏えい事案と過去の主要事例を、原因・影響・対応・日付・明示した出典で整理。ローソンを含む104件を掲載し、公式続報を継続確認。</description>
+      <pubDate>Tue, 06 Oct 2026 02:51:56 GMT</pubDate>
+      <dcterms:created>2026-10-02T06:08:44.000Z</dcterms:created>
+      <dcterms:modified>2026-10-06T02:51:56.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>Secure MCP Tunnel｜WindowsのUnity・Blender接続手順</title>
+      <link>https://share.0g0.xyz/secure-mcp-tunnel-unity-blender</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/secure-mcp-tunnel-unity-blender</guid>
+      <description>WindowsのUnityとBlenderをOpenAI Secure MCP Tunnelで接続する設定ガイド。PowerShellコマンド、2つのTunnel、ChatGPT登録、検証・停止手順を収録。2026年10月3日確認。</description>
+      <pubDate>Sat, 03 Oct 2026 06:21:28 GMT</pubDate>
+      <dcterms:created>2026-10-03T06:21:28.000Z</dcterms:created>
+      <dcterms:modified>2026-10-03T06:21:28.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>8人で遊ぶ大型MODサーバー比較｜国内・海外VPSと自宅運用</title>
+      <link>https://share.0g0.xyz/minecraft-mod-server-guide</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/minecraft-mod-server-guide</guid>
+      <description>Minecraftの大型MODパックを8人で遊ぶための国内・海外VPS比較。継続料金、人数割り、参考円換算、契約条件、自宅でポート開放しない方法を整理。2026年10月1日調査。</description>
+      <pubDate>Wed, 30 Sep 2026 18:28:11 GMT</pubDate>
+      <dcterms:created>2026-09-30T18:28:11.000Z</dcterms:created>
+      <dcterms:modified>2026-09-30T18:28:11.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>対話型生成AIサービスの歴史｜1966–2026</title>
+      <link>https://share.0g0.xyz/conversational-ai-history</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/conversational-ai-history</guid>
+      <description>ELIZAからChatGPT、Gemini、Claude、AIエージェントまで。対話型生成AIサービスの歴史を、1966〜2026年の6つの時代と30の転換点で解説する出典付き年表。</description>
+      <pubDate>Wed, 30 Sep 2026 16:34:49 GMT</pubDate>
+      <dcterms:created>2026-09-30T16:34:49.000Z</dcterms:created>
+      <dcterms:modified>2026-09-30T16:34:49.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>HTML Share Test</title>
+      <link>https://share.0g0.xyz/test</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/test</guid>
+      <description>GitHub から Cloudflare Workers Static Assets へのデプロイ確認ページです。</description>
+      <pubDate>Mon, 28 Sep 2026 15:38:43 GMT</pubDate>
+      <dcterms:created>2026-09-28T15:03:36.000Z</dcterms:created>
+      <dcterms:modified>2026-09-28T15:38:43.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>次世代メモリ「ZAM」ざっくり解説</title>
+      <link>https://share.0g0.xyz/zam</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/zam</guid>
+      <description>日本発の次世代メモリ ZAM と、SAIMEMORY・新光電気工業の協業をわかりやすく解説します。</description>
+      <pubDate>Mon, 28 Sep 2026 15:03:34 GMT</pubDate>
+      <dcterms:created>2026-09-28T15:03:34.000Z</dcterms:created>
+      <dcterms:modified>2026-09-28T15:03:34.000Z</dcterms:modified>
+    </item>
+  </channel>
+</rss>
