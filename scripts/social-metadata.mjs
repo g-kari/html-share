@@ -64,7 +64,7 @@ export function scanTags(html) {
   return tags;
 }
 
-function headTags(html) {
+export function headTags(html) {
   // Template contents are inert: their tags must never suppress real metadata.
   let templateDepth = 0;
   const tags = scanTags(html).filter((tag) => {

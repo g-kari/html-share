@@ -1,6 +1,7 @@
 import { readdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { addSocialMetadata, escapeHtml, pageDetails, routeFor } from "./social-metadata.mjs";
+import { addFeedDiscovery, writeFeed } from "./rss-feed.mjs";
 
 const publicDir = path.resolve("public");
 const outputFile = path.join(publicDir, "index.html");
@@ -37,6 +38,8 @@ for (const file of files) {
 
   pages.push({
     route,
+    relativePath: relativePath.split(path.sep).join("/"),
+    source: html,
     ...details,
   });
 }
@@ -87,6 +90,7 @@ const html = `<!doctype html>
     h1 { margin: 0 0 8px; font-size: clamp(2rem, 6vw, 3.5rem); }
     .lead { margin: 0; color: var(--sub); }
     .count { margin-top: 12px; color: var(--sub); font-size: .95rem; }
+    .rss { color: var(--accent); text-underline-offset: .2em; }
     .grid { display: grid; gap: 14px; }
     .card {
       border: 1px solid var(--border);
@@ -112,6 +116,7 @@ const html = `<!doctype html>
     <header>
       <h1>HTML Share</h1>
       <p class="lead">共有ページ一覧</p>
+      <p><a class="rss" href="/feed.xml">RSSで新規公開・更新を購読</a></p>
       <p class="count">${pages.length} page${pages.length === 1 ? "" : "s"}</p>
     </header>
     <section class="grid">
@@ -128,10 +133,11 @@ if (!image.subarray(0, 8).equals(Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]))
     image.length < 24 || image.readUInt32BE(16) !== 1200 || image.readUInt32BE(20) !== 630) {
   throw new Error("The common social image must be a 1200×630 PNG.");
 }
-await writeFile(outputFile, addSocialMetadata(html, "index.html"), "utf8");
+await writeFeed(path.resolve("."), pages);
+await writeFile(outputFile, addFeedDiscovery(addSocialMetadata(html, "index.html")), "utf8");
 for (const file of files) {
   const source = await readFile(file, "utf8");
-  const generated = addSocialMetadata(source, path.relative(publicDir, file).split(path.sep).join("/"));
+  const generated = addFeedDiscovery(addSocialMetadata(source, path.relative(publicDir, file).split(path.sep).join("/")));
   if (generated !== source) await writeFile(file, generated, "utf8");
 }
-console.log(`Generated index and social metadata for ${pages.length} page(s).`);
+console.log(`Generated index, RSS feed and social metadata for ${pages.length} page(s).`);
