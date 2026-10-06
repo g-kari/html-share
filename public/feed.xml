@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Tue, 06 Oct 2026 02:51:56 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 06 Oct 2026 03:28:19 GMT</lastBuildDate>
+    <item>
+      <title>Pi と Pi Durable — 実装者のための選び方</title>
+      <link>https://share.0g0.xyz/pi-durable</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/pi-durable</guid>
+      <description>Pi coding agentとPi Durableの違い、永続化と再実行の境界、Cloudflare構成、費用と試験項目を一次資料で整理。2026年10月6日確認。</description>
+      <pubDate>Tue, 06 Oct 2026 03:28:19 GMT</pubDate>
+      <dcterms:created>2026-10-06T03:28:19.000Z</dcterms:created>
+      <dcterms:modified>2026-10-06T03:28:19.000Z</dcterms:modified>
+    </item>
     <item>
       <title>2026年 不正アクセス・情報漏えいウォッチ｜原因・出典・続報</title>
       <link>https://share.0g0.xyz/security-incidents</link>
