@@ -2,6 +2,7 @@ import { readdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { addSocialMetadata, escapeHtml, pageDetails, routeFor } from "./social-metadata.mjs";
 import { addFeedDiscovery, writeFeed } from "./rss-feed.mjs";
+import { REPORT_FEEDS, writeReportFeeds } from "./report-feeds.mjs";
 
 const publicDir = path.resolve("public");
 const outputFile = path.join(publicDir, "index.html");
@@ -117,6 +118,7 @@ const html = `<!doctype html>
       <h1>HTML Share</h1>
       <p class="lead">共有ページ一覧</p>
       <p><a class="rss" href="/feed.xml">RSSで新規公開・更新を購読</a></p>
+      <p>${REPORT_FEEDS.map((feed) => `<a class="rss" href="${feed.path}">${escapeHtml(feed.title)}を購読</a>`).join(" · ")}</p>
       <p class="count">${pages.length} page${pages.length === 1 ? "" : "s"}</p>
     </header>
     <section class="grid">
@@ -133,11 +135,14 @@ if (!image.subarray(0, 8).equals(Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]))
     image.length < 24 || image.readUInt32BE(16) !== 1200 || image.readUInt32BE(20) !== 630) {
   throw new Error("The common social image must be a 1200×630 PNG.");
 }
+await writeReportFeeds(path.resolve("."), pages);
 await writeFeed(path.resolve("."), pages);
-await writeFile(outputFile, addFeedDiscovery(addSocialMetadata(html, "index.html")), "utf8");
+await writeFile(outputFile, addFeedDiscovery(addSocialMetadata(html, "index.html"), REPORT_FEEDS), "utf8");
 for (const file of files) {
   const source = await readFile(file, "utf8");
-  const generated = addFeedDiscovery(addSocialMetadata(source, path.relative(publicDir, file).split(path.sep).join("/")));
+  const relativePath = path.relative(publicDir, file).split(path.sep).join("/");
+  const generated = addFeedDiscovery(addSocialMetadata(source, relativePath), REPORT_FEEDS.filter((feed) => feed.relativePath === relativePath));
   if (generated !== source) await writeFile(file, generated, "utf8");
 }
-console.log(`Generated index, RSS feed and social metadata for ${pages.length} page(s).`);
+console.log(`Generated index, general/report RSS feeds and social metadata for ${pages.length} page(s).`);
+

@@ -33,18 +33,19 @@ function stripBlock(source, startMarker, endMarker) {
   return result;
 }
 
-export function addFeedDiscovery(source) {
+export function addFeedDiscovery(source, extraFeeds = []) {
   const html = stripBlock(source, START, END);
   const { tags, closing } = headTags(html);
-  const existing = tags.some((tag) => {
+  const feeds = [{ path: FEED_PATH, title: `${SITE_NAME} RSS` }, ...extraFeeds];
+  const missing = feeds.filter((feed) => !tags.some((tag) => {
     if (tag.name !== "link" || tag.closing ||
         !tag.attrs.get("rel")?.value.toLowerCase().split(/\s+/).includes("alternate") ||
         tag.attrs.get("type")?.value.toLowerCase() !== "application/rss+xml") return false;
-    try { return new URL(tag.attrs.get("href")?.value || "", SITE_URL).href === SITE_URL + FEED_PATH; }
+    try { return new URL(tag.attrs.get("href")?.value || "", SITE_URL).href === SITE_URL + feed.path; }
     catch { return false; } // Preserve malformed authored alternatives; still add ours.
-  });
-  if (existing) return html;
-  const block = `  ${START}\n  <link rel="alternate" type="application/rss+xml" title="${SITE_NAME} RSS" href="${SITE_URL}${FEED_PATH}">\n  ${END}\n`;
+  }));
+  if (!missing.length) return html;
+  const block = `  ${START}\n${missing.map((feed) => `  <link rel="alternate" type="application/rss+xml" title="${escapeHtml(feed.title)}" href="${SITE_URL}${escapeHtml(feed.path)}">`).join("\n")}\n  ${END}\n`;
   return html.slice(0, closing.start).replace(/[ \t]*$/, "") + block + html.slice(closing.start);
 }
 
@@ -143,3 +144,4 @@ export async function writeFeed(root, pages) {
   await writeFile(path.join(root, "public", FEED_PATH.slice(1)), renderFeed(entries), "utf8");
   await writeFile(path.join(root, STATE_FILE), JSON.stringify({ version: 1, pages: records }, null, 2) + "\n", "utf8");
 }
+

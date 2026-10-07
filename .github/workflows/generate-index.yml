@@ -10,6 +10,7 @@ on:
       - "wrangler.jsonc"
       - "package*.json"
       - ".feed-state.json"
+      - ".report-feed-state.json"
       - ".github/workflows/generate-index.yml"
   pull_request:
     paths:
@@ -19,6 +20,7 @@ on:
       - "wrangler.jsonc"
       - "package*.json"
       - ".feed-state.json"
+      - ".report-feed-state.json"
       - ".github/workflows/generate-index.yml"
   workflow_dispatch:
 
@@ -68,13 +70,14 @@ jobs:
             npm ci --ignore-scripts
             node --test tests/*.test.mjs
             node scripts/generate-index.mjs
-            if git diff --quiet -- public .feed-state.json && [ -z "$(git ls-files --others --exclude-standard -- public .feed-state.json)" ]; then
+            if git diff --quiet -- public .feed-state.json .report-feed-state.json && [ -z "$(git ls-files --others --exclude-standard -- public .feed-state.json .report-feed-state.json)" ]; then
               echo "Generated pages are already up to date."
               exit 0
             fi
-            git add public .feed-state.json
+            git add public .feed-state.json .report-feed-state.json
             git commit -m "chore: regenerate page index, RSS and social metadata"
             if git push origin HEAD:main; then exit 0; fi
           done
           echo "main kept changing; rerun generation after the latest edit."
           exit 1
+
