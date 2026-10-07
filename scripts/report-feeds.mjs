@@ -211,8 +211,12 @@ export async function writeReportFeeds(root, pages) {
     if (!old && !items.length) {
       // Git-free exports use explicit historical journal dates, with day-level
       // precision disclosed. Never backfill every entry at the build time.
-      const unique = new Map(journal.map((change) => [hash({ signature: change.signature, date: change.date }), change]));
+      // Without Git/state, IDless incident histories cannot be distinguished
+      // from UI-only corrections. Use only explicitly targeted histories.
+      const dated = journal.filter((change) => feed.key !== "security-incidents" || change.ids.length);
+      const unique = new Map(dated.map((change) => [hash({ signature: change.signature, date: change.date }), change]));
       for (const [identity, change] of unique) items.push(itemFor(identity, [change], declaredDate(change.date)));
+      if (Object.keys(records).length && !items.length) throw new Error(`${feed.key}: Git-free initial backfill needs targeted change summaries or preserved feed state/full Git history.`);
     }
     if (old && !fingerprint) {
       // Correct one unambiguous historical wording edit in place. Facts have

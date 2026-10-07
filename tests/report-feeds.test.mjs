@@ -275,3 +275,18 @@ test("historic IDless incident scope expansion is material while an IDless UI-on
     assert.doesNotMatch(await xml(cwd, incident), /Display count correction/);
   } finally { await rm(cwd, { recursive: true, force: true }); }
 });
+
+
+test("actual Git-free incident snapshot backfill excludes IDless UI count corrections", async () => {
+  const cwd = await fixture();
+  try {
+    await rm(path.join(cwd, ".git"), { recursive: true, force: true });
+    const source = await readFile(path.join(root, "public", incident.relativePath), "utf8");
+    const value = reportData(source, incident);
+    const page = await save(cwd, incident, value); await writeReportFeeds(cwd, [page]);
+    const items = (await readReportState(cwd)).reports[incident.key].items;
+    assert.equal(items.length, value.changes.filter((change) => ["incident_ids", "added_ids", "updated_ids"].some((key) => change[key]?.length)).length);
+    assert.doesNotMatch(await xml(cwd, incident), /複合要因フィルターの選択肢|表示件数の訂正/);
+    assert.ok(items.every((item) => item.journal.every((change) => change.ids.length)));
+  } finally { await rm(cwd, { recursive: true, force: true }); }
+});
