@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Wed, 07 Oct 2026 08:33:45 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 07 Oct 2026 09:12:06 GMT</lastBuildDate>
+    <item>
+      <title>2026年 不正アクセス・情報漏えいウォッチ｜原因・出典・続報</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/security-incidents</guid>
+      <description>2026年の不正アクセス・情報漏えい事案と過去の主要事例を、原因・影響・対応・日付・一次資料で整理。IDCFクラウド・戸田建設・MrMax等を含む115件を掲載。</description>
+      <pubDate>Wed, 07 Oct 2026 09:12:06 GMT</pubDate>
+      <dcterms:created>2026-10-02T06:08:44.000Z</dcterms:created>
+      <dcterms:modified>2026-10-07T09:12:06.000Z</dcterms:modified>
+    </item>
     <item>
       <title>脆弱性レポート | 実悪用・修正版・対処</title>
       <link>https://share.0g0.xyz/vulnerabilities</link>
@@ -16,15 +25,6 @@
       <pubDate>Wed, 07 Oct 2026 08:33:45 GMT</pubDate>
       <dcterms:created>2026-10-06T05:47:01.000Z</dcterms:created>
       <dcterms:modified>2026-10-07T08:33:45.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>2026年 不正アクセス・情報漏えいウォッチ｜原因・出典・続報</title>
-      <link>https://share.0g0.xyz/security-incidents</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/security-incidents</guid>
-      <description>2026年の不正アクセス・情報漏えい事案と過去の主要事例を、原因・影響・対応・日付・一次資料で整理。i-askの影響拡大と国内外の新着を含む109件を掲載。</description>
-      <pubDate>Wed, 07 Oct 2026 00:42:59 GMT</pubDate>
-      <dcterms:created>2026-10-02T06:08:44.000Z</dcterms:created>
-      <dcterms:modified>2026-10-07T00:42:59.000Z</dcterms:modified>
     </item>
     <item>
       <title>直近インシデントの教訓｜上位存在としての俯瞰評価</title>
