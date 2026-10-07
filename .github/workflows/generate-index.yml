@@ -11,6 +11,7 @@ on:
       - "package*.json"
       - ".feed-state.json"
       - ".report-feed-state.json"
+      - "report-feed-corrections.json"
       - ".github/workflows/generate-index.yml"
   pull_request:
     paths:
@@ -21,6 +22,7 @@ on:
       - "package*.json"
       - ".feed-state.json"
       - ".report-feed-state.json"
+      - "report-feed-corrections.json"
       - ".github/workflows/generate-index.yml"
   workflow_dispatch:
 

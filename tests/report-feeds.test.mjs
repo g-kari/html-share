@@ -6,7 +6,7 @@ import { tmpdir } from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { addFeedDiscovery } from "../scripts/rss-feed.mjs";
-import { REPORT_FEEDS, REPORT_STATE_FILE, readReportState, reportData, renderReportFeed, writeReportFeeds } from "../scripts/report-feeds.mjs";
+import { REPORT_FEEDS, REPORT_STATE_FILE, CORRECTION_FILE, readDeliveryCorrections, readReportState, reportData, renderReportFeed, writeReportFeeds } from "../scripts/report-feeds.mjs";
 const root = fileURLToPath(new URL("../", import.meta.url));
 const [vulnerability, incident] = REPORT_FEEDS;
 const dates = ["2026-10-01T01:23:45Z", "2026-10-02T02:34:56Z", "2026-10-03T03:45:56Z", "2026-10-04T04:56:57Z"];
@@ -316,4 +316,33 @@ test("shallow production checkouts fail without state or with material changes, 
     await assert.rejects(writeReportFeeds(shallow, [page]), /full-history generation workflow/);
     assert.equal(await readFile(path.join(shallow, REPORT_STATE_FILE), "utf8"), before); assert.equal(await xml(shallow, vulnerability), feedBefore);
   } finally { await rm(full, { recursive: true, force: true }); await rm(parent, { recursive: true, force: true }); }
+});
+
+
+test("known old-GUID delivery corrections remain distinct, stable and harmless to canonical material history", async () => {
+  const cwd = await fixture();
+  try {
+    const pages = await Promise.all(REPORT_FEEDS.map((feed) => save(cwd, feed, data(feed))));
+    commit(cwd, dates[0]);
+    await writeReportFeeds(cwd, pages);
+    const before = await readReportState(cwd);
+    await cp(path.join(root, CORRECTION_FILE), path.join(cwd, CORRECTION_FILE));
+    await writeFile(path.join(cwd, "public/feed.xml"), "GENERAL_RSS_MUST_NOT_CHANGE");
+    await writeReportFeeds(cwd, pages);
+    const after = await readReportState(cwd); const corrections = await readDeliveryCorrections(cwd);
+    for (const feed of REPORT_FEEDS) {
+      assert.deepEqual(after.reports[feed.key].items, before.reports[feed.key].items);
+      const output = await xml(cwd, feed); const correction = corrections.find((item) => item.topic === feed.key);
+      assert.equal(count(output), before.reports[feed.key].items.length + 1);
+      assert.equal((output.match(/<category>RSS初回配信訂正<\/category>/g) || []).length, 1);
+      assert.ok(output.includes(`${feed.path}#${correction.fingerprint}</guid>`));
+      assert.match(output, /Wed, 07 Oct 2026 17:18:29 GMT/);
+      assert.ok(output.includes(correction.title)); assert.match(output, /新しい/);
+      await writeReportFeeds(cwd, pages); assert.equal(await xml(cwd, feed), output);
+    }
+    assert.equal(await readFile(path.join(cwd, "public/feed.xml"), "utf8"), "GENERAL_RSS_MUST_NOT_CHANGE");
+    const register = JSON.parse(await readFile(path.join(cwd, CORRECTION_FILE), "utf8"));
+    register.corrections.push(register.corrections[0]); await writeFile(path.join(cwd, CORRECTION_FILE), JSON.stringify(register));
+    await assert.rejects(writeReportFeeds(cwd, pages), /Duplicate RSS delivery correction GUID/);
+  } finally { await rm(cwd, { recursive: true, force: true }); }
 });

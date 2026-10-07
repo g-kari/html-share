@@ -6,6 +6,7 @@ import { escapeHtml, scanTags, SITE_URL } from "./social-metadata.mjs";
 import { escapeXml } from "./rss-feed.mjs";
 
 export const REPORT_STATE_FILE = ".report-feed-state.json";
+export const CORRECTION_FILE = "report-feed-corrections.json";
 export const REPORT_FEEDS = [
   { key: "vulnerabilities", relativePath: "vulnerabilities.html", scriptId: "vulnerability-report-data", recordsKey: "records", path: "/vulnerabilities-feed.xml", title: "脆弱性レポート 更新RSS" },
   { key: "security-incidents", relativePath: "security-incidents.html", scriptId: "incident-register", recordsKey: "incidents", path: "/security-incidents-feed.xml", title: "漏洩・セキュリティ事案レポート 更新RSS" },
@@ -173,13 +174,30 @@ export async function readReportState(root) {
   return state;
 }
 
+// Authored service-delivery corrections are separate from material report
+// updates. Reuse the erroneous item's GUID so readers can correct their archive.
+export async function readDeliveryCorrections(root) {
+  let data;
+  try { data = JSON.parse(await readFile(path.join(root, CORRECTION_FILE), "utf8")); }
+  catch (error) { if (error.code === "ENOENT") return []; throw error; }
+  if (data.version !== 1 || !Array.isArray(data.corrections)) throw new Error("Invalid RSS delivery correction register.");
+  const identities = new Set();
+  return data.corrections.map((item) => {
+    if (!REPORT_FEEDS.some((feed) => feed.key === item.topic) || !digest.test(item.fingerprint) || !cleanText(item.title) || !cleanText(item.summary)) throw new Error("Invalid RSS delivery correction item.");
+    const identity = item.topic + ":" + item.fingerprint;
+    if (identities.has(identity)) throw new Error("Duplicate RSS delivery correction GUID.");
+    identities.add(identity);
+    return { topic: item.topic, fingerprint: item.fingerprint, published: isoTimestamp(item.published), title: cleanText(item.title), summary: cleanText(item.summary), precision: "second", deliveryCorrection: true };
+  });
+}
+
 export function renderReportFeed(feed, items) {
   const ordered = [...items].sort((a, b) => Date.parse(b.published) - Date.parse(a.published) || a.fingerprint.localeCompare(b.fingerprint, "en"));
   const url = SITE_URL + "/" + feed.key;
   const xml = ordered.map((item) => {
     const summary = item.summary + (item.precision === "day" ? ` 更新履歴の日付（JST）：${item.declaredDate}。時刻は記録なし。` : "");
-    const title = cleanText(item.summary.split(/[。\n]/)[0]).slice(0, 100);
-    return `    <item>\n      <title>${escapeXml(title)}</title>\n      <link>${escapeXml(url)}</link>\n      <guid isPermaLink="false">${escapeXml(`${SITE_URL}${feed.path}#${item.fingerprint}`)}</guid>\n      <description>${escapeXml(escapeHtml(summary))}</description>\n      <pubDate>${new Date(item.published).toUTCString()}</pubDate>\n      <dcterms:created>${isoTimestamp(item.published)}</dcterms:created>\n    </item>`;
+    const title = item.title || cleanText(item.summary.split(/[。\n]/)[0]).slice(0, 100);
+    return `    <item>\n      <title>${escapeXml(title)}</title>\n      <link>${escapeXml(url)}</link>\n      <guid isPermaLink="false">${escapeXml(`${SITE_URL}${feed.path}#${item.fingerprint}`)}</guid>\n${item.deliveryCorrection ? "      <category>RSS初回配信訂正</category>\n" : ""}      <description>${escapeXml(escapeHtml(summary))}</description>\n      <pubDate>${new Date(item.published).toUTCString()}</pubDate>\n      <dcterms:created>${isoTimestamp(item.published)}</dcterms:created>\n    </item>`;
   }).join("\n");
   return `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dcterms="http://purl.org/dc/terms/">\n  <channel>\n    <title>${escapeXml(feed.title)}</title>\n    <link>${url}</link>\n    <description>レポートの追加・訂正・重要な続報を更新ごとの別項目で配信。項目の日付はレポート掲載日時で、脆弱性・事件の発生日時ではありません。</description>\n    <language>ja</language>\n    <atom:link href="${SITE_URL}${feed.path}" rel="self" type="application/rss+xml"/>\n    <ttl>5</ttl>\n${ordered.length ? `    <lastBuildDate>${new Date(ordered[0].published).toUTCString()}</lastBuildDate>\n` : ""}${xml}${xml ? "\n" : ""}  </channel>\n</rss>\n`;
 }
@@ -191,6 +209,7 @@ function isShallowRepository(root) {
 
 export async function writeReportFeeds(root, pages) {
   const previous = await readReportState(root);
+  const corrections = await readDeliveryCorrections(root);
   const shallow = isShallowRepository(root);
   const reports = { ...previous.reports };
   const outputs = [];
@@ -239,7 +258,9 @@ export async function writeReportFeeds(root, pages) {
       }
     }
     reports[feed.key] = { records, journal, items, cursor: historical?.cursor || old?.cursor || null };
-    outputs.push([feed, items]);
+    const delivery = corrections.filter((item) => item.topic === feed.key);
+    if (delivery.some((item) => items.some((material) => material.fingerprint === item.fingerprint))) throw new Error(`RSS correction GUID collides with a material ${feed.key} update.`);
+    outputs.push([feed, [...items, ...delivery]]);
   }
   // Validate both topics before writing. Main generation stages the complete
   // generated set together and refetches/retries if concurrent main changes.

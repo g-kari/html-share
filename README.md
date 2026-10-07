@@ -12,6 +12,7 @@ ChatGPT から生成した HTML を Cloudflare Workers Static Assets で共有�
 - `scripts/report-feeds.mjs` - 脆弱性・漏洩レポートの実質的更新を独立項目で配信
 - `public/vulnerabilities-feed.xml` / `public/security-incidents-feed.xml` - 自動生成される専用RSS
 - `.report-feed-state.json` - 専用RSSの記録ハッシュ・更新履歴（配信対象外）
+- `report-feed-corrections.json` - レビュー対象のRSS配信表示訂正。本文更新とは別で、配信対象外の原本
 - `.feed-state.json` - 生成用の日時・内容ハッシュ（配信対象外）
 - `.github/workflows/generate-index.yml` - 一覧・SNSメタデータの自動再生成
 - `scripts/social-metadata.mjs` - 公開URLとSNSメタデータの共通処理
@@ -112,6 +113,16 @@ Gitを含まないソースコピーでも変更のないページの日時を�
 更新ごとの別項目として生成します。本文全体、非公開ファイル、Gitのcommit messageは配信しません。
 トップページには3本の購読リンク、各レポートのheadには全体RSSと対応する専用RSSの
 autodiscoveryを生成します。専用RSSにもRSS Content-Typeと5分キャッシュを設定します。
+
+### RSS delivery corrections
+
+初回の浅いWorkers checkoutで誤配信された2項目は、元のGUIDを使い、
+「RSS初回配信訂正」と明示して訂正します。これは新しい脆弱性・実悪用・事件・被害の
+確認ではありません。正しい履歴は2026-10-07 17:06:35 UTCのWorkers buildで復元しました。
+訂正通知自体の作成日時は2026-10-07 17:18:29 UTCで、原本へ保存し再生成で動かしません。各レポートの実質更新25件・16件の元GUID・日時は
+別に保存します。専用RSSの全項目数は配信訂正を含み、状態の `items` は実質更新のみです。
+レビュー対象の `report-feed-corrections.json` から訂正を生成し、原本は配信しません。
+同じ訂正を再生成しても重複せず、全体RSS `/feed.xml` やレポート本文・日時を変えません。
 
 ### Report authoring contract
 
