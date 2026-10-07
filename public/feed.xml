@@ -7,15 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Wed, 07 Oct 2026 10:41:37 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 07 Oct 2026 11:05:16 GMT</lastBuildDate>
     <item>
       <title>2026年 不正アクセス・情報漏えいウォッチ｜原因・出典・続報</title>
       <link>https://share.0g0.xyz/security-incidents</link>
       <guid isPermaLink="true">https://share.0g0.xyz/security-incidents</guid>
-      <description>2026年の不正アクセス・情報漏えい事案と過去の主要事例を、原因・影響・対応・日付・一次資料で整理。楽天ドライブ・大阪公立大学・iRhythmと損保ジャパンの続報を含む118件。</description>
-      <pubDate>Wed, 07 Oct 2026 10:41:37 GMT</pubDate>
+      <description>2026年の不正アクセス・情報漏えい事案と過去の主要事例を、原因・影響・対応・日付・一次資料で整理。渋沢MIX・池上通信機・ロジックベインの調査続報等を含む121件。</description>
+      <pubDate>Wed, 07 Oct 2026 11:05:16 GMT</pubDate>
       <dcterms:created>2026-10-02T06:08:44.000Z</dcterms:created>
-      <dcterms:modified>2026-10-07T10:41:37.000Z</dcterms:modified>
+      <dcterms:modified>2026-10-07T11:05:16.000Z</dcterms:modified>
     </item>
     <item>
       <title>脆弱性レポート | 実悪用・修正版・対処</title>
