@@ -145,7 +145,11 @@ GUIDはテーマと実際の差分で決まり、配信済み履歴・GUID・元
 使ったことと「時刻は記録なし」を説明に明示します。現在時刻・mtimeで履歴を埋めません。
 Gitも状態もない事案の初回backfillでは、UIのみの履歴との判別根拠がない対象ID未記録の
 履歴を配信しません。完全履歴または保存済み状態を利用してください。
-通常の本番buildとGitHub Actionsは完全履歴と保存状態を使います。
+浅いGit checkoutでは、新規状態のbootstrapや保存状態と異なる実質データを配信しません。
+初回やレポート更新直後のWorkers buildは、完全履歴を持つGitHub Actionsが正しい状態を
+生成・commitするまで停止します。その生成commitからの次のbuildは保存済みGUID・日時を
+そのまま使います。Gitなしのローカルexportと浅いCI checkoutは区別します。
+通常の本番buildは保存状態を、GitHub Actionsは完全履歴と保存状態を使います。
 
 生成物は `.report-feed-state.json` も含めて現在のmainからまとめてcommitします。
 並行更新でpushに失敗したら、mainを再取得して再生成します。手作業で生成物を上書きしないでください。

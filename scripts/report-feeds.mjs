@@ -184,8 +184,14 @@ export function renderReportFeed(feed, items) {
   return `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dcterms="http://purl.org/dc/terms/">\n  <channel>\n    <title>${escapeXml(feed.title)}</title>\n    <link>${url}</link>\n    <description>レポートの追加・訂正・重要な続報を更新ごとの別項目で配信。項目の日付はレポート掲載日時で、脆弱性・事件の発生日時ではありません。</description>\n    <language>ja</language>\n    <atom:link href="${SITE_URL}${feed.path}" rel="self" type="application/rss+xml"/>\n    <ttl>5</ttl>\n${ordered.length ? `    <lastBuildDate>${new Date(ordered[0].published).toUTCString()}</lastBuildDate>\n` : ""}${xml}${xml ? "\n" : ""}  </channel>\n</rss>\n`;
 }
 
+function isShallowRepository(root) {
+  try { return execFileSync("git", ["-C", root, "rev-parse", "--is-shallow-repository"], { encoding: "utf8", stdio: "pipe" }).trim() === "true"; }
+  catch { return false; } // A Git-free source export is distinct from a shallow CI checkout.
+}
+
 export async function writeReportFeeds(root, pages) {
   const previous = await readReportState(root);
+  const shallow = isShallowRepository(root);
   const reports = { ...previous.reports };
   const outputs = [];
   for (const feed of REPORT_FEEDS) {
@@ -196,6 +202,7 @@ export async function writeReportFeeds(root, pages) {
     const records = recordFingerprints(data, feed);
     const journal = reportChanges(data, feed);
     const old = previous.reports[feed.key];
+    if (shallow && (!old || deltaFingerprint(old.records, records))) throw new Error(`${feed.key}: a shallow Git checkout cannot recover material update history. Wait for the full-history generation workflow to commit ${REPORT_STATE_FILE}, or use a complete Git checkout. Existing unchanged saved state is safe to deploy.`);
     if (!old && Object.keys(records).length && !journal.length) throw new Error(`${feed.key}: the initial report needs a meaningful changes[].summary before generating its feed.`);
     const historical = historicalItems(root, feed, old);
     if (historical && hash(historical.records) !== hash(records)) throw new Error(`${feed.key}: current material report data differs from committed Git history. Commit the report and its meaningful changes[].summary before generating feeds.`);

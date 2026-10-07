@@ -290,3 +290,30 @@ test("actual Git-free incident snapshot backfill excludes IDless UI count correc
     assert.ok(items.every((item) => item.journal.every((change) => change.ids.length)));
   } finally { await rm(cwd, { recursive: true, force: true }); }
 });
+
+
+test("shallow production checkouts fail without state or with material changes, but safely reuse unchanged state", async () => {
+  const full = await fixture();
+  const parent = await mkdtemp(path.join(tmpdir(), "html-share-shallow-rss-"));
+  const shallow = path.join(parent, "shallow");
+  try {
+    const value = data(vulnerability); let page = await save(full, vulnerability, value); commit(full, dates[0]);
+    value.records[0].summary = "Historical correction"; value.changes.push(change("Historical correction summary", "2026-10-02"));
+    page = await save(full, vulnerability, value); commit(full, dates[1]);
+    execFileSync("git", ["clone", "--depth=1", `file://${full}`, shallow], { stdio: "pipe" });
+    git(shallow, "config", "user.name", "Shallow RSS test"); git(shallow, "config", "user.email", "shallow@example.invalid");
+    assert.equal(git(shallow, "rev-parse", "--is-shallow-repository").trim(), "true");
+    await assert.rejects(writeReportFeeds(shallow, [page]), /shallow Git checkout cannot recover/);
+    await assert.rejects(readFile(path.join(shallow, REPORT_STATE_FILE)), /ENOENT/);
+    await assert.rejects(xml(shallow, vulnerability), /ENOENT/);
+    await writeReportFeeds(full, [page]);
+    await cp(path.join(full, REPORT_STATE_FILE), path.join(shallow, REPORT_STATE_FILE));
+    await writeReportFeeds(shallow, [page]);
+    const before = await readFile(path.join(shallow, REPORT_STATE_FILE), "utf8"); const feedBefore = await xml(shallow, vulnerability);
+    assert.equal(feedBefore, await xml(full, vulnerability));
+    value.records.push({ id: "two", summary: "New material data" }); value.changes.push(change("New material addition", "2026-10-03"));
+    page = await save(shallow, vulnerability, value); commit(shallow, dates[2]);
+    await assert.rejects(writeReportFeeds(shallow, [page]), /full-history generation workflow/);
+    assert.equal(await readFile(path.join(shallow, REPORT_STATE_FILE), "utf8"), before); assert.equal(await xml(shallow, vulnerability), feedBefore);
+  } finally { await rm(full, { recursive: true, force: true }); await rm(parent, { recursive: true, force: true }); }
+});
