@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Wed, 07 Oct 2026 16:16:53 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 07 Oct 2026 16:24:47 GMT</lastBuildDate>
+    <item>
+      <title>CloudFrontでprotobufのハードメンテナンス応答を返す設計</title>
+      <link>https://share.0g0.xyz/cloudfront-protobuf-maintenance</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/cloudfront-protobuf-maintenance</guid>
+      <description>関数内Base64変換を避け、アプリへ到達させずprotobufを返すAWS構成を比較。GET、POST、gRPC、gRPC-Web、キャッシュ、切替・復旧、検証条件まで整理。</description>
+      <pubDate>Wed, 07 Oct 2026 16:24:47 GMT</pubDate>
+      <dcterms:created>2026-10-07T16:24:47.000Z</dcterms:created>
+      <dcterms:modified>2026-10-07T16:24:47.000Z</dcterms:modified>
+    </item>
     <item>
       <title>2026年 不正アクセス・情報漏えいウォッチ｜原因・出典・続報</title>
       <link>https://share.0g0.xyz/security-incidents</link>
