@@ -5,3 +5,15 @@
   Content-Type: application/rss+xml; charset=utf-8
   Cache-Control: public, max-age=300, must-revalidate
   X-Content-Type-Options: nosniff
+
+
+/vulnerabilities-feed.xml
+  Content-Type: application/rss+xml; charset=utf-8
+  Cache-Control: public, max-age=300, must-revalidate
+  X-Content-Type-Options: nosniff
+
+/security-incidents-feed.xml
+  Content-Type: application/rss+xml; charset=utf-8
+  Cache-Control: public, max-age=300, must-revalidate
+  X-Content-Type-Options: nosniff
+

@@ -9,6 +9,9 @@ ChatGPT から生成した HTML を Cloudflare Workers Static Assets で共有�
 - `public/**/*.html` - 共有用HTML
 - `scripts/generate-index.mjs` - HTML一覧・RSS・OGP・Twitterカードを生成
 - `scripts/rss-feed.mjs` - RSS・購読リンク・コンテンツ更新日時の共通処理
+- `scripts/report-feeds.mjs` - 脆弱性・漏洩レポートの実質的更新を独立項目で配信
+- `public/vulnerabilities-feed.xml` / `public/security-incidents-feed.xml` - 自動生成される専用RSS
+- `.report-feed-state.json` - 専用RSSの記録ハッシュ・更新履歴（配信対象外）
 - `.feed-state.json` - 生成用の日時・内容ハッシュ（配信対象外）
 - `.github/workflows/generate-index.yml` - 一覧・SNSメタデータの自動再生成
 - `scripts/social-metadata.mjs` - 公開URLとSNSメタデータの共通処理
@@ -64,7 +67,7 @@ Cloudflare Workers Static Assets の HTML handling により、URLは次のよ�
 
 生成処理は現在の `main` を読み直してから実行します。並行してページが更新された場合も、新しい本文を古い生成結果で上書きしません。PRではテストだけを実行し、`main` に書き込みません。
 
-そのため `public/index.html`、`public/feed.xml`、`.feed-state.json` は手編集しません。
+そのため `public/index.html`、`public/feed.xml`、専用RSS XML、`.feed-state.json`、`.report-feed-state.json` は手編集しません。
 
 手元で再生成する場合（初回は `npm ci --ignore-scripts`）:
 
@@ -98,6 +101,47 @@ Gitを含まないソースコピーでも変更のないページの日時を�
 ローカルのGitなしのソースコピーで試す場合だけ、再現可能な日時を
 `SOURCE_DATE_EPOCH`（UNIX秒）で指定できます。日時が判断できない変更はビルドを失敗させ、
 毎回新しい更新として誤配信しないようにします。
+
+## Report update RSS
+
+- 脆弱性: https://share.0g0.xyz/vulnerabilities-feed.xml
+- 漏洩・セキュリティ事案: https://share.0g0.xyz/security-incidents-feed.xml
+
+全体RSS `/feed.xml` の固定ページGUID・更新日時の仕様は変更しません。
+専用RSSは各レポートのJSON registerと `changes` 更新履歴から、追加・訂正・重要な続報を
+更新ごとの別項目として生成します。本文全体、非公開ファイル、Gitのcommit messageは配信しません。
+トップページには3本の購読リンク、各レポートのheadには全体RSSと対応する専用RSSの
+autodiscoveryを生成します。専用RSSにもRSS Content-Typeと5分キャッシュを設定します。
+
+### Report authoring contract
+
+実質的に `records` / `incidents` を変更するときは、同じ更新で `changes[].summary` に
+何を追加・訂正したかを具体的に記録してください。履歴の先頭追加・末尾追加を両方扱います。
+同じ概要文を使った別の実質的更新も、記録IDと変更前後の正規化ハッシュで別GUIDになります。
+GUIDはテーマと実際の差分で決まり、配信済み履歴・GUID・元の掲載日時は保存します。
+更新履歴が後から整理されても過去の配信項目は消えません。
+
+- `checked_at`、確認日時、`updated` / `latest_date` だけの変更、レコード・出典の並べ替え、
+  OGP/RSS生成部分、スタイル、表示件数のみの訂正は新着にしません。
+- 同じ実質的差分の再適用、履歴の重複追加や言い換えだけでも新着を重複生成しません。
+- 事案履歴は `incident_ids` / `added_ids` / `updated_ids` のいずれかに対象IDを記録します。
+  対象IDのないUIのみの履歴は除外します。明示的な非配信履歴には `rss: false` を使用できます。
+- 履歴文の単独・一意に対応する訂正は、実質データが不変なら既存RSS項目の文言を訂正し、
+  GUID・日時を維持します。複数の古い文言変更が曖昧なときは配信済み文言を保存します。
+  内容の訂正には新しい具体的な更新概要を付けて、訂正の経緯を別項目で残してください。
+- 保存済みデータから実質的な変更があるのに対応する新規・改訂概要がない場合、ビルドは
+  レポート名と `changes[].summary` の修正案を含むエラーで停止します。概要を加えて安全に再実行してください。
+
+初回はGitの完全履歴を読み、各実質的差分が掲載されたcommitの実際の日時を復元します。
+生成待ち中に複数の更新があった場合も、各commitの差分・概要・日時を個別に復元します。
+日付はレポートの掲載日時で、脆弱性の公表日時や事件の発生日時ではありません。
+保存済み状態はGitを含まないコピーでも日時とGUIDを維持します。Gitも状態もない初回の
+ソースコピーでは更新履歴に明記された日付を使用し、日だけならJSTの開始時刻をRSS表現に
+使ったことと「時刻は記録なし」を説明に明示します。現在時刻・mtimeで履歴を埋めません。
+通常の本番buildとGitHub Actionsは完全履歴と保存状態を使います。
+
+生成物は `.report-feed-state.json` も含めて現在のmainからまとめてcommitします。
+並行更新でpushに失敗したら、mainを再取得して再生成します。手作業で生成物を上書きしないでください。
 
 ## Social previews (OGP / Twitter Cards)
 
@@ -166,3 +210,4 @@ Static Assets の対象は `./public` のみです。リポジトリの `.git` �
 Custom Domain:
 
 - https://share.0g0.xyz
+
