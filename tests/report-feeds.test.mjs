@@ -230,3 +230,48 @@ test("uncommitted current material data cannot advance or corrupt the saved Git 
     assert.equal(items.length, 2); assert.equal(items[1].published, new Date(dates[1]).toISOString());
   } finally { await rm(cwd, { recursive: true, force: true }); }
 });
+
+
+test("an unrelated later update or summary-only commit cannot mislabel a pending incident delta", async () => {
+  const cwd = await fixture();
+  try {
+    const value = data(incident, [change("Initial one and two", "2026-10-01", ["one", "two"])]);
+    value.incidents.push({ id: "two", summary: "Initial second fact" });
+    let page = await save(cwd, incident, value); commit(cwd, dates[0]); await writeReportFeeds(cwd, [page]);
+    const before = await readFile(path.join(cwd, REPORT_STATE_FILE), "utf8");
+    value.incidents[0].summary = "One corrected without summary";
+    page = await save(cwd, incident, value); commit(cwd, dates[1]);
+    value.incidents[1].summary = "Two corrected"; value.changes.push(change("Two corrected", "2026-10-03", ["two"]));
+    page = await save(cwd, incident, value); commit(cwd, dates[2]);
+    await assert.rejects(writeReportFeeds(cwd, [page]), /summary-only follow-up commit/);
+    assert.equal(await readFile(path.join(cwd, REPORT_STATE_FILE), "utf8"), before);
+    value.changes.push(change("Still only describes two", "2026-10-04", ["two"]));
+    page = await save(cwd, incident, value); commit(cwd, dates[3]);
+    await assert.rejects(writeReportFeeds(cwd, [page]), /summary-only follow-up commit/);
+    value.changes.push(change("Explicit pending one correction", "2026-10-04", ["one"]));
+    page = await save(cwd, incident, value); commit(cwd, "2026-10-05T00:00:00Z");
+    await writeReportFeeds(cwd, [page]);
+    const items = (await readReportState(cwd)).reports[incident.key].items;
+    assert.equal(items.length, 3);
+    const one = items.find((item) => item.published === new Date(dates[1]).toISOString());
+    assert.equal(one.summary, "Explicit pending one correction");
+    assert.equal(items.find((item) => item.published === new Date(dates[2]).toISOString()).summary, "Two corrected");
+  } finally { await rm(cwd, { recursive: true, force: true }); }
+});
+
+
+test("historic IDless incident scope expansion is material while an IDless UI-only correction is not", async () => {
+  const cwd = await fixture();
+  try {
+    const value = data(incident); let page = await save(cwd, incident, value); commit(cwd, dates[0]);
+    value.incidents.push({ id: "two", summary: "New published incident" });
+    value.changes.push(change("Scope expansion with legacy missing IDs", "2026-10-02", []));
+    page = await save(cwd, incident, value); commit(cwd, dates[1]);
+    value.changes.at(-1).incident_ids = ["two"]; page = await save(cwd, incident, value); commit(cwd, dates[2]);
+    value.changes.push(change("Display count correction only", "2026-10-04", [])); page = await save(cwd, incident, value); commit(cwd, dates[3]);
+    await writeReportFeeds(cwd, [page]); const items = (await readReportState(cwd)).reports[incident.key].items;
+    assert.equal(items.length, 2); assert.equal(items[1].summary, "Scope expansion with legacy missing IDs");
+    assert.equal(items[1].published, new Date(dates[1]).toISOString());
+    assert.doesNotMatch(await xml(cwd, incident), /Display count correction/);
+  } finally { await rm(cwd, { recursive: true, force: true }); }
+});

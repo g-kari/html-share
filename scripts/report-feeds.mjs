@@ -39,8 +39,9 @@ export function reportChanges(data, feed) {
     if (!summary) throw new Error(`Missing ${feed.key} material change summary.`);
     const ids = [...new Set(["incident_ids", "added_ids", "updated_ids"].flatMap((key) => Array.isArray(change[key]) ? change[key] : []))].sort();
     if (ids.some((id) => typeof id !== "string" || !id)) throw new Error("Invalid report change IDs.");
-    // The incident journal also contains UI-only corrections, not incident news.
-    if (feed.key === "security-incidents" && !ids.length || change.rss === false) continue;
+    // Older material incident histories may omit IDs. The record delta, not
+    // target-ID presence, decides whether a journal entry is incident news.
+    if (change.rss === false) continue;
     changes.push({ signature: hash({ summary, ids }), summary, ids, date: change.date });
   }
   return changes;
@@ -55,8 +56,12 @@ function recordFingerprints(data, feed) {
   return Object.fromEntries(Object.entries(records).sort(([a], [b]) => a.localeCompare(b, "en")));
 }
 
+function deltaIds(before, after) {
+  return [...new Set([...Object.keys(before), ...Object.keys(after)])].sort().filter((id) => (Object.hasOwn(before, id) ? before[id] : null) !== (Object.hasOwn(after, id) ? after[id] : null));
+}
+
 function deltaFingerprint(before, after) {
-  const delta = [...new Set([...Object.keys(before), ...Object.keys(after)])].sort().filter((id) => before[id] !== after[id]).map((id) => [id, before[id] || null, after[id] || null]);
+  const delta = deltaIds(before, after).map((id) => [id, Object.hasOwn(before, id) ? before[id] : null, Object.hasOwn(after, id) ? after[id] : null]);
   return delta.length ? hash(delta) : null;
 }
 
@@ -123,17 +128,28 @@ function historicalItems(root, feed, previous = null) {
     const changes = reportChanges(data, feed);
     const fingerprint = deltaFingerprint(beforeRecords, records);
     const fresh = freshChanges(beforeChanges, changes);
-    if (fingerprint) pending.push({ fingerprint, sha, published: isoTimestamp(date) });
-    // A later summary-only repair can describe an earlier data commit. Preserve
-    // each data-publication date; do not permanently wedge generation on the
-    // bad commit after the author has supplied its explicit repair summary.
-    if (fresh.length && pending.length) {
-      for (const update of pending.splice(0)) if (!items.has(update.fingerprint)) items.set(update.fingerprint, itemFor(update.fingerprint, fresh, { published: update.published, precision: "second" }));
+    const publish = (update, summaries) => { if (!items.has(update.fingerprint)) items.set(update.fingerprint, itemFor(update.fingerprint, summaries, { published: update.published, precision: "second" })); };
+    if (fingerprint) {
+      const update = { fingerprint, sha, published: isoTimestamp(date), ids: deltaIds(beforeRecords, records) };
+      // A normal material commit's own summary must never label older, unrelated
+      // unresolved data. Keep those pending until an explicit summary-only fix.
+      if (fresh.length) publish(update, fresh);
+      else pending.push(update);
+    } else if (fresh.length && pending.length) {
+      // A separate summary-only commit repairs earlier data publication. For
+      // incidents, the listed target IDs must cover each pending delta's IDs.
+      const targets = new Set(fresh.flatMap((change) => change.ids));
+      for (let index = pending.length - 1; index >= 0; index--) {
+        const update = pending[index];
+        if (feed.key === "security-incidents" && !update.ids.every((id) => targets.has(id))) continue;
+        publish(update, fresh);
+        pending.splice(index, 1);
+      }
     }
     beforeRecords = records;
     beforeChanges = changes;
   }
-  if (pending.length) throw new Error(`${feed.key}: material Git update ${pending[0].sha} has no new/updated changes[].summary. Add a meaningful summary for the pending delta(s) in a follow-up commit and rerun generation.`);
+  if (pending.length) throw new Error(`${feed.key}: material Git update ${pending[0].sha} has no new/updated changes[].summary. Add a meaningful summary for the pending delta(s) in a separate summary-only follow-up commit (with their target IDs for incidents), then rerun generation.`);
   return { items: [...items.values()], cursor: history.at(-1).sha, records: beforeRecords };
 }
 
@@ -180,7 +196,7 @@ export async function writeReportFeeds(root, pages) {
     const records = recordFingerprints(data, feed);
     const journal = reportChanges(data, feed);
     const old = previous.reports[feed.key];
-    if (!old && Object.keys(records).length && !journal.length) throw new Error(`${feed.key}: the initial report needs a meaningful changes[].summary (with target IDs for incidents) before generating its feed.`);
+    if (!old && Object.keys(records).length && !journal.length) throw new Error(`${feed.key}: the initial report needs a meaningful changes[].summary before generating its feed.`);
     const historical = historicalItems(root, feed, old);
     if (historical && hash(historical.records) !== hash(records)) throw new Error(`${feed.key}: current material report data differs from committed Git history. Commit the report and its meaningful changes[].summary before generating feeds.`);
     const items = [...(old?.items || [])];

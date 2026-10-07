@@ -48,8 +48,8 @@ Examples:
 - `public/feed.xml`、`public/vulnerabilities-feed.xml`、`public/security-incidents-feed.xml`、`.feed-state.json`、`.report-feed-state.json` も生成物として扱い、手編集しない
 - RSSの購読URLは `https://share.0g0.xyz/feed.xml`。公開ページを追加・更新すると自動反映される
 - ページの公開URLを固定GUIDとし、内容変更commitの日時で更新する。生成部分だけの再生成は更新にしない
-- 脆弱性・事案の専用RSSは更新ごとの別GUID。各レポートのJSON `records` / `incidents` に実質的な追加・訂正をする際は `changes[].summary` に具体的な変更概要を同時に記録する（先頭・末尾追加どちらも可）。事案では対象IDも記録する
-- 確認日時・並べ替え・UIのみの変更は専用RSSの新着にしない。履歴・GUID・日時は状態に保存し、同じ差分は重複配信しない。概要のない実質変更はビルドを停止するので、後続commitで該当差分の意味のある概要を加えて再実行する（元のデータ公開日時を維持）。未commitの実質データは状態保存前に停止する
+- 脆弱性・事案の専用RSSは更新ごとの別GUID。各レポートのJSON `records` / `incidents` に実質的な追加・訂正をする際は `changes[].summary` に具体的な変更概要を同時に記録する（先頭・末尾追加どちらも可）。事案では対象IDも記録することを推奨（過去のID未記録の実質的履歴も扱う）
+- 確認日時・並べ替え・UIのみの変更は専用RSSの新着にしない。履歴・GUID・日時は状態に保存し、同じ差分は重複配信しない。概要のない実質変更はビルドを停止するので、データ変更を含まない別の後続commitで該当差分の意味のある概要を加えて再実行する（事案では該当差分の全対象IDも指定）（元のデータ公開日時を維持）。未commitの実質データは状態保存前に停止する
 - 専用RSSはGitの実際の掲載日時を復元する。履歴の日付を発生日と扱わず、過去項目を現在時刻で埋めない。詳細はREADMEのReport update RSSを参照
 - 各ページのOGP/Twitterカードは自動補完されるため、通常は手入力不要
 - `<title>` と `meta description` をページごとに設定する
