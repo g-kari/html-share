@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dcterms="http://purl.org/dc/terms/">
+  <channel>
+    <title>漏洩・セキュリティ事案レポート 更新RSS</title>
+    <link>https://share.0g0.xyz/security-incidents</link>
+    <description>レポートの追加・訂正・重要な続報を更新ごとの別項目で配信。項目の日付はレポート掲載日時で、脆弱性・事件の発生日時ではありません。</description>
+    <language>ja</language>
+    <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
+    <ttl>5</ttl>
+    <lastBuildDate>Wed, 07 Oct 2026 16:12:36 GMT</lastBuildDate>
+    <item>
+      <title>OfferBoxの設定・リリース検証不備による最大314,009名の閲覧可能性、CINRA JOBの最終調査、エバーグリーン・マーケティングの対象追加、川崎市KBICの流出なし最終確認、日本交通の流出</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#a06db020ffa918ce07d5e059be7b6f6eb3da7486f250ed930b666b7ec7a0343a</guid>
+      <description>OfferBoxの設定・リリース検証不備による最大314,009名の閲覧可能性、CINRA JOBの最終調査、エバーグリーン・マーケティングの対象追加、川崎市KBICの流出なし最終確認、日本交通の流出確認と一部再開予定を追加。閲覧可能性・実際の流出・流出なしを分離し、237件・763件を人数にしない。IDCFにはMovable Typeクラウド版31台と電話サービスへの波及・別IaaSのバックアップによる復旧準備を補足し、同じ基盤侵害の別件化や単位の加算をしない。再開予定・復旧準備を時刻経過だけで完了とせず、ポイントインカム等の既存情報も維持。既存129件・全出典・全履歴を保持。確認時点は10月8日JST（16UTC巡回）。計134件・参照262本。</description>
+      <pubDate>Wed, 07 Oct 2026 16:12:36 GMT</pubDate>
+      <dcterms:created>2026-10-07T16:12:36.000Z</dcterms:created>
+    </item>
+    <item>
+      <title>セレスのポイントインカム不正アクセスとソルティドッグのGoogle広告MCC侵害を追加</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#29a222b00d39548c4773c789e7a2107070d6191c601b1b4efcce70e8e6fc438b</guid>
+      <description>セレスのポイントインカム不正アクセスとソルティドッグのGoogle広告MCC侵害を追加。ポイントインカムの195件は閲覧の可能性で会員88件・従業員等107件を区別、10月7日21時の再開は予定として保持し実施完了としない。MCC配下全アカウントの対象範囲、連絡済み顧客の約半数の費用確認、変更除去済みとMCC復旧未完了、認証経路未特定を区別。既存127件・全出典・履歴を保持。一次資料確認時点は10月8日JST（15UTC巡回）。計129件・参照247本。</description>
+      <pubDate>Wed, 07 Oct 2026 15:16:56 GMT</pubDate>
+      <dcterms:created>2026-10-07T15:16:56.000Z</dcterms:created>
+    </item>
+    <item>
+      <title>アドバンテストの2月侵害・10月6日付データ取得通知、HISタイ法人の2025年検知・10月7日公表と19:30の対象補足、日経BPの認証情報窃取による26件の漏えい恐れ、Arizona裁判所の9月2</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#2c6e306551d982b8c656fb861e5265546e6c97d0178c2bb48d8125ed31455f37</guid>
+      <description>アドバンテストの2月侵害・10月6日付データ取得通知、HISタイ法人の2025年検知・10月7日公表と19:30の対象補足、日経BPの認証情報窃取による26件の漏えい恐れ、Arizona裁判所の9月25日初報と日付未記載FAQを追加。Advantestのランサムウェア初報の暫定性・州受付欄と検知日の相違、HISの最大627人の流出可能性、ArizonaのFARE約130万人と15万件超の報告書の単位・可読性未確認を区別。既存123件・全出典・履歴を保持。計127件・参照244本。</description>
+      <pubDate>Wed, 07 Oct 2026 14:09:25 GMT</pubDate>
+      <dcterms:created>2026-10-07T14:09:25.000Z</dcterms:created>
+    </item>
+    <item>
+      <title>GMOトラスト・ログインを9月初報と10月7日の改修完了続報に基づき追加</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#22938d7ed2c6692f58e16098bc2798a69a9f6533b8eb4cd6ea963ce0089cfb73</guid>
+      <description>GMOトラスト・ログインを9月初報と10月7日の改修完了続報に基づき追加。公開ストレージの設定・設計不備による第三者取得であり外部攻撃ではないとする当事者説明、暫定2,007社・37,747人、認証・決済情報の対象外、2017年以降の取得記録と開始日時未確認を分離。スカラi-askには東武鉄道の10月7日説明を追加し、東武関連の閲覧・取得形跡未確認を漏えい確定や永久的不存在とせず人数・事件数へ加算しない。既存122件・全出典・全履歴を保持。計123件・参照236本。</description>
+      <pubDate>Wed, 07 Oct 2026 13:08:50 GMT</pubDate>
+      <dcterms:created>2026-10-07T13:08:50.000Z</dcterms:created>
+    </item>
+    <item>
+      <title>IDCフロンティアの第2報でランサムウェアと495の企業・自治体への影響、東日本リージョン1の隔離・停止完了と他リージョンの管理コンソール停止を反映</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#3966bff3b30dc7f8e554cd6d2d6b8f805dce36bad5fd903fca30f622f1279dbe</guid>
+      <description>IDCフロンティアの第2報でランサムウェアと495の企業・自治体への影響、東日本リージョン1の隔離・停止完了と他リージョンの管理コンソール停止を反映。情報漏えい・全面復旧は未確認。未掲載のIFAPMEを公式4月通知と10月続報で追加し、2月侵害・確認済みWeb公表日・データ持ち出し確認と範囲未確認を分離。ASOSへNCSCの全顧客への予防的注意喚起と無日付の会社FAQを追加し、全件漏えい確定や一般的なパスワード変更不要とは扱わない。既存121件・全出典・全履歴を保持。計122件・参照234本。</description>
+      <pubDate>Wed, 07 Oct 2026 12:09:59 GMT</pubDate>
+      <dcterms:created>2026-10-07T12:09:59.000Z</dcterms:created>
+    </item>
+    <item>
+      <title>未掲載3件を一次資料で追加（埼玉県の渋沢MIX、池上通信機、ロジックベイン）</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#3d7ab9e5deee46945c1fd124a2077a6297029c60f5c35308b88a689e539565d1</guid>
+      <description>未掲載3件を一次資料で追加（埼玉県の渋沢MIX、池上通信機、ロジックベイン）。渋沢MIXは一覧約2,200名と内数3名の詳細閲覧・登録改ざんを確認、窃取は未確認。池上通信機は暗号化と会社保有情報とみられる公開の確認を留保付きで整理。ロジックベインは2025年発生の2026年続報で、公開確認17,559名と約97,338名の確認・可能性範囲を分離し、VPN侵入と更新不備は条件付きの暫定説明として分類。10月7日の県発表と過去の未掲載続報、今回の追加日を区別。既存118件・全出典・全履歴を保持。計121件・参照229本。</description>
+      <pubDate>Wed, 07 Oct 2026 11:05:16 GMT</pubDate>
+      <dcterms:created>2026-10-07T11:05:16.000Z</dcterms:created>
+    </item>
+    <item>
+      <title>未掲載3件を一次資料で追加（楽天ドライブ、大阪公立大学、iRhythm）</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#3473a1b9503e5a342ab830ce750d932402e2e2be35beb5039321a16acdc97dc5</guid>
+      <description>未掲載3件を一次資料で追加（楽天ドライブ、大阪公立大学、iRhythm）。楽天ドライブの保存データ15,382アカウントと別2区分の重複不明を明示。大阪公立大学のランサムウェア判断・障害と未確認の個人情報流出を分離し、iRhythmは6月の侵害と10月の調査・通知続報を区別。スカラi-askの同一事案に損保ジャパンの10月7日公表（延べ約6万件）を統合し、人数や総数へ加算しない。既存115件・全出典・全履歴を保持。計118件・参照221本。</description>
+      <pubDate>Wed, 07 Oct 2026 10:41:37 GMT</pubDate>
+      <dcterms:created>2026-10-07T10:41:37.000Z</dcterms:created>
+    </item>
+    <item>
+      <title>未掲載6件を一次資料で追加（IDCフロンティア、戸田建設、MrMax、nimoca、ASOS、Frontline Education）</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#6321381daa965aeef3af2f622b92cf77b63971bc6e7d885c4d72f9d6e43b68bc</guid>
+      <description>未掲載6件を一次資料で追加（IDCフロンティア、戸田建設、MrMax、nimoca、ASOS、Frontline Education）。クラウド障害、不正通知、情報流出確認、最大可能性人数、学区の部分範囲を分離。10月7日の国内公表と、それ以前の未掲載公表を区別し、追加日を発生日としない。既存109件・全出典・全履歴を保持。計115件。</description>
+      <pubDate>Wed, 07 Oct 2026 09:12:06 GMT</pubDate>
+      <dcterms:created>2026-10-07T09:12:06.000Z</dcterms:created>
+    </item>
+    <item>
+      <title>未掲載5件を一次資料で追加（Pharma DIGITAL、関西国際大学、大阪府の誤開示、デンマークCPR、DTU）</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#79df58ae0720d8414d74a80e114a994dc2df30df1f0bbd02c8a4db183fc20497</guid>
+      <description>未掲載5件を一次資料で追加（Pharma DIGITAL、関西国際大学、大阪府の誤開示、デンマークCPR、DTU）。スカラi-askの10月6日続報で最大5社・713,126問い合わせレコードへ影響可能性が拡大したことを反映し、大和証券・シチズンを同一委託先事案へ統合。取得確認、閲覧・取得の可能性、潜在的な対象母数、復旧目標を分離。既存104件・全出典・履歴を保持。追加日を発生日とは扱わない。計109件。</description>
+      <pubDate>Wed, 07 Oct 2026 00:42:59 GMT</pubDate>
+      <dcterms:created>2026-10-07T00:42:59.000Z</dcterms:created>
+    </item>
+    <item>
+      <title>既存104件を外部攻撃・内部不正・操作/設定ミスや管理不備・不明/調査中で分類</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#1050f5fd6f8c6b685a1a85f8110265748fcaaf18b8d45a88b257595b8a6e9331</guid>
+      <description>既存104件を外部攻撃・内部不正・操作/設定ミスや管理不備・不明/調査中で分類。複合要因は両方を表示し、当事者の推定や当局の指摘はその立場を明記。種類別の件数・絞り込み・カードと一覧の分類欄を追加。既存の原因の確度、被害の確度、全193出典と更新履歴を保持。事案の追加や新たな被害確認ではない。</description>
+      <pubDate>Tue, 06 Oct 2026 02:51:56 GMT</pubDate>
+      <dcterms:created>2026-10-06T02:51:56.000Z</dcterms:created>
+    </item>
+    <item>
+      <title>未掲載15件を一次資料で追加（焼肉きんぐ、infoQ、大和証券の委託先、アバハウス、大起水産、ホワイトエッセンス、くふう まちトーク、スタディサプリ、手間いらず、くふう Zaim、海外5件）</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#512546f6fb8c7818ec6b52a27fba896463ec52b5045f85d170b8b8f2270009ea</guid>
+      <description>未掲載15件を一次資料で追加（焼肉きんぐ、infoQ、大和証券の委託先、アバハウス、大起水産、ホワイトエッセンス、くふう まちトーク、スタディサプリ、手間いらず、くふう Zaim、海外5件）。セイコーマート第四報の574,647人と通知・機能終了を更新。確定した持ち出し、第三者閲覧、漏えいのおそれ、登録有無の特定、改ざんを分離。海外の原因・修正人数・調査完了や当局命令を、初期公表と続報の日付を分けて補足。既存89件と全出典・履歴を保持。追加日を発生日や新たな被害確認日とは扱わない。</description>
+      <pubDate>Tue, 06 Oct 2026 00:49:50 GMT</pubDate>
+      <dcterms:created>2026-10-06T00:49:50.000Z</dcterms:created>
+    </item>
+    <item>
+      <title>未掲載の国内14件を一次資料で追加（日本経済新聞社の別2事象、ApplyNow、ニッポンレンタカー、セイコーマート、VOISING、イープラス、東京メトロ、ファインズ、EPARKリラク＆エステ、ニチレ</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#9e9ac86fa3faba80ff4a42d1610aec0c1b64094c957adf0836d67ac6f6d3ab67</guid>
+      <description>未掲載の国内14件を一次資料で追加（日本経済新聞社の別2事象、ApplyNow、ニッポンレンタカー、セイコーマート、VOISING、イープラス、東京メトロ、ファインズ、EPARKリラク＆エステ、ニチレイ、ムラウチドットコム、日本テレネット、村田製作所）。10月4日公表の日経2事象と、3〜9月の初報と原因・人数精査・対象項目訂正・復旧等の続報を併記。ApplyNowは利用企業の同一攻撃を統合し、ニッポンレンタカーの2事象は重複人数不明のため合算せず。外部転送確認・第三者閲覧・漏えいのおそれを分離。既存75件と履歴を保持。今回の追加日を発生日とは扱わない。</description>
+      <pubDate>Sun, 04 Oct 2026 23:38:42 GMT</pubDate>
+      <dcterms:created>2026-10-04T23:38:42.000Z</dcterms:created>
+    </item>
+    <item>
+      <title>未掲載7件を追加（らしんばん、オズモール、日本将棋連盟、Mercor、Stryker、過去比較のEquifaxとChange Healthcare）</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#d2c1939e70f24c4fe0aad34a43bbeabbe59939b2bb65d8b5e5c3b65bfcbeb3c0</guid>
+      <description>未掲載7件を追加（らしんばん、オズモール、日本将棋連盟、Mercor、Stryker、過去比較のEquifaxとChange Healthcare）。オズモールは第2報の人数訂正を反映。漏えい可能性・業務障害・改ざん・情報影響を区別。ジャストカーテンの初回公表日を一次資料未確認と訂正し、旧版の報道補助は履歴用に保持して事実認定から除外。既存68件を保持。追加日は発生日を意味しない。</description>
+      <pubDate>Sun, 04 Oct 2026 00:01:05 GMT</pubDate>
+      <dcterms:created>2026-10-04T00:01:05.000Z</dcterms:created>
+    </item>
+    <item>
+      <title>10月2日の公式発表・続報から未掲載5件を追加</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#ffd465c7e2cb3761306109e47655e0a7eff14ac678b75a2c50adcc41e8c68323</guid>
+      <description>10月2日の公式発表・続報から未掲載5件を追加。ヤマト運輸の第2報で漏えい可能性のあるデータ項目を更新。タイムズカー、アフラック、デジタル庁GSS、PFUの既公表資料から復旧・対応・原因や対象範囲を補足。過去資料の補足を10月の新規発生とは扱わない。</description>
+      <pubDate>Sat, 03 Oct 2026 00:04:17 GMT</pubDate>
+      <dcterms:created>2026-10-03T00:04:17.000Z</dcterms:created>
+    </item>
+    <item>
+      <title>対象を2026年1月1日〜10月2日の公表・続報へ拡充し、過去の比較例を追加</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#4a5bdb86fb05f1145ad452eee6fcbd1ad8fc45fcc5a8c40850cad15a692ab4a0</guid>
+      <description>対象を2026年1月1日〜10月2日の公表・続報へ拡充し、過去の比較例を追加。計63件。ローソンを含め原因・影響・日付・出典を整理し、検索と年/月フィルターを追加。初版12件を保持。</description>
+      <pubDate>Fri, 02 Oct 2026 06:43:43 GMT</pubDate>
+      <dcterms:created>2026-10-02T06:43:43.000Z</dcterms:created>
+    </item>
+    <item>
+      <title>公式資料に基づく代表12件を初掲載</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#d53ba9ed6e1a78838efc10253cffb0dab82a0bc19411510d050a45b7c4217085</guid>
+      <description>公式資料に基づく代表12件を初掲載。10/1の佐川急便・日本原子力研究開発機構の公表を含め、原因・被害・対応・未判明事項を整理。</description>
+      <pubDate>Fri, 02 Oct 2026 06:08:44 GMT</pubDate>
+      <dcterms:created>2026-10-02T06:08:44.000Z</dcterms:created>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,1666 @@
+{
+  "version": 1,
+  "reports": {
+    "vulnerabilities": {
+      "records": {
+        "aas-edge-client-unmaintained-unauthenticated-api": "84ccea7ec5917de021ecbe5367ffdcfbb307243618d04b7315b93ee46c1e8d7f",
+        "actual-sync-server-github-prefix-token-disclosure": "10ccb84a6ccbd61028edd541378ae85def658bf040674da9f26fee92538c8446",
+        "amd-rccl-proxy-untrusted-peer-pointer": "ff6332721c6b7e765c7e68cd1df45c475f0b904a14c62990a518e6d121cf5958",
+        "android-october-critical-components": "9bb6543d037be34881589620674a02613f83e2e571fc7660b5e2b98266b3c5ba",
+        "apache-bcel-class-name-repository-cache-poisoning": "941d62bc68c0b57f6d99448e1b0dadd2fcf229431cb33209124e0943b01ff1d7",
+        "apache-cxf-jms-untrusted-jndi-rce": "9c1b03fde199823c24d5d70c8289187cf28067ce55ffcfbd5cf9709b36e311b2",
+        "apache-httpd-october-http2-and-config-overflows": "bcef95b066294df34d40cde8085b2fa456762a07627f78b11e091b397764c476",
+        "apache-impala-trusted-jar-path-traversal": "0df867eafedc2543d9f742f4748b2f3e73284ee7cd201f83dee11d33fc931ac2",
+        "apple-coregraphics-exploited-file-rce": "d3ef514ed3f433382d8b85be586d4fc476be15018bc5d56448181250c00c65f8",
+        "arista-cloudvision-sensor-high-privilege-path-traversal": "531c278e385bbb224d376b70ece034a7e9b91d51bcafdd7ef94d30be86523fb9",
+        "arista-cloudvision-sso-auth-material-redirect": "d31258374dcf77370548183515587933c4ff051e390411e9e6f4a63b11b56fd8",
+        "arista-cloudvision-upload-filesystem-xss": "e8382503a545d797d82c2ff2587776fa8a240109a66e0033663202f91449667d",
+        "arista-cvcue-backend-auth-xss-command": "44535a054ec62953c8fdf5afebc63481c83769bd676391e3f0d6adad5ca1b7ff",
+        "arista-vco-exploited-boundary": "b68eab3e7c19889901bf2462cc32377328a92aa80fac1b3b00f431ef29116076",
+        "arista-wifi-ap-gateway-uplink-capture-corruption": "b8b094b22f49b7a0cc3849dd354a980b5431712006a2b703b4736da60fd53c1e",
+        "arista-wifi-captive-portal-associated-client-dos": "3d668f80d78367920bff1b2a89d05d21db031331e536e67ac9eb2ed5904e39d7",
+        "arista-wifi-wips-rf-sensor-memory-corruption": "6d1cf8163e3a8bae4e344d6dba402969e2ed157990921c36c27d8fc52dad678c",
+        "atlassian-multiproduct-unauthenticated-file-access": "84855125c9650d72abbc9bb74a7f3e6fff4dfba4f8570d58e67500a69866573b",
+        "authlib-empty-signatures-jws-verification-bypass": "a037c64f1df320520beaa8d1d2aebb3ea0b741d102eb487a991ec6bb632010b4",
+        "avideo-youphpflix-trailer-url-stored-xss": "9d5860a130f9547d4e4825338da8a22ce2c4c5a07fd4d3b277e326966f357921",
+        "aws-agentcore-import-generated-code-and-openapi-boundaries": "6ea6e6d7d27aecf1ad0470d0c30900427ccf115bae3151b7a148f842a83b3be7",
+        "aws-qnabot-optional-qbusiness-hook-s3-authorization": "31beafcab9201fdf9d64fe331d2a5a690433ba49037f9cc6d84e83040da8e21b",
+        "backstage-bitbucket-scaffolder-pr-filesystem-validation": "c5167adddf649c9650374486930f67b92a7e8716a4d60f1b8e597c9a17ad3655",
+        "backstage-catalog-placeholder-repository-url-validation": "729c1f729354365c369d4bb9f761da9cde395b300fd09e91e674b6d248d38410",
+        "backstage-confluence-markdown-attachment-file-write-validation": "185f10644fe4e0c6842038b76bdb90a52aaaf73d5bda6e4a1e4eedcfdc0e325a",
+        "backstage-oidc-unverified-email-identity-resolution": "b5f1e07591bed2e04c08cbe13afafed7ad9319702c102c16f7ff38112b2a6deb",
+        "backstage-restricted-service-credential-plugin-delegation": "64ce7be7246ab5fa24b613816214d19a7ec47465c276739bfcd7c5566f46bc15",
+        "backstage-scaffolder-action-input-authorization": "a6eb6d0ef45eebb6f17a71e9e153650cf95ccc3489ff4fa90d128934b2b0f6db",
+        "backstage-scaffolder-cross-user-task-execution-secrets": "d3a28f3d509b2bd1273d6e1933187b524020d5d45160e8d17dc2667e9d5695a6",
+        "backstage-scaffolder-task-state-filesystem-boundary": "52cb1ee463e7aecf039fc7ec6297d136869bf1e544385fe832a906d41959ffd8",
+        "backstage-sentry-scaffolder-destination-credential-disclosure": "12e49c7a3e0cd61d774e61b087526f44784eeda337d6a484e59b687f26fe8f17",
+        "backstage-techdocs-markdown-mapping-sanitization-followup": "e7350c738d94ae4e26716e3d0a86177b70e4499d781b03aee0c4958a6bd37bd2",
+        "backstage-techdocs-mkdocs-plugin-configuration-ssrf": "6fd315508b254caf157a36f0a85fdbdd42e9a644fd498759cceb700dbb1837eb",
+        "backstage-techdocs-mkdocs-sanitizer-theme-code-execution": "c5995734f8dca70e53d035224422c6f20834abd97f31f096d631ad121faf208b",
+        "capacitor-native-webview-origin-proxy": "664019fab05a7bb19a09675443758dd4e9b970df8de83a85f0e2de29865ff9fa",
+        "checkpoint-management-exploited-script-upload": "5a079d0149879e339c9df0e66463db668d2dd23028ae1abe0bc3c0e767e604d4",
+        "checkpoint-vpn-exploited-certificate-rce": "061d31fd8854be97ecdcaae792d0269b248c75426512f6efd23bd18176419559",
+        "chrome-october-six-critical-use-after-free": "48931811b31e8cf4fc362330457e29a1b4c6f8fc33a8b9326352b28a15971a48",
+        "chrome-v8-exploited-september": "9c096eda40cfb0400d083b402082b5be0fc595df88b696a2a05d820259106556",
+        "chrome-webgl": "75328e936e24a3657f8bae0cee8b954b7bddabf810e8bbe3e131b9ee7a1c5ec8",
+        "cisco-fmc-exploited-authentication-root": "5b94f05d52c4c9d7577fdbb882711f27a41a41f440863a8a6c623ffba3ef4316",
+        "cisco-ios-xe-august-hardening-october-fix-table": "d9137245aaf8690b8ff4c264591a7b6dde6dfb295ff0c46026199ca36e5cd4eb",
+        "cisco-sdwan-exploited-api-bypass": "9258609fe2b2fa147a76fc01e387736e172428431f1e50f39b8c9e06cf504b0a",
+        "claude-code-write-time-symlink-outside-project": "f7aa37b0dff9f98c22bf9950ec0708169e16a64d00f5931d3a5382d307a74389",
+        "cloudflare-containers-residual-data": "697eb8f64e6623a13596210e3b7c8a9268999211f28e0fc80b4412dcb6bb1a53",
+        "convertx-calibre-recipe-execution": "f9e216fa2494213b3d816fec59a1659aaafe31f4420c1c9c6d3b7656ce68e579",
+        "coraza-argument-limit-bypass-and-json-stack-crash": "e6b7e886083d9b21686f45f75157b635a792fd1e0b0f8e0c0f3d7ba0a5ea11a7",
+        "cpanel-september-adminbin-xss": "4aa2bbc63bfce68577ba1a550f6a81257ef7f7e9efdb320b9c6a25cff38db483",
+        "cve-2026-102478": "9928e9bee0891bf9ba3b6e9f40fd0b2be2880d4aa52d64033f1d14a5d385e226",
+        "cve-2026-105324": "73ece2770cad0aa9765fb20ca143a207fdf0d5bff7f523b150b2ce2f2ae67421",
+        "cve-2026-16516": "3e68198880291267b496b9ec40458ef630246dea0e77ffe2eb5a3fdf82e5948b",
+        "cve-2026-18022": "dd345dbf151f2107c60718aae6e0d2354756d66766537a4f4076d490d38f7a12",
+        "cve-2026-76460": "5d489deb52d338fed6ddc2938ef9af48f5513641b05e69bc6dedd89d5c4cfea6",
+        "cve-2026-76461": "494c5a2aa4ed6e123cf3f27610d3ede7b9f755865c1078205115e338269927f7",
+        "cve-2026-83540": "1250c1d5779cade57452c816a9d8cf69f62f93fb5fb911c147b08aef2916febd",
+        "cve-2026-88771": "99f6245619b542e82c3ffdf32dca84be9a09699e78add3027dc8f84e1fbeb6d7",
+        "cve-2026-88779": "f9da3b36e5fc8f7286130594677f25843065fefce6afe59bb9167fa194b9db02",
+        "cve-2026-94127": "80d084fdf355f91cd697e6d1b3ee738d8497bad89503d91957ea811011343f1c",
+        "dell-command-configure-mixed-encoding-eop": "17ee28a353cd17198f8b9e31bca80aac710d8020cf0585d0f1a012c5bfc0430b",
+        "dell-csm-authentication-cluster-boundaries": "56b9b0bc653c8f56457998ef9eb543a45c53ce4bee3c12aeff4763104fc4ad39",
+        "dell-system-update-root-path-and-permissions": "e2349581b1cf61fa9fad11e69144b5439dc8b6ec4be69175eadc7c9e33f5b8cb",
+        "devolutions-server-login-replay-and-global-vault": "d7ebf909d206f5037d36384bf53347ae92eaecb8cad3fc158a93b66dd588bb27",
+        "dormakaba-evolo-service-system-rce": "2c2e3d72530737599b05463d3d00d7ea41d11d1733da732d4062e34a784a12fe",
+        "eclipse-netxduo-tls13-handshake-cache-overflow": "ce32baded63b412aae8c6a0bae01bd85d979d01775fed61d57baef069322e644",
+        "elasticsearch-delegated-role-and-cross-cluster-shard-authorization": "a7c1463940b4a93c7e38cec692a80d70fc5eaea4890538fec29f0c401ed4988a",
+        "exchange-authenticated-eop": "9922c69b7ce7db1c6018a085b21c4426dfadca8db6a77638a1da793590e1434d",
+        "express-gateway-default-cipher-key-oauth-token-decryption": "148a0615478b73a5fe78f9e45d36cf30628a241597200b825a560ce0c3474130",
+        "express-gateway-oauth-refresh-token-secret-client-validation-bypass": "61543d874aa7589b87953c4adadf047e75fc28ec47e93112066d91904eb2bbc0",
+        "external-secrets-webhook-label-bypass": "94c350b1e50372ac8d639303d3b5f27aace07f46c9a5a8333053a2620137028c",
+        "fanvil-x7a-pa2s-management-websocket-boundaries": "b7162cbf689bdd1d02a80028a6bc49dc543e0a2ace0eb860beabca32c6ee5aaa",
+        "flexnet-lmadmin-soap-administrator-authentication-bypass": "c0c46f88cc5eb93a801f236135c1d52feff0fb7362b41c5ae1ac43f13b7c3039",
+        "fortimail-exploited-file-write": "4e5e49df2593e4129f842786d14bac6ae2b2a9821197b940543262ba5c57d720",
+        "fsspec-kerchunk-reference-template-rce": "705ae5a63259e036dd006e78097cf6baa674b50eb6208985834c264b3e1c75fb",
+        "ghostscript-safer-shading-uaf-command-execution": "d626219835fb198bfef7eac04b05fc946d653fbd7f098284847488ef5d790275",
+        "gimp-dds-loader-size-calculation-overflow": "198ebe8edb9e6664768ef60bec88f7e250a96abd9880b6c78e7a17b3f3f8e0df",
+        "gitahead-filter-and-finder-filename-command-injection": "3d142f2fbc1d92331b48fa1e7c924f11dae9266ffc29090f431fe34da7dca6c9",
+        "gitea-actions-cancelled-fork-job-revival": "e29bbe76079738f8f5a479e85a0092526ea118e6e8323a107154b2f856b3e446",
+        "gitea-actions-fork-pr-cancel-rerun-approval-bypass": "df28ae2e141731c43fa2124fc1691e93173480f39b1a1ebcd2b3a47984627079",
+        "gitea-actions-fork-pr-maintainer-event-approval-bypass": "baefc8df34399e69f26effd84305179526d11d0a570abaf6aec287f61e5d0b93",
+        "gitea-actions-unapproved-fork-run-concurrency-cancellation": "d69cf14661a0558d579d61c8889450dda2f30380ba9c521f321c1d60e601f9ed",
+        "gitea-builtin-ssh-sqlite-key-lookup-authentication-bypass": "a71c0f5182f808a8f037f641f7ed62383a5925e0443f19884f4a8b20a08bc406",
+        "gitea-container-registry-blob-mediatype-stored-xss": "0a2683294ea64f8b57bfd81ddbefa6c3d5c6e95ebe37a43fd7d0a8efe005db09",
+        "gitea-duplicate-tree-review-execution-mismatch": "b29b9c947cf8dc918a659781278fcbe5674ac3ffdc14ee7014ae744e16425106",
+        "gitea-external-issue-tracker-pattern-process-crash": "8735d554c7957dbd3e8a51f852e57f88a49bd93fb43d330ff9f2e461249bfa0c",
+        "gitea-installer-existing-admin-session-bypass": "0617f5583d3cc8616534d5a2bdd01518848e780e00773e66dbca5eb41b062d8c",
+        "gitea-media-small-nonlfs-active-content-xss": "1b5207aed9e1dc2be95d6f5c5a95254f965a60ce3c2a7947d814cc860313c6a4",
+        "gitea-migration-allowed-domain-ip-short-circuit": "5dbc7a8b92dd4508f4a7ba02168ce827f958b138d6f4d254a2a97e284570ec19",
+        "gitea-migration-mirror-multianswer-dns-egress-bypass": "46a16314bf71e66b9526f18e6375afeac25baeabec83dc11dbeecdf9d9fc484c",
+        "gitea-push-mirror-policy-and-local-path-principal": "bde9579d6afd049f6ff194ff29af844b943d3922e0d0ec3c289a16427507876a",
+        "gitea-push-mirror-sync-host-policy-bypass": "3e5cb05f3048205e284a7ea93e8fb6a63401d4dd2fb5e23e470e68686e823938",
+        "github-enterprise-server-secret-validation-and-default-branch": "6ba8d3ad1218bb22188e2fae4adda875c35780c50ec233395639aacd37a7d45c",
+        "gitlab-ai-gateway-template-escape": "5e50a3d18b626de79909181e6f0fefaac17f674c8b81eb94ad4d26049945b345",
+        "gitlab-exploited-repository-api-file-read": "7e4570f922221db47a07868bfaec02eb40843955ed1cb2e93de325ae8c34cea9",
+        "handlebars-own-property-and-ast-compilation-rce": "818cefb25a07707a1ff1bea6dcfa7d602c5177159c2ec085a86b4f42eea4bd70",
+        "hdf5-fill-value-corruption-and-scale-offset-boundary": "9141a6573eae2d4df9dbe7814ffd940f96955be990b5ed233a9aa8d82cbe509b",
+        "hpe-aos-switch-october-critical-management": "9c31ff6d4ab464ac76fe513eb79dc4d1ddf99d86a12518ea7fb9a66eddfd21e1",
+        "hpe-clearpass-manager-onguard-client-high-ten": "e19d890b8f976b6f7b5cfc51405d9c33498c2cd57ad7f5c340bc9ee983616962",
+        "hpe-clearpass-october-client-integrity-rce": "2c60a69b0db1cbb989c36f7bd4bcb71f94d48d39d9a055c00406fcc1ec7e848e",
+        "hpe-clearpass-october-critical-server-boundaries": "85fc9d42b184d74f5744c24dd7110eb3272386e4d35b102eb756173bdbe3e8b8",
+        "hpe-ilo7-user-validation": "8e0f2c16a1ad700b952c97786125817306f7b06697f128d78c0c8838b7ff8229",
+        "kibana-fleet-custom-package-cross-tenant-stream-interception": "0b8a32f40777111e19e1d1f0a0a8d9e37207b6532da657a490b735d622f5219d",
+        "kiota-java-php-generation-code-injection": "aaeac28646bf7b332e42d5ac155ea13defb52d6710a8f82dd94980cccdf6b6ca",
+        "kkfileview-upload-path-directory-traversal": "c2912a1f9d01a9006d4ce0ed0429362e2bf5a5fa490c8799e64fcf4495910d06",
+        "knowns-untrusted-workspace-lsp-execution": "2214973793b5b3a27837f51c05a062086aa435b77c0ae97e134b26edbd05bcb1",
+        "kube-compare-container-reference-entrypoint-workstation-execution": "d3be379bff547c91cce0a34f8e7447be8833680d0f6c9c943d81c1eeb01f30ac",
+        "langflow-ibm-code-generation-os-command-rce": "7e77b4d30972796eeeb0fdeccdbe16eb4ad77fff9816baea8c7b1ebc42b3e97a",
+        "langflow-mcp-install-locality-bypass": "f661103a28bebf4c23cdcd95e42fa700d636e331509bc33ca785f69622f930c0",
+        "langflow-mcp-stdio-command-injection": "a98f0219706679bf14345d29e6fa0925cbf5b5ec6b537014e2e7e7f1be40a90d",
+        "langflow-python-interpreter-boundary": "f9c4bf8781cc85efcfe937484e076f50dab788646e5e2c9a7e2d0f7bf2ff05c2",
+        "libexpat-buffer-length-32bit-realloc": "246e3bf22529a2b200567bac1f9b7cb1bd88bcfd5caac2f25df2667c92b8e661",
+        "libreoffice-jdbc-document-rce": "0fe05f7c8a5b05eb0d0db011054aeae48353519b47340e515951734387b5248f",
+        "linux-rdma-rxe-mr-range-overflow-oob-access": "dc26e07289498c500b4a444d1d3b452c39a030bc43f104eddac11c299e994dd1",
+        "linux-rdma-siw-fragmented-header-oob-write": "6d909d43481acf47bdf0b5bf13e035fedb58da4f8036b0efdaeff8b9a74b4741",
+        "llama-cpp-client-chat-parser-use-after-free": "c3158b1324eff9c1b7a41d249b92a0bf50a19211edef08c5b0cda85d9120440b",
+        "lmcache-multiprocess-zmq-pickle-unauthenticated-rce": "9aeff2fb42d1ff615012e689fce28ac9b2b8cd3d5822ab737ee50147eda581f6",
+        "lwip-smtp-auth-line-buffer-overflow": "2c618c6dc9e3a82ed358f12afcc0482079b3f8cdd22573fcaf44e5ccf683043e",
+        "mcc-uldaq-network-packet-overflow": "0ca499a52a4214a8071c2a295e672302ad934a379546c64a38976e0d84185bf3",
+        "mcp-python-http-memory-dos": "ae99ce63b94828d9194f277847916d86957d5aa34733ff6001a7a7e4ee300e1f",
+        "mcp-python-oauth-boundaries": "8a5abc6a70d18baaf4e230c692cc88d547bfe74deb4e7b6bcdb414dc64ff785d",
+        "mcp-typescript-oauth-issuer-boundary": "09496f89acc700c0c56778484b062143e48582ae5ef2999e8496e477d7da0e77",
+        "microsoft-ufo-mcp-command-boundaries": "e0af5bb22b46826609dcd7b0cecae1eb40b47e75ddcdc2578be73e4a41290d30",
+        "mindsearch-planner-unsandboxed-python-execution": "62aeb76c55594d571cfaee0847de2af2f21573529087e4e1f34bb38dc130c86b",
+        "misp-mandatory-totp-enrolment-nonbrowser-session-bypass": "8026f35ec515bb82f51f1cef275752277124c24d1454ac459f7eed2f01247de1",
+        "misp-sachertortephp-download-filename-stored-xss": "93b0a38c345eb61ffb6e64468aac30dd41449271912cdf83a6cd19b07bf91b44",
+        "mlflow-multipart-cross-user-artifact-poisoning": "ff129d6d084b9d9c886ac10d44f2f7a283bae321bea8bbc4103757522f93e136",
+        "mooncake-store-unauthenticated-rest-rpc": "171a7f0caab7c88784a8b00541a03d963b7d075e41c0c6123543b8fc95e5628b",
+        "movabletype-upgrade-code-injection-and-search-sql-injection": "0707d5e19204a611411b0e1fc836fa1dfb4ad923464268a6b9bfa2af4ceb20ef",
+        "msquic-openssl-hostname-validation": "3e6a94fcc3783038d3daa07639add691a11df4e54a45635780e247e26a0d2337",
+        "nexi-xpay-build-unauthenticated-order-payment-integrity": "04e4749cb988aaf5f1d3b2e73926c59f8149c9d10b260626ae3c09f937ccc674",
+        "next-og-satori-generated-svg-boundary": "4d9750c55d16e3273d8111b79c5609f7f8ce8d983df2061ff9e5ac4faf19071b",
+        "npm-css-jptvix-polyfill-malware": "c6f42d03229a0d0b38f6f2efb85be87095f396d09d0c1ade3310cbd69ee7af64",
+        "npm-proxyaddr-trust-subnet-spoofing": "323d3a44e8a40098435c6974bef0b5221ea82d9fcbae5cc05acdce71de5cba95",
+        "npm-seroval-fromjson-bypass": "65a00bffb700da1c7f1e5ae9fc3e784593b3d75f56ace5c65310f70715333572",
+        "npm-sharp-librsvg-svg-uaf": "ae1e4ca190896808b12c3f14bf0683e8e08e6874cd07738066b7dab6942219e2",
+        "npm-shellquote-comment-command-injection": "ecaf4820117322a9b2e55aa564819d38fca87e9c8bf59f2bd4967c8377b98e0e",
+        "npm-simple-git": "6b1a3dd1f8a12da2e8776175330cbb685743c3a0be618419e978ddbef1379f47",
+        "npm-source-map-js-indexed-eventloop-dos": "21fe3424a7618e6fcc7c092996a7568352d0d42542813696765e284a1a102344",
+        "npm-tailwind-forms-kit-malware": "0c64334fa1b1748500e2a207ca70e229336db6ce30b506b53906d775494e0c04",
+        "npm-tinypool-prototype-rce": "91f1797a550033d9d6e071c1b93189e1b3095b75e7bf6d2fa2c4c1dfd98bad87",
+        "npm-vm2-host-boundaries-followup": "4f7891b9a2665f9fd1ae9de378835e722822db6f116a7e0e19af36ebd8331f09",
+        "npm-vm2-nodevm-escape": "f2a49f442b99f95459fef6eff2058c19b2e93ae16af325da31a1221fcdcbd350",
+        "ntfs-3g-crafted-image-heap-overflows": "12aac3d2880ad52cf15a43cfb4e578665d4d52c55dde6552fbf81cdb25ac0c6e",
+        "nvidia-modelopt-untrusted-checkpoint-deserialization": "b15f74cdb450d5356bd1cbbf805b0f96286b1b9696de03294221026028e54554",
+        "nx-docker-ci-release-command-injection": "72f0ca387125bcba61bf2b08bedc068e29b978c8f877126764c2f4244633e1e2",
+        "obot-catalog-static-secret-vmcp-and-group-boundaries": "8f09b2d9ee7cea8dacf05bce4e0e6e00526d41c82849a02e28fbf13309faab9d",
+        "oj-uaf-iterator-and-symbol-cache-boundaries": "b49c6ede5582825b5e3987fc035ed98224d27c495ec1b988123934014bbdffa3",
+        "openapi-python-client-generation-injection": "4c07046eaba05f218c128edb3787de46e09cb9d091cd92d841f9e556853c247d",
+        "openoffice-java-document-rce": "68dc10ceafd6e7cd6585835b65d0ed414f4db6813eb13aa87b21504ab53cb5c3",
+        "openssl-dtls-retransmission-heap-disclosure": "f52e014ed97559cab65b9cafaf49759c2b36f7ff24e5a2b739c27e4bb903d481",
+        "openwebui-community-session-theft": "4285411e86e7a5d39675eb9ce9b4fcb9c5495fcb90f0e9cce6007e6f010e7536",
+        "patool-windows-archive-filename-shell-injection": "3a127c61378699c39faae13a89523e234a5814f5e2cb836cbaf154f5ca604335",
+        "payload-auth-field-write-boundaries": "f5849cb62d0d1a6608c0625b012a63f6da46f22ada4d872b4d830e646cca3a06",
+        "payload-form-first-register-rce": "d9bd21f8fd40c1efd5c7f39d0f24d4e4d975992c04f749bdb15a3d1c7d800053",
+        "payload-import-export-sql-boundaries": "a291e731b996c9ba8b9543623e4cdd78371e0575c6df26da7a45108232d66884",
+        "payload-jobs-access-bypass": "718aaf956418266f908197f8303d9fa6dc17b241aacdfd673e7f75696519055c",
+        "payload-mcp-api-key-access-control": "9da05fc2830447cad8f09112926c20d6e688d773cc7a18c92570c134e0f1c8d8",
+        "payload-multipart-redos": "96caba757511589cb096089ac9ea379e22d0636f38a70ac8c2cc7b381da651a6",
+        "payload-orderable-tenant-access": "bfae19c9f34be7c2eeece01aa0914910e3b765426f4b64c568ca8ca65f473db6",
+        "payload-protected-read-auth-leaks": "ca1d85ca43f6a3d88697fa8053ef79692df16f742861cb1abe47f1deefeb48ec",
+        "payload-stripe-ecommerce-boundaries": "f1abf2d213bfd6124dfd91c960ad0550e3eef5662de0ae2133fd423da076bb43",
+        "payload-upload-trust-lifecycle": "8d8353ce5acaaba355c89b61d9f6ae84fc433836d34d138b81fbe90dd2ec298e",
+        "penpot-svg-export-command-injection": "8e9a3484b4f092ed9bd8a574153302ce8e093a0cd96c6c5da7455ef071ace2b5",
+        "pixel-october-critical-bluetooth-gdmc-gsa": "3ad631bd2bdfa4d540222b0ee7109387dd54dd6de31e18237b26abff790feda0",
+        "planka-totp-bruteforce": "336ec8f5f57298328f8541660a026ede451f768e694f63505031c7795805c4d1",
+        "praisonai-agentmail-webhook-signature-boundary": "b1ad779b94bb2f78e50d7e7ef3a4afee26a71e7af828da3a7bb420580b3e3c82",
+        "progress-arcgenai-generator-command-injection": "846fa21f1032fdd5f374daef49160eb4d1bd1e47fabe19bbfbffd4d530997d70",
+        "pulp-container-ansible-cross-remote-credential-leakage": "0ccc7bdfd24ed82f7a859dac0440631f945aee712de56b90152f1f262be8026a",
+        "pypi-anthropic-sdk-malware": "31ad5fe130d79ee48a2ce9fe0ed03b6e098996af9ad73c877b2d30da00e9d083",
+        "python-hostname-verification": "7e0749c1308beec4599616fca0aaf37a49275ccaa231c7c4c6fab5fd6ed66a7d",
+        "python-ssl-uaf": "40a4f9a6fd331242511a179c1445b44ff842e917f63fc6fcf2768ba56b24d637",
+        "quasar-ssr-meta-xss-user-agent-dos": "4ec50fde11f17b0a4e3d68dae1104e96d2af467f049f478de2a169b5fa31bcae",
+        "redhat-globalhub-postgres-exporter-unauthenticated-pprof": "16f932a5fc7ae919e0cd7208b9048dee02aa3e1539a8cdce05bf70d9d112c405",
+        "rejetto-hfs-exploited-session-forgery": "60fce22d154da5d7bced98ea27f202eb64d9597df60c7af05860a606bd341507",
+        "rundeck-windows-job-option-command-injection": "1548ad49cb2da99fa37a95e4d5664a5c107db83a613608e39eaae2afded215bc",
+        "sagemaker-distribution-project-startup-command-injection": "2f2fbd7c0c30e9cac8c1f5fbb9c048989c1beac62ad70e955609bd49f0e946f7",
+        "sharepoint-exploited-authenticated-code-injection": "474a959d4cb9e863dcec1ee5b6714dd865d2ddc5544d333d7710fb9da0227b6e",
+        "smarty-inheritance-cache-rce": "a6cf35adbfcaeda249d4d096c8237b9dee785fa20c3ab23b841fc4adf2130de4",
+        "sonicwall-sma1000-october-boundaries": "fe157a4e6b4cffadc3ce0b221d7cf762bc4513635a7c2e67e3b99381eef992be",
+        "spip-october-core-crayons-simplog": "df57a5e9024df782c4173b2f38670524a2b782d4503e18cd10bab209bcdd70d6",
+        "struts-legacy-restful-ognl-rce": "4cc4c5c50df6f279740f2a903e211346a68f0aee83be8d6daae3ef7fb1f45ea5",
+        "sungrow-isolarcloud-hosted-authentication-bypass": "970605182144b9c454ec6e1d0cc6f093e6fc70efdde0b5f4998ec4e29467b6d4",
+        "teamcity-exploited-agent-polling-rce": "019c49f89f61595af4c714fa1132db69e399b4af80f72f31c41940082b3424a1",
+        "teamcity-kotlin-dsl-sandbox-escape": "2f9c65288575b79e7f3114e123f2670efe0d7b0ab71f4c729a519c99bb1584bf",
+        "teamviewer-session-recording-ipc-and-rollback-boundaries": "23a9db7b7bb4a1964082af670f494855fa0373bfa785d8f2adc9ce7f261f924c",
+        "telegram-desktop-ipc-file-exfiltration": "9d392d502cfac992ded2aeefcdbf5ec7b66916183fac4f8b4fee1fbea9c10f1c",
+        "tenda-ac5-wifi-handler-authenticated-overflow": "a794752e56573fd8cc988ee20b4330ffa0562a928c27015fae239311cb297ba7",
+        "twenty-workspace-graphql-external-credentials": "f5bd3f14152bcf42f91803d50e951c6e2f508ffd1f40da34009e546a374eb5e8",
+        "veeam-backup-viewer-system-rce": "1c44858ba7f94d378bcb8ac2b3e348d3f7905e1f0329bc5f19d94a211181d954",
+        "veeam-cloud-connect-tenant-host-file-read": "6edc206a28e6d4fefce1488008997120ac3db952ca5edd4eeae14d364afba3f0",
+        "virtualbox-pcnet-guest-host-oob-write": "78803d2c56a95eda4ab48af77bcc22ff1cdfc4994b36e1dcce0b5dae52f60276",
+        "vllm-moss-audio-unbounded-processor-cache": "7137613bf5fcde4296966ffc1fa5afd1f55d20833ab204301cb1ca13c1109dc5",
+        "vllm-multimodal-request-processor-resource-dos": "9b9b9301ae003cc8086cf697673b0881f886f0adfd6c0753f4d617a3b58e6f52",
+        "vllm-request-code-revision-processor-rce": "a07675a4572f88f03ba70dd50fd3e646dc370d54e0b1f99555055b8efe78e1a2",
+        "vmware-workstation-fusion-vmxnet3-hgfs-host-execution": "ef6dda42f9bf39bce24570e2af1b1218f571cf607b1f6762acebec1de6dbf722",
+        "weasyprint-eps-ghostscript-dispatch": "b6d6385b11a49561386bf7af95533dca5c21ac02c96d6fe9bbb85fdfb7d09d9c",
+        "wger-gym-trainer-authorization-csrf": "7c06ee7c73d1027097cb5d20216a4f27f6fa6fe6e71da0c634c55ce5a9927775",
+        "windows-exploited-eop": "9a0d69060c4fa2f2c50a6674477bed037d31268fce5cc202e7acdd0860a847ac",
+        "zammad-exploited-chain": "c06f7dfb1a18efcd827f3701847396b27773d8cb395fada4c90c78178ed1e6ab",
+        "zephyr-bluetooth-mesh-solicitation-stack-overflow": "8a2f09f4543eb7131ac4d61acdfe4dba73e3ff0d3c6b1db8a858770fad5fd630",
+        "zimbra-exploited-snmp-smtp-command-injection": "7fd79bf9f4708c6e550cc041c903670a77e25c482cd42174c3077729b31ab5b4",
+        "zitadel-external-idp-linking-account-takeover": "02df49097db58e2c767eff3b4ef162cae58ff661a7d34a813444c7344df7a847"
+      },
+      "journal": [
+        {
+          "signature": "b6f3810a8926554ba54315f74ecee83f246cdf3a7b9194d9609feb1b7df99690",
+          "summary": "初版。実悪用されたネットワーク製品と、ブラウザー・OS・開発環境・悪性パッケージの重要情報を公開資料で整理。",
+          "ids": [],
+          "date": "2026-10-06"
+        },
+        {
+          "signature": "2fcfd1e499549a4ac18a7549e9011a3a8dfc0c4f293717d8471fb65aa4f3cdb2",
+          "summary": "初版の版境界を訂正：CVE-2026-19445のPython 3.15系列は3.15.0rc3未満、CVE-2026-85880のServer 2012 R2除外境界は6.3.9600.23398。現行CNA JSONで再確認。3.15.0rc3の10月2日公開も追記。新規脆弱性の発生や新しい悪用報告ではありません。",
+          "ids": [],
+          "date": "2026-10-06"
+        },
+        {
+          "signature": "39f3e2eef0a803101b679ac7b1110cc19753d2cd86f62d3db77526a1e1c5148f",
+          "summary": "既公表の重要項目を追加：Zammadの実悪用2件と10月5日のベンダー評価、GitLab AI Gateway、vm2、Tinypool、Seroval、cPanel/WHM。元の公表・GHSA索引日を区別し、今日の新規発生とは扱わない。CISA公式GitHubのKEV取得を補足し、FortiMailの版表差異は未解決として明記。既存11項目と初版訂正履歴は維持。",
+          "ids": [],
+          "date": "2026-10-06"
+        },
+        {
+          "signature": "7ab71ab14d6ac1e6f35ed5fd9a933fd5bef7d8bd78eb56cc501891a06fcf56a9",
+          "summary": "既公表の重要項目を3件追加：OpenOffice CVE-2026-59265、LibreOffice CVE-2026-63277、Exchange CVE-2026-96940。OpenOfficeは正式修正版の公開待ち、LibreOfficeは修正済み配布版あり、Exchangeは10月2日のSUv2とESU制約を区別。Serovalの影響範囲を構造化CNA/GHSAの>=0.12.0,<1.6.2へ訂正し、1.6.1を安全と判断しない。10月6日の新規発生・実悪用確認とは扱わず、既存17項目と全履歴を維持。",
+          "ids": [],
+          "date": "2026-10-06"
+        },
+        {
+          "signature": "e36586b41a881f49cd43fc97f8ff1ec5133688e7171f24f0a37915010ab67c58",
+          "summary": "既公表の重要項目を7件追加：実悪用されたFortiMail CVE-2026-104286、Cisco SD-WAN CVE-2026-76504、Apple CoreGraphics CVE-2026-86950と、MCP Python SDK、Open WebUI、Cloudflare Containers/Sandbox、vm2の別GHSA。FortiMailの前回未解決版表を公式CSAFで補足。vm2の旧CVE単体の修正3.11.8は維持し、別問題を含む3.12.2への対処を追記。Cloudflareは事業者対策済みで追加作業不要。元の公表日・実悪用の限定条件を維持し、10月6日の新規発生とは扱わない。既存20項目と全履歴を維持。",
+          "ids": [],
+          "date": "2026-10-06"
+        },
+        {
+          "signature": "d8aae8f89ee451a37fe2ddbc3d1ac4950a4d7d5573bf96f55e851d1c352c1af2",
+          "summary": "重要な既公表情報等を7項目追加：実悪用されたArista VCO CVE-2026-93952とChrome V8 CVE-2026-85046/87491、proxy-addrのIP偽装、Nx Docker releaseのCIコマンド実行、MCPのHTTP本文・セッション保持DoS、SmartyのキャッシュPHP実行、HPE iLO 7の遠隔ユーザー検証不備。SmartyのCVE公開は10月6日だがGHSAと修正版は10月4日。HPEは正確な修正ファームウェア版を未確認として明記。実悪用・PoC・CVSS評価の主体を区別し、過去の公表を10月6日の新しい攻撃とは扱わない。既存27項目と全更新履歴を維持。",
+          "ids": [],
+          "date": "2026-10-06"
+        },
+        {
+          "signature": "155b858c7d662476f54dc4fbb4d017248c1cca1309df4448f7db6ca0893a72ff",
+          "summary": "高影響情報を6項目追加：shell-quote CVE-2026-102422、Langflow GHSA-8qpj-27x8-pwpq、sharp/librsvg CVE-2026-96889、Progress ARCGenAI-Generator CVE-2026-91140、PLANKA CVE-2026-105835、uldaq CVE-2026-19477。元の公表日と10月6日のCVE・JVN・GHSA索引掲載日を区別。Langflowは一般索引のCVE-2026-10561関連付けとIBM CNAの条件・修正境界が一致せずID対応を留保。Progressの配布詳細とPLANKAの提供済み修正版は未確認。OpenOffice CVE-2026-59265はCISA ADPのCVSS v3.1 8.8追加を後続情報として補足し、過去の確認と実悪用未確認・修正版待ちの記録を維持。既存34項目と全履歴を保存。",
+          "ids": [],
+          "date": "2026-10-06"
+        },
+        {
+          "signature": "0ff5e1d2f7d93b0264b8ddc55f8e315561fa3bb63a5d09d842685046994be50b",
+          "summary": "重要情報を7項目追加：Dell CSM CVE-2026-63688/63692/67269、MsQuic CVE-2026-105794、Microsoft UFO CVE-2026-105788/105793/105791、Kiota CVE-2026-105796、Struts CVE-2026-104711、Langflow MCP CVE-2026-105697、Mooncake CVE-2026-106037〜106041。元のGHSA・通知・修正版公開と10月6日のCVE公開・CISA評価を区別。新しい実悪用は未確認。UFOのGHSA旧修正欄とCNA後続境界、Struts・MsQuicの評価主体差、Mooncakeの正式修正版未確認・認証案未マージを明記。既存40項目・すべての更新履歴・公開IDを保存。日本時間10月7日の追記で、参照したCVE公開日は10月6日UTC。",
+          "ids": [],
+          "date": "2026-10-07"
+        },
+        {
+          "signature": "7bc4e70528687cf444211158d2cde320450fb929359d999f6cb06689fcb692a0",
+          "summary": "同確認中の後続：openapi-python-client CVE-2026-105801を1項目追加。生成クライアントをimportする時点のコード実行、修正版0.29.1、以前の生成物確認・カスタムテンプレートの互換性変更を記録。Dell CSMには固定資格情報CVE-2026-54472/61421の新規CNA公開を後続補足し、修正基準1.18.0と実悪用未確認を維持。直前の47項目・すべての履歴を保存。",
+          "ids": [],
+          "date": "2026-10-07"
+        },
+        {
+          "signature": "158d81d86077ef7a252d4bd526642d42cd0600ecfcd87c09f1412cfc57abd0fc",
+          "summary": "重要情報を5項目追加：Payload CVE-2026-105844 / 105845とMCPプラグイン105806、External Secrets Operator CVE-2026-26287、MCP TypeScript CVE-2026-104850 / GHSA-6qxp-vccf-f47h、dormakaba evolo Service CVE-2026-37719。実悪用は未確認。元の通知・修正版公開と10月6日のCVE / GHSA索引・CISA評価追加を区別。MCPの更新後設定と現行CVE JSON未取得、evolo Serviceの修正版未確認を明記。Dell CSMは同じ通知の後続8 CVE（67273 / 67270 / 76105 / 61411 / 70411 / 63689 / 63691 / 63690）を補足し、対策版1.18.0は維持。既存48項目のID・全履歴を保存し、Dell以外の47項目は変更なし。",
+          "ids": [],
+          "date": "2026-10-07"
+        },
+        {
+          "signature": "2984f3bbc7fc9cc32383efbf1fd4d7545c35e5cdeb7a06ecd54fb83799cf7a99",
+          "summary": "同確認中の後続：source-map-js CVE-2026-93749 / GHSA-68fv-2mgg-jv7qを1項目追加。非信頼indexed source mapの再生成に限ったサービス停止、修正版1.2.2、9月の公開・修正と10月5日のレビューを区別。sharpは当初未検証だった公式GHSAのCVSS v4.0 8.9を後続補足し、Red Hat CNA v3.1 7.8・修正版0.35.5・実悪用未確認を維持。直前の53項目・全履歴を保存し、Sharp以外の52項目は変更なし。",
+          "ids": [],
+          "date": "2026-10-07"
+        },
+        {
+          "signature": "3254de40144939db0b5018e8f29a724c6baa72d80115034b0dbc4a69fcf9091f",
+          "summary": "18 UTC確認：公開既存54項目/75 CVEから76項目/124 CVEへ。Chrome155のCritical4件、Quasar SSR2件、SageMaker・AAS Edge Client・Tendaを追加。先に確認したSonicWall/SPIP、Android/Atlassian、Payload3.90.0関連とPenpot/ConvertX/Next.js/Capacitor/Langflowも再確認して収録。Payload既存2項目・MCP TypeScript資料不足・Langflow評価を後続補足し、既存Chrome2項目に最新Desktop推奨版を追記。元の修正境界・初公表日は維持し、新たな実悪用は未確認。既存全54 ID・全11履歴を保存、変更6項目以外の48項目は不変。",
+          "ids": [],
+          "date": "2026-10-07"
+        },
+        {
+          "signature": "1e79412575ed0f3a8c27623463f7f2bd2229c3ffc93e2ed3e9fa4a42a34c7a0a",
+          "summary": "19 UTC確認：76項目/124 CVEから86項目/144 CVEへ。既公表の実悪用SharePoint・Zimbra・HFSを補完し、実悪用項目は12から15へ（新しい19 UTCの攻撃確認ではない）。Dell DSU5件、GHES2件、Devolutions3件、Pixel固有Critical3件、Knowns、MLflow、WeasyPrintを追加。Chromeの246→247と新公開CNAの影響・sandbox条件を訂正/補足し、Langflow既存MCP項目へ105740のREST1.9.0境界を追加。MLflowは公式GHSAの最小修正3.10.0への訂正と開発版の表記差を保持。全76既存ID・全12既存履歴を保存し、変更2項目以外の74項目は不変。",
+          "ids": [],
+          "date": "2026-10-07"
+        },
+        {
+          "signature": "2eefe1a4fea062c213d5b6fb536def45c7bb9c4df91d1f1b7c3b99712d78642b",
+          "summary": "未反映の公開一次資料による実質的な差分・収録漏れを一括反映。79カードを追加し、Chrome desktop/Android、GHES、Devolutions、Pixel Bluetooth、Arista、F5の条件付きCloudflare WAF緩和を補足。165項目・268 CVE・実悪用20項目・悪性パッケージ3項目。実悪用追加5件は過去に公表された観測の収録補完。Gitea・Backstage・AWS・vLLM等の修正系列・構成条件と資料差を保持。HPE・Office・Authlib等の未確認情報を推測で埋めず、公開済み全86 ID・全13件の履歴を保存。後続確認でASUSTORの正式修正版提供、wolfSSH2件、Octopus・pgvectorを追加し、ChromeのHigh3件をCISA別採点とplatform条件付きで補完。新しい実悪用の確認はない。",
+          "ids": [],
+          "date": "2026-10-07"
+        },
+        {
+          "signature": "cab63766294415ea71fac00cd5bcb92d2f4432fab03acce8221a693287ba13e1",
+          "summary": "05 UTCの公開一次資料差分としてFlexNet Publisher lmadminの新規Critical認証回避と、kube-compareのOpenShift 4.20修正対応を追加。167項目・270 CVE。新規CNA公表はFlexNet 1件で、kube-compareは9月28日公表・10月6日修正提供の補完。正式修正版不明・操作条件・評価主体を明記。実悪用20項目・悪性パッケージ3項目は不変。既存165カードと14履歴を保存。",
+          "ids": [],
+          "date": "2026-10-07"
+        },
+        {
+          "signature": "19d0bbfcab0462e8e6e6d59410fbbdb87179af3418cdafd09eb52c1d5a8e3013",
+          "summary": "06 UTCの公開一次資料差分としてMovable Typeの認証不要upgrade RCE・検索SQL injection、VMware Workstation/Fusionのguest→host実行2件、Pulpの別remote認証情報漏えい2件を3カード・6 CVEで補完。170項目・276 CVE。原vendor公表日・CNA掲載日、CVSS主体/version、guest管理者・sync権限・未確認の正式修正版を明記。実悪用20項目・悪性パッケージ3項目は不変。既存167カードと15履歴を保存。",
+          "ids": [],
+          "date": "2026-10-07"
+        },
+        {
+          "signature": "cf4968eae85aee64e1faca3509dab11e1fd883ec0e2a5eb76f950720345d88c5",
+          "summary": "07 UTCの公開一次資料差分としてLinux RDMA siw/rxe2件のLinux CNA新CVSS評価と、Nexi XPay Buildの認証不要注文支払状態改ざん2件を3カード・4 CVEで追加。173項目・280 CVE。原CVE公表と9月修正commit・10月3日配布を分離し、RDMAの構成条件と別々の修正系列を保持。Nexi Buildの恒久閉鎖・修正版未確認、PoC参照タグの限界を明記。実悪用20項目・悪性パッケージ3項目は不変。既存170カードと16履歴を保存。",
+          "ids": [],
+          "date": "2026-10-07"
+        },
+        {
+          "signature": "75a277fff0fbf75685509791002e3330fb3381c82480ddd320c012177bd44c31",
+          "summary": "08 UTCのRed Hat CNA差分としてPulp103868/103869のAAP2.4/2.5 hub-rhel8 imagesをaffectedからunaffectedへ訂正。AAP2.6/2.7、Python3.12、Satelliteの掲載区分と正式fix/RHSA未確認を保持。173項目・280 CVE・実悪用20項目・悪性パッケージ3項目は不変。既存172カードをbyte-exactで保持し、17件の履歴を保存。新しい脆弱性・修正版提供・悪用観測ではない。",
+          "ids": [],
+          "date": "2026-10-07"
+        },
+        {
+          "signature": "aa502ff70d3ca36ae9d783eef98354123ce53ee9d1bb1b5744ca480112b2cfe4",
+          "summary": "09 UTCの公開一次資料からVeeam2件、Apache Impala、NetX Duo TLS 1.3 client、Zephyr BLE Meshを5カード・5 CVEで補完。178項目・285 CVE。元vendor公表・正式build提供と10月7日のCNA公表を分離し、権限・非既定機能・接続/無線条件、CVSS主体/versionと未採点を保持。PoC link・再現testと実証RCE・実悪用を区別。実悪用20項目・悪性パッケージ3項目は不変。既存173カードと18履歴を保存。",
+          "ids": [],
+          "date": "2026-10-07"
+        },
+        {
+          "signature": "b35e644d6951da5d9b7875891a06c0c66d6342b17fb6a6319aa4fe75714cfe43",
+          "summary": "10 UTCの公開一次資料からLMCache105192のmultiprocess ZMQ認証不要pickle RCEを追加し、IBM Langflow OSS104334/93674を既公表補完。180項目・288 CVE。LMCacheの既定loopbackとroutable multi-node・正式修正版未確認、Langflowの1.12.3正式修正と個別GHSA対応未確認を分離。実悪用20項目・悪性パッケージ3項目は不変。既存178カード・19履歴・全公開IDと構造を保存。Nexi/Impala等のADP追加やMovable Type新CNA・Chrome155採点だけでは再告知・カード更新しない。",
+          "ids": [],
+          "date": "2026-10-07"
+        },
+        {
+          "signature": "3eb4bb79084731b952806e80eb138fb0ecdb872e9f365ead8bc65b785c2ac0e1",
+          "summary": "11 UTCの公開一次資料からCisco IOS XE7CVE分類とlwIP SMTP client15340を既公表の重要情報として2カード・8CVE補完。182項目・296 CVE。Ciscoの10月2日vendor推奨fixとCNA機械版表の競合・bundled CVE識別不足、lwIPの5月source修正とPoC・10月6日CISA通知・正式stable版未確認を分離。新しい実悪用の確認ではなく、実悪用20項目・悪性パッケージ3項目は不変。既存180カード・20履歴・全公開IDと構造を保存。索引・ADPだけの変更は再告知しない。",
+          "ids": [],
+          "date": "2026-10-07"
+        },
+        {
+          "signature": "3d32c43a58476b0766bdb0d1dd271e9a09c6cb33821c70de3389b883bb9ae139",
+          "summary": "12 UTCの公開一次資料からpatool106057、Rundeck106056、GitAhead106058/106059を新規CNA掲載の3カード・4CVEとして追加。185項目・300 CVE。9月の正式修正4.0.6/6.2.0と10月4/5日のGitAhead原報告を分離し、Windows shell・job-run・global filter・Finder click条件と未実証のPoCを明記。実悪用20項目・悪性パッケージ3項目は不変。既存182カード・21履歴・全公開IDと構造を保存。ADP/索引のみの変更は再告知せず、Cisco版表競合とlwIP正式stable版未確認は維持。",
+          "ids": [],
+          "date": "2026-10-07"
+        },
+        {
+          "signature": "16f84f42e31b8b37e7cf1162646780580e4215a9f1ca9f33878bafc0bed77ffd",
+          "summary": "13 UTCの公開一次資料からClaude Code103435、Obot105138/139/140、MISP107180、Express Gateway107162/177を5カード・7CVE補完し、既掲載Forti104286のCloud事業者対処とAtlassian21589の公開PoCとCNA版表和解を更新。190項目・307 CVE。元公表・正式修正・migration/rotation条件・CNA/研究者評価・実証範囲を分離。新しい実悪用の確認はなく実悪用20項目・悪性3項目不変。既存185カード/全ID、22履歴と構造を保存し、既存2項目以外の183カードはbyte-exact保持。Cloud対応とappliance版表競合、AtlassianPoCと実悪用、正式fix未確認を混同しない。",
+          "ids": [],
+          "date": "2026-10-07"
+        },
+        {
+          "signature": "10b9784ad901842e9025f8995e79eebb5c756503877690a2e27954337d115372",
+          "summary": "14 UTCの公開一次資料からTelegram107181、llama.cpp107183、Sungrow107194、NTFS-3G6CVE、wger5CVEを5カード・14CVE収録補完し、既掲載Zammad102489/102490カードにCNA版表の限定訂正を追加。195項目・321CVE。元公表・提供済み修正・hosted provider報告・版表競合・PoC/研究者RCE申告と実悪用を分離。新しい実悪用の確認はなく20項目・悪性3項目不変。既存190IDと23履歴を保存し、既存1項目以外の189カードはbyte-exact保持。",
+          "ids": [],
+          "date": "2026-10-07"
+        },
+        {
+          "signature": "f83956569505c19d160703cf8376420bdde91edf47b838b45c9fb24acd23a635",
+          "summary": "15 UTC確認分を201項目・340CVEへ補完。Backstage5CVE、Expat2CVE、PraisonAI有効2CVE、Actual1CVE、Fanvil8CVEを6新カード・18CVE追加し、NTFS-3Gへ46570を1CVE追記。Windows KB不足解消・kube-compare4.19.50・旧Backstage2件の対処後続を含む既存5カードを補足。195旧カードの全IDと24履歴を保持、他190カードはbyte-exact。CVSSversion/評価主体・元公表/提供/索引時刻・PoC/実悪用・package/core版・棄却duplicate・未確定修正版を区別。新しい実悪用の確認はなく20項目/悪性3項目不変。",
+          "ids": [],
+          "date": "2026-10-07"
+        }
+      ],
+      "items": [
+        {
+          "fingerprint": "5ea6996a6615a17db3038d955b0c7b5f98883bce24e9294538d3539bce4af10a",
+          "summary": "初版。実悪用されたネットワーク製品と、ブラウザー・OS・開発環境・悪性パッケージの重要情報を公開資料で整理。",
+          "journal": [
+            {
+              "signature": "b6f3810a8926554ba54315f74ecee83f246cdf3a7b9194d9609feb1b7df99690",
+              "summary": "初版。実悪用されたネットワーク製品と、ブラウザー・OS・開発環境・悪性パッケージの重要情報を公開資料で整理。",
+              "ids": [],
+              "date": "2026-10-06"
+            }
+          ],
+          "published": "2026-10-06T05:47:01.000Z",
+          "precision": "second"
+        },
+        {
+          "fingerprint": "a1ad8a86ccfce67a108130f4bde26a55981a1de86156894d044f82caada147a4",
+          "summary": "初版の版境界を訂正：CVE-2026-19445のPython 3.15系列は3.15.0rc3未満、CVE-2026-85880のServer 2012 R2除外境界は6.3.9600.23398。現行CNA JSONで再確認。3.15.0rc3の10月2日公開も追記。新規脆弱性の発生や新しい悪用報告ではありません。",
+          "journal": [
+            {
+              "signature": "2fcfd1e499549a4ac18a7549e9011a3a8dfc0c4f293717d8471fb65aa4f3cdb2",
+              "summary": "初版の版境界を訂正：CVE-2026-19445のPython 3.15系列は3.15.0rc3未満、CVE-2026-85880のServer 2012 R2除外境界は6.3.9600.23398。現行CNA JSONで再確認。3.15.0rc3の10月2日公開も追記。新規脆弱性の発生や新しい悪用報告ではありません。",
+              "ids": [],
+              "date": "2026-10-06"
+            }
+          ],
+          "published": "2026-10-06T06:00:48.000Z",
+          "precision": "second"
+        },
+        {
+          "fingerprint": "be137617a24bc2fd9f25174d26eebddff4c9c09c20623e5ecfca8e34d9c2f984",
+          "summary": "既公表の重要項目を追加：Zammadの実悪用2件と10月5日のベンダー評価、GitLab AI Gateway、vm2、Tinypool、Seroval、cPanel/WHM。元の公表・GHSA索引日を区別し、今日の新規発生とは扱わない。CISA公式GitHubのKEV取得を補足し、FortiMailの版表差異は未解決として明記。既存11項目と初版訂正履歴は維持。",
+          "journal": [
+            {
+              "signature": "39f3e2eef0a803101b679ac7b1110cc19753d2cd86f62d3db77526a1e1c5148f",
+              "summary": "既公表の重要項目を追加：Zammadの実悪用2件と10月5日のベンダー評価、GitLab AI Gateway、vm2、Tinypool、Seroval、cPanel/WHM。元の公表・GHSA索引日を区別し、今日の新規発生とは扱わない。CISA公式GitHubのKEV取得を補足し、FortiMailの版表差異は未解決として明記。既存11項目と初版訂正履歴は維持。",
+              "ids": [],
+              "date": "2026-10-06"
+            }
+          ],
+          "published": "2026-10-06T10:13:41.000Z",
+          "precision": "second"
+        },
+        {
+          "fingerprint": "99932a25244615defd42c0cd96a586dde5f24418bc521e35f1a7685763b9eae3",
+          "summary": "既公表の重要項目を3件追加：OpenOffice CVE-2026-59265、LibreOffice CVE-2026-63277、Exchange CVE-2026-96940。OpenOfficeは正式修正版の公開待ち、LibreOfficeは修正済み配布版あり、Exchangeは10月2日のSUv2とESU制約を区別。Serovalの影響範囲を構造化CNA/GHSAの>=0.12.0,<1.6.2へ訂正し、1.6.1を安全と判断しない。10月6日の新規発生・実悪用確認とは扱わず、既存17項目と全履歴を維持。",
+          "journal": [
+            {
+              "signature": "7ab71ab14d6ac1e6f35ed5fd9a933fd5bef7d8bd78eb56cc501891a06fcf56a9",
+              "summary": "既公表の重要項目を3件追加：OpenOffice CVE-2026-59265、LibreOffice CVE-2026-63277、Exchange CVE-2026-96940。OpenOfficeは正式修正版の公開待ち、LibreOfficeは修正済み配布版あり、Exchangeは10月2日のSUv2とESU制約を区別。Serovalの影響範囲を構造化CNA/GHSAの>=0.12.0,<1.6.2へ訂正し、1.6.1を安全と判断しない。10月6日の新規発生・実悪用確認とは扱わず、既存17項目と全履歴を維持。",
+              "ids": [],
+              "date": "2026-10-06"
+            }
+          ],
+          "published": "2026-10-06T11:08:06.000Z",
+          "precision": "second"
+        },
+        {
+          "fingerprint": "93d1c782c8700ca47a1fe4990223f98f1a645e51b90cd59399add840f48f538e",
+          "summary": "既公表の重要項目を7件追加：実悪用されたFortiMail CVE-2026-104286、Cisco SD-WAN CVE-2026-76504、Apple CoreGraphics CVE-2026-86950と、MCP Python SDK、Open WebUI、Cloudflare Containers/Sandbox、vm2の別GHSA。FortiMailの前回未解決版表を公式CSAFで補足。vm2の旧CVE単体の修正3.11.8は維持し、別問題を含む3.12.2への対処を追記。Cloudflareは事業者対策済みで追加作業不要。元の公表日・実悪用の限定条件を維持し、10月6日の新規発生とは扱わない。既存20項目と全履歴を維持。",
+          "journal": [
+            {
+              "signature": "e36586b41a881f49cd43fc97f8ff1ec5133688e7171f24f0a37915010ab67c58",
+              "summary": "既公表の重要項目を7件追加：実悪用されたFortiMail CVE-2026-104286、Cisco SD-WAN CVE-2026-76504、Apple CoreGraphics CVE-2026-86950と、MCP Python SDK、Open WebUI、Cloudflare Containers/Sandbox、vm2の別GHSA。FortiMailの前回未解決版表を公式CSAFで補足。vm2の旧CVE単体の修正3.11.8は維持し、別問題を含む3.12.2への対処を追記。Cloudflareは事業者対策済みで追加作業不要。元の公表日・実悪用の限定条件を維持し、10月6日の新規発生とは扱わない。既存20項目と全履歴を維持。",
+              "ids": [],
+              "date": "2026-10-06"
+            }
+          ],
+          "published": "2026-10-06T12:07:01.000Z",
+          "precision": "second"
+        },
+        {
+          "fingerprint": "a1d73ba95eaa8e67743bbb185b2129a9b4ab7d9df3dd8d71ad6012c04acaf321",
+          "summary": "重要な既公表情報等を7項目追加：実悪用されたArista VCO CVE-2026-93952とChrome V8 CVE-2026-85046/87491、proxy-addrのIP偽装、Nx Docker releaseのCIコマンド実行、MCPのHTTP本文・セッション保持DoS、SmartyのキャッシュPHP実行、HPE iLO 7の遠隔ユーザー検証不備。SmartyのCVE公開は10月6日だがGHSAと修正版は10月4日。HPEは正確な修正ファームウェア版を未確認として明記。実悪用・PoC・CVSS評価の主体を区別し、過去の公表を10月6日の新しい攻撃とは扱わない。既存27項目と全更新履歴を維持。",
+          "journal": [
+            {
+              "signature": "d8aae8f89ee451a37fe2ddbc3d1ac4950a4d7d5573bf96f55e851d1c352c1af2",
+              "summary": "重要な既公表情報等を7項目追加：実悪用されたArista VCO CVE-2026-93952とChrome V8 CVE-2026-85046/87491、proxy-addrのIP偽装、Nx Docker releaseのCIコマンド実行、MCPのHTTP本文・セッション保持DoS、SmartyのキャッシュPHP実行、HPE iLO 7の遠隔ユーザー検証不備。SmartyのCVE公開は10月6日だがGHSAと修正版は10月4日。HPEは正確な修正ファームウェア版を未確認として明記。実悪用・PoC・CVSS評価の主体を区別し、過去の公表を10月6日の新しい攻撃とは扱わない。既存27項目と全更新履歴を維持。",
+              "ids": [],
+              "date": "2026-10-06"
+            }
+          ],
+          "published": "2026-10-06T13:05:12.000Z",
+          "precision": "second"
+        },
+        {
+          "fingerprint": "d39a85b3869b939df082e21f5da620f0df27aee68c813f452207bf371c07fb7c",
+          "summary": "高影響情報を6項目追加：shell-quote CVE-2026-102422、Langflow GHSA-8qpj-27x8-pwpq、sharp/librsvg CVE-2026-96889、Progress ARCGenAI-Generator CVE-2026-91140、PLANKA CVE-2026-105835、uldaq CVE-2026-19477。元の公表日と10月6日のCVE・JVN・GHSA索引掲載日を区別。Langflowは一般索引のCVE-2026-10561関連付けとIBM CNAの条件・修正境界が一致せずID対応を留保。Progressの配布詳細とPLANKAの提供済み修正版は未確認。OpenOffice CVE-2026-59265はCISA ADPのCVSS v3.1 8.8追加を後続情報として補足し、過去の確認と実悪用未確認・修正版待ちの記録を維持。既存34項目と全履歴を保存。",
+          "journal": [
+            {
+              "signature": "155b858c7d662476f54dc4fbb4d017248c1cca1309df4448f7db6ca0893a72ff",
+              "summary": "高影響情報を6項目追加：shell-quote CVE-2026-102422、Langflow GHSA-8qpj-27x8-pwpq、sharp/librsvg CVE-2026-96889、Progress ARCGenAI-Generator CVE-2026-91140、PLANKA CVE-2026-105835、uldaq CVE-2026-19477。元の公表日と10月6日のCVE・JVN・GHSA索引掲載日を区別。Langflowは一般索引のCVE-2026-10561関連付けとIBM CNAの条件・修正境界が一致せずID対応を留保。Progressの配布詳細とPLANKAの提供済み修正版は未確認。OpenOffice CVE-2026-59265はCISA ADPのCVSS v3.1 8.8追加を後続情報として補足し、過去の確認と実悪用未確認・修正版待ちの記録を維持。既存34項目と全履歴を保存。",
+              "ids": [],
+              "date": "2026-10-06"
+            }
+          ],
+          "published": "2026-10-06T14:17:54.000Z",
+          "precision": "second"
+        },
+        {
+          "fingerprint": "9e0532c6aaaae9f2cac9d0cd8af5a9eb70beebc1f987da4840450a26dece92c1",
+          "summary": "重要情報を7項目追加：Dell CSM CVE-2026-63688/63692/67269、MsQuic CVE-2026-105794、Microsoft UFO CVE-2026-105788/105793/105791、Kiota CVE-2026-105796、Struts CVE-2026-104711、Langflow MCP CVE-2026-105697、Mooncake CVE-2026-106037〜106041。元のGHSA・通知・修正版公開と10月6日のCVE公開・CISA評価を区別。新しい実悪用は未確認。UFOのGHSA旧修正欄とCNA後続境界、Struts・MsQuicの評価主体差、Mooncakeの正式修正版未確認・認証案未マージを明記。既存40項目・すべての更新履歴・公開IDを保存。日本時間10月7日の追記で、参照したCVE公開日は10月6日UTC。",
+          "journal": [
+            {
+              "signature": "0ff5e1d2f7d93b0264b8ddc55f8e315561fa3bb63a5d09d842685046994be50b",
+              "summary": "重要情報を7項目追加：Dell CSM CVE-2026-63688/63692/67269、MsQuic CVE-2026-105794、Microsoft UFO CVE-2026-105788/105793/105791、Kiota CVE-2026-105796、Struts CVE-2026-104711、Langflow MCP CVE-2026-105697、Mooncake CVE-2026-106037〜106041。元のGHSA・通知・修正版公開と10月6日のCVE公開・CISA評価を区別。新しい実悪用は未確認。UFOのGHSA旧修正欄とCNA後続境界、Struts・MsQuicの評価主体差、Mooncakeの正式修正版未確認・認証案未マージを明記。既存40項目・すべての更新履歴・公開IDを保存。日本時間10月7日の追記で、参照したCVE公開日は10月6日UTC。",
+              "ids": [],
+              "date": "2026-10-07"
+            }
+          ],
+          "published": "2026-10-06T15:09:45.000Z",
+          "precision": "second"
+        },
+        {
+          "fingerprint": "b213c7d1a8214f6a83eef72158de3366b36865df9dc549b680088328b35b5285",
+          "summary": "同確認中の後続：openapi-python-client CVE-2026-105801を1項目追加。生成クライアントをimportする時点のコード実行、修正版0.29.1、以前の生成物確認・カスタムテンプレートの互換性変更を記録。Dell CSMには固定資格情報CVE-2026-54472/61421の新規CNA公開を後続補足し、修正基準1.18.0と実悪用未確認を維持。直前の47項目・すべての履歴を保存。",
+          "journal": [
+            {
+              "signature": "7bc4e70528687cf444211158d2cde320450fb929359d999f6cb06689fcb692a0",
+              "summary": "同確認中の後続：openapi-python-client CVE-2026-105801を1項目追加。生成クライアントをimportする時点のコード実行、修正版0.29.1、以前の生成物確認・カスタムテンプレートの互換性変更を記録。Dell CSMには固定資格情報CVE-2026-54472/61421の新規CNA公開を後続補足し、修正基準1.18.0と実悪用未確認を維持。直前の47項目・すべての履歴を保存。",
+              "ids": [],
+              "date": "2026-10-07"
+            }
+          ],
+          "published": "2026-10-06T15:14:31.000Z",
+          "precision": "second"
+        },
+        {
+          "fingerprint": "a30146c9c73ac459e54815f919eac31dd48da646ee4d5ac949bcb3c37b65a43d",
+          "summary": "重要情報を5項目追加：Payload CVE-2026-105844 / 105845とMCPプラグイン105806、External Secrets Operator CVE-2026-26287、MCP TypeScript CVE-2026-104850 / GHSA-6qxp-vccf-f47h、dormakaba evolo Service CVE-2026-37719。実悪用は未確認。元の通知・修正版公開と10月6日のCVE / GHSA索引・CISA評価追加を区別。MCPの更新後設定と現行CVE JSON未取得、evolo Serviceの修正版未確認を明記。Dell CSMは同じ通知の後続8 CVE（67273 / 67270 / 76105 / 61411 / 70411 / 63689 / 63691 / 63690）を補足し、対策版1.18.0は維持。既存48項目のID・全履歴を保存し、Dell以外の47項目は変更なし。",
+          "journal": [
+            {
+              "signature": "158d81d86077ef7a252d4bd526642d42cd0600ecfcd87c09f1412cfc57abd0fc",
+              "summary": "重要情報を5項目追加：Payload CVE-2026-105844 / 105845とMCPプラグイン105806、External Secrets Operator CVE-2026-26287、MCP TypeScript CVE-2026-104850 / GHSA-6qxp-vccf-f47h、dormakaba evolo Service CVE-2026-37719。実悪用は未確認。元の通知・修正版公開と10月6日のCVE / GHSA索引・CISA評価追加を区別。MCPの更新後設定と現行CVE JSON未取得、evolo Serviceの修正版未確認を明記。Dell CSMは同じ通知の後続8 CVE（67273 / 67270 / 76105 / 61411 / 70411 / 63689 / 63691 / 63690）を補足し、対策版1.18.0は維持。既存48項目のID・全履歴を保存し、Dell以外の47項目は変更なし。",
+              "ids": [],
+              "date": "2026-10-07"
+            }
+          ],
+          "published": "2026-10-06T16:18:29.000Z",
+          "precision": "second"
+        },
+        {
+          "fingerprint": "9b150792fc919c61b307f75e924b0bde0a22e7891abb7a84d2bbbf423ec5a2e2",
+          "summary": "同確認中の後続：source-map-js CVE-2026-93749 / GHSA-68fv-2mgg-jv7qを1項目追加。非信頼indexed source mapの再生成に限ったサービス停止、修正版1.2.2、9月の公開・修正と10月5日のレビューを区別。sharpは当初未検証だった公式GHSAのCVSS v4.0 8.9を後続補足し、Red Hat CNA v3.1 7.8・修正版0.35.5・実悪用未確認を維持。直前の53項目・全履歴を保存し、Sharp以外の52項目は変更なし。",
+          "journal": [
+            {
+              "signature": "2984f3bbc7fc9cc32383efbf1fd4d7545c35e5cdeb7a06ecd54fb83799cf7a99",
+              "summary": "同確認中の後続：source-map-js CVE-2026-93749 / GHSA-68fv-2mgg-jv7qを1項目追加。非信頼indexed source mapの再生成に限ったサービス停止、修正版1.2.2、9月の公開・修正と10月5日のレビューを区別。sharpは当初未検証だった公式GHSAのCVSS v4.0 8.9を後続補足し、Red Hat CNA v3.1 7.8・修正版0.35.5・実悪用未確認を維持。直前の53項目・全履歴を保存し、Sharp以外の52項目は変更なし。",
+              "ids": [],
+              "date": "2026-10-07"
+            }
+          ],
+          "published": "2026-10-06T16:28:02.000Z",
+          "precision": "second"
+        },
+        {
+          "fingerprint": "a7f9502f5267bf3be86d63e70b8a00c7725f3c3e49394712ff3e7569768c5b60",
+          "summary": "18 UTC確認：公開既存54項目/75 CVEから76項目/124 CVEへ。Chrome155のCritical4件、Quasar SSR2件、SageMaker・AAS Edge Client・Tendaを追加。先に確認したSonicWall/SPIP、Android/Atlassian、Payload3.90.0関連とPenpot/ConvertX/Next.js/Capacitor/Langflowも再確認して収録。Payload既存2項目・MCP TypeScript資料不足・Langflow評価を後続補足し、既存Chrome2項目に最新Desktop推奨版を追記。元の修正境界・初公表日は維持し、新たな実悪用は未確認。既存全54 ID・全11履歴を保存、変更6項目以外の48項目は不変。",
+          "journal": [
+            {
+              "signature": "3254de40144939db0b5018e8f29a724c6baa72d80115034b0dbc4a69fcf9091f",
+              "summary": "18 UTC確認：公開既存54項目/75 CVEから76項目/124 CVEへ。Chrome155のCritical4件、Quasar SSR2件、SageMaker・AAS Edge Client・Tendaを追加。先に確認したSonicWall/SPIP、Android/Atlassian、Payload3.90.0関連とPenpot/ConvertX/Next.js/Capacitor/Langflowも再確認して収録。Payload既存2項目・MCP TypeScript資料不足・Langflow評価を後続補足し、既存Chrome2項目に最新Desktop推奨版を追記。元の修正境界・初公表日は維持し、新たな実悪用は未確認。既存全54 ID・全11履歴を保存、変更6項目以外の48項目は不変。",
+              "ids": [],
+              "date": "2026-10-07"
+            }
+          ],
+          "published": "2026-10-06T18:13:43.000Z",
+          "precision": "second"
+        },
+        {
+          "fingerprint": "4aaf5d615753f425d4a5abc3d59e5beddad001489b78df36605c26dffe747fb4",
+          "summary": "19 UTC確認：76項目/124 CVEから86項目/144 CVEへ。既公表の実悪用SharePoint・Zimbra・HFSを補完し、実悪用項目は12から15へ（新しい19 UTCの攻撃確認ではない）。Dell DSU5件、GHES2件、Devolutions3件、Pixel固有Critical3件、Knowns、MLflow、WeasyPrintを追加。Chromeの246→247と新公開CNAの影響・sandbox条件を訂正/補足し、Langflow既存MCP項目へ105740のREST1.9.0境界を追加。MLflowは公式GHSAの最小修正3.10.0への訂正と開発版の表記差を保持。全76既存ID・全12既存履歴を保存し、変更2項目以外の74項目は不変。",
+          "journal": [
+            {
+              "signature": "1e79412575ed0f3a8c27623463f7f2bd2229c3ffc93e2ed3e9fa4a42a34c7a0a",
+              "summary": "19 UTC確認：76項目/124 CVEから86項目/144 CVEへ。既公表の実悪用SharePoint・Zimbra・HFSを補完し、実悪用項目は12から15へ（新しい19 UTCの攻撃確認ではない）。Dell DSU5件、GHES2件、Devolutions3件、Pixel固有Critical3件、Knowns、MLflow、WeasyPrintを追加。Chromeの246→247と新公開CNAの影響・sandbox条件を訂正/補足し、Langflow既存MCP項目へ105740のREST1.9.0境界を追加。MLflowは公式GHSAの最小修正3.10.0への訂正と開発版の表記差を保持。全76既存ID・全12既存履歴を保存し、変更2項目以外の74項目は不変。",
+              "ids": [],
+              "date": "2026-10-07"
+            }
+          ],
+          "published": "2026-10-06T19:21:18.000Z",
+          "precision": "second"
+        },
+        {
+          "fingerprint": "610b1971f9d0f3821eb8f4ab4dbd456ee03942526e7bf6d16f28609ab603cd18",
+          "summary": "未反映の公開一次資料による実質的な差分・収録漏れを一括反映。79カードを追加し、Chrome desktop/Android、GHES、Devolutions、Pixel Bluetooth、Arista、F5の条件付きCloudflare WAF緩和を補足。165項目・268 CVE・実悪用20項目・悪性パッケージ3項目。実悪用追加5件は過去に公表された観測の収録補完。Gitea・Backstage・AWS・vLLM等の修正系列・構成条件と資料差を保持。HPE・Office・Authlib等の未確認情報を推測で埋めず、公開済み全86 ID・全13件の履歴を保存。後続確認でASUSTORの正式修正版提供、wolfSSH2件、Octopus・pgvectorを追加し、ChromeのHigh3件をCISA別採点とplatform条件付きで補完。新しい実悪用の確認はない。",
+          "journal": [
+            {
+              "signature": "2eefe1a4fea062c213d5b6fb536def45c7bb9c4df91d1f1b7c3b99712d78642b",
+              "summary": "未反映の公開一次資料による実質的な差分・収録漏れを一括反映。79カードを追加し、Chrome desktop/Android、GHES、Devolutions、Pixel Bluetooth、Arista、F5の条件付きCloudflare WAF緩和を補足。165項目・268 CVE・実悪用20項目・悪性パッケージ3項目。実悪用追加5件は過去に公表された観測の収録補完。Gitea・Backstage・AWS・vLLM等の修正系列・構成条件と資料差を保持。HPE・Office・Authlib等の未確認情報を推測で埋めず、公開済み全86 ID・全13件の履歴を保存。後続確認でASUSTORの正式修正版提供、wolfSSH2件、Octopus・pgvectorを追加し、ChromeのHigh3件をCISA別採点とplatform条件付きで補完。新しい実悪用の確認はない。",
+              "ids": [],
+              "date": "2026-10-07"
+            }
+          ],
+          "published": "2026-10-07T04:06:03.000Z",
+          "precision": "second"
+        },
+        {
+          "fingerprint": "990a9ab286311c4e5837c6153c681222d4f7d0488e773971ca0faa994b1a00da",
+          "summary": "05 UTCの公開一次資料差分としてFlexNet Publisher lmadminの新規Critical認証回避と、kube-compareのOpenShift 4.20修正対応を追加。167項目・270 CVE。新規CNA公表はFlexNet 1件で、kube-compareは9月28日公表・10月6日修正提供の補完。正式修正版不明・操作条件・評価主体を明記。実悪用20項目・悪性パッケージ3項目は不変。既存165カードと14履歴を保存。",
+          "journal": [
+            {
+              "signature": "cab63766294415ea71fac00cd5bcb92d2f4432fab03acce8221a693287ba13e1",
+              "summary": "05 UTCの公開一次資料差分としてFlexNet Publisher lmadminの新規Critical認証回避と、kube-compareのOpenShift 4.20修正対応を追加。167項目・270 CVE。新規CNA公表はFlexNet 1件で、kube-compareは9月28日公表・10月6日修正提供の補完。正式修正版不明・操作条件・評価主体を明記。実悪用20項目・悪性パッケージ3項目は不変。既存165カードと14履歴を保存。",
+              "ids": [],
+              "date": "2026-10-07"
+            }
+          ],
+          "published": "2026-10-07T05:10:20.000Z",
+          "precision": "second"
+        },
+        {
+          "fingerprint": "c30c63b2f3157e0efd8a063aecb4af5a41ceb8cdf5b992f8a0c69dc05389d530",
+          "summary": "06 UTCの公開一次資料差分としてMovable Typeの認証不要upgrade RCE・検索SQL injection、VMware Workstation/Fusionのguest→host実行2件、Pulpの別remote認証情報漏えい2件を3カード・6 CVEで補完。170項目・276 CVE。原vendor公表日・CNA掲載日、CVSS主体/version、guest管理者・sync権限・未確認の正式修正版を明記。実悪用20項目・悪性パッケージ3項目は不変。既存167カードと15履歴を保存。",
+          "journal": [
+            {
+              "signature": "19d0bbfcab0462e8e6e6d59410fbbdb87179af3418cdafd09eb52c1d5a8e3013",
+              "summary": "06 UTCの公開一次資料差分としてMovable Typeの認証不要upgrade RCE・検索SQL injection、VMware Workstation/Fusionのguest→host実行2件、Pulpの別remote認証情報漏えい2件を3カード・6 CVEで補完。170項目・276 CVE。原vendor公表日・CNA掲載日、CVSS主体/version、guest管理者・sync権限・未確認の正式修正版を明記。実悪用20項目・悪性パッケージ3項目は不変。既存167カードと15履歴を保存。",
+              "ids": [],
+              "date": "2026-10-07"
+            }
+          ],
+          "published": "2026-10-07T06:20:12.000Z",
+          "precision": "second"
+        },
+        {
+          "fingerprint": "7bb051b11a410d3b904fa91c0893622a11035c4ad239e7a2a12fe0f8d866e6e9",
+          "summary": "07 UTCの公開一次資料差分としてLinux RDMA siw/rxe2件のLinux CNA新CVSS評価と、Nexi XPay Buildの認証不要注文支払状態改ざん2件を3カード・4 CVEで追加。173項目・280 CVE。原CVE公表と9月修正commit・10月3日配布を分離し、RDMAの構成条件と別々の修正系列を保持。Nexi Buildの恒久閉鎖・修正版未確認、PoC参照タグの限界を明記。実悪用20項目・悪性パッケージ3項目は不変。既存170カードと16履歴を保存。",
+          "journal": [
+            {
+              "signature": "cf4968eae85aee64e1faca3509dab11e1fd883ec0e2a5eb76f950720345d88c5",
+              "summary": "07 UTCの公開一次資料差分としてLinux RDMA siw/rxe2件のLinux CNA新CVSS評価と、Nexi XPay Buildの認証不要注文支払状態改ざん2件を3カード・4 CVEで追加。173項目・280 CVE。原CVE公表と9月修正commit・10月3日配布を分離し、RDMAの構成条件と別々の修正系列を保持。Nexi Buildの恒久閉鎖・修正版未確認、PoC参照タグの限界を明記。実悪用20項目・悪性パッケージ3項目は不変。既存170カードと16履歴を保存。",
+              "ids": [],
+              "date": "2026-10-07"
+            }
+          ],
+          "published": "2026-10-07T07:15:13.000Z",
+          "precision": "second"
+        },
+        {
+          "fingerprint": "105476c0a6b6a6b858a2cd428c4b493e7f2a03bc41518c8fd31c7d1563fe80c6",
+          "summary": "08 UTCのRed Hat CNA差分としてPulp103868/103869のAAP2.4/2.5 hub-rhel8 imagesをaffectedからunaffectedへ訂正。AAP2.6/2.7、Python3.12、Satelliteの掲載区分と正式fix/RHSA未確認を保持。173項目・280 CVE・実悪用20項目・悪性パッケージ3項目は不変。既存172カードをbyte-exactで保持し、17件の履歴を保存。新しい脆弱性・修正版提供・悪用観測ではない。",
+          "journal": [
+            {
+              "signature": "75a277fff0fbf75685509791002e3330fb3381c82480ddd320c012177bd44c31",
+              "summary": "08 UTCのRed Hat CNA差分としてPulp103868/103869のAAP2.4/2.5 hub-rhel8 imagesをaffectedからunaffectedへ訂正。AAP2.6/2.7、Python3.12、Satelliteの掲載区分と正式fix/RHSA未確認を保持。173項目・280 CVE・実悪用20項目・悪性パッケージ3項目は不変。既存172カードをbyte-exactで保持し、17件の履歴を保存。新しい脆弱性・修正版提供・悪用観測ではない。",
+              "ids": [],
+              "date": "2026-10-07"
+            }
+          ],
+          "published": "2026-10-07T08:33:45.000Z",
+          "precision": "second"
+        },
+        {
+          "fingerprint": "f1025d0bb5e0739ef46bc93dd566f4533510703abb13cb789a6fcdb324dfc299",
+          "summary": "09 UTCの公開一次資料からVeeam2件、Apache Impala、NetX Duo TLS 1.3 client、Zephyr BLE Meshを5カード・5 CVEで補完。178項目・285 CVE。元vendor公表・正式build提供と10月7日のCNA公表を分離し、権限・非既定機能・接続/無線条件、CVSS主体/versionと未採点を保持。PoC link・再現testと実証RCE・実悪用を区別。実悪用20項目・悪性パッケージ3項目は不変。既存173カードと18履歴を保存。",
+          "journal": [
+            {
+              "signature": "aa502ff70d3ca36ae9d783eef98354123ce53ee9d1bb1b5744ca480112b2cfe4",
+              "summary": "09 UTCの公開一次資料からVeeam2件、Apache Impala、NetX Duo TLS 1.3 client、Zephyr BLE Meshを5カード・5 CVEで補完。178項目・285 CVE。元vendor公表・正式build提供と10月7日のCNA公表を分離し、権限・非既定機能・接続/無線条件、CVSS主体/versionと未採点を保持。PoC link・再現testと実証RCE・実悪用を区別。実悪用20項目・悪性パッケージ3項目は不変。既存173カードと18履歴を保存。",
+              "ids": [],
+              "date": "2026-10-07"
+            }
+          ],
+          "published": "2026-10-07T09:29:25.000Z",
+          "precision": "second"
+        },
+        {
+          "fingerprint": "ae37acc88af58aef9b3a3853ce6d9bdb005ecd99a541990852443b4d42d5d79b",
+          "summary": "10 UTCの公開一次資料からLMCache105192のmultiprocess ZMQ認証不要pickle RCEを追加し、IBM Langflow OSS104334/93674を既公表補完。180項目・288 CVE。LMCacheの既定loopbackとroutable multi-node・正式修正版未確認、Langflowの1.12.3正式修正と個別GHSA対応未確認を分離。実悪用20項目・悪性パッケージ3項目は不変。既存178カード・19履歴・全公開IDと構造を保存。Nexi/Impala等のADP追加やMovable Type新CNA・Chrome155採点だけでは再告知・カード更新しない。",
+          "journal": [
+            {
+              "signature": "b35e644d6951da5d9b7875891a06c0c66d6342b17fb6a6319aa4fe75714cfe43",
+              "summary": "10 UTCの公開一次資料からLMCache105192のmultiprocess ZMQ認証不要pickle RCEを追加し、IBM Langflow OSS104334/93674を既公表補完。180項目・288 CVE。LMCacheの既定loopbackとroutable multi-node・正式修正版未確認、Langflowの1.12.3正式修正と個別GHSA対応未確認を分離。実悪用20項目・悪性パッケージ3項目は不変。既存178カード・19履歴・全公開IDと構造を保存。Nexi/Impala等のADP追加やMovable Type新CNA・Chrome155採点だけでは再告知・カード更新しない。",
+              "ids": [],
+              "date": "2026-10-07"
+            }
+          ],
+          "published": "2026-10-07T10:28:12.000Z",
+          "precision": "second"
+        },
+        {
+          "fingerprint": "cc83e1ff7e58d4d9122d61eda649b7ee5ae02d7ab63da06b42e746c6b4df9277",
+          "summary": "11 UTCの公開一次資料からCisco IOS XE7CVE分類とlwIP SMTP client15340を既公表の重要情報として2カード・8CVE補完。182項目・296 CVE。Ciscoの10月2日vendor推奨fixとCNA機械版表の競合・bundled CVE識別不足、lwIPの5月source修正とPoC・10月6日CISA通知・正式stable版未確認を分離。新しい実悪用の確認ではなく、実悪用20項目・悪性パッケージ3項目は不変。既存180カード・20履歴・全公開IDと構造を保存。索引・ADPだけの変更は再告知しない。",
+          "journal": [
+            {
+              "signature": "3eb4bb79084731b952806e80eb138fb0ecdb872e9f365ead8bc65b785c2ac0e1",
+              "summary": "11 UTCの公開一次資料からCisco IOS XE7CVE分類とlwIP SMTP client15340を既公表の重要情報として2カード・8CVE補完。182項目・296 CVE。Ciscoの10月2日vendor推奨fixとCNA機械版表の競合・bundled CVE識別不足、lwIPの5月source修正とPoC・10月6日CISA通知・正式stable版未確認を分離。新しい実悪用の確認ではなく、実悪用20項目・悪性パッケージ3項目は不変。既存180カード・20履歴・全公開IDと構造を保存。索引・ADPだけの変更は再告知しない。",
+              "ids": [],
+              "date": "2026-10-07"
+            }
+          ],
+          "published": "2026-10-07T11:10:20.000Z",
+          "precision": "second"
+        },
+        {
+          "fingerprint": "aa398a076b3934d8fd273ff26e9d3392b3bf9d7729c96821bdcad85c9b1bc228",
+          "summary": "12 UTCの公開一次資料からpatool106057、Rundeck106056、GitAhead106058/106059を新規CNA掲載の3カード・4CVEとして追加。185項目・300 CVE。9月の正式修正4.0.6/6.2.0と10月4/5日のGitAhead原報告を分離し、Windows shell・job-run・global filter・Finder click条件と未実証のPoCを明記。実悪用20項目・悪性パッケージ3項目は不変。既存182カード・21履歴・全公開IDと構造を保存。ADP/索引のみの変更は再告知せず、Cisco版表競合とlwIP正式stable版未確認は維持。",
+          "journal": [
+            {
+              "signature": "3d32c43a58476b0766bdb0d1dd271e9a09c6cb33821c70de3389b883bb9ae139",
+              "summary": "12 UTCの公開一次資料からpatool106057、Rundeck106056、GitAhead106058/106059を新規CNA掲載の3カード・4CVEとして追加。185項目・300 CVE。9月の正式修正4.0.6/6.2.0と10月4/5日のGitAhead原報告を分離し、Windows shell・job-run・global filter・Finder click条件と未実証のPoCを明記。実悪用20項目・悪性パッケージ3項目は不変。既存182カード・21履歴・全公開IDと構造を保存。ADP/索引のみの変更は再告知せず、Cisco版表競合とlwIP正式stable版未確認は維持。",
+              "ids": [],
+              "date": "2026-10-07"
+            }
+          ],
+          "published": "2026-10-07T12:19:29.000Z",
+          "precision": "second"
+        },
+        {
+          "fingerprint": "e64c61af1f8c5763782b9eff929d447e998bfbca08686d53bbe4f2611cb2b588",
+          "summary": "13 UTCの公開一次資料からClaude Code103435、Obot105138/139/140、MISP107180、Express Gateway107162/177を5カード・7CVE補完し、既掲載Forti104286のCloud事業者対処とAtlassian21589の公開PoCとCNA版表和解を更新。190項目・307 CVE。元公表・正式修正・migration/rotation条件・CNA/研究者評価・実証範囲を分離。新しい実悪用の確認はなく実悪用20項目・悪性3項目不変。既存185カード/全ID、22履歴と構造を保存し、既存2項目以外の183カードはbyte-exact保持。Cloud対応とappliance版表競合、AtlassianPoCと実悪用、正式fix未確認を混同しない。",
+          "journal": [
+            {
+              "signature": "16f84f42e31b8b37e7cf1162646780580e4215a9f1ca9f33878bafc0bed77ffd",
+              "summary": "13 UTCの公開一次資料からClaude Code103435、Obot105138/139/140、MISP107180、Express Gateway107162/177を5カード・7CVE補完し、既掲載Forti104286のCloud事業者対処とAtlassian21589の公開PoCとCNA版表和解を更新。190項目・307 CVE。元公表・正式修正・migration/rotation条件・CNA/研究者評価・実証範囲を分離。新しい実悪用の確認はなく実悪用20項目・悪性3項目不変。既存185カード/全ID、22履歴と構造を保存し、既存2項目以外の183カードはbyte-exact保持。Cloud対応とappliance版表競合、AtlassianPoCと実悪用、正式fix未確認を混同しない。",
+              "ids": [],
+              "date": "2026-10-07"
+            }
+          ],
+          "published": "2026-10-07T13:23:54.000Z",
+          "precision": "second"
+        },
+        {
+          "fingerprint": "50639888801445e2f9700a1c57720972903d46937e4bda762cabaf407b5a9dad",
+          "summary": "14 UTCの公開一次資料からTelegram107181、llama.cpp107183、Sungrow107194、NTFS-3G6CVE、wger5CVEを5カード・14CVE収録補完し、既掲載Zammad102489/102490カードにCNA版表の限定訂正を追加。195項目・321CVE。元公表・提供済み修正・hosted provider報告・版表競合・PoC/研究者RCE申告と実悪用を分離。新しい実悪用の確認はなく20項目・悪性3項目不変。既存190IDと23履歴を保存し、既存1項目以外の189カードはbyte-exact保持。",
+          "journal": [
+            {
+              "signature": "10b9784ad901842e9025f8995e79eebb5c756503877690a2e27954337d115372",
+              "summary": "14 UTCの公開一次資料からTelegram107181、llama.cpp107183、Sungrow107194、NTFS-3G6CVE、wger5CVEを5カード・14CVE収録補完し、既掲載Zammad102489/102490カードにCNA版表の限定訂正を追加。195項目・321CVE。元公表・提供済み修正・hosted provider報告・版表競合・PoC/研究者RCE申告と実悪用を分離。新しい実悪用の確認はなく20項目・悪性3項目不変。既存190IDと23履歴を保存し、既存1項目以外の189カードはbyte-exact保持。",
+              "ids": [],
+              "date": "2026-10-07"
+            }
+          ],
+          "published": "2026-10-07T14:26:05.000Z",
+          "precision": "second"
+        },
+        {
+          "fingerprint": "a7d4ef9de4582ac73287e5d25617bd5ca83aba02b5fb347c884bb5601b821c88",
+          "summary": "15 UTC確認分を201項目・340CVEへ補完。Backstage5CVE、Expat2CVE、PraisonAI有効2CVE、Actual1CVE、Fanvil8CVEを6新カード・18CVE追加し、NTFS-3Gへ46570を1CVE追記。Windows KB不足解消・kube-compare4.19.50・旧Backstage2件の対処後続を含む既存5カードを補足。195旧カードの全IDと24履歴を保持、他190カードはbyte-exact。CVSSversion/評価主体・元公表/提供/索引時刻・PoC/実悪用・package/core版・棄却duplicate・未確定修正版を区別。新しい実悪用の確認はなく20項目/悪性3項目不変。",
+          "journal": [
+            {
+              "signature": "f83956569505c19d160703cf8376420bdde91edf47b838b45c9fb24acd23a635",
+              "summary": "15 UTC確認分を201項目・340CVEへ補完。Backstage5CVE、Expat2CVE、PraisonAI有効2CVE、Actual1CVE、Fanvil8CVEを6新カード・18CVE追加し、NTFS-3Gへ46570を1CVE追記。Windows KB不足解消・kube-compare4.19.50・旧Backstage2件の対処後続を含む既存5カードを補足。195旧カードの全IDと24履歴を保持、他190カードはbyte-exact。CVSSversion/評価主体・元公表/提供/索引時刻・PoC/実悪用・package/core版・棄却duplicate・未確定修正版を区別。新しい実悪用の確認はなく20項目/悪性3項目不変。",
+              "ids": [],
+              "date": "2026-10-07"
+            }
+          ],
+          "published": "2026-10-07T15:23:16.000Z",
+          "precision": "second"
+        }
+      ],
+      "cursor": "6867213392170ad9159252cbdfe621640f49ece1"
+    },
+    "security-incidents": {
+      "records": {
+        "2rinkan-2026": "16aa6852739ca639b688d4a21ea43e11b7c6bac35bcca8e97dbe8a4194b72f56",
+        "abahouse-member-order-20260927": "7520495cac665d69ea7a15a1de03b81c109646911842b70e936b09dff0eb6875",
+        "advantest-network-20260215": "bfecd51530b48b710f25794f931c13923d63831816c62b611e98944f43d8a87a",
+        "aflac-japan-2026": "c58c9c7d58d1ed7dbe628c8c0174ecb5a43de8dc8a54e4eb917f2ffe8ffc2cb2",
+        "alpsalpine-2026": "d0b97049c7f4319d2e0155c5c84c144e5b7ee0bd5011e7f4aab5a6fee73a7f36",
+        "applynow-analysis-20260809": "56ab14073225d70dff90cadffc4d6518114f5b4ce14d5d6f4ba23094d6ec99c5",
+        "arizona-courts-backups-20260924": "dd75acc97413bc42826c238b9a92c5ccf0298a41a689bb8aed03c0614b3eaf57",
+        "asahi-20250929": "2ff3828a9d0efc3795b2ab714b01fb27bb3faca24a2a09326c2bd8bd3c5f504a",
+        "asahi-kasei-pharma-digital-20261002": "aa9a28808ed77d108b43a6ab5b1d1d89fc46e0eb3f0a1fca7504d38da216133c",
+        "askul-20251019": "27979d12eab5ccaed0f80d1a24d81fd68348847f8e4409cb60af009cda55ef9c",
+        "asos-notification-20261006": "19d853c4bab6710920f572828c16815fb17faf865d780aef55d184921954d7ad",
+        "athome-moving-2026": "63561e0babe0775d6a8781697268ebc7b4909a68f712837ac63bcac42a985802",
+        "betterment-20260109": "cc2c1bfecf04020942044bb16dff619b33bba75f4ab1c426b8ce12b4fe950821",
+        "cac-academic-support-navi-2026": "cbf8ed75b6ee7050432be8cf2b9aaab88f90624ed43f062e415eb293a9414aae",
+        "campfire-2026": "37c0a8675d7223d50cc14144335757683b806fc3031b7b5da7baffdafcc43d7c",
+        "canvass-ransomware-2026": "08322821b15ef207849b08301407a805285713a78ea97bddf53306123d90a8a3",
+        "cec-datacenter-20260805": "64512b0b0b2e1693ee0e33f2f3d94daca3397821cbd5aeb71afcd6f242895ce1",
+        "ceres-pointincome-20261005": "8e4ba99ea257fb88a31ceda3c6159823b8ae821a51243f31063d82cab97e4e17",
+        "change-healthcare-20240212": "b916068f884c94a6d1d4569351b251b68b49afa1686518bc562cbda572ba08b0",
+        "chuden-credentials-20260729": "1231c7761d4f157f05b11d9e51e68267dee9e9bb48fb872bdc228ecf9a976138",
+        "cinra-job-cloud-20260818": "e59118944b62794f4d6162a2069c14940b69c70c9904544f2afad6b238ff1187",
+        "coastline-sumareji-app-2026": "a37bd8f809252455357754b6483fdc6db2dcc4a3827575a0432614096f6d0ff0",
+        "cynd-beautymerit-2026": "dc70226d1acb1c024eae63c2ccc36cd9c2a69ee4860d4e516419d871b6b3b207",
+        "daiichilife-hr-20260924": "1e98e1d06a6656056652dc03334c624398f2c266f1b39b3c83499cf0683de3b7",
+        "daiki-app-20260915": "c6b2d634d0ceb02bbe009b8d07a45c184eb3bdb16d2c7b4c5531eba813fae0d2",
+        "daiwa-sc-inquiry-20261002": "10b219d3cf389f148ce418689f2102227f042973c3c2d241e6588fb6ab8a98ae",
+        "denmark-cpr-202609": "09530cda566c311efec57744d4aac7f0b639d60adec60ba71becf9f6e77af99a",
+        "digital-gss-20260625": "cc80960f66e57c16c31434b188bc63b70a51ddc777c374564f6462a08863a5f0",
+        "dotmoney-2026": "c7af7398ec07c643e78a40077d281d63aa937bb31a8d699183657191fc17be88",
+        "dtu-dtubasen-20261002": "726e62cc3cfa7b584e780c786e0d6df3b223a71b81a665df96754943bf8806c6",
+        "ec-europa-20260319": "3814ad41120ae20c97a2fef8b6ae8a6a420c332b912bce3f73ecf1fd9a11a0a3",
+        "epark-peakmanager-20260727": "8364fc3f64783fe1461ddc50cff369c154f2b36a8c0e157e7289b912ff476c2a",
+        "eplus-refund-20260911": "587271ff57268b54810daba4f046b894c03a52a9a01d1964cb0b77d1fc90a4e0",
+        "equifax-20170513": "95b76d0b5dab3fe9d2578f5d68bd04e98c2d95e47424bed2400ffbe77e9a8f8c",
+        "espec-2026": "4745adfb5b223f45c43c1659bc4ff954a24e9167a7f58140a4245a468183d16a",
+        "estore-shops-20260521": "29cb684649a93f3ca2182aaa64f2f35e4391cbac06035ccc3c909654236f850e",
+        "evergreen-mail-20260626": "cddbc0247b50925cc204b08e8563ad3eda59663219ec8cbfa47913ab21c69148",
+        "fines-reservation-20260922": "a06cf490adcf9315e09d023a9c139c9d1394b1e007a4a0e859b3abb29481a26e",
+        "frontline-education-202608": "95fa7f7fec7c445194020134cf3fca8389272c32523a2c0242176f8f5f4faffb",
+        "gmo-infoq-20261002": "f70ab913a112b709c89954d2afd762bddff28de999a4bc19f1cdb3da1c015202",
+        "gmo-trustlogin-storage-20260914": "2adc230ca2e280b49e89cf76b0f9e41a74d1b72ba2247eac22aa0f05ec8b22c6",
+        "gyazo-20260911": "5cfea9221bbe5d1a4c8a843dc35940bd4efc77229f33fbaf2dc725e15a21914c",
+        "haicheese-photo-2026": "48d970231e574d0dd68b64859ed4996aa8f4a44a3e518aaf17003b85f72048a8",
+        "his-thailand-files-20251211": "39bc712b0110e2c0c3835834fda56b62fa724b3cc1e749a240f62479d6b6a0a9",
+        "icc-2026": "46efd179efcaa10ceca01aa9b87e511375c341ca055eb4a98c61bdff02fa1f53",
+        "idcf-cloud-east1-20261007": "c0c22a43ca6c1d51a5e3f98f76cd25a32f728ec899610466280643669b48de6d",
+        "ieej-m365-20260729": "fa99e2b810a20bc27c306797d14b3da0f8d8c266ee8d2d200fccbc03140f552e",
+        "ielove-2026": "59e7a5fcf1890717adab0af4da194f253baf584af11b667d3124908d14f5be65",
+        "ifapme-database-202602": "b65ac624b8f7d89be31e93117213e156d9481d444578d9d6d85beeae5bebf641",
+        "ikegami-server-20260921": "8585288c82eaf9e0b5aaaad96150552533d6bc28fd69331a296ef0bcc46b3e68",
+        "instructure-canvas-20260429": "5afa315e5c9670c3052b093c24191bb23fa89eb761c4f4a96f9b0c9592a112c2",
+        "iplug-offerbox-config-20261005": "075c84a4bf353d76090be0ae124b10ae61d1508676520cfd0daefaa167dcc511",
+        "irhythm-business-apps-20260603": "21fc5bf745401fc411ad2bd6008d3099447f812b46fec8ac04a5954c6e2e371c",
+        "iseto-20240526": "1604ddff4378964581d0c613779dc051dfd091936a4bb1cc6cf4edf6a676b79c",
+        "jaea-jrr3-support-20260925": "52646b7cf5dacd14822e31a3de95731202c392f24ebeabdf0caedabf6efb85af",
+        "japan-shogi-web-202605": "a67b2ad1cb40f5964c04a9b38bd9a4423c4b53bc914104751d3390e5ee5be8eb",
+        "japanpost-app-20260925": "04a0467b654f04b5668d7c04f8b575611716765a87def492e04002c0857023c8",
+        "japantimes-group-server-20261002": "9cd0f89c53f04fcce8133ba0c446e81fcc27f3fef18002f381890d11d3b4a5bc",
+        "jmty-dev-environment-2026-update": "994423908854e7d9bc9e4e414462e518a6250e115b2bd9cd993a20c46e683f9f",
+        "jogmec-20260909": "079987d631aaa6075f8a43436fcf8411ac802652450f33c4e6b49157daf3cec3",
+        "jr-kyushu-group-2026": "4bf949feb220aee35d486cd5f6c0188275a05868b6c5c0f6ed7001b5b292498e",
+        "jst-mail-20260728": "cdcfdc5a71ccce93464ac9bbd7a819086e3dd9ccc6eaa079e76446b7424abc0b",
+        "just-curtain-2026-update": "89f0383270d93a06705493e7854c8908a7d0e8f6e64545ef8c9ad48552cd6a99",
+        "kadokawa-20240608": "7e5ad95e88c4996a2533943cc5350d3f59e22bf6b6d9220f7d787f7525a24e03",
+        "kawasaki-kbic-web-20260720": "76d23f033f5a5078a0889a80c025d0adfc94f8581b6302dda69f4a3216042ad6",
+        "kddi-isp-2026": "057c008f3285af4e90837f04ca79a08b60d0355162bc624326716134c47c6f53",
+        "keio-ransomware-20260926": "13e10aee1904514e97def4a8408fa35320953a60eab3c6c3c38d4ab2cdeb33cb",
+        "kitakyu-2026": "b64adccb10cb700d6454d71d288577742532ad7e8c5f1c3a03fe1407239f4b9d",
+        "kufu-machitalk-20261002": "0d503bc9e1caf9cbb933d7cd27cee69e09b2f0506b178b57c2cc1909705c0d46",
+        "kufu-zaim-write-20260918": "ca2b01b239346e46a60c2dd982c08a7323f9854a35c2a5b5a2abf6bf1dfbbbc8",
+        "kuins-eportfolio-20260930": "ea2ba18fb8a9dc5e7d1c39f719588feab4c1732c3db70a2745949d5b900836df",
+        "lashinbang-20260914": "1025cd57c78faf179128f22ae815ef7b54222d8b780b5f203e6109a8eb10b2d3",
+        "lawson-2026-mail": "f37705791d7a9bc7040119e3f24e0ff8dac77137a14b6274a120d8f877a868ee",
+        "line-games-ad-20220525": "1567b92a31485e0b9d50c3f41cde8346299ee69878d98503e1650d6dfed8dfdd",
+        "logicvein-vpn-20251208-update": "0e9861717c0ede0efadf52b2435bdad7a850883d52e095f329cfee0c9ea36fd3",
+        "lycorp-20230914": "09d1ad9f63ba870a1616e164edef3f9c19091827e5668c73be18c21fe17e1227",
+        "manage-my-health-202512": "744d4fa236324ce62fb2fe1661ddc693f6ea9ca7732b8cfe149e348837159d3f",
+        "mazda-warehouse-2026": "06d9ca5d8d084bb80d6d41ad3466e35bea4c59b500b610f88f19d3f8ddbb9adc",
+        "media4u-sms-20260624": "2b4a9f6b981516711c61ae6b4469f30c7922ccdf4c6c32f80ff63495bc7c9b30",
+        "mercor-litellm-202603": "c8ca789b983a3bd3087df6c7637546860e044118afd838b4f7639eebc1e0310d",
+        "moneyforward-2026": "33cbcbaccbb94cc411955fd3704627f0de88ba38802f4790e204757c7711ede5",
+        "monogatari-king-app-20261002": "c9c3108e37c9847a29891e18d6a5f2cbcf53eac1050384410ae23746475d4f46",
+        "mrmax-app-store-20261003": "fbb37747173b6537f7f3375a33639c022aef61fc4ba976e9e5bf99bf3d1817f1",
+        "murata-it-20260228": "c02d8a8a68ec1215588f128f5e15dbba4e285059545726505fa3bfce9b54217b",
+        "murauchi-web-20260715": "cdb19b93ec3d5a24f51080962f31cfc0be62283a7997da076e1b2825506e98d9",
+        "mynavi-cloud-2026": "0d11dc39a8e547b90603ec8b4909efcac0430e9b498d3d7f612657fb49976354",
+        "nichirei-20260713": "c8adf5c623f94672e2410b59b17c038bd7f01ad173aa7dc6c8eb8a428d443a60",
+        "nihonkotsu-malware-20260711": "371e5a09123b6ec32affba6c56abaf06df8a2a120264cfc63855a26ae5010aa3",
+        "nikkei-m365-20260930": "546ac944f7ce4be0178ef76ee990583bfaba33d484099dff8a5932f363b1bb36",
+        "nikkei-workspace-202607": "b6c26afe580735b6315ba7485032a25da7c67dbedebc16360c6414d9899b3b4a",
+        "nikkeibp-mail-phishing-20260930": "529f126c8f9f67929f6b820d8092fef582047ff1ddbe836f96f2114eb1884219",
+        "nimoca-history-web-20261004": "39b23bddf4882f57b90aead708e5363315844d92df1eb6323806123b43e51693",
+        "nipponrentacar-app-202609": "b110a2dfb4de5d583633e60f17bfb2382cdbf81608d04af2ee4bcd0c4e894cd9",
+        "nippontele-ransomware-20260309": "a9edbb7babccad0abdaed16584db86f54dfa0289c39624750784a6beb7b5be91",
+        "nms-musashikosugi-2026": "52a060013b23833dcd9fb0f8f8bac9b364a0ffd3edcc0f424cf37176d5f90d13",
+        "ns-biojapan-2026": "fac5d87184cc520290dcf87fe1d99c132be2733476d1e6304c6ffae2f05cd63a",
+        "ntt-west-insider-20231017": "00e8fe96ab1f93f613d14a39d3cc9ccc357f2cf51ca83e6c3975261b7398615e",
+        "nyk-2026": "06a21effc496a3be7ada96d7b08fb02fb9ccd65419efb5a8be96df568c329ddb",
+        "omu-ransomware-20261002": "a3c51a6b24064a0e30456e6e397d437ef6039845ab5e88fc51a3c1c5fe02b30c",
+        "osaka-redaction-20260608": "d02decc00a8edd938ebf3229b1ac9e9668b4c969642db13461d8b64d3b95fbc8",
+        "ozmall-20260926": "ce00c46bd69400064edec6258d9c59c6abe632c55e60f9c1d3b86f306bfd2fb6",
+        "rakuten-drive-storage-20260129": "8ae32f2f5a1811466e9f1411b384e3c66d36169db75a8e5dfbd6cdc6bc24be9b",
+        "relycomply-20260908": "981c4411cd7e77a861436ceaa824ec88624d990f7a6b6d61a8c2160ae63d18dd",
+        "rext-ransomware-20260809": "ac7dea267b9040122bb038d38b11b80eca4b58fa7ed591083ef7da3b701f9730",
+        "saga-nas-20260924": "8294f062197e99320ddc4a0c3fd02cbfb521131872279375fa7f6b5040b3a3f5",
+        "sagawa-tracking-20260930": "448f3f10c1fdb7bbbae9a674f08c98b073495c39f7e36cd8ee49cb32ad53644c",
+        "saitama-shibusawa-mix-20261006": "edc0c30757b9585959f3ebc0a77feceaf09b32a5ed92599571e840cd68d368db",
+        "sakura-systems-20260809": "8f9baf1572b86f2bfefa7d75aedd2fa659298187a7623f99661147631718554f",
+        "saltydog-googleads-mcc-20261005": "8fc5ef363cc7813b10bd3849dd85a098cd71bbc3de7e56147b3da33b013d0d79",
+        "sammy-777conpass-20260925": "0ddd7ed0a519b461063980550af8d3fb28036656fb558427e540a93ec903501e",
+        "seicomart-app-20260924": "f14bf9d749a2fc8634f8951945d5a47893a8ea10e6d51b23fca2f812dbe8c30e",
+        "shueisha-hpc-20260909": "f90c6e88cfabe4ff0fe0609a104a01b1fff540bb2112e06ed2d373496ae0e978",
+        "sodick-2026": "4bc4212814b1a3658aba8ff5c65dec182463c72027b209b2256eab615f63b28f",
+        "stryker-20260311": "5d10f30fbd12193c4a1c0d96dc51c40c5a4e32965b82d66f7812f26c5ae8eeb3",
+        "studysapuri-20260930": "6c257d9dc0b16b352fdeb16d5c5d2bd098875f582461b35855ecfdbca24d19aa",
+        "temairazu-202609": "2699d45ecff6f84c7827025957fabf2a2a38993afea373bf57809373b3208f23",
+        "thinca-web-20260824": "13e60be593b76aac4fad05987f4b1f0b1241a894fea87bfadc116cd754ac0422",
+        "timescar-20260925": "49b3ce060402c1c7f10049c5b7c8d3c216af695ef2e0d801764e258f97d7befa",
+        "toda-payment-employee-20261001": "7b4e7cd110fd480dc1d3c1b7a7ea87d141b47251e638af0f24d77012706e506f",
+        "tohoku-university-2026": "73f66a849f10184a80554f921118119140001b660af722950402e788362250c8",
+        "tokai-oneoffice-2026-update": "1110bc60debcdf0d376e568f738d88cfa008555baf65ae841046139423163fa1",
+        "tokyo-tda-2026": "c454893705e7021a3acd1988deecce34aacf74941e2b871cd53eae2306d30f0b",
+        "tokyometro-metpo-20260927": "3357e33d2a1dd4058628afdee367d6f12b38c07375ade919952c031ba8c70071",
+        "toppan-misdelivery-20260901": "37cfb2080797348fb34a390292e115ab2b292be07930bc34363038088c8685f9",
+        "toyobo-mail-20260924": "96f77099191bfdb586a57b0f3920274b0ee09915f84d94037877e8f895a8a718",
+        "trizetto-provider-202411": "f193fd781374e9af909ff60526fcf94fb74c556758c7d89b9e8de76425a993e6",
+        "upsider-2026": "cfb9c6481c4b13b592a581f379351111343525a8fdf7ebae5d7491f2500a0cbd",
+        "visualarts-2026": "469d0c4db409d206a90b6e2b9030cd86fbc579b27a41b2bd4e687387a77060e4",
+        "voising-bi-20260810": "9f123bcffb197958aa2957a3dc7ac3b0be4d5b9d26dfe8af791ce1dcf2ec7486",
+        "whiteessence-reservation-20260805": "7e4305ed1095ddbd3b4e023d3f4ffde7dceca44b08df74fe79b2d689e9941e50",
+        "yamato-paylater-20260928": "e23ee526abc0209d19a1401134d029f0d83a64e08edebebc5305597e3e67dbb9",
+        "ycc-2026": "1b505f87536962594cefeba1e83ccc9845780a02f22066fb52898e7660150303",
+        "zojirushi-taiwan-2026": "8d675e26cdd2a54ee31b8dea02b982443697d27a82ac341f51ac7292413b1f83",
+        "zynas-joyfull-2026": "2a4228bf3e60057c5faf59083534cfc72345490c9ae777d66b3aa938ec99a018"
+      },
+      "journal": [
+        {
+          "signature": "642f476a79873f04e220ddb40898c80824e8fc7a4ebc952d1c839f5652db82f4",
+          "summary": "公式資料に基づく代表12件を初掲載。10/1の佐川急便・日本原子力研究開発機構の公表を含め、原因・被害・対応・未判明事項を整理。",
+          "ids": [
+            "digital-gss-20260625",
+            "gyazo-20260911",
+            "jaea-jrr3-support-20260925",
+            "japanpost-app-20260925",
+            "keio-ransomware-20260926",
+            "relycomply-20260908",
+            "saga-nas-20260924",
+            "sagawa-tracking-20260930",
+            "shueisha-hpc-20260909",
+            "timescar-20260925",
+            "toppan-misdelivery-20260901",
+            "toyobo-mail-20260924"
+          ],
+          "date": "2026-10-02"
+        },
+        {
+          "signature": "d01bae3acdaa0c80d9d926970bb3de8ac0404d45de9902a171481f4f1a35d08c",
+          "summary": "対象を2026年1月1日〜10月2日の公表・続報へ拡充し、過去の比較例を追加。計63件。ローソンを含め原因・影響・日付・出典を整理し、検索と年/月フィルターを追加。初版12件を保持。",
+          "ids": [
+            "2rinkan-2026",
+            "aflac-japan-2026",
+            "alpsalpine-2026",
+            "asahi-20250929",
+            "askul-20251019",
+            "athome-moving-2026",
+            "cac-academic-support-navi-2026",
+            "campfire-2026",
+            "canvass-ransomware-2026",
+            "cec-datacenter-20260805",
+            "chuden-credentials-20260729",
+            "coastline-sumareji-app-2026",
+            "cynd-beautymerit-2026",
+            "dotmoney-2026",
+            "espec-2026",
+            "estore-shops-20260521",
+            "haicheese-photo-2026",
+            "icc-2026",
+            "ielove-2026",
+            "iseto-20240526",
+            "jmty-dev-environment-2026-update",
+            "jr-kyushu-group-2026",
+            "jst-mail-20260728",
+            "just-curtain-2026-update",
+            "kadokawa-20240608",
+            "kddi-isp-2026",
+            "kitakyu-2026",
+            "lawson-2026-mail",
+            "line-games-ad-20220525",
+            "lycorp-20230914",
+            "mazda-warehouse-2026",
+            "media4u-sms-20260624",
+            "moneyforward-2026",
+            "mynavi-cloud-2026",
+            "nms-musashikosugi-2026",
+            "ns-biojapan-2026",
+            "ntt-west-insider-20231017",
+            "nyk-2026",
+            "rext-ransomware-20260809",
+            "sakura-systems-20260809",
+            "sodick-2026",
+            "thinca-web-20260824",
+            "tohoku-university-2026",
+            "tokai-oneoffice-2026-update",
+            "tokyo-tda-2026",
+            "upsider-2026",
+            "visualarts-2026",
+            "yamato-paylater-20260928",
+            "ycc-2026",
+            "zojirushi-taiwan-2026",
+            "zynas-joyfull-2026"
+          ],
+          "date": "2026-10-02"
+        },
+        {
+          "signature": "ffef09d68d17e12e20ca3a56f6e2edb8836b95579bdf6d50fdf354341316f4cd",
+          "summary": "10月2日の公式発表・続報から未掲載5件を追加。ヤマト運輸の第2報で漏えい可能性のあるデータ項目を更新。タイムズカー、アフラック、デジタル庁GSS、PFUの既公表資料から復旧・対応・原因や対象範囲を補足。過去資料の補足を10月の新規発生とは扱わない。",
+          "ids": [
+            "aflac-japan-2026",
+            "daiichilife-hr-20260924",
+            "digital-gss-20260625",
+            "estore-shops-20260521",
+            "ieej-m365-20260729",
+            "japantimes-group-server-20261002",
+            "jogmec-20260909",
+            "sammy-777conpass-20260925",
+            "timescar-20260925",
+            "yamato-paylater-20260928"
+          ],
+          "date": "2026-10-03"
+        },
+        {
+          "signature": "ed8622616c9f2c9c8fb0a6281db49d492596fa685b98069490b40bf9bdb5121e",
+          "summary": "未掲載7件を追加（らしんばん、オズモール、日本将棋連盟、Mercor、Stryker、過去比較のEquifaxとChange Healthcare）。オズモールは第2報の人数訂正を反映。漏えい可能性・業務障害・改ざん・情報影響を区別。ジャストカーテンの初回公表日を一次資料未確認と訂正し、旧版の報道補助は履歴用に保持して事実認定から除外。既存68件を保持。追加日は発生日を意味しない。",
+          "ids": [
+            "change-healthcare-20240212",
+            "equifax-20170513",
+            "japan-shogi-web-202605",
+            "just-curtain-2026-update",
+            "lashinbang-20260914",
+            "mercor-litellm-202603",
+            "ozmall-20260926",
+            "stryker-20260311"
+          ],
+          "date": "2026-10-04"
+        },
+        {
+          "signature": "cbffb99bc0ec2f563a127846abab7184560377c029c2a090b95430dc7e0b74ad",
+          "summary": "未掲載の国内14件を一次資料で追加（日本経済新聞社の別2事象、ApplyNow、ニッポンレンタカー、セイコーマート、VOISING、イープラス、東京メトロ、ファインズ、EPARKリラク＆エステ、ニチレイ、ムラウチドットコム、日本テレネット、村田製作所）。10月4日公表の日経2事象と、3〜9月の初報と原因・人数精査・対象項目訂正・復旧等の続報を併記。ApplyNowは利用企業の同一攻撃を統合し、ニッポンレンタカーの2事象は重複人数不明のため合算せず。外部転送確認・第三者閲覧・漏えいのおそれを分離。既存75件と履歴を保持。今回の追加日を発生日とは扱わない。",
+          "ids": [
+            "applynow-analysis-20260809",
+            "epark-peakmanager-20260727",
+            "eplus-refund-20260911",
+            "fines-reservation-20260922",
+            "murata-it-20260228",
+            "murauchi-web-20260715",
+            "nichirei-20260713",
+            "nikkei-m365-20260930",
+            "nikkei-workspace-202607",
+            "nipponrentacar-app-202609",
+            "nippontele-ransomware-20260309",
+            "seicomart-app-20260924",
+            "tokyometro-metpo-20260927",
+            "voising-bi-20260810"
+          ],
+          "date": "2026-10-05"
+        },
+        {
+          "signature": "5c6fd6eb7f7c0689bb32ce5e4cda76531f031e3137e05cec8f911cfc552b6805",
+          "summary": "未掲載15件を一次資料で追加（焼肉きんぐ、infoQ、大和証券の委託先、アバハウス、大起水産、ホワイトエッセンス、くふう まちトーク、スタディサプリ、手間いらず、くふう Zaim、海外5件）。セイコーマート第四報の574,647人と通知・機能終了を更新。確定した持ち出し、第三者閲覧、漏えいのおそれ、登録有無の特定、改ざんを分離。海外の原因・修正人数・調査完了や当局命令を、初期公表と続報の日付を分けて補足。既存89件と全出典・履歴を保持。追加日を発生日や新たな被害確認日とは扱わない。",
+          "ids": [
+            "abahouse-member-order-20260927",
+            "betterment-20260109",
+            "daiki-app-20260915",
+            "daiwa-sc-inquiry-20261002",
+            "ec-europa-20260319",
+            "gmo-infoq-20261002",
+            "instructure-canvas-20260429",
+            "kufu-machitalk-20261002",
+            "kufu-zaim-write-20260918",
+            "manage-my-health-202512",
+            "monogatari-king-app-20261002",
+            "seicomart-app-20260924",
+            "studysapuri-20260930",
+            "temairazu-202609",
+            "trizetto-provider-202411",
+            "whiteessence-reservation-20260805"
+          ],
+          "date": "2026-10-06"
+        },
+        {
+          "signature": "0c724156b1f8b1b78ffcd836d2375fe707dc124afe56bc60c9facc5d2440b506",
+          "summary": "既存104件を外部攻撃・内部不正・操作/設定ミスや管理不備・不明/調査中で分類。複合要因は両方を表示し、当事者の推定や当局の指摘はその立場を明記。種類別の件数・絞り込み・カードと一覧の分類欄を追加。既存の原因の確度、被害の確度、全193出典と更新履歴を保持。事案の追加や新たな被害確認ではない。",
+          "ids": [
+            "2rinkan-2026",
+            "abahouse-member-order-20260927",
+            "aflac-japan-2026",
+            "alpsalpine-2026",
+            "applynow-analysis-20260809",
+            "asahi-20250929",
+            "askul-20251019",
+            "athome-moving-2026",
+            "betterment-20260109",
+            "cac-academic-support-navi-2026",
+            "campfire-2026",
+            "canvass-ransomware-2026",
+            "cec-datacenter-20260805",
+            "change-healthcare-20240212",
+            "chuden-credentials-20260729",
+            "coastline-sumareji-app-2026",
+            "cynd-beautymerit-2026",
+            "daiichilife-hr-20260924",
+            "daiki-app-20260915",
+            "daiwa-sc-inquiry-20261002",
+            "digital-gss-20260625",
+            "dotmoney-2026",
+            "ec-europa-20260319",
+            "epark-peakmanager-20260727",
+            "eplus-refund-20260911",
+            "equifax-20170513",
+            "espec-2026",
+            "estore-shops-20260521",
+            "fines-reservation-20260922",
+            "gmo-infoq-20261002",
+            "gyazo-20260911",
+            "haicheese-photo-2026",
+            "icc-2026",
+            "ieej-m365-20260729",
+            "ielove-2026",
+            "instructure-canvas-20260429",
+            "iseto-20240526",
+            "jaea-jrr3-support-20260925",
+            "japan-shogi-web-202605",
+            "japanpost-app-20260925",
+            "japantimes-group-server-20261002",
+            "jmty-dev-environment-2026-update",
+            "jogmec-20260909",
+            "jr-kyushu-group-2026",
+            "jst-mail-20260728",
+            "just-curtain-2026-update",
+            "kadokawa-20240608",
+            "kddi-isp-2026",
+            "keio-ransomware-20260926",
+            "kitakyu-2026",
+            "kufu-machitalk-20261002",
+            "kufu-zaim-write-20260918",
+            "lashinbang-20260914",
+            "lawson-2026-mail",
+            "line-games-ad-20220525",
+            "lycorp-20230914",
+            "manage-my-health-202512",
+            "mazda-warehouse-2026",
+            "media4u-sms-20260624",
+            "mercor-litellm-202603",
+            "moneyforward-2026",
+            "monogatari-king-app-20261002",
+            "murata-it-20260228",
+            "murauchi-web-20260715",
+            "mynavi-cloud-2026",
+            "nichirei-20260713",
+            "nikkei-m365-20260930",
+            "nikkei-workspace-202607",
+            "nipponrentacar-app-202609",
+            "nippontele-ransomware-20260309",
+            "nms-musashikosugi-2026",
+            "ns-biojapan-2026",
+            "ntt-west-insider-20231017",
+            "nyk-2026",
+            "ozmall-20260926",
+            "relycomply-20260908",
+            "rext-ransomware-20260809",
+            "saga-nas-20260924",
+            "sagawa-tracking-20260930",
+            "sakura-systems-20260809",
+            "sammy-777conpass-20260925",
+            "seicomart-app-20260924",
+            "shueisha-hpc-20260909",
+            "sodick-2026",
+            "stryker-20260311",
+            "studysapuri-20260930",
+            "temairazu-202609",
+            "thinca-web-20260824",
+            "timescar-20260925",
+            "tohoku-university-2026",
+            "tokai-oneoffice-2026-update",
+            "tokyo-tda-2026",
+            "tokyometro-metpo-20260927",
+            "toppan-misdelivery-20260901",
+            "toyobo-mail-20260924",
+            "trizetto-provider-202411",
+            "upsider-2026",
+            "visualarts-2026",
+            "voising-bi-20260810",
+            "whiteessence-reservation-20260805",
+            "yamato-paylater-20260928",
+            "ycc-2026",
+            "zojirushi-taiwan-2026",
+            "zynas-joyfull-2026"
+          ],
+          "date": "2026-10-06"
+        },
+        {
+          "signature": "88326dda10a1de76d8dd82cd26c47066e371930b4859b588e7c2b7f684d9a289",
+          "summary": "未掲載5件を一次資料で追加（Pharma DIGITAL、関西国際大学、大阪府の誤開示、デンマークCPR、DTU）。スカラi-askの10月6日続報で最大5社・713,126問い合わせレコードへ影響可能性が拡大したことを反映し、大和証券・シチズンを同一委託先事案へ統合。取得確認、閲覧・取得の可能性、潜在的な対象母数、復旧目標を分離。既存104件・全出典・履歴を保持。追加日を発生日とは扱わない。計109件。",
+          "ids": [
+            "asahi-kasei-pharma-digital-20261002",
+            "daiwa-sc-inquiry-20261002",
+            "denmark-cpr-202609",
+            "dtu-dtubasen-20261002",
+            "kuins-eportfolio-20260930",
+            "osaka-redaction-20260608"
+          ],
+          "date": "2026-10-07"
+        },
+        {
+          "signature": "e232bb4adf62a8e3ec07cc849c92aaf8570e5aa1b905b2757ba83a4487af16d5",
+          "summary": "未掲載6件を一次資料で追加（IDCフロンティア、戸田建設、MrMax、nimoca、ASOS、Frontline Education）。クラウド障害、不正通知、情報流出確認、最大可能性人数、学区の部分範囲を分離。10月7日の国内公表と、それ以前の未掲載公表を区別し、追加日を発生日としない。既存109件・全出典・全履歴を保持。計115件。",
+          "ids": [
+            "asos-notification-20261006",
+            "frontline-education-202608",
+            "idcf-cloud-east1-20261007",
+            "mrmax-app-store-20261003",
+            "nimoca-history-web-20261004",
+            "toda-payment-employee-20261001"
+          ],
+          "date": "2026-10-07"
+        },
+        {
+          "signature": "419237445a42e0611a9e99f9a551beafb031c5cba680a7a154867256d5c6494e",
+          "summary": "未掲載3件を一次資料で追加（楽天ドライブ、大阪公立大学、iRhythm）。楽天ドライブの保存データ15,382アカウントと別2区分の重複不明を明示。大阪公立大学のランサムウェア判断・障害と未確認の個人情報流出を分離し、iRhythmは6月の侵害と10月の調査・通知続報を区別。スカラi-askの同一事案に損保ジャパンの10月7日公表（延べ約6万件）を統合し、人数や総数へ加算しない。既存115件・全出典・全履歴を保持。計118件・参照221本。",
+          "ids": [
+            "daiwa-sc-inquiry-20261002",
+            "irhythm-business-apps-20260603",
+            "omu-ransomware-20261002",
+            "rakuten-drive-storage-20260129"
+          ],
+          "date": "2026-10-07"
+        },
+        {
+          "signature": "9a4d24ea3d976579f0dc6b81f06f51a41d44b5a253a8c861ea9a171a9fe381b4",
+          "summary": "未掲載3件を一次資料で追加（埼玉県の渋沢MIX、池上通信機、ロジックベイン）。渋沢MIXは一覧約2,200名と内数3名の詳細閲覧・登録改ざんを確認、窃取は未確認。池上通信機は暗号化と会社保有情報とみられる公開の確認を留保付きで整理。ロジックベインは2025年発生の2026年続報で、公開確認17,559名と約97,338名の確認・可能性範囲を分離し、VPN侵入と更新不備は条件付きの暫定説明として分類。10月7日の県発表と過去の未掲載続報、今回の追加日を区別。既存118件・全出典・全履歴を保持。計121件・参照229本。",
+          "ids": [
+            "ikegami-server-20260921",
+            "logicvein-vpn-20251208-update",
+            "saitama-shibusawa-mix-20261006"
+          ],
+          "date": "2026-10-07"
+        },
+        {
+          "signature": "f553ac471beee7daa90b806b70622cce9cc1639842ac2d50a98138ce81232694",
+          "summary": "IDCフロンティアの第2報でランサムウェアと495の企業・自治体への影響、東日本リージョン1の隔離・停止完了と他リージョンの管理コンソール停止を反映。情報漏えい・全面復旧は未確認。未掲載のIFAPMEを公式4月通知と10月続報で追加し、2月侵害・確認済みWeb公表日・データ持ち出し確認と範囲未確認を分離。ASOSへNCSCの全顧客への予防的注意喚起と無日付の会社FAQを追加し、全件漏えい確定や一般的なパスワード変更不要とは扱わない。既存121件・全出典・全履歴を保持。計122件・参照234本。",
+          "ids": [
+            "asos-notification-20261006",
+            "idcf-cloud-east1-20261007",
+            "ifapme-database-202602"
+          ],
+          "date": "2026-10-07"
+        },
+        {
+          "signature": "9319b78e3cfb0b7d2c0ca16b77ec87439b7724560f8b127758676826297d6352",
+          "summary": "GMOトラスト・ログインを9月初報と10月7日の改修完了続報に基づき追加。公開ストレージの設定・設計不備による第三者取得であり外部攻撃ではないとする当事者説明、暫定2,007社・37,747人、認証・決済情報の対象外、2017年以降の取得記録と開始日時未確認を分離。スカラi-askには東武鉄道の10月7日説明を追加し、東武関連の閲覧・取得形跡未確認を漏えい確定や永久的不存在とせず人数・事件数へ加算しない。既存122件・全出典・全履歴を保持。計123件・参照236本。",
+          "ids": [
+            "daiwa-sc-inquiry-20261002",
+            "gmo-trustlogin-storage-20260914"
+          ],
+          "date": "2026-10-07"
+        },
+        {
+          "signature": "466fc14a050a6158e0c9de691363950dab7c733ea6b71f352441c123100ef145",
+          "summary": "アドバンテストの2月侵害・10月6日付データ取得通知、HISタイ法人の2025年検知・10月7日公表と19:30の対象補足、日経BPの認証情報窃取による26件の漏えい恐れ、Arizona裁判所の9月25日初報と日付未記載FAQを追加。Advantestのランサムウェア初報の暫定性・州受付欄と検知日の相違、HISの最大627人の流出可能性、ArizonaのFARE約130万人と15万件超の報告書の単位・可読性未確認を区別。既存123件・全出典・履歴を保持。計127件・参照244本。",
+          "ids": [
+            "advantest-network-20260215",
+            "arizona-courts-backups-20260924",
+            "his-thailand-files-20251211",
+            "nikkeibp-mail-phishing-20260930"
+          ],
+          "date": "2026-10-07"
+        },
+        {
+          "signature": "2da65fabf2fd83d03fa9671a2ae65d6201d5829b5a5ac941eabd12e0d8b86a13",
+          "summary": "セレスのポイントインカム不正アクセスとソルティドッグのGoogle広告MCC侵害を追加。ポイントインカムの195件は閲覧の可能性で会員88件・従業員等107件を区別、10月7日21時の再開は予定として保持し実施完了としない。MCC配下全アカウントの対象範囲、連絡済み顧客の約半数の費用確認、変更除去済みとMCC復旧未完了、認証経路未特定を区別。既存127件・全出典・履歴を保持。一次資料確認時点は10月8日JST（15UTC巡回）。計129件・参照247本。",
+          "ids": [
+            "ceres-pointincome-20261005",
+            "saltydog-googleads-mcc-20261005"
+          ],
+          "date": "2026-10-08"
+        },
+        {
+          "signature": "78fd62bf2b894d50dfcf51914848278d301f9deb3cf85872bd640850db111179",
+          "summary": "OfferBoxの設定・リリース検証不備による最大314,009名の閲覧可能性、CINRA JOBの最終調査、エバーグリーン・マーケティングの対象追加、川崎市KBICの流出なし最終確認、日本交通の流出確認と一部再開予定を追加。閲覧可能性・実際の流出・流出なしを分離し、237件・763件を人数にしない。IDCFにはMovable Typeクラウド版31台と電話サービスへの波及・別IaaSのバックアップによる復旧準備を補足し、同じ基盤侵害の別件化や単位の加算をしない。再開予定・復旧準備を時刻経過だけで完了とせず、ポイントインカム等の既存情報も維持。既存129件・全出典・全履歴を保持。確認時点は10月8日JST（16UTC巡回）。計134件・参照262本。",
+          "ids": [
+            "cinra-job-cloud-20260818",
+            "evergreen-mail-20260626",
+            "idcf-cloud-east1-20261007",
+            "iplug-offerbox-config-20261005",
+            "kawasaki-kbic-web-20260720",
+            "nihonkotsu-malware-20260711"
+          ],
+          "date": "2026-10-08"
+        },
+        {
+          "signature": "10e9d7c24f9b0e3be4303896b8438cc42f68aa24b0cf84d710faec8275c78300",
+          "summary": "公開画面の最終照合で、複合要因フィルターの選択肢が12件と表示される既存の不整合を確認。登録データ・本文の13件に統一。事案・出典・分類の実体は変更せず、過去の履歴を保持。",
+          "ids": [],
+          "date": "2026-10-08"
+        }
+      ],
+      "items": [
+        {
+          "fingerprint": "d53ba9ed6e1a78838efc10253cffb0dab82a0bc19411510d050a45b7c4217085",
+          "summary": "公式資料に基づく代表12件を初掲載。10/1の佐川急便・日本原子力研究開発機構の公表を含め、原因・被害・対応・未判明事項を整理。",
+          "journal": [
+            {
+              "signature": "642f476a79873f04e220ddb40898c80824e8fc7a4ebc952d1c839f5652db82f4",
+              "summary": "公式資料に基づく代表12件を初掲載。10/1の佐川急便・日本原子力研究開発機構の公表を含め、原因・被害・対応・未判明事項を整理。",
+              "ids": [
+                "digital-gss-20260625",
+                "gyazo-20260911",
+                "jaea-jrr3-support-20260925",
+                "japanpost-app-20260925",
+                "keio-ransomware-20260926",
+                "relycomply-20260908",
+                "saga-nas-20260924",
+                "sagawa-tracking-20260930",
+                "shueisha-hpc-20260909",
+                "timescar-20260925",
+                "toppan-misdelivery-20260901",
+                "toyobo-mail-20260924"
+              ],
+              "date": "2026-10-02"
+            }
+          ],
+          "published": "2026-10-02T06:08:44.000Z",
+          "precision": "second"
+        },
+        {
+          "fingerprint": "4a5bdb86fb05f1145ad452eee6fcbd1ad8fc45fcc5a8c40850cad15a692ab4a0",
+          "summary": "対象を2026年1月1日〜10月2日の公表・続報へ拡充し、過去の比較例を追加。計63件。ローソンを含め原因・影響・日付・出典を整理し、検索と年/月フィルターを追加。初版12件を保持。",
+          "journal": [
+            {
+              "signature": "654df51d86b35e7a6e1c67a27e52a93351c8596f9f3e5109da2d1e4a791b2348",
+              "summary": "対象を2026年1月1日〜10月2日の公表・続報へ拡充し、過去の比較例を追加。計63件。ローソンを含め原因・影響・日付・出典を整理し、検索と年/月フィルターを追加。初版12件を保持。",
+              "ids": [],
+              "date": "2026-10-02"
+            }
+          ],
+          "published": "2026-10-02T06:43:43.000Z",
+          "precision": "second"
+        },
+        {
+          "fingerprint": "ffd465c7e2cb3761306109e47655e0a7eff14ac678b75a2c50adcc41e8c68323",
+          "summary": "10月2日の公式発表・続報から未掲載5件を追加。ヤマト運輸の第2報で漏えい可能性のあるデータ項目を更新。タイムズカー、アフラック、デジタル庁GSS、PFUの既公表資料から復旧・対応・原因や対象範囲を補足。過去資料の補足を10月の新規発生とは扱わない。",
+          "journal": [
+            {
+              "signature": "ffef09d68d17e12e20ca3a56f6e2edb8836b95579bdf6d50fdf354341316f4cd",
+              "summary": "10月2日の公式発表・続報から未掲載5件を追加。ヤマト運輸の第2報で漏えい可能性のあるデータ項目を更新。タイムズカー、アフラック、デジタル庁GSS、PFUの既公表資料から復旧・対応・原因や対象範囲を補足。過去資料の補足を10月の新規発生とは扱わない。",
+              "ids": [
+                "aflac-japan-2026",
+                "daiichilife-hr-20260924",
+                "digital-gss-20260625",
+                "estore-shops-20260521",
+                "ieej-m365-20260729",
+                "japantimes-group-server-20261002",
+                "jogmec-20260909",
+                "sammy-777conpass-20260925",
+                "timescar-20260925",
+                "yamato-paylater-20260928"
+              ],
+              "date": "2026-10-03"
+            }
+          ],
+          "published": "2026-10-03T00:04:17.000Z",
+          "precision": "second"
+        },
+        {
+          "fingerprint": "d2c1939e70f24c4fe0aad34a43bbeabbe59939b2bb65d8b5e5c3b65bfcbeb3c0",
+          "summary": "未掲載7件を追加（らしんばん、オズモール、日本将棋連盟、Mercor、Stryker、過去比較のEquifaxとChange Healthcare）。オズモールは第2報の人数訂正を反映。漏えい可能性・業務障害・改ざん・情報影響を区別。ジャストカーテンの初回公表日を一次資料未確認と訂正し、旧版の報道補助は履歴用に保持して事実認定から除外。既存68件を保持。追加日は発生日を意味しない。",
+          "journal": [
+            {
+              "signature": "ed8622616c9f2c9c8fb0a6281db49d492596fa685b98069490b40bf9bdb5121e",
+              "summary": "未掲載7件を追加（らしんばん、オズモール、日本将棋連盟、Mercor、Stryker、過去比較のEquifaxとChange Healthcare）。オズモールは第2報の人数訂正を反映。漏えい可能性・業務障害・改ざん・情報影響を区別。ジャストカーテンの初回公表日を一次資料未確認と訂正し、旧版の報道補助は履歴用に保持して事実認定から除外。既存68件を保持。追加日は発生日を意味しない。",
+              "ids": [
+                "change-healthcare-20240212",
+                "equifax-20170513",
+                "japan-shogi-web-202605",
+                "just-curtain-2026-update",
+                "lashinbang-20260914",
+                "mercor-litellm-202603",
+                "ozmall-20260926",
+                "stryker-20260311"
+              ],
+              "date": "2026-10-04"
+            }
+          ],
+          "published": "2026-10-04T00:01:05.000Z",
+          "precision": "second"
+        },
+        {
+          "fingerprint": "9e9ac86fa3faba80ff4a42d1610aec0c1b64094c957adf0836d67ac6f6d3ab67",
+          "summary": "未掲載の国内14件を一次資料で追加（日本経済新聞社の別2事象、ApplyNow、ニッポンレンタカー、セイコーマート、VOISING、イープラス、東京メトロ、ファインズ、EPARKリラク＆エステ、ニチレイ、ムラウチドットコム、日本テレネット、村田製作所）。10月4日公表の日経2事象と、3〜9月の初報と原因・人数精査・対象項目訂正・復旧等の続報を併記。ApplyNowは利用企業の同一攻撃を統合し、ニッポンレンタカーの2事象は重複人数不明のため合算せず。外部転送確認・第三者閲覧・漏えいのおそれを分離。既存75件と履歴を保持。今回の追加日を発生日とは扱わない。",
+          "journal": [
+            {
+              "signature": "cbffb99bc0ec2f563a127846abab7184560377c029c2a090b95430dc7e0b74ad",
+              "summary": "未掲載の国内14件を一次資料で追加（日本経済新聞社の別2事象、ApplyNow、ニッポンレンタカー、セイコーマート、VOISING、イープラス、東京メトロ、ファインズ、EPARKリラク＆エステ、ニチレイ、ムラウチドットコム、日本テレネット、村田製作所）。10月4日公表の日経2事象と、3〜9月の初報と原因・人数精査・対象項目訂正・復旧等の続報を併記。ApplyNowは利用企業の同一攻撃を統合し、ニッポンレンタカーの2事象は重複人数不明のため合算せず。外部転送確認・第三者閲覧・漏えいのおそれを分離。既存75件と履歴を保持。今回の追加日を発生日とは扱わない。",
+              "ids": [
+                "applynow-analysis-20260809",
+                "epark-peakmanager-20260727",
+                "eplus-refund-20260911",
+                "fines-reservation-20260922",
+                "murata-it-20260228",
+                "murauchi-web-20260715",
+                "nichirei-20260713",
+                "nikkei-m365-20260930",
+                "nikkei-workspace-202607",
+                "nipponrentacar-app-202609",
+                "nippontele-ransomware-20260309",
+                "seicomart-app-20260924",
+                "tokyometro-metpo-20260927",
+                "voising-bi-20260810"
+              ],
+              "date": "2026-10-05"
+            }
+          ],
+          "published": "2026-10-04T23:38:42.000Z",
+          "precision": "second"
+        },
+        {
+          "fingerprint": "512546f6fb8c7818ec6b52a27fba896463ec52b5045f85d170b8b8f2270009ea",
+          "summary": "未掲載15件を一次資料で追加（焼肉きんぐ、infoQ、大和証券の委託先、アバハウス、大起水産、ホワイトエッセンス、くふう まちトーク、スタディサプリ、手間いらず、くふう Zaim、海外5件）。セイコーマート第四報の574,647人と通知・機能終了を更新。確定した持ち出し、第三者閲覧、漏えいのおそれ、登録有無の特定、改ざんを分離。海外の原因・修正人数・調査完了や当局命令を、初期公表と続報の日付を分けて補足。既存89件と全出典・履歴を保持。追加日を発生日や新たな被害確認日とは扱わない。",
+          "journal": [
+            {
+              "signature": "5c6fd6eb7f7c0689bb32ce5e4cda76531f031e3137e05cec8f911cfc552b6805",
+              "summary": "未掲載15件を一次資料で追加（焼肉きんぐ、infoQ、大和証券の委託先、アバハウス、大起水産、ホワイトエッセンス、くふう まちトーク、スタディサプリ、手間いらず、くふう Zaim、海外5件）。セイコーマート第四報の574,647人と通知・機能終了を更新。確定した持ち出し、第三者閲覧、漏えいのおそれ、登録有無の特定、改ざんを分離。海外の原因・修正人数・調査完了や当局命令を、初期公表と続報の日付を分けて補足。既存89件と全出典・履歴を保持。追加日を発生日や新たな被害確認日とは扱わない。",
+              "ids": [
+                "abahouse-member-order-20260927",
+                "betterment-20260109",
+                "daiki-app-20260915",
+                "daiwa-sc-inquiry-20261002",
+                "ec-europa-20260319",
+                "gmo-infoq-20261002",
+                "instructure-canvas-20260429",
+                "kufu-machitalk-20261002",
+                "kufu-zaim-write-20260918",
+                "manage-my-health-202512",
+                "monogatari-king-app-20261002",
+                "seicomart-app-20260924",
+                "studysapuri-20260930",
+                "temairazu-202609",
+                "trizetto-provider-202411",
+                "whiteessence-reservation-20260805"
+              ],
+              "date": "2026-10-06"
+            }
+          ],
+          "published": "2026-10-06T00:49:50.000Z",
+          "precision": "second"
+        },
+        {
+          "fingerprint": "1050f5fd6f8c6b685a1a85f8110265748fcaaf18b8d45a88b257595b8a6e9331",
+          "summary": "既存104件を外部攻撃・内部不正・操作/設定ミスや管理不備・不明/調査中で分類。複合要因は両方を表示し、当事者の推定や当局の指摘はその立場を明記。種類別の件数・絞り込み・カードと一覧の分類欄を追加。既存の原因の確度、被害の確度、全193出典と更新履歴を保持。事案の追加や新たな被害確認ではない。",
+          "journal": [
+            {
+              "signature": "0c724156b1f8b1b78ffcd836d2375fe707dc124afe56bc60c9facc5d2440b506",
+              "summary": "既存104件を外部攻撃・内部不正・操作/設定ミスや管理不備・不明/調査中で分類。複合要因は両方を表示し、当事者の推定や当局の指摘はその立場を明記。種類別の件数・絞り込み・カードと一覧の分類欄を追加。既存の原因の確度、被害の確度、全193出典と更新履歴を保持。事案の追加や新たな被害確認ではない。",
+              "ids": [
+                "2rinkan-2026",
+                "abahouse-member-order-20260927",
+                "aflac-japan-2026",
+                "alpsalpine-2026",
+                "applynow-analysis-20260809",
+                "asahi-20250929",
+                "askul-20251019",
+                "athome-moving-2026",
+                "betterment-20260109",
+                "cac-academic-support-navi-2026",
+                "campfire-2026",
+                "canvass-ransomware-2026",
+                "cec-datacenter-20260805",
+                "change-healthcare-20240212",
+                "chuden-credentials-20260729",
+                "coastline-sumareji-app-2026",
+                "cynd-beautymerit-2026",
+                "daiichilife-hr-20260924",
+                "daiki-app-20260915",
+                "daiwa-sc-inquiry-20261002",
+                "digital-gss-20260625",
+                "dotmoney-2026",
+                "ec-europa-20260319",
+                "epark-peakmanager-20260727",
+                "eplus-refund-20260911",
+                "equifax-20170513",
+                "espec-2026",
+                "estore-shops-20260521",
+                "fines-reservation-20260922",
+                "gmo-infoq-20261002",
+                "gyazo-20260911",
+                "haicheese-photo-2026",
+                "icc-2026",
+                "ieej-m365-20260729",
+                "ielove-2026",
+                "instructure-canvas-20260429",
+                "iseto-20240526",
+                "jaea-jrr3-support-20260925",
+                "japan-shogi-web-202605",
+                "japanpost-app-20260925",
+                "japantimes-group-server-20261002",
+                "jmty-dev-environment-2026-update",
+                "jogmec-20260909",
+                "jr-kyushu-group-2026",
+                "jst-mail-20260728",
+                "just-curtain-2026-update",
+                "kadokawa-20240608",
+                "kddi-isp-2026",
+                "keio-ransomware-20260926",
+                "kitakyu-2026",
+                "kufu-machitalk-20261002",
+                "kufu-zaim-write-20260918",
+                "lashinbang-20260914",
+                "lawson-2026-mail",
+                "line-games-ad-20220525",
+                "lycorp-20230914",
+                "manage-my-health-202512",
+                "mazda-warehouse-2026",
+                "media4u-sms-20260624",
+                "mercor-litellm-202603",
+                "moneyforward-2026",
+                "monogatari-king-app-20261002",
+                "murata-it-20260228",
+                "murauchi-web-20260715",
+                "mynavi-cloud-2026",
+                "nichirei-20260713",
+                "nikkei-m365-20260930",
+                "nikkei-workspace-202607",
+                "nipponrentacar-app-202609",
+                "nippontele-ransomware-20260309",
+                "nms-musashikosugi-2026",
+                "ns-biojapan-2026",
+                "ntt-west-insider-20231017",
+                "nyk-2026",
+                "ozmall-20260926",
+                "relycomply-20260908",
+                "rext-ransomware-20260809",
+                "saga-nas-20260924",
+                "sagawa-tracking-20260930",
+                "sakura-systems-20260809",
+                "sammy-777conpass-20260925",
+                "seicomart-app-20260924",
+                "shueisha-hpc-20260909",
+                "sodick-2026",
+                "stryker-20260311",
+                "studysapuri-20260930",
+                "temairazu-202609",
+                "thinca-web-20260824",
+                "timescar-20260925",
+                "tohoku-university-2026",
+                "tokai-oneoffice-2026-update",
+                "tokyo-tda-2026",
+                "tokyometro-metpo-20260927",
+                "toppan-misdelivery-20260901",
+                "toyobo-mail-20260924",
+                "trizetto-provider-202411",
+                "upsider-2026",
+                "visualarts-2026",
+                "voising-bi-20260810",
+                "whiteessence-reservation-20260805",
+                "yamato-paylater-20260928",
+                "ycc-2026",
+                "zojirushi-taiwan-2026",
+                "zynas-joyfull-2026"
+              ],
+              "date": "2026-10-06"
+            }
+          ],
+          "published": "2026-10-06T02:51:56.000Z",
+          "precision": "second"
+        },
+        {
+          "fingerprint": "79df58ae0720d8414d74a80e114a994dc2df30df1f0bbd02c8a4db183fc20497",
+          "summary": "未掲載5件を一次資料で追加（Pharma DIGITAL、関西国際大学、大阪府の誤開示、デンマークCPR、DTU）。スカラi-askの10月6日続報で最大5社・713,126問い合わせレコードへ影響可能性が拡大したことを反映し、大和証券・シチズンを同一委託先事案へ統合。取得確認、閲覧・取得の可能性、潜在的な対象母数、復旧目標を分離。既存104件・全出典・履歴を保持。追加日を発生日とは扱わない。計109件。",
+          "journal": [
+            {
+              "signature": "88326dda10a1de76d8dd82cd26c47066e371930b4859b588e7c2b7f684d9a289",
+              "summary": "未掲載5件を一次資料で追加（Pharma DIGITAL、関西国際大学、大阪府の誤開示、デンマークCPR、DTU）。スカラi-askの10月6日続報で最大5社・713,126問い合わせレコードへ影響可能性が拡大したことを反映し、大和証券・シチズンを同一委託先事案へ統合。取得確認、閲覧・取得の可能性、潜在的な対象母数、復旧目標を分離。既存104件・全出典・履歴を保持。追加日を発生日とは扱わない。計109件。",
+              "ids": [
+                "asahi-kasei-pharma-digital-20261002",
+                "daiwa-sc-inquiry-20261002",
+                "denmark-cpr-202609",
+                "dtu-dtubasen-20261002",
+                "kuins-eportfolio-20260930",
+                "osaka-redaction-20260608"
+              ],
+              "date": "2026-10-07"
+            }
+          ],
+          "published": "2026-10-07T00:42:59.000Z",
+          "precision": "second"
+        },
+        {
+          "fingerprint": "6321381daa965aeef3af2f622b92cf77b63971bc6e7d885c4d72f9d6e43b68bc",
+          "summary": "未掲載6件を一次資料で追加（IDCフロンティア、戸田建設、MrMax、nimoca、ASOS、Frontline Education）。クラウド障害、不正通知、情報流出確認、最大可能性人数、学区の部分範囲を分離。10月7日の国内公表と、それ以前の未掲載公表を区別し、追加日を発生日としない。既存109件・全出典・全履歴を保持。計115件。",
+          "journal": [
+            {
+              "signature": "e232bb4adf62a8e3ec07cc849c92aaf8570e5aa1b905b2757ba83a4487af16d5",
+              "summary": "未掲載6件を一次資料で追加（IDCフロンティア、戸田建設、MrMax、nimoca、ASOS、Frontline Education）。クラウド障害、不正通知、情報流出確認、最大可能性人数、学区の部分範囲を分離。10月7日の国内公表と、それ以前の未掲載公表を区別し、追加日を発生日としない。既存109件・全出典・全履歴を保持。計115件。",
+              "ids": [
+                "asos-notification-20261006",
+                "frontline-education-202608",
+                "idcf-cloud-east1-20261007",
+                "mrmax-app-store-20261003",
+                "nimoca-history-web-20261004",
+                "toda-payment-employee-20261001"
+              ],
+              "date": "2026-10-07"
+            }
+          ],
+          "published": "2026-10-07T09:12:06.000Z",
+          "precision": "second"
+        },
+        {
+          "fingerprint": "3473a1b9503e5a342ab830ce750d932402e2e2be35beb5039321a16acdc97dc5",
+          "summary": "未掲載3件を一次資料で追加（楽天ドライブ、大阪公立大学、iRhythm）。楽天ドライブの保存データ15,382アカウントと別2区分の重複不明を明示。大阪公立大学のランサムウェア判断・障害と未確認の個人情報流出を分離し、iRhythmは6月の侵害と10月の調査・通知続報を区別。スカラi-askの同一事案に損保ジャパンの10月7日公表（延べ約6万件）を統合し、人数や総数へ加算しない。既存115件・全出典・全履歴を保持。計118件・参照221本。",
+          "journal": [
+            {
+              "signature": "419237445a42e0611a9e99f9a551beafb031c5cba680a7a154867256d5c6494e",
+              "summary": "未掲載3件を一次資料で追加（楽天ドライブ、大阪公立大学、iRhythm）。楽天ドライブの保存データ15,382アカウントと別2区分の重複不明を明示。大阪公立大学のランサムウェア判断・障害と未確認の個人情報流出を分離し、iRhythmは6月の侵害と10月の調査・通知続報を区別。スカラi-askの同一事案に損保ジャパンの10月7日公表（延べ約6万件）を統合し、人数や総数へ加算しない。既存115件・全出典・全履歴を保持。計118件・参照221本。",
+              "ids": [
+                "daiwa-sc-inquiry-20261002",
+                "irhythm-business-apps-20260603",
+                "omu-ransomware-20261002",
+                "rakuten-drive-storage-20260129"
+              ],
+              "date": "2026-10-07"
+            }
+          ],
+          "published": "2026-10-07T10:41:37.000Z",
+          "precision": "second"
+        },
+        {
+          "fingerprint": "3d7ab9e5deee46945c1fd124a2077a6297029c60f5c35308b88a689e539565d1",
+          "summary": "未掲載3件を一次資料で追加（埼玉県の渋沢MIX、池上通信機、ロジックベイン）。渋沢MIXは一覧約2,200名と内数3名の詳細閲覧・登録改ざんを確認、窃取は未確認。池上通信機は暗号化と会社保有情報とみられる公開の確認を留保付きで整理。ロジックベインは2025年発生の2026年続報で、公開確認17,559名と約97,338名の確認・可能性範囲を分離し、VPN侵入と更新不備は条件付きの暫定説明として分類。10月7日の県発表と過去の未掲載続報、今回の追加日を区別。既存118件・全出典・全履歴を保持。計121件・参照229本。",
+          "journal": [
+            {
+              "signature": "9a4d24ea3d976579f0dc6b81f06f51a41d44b5a253a8c861ea9a171a9fe381b4",
+              "summary": "未掲載3件を一次資料で追加（埼玉県の渋沢MIX、池上通信機、ロジックベイン）。渋沢MIXは一覧約2,200名と内数3名の詳細閲覧・登録改ざんを確認、窃取は未確認。池上通信機は暗号化と会社保有情報とみられる公開の確認を留保付きで整理。ロジックベインは2025年発生の2026年続報で、公開確認17,559名と約97,338名の確認・可能性範囲を分離し、VPN侵入と更新不備は条件付きの暫定説明として分類。10月7日の県発表と過去の未掲載続報、今回の追加日を区別。既存118件・全出典・全履歴を保持。計121件・参照229本。",
+              "ids": [
+                "ikegami-server-20260921",
+                "logicvein-vpn-20251208-update",
+                "saitama-shibusawa-mix-20261006"
+              ],
+              "date": "2026-10-07"
+            }
+          ],
+          "published": "2026-10-07T11:05:16.000Z",
+          "precision": "second"
+        },
+        {
+          "fingerprint": "3966bff3b30dc7f8e554cd6d2d6b8f805dce36bad5fd903fca30f622f1279dbe",
+          "summary": "IDCフロンティアの第2報でランサムウェアと495の企業・自治体への影響、東日本リージョン1の隔離・停止完了と他リージョンの管理コンソール停止を反映。情報漏えい・全面復旧は未確認。未掲載のIFAPMEを公式4月通知と10月続報で追加し、2月侵害・確認済みWeb公表日・データ持ち出し確認と範囲未確認を分離。ASOSへNCSCの全顧客への予防的注意喚起と無日付の会社FAQを追加し、全件漏えい確定や一般的なパスワード変更不要とは扱わない。既存121件・全出典・全履歴を保持。計122件・参照234本。",
+          "journal": [
+            {
+              "signature": "f553ac471beee7daa90b806b70622cce9cc1639842ac2d50a98138ce81232694",
+              "summary": "IDCフロンティアの第2報でランサムウェアと495の企業・自治体への影響、東日本リージョン1の隔離・停止完了と他リージョンの管理コンソール停止を反映。情報漏えい・全面復旧は未確認。未掲載のIFAPMEを公式4月通知と10月続報で追加し、2月侵害・確認済みWeb公表日・データ持ち出し確認と範囲未確認を分離。ASOSへNCSCの全顧客への予防的注意喚起と無日付の会社FAQを追加し、全件漏えい確定や一般的なパスワード変更不要とは扱わない。既存121件・全出典・全履歴を保持。計122件・参照234本。",
+              "ids": [
+                "asos-notification-20261006",
+                "idcf-cloud-east1-20261007",
+                "ifapme-database-202602"
+              ],
+              "date": "2026-10-07"
+            }
+          ],
+          "published": "2026-10-07T12:09:59.000Z",
+          "precision": "second"
+        },
+        {
+          "fingerprint": "22938d7ed2c6692f58e16098bc2798a69a9f6533b8eb4cd6ea963ce0089cfb73",
+          "summary": "GMOトラスト・ログインを9月初報と10月7日の改修完了続報に基づき追加。公開ストレージの設定・設計不備による第三者取得であり外部攻撃ではないとする当事者説明、暫定2,007社・37,747人、認証・決済情報の対象外、2017年以降の取得記録と開始日時未確認を分離。スカラi-askには東武鉄道の10月7日説明を追加し、東武関連の閲覧・取得形跡未確認を漏えい確定や永久的不存在とせず人数・事件数へ加算しない。既存122件・全出典・全履歴を保持。計123件・参照236本。",
+          "journal": [
+            {
+              "signature": "9319b78e3cfb0b7d2c0ca16b77ec87439b7724560f8b127758676826297d6352",
+              "summary": "GMOトラスト・ログインを9月初報と10月7日の改修完了続報に基づき追加。公開ストレージの設定・設計不備による第三者取得であり外部攻撃ではないとする当事者説明、暫定2,007社・37,747人、認証・決済情報の対象外、2017年以降の取得記録と開始日時未確認を分離。スカラi-askには東武鉄道の10月7日説明を追加し、東武関連の閲覧・取得形跡未確認を漏えい確定や永久的不存在とせず人数・事件数へ加算しない。既存122件・全出典・全履歴を保持。計123件・参照236本。",
+              "ids": [
+                "daiwa-sc-inquiry-20261002",
+                "gmo-trustlogin-storage-20260914"
+              ],
+              "date": "2026-10-07"
+            }
+          ],
+          "published": "2026-10-07T13:08:50.000Z",
+          "precision": "second"
+        },
+        {
+          "fingerprint": "2c6e306551d982b8c656fb861e5265546e6c97d0178c2bb48d8125ed31455f37",
+          "summary": "アドバンテストの2月侵害・10月6日付データ取得通知、HISタイ法人の2025年検知・10月7日公表と19:30の対象補足、日経BPの認証情報窃取による26件の漏えい恐れ、Arizona裁判所の9月25日初報と日付未記載FAQを追加。Advantestのランサムウェア初報の暫定性・州受付欄と検知日の相違、HISの最大627人の流出可能性、ArizonaのFARE約130万人と15万件超の報告書の単位・可読性未確認を区別。既存123件・全出典・履歴を保持。計127件・参照244本。",
+          "journal": [
+            {
+              "signature": "466fc14a050a6158e0c9de691363950dab7c733ea6b71f352441c123100ef145",
+              "summary": "アドバンテストの2月侵害・10月6日付データ取得通知、HISタイ法人の2025年検知・10月7日公表と19:30の対象補足、日経BPの認証情報窃取による26件の漏えい恐れ、Arizona裁判所の9月25日初報と日付未記載FAQを追加。Advantestのランサムウェア初報の暫定性・州受付欄と検知日の相違、HISの最大627人の流出可能性、ArizonaのFARE約130万人と15万件超の報告書の単位・可読性未確認を区別。既存123件・全出典・履歴を保持。計127件・参照244本。",
+              "ids": [
+                "advantest-network-20260215",
+                "arizona-courts-backups-20260924",
+                "his-thailand-files-20251211",
+                "nikkeibp-mail-phishing-20260930"
+              ],
+              "date": "2026-10-07"
+            }
+          ],
+          "published": "2026-10-07T14:09:25.000Z",
+          "precision": "second"
+        },
+        {
+          "fingerprint": "29a222b00d39548c4773c789e7a2107070d6191c601b1b4efcce70e8e6fc438b",
+          "summary": "セレスのポイントインカム不正アクセスとソルティドッグのGoogle広告MCC侵害を追加。ポイントインカムの195件は閲覧の可能性で会員88件・従業員等107件を区別、10月7日21時の再開は予定として保持し実施完了としない。MCC配下全アカウントの対象範囲、連絡済み顧客の約半数の費用確認、変更除去済みとMCC復旧未完了、認証経路未特定を区別。既存127件・全出典・履歴を保持。一次資料確認時点は10月8日JST（15UTC巡回）。計129件・参照247本。",
+          "journal": [
+            {
+              "signature": "2da65fabf2fd83d03fa9671a2ae65d6201d5829b5a5ac941eabd12e0d8b86a13",
+              "summary": "セレスのポイントインカム不正アクセスとソルティドッグのGoogle広告MCC侵害を追加。ポイントインカムの195件は閲覧の可能性で会員88件・従業員等107件を区別、10月7日21時の再開は予定として保持し実施完了としない。MCC配下全アカウントの対象範囲、連絡済み顧客の約半数の費用確認、変更除去済みとMCC復旧未完了、認証経路未特定を区別。既存127件・全出典・履歴を保持。一次資料確認時点は10月8日JST（15UTC巡回）。計129件・参照247本。",
+              "ids": [
+                "ceres-pointincome-20261005",
+                "saltydog-googleads-mcc-20261005"
+              ],
+              "date": "2026-10-08"
+            }
+          ],
+          "published": "2026-10-07T15:16:56.000Z",
+          "precision": "second"
+        },
+        {
+          "fingerprint": "a06db020ffa918ce07d5e059be7b6f6eb3da7486f250ed930b666b7ec7a0343a",
+          "summary": "OfferBoxの設定・リリース検証不備による最大314,009名の閲覧可能性、CINRA JOBの最終調査、エバーグリーン・マーケティングの対象追加、川崎市KBICの流出なし最終確認、日本交通の流出確認と一部再開予定を追加。閲覧可能性・実際の流出・流出なしを分離し、237件・763件を人数にしない。IDCFにはMovable Typeクラウド版31台と電話サービスへの波及・別IaaSのバックアップによる復旧準備を補足し、同じ基盤侵害の別件化や単位の加算をしない。再開予定・復旧準備を時刻経過だけで完了とせず、ポイントインカム等の既存情報も維持。既存129件・全出典・全履歴を保持。確認時点は10月8日JST（16UTC巡回）。計134件・参照262本。",
+          "journal": [
+            {
+              "signature": "78fd62bf2b894d50dfcf51914848278d301f9deb3cf85872bd640850db111179",
+              "summary": "OfferBoxの設定・リリース検証不備による最大314,009名の閲覧可能性、CINRA JOBの最終調査、エバーグリーン・マーケティングの対象追加、川崎市KBICの流出なし最終確認、日本交通の流出確認と一部再開予定を追加。閲覧可能性・実際の流出・流出なしを分離し、237件・763件を人数にしない。IDCFにはMovable Typeクラウド版31台と電話サービスへの波及・別IaaSのバックアップによる復旧準備を補足し、同じ基盤侵害の別件化や単位の加算をしない。再開予定・復旧準備を時刻経過だけで完了とせず、ポイントインカム等の既存情報も維持。既存129件・全出典・全履歴を保持。確認時点は10月8日JST（16UTC巡回）。計134件・参照262本。",
+              "ids": [
+                "cinra-job-cloud-20260818",
+                "evergreen-mail-20260626",
+                "idcf-cloud-east1-20261007",
+                "iplug-offerbox-config-20261005",
+                "kawasaki-kbic-web-20260720",
+                "nihonkotsu-malware-20260711"
+              ],
+              "date": "2026-10-08"
+            }
+          ],
+          "published": "2026-10-07T16:12:36.000Z",
+          "precision": "second"
+        }
+      ],
+      "cursor": "e31cde42ae74dbda233699713738bcb916ee1452"
+    }
+  }
+}
