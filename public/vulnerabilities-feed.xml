@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/vulnerabilities-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Wed, 07 Oct 2026 15:23:16 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 07 Oct 2026 17:18:29 GMT</lastBuildDate>
+    <item>
+      <title>RSS初回配信訂正：脆弱性レポートの過去履歴</title>
+      <link>https://share.0g0.xyz/vulnerabilities</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/vulnerabilities-feed.xml#c4ab4bbc1b602924e6e8a809400bcf0261edb264b666ee78188525e3b87791d6</guid>
+      <category>RSS初回配信訂正</category>
+      <description>これはRSS配信表示の訂正で、新しい脆弱性や実悪用の確認ではありません。専用RSSの初回生成では、当時の過去25回のレポート更新を1項目にまとめ、掲載日時を誤ってマージ日時の2026-10-07 17:04:29 UTCとしていました。各更新を実際の掲載日時へ復元しました。この訂正は誤配信した項目と同じGUIDで届け、各レポート更新は別項目として保持します。正しい履歴の復元は2026-10-07 17:06:35 UTCのWorkersデプロイで反映しました。この訂正通知の日時は通知を作成した2026-10-07 17:18:29 UTCで、以後のビルドで動かしません。</description>
+      <pubDate>Wed, 07 Oct 2026 17:18:29 GMT</pubDate>
+      <dcterms:created>2026-10-07T17:18:29.000Z</dcterms:created>
+    </item>
     <item>
       <title>15 UTC確認分を201項目・340CVEへ補完</title>
       <link>https://share.0g0.xyz/vulnerabilities</link>

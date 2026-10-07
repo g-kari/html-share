@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Wed, 07 Oct 2026 16:12:36 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 07 Oct 2026 17:18:29 GMT</lastBuildDate>
+    <item>
+      <title>RSS初回配信訂正：漏洩・セキュリティ事案レポートの過去履歴</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#ed1760c055392c873daecf4f5ca3c996efece7d086a3cb2470fde03ce44946e0</guid>
+      <category>RSS初回配信訂正</category>
+      <description>これはRSS配信表示の訂正で、新しい事件の発生・漏えい・被害・復旧を確認したという意味ではありません。専用RSSの初回生成では、当時の過去16回のレポート更新を1項目にまとめ、掲載日時を誤ってマージ日時の2026-10-07 17:04:29 UTCとしていました。各更新を実際の掲載日時へ復元しました。この訂正は誤配信した項目と同じGUIDで届け、各レポート更新は別項目として保持します。正しい履歴の復元は2026-10-07 17:06:35 UTCのWorkersデプロイで反映しました。この訂正通知の日時は通知を作成した2026-10-07 17:18:29 UTCで、以後のビルドで動かしません。</description>
+      <pubDate>Wed, 07 Oct 2026 17:18:29 GMT</pubDate>
+      <dcterms:created>2026-10-07T17:18:29.000Z</dcterms:created>
+    </item>
     <item>
       <title>OfferBoxの設定・リリース検証不備による最大314,009名の閲覧可能性、CINRA JOBの最終調査、エバーグリーン・マーケティングの対象追加、川崎市KBICの流出なし最終確認、日本交通の流出</title>
       <link>https://share.0g0.xyz/security-incidents</link>
