@@ -109,7 +109,7 @@ test("material edits without a meaningful delta summary fail before either topic
     const value = data(vulnerability); let page = await save(cwd, vulnerability, value); commit(cwd, dates[0]); await writeReportFeeds(cwd, [page]);
     const before = await xml(cwd, vulnerability); const state = await readFile(path.join(cwd, REPORT_STATE_FILE), "utf8");
     value.records[0].summary = "Material edit with missing journal"; page = await save(cwd, vulnerability, value); commit(cwd, dates[1]);
-    await assert.rejects(writeReportFeeds(cwd, [page]), /Add a meaningful summary/);
+    await assert.rejects(writeReportFeeds(cwd, [page]), /meaningful.*summary/);
     assert.equal(await xml(cwd, vulnerability), before); assert.equal(await readFile(path.join(cwd, REPORT_STATE_FILE), "utf8"), state);
   } finally { await rm(cwd, { recursive: true, force: true }); }
 });
@@ -142,5 +142,91 @@ test("generator emits visible subscriptions, topic discovery and headers while r
     }
     assert.match(index, /og:title/); assert.equal(count(await readFile(path.join(cwd, "public/feed.xml"), "utf8")), 2);
     assert.match(await readFile(path.join(cwd, "public/feed.xml"), "utf8"), /guid isPermaLink="true">https:\/\/share.0g0.xyz\/vulnerabilities/);
+  } finally { await rm(cwd, { recursive: true, force: true }); }
+});
+
+test("actual schema observation clocks and derived fingerprints remain non-material", async () => {
+  const cwd = await fixture();
+  try {
+    for (const feed of REPORT_FEEDS) {
+      const source = await readFile(path.join(root, "public", feed.relativePath), "utf8");
+      const value = reportData(source, feed);
+      let page = await save(cwd, feed, value); commit(cwd, dates[0]); await writeReportFeeds(cwd, [page]);
+      const before = await xml(cwd, feed);
+      for (const record of value[feed.recordsKey]) {
+        record.last_content_change = "2030-01-01"; record.fingerprint = "f".repeat(64);
+        for (const source of record.sources || []) { source.checked = "2030-01-01"; source.checked_at_utc = "2030-01-01T12:34:56Z"; }
+      }
+      page = await save(cwd, feed, value); commit(cwd, dates[1]); await writeReportFeeds(cwd, [page]);
+      assert.equal(await xml(cwd, feed), before, feed.key);
+    }
+  } finally { await rm(cwd, { recursive: true, force: true }); }
+});
+
+test("persisted Git cursor replays net-zero and repeated-state delayed history through the final commit", async () => {
+  for (const facts of [["B", "A"], ["B", "C", "B"]]) {
+    const cwd = await fixture();
+    try {
+      const value = data(vulnerability, [change("Initial A")]); value.records[0].summary = "A";
+      let page = await save(cwd, vulnerability, value); commit(cwd, dates[0]); await writeReportFeeds(cwd, [page]);
+      const original = (await readReportState(cwd)).reports.vulnerabilities.items[0];
+      for (const [index, fact] of facts.entries()) {
+        value.records[0].summary = fact; value.changes.unshift(change(`Correction ${index + 1}: ${fact}`, `2026-10-0${index + 2}`));
+        page = await save(cwd, vulnerability, value); commit(cwd, dates[index + 1]);
+      }
+      await writeReportFeeds(cwd, [page]);
+      const after = (await readReportState(cwd)).reports.vulnerabilities;
+      assert.equal(after.items.length, facts.length + 1); assert.deepEqual(after.items[0], original);
+      assert.equal(after.cursor, git(cwd, "log", "-1", "--format=%H", "--", "public/vulnerabilities.html").trim());
+      const before = await xml(cwd, vulnerability); await writeReportFeeds(cwd, [page]); assert.equal(await xml(cwd, vulnerability), before);
+    } finally { await rm(cwd, { recursive: true, force: true }); }
+  }
+});
+
+
+test("repeated summaries on different dates keep independent wording corrections and GUIDs", async () => {
+  const cwd = await fixture();
+  try {
+    const value = data(vulnerability, [change("Same wording", "2026-10-01")]);
+    let page = await save(cwd, vulnerability, value); commit(cwd, dates[0]); await writeReportFeeds(cwd, [page]);
+    value.records[0].summary = "New fact"; value.changes.unshift(change("Same wording", "2026-10-02"));
+    page = await save(cwd, vulnerability, value); commit(cwd, dates[1]); await writeReportFeeds(cwd, [page]);
+    const before = (await readReportState(cwd)).reports.vulnerabilities.items;
+    value.changes[0].summary = "Second wording clarified";
+    page = await save(cwd, vulnerability, value); commit(cwd, dates[2]); await writeReportFeeds(cwd, [page]);
+    const after = (await readReportState(cwd)).reports.vulnerabilities.items;
+    assert.deepEqual(after[0], before[0]); assert.equal(after[1].summary, "Second wording clarified");
+    assert.equal(after[1].fingerprint, before[1].fingerprint); assert.equal(after[1].published, before[1].published);
+  } finally { await rm(cwd, { recursive: true, force: true }); }
+});
+
+
+test("missing summary recovers in a later explicit repair commit with the original data-publication date", async () => {
+  const cwd = await fixture();
+  try {
+    const value = data(vulnerability); let page = await save(cwd, vulnerability, value); commit(cwd, dates[0]); await writeReportFeeds(cwd, [page]);
+    const before = await readFile(path.join(cwd, REPORT_STATE_FILE), "utf8");
+    value.records[0].summary = "Corrected fact"; page = await save(cwd, vulnerability, value); commit(cwd, dates[1]);
+    await assert.rejects(writeReportFeeds(cwd, [page]), /follow-up commit/);
+    assert.equal(await readFile(path.join(cwd, REPORT_STATE_FILE), "utf8"), before);
+    value.changes.push(change("Explicit summary repairing the earlier fact correction", "2026-10-03"));
+    page = await save(cwd, vulnerability, value); commit(cwd, dates[2]); await writeReportFeeds(cwd, [page]);
+    const items = (await readReportState(cwd)).reports.vulnerabilities.items;
+    assert.equal(items.length, 2); assert.equal(items[1].published, new Date(dates[1]).toISOString());
+    assert.equal(items[1].summary, "Explicit summary repairing the earlier fact correction");
+  } finally { await rm(cwd, { recursive: true, force: true }); }
+});
+
+test("uncommitted current material data cannot advance or corrupt the saved Git cursor/state", async () => {
+  const cwd = await fixture();
+  try {
+    const value = data(vulnerability); let page = await save(cwd, vulnerability, value); commit(cwd, dates[0]); await writeReportFeeds(cwd, [page]);
+    const before = await readFile(path.join(cwd, REPORT_STATE_FILE), "utf8"); const feedBefore = await xml(cwd, vulnerability);
+    value.records[0].summary = "Uncommitted material fact"; value.changes.push(change("New material summary", "2026-10-02")); page = await save(cwd, vulnerability, value);
+    await assert.rejects(writeReportFeeds(cwd, [page]), /differs from committed Git history/);
+    assert.equal(await readFile(path.join(cwd, REPORT_STATE_FILE), "utf8"), before); assert.equal(await xml(cwd, vulnerability), feedBefore);
+    commit(cwd, dates[1]); await writeReportFeeds(cwd, [page]);
+    const items = (await readReportState(cwd)).reports.vulnerabilities.items;
+    assert.equal(items.length, 2); assert.equal(items[1].published, new Date(dates[1]).toISOString());
   } finally { await rm(cwd, { recursive: true, force: true }); }
 });

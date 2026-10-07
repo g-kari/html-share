@@ -13,7 +13,7 @@ export const REPORT_FEEDS = [
 const hash = (value) => createHash("sha256").update(JSON.stringify(value)).digest("hex");
 const digest = /^[a-f0-9]{64}$/;
 const cleanText = (value) => typeof value === "string" ? value.trim().replace(/\s+/g, " ") : "";
-const observationKeys = new Set(["checked_at", "source_checked_at", "content_updated_at", "content_updated_utc", "content_updated_jst", "revision", "updated", "latest_date"]);
+const observationKeys = new Set(["checked_at", "source_checked_at", "content_updated_at", "content_updated_utc", "content_updated_jst", "revision", "updated", "latest_date", "checked", "checked_at_utc", "last_content_change", "fingerprint"]);
 
 function semanticValue(value) {
   if (Array.isArray(value)) return value.map(semanticValue).sort((a, b) => JSON.stringify(a).localeCompare(JSON.stringify(b), "en"));
@@ -63,14 +63,20 @@ function deltaFingerprint(before, after) {
 // Multiset matching accepts appended or prepended histories, repeated wording
 // for distinct updates, and journal corrections. Dates alone aren't new news.
 function freshChanges(before, after) {
-  const counts = new Map();
-  for (const change of before) counts.set(change.signature, (counts.get(change.signature) || 0) + 1);
-  return after.filter((change) => {
-    const count = counts.get(change.signature) || 0;
-    if (!count) return true;
-    counts.set(change.signature, count - 1);
-    return false;
-  });
+  const used = new Set();
+  const matched = new Set();
+  // Prefer exact occurrence dates before ignoring date-only edits. This avoids
+  // assigning a correction to another update with the same summary wording.
+  for (const [index, change] of after.entries()) {
+    const candidate = before.findIndex((old, oldIndex) => !used.has(oldIndex) && old.signature === change.signature && old.date === change.date);
+    if (candidate >= 0) { used.add(candidate); matched.add(index); }
+  }
+  for (const [index, change] of after.entries()) {
+    if (matched.has(index)) continue;
+    const candidate = before.findIndex((old, oldIndex) => !used.has(oldIndex) && old.signature === change.signature);
+    if (candidate >= 0) { used.add(candidate); matched.add(index); }
+  }
+  return after.filter((change, index) => !matched.has(index));
 }
 
 function isoTimestamp(value) {
@@ -94,17 +100,20 @@ function itemFor(fingerprint, changes, date) {
 
 // Replay material record deltas at their actual Git publication time. A commit
 // that only changes observation dates, styling or wording never creates an item.
-function historicalItems(root, feed, afterRecords = null, targetRecords = null) {
+function historicalItems(root, feed, previous = null) {
   let history;
-  try { history = execFileSync("git", ["-C", root, "log", "--reverse", "--format=%H%x09%cI", "--", `public/${feed.relativePath}`], { encoding: "utf8", stdio: "pipe" }); }
-  catch { return afterRecords ? null : []; }
-  let beforeRecords = {};
-  let beforeChanges = [];
+  try { history = execFileSync("git", ["-C", root, "log", "--reverse", "--format=%H%x09%cI", "--", `public/${feed.relativePath}`], { encoding: "utf8", stdio: "pipe" }).trim().split("\n").filter(Boolean).map((line) => { const [sha, date] = line.split("\t"); return { sha, date }; }); }
+  catch { return null; }
+  if (!history.length) return null;
+  const start = previous ? history.findIndex((commit) => commit.sha === previous.cursor) + 1 : 0;
+  // A shallow/source export or rewritten history cannot safely replay a cursor
+  // it lacks. Saved snapshots still support deterministic journal-date updates.
+  if (previous && (!previous.cursor || start === 0)) return null;
+  let beforeRecords = previous?.records || {};
+  let beforeChanges = previous?.journal || [];
   const items = new Map();
-  let active = !afterRecords;
-  let reached = false;
-  for (const line of history.trim().split("\n").filter(Boolean)) {
-    const [sha, date] = line.split("\t");
+  const pending = [];
+  for (const { sha, date } of history.slice(start)) {
     let data;
     try {
       const source = execFileSync("git", ["-C", root, "show", `${sha}:public/${feed.relativePath}`], { encoding: "utf8", maxBuffer: 16 * 1024 * 1024, stdio: "pipe" });
@@ -112,16 +121,20 @@ function historicalItems(root, feed, afterRecords = null, targetRecords = null) 
     } catch { continue; } // Earlier versions may predate the structured journal.
     const records = recordFingerprints(data, feed);
     const changes = reportChanges(data, feed);
-    if (!active && hash(beforeRecords) === hash(afterRecords)) active = true;
     const fingerprint = deltaFingerprint(beforeRecords, records);
     const fresh = freshChanges(beforeChanges, changes);
-    if (active && fingerprint && afterRecords && !fresh.length) throw new Error(`${feed.key}: material Git update ${sha} has no new/updated changes[].summary. Add its meaningful change summary before publishing.`);
-    if (active && fingerprint && fresh.length && !items.has(fingerprint)) items.set(fingerprint, itemFor(fingerprint, fresh, { published: isoTimestamp(date), precision: "second" }));
+    if (fingerprint) pending.push({ fingerprint, sha, published: isoTimestamp(date) });
+    // A later summary-only repair can describe an earlier data commit. Preserve
+    // each data-publication date; do not permanently wedge generation on the
+    // bad commit after the author has supplied its explicit repair summary.
+    if (fresh.length && pending.length) {
+      for (const update of pending.splice(0)) if (!items.has(update.fingerprint)) items.set(update.fingerprint, itemFor(update.fingerprint, fresh, { published: update.published, precision: "second" }));
+    }
     beforeRecords = records;
     beforeChanges = changes;
-    if (active && targetRecords && hash(records) === hash(targetRecords)) { reached = true; break; }
   }
-  return afterRecords && !reached ? null : [...items.values()];
+  if (pending.length) throw new Error(`${feed.key}: material Git update ${pending[0].sha} has no new/updated changes[].summary. Add a meaningful summary for the pending delta(s) in a follow-up commit and rerun generation.`);
+  return { items: [...items.values()], cursor: history.at(-1).sha, records: beforeRecords };
 }
 
 export async function readReportState(root) {
@@ -130,7 +143,7 @@ export async function readReportState(root) {
   catch (error) { if (error.code === "ENOENT") return { version: 1, reports: {} }; throw error; }
   if (state.version !== 1 || !state.reports || typeof state.reports !== "object" || Array.isArray(state.reports)) throw new Error("Invalid report feed state.");
   for (const [key, report] of Object.entries(state.reports)) {
-    if (!REPORT_FEEDS.some((feed) => feed.key === key) || !report.records || typeof report.records !== "object" || Array.isArray(report.records) || Object.values(report.records).some((fingerprint) => !digest.test(fingerprint)) || !Array.isArray(report.journal) || !Array.isArray(report.items)) throw new Error("Invalid report feed state record.");
+    if (!REPORT_FEEDS.some((feed) => feed.key === key) || report.cursor !== null && !/^[a-f0-9]{40}$/.test(report.cursor) || !report.records || typeof report.records !== "object" || Array.isArray(report.records) || Object.values(report.records).some((fingerprint) => !digest.test(fingerprint)) || !Array.isArray(report.journal) || !Array.isArray(report.items)) throw new Error("Invalid report feed state record.");
     const validChange = (change) => digest.test(change.signature) && cleanText(change.summary) && Array.isArray(change.ids) && change.ids.every((id) => typeof id === "string");
     if (!report.journal.every(validChange)) throw new Error("Invalid report feed journal.");
     const identities = new Set();
@@ -167,20 +180,17 @@ export async function writeReportFeeds(root, pages) {
     const records = recordFingerprints(data, feed);
     const journal = reportChanges(data, feed);
     const old = previous.reports[feed.key];
-    const items = [...(old?.items || historicalItems(root, feed))];
+    if (!old && Object.keys(records).length && !journal.length) throw new Error(`${feed.key}: the initial report needs a meaningful changes[].summary (with target IDs for incidents) before generating its feed.`);
+    const historical = historicalItems(root, feed, old);
+    if (historical && hash(historical.records) !== hash(records)) throw new Error(`${feed.key}: current material report data differs from committed Git history. Commit the report and its meaningful changes[].summary before generating feeds.`);
+    const items = [...(old?.items || [])];
+    if (historical) for (const item of historical.items) if (!items.some((existing) => existing.fingerprint === item.fingerprint)) items.push(item);
     const fingerprint = old ? deltaFingerprint(old.records, records) : null;
     const fresh = old ? freshChanges(old.journal, journal) : [];
-    if (old && fingerprint && !fresh.length) throw new Error(`${feed.key}: material report data changed without a new/updated changes[].summary. Add a meaningful summary of this delta before publishing.`);
-    if (fingerprint && fresh.length && !items.some((item) => item.fingerprint === fingerprint)) {
-      // Replay every intervening material commit, including multiple updates
-      // between generation runs. Their original dates and summaries survive.
-      const historical = historicalItems(root, feed, old.records, records);
-      if (historical) {
-        for (const item of historical) if (!items.some((existing) => existing.fingerprint === item.fingerprint)) items.push(item);
-      } else {
-        const latest = [...fresh].sort((a, b) => Date.parse(declaredDate(b.date).published) - Date.parse(declaredDate(a.date).published))[0];
-        items.push(itemFor(fingerprint, fresh, declaredDate(latest.date)));
-      }
+    if (old && fingerprint && !fresh.length && !historical?.items.length) throw new Error(`${feed.key}: material report data changed without a new/updated changes[].summary. Add a meaningful summary of this delta before publishing.`);
+    if (fingerprint && fresh.length && !historical && !items.some((item) => item.fingerprint === fingerprint)) {
+      const latest = [...fresh].sort((a, b) => Date.parse(declaredDate(b.date).published) - Date.parse(declaredDate(a.date).published))[0];
+      items.push(itemFor(fingerprint, fresh, declaredDate(latest.date)));
     }
     if (!old && !items.length) {
       // Git-free exports use explicit historical journal dates, with day-level
@@ -193,13 +203,15 @@ export async function writeReportFeeds(root, pages) {
       // not changed; keep its original GUID and publication date.
       const removed = freshChanges(journal, old.journal);
       if (fresh.length === 1 && removed.length === 1 && fresh[0].date === removed[0].date && JSON.stringify(fresh[0].ids) === JSON.stringify(removed[0].ids)) {
-        for (let index = 0; index < items.length; index++) {
-          const item = items[index];
-          if (item.journal.some((change) => change.signature === removed[0].signature)) items[index] = itemFor(item.fingerprint, item.journal.map((change) => change.signature === removed[0].signature ? fresh[0] : change), { published: item.published, precision: item.precision, ...(item.declaredDate ? { declaredDate: item.declaredDate } : {}) });
+        let matching = items.map((item, index) => ({ item, index })).filter(({ item }) => item.journal.filter((change) => change.signature === removed[0].signature && change.date === removed[0].date).length === 1);
+        if (!matching.length) matching = items.map((item, index) => ({ item, index })).filter(({ item }) => item.journal.filter((change) => change.signature === removed[0].signature).length === 1);
+        if (matching.length === 1) {
+          const { item, index } = matching[0];
+          items[index] = itemFor(item.fingerprint, item.journal.map((change) => change.signature === removed[0].signature ? fresh[0] : change), { published: item.published, precision: item.precision, ...(item.declaredDate ? { declaredDate: item.declaredDate } : {}) });
         }
       }
     }
-    reports[feed.key] = { records, journal, items };
+    reports[feed.key] = { records, journal, items, cursor: historical?.cursor || old?.cursor || null };
     outputs.push([feed, items]);
   }
   // Validate both topics before writing. Main generation stages the complete
