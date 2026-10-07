@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Tue, 06 Oct 2026 19:21:18 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 07 Oct 2026 00:42:59 GMT</lastBuildDate>
+    <item>
+      <title>2026年 不正アクセス・情報漏えいウォッチ｜原因・出典・続報</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/security-incidents</guid>
+      <description>2026年の不正アクセス・情報漏えい事案と過去の主要事例を、原因・影響・対応・日付・一次資料で整理。i-askの影響拡大と国内外の新着を含む109件を掲載。</description>
+      <pubDate>Wed, 07 Oct 2026 00:42:59 GMT</pubDate>
+      <dcterms:created>2026-10-02T06:08:44.000Z</dcterms:created>
+      <dcterms:modified>2026-10-07T00:42:59.000Z</dcterms:modified>
+    </item>
     <item>
       <title>脆弱性レポート | 実悪用・修正版・対処</title>
       <link>https://share.0g0.xyz/vulnerabilities</link>
@@ -43,15 +52,6 @@
       <pubDate>Tue, 06 Oct 2026 03:28:19 GMT</pubDate>
       <dcterms:created>2026-10-06T03:28:19.000Z</dcterms:created>
       <dcterms:modified>2026-10-06T03:28:19.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>2026年 不正アクセス・情報漏えいウォッチ｜原因・出典・続報</title>
-      <link>https://share.0g0.xyz/security-incidents</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/security-incidents</guid>
-      <description>2026年の不正アクセス・情報漏えい事案と過去の主要事例を、原因・影響・対応・日付・明示した出典で整理。ローソンを含む104件を掲載し、公式続報を継続確認。</description>
-      <pubDate>Tue, 06 Oct 2026 02:51:56 GMT</pubDate>
-      <dcterms:created>2026-10-02T06:08:44.000Z</dcterms:created>
-      <dcterms:modified>2026-10-06T02:51:56.000Z</dcterms:modified>
     </item>
     <item>
       <title>Secure MCP Tunnel｜WindowsのUnity・Blender接続手順</title>
