@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>CloudFrontでprotobufのハードメンテナンス応答を返す設計</title>
-  <meta name="description" content="関数内Base64変換を避け、アプリへ到達させずprotobufを返すAWS構成を比較。GET、POST、gRPC、gRPC-Web、キャッシュ、切替・復旧、検証条件まで整理。">
+  <meta name="description" content="関数内Base64変換を避けてprotobufメンテナンス応答を返し、指定パスだけ通常経路へ通すAWS設計。GET、POST、gRPC、例外ルーティング、キャッシュ、復旧・検証を比較。">
   <style>
     :root{--ink:#16334b;--muted:#4e6577;--paper:#fff;--wash:#f3f8fc;--line:#bed0dd;--blue:#1c5480;--teal:#006b79;--warn:#9b2929;--good:#256744}
     *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:24px}body{margin:0;color:var(--ink);background:var(--wash);font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,system-ui,sans-serif;font-size:16px;line-height:1.85}a{color:var(--blue);text-underline-offset:.2em;overflow-wrap:anywhere}a:hover{color:var(--teal)}a:focus-visible,summary:focus-visible{outline:3px solid var(--teal);outline-offset:4px}header{background:var(--blue);color:white;padding:44px max(24px,calc((100vw - 1220px)/2));border-bottom:8px solid #7cb7c8}header p{max-width:820px;margin:12px 0;color:#e6f0f6}h1{font-size:clamp(26px,3.2vw,41px);line-height:1.45;letter-spacing:.01em;max-width:1000px;margin:0}header .date{font-size:14px;color:#d5e5ef}main{max-width:1280px;margin:auto;display:grid;grid-template-columns:240px minmax(0,1fr);gap:40px;padding:32px 24px 72px}nav{position:sticky;top:24px;align-self:start;font-size:14px}nav a{display:block;padding:7px 12px;border-left:3px solid transparent;text-decoration:none}nav a:hover{border-color:var(--teal);background:#e2eef5}nav strong{display:block;padding:0 12px 12px}article{min-width:0;background:var(--paper);padding:8px 34px 42px;border:1px solid var(--line)}section{padding:28px 0;border-bottom:1px solid var(--line)}section:last-child{border:0}h2{font-size:25px;line-height:1.5;margin:0 0 20px;color:var(--blue)}h3{font-size:19px;line-height:1.6;margin:26px 0 10px}p{margin:12px 0}ul,ol{padding-left:1.5em}li{margin:7px 0}strong{font-weight:750}.note,.warning,.decision{padding:16px 20px;margin:20px 0;border-left:5px solid var(--blue);background:#edf5fa}.warning{border-color:var(--warn);background:#fff3f0}.decision{border-color:var(--teal);background:#eaf5f5}.small,.sources{font-size:14px;color:var(--muted)}.sources{margin-top:14px}.sources a{display:inline}.pill{display:inline-block;border:1px solid currentColor;padding:0 9px;font-size:13px;line-height:1.8;border-radius:3px}.ok{color:var(--good)}.check{color:#8b5413}.no{color:var(--warn)}.table-wrap{overflow-x:auto;margin:20px 0;border:1px solid var(--line)}table{width:100%;border-collapse:collapse;min-width:700px;font-size:14px;line-height:1.7}caption{padding:12px;text-align:left;font-weight:700;background:#edf4f9}th,td{text-align:left;vertical-align:top;padding:12px 14px;border-bottom:1px solid var(--line)}th{background:#e9f1f7}tr:last-child td{border-bottom:0}tbody th{background:#f5f8fb;min-width:150px}code,pre{font-family:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace;font-size:.9em}code{background:#edf3f7;padding:2px 5px;overflow-wrap:anywhere}pre{padding:18px;color:#123348;background:#edf4f8;border:1px solid var(--line);line-height:1.6;overflow-x:auto;white-space:pre}pre code{padding:0;background:none;font-size:inherit}.route{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:18px 0;padding:16px;background:#f4f8fb;border:1px solid var(--line)}.route span{padding:6px 10px;background:white;border:1px solid var(--line)}.route b{color:var(--teal)}details{border:1px solid var(--line);padding:14px 18px;margin:18px 0}summary{cursor:pointer;font-weight:700}footer{max-width:1280px;margin:auto;padding:0 24px 36px;color:var(--muted);font-size:14px}.skip{position:absolute;left:12px;top:-100px;padding:10px;background:#fff}.skip:focus{top:12px}.nowrap{white-space:nowrap}@media(max-width:900px){main{grid-template-columns:1fr;gap:22px;padding:22px 16px}nav{position:static;display:flex;flex-wrap:wrap;gap:4px}nav strong{width:100%;padding:0}nav a{padding:5px 9px;background:#e8f1f7;border-left:0}article{padding:0 20px 30px}header{padding:32px 22px}h2{font-size:22px}}@media(max-width:480px){body{font-size:15px}article{padding:0 15px 24px}header{padding:26px 18px}section{padding:23px 0}.route{padding:10px}.note,.warning,.decision{padding:12px 14px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}@media print{nav,.skip{display:none}main{display:block;padding:0}article{border:0}header{background:white;color:var(--ink);padding:0;border-bottom:2px solid var(--ink)}header p,header .date{color:var(--muted)}section{break-inside:auto}a{color:var(--ink)}pre{white-space:pre-wrap}table{min-width:0;font-size:11px}}
@@ -35,11 +35,11 @@
 <a class="skip" href="#content">本文へ移動</a>
 <header>
   <h1>CloudFrontでprotobufの<br>ハードメンテナンス応答を返す設計</h1>
-  <p>アプリを停止しても、同じAPI入口から決めた応答を返す。関数内のBase64変換を避ける条件で、AWSの選択肢と落とし穴を整理しました。</p>
+  <p>同じAPI入口からprotobufのメンテナンス応答を返し、指定パスは通常経路へ通す。関数内のBase64変換を避ける条件で、AWSの選択肢と落とし穴を整理しました。</p>
   <p class="date">調査日: 2026年10月7日 UTC ／ 設計調査。AWS環境への変更・実機デプロイは行っていません。</p>
 </header>
 <main>
-<nav aria-label="目次"><strong>目次</strong><a href="#answer">結論と選び方</a><a href="#contract">最初に決める応答契約</a><a href="#compare">構成比較</a><a href="#get">GET: S3とFunctions</a><a href="#post">POST: カスタムエラー</a><a href="#origin">別メンテナンスorigin</a><a href="#grpc">gRPC / gRPC-Web</a><a href="#cache">キャッシュと本文の保証</a><a href="#headers">ヘッダー・認証・CORS</a><a href="#rollout">切替と復旧</a><a href="#verify">採用前の検証</a><a href="#cost">費用と残る不確実性</a><a href="#references">一次資料</a></nav>
+<nav aria-label="目次"><strong>目次</strong><a href="#answer">結論と選び方</a><a href="#exempt">指定パスを通常経路へ通す</a><a href="#contract">最初に決める応答契約</a><a href="#compare">構成比較</a><a href="#get">GET: S3とFunctions</a><a href="#post">POST: カスタムエラー</a><a href="#origin">別メンテナンスorigin</a><a href="#grpc">gRPC / gRPC-Web</a><a href="#cache">キャッシュと本文の保証</a><a href="#headers">ヘッダー・認証・CORS</a><a href="#rollout">切替と復旧</a><a href="#verify">採用前の検証</a><a href="#cost">費用と残る不確実性</a><a href="#references">一次資料</a></nav>
 <article id="content">
 <section id="answer">
   <h2>結論: バイト列はS3か専用originから出す</h2>
@@ -50,8 +50,74 @@
     <li><strong>POSTを含む複数methodで確実な制御が必要:</strong> 専用HTTP originがraw protobufと503を直接返す。通常アプリへの経路を使わず、リクエストmethodを変える必要もない。</li>
     <li><strong>ネイティブgRPC:</strong> gRPC対応originへ切替。通常のprotobufファイル＋HTTP503を正しいgRPC応答として扱わない。</li>
   </ul>
-  <p>どの案も「切替が全エッジへ反映済み」「通常キャッシュを返さない」「既存の処理中リクエストを扱う」「CloudFront以外の入口を塞ぐ」がそろって初めて、アプリへの到達を止められます。</p>
+  <p>どの案も「切替が全エッジへ反映済み」「通常キャッシュを返さない」「既存の処理中リクエストを扱う」「CloudFront以外の入口を塞ぐ」がそろって初めて、遮断対象への到達を止められます。指定パスを通常経路へ通す要件は次節で扱い、その場合の停止対象は非例外の機能・backendに限定します。</p>
   <p class="sources">根拠: <a href="#s1">Functionsイベント仕様</a>、<a href="#s2">origin変更</a>、<a href="#s7">ALB fixed-response</a>、<a href="#s12">CloudFront gRPC</a>。これらを組み合わせた構成は設計提案であり、特定環境での動作保証ではありません。</p>
+</section>
+<section id="exempt">
+  <h2>指定パスだけ、メンテナンス中も通常経路へ通す</h2>
+  <div class="decision"><strong>指定したパスを除外し、それ以外にprotobufメンテナンス応答を返す構成にできます。</strong> ここでは「任意パスの貫通」を、あらかじめ指定したpathのメンテナンス除外という意味で扱います。利用者が任意の宛先originを選べる仕組みや、全pathの無条件開放ではありません。</div>
+  <div class="route" aria-label="選択メンテナンスの分岐"><span>元のpath・methodを確認</span><b>→</b><span>例外一致: 通常origin</span><b>／</b><span>非一致: メンテナンスorigin</span></div>
+  <h3>第一候補: 通常経路とメンテナンス経路を先に分ける</h3>
+  <ul>
+    <li><strong>CloudFront behaviorで分離:</strong> 例外のexact pathや境界付きprefixを、広い対象path・default behaviorより前へ置く。例外behaviorは通常origin・従来の認証等を維持し、maintenance書換関数を関連付けない。最初の一致が優先される。</li>
+    <li><strong>同一behavior内のFunctionsで分岐:</strong> viewer-requestの冒頭で、URIを書き換える前に例外を判定する。例外は通常originを選び、元のURI・method・query・必要な認証情報を維持する。非例外だけ前述のS3または専用HTTP/gRPC originへ送る。</li>
+    <li><strong>return requestだけで十分とは限らない:</strong> そのbehaviorのorigin自体をメンテナンス用へ変更しているなら、例外側も <code>selectRequestOriginById('normal-app-origin')</code> 等で通常originを明示する。origin IDは固定の設定値とし、clientのqueryや任意headerから宛先を作らない。</li>
+    <li><strong>FunctionsのURI変更ではbehaviorを切り替えられない:</strong> pathを例外用に書き換えて別behaviorへ移したつもりにせず、適用されるcache/auth/header policyを確認する。</li>
+  </ul>
+  <p class="sources">根拠: <a href="#s31">CloudFront behaviorの順序・path条件</a>、<a href="#s1">FunctionsのURI仕様</a>、<a href="#s2">origin選択</a>。組合せは設計提案です。</p>
+  <p><strong>CloudFront behaviorの選択はpathベースであり、method別のroutingではありません。</strong> 「GET /healthzは通常経路、POST /healthzはメンテ応答」にしたい場合、behavior分離だけでは足りず、Functionsまたはoriginでmethod別の分岐が必要です。AllowedMethodsでPOSTを禁止することは、POSTをメンテナンスoriginへ送ることとは異なります。全methodを除外するpathと、特定methodだけを除外するpathを分けて設計します。</p>
+  <h3>exactとprefixの境界を明示する</h3>
+  <div class="table-wrap"><table><caption>例外ルールの例。実際の許可pathやmethodを決めたものではありません。</caption><thead><tr><th scope="col">例</th><th scope="col">除外する範囲</th><th scope="col">除外しない例</th></tr></thead><tbody>
+  <tr><th scope="row">GET / HEAD + /healthz</th><td>pathの完全一致。queryを条件にしない場合は /healthz?detail=1 も同じpath。</td><td>/healthz-admin、/healthz/、POST /healthz。</td></tr>
+  <tr><th scope="row">POST + /webhooks/provider</th><td>指定methodとpathだけ。既存のwebhook署名検証は維持。</td><td>/webhooks/provider-test、GET /webhooks/provider。</td></tr>
+  <tr><th scope="row">GET / HEAD + /assets/</th><td>/assets/ 以下のprefix。CloudFront patternなら /assets/*。</td><td>/assets-admin。/assets 自体も必要なら別に完全一致を追加する。</td></tr>
+  </tbody></table></div>
+  <p><code>startsWith('/api')</code> や <code>/api*</code> は <code>/api-admin</code> 等まで広がり得ます。methodも含めて条件を定義し、OPTIONSが必要なら別途扱います。必要に応じhostnameも条件にし、同じdistributionの別aliasで意図せず例外にならないようにします。gRPCなら <code>/package.Service/Method</code> などRPC path単位で通常gRPC originへ通す設計が候補です。</p>
+  <details><summary>Functionsでの例外判定例（判定だけの例）</summary><pre><code>function isExempt(request) {
+  var path = request.uri;
+  // 例では単純なcanonical pathだけを除外対象にする。
+  // エンコード・曖昧な区切りは例外を広げず非例外扱い。
+  if (/[%;\\]/.test(path) || /[\x00-\x20\x7f]/.test(path) ||
+      path.indexOf('//') !== -1 || /(^|\/)\.{1,2}(\/|$)/.test(path)) {
+    return false;
+  }
+  var read = request.method === 'GET' || request.method === 'HEAD';
+  return (read &amp;&amp; path === '/healthz') ||
+    (request.method === 'POST' &amp;&amp; path === '/webhooks/provider') ||
+    (read &amp;&amp; path.indexOf('/assets/') === 0);
+}
+
+// viewer-request内で、メンテナンス用URIへの書換より先に判定。
+// isExempt(request)なら固定設定の通常originを選択し、requestを返す。
+// 非例外だけ、method/protocolに適したメンテナンス経路へ送る。</code></pre>
+  <p class="small">この関数はpath正規化・認証・origin選択を完結させた本番コードではありません。例ではpercent encoding等を例外にしませんが、すでに正規化されたURIでは元の曖昧な表現を検知できない場合があります。各層で判定されるURI表現を確認し、次の境界・エンコード試験を行います。</p></details>
+  <h3>path正規化とpercent encodingをまたいだ誤判定を防ぐ</h3>
+  <p>CloudFrontはRFC 3986に沿ってpathを正規化してbehaviorを選び、その後originへraw URI pathを送ると説明されています。queryやcookieはbehaviorのpath pattern判定に含まれません。ALBのpath条件もURI normalization後に評価され、queryは別条件です。各層の見え方が同じとは仮定しません。</p>
+  <p>大文字・小文字、末尾slash、<code>//</code>、<code>.</code>、<code>..</code>、<code>%2f</code>、<code>%2e</code>、二重エンコード、backslash、path parameter等を試験します。<code>decodeURIComponent()</code> の追加だけで全層の解釈を統一したつもりにせず、decode回数・不正encodingの扱いを仕様化します。WAFのURL_DECODEやNORMALIZE_PATH等は<strong>検査文字列の変換</strong>なので、originへ渡るrequest自体の書換と混同しないこと。曖昧な表現は例外を広げず、既存API契約と整合した拒否・非例外扱いを設計します。</p>
+  <p class="sources">根拠: <a href="#s31">CloudFront path normalization</a>、<a href="#s33">ALB条件</a>、<a href="#s36">WAF text transformations</a>。各encoding例の採用環境での結果は未実証です。</p>
+  <h3>ALBとWAFにもメンテナンス遮断がある場合</h3>
+  <p><strong>ALB:</strong> 例外path＋必要methodのforward ruleを、残りをfixed-response 503にするruleより小さいpriority番号へ置く構成です。default ruleは最後。path条件と認証action・target groupを整合させ、例外forwardのために既存認証を落とさないようにします。CloudFront側でも遮断しているなら、両層で同じ例外が必要です。</p>
+  <pre><code>ALBの概念例（priority番号は例）
+10: 例外path + method → 従来の認証 + 通常targetへforward
+20: それ以外のメンテ対象 → fixed-response 503
+default: 従来の方針を監査して設定
+
+WAFの概念条件
+MaintenanceBlock = メンテ対象条件 AND NOT（例外path + method条件）</code></pre>
+  <p><strong>WAF:</strong> 「例外pathを先頭Allowにする」案は、Allowが終端actionで後続のSQLi・rate limit等のrule評価も止めるため注意が必要です。通常security ruleを保つには、メンテナンスBlockそのものの条件から例外を除外する設計を優先します。メンテナンス除外は最終的な許可ではなく、例外requestも従来のsecurity rule・default action・認証に従います。</p>
+  <p>既存のAllowがメンテナンスBlockより先に終端すると、非例外requestまでBlockを迂回し得ます。rule順序とdefault actionを監査し、security ruleを勝手に無効化したりdefault Allowへ変えたりしないこと。WAF、Functions、ALBでどの時点のpathを判定するかも実イベントで確認します。</p>
+  <p class="sources">根拠: <a href="#s32">ALB priorityとdefault rule</a>、<a href="#s33">path/method条件</a>、<a href="#s34">WAF終端action</a>、<a href="#s35">WAF評価順</a>、<a href="#s37">WAF AND</a>、<a href="#s38">WAF NOT</a>。</p>
+  <div class="warning"><strong>別behaviorにしても、globalカスタムエラーからは自動で独立しません。</strong> CloudFrontのCustomErrorResponsesはdistributionの設定です。503を全体でメンテprotobufへ置換していると、例外の通常originが本来の503を返した場合も本文が置換され得ます。例外のstatus/bodyまで透過させるには、global503置換に依存しないFunctions＋専用maintenance origin、またはdistribution分離を検討します。behavior分離だけで解決したとは言えません。</div>
+  <p class="sources">根拠: <a href="#s39">DistributionConfigのCustomErrorResponses</a>、<a href="#s5">カスタムエラー処理</a>。</p>
+  <h3>キャッシュと停止対象を、例外込みで定義する</h3>
+  <ul>
+    <li><strong>貫通の定義:</strong> 通常behaviorへ戻すだけなら既存cache hitを返す場合がある。毎回実originへ到達させる要件なら、例外APIのCachingDisabled等を個別に検討する。</li>
+    <li><strong>状態を混ぜない:</strong> 例外pathをメンテ用共通URIへ書き換えない。非例外は専用maintenance keyに分離し、warm/stale cache、例外リストの追加・削除、復旧時の残留を試す。</li>
+    <li><strong>全停止との関係:</strong> 例外を同じ通常アプリへforwardするなら、その機能が動くbackendは稼働させる必要がある。アプリ全停止と動的例外の成功応答は両立しないため、停止範囲を限定するか例外backendを分ける。</li>
+    <li><strong>health check:</strong> ALBのtarget health checkはtarget group設定に従うtarget向けrequestで、viewer向けpath例外とは別に管理する。health endpointを公開例外にする必要性や、livenessとreadinessの意味も確認する。</li>
+    <li><strong>検証の合格条件:</strong> 非例外から停止対象への新規到達はゼロ、例外は指定path・methodだけ通常経路へ到達。例外originの200/4xx/503、認証失敗、WAF悪性request、prefixに似たpathも試す。</li>
+  </ul>
+  <p class="sources">根拠: <a href="#s5">cacheとstale応答</a>、<a href="#s25">TTL</a>、<a href="#s40">ALB target health checks</a>。停止範囲・追加試験はこの要件からの設計上の推論です。実際の例外pathは未指定であり、AWS設定は変更していません。</p>
 </section>
 <section id="contract">
   <h2>最初に決めるのは「protobuf」の意味</h2>
@@ -272,6 +338,16 @@ cmp expected-maintenance.pb post.pb</code></pre><p class="small">status=503、�
   <li id="s28"><a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_Distribution.html">Distribution status: Deployed</a></li>
   <li id="s29"><a href="https://docs.aws.amazon.com/waf/latest/developerguide/web-acl-testing.html">WAF temporary inconsistencies during updates</a></li>
   <li id="s30"><a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/creating-custom-error-pages.html">Custom error pagesの対応statusと例外</a></li>
+  <li id="s31"><a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesCacheBehavior.html">CloudFront cache behaviorのpath・順序・正規化</a></li>
+  <li id="s32"><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/listener-rules.html">ALB listener rule priority</a></li>
+  <li id="s33"><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/rule-condition-types.html">ALB path / HTTP method条件</a></li>
+  <li id="s34"><a href="https://docs.aws.amazon.com/waf/latest/developerguide/web-acl-rule-actions.html">WAF Allow / Block終端action</a></li>
+  <li id="s35"><a href="https://docs.aws.amazon.com/waf/latest/developerguide/web-acl-processing-order.html">WAF rule priority</a></li>
+  <li id="s36"><a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-transformation.html">WAF text transformations</a></li>
+  <li id="s37"><a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-type-and.html">WAF AND statement</a></li>
+  <li id="s38"><a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-type-not.html">WAF NOT statement</a></li>
+  <li id="s39"><a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_DistributionConfig.html">CloudFront DistributionConfigとCustomErrorResponses</a></li>
+  <li id="s40"><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/target-group-health-checks.html">ALB target group health checks</a></li>
   </ol>
 </section>
 </article>
@@ -279,3 +355,4 @@ cmp expected-maintenance.pb post.pb</code></pre><p class="small">status=503、�
 <footer>2026年10月7日時点の設計比較。公開内容に認証情報・AWSアカウント情報・非公開の設定値は含みません。</footer>
 </body>
 </html>
+
