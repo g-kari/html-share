@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CloudFrontでprotobufのハードメンテナンス応答を返す設計</title>
+  <meta name="description" content="関数内Base64変換を避け、アプリへ到達させずprotobufを返すAWS構成を比較。GET、POST、gRPC、gRPC-Web、キャッシュ、切替・復旧、検証条件まで整理。">
+  <style>
+    :root{--ink:#16334b;--muted:#4e6577;--paper:#fff;--wash:#f3f8fc;--line:#bed0dd;--blue:#1c5480;--teal:#006b79;--warn:#9b2929;--good:#256744}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:24px}body{margin:0;color:var(--ink);background:var(--wash);font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,system-ui,sans-serif;font-size:16px;line-height:1.85}a{color:var(--blue);text-underline-offset:.2em;overflow-wrap:anywhere}a:hover{color:var(--teal)}a:focus-visible,summary:focus-visible{outline:3px solid var(--teal);outline-offset:4px}header{background:var(--blue);color:white;padding:44px max(24px,calc((100vw - 1220px)/2));border-bottom:8px solid #7cb7c8}header p{max-width:820px;margin:12px 0;color:#e6f0f6}h1{font-size:clamp(26px,3.2vw,41px);line-height:1.45;letter-spacing:.01em;max-width:1000px;margin:0}header .date{font-size:14px;color:#d5e5ef}main{max-width:1280px;margin:auto;display:grid;grid-template-columns:240px minmax(0,1fr);gap:40px;padding:32px 24px 72px}nav{position:sticky;top:24px;align-self:start;font-size:14px}nav a{display:block;padding:7px 12px;border-left:3px solid transparent;text-decoration:none}nav a:hover{border-color:var(--teal);background:#e2eef5}nav strong{display:block;padding:0 12px 12px}article{min-width:0;background:var(--paper);padding:8px 34px 42px;border:1px solid var(--line)}section{padding:28px 0;border-bottom:1px solid var(--line)}section:last-child{border:0}h2{font-size:25px;line-height:1.5;margin:0 0 20px;color:var(--blue)}h3{font-size:19px;line-height:1.6;margin:26px 0 10px}p{margin:12px 0}ul,ol{padding-left:1.5em}li{margin:7px 0}strong{font-weight:750}.note,.warning,.decision{padding:16px 20px;margin:20px 0;border-left:5px solid var(--blue);background:#edf5fa}.warning{border-color:var(--warn);background:#fff3f0}.decision{border-color:var(--teal);background:#eaf5f5}.small,.sources{font-size:14px;color:var(--muted)}.sources{margin-top:14px}.sources a{display:inline}.pill{display:inline-block;border:1px solid currentColor;padding:0 9px;font-size:13px;line-height:1.8;border-radius:3px}.ok{color:var(--good)}.check{color:#8b5413}.no{color:var(--warn)}.table-wrap{overflow-x:auto;margin:20px 0;border:1px solid var(--line)}table{width:100%;border-collapse:collapse;min-width:700px;font-size:14px;line-height:1.7}caption{padding:12px;text-align:left;font-weight:700;background:#edf4f9}th,td{text-align:left;vertical-align:top;padding:12px 14px;border-bottom:1px solid var(--line)}th{background:#e9f1f7}tr:last-child td{border-bottom:0}tbody th{background:#f5f8fb;min-width:150px}code,pre{font-family:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace;font-size:.9em}code{background:#edf3f7;padding:2px 5px;overflow-wrap:anywhere}pre{padding:18px;color:#123348;background:#edf4f8;border:1px solid var(--line);line-height:1.6;overflow-x:auto;white-space:pre}pre code{padding:0;background:none;font-size:inherit}.route{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:18px 0;padding:16px;background:#f4f8fb;border:1px solid var(--line)}.route span{padding:6px 10px;background:white;border:1px solid var(--line)}.route b{color:var(--teal)}details{border:1px solid var(--line);padding:14px 18px;margin:18px 0}summary{cursor:pointer;font-weight:700}footer{max-width:1280px;margin:auto;padding:0 24px 36px;color:var(--muted);font-size:14px}.skip{position:absolute;left:12px;top:-100px;padding:10px;background:#fff}.skip:focus{top:12px}.nowrap{white-space:nowrap}@media(max-width:900px){main{grid-template-columns:1fr;gap:22px;padding:22px 16px}nav{position:static;display:flex;flex-wrap:wrap;gap:4px}nav strong{width:100%;padding:0}nav a{padding:5px 9px;background:#e8f1f7;border-left:0}article{padding:0 20px 30px}header{padding:32px 22px}h2{font-size:22px}}@media(max-width:480px){body{font-size:15px}article{padding:0 15px 24px}header{padding:26px 18px}section{padding:23px 0}.route{padding:10px}.note,.warning,.decision{padding:12px 14px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}@media print{nav,.skip{display:none}main{display:block;padding:0}article{border:0}header{background:white;color:var(--ink);padding:0;border-bottom:2px solid var(--ink)}header p,header .date{color:var(--muted)}section{break-inside:auto}a{color:var(--ink)}pre{white-space:pre-wrap}table{min-width:0;font-size:11px}}
+  </style>
+</head>
+<body>
+<a class="skip" href="#content">本文へ移動</a>
+<header>
+  <h1>CloudFrontでprotobufの<br>ハードメンテナンス応答を返す設計</h1>
+  <p>アプリを停止しても、同じAPI入口から決めた応答を返す。関数内のBase64変換を避ける条件で、AWSの選択肢と落とし穴を整理しました。</p>
+  <p class="date">調査日: 2026年10月7日 UTC ／ 設計調査。AWS環境への変更・実機デプロイは行っていません。</p>
+</header>
+<main>
+<nav aria-label="目次"><strong>目次</strong><a href="#answer">結論と選び方</a><a href="#contract">最初に決める応答契約</a><a href="#compare">構成比較</a><a href="#get">GET: S3とFunctions</a><a href="#post">POST: カスタムエラー</a><a href="#origin">別メンテナンスorigin</a><a href="#grpc">gRPC / gRPC-Web</a><a href="#cache">キャッシュと本文の保証</a><a href="#headers">ヘッダー・認証・CORS</a><a href="#rollout">切替と復旧</a><a href="#verify">採用前の検証</a><a href="#cost">費用と残る不確実性</a><a href="#references">一次資料</a></nav>
+<article id="content">
+<section id="answer">
+  <h2>結論: バイト列はS3か専用originから出す</h2>
+  <div class="decision"><strong>通常HTTPのGETなら、S3に事前生成したprotobufを置き、CloudFront Functionsでルーティングと503への変更だけ行う案が最小です。</strong> POSTを含む場合は、ALBの固定503とCloudFrontカスタムエラーを組み合わせる案を検証するか、POSTを受けられる専用メンテナンスoriginへ切り替えます。ネイティブgRPCは別設計です。</div>
+  <ul>
+    <li><strong>固定protobuf + GET:</strong> Functionsのviewer-requestでS3 originと専用URIを選び、S3の200本文をviewer-responseで503にする。本文は関数に入れない。</li>
+    <li><strong>固定protobuf + 通常HTTP POST:</strong> 既存ALBがあれば、最優先fixed-response 503 → CloudFront CustomErrorResponse → 別S3 originを候補にする。POSTでの実挙動を採用前に確認する。</li>
+    <li><strong>POSTを含む複数methodで確実な制御が必要:</strong> 専用HTTP originがraw protobufと503を直接返す。通常アプリへの経路を使わず、リクエストmethodを変える必要もない。</li>
+    <li><strong>ネイティブgRPC:</strong> gRPC対応originへ切替。通常のprotobufファイル＋HTTP503を正しいgRPC応答として扱わない。</li>
+  </ul>
+  <p>どの案も「切替が全エッジへ反映済み」「通常キャッシュを返さない」「既存の処理中リクエストを扱う」「CloudFront以外の入口を塞ぐ」がそろって初めて、アプリへの到達を止められます。</p>
+  <p class="sources">根拠: <a href="#s1">Functionsイベント仕様</a>、<a href="#s2">origin変更</a>、<a href="#s7">ALB fixed-response</a>、<a href="#s12">CloudFront gRPC</a>。これらを組み合わせた構成は設計提案であり、特定環境での動作保証ではありません。</p>
+</section>
+<section id="contract">
+  <h2>最初に決めるのは「protobuf」の意味</h2>
+  <div class="table-wrap"><table><caption>似ている名称でも、応答の契約は異なる</caption><thead><tr><th scope="col">種類</th><th scope="col">本文・statusの契約</th><th scope="col">メンテナンス設計への影響</th></tr></thead><tbody>
+  <tr><th scope="row">通常HTTP + protobuf</th><td>任意のHTTP method。本文はシリアライズ済みprotobuf。ここでは例として <code>application/x-protobuf</code> を使い、実際の値はclient契約に合わせる。</td><td>503の本文をクライアントがprotobufとして読むこと、共通エラー型を事前に定義することが必要。</td></tr>
+  <tr><th scope="row">ネイティブgRPC</th><td>POST、HTTP/2、gRPCのlength-prefixed messageとstatus/trailers。</td><td>通常はHTTP200と <code>grpc-status</code> でRPC結果を表す。裸のprotobufでは代用できない。</td></tr>
+  <tr><th scope="row">gRPC-Web binary</th><td><code>application/grpc-web+proto</code> 等。データフレームと末尾のtrailersフレーム。</td><td>HTTP本文がバイナリでも、通常のprotobufファイルとは異なる。</td></tr>
+  <tr><th scope="row">gRPC-Web text</th><td><code>application/grpc-web-text+proto</code> 等。本文にBase64エンコードを使う。</td><td>wire上もBase64なしという条件とは両立しない。利用中のクライアントmodeを確認する。</td></tr>
+  </tbody></table></div>
+  <p><strong>「関数内でBase64変換しない」と「通信上Base64にしない」は別です。</strong> Lambda@EdgeやFunctionsで <code>bodyEncoding/encoding=base64</code> を使う場合、設定・返却オブジェクトはBase64でも、クライアント向け本文はデコードされたバイナリにできます。今回の主案はその変換自体を避け、originの本文を通します。</p>
+  <p>protobufを全endpoint共通で使うなら、各APIが同じメンテナンス用エラー型を読めるかを確認します。生成クライアントが503を先に例外化し本文を捨てる場合、インフラで正しいバイト列を返すだけでは表示・処理まで完成しません。HEADは本文なしであり、GETと同じ本文を求める条件から外します。</p>
+  <p class="sources">根拠: <a href="#s1">Functionsのbody encoding</a>、<a href="#s3">Lambda@Edge応答</a>、<a href="#s13">gRPC HTTP/2 protocol</a>、<a href="#s14">gRPC-Web protocol</a>。クライアント側の挙動は利用ライブラリで要検証。</p>
+</section>
+<section id="compare">
+  <h2>構成比較</h2>
+  <div class="table-wrap"><table><caption>アプリへのforwardを止め、raw protobufを返す候補</caption><thead><tr><th scope="col">案</th><th scope="col">適する通信</th><th scope="col">関数内Base64</th><th scope="col">判断</th></tr></thead><tbody>
+  <tr><th scope="row">S3 + Functions request/response</th><td>GET / HEAD。OPTIONSは別処理。</td><td>不要。本文に触らない。</td><td><span class="pill ok">GETの第一候補</span><br>S3は200を返す必要あり。methodは変更不可。</td></tr>
+  <tr><th scope="row">ALB固定503 + CFカスタムエラー + S3</th><td>通常HTTP。POSTは実証を条件に採用。</td><td>不要。関数不要。</td><td><span class="pill check">既存ALB向け候補</span><br>キャッシュ回避、専用error path、ヘッダーを検証。</td></tr>
+  <tr><th scope="row">WAF標準Block403 + CFカスタムエラー + S3</th><td>通常HTTP。POSTは実証を条件に採用。</td><td>不要。</td><td><span class="pill check">403の副作用に注意</span><br>originの403も同じ置換になる。</td></tr>
+  <tr><th scope="row">専用HTTP maintenance origin</th><td>GET / POST等、originが実装するmethod。</td><td>不要。ファイルやbytesを直接送出。</td><td><span class="pill ok">制御しやすい</span><br>別サーバー・プロキシの運用が必要。</td></tr>
+  <tr><th scope="row">通常Lambda Function URLのresponse streaming</th><td>通常HTTP。ネイティブgRPCの代用ではない。</td><td>raw bytesをstreamへ書けば不要。</td><td><span class="pill check">小さな専用処理で対応</span><br>Lambda@Edgeとは別。runtime/地域/認可/費用を確認。</td></tr>
+  <tr><th scope="row">API Gateway REST + S3 service integration</th><td>通常HTTP。frontend POSTとbackend GETを別設定。</td><td>Lambda自体を使わない。</td><td><span class="pill check">追加インフラの代案</span><br>binary設定とstatus mappingの組合せを実証。</td></tr>
+  <tr><th scope="row">gRPC maintenance origin</th><td>ネイティブgRPC / 対応proxyを使うgRPC-Web。</td><td>message bodyのための変換は不要。</td><td><span class="pill ok">RPCには別設計</span><br>status、framing、trailers、streamingを正しく扱う。</td></tr>
+  <tr><th scope="row">edge関数が本文を直接生成</th><td>通常HTTP。</td><td>任意のバイナリはtextではなくBase64経路。</td><td><span class="pill no">今回の主条件に合わない</span><br>UTF-8 stringへの変換でbytesを壊さない。</td></tr>
+  </tbody></table></div>
+  <p class="sources">根拠と採用条件は以下の各案に併記。既存構成、認証方式、clientの応答契約を未確認のため、特定案を一律に断定しません。</p>
+</section>
+<section id="get">
+  <h2>GET: S3の本文をFunctionsでそのまま通す</h2>
+  <div class="route" aria-label="GETの推奨経路"><span>GET /api/...</span><b>→</b><span>viewer-request: S3と専用URI</span><b>→</b><span>S3: 200 + raw .pb</span><b>→</b><span>viewer-response: 503</span></div>
+  <ol>
+    <li>メンテナンス用messageを一度だけシリアライズし、<code>__maintenance/v1.pb</code> などバージョン付きkeyでS3へ保存する。</li>
+    <li>非公開S3 originを既存distributionへ設定。OACでCloudFrontからのみ取得できるようにする。</li>
+    <li>Functions runtime 2.0のviewer-requestで、<code>selectRequestOriginById()</code> と <code>request.uri</code> の両方を変更する。</li>
+    <li>同じbehaviorのviewer-responseで、メンテナンス用URIかつS3成功応答を確認して503と必要なヘッダーへ変更。<code>body</code> を設定しない。</li>
+  </ol>
+  <p>現在のFunctionsはviewer-responseのstatus変更が可能です。Lambda@Edgeのviewer-responseには同じ権限がなく、混同しないこと。Lambda@Edgeを使うならorigin-responseでstatusだけを変え、本文を未変更で通す方法が別候補になります。</p>
+  <details><summary>本文に触らないviewer-responseの最小例（構成説明用）</summary>
+  <pre><code>function handler(event) {
+  var req = event.request;
+  var res = event.response;
+  if (req.uri !== '/__maintenance/v1.pb' || res.statusCode !== 200) {
+    return res;
+  }
+  res.statusCode = 503;
+  res.statusDescription = 'Service Unavailable';
+  res.headers['content-type'] = { value: 'application/x-protobuf' };
+  res.headers['cache-control'] = { value: 'no-store' };
+  res.headers['retry-after'] = { value: '60' };
+  // bodyは設定しない。60秒は例で、運用方針に合わせる。
+  return res;
+}</code></pre>
+  <p class="small">本番でそのまま使う完結した設定ではありません。viewer-requestのorigin/URI切替、対象path、通常時条件、認証、CORS、Range・条件付きrequest、失敗時動作を別途構成・検証します。特にviewer-requestで変更したURIがviewer-responseのrequest.uriに現れることを実イベントで確認し、この判定条件が正しく動くことを試験します。</p></details>
+  <div class="warning"><strong>S3が200を返すことが前提です。</strong> 206の部分本文や304の本文なし応答を503の「完全なprotobuf」として返してはいけません。メンテナンスrequestでRange、If-Range、If-None-Match、If-Modified-Since、If-Match、If-Unmodified-Since等をどう扱うか決め、不要なものをviewer-request段階で除外する設計を検証します。S3の403/404/5xxはこのviewer-responseでは救済できません。</div>
+  <p>URIを変えてもbehaviorは再選択されません。S3へ切り替えても元API behaviorのcache policy・origin request policy・response headers policyが残るため、それらを監査します。またoriginだけを変えて同じcache keyを使うと、既存アプリの本文が返る可能性があります。</p>
+  <p class="sources">根拠: <a href="#s1">Functionsイベント仕様</a>、<a href="#s2">origin helper</a>、<a href="#s3">Lambda@Edge本文保持</a>、<a href="#s4">Lambda@Edge制約</a>、<a href="#s11">S3 GetObjectの条件付き取得</a>、<a href="#s17">OAC</a>。</p>
+</section>
+<section id="post">
+  <h2>POST: ALB固定503とCloudFrontカスタムエラー</h2>
+  <div class="route" aria-label="ALBとS3のカスタムエラー経路"><span>通常HTTP POST</span><b>→</b><span>ALB fixed-response 503</span><b>→</b><span>CF CustomErrorResponse</span><b>→</b><span>別S3 .pb</span><b>→</b><span>viewerへ503</span></div>
+  <p>ALBの最優先メンテナンスルールを <code>fixed-response</code> にすると、ALBはclient requestをdropして固定応答を返し、アプリtargetへforwardしません。CloudFront側は次の設定を候補にします。</p>
+  <pre><code>ErrorCode: 503
+ResponsePagePath: /__maintenance/v1.pb
+ResponseCode: 503
+ErrorCachingMinTTL: 0
+
+専用behavior /__maintenance/* のorigin: 非公開S3
+対象API behavior: 通常キャッシュを使わない設定を検証</code></pre>
+  <p>カスタムエラーはHTML専用の機能として定義されておらず、指定したobjectを別behaviorのoriginから取得して返す仕組みです。S3 objectにprotobufの生bytesと正しいContent-Typeを持たせます。ALBの固定応答自身は文字列本文・限られたContent-Typeに制限されるので、ALB単独で任意protobufを返す案にはしません。ALBのprotocol versionがgRPCまたはHTTP/2の場合、公式にはforward actionだけが対応するとされるため、fixed-response案の適用条件を確認します。</p>
+  <div class="note"><strong>POSTについての確度:</strong> AWS公式の一般的なカスタムエラー仕様に通常HTTP POSTの除外は見つかりませんでした。ただし、元のPOSTに対してカスタムエラーobjectを取得する際の内部methodやヘッダー詳細は明示されていません。従って、この組合せを「POSTで実証済み」とは言えません。対象POSTで503・Content-Type・本文のbytes一致・アプリ到達ゼロを確認してから採用します。</div>
+  <h3>WAFを使う場合</h3>
+  <p>CloudFront側WAFの標準Block 403と、CloudFrontカスタムエラーによる別object返却はAWS公式で説明されています。ResponseCodeを503にすればメンテナンスstatusにできます。しかし、origin由来403も同じ置換の対象となります。WAFのCustomResponseを設定するとCloudFront側の置換より優先され、両者を合成できません。</p>
+  <ul><li>WAFはキャッシュの前で遮断する使い方を検証できる一方、全403の意味を変える副作用に注意する。</li><li>CloudFrontのcustom error設定はdistribution単位。複数アプリを共有している場合は影響範囲を確認する。</li><li>ALB案ではCloudFrontのcache hitがALBへ行かない。固定503だけではメンテナンス応答の一律化にならない。</li></ul>
+  <p class="sources">根拠: <a href="#s5">カスタムエラーの処理</a>、<a href="#s6">カスタムエラー設定</a>、<a href="#s7">ALB routing actions</a>、<a href="#s8">ALB本文・Content-Type制限</a>、<a href="#s9">WAFとの組合せ</a>、<a href="#s10">WAF custom response優先順位</a>。</p>
+</section>
+<section id="origin">
+  <h2>別メンテナンスorigin: methodを変えずに応答する</h2>
+  <p><strong>GETとPOSTを同じ仕組みで扱う必要があるなら、専用originがraw protobufと503を直接返す設計が最も説明しやすい代案です。</strong> 既存のreverse proxy、独立した小さなHTTPサービス、あるいは以下のAWSサービスを使います。通常アプリ、DB、通常アプリの認証サービスに依存させないことが重要です。</p>
+  <div class="route"><span>CloudFront Functions</span><b>→</b><span>専用HTTP origin</span><b>→</b><span>503 + raw bytes + 全ヘッダー</span></div>
+  <p>Functionsでoriginを選び、origin側が受けたPOSTに対してそのまま固定応答を返せば、read-onlyのrequest.methodを変更する必要はありません。S3の静的object取得をPOSTで直接代用するのとは異なる構成です。originが503を返す場合、viewer-response関数は実行されないため、必要ヘッダーはoriginまたは検証済みのresponse headers policyで付けます。</p>
+  <h3>通常Lambdaのresponse streaming</h3>
+  <p>Lambda Function URLを <code>RESPONSE_STREAM</code> にし、<code>HttpResponseStream.from()</code> で503とヘッダーを指定して、事前生成protobufのBufferやファイルstreamを書き出す候補です。本文をJSONの <code>body</code> stringに包まないため、関数内でのBase64変換を避けられます。これは通常Lambdaの機能で、Lambda@Edgeには持ち込めません。</p>
+  <p>小さな専用処理のコードは必要です。managed Node.js runtime、対応Region、Function URLの認可とCloudFront OAC、アクセスログ、timeoutを確認します。<strong>OACで保護したFunction URLへPOST/PUTを送る場合、AWS公式はclientに本文のSHA-256計算と <code>x-amz-content-sha256</code> ヘッダーを要求しています。</strong> 既存clientを変えず単純にoriginを差し替えられるとは限りません。Lambda公式はstreaming時の費用と、client切断後も実行時間が課金される点も注意事項として挙げています。ネイティブgRPCを返す用途としては扱いません。</p>
+  <h3>API Gateway RESTのS3 service integration</h3>
+  <p>frontendのPOST等を、AWS service integrationのS3 <code>GET</code> に接続する候補もあります。S3成功をmethod responseの503へ対応させ、binary media types・Accept・contentHandling・ヘッダーmappingを設定します。Lambdaを使わない構成ですが、追加のAPI Gateway、IAM role、料金・設定・デプロイ管理が必要です。</p>
+  <p>AWSにはS3からraw bytesを返す公式例と、binary payloadの変換表、integration responseのstatus mappingの仕様があります。これらを合わせたメンテナンス構成は未実機検証です。特に複数Acceptでは先頭のmedia typeが使われるため、<code>*/*</code> やブラウザのAcceptも試します。本文にJSON/VTLテンプレートを適用してbytesを壊さないこと。</p>
+  <p class="sources">根拠: <a href="#s1">viewer-responseの実行条件</a>、<a href="#s2">任意HTTP origin選択</a>、<a href="#s18">Lambda streaming仕様</a>、<a href="#s19">streaming tutorial</a>、<a href="#s20">Function URL OAC</a>、<a href="#s21">API Gateway + S3 binary</a>、<a href="#s22">binary変換表</a>、<a href="#s23">integration response</a>。</p>
+  <h3>避けたい近道</h3>
+  <ul><li><strong>edge関数から空503を返してCFカスタムエラーに任せる:</strong> Functionsが返した400以上には同statusのcustom error pageが適用されないと公式に明記されている。</li><li><strong>origin failoverでメンテナンスへ移す:</strong> primaryへ先にアクセスし、POSTにはfailoverしない。ハードメンテナンスの遮断スイッチにならない。</li><li><strong>302等でS3へredirect:</strong> 同じAPIの503本文という契約から外れ、method・認証・CORSも変わり得る。</li><li><strong>S3 metadataだけで503にする:</strong> Content-TypeやCache-Controlは設定できるが、通常の成功GetObjectのstatusをmetadataだけで503にできない。</li><li><strong>Lambda@EdgeでS3をSDK取得しBufferをbodyに入れる:</strong> 応答モデルはtext/base64。任意bytesをそのまま返す型ではない。</li></ul>
+  <p class="small">もし条件が「リクエストごとにエンコードしない」だけなら、ビルド時のBase64定数をedge関数へ埋め込む別案はあります。ただし関数の応答オブジェクトにはBase64が残るため、今回の主案には含めません。</p>
+  <p class="sources">根拠: <a href="#s1">Functions直返しエラー</a>、<a href="#s3">Lambda@Edge応答モデル</a>、<a href="#s15">origin failover制約</a>、<a href="#s16">S3 metadata</a>。</p>
+</section>
+<section id="grpc">
+  <h2>gRPCとgRPC-Webは、別の応答を作る</h2>
+  <h3>ネイティブgRPC</h3>
+  <p>CloudFrontはHTTPSのgRPC originへリクエストをproxyします。HTTP/2とPOSTの許可、およびgRPC有効化が必要です。gRPCリクエストはキャッシュ設定の影響を受けず、CloudFront Functionsは利用できます。一方、<strong>CustomErrorResponse、origin failover、Lambda@Edge、Origin Shieldは非対応</strong>です。</p>
+  <p>メンテナンス用gRPC originを用意し、Functionsでそちらへ切り替える候補です。gRPC frameworkで <code>UNAVAILABLE</code>（grpc-status 14）等の適切なRPCエラーを返します。即時失敗ならtrailers-only応答もprotocol上可能です。HTTP503を返すだけでは、clientがtransport errorを合成する結果になり、用意した裸protobufを通常のRPC messageとして読むとは限りません。</p>
+  <p>protobufの詳細エラーを <code>grpc-status-details-bin</code> へ入れる場合は、protocol上のbinary metadataとしてBase64が必要になります。「どの層でもBase64を使わない」という条件なら、その詳細の伝え方まで再設計が必要です。RPC応答messageの生protobufとは異なる位置の情報です。</p>
+  <h3>gRPC-Web</h3>
+  <p>binary modeでもmessage frameと末尾のstatus/trailersフレームが必要です。text modeはBase64を使います。したがってS3に裸の <code>.pb</code> を置いてContent-TypeだけgRPC-Webへ変えても、正しい応答にはなりません。</p>
+  <p>専用gRPC-Web対応originまたはproxyがエラー応答とCORSを返す案を優先します。binaryで事前生成した「完全なgRPC-Web応答」を静的に返す可能性はありますが、利用client・mode・trailers-only処理・HTTP statusの挙動を実証する必要があります。今回確認したAWS公式gRPCページはネイティブgRPCについての説明であり、gRPC-Webに同じ機能・制約が適用される保証としては使いません。</p>
+  <p class="sources">根拠: <a href="#s12">AWS CloudFront gRPC</a>、<a href="#s13">gRPC公式HTTP/2仕様</a>、<a href="#s14">gRPC-Web公式仕様</a>。gRPC-WebのAWSでの経路判定は未実証。</p>
+</section>
+<section id="cache">
+  <h2>キャッシュが最大の落とし穴</h2>
+  <div class="warning"><strong>ALBを503にしても、CloudFrontに通常200が残っていればメンテナンス本文へ切り替わりません。</strong> fresh cache hitはALBを迂回します。期限切れの通常objectでも、originが5xxを返すと古いobjectを返す挙動があります。</div>
+  <ul>
+    <li><strong>GETのFunctions案:</strong> viewer-requestでキャッシュ検索より前にメンテナンス専用URIへ変更し、通常keyと分離する。origin変更だけで済ませない。</li>
+    <li><strong>APIをキャッシュしない設計:</strong> 対象behaviorのCachingDisabledを検討。既存object、設定の反映、invalidationsの扱いまで検証する。</li>
+    <li><strong>カスタムエラー案:</strong> error TTLとobjectのcache TTLは別。<code>ErrorCachingMinTTL=0</code>、専用error behavior、既存キャッシュの排除をセットで考える。</li>
+    <li><strong>503のno-store:</strong> 通常のerror cachingではno-storeだけでTTL0を保証しない。S3 originでキャッシュ有効の場合、error TTL0でも最低1秒の例外がある。CachingDisabledを使う場合は、公式の非キャッシュ扱いと実構成を確認する。</li>
+    <li><strong>response headers policyのno-store:</strong> viewer向けヘッダーだけ。CloudFront自身のcacheを制御するものではない。</li>
+    <li><strong>cache policyのMinimum TTL:</strong> 正の値ならno-store等を無視して最低その期間保持する。正常APIにも漏れないか確認する。</li>
+  </ul>
+  <h3>「bytes一致」の意味も決める</h3>
+  <p>JSON、UTF-8再符号化、不要なBase64、圧縮、レスポンステンプレートによる変換を避けます。HTTPのchunked transferやHTTP/2 framingは本文の転送形式でありprotobufへの追加データではありません。gzip等のContent-Encodingを許可するなら、復号後の本文一致とwire上の完全一致を区別します。厳密なwire-body一致を求める検証では自動圧縮を無効にし、<code>Accept-Encoding: identity</code> を使います。</p>
+  <p>Range・条件付き取得、ETag、Content-Length、Content-Encodingも整合させます。手で元のContent-Lengthを流用したり、S3のXMLエラーにprotobuf Content-Typeを付けたりしないこと。複数schema・言語・バージョンを返す場合は、その選択もcache keyに含めます。</p>
+  <p class="sources">根拠: <a href="#s5">fresh/staleと5xxの処理・CachingDisabled</a>、<a href="#s24">error cache TTL</a>、<a href="#s25">通常objectのTTL</a>、<a href="#s26">response headers policy</a>、<a href="#s11">S3 GetObject</a>。</p>
+</section>
+<section id="headers">
+  <h2>ヘッダー・認証・CORSを独立させる</h2>
+  <div class="table-wrap"><table><caption>通常HTTP protobuf応答の設定場所</caption><thead><tr><th scope="col">項目</th><th scope="col">設定候補</th><th scope="col">注意</th></tr></thead><tbody>
+  <tr><th scope="row">status 503</th><td>Functions viewer-response、L@E origin-response、CF CustomErrorResponse、専用origin。</td><td>S3 metadata、response headers policyではstatus変更しない。</td></tr>
+  <tr><th scope="row">Content-Type</th><td>S3 object metadata、Functions、専用origin、検証済みのheader policy。</td><td>既存clientが期待する値に合わせる。gRPC系は別。</td></tr>
+  <tr><th scope="row">Cache-Control: no-store</th><td>S3 metadata、Functions、専用origin、header policy。</td><td>browser側とCloudFront側のcache制御を分ける。</td></tr>
+  <tr><th scope="row">Retry-After</th><td>Functions、専用origin、custom header policy。</td><td>S3のx-amz-meta-retry-afterはRetry-Afterヘッダーではない。値は運用方針に合わせる。</td></tr>
+  <tr><th scope="row">CORS</th><td>専用origin、Functions、response headers policy。</td><td>custom error本文を返す場合、どのbehaviorのpolicyが実応答へ適用されるか含め実測する。</td></tr>
+  </tbody></table></div>
+  <p>通常APIの認証がALBやアプリで動くなら、メンテナンスoriginへ切替するとその処理は通りません。汎用的な「メンテナンス中」という本文だけを未認証で返してよいか、認証済みの場合だけ返すかを決めます。情報を最小限にし、ユーザー名・内部状態・復旧作業の秘密を固定本文へ入れません。</p>
+  <p>S3はOACで非公開を維持し、必要なobjectのGetObjectだけを許可する設計にします。origin request policyとOAC signing modeを監査し、ユーザーのAuthorization、Cookie、query情報を静的originへ不用意に流さないこと。署名付きURL/cookieや認証を使う場合は、その判定を壊すような一律のヘッダー・cookie削除を行わず、評価順序と要件を実測します。</p>
+  <p>ブラウザではOPTIONS preflightが成功しないと、本リクエストや503本文をJavaScriptが読めない場合があります。許可済みOrigin・method・headerに対して、アプリへ行かず204等のpreflight応答を返す別分岐を作る設計が候補です。Cookie付きCORSでwildcard originを安易に使わず、Retry-AfterをJSから読むならExpose-Headersも確認します。</p>
+  <p class="sources">根拠: <a href="#s16">S3 metadata</a>、<a href="#s17">OAC</a>、<a href="#s26">response headers policy</a>、<a href="#s27">policyのCORS設定</a>。認証・ブラウザclientの適合性は個別検証対象。</p>
+</section>
+<section id="rollout">
+  <h2>切替と復旧の順序</h2>
+  <ol>
+    <li><strong>準備:</strong> protobuf fixtureとSHA-256、専用origin、必要policy、ルール、通常時に無効な切替分岐を先に準備する。復旧時の元設定も保存する。</li>
+    <li><strong>事前試験:</strong> 非本番または限定した検証経路でcache hit/miss、POST、CORS、認証、異常系を確認する。</li>
+    <li><strong>遮断を有効化:</strong> edge routingまたはALB/WAFルールを切替。必要なcache invalidation等も実施する。</li>
+    <li><strong>反映待ち:</strong> distributionはDeployedを確認。WAFは数秒〜数分の一時的な不整合があり得る。複数地点からの実応答とアクセスログを確認する。</li>
+    <li><strong>drainと停止:</strong> 新規アプリ到達が止まったことを確認して、処理中HTTP request・既存gRPC stream・background jobを適切にdrain。必要なら別途停止する。</li>
+    <li><strong>復旧:</strong> アプリの準備・health checkが整ってから通常経路へ戻す。反映完了、通常200、残ったメンテナンスcache、CORS・認証を確認する。</li>
+  </ol>
+  <p>routingの変更は、既にoriginへ送った処理や開いているstreamを取り消しません。CloudFront以外の直ALB URL、別distribution、内部API、ジョブ、webhookも別の入口です。DB変更を伴う停止ならそれらも対象にし、maintenance originから通常アプリへ自動failoverしない構成にします。</p>
+  <p>無停止・即時・全世界同時のスイッチとして扱わず、切替窓と復旧窓を運用手順に入れます。KeyValueStore等を切替に使う場合も、同期反映を前提にせず、障害時の既定動作を定義・検証します。</p>
+  <p class="sources">根拠: <a href="#s28">CloudFront Deployedの意味</a>、<a href="#s29">WAF更新時の伝播</a>。drainと別入口の監査はハードメンテナンス要件からの設計上の推論です。</p>
+</section>
+<section id="verify">
+  <h2>採用前の検証: 本文一致だけでは足りない</h2>
+  <div class="table-wrap"><table><caption>最低限の合格条件</caption><thead><tr><th scope="col">試験</th><th scope="col">確認すること</th></tr></thead><tbody>
+  <tr><th scope="row">GET / POST / PUT等</th><td>採用対象の全methodでstatusと期待本文。POSTは空・小・大body、同pathの反復も試す。</td></tr>
+  <tr><th scope="row">HEAD / OPTIONS</th><td>HEAD本文なし。OPTIONSはCORS方針通り。どちらもアプリへ到達しない。</td></tr>
+  <tr><th scope="row">bytesとschema</th><td>長さとSHA-256がfixtureと一致。既存clientのprotobuf decoderでも読める。0x00、高位bytes、日本語文字列を含むfixture。</td></tr>
+  <tr><th scope="row">cache warm / stale / cold</th><td>切替前の正常200をwarmにし、fresh hit・stale・missで全てメンテナンス応答になる。</td></tr>
+  <tr><th scope="row">Range / conditional</th><td>Range、If-None-Match等で部分本文や空本文を誤って503 protobufとして返さない。</td></tr>
+  <tr><th scope="row">認証 / query / cookie</th><td>正・無・不正credentials、複数Origin・言語・clientで契約が変わらない。S3へ不要な資格情報が渡らない。</td></tr>
+  <tr><th scope="row">切替 / 復旧</th><td>複数地域からの到達、設定反映、TTL、invalidations、通常cacheへの復帰。切替中の混在も記録。</td></tr>
+  <tr><th scope="row">異常系</th><td>S3 object欠落・OAC拒否・origin障害・関数失敗時の応答。XML/HTMLをprotobufと誤認しない。</td></tr>
+  <tr><th scope="row">ハード遮断</th><td>ALB access logのactionとtarget情報、アプリのアクセスログ・処理counterを組み合わせて新規到達がないことを確認。全入口・health check・処理中requestの扱いを分離して確認。</td></tr>
+  <tr><th scope="row">RPC</th><td>実際のgRPC/gRPC-Web clientでstatus、framing、trailers、unary/streaming、retry/backoffを確認。curlだけで合格にしない。</td></tr>
+  </tbody></table></div>
+  <details><summary>通常HTTPの非本番検証例</summary><pre><code># URLは検証環境へ置換。--failは使わず503本文を保存する。
+curl -sS -D get.headers -o get.pb \
+  -H 'Accept: application/x-protobuf' \
+  -H 'Accept-Encoding: identity' \
+  'https://example.invalid/api/check'
+
+curl -sS -D post.headers -o post.pb \
+  -H 'Content-Type: application/x-protobuf' \
+  -H 'Accept: application/x-protobuf' \
+  -H 'Accept-Encoding: identity' \
+  --data-binary @request.pb \
+  'https://example.invalid/api/check'
+
+sha256sum expected-maintenance.pb get.pb post.pb
+cmp expected-maintenance.pb get.pb
+cmp expected-maintenance.pb post.pb</code></pre><p class="small">status=503、ヘッダー、復号、CORS、ログによる到達ゼロ確認を別途行う。対象URLの実行権限を持つ非本番環境で実施する例です。</p></details>
+  <p>CloudFrontのCapacity ExceededやLimit Exceeded等の503ではカスタムエラーが返らない場合があります。サービス全体の障害も含めて「常に必ず同じprotobuf本文」と保証することはできません。clientは想定外のtransport responseにも耐える必要があります。</p>
+  <p class="sources">根拠: <a href="#s30">カスタムエラーの例外</a>。この検証表は未実施の採用基準です。</p>
+</section>
+<section id="cost">
+  <h2>費用と残る不確実性</h2>
+  <ul><li><strong>Functions + S3:</strong> Functions呼出し、CloudFront配信、S3保管・GET等が費用要素。request/responseの両方を使う場合の呼出し量を見積もる。</li><li><strong>ALB/WAF:</strong> 既存資源の利用と、新規追加を分ける。ALBの時間・LCU、WAFのACL/rule/request等、S3とCloudFrontの費用を確認。</li><li><strong>Lambda streaming:</strong> request・実行時間・streaming等の費用。短い固定本文のためだけなら、運用の簡素さと比較する。</li><li><strong>API Gateway / 専用origin:</strong> API requestやサーバーの費用、IAM、ログ、デプロイ管理が増える。</li></ul>
+  <p>金額はRegion、プラン、既存契約、request量、cache hit率で変わるため、ここでは総額や「無料」を断定しません。<a href="https://aws.amazon.com/cloudfront/pricing/">CloudFront</a>、<a href="https://aws.amazon.com/s3/pricing/">S3</a>、<a href="https://aws.amazon.com/elasticloadbalancing/pricing/">ALB</a>、<a href="https://aws.amazon.com/waf/pricing/">WAF</a>、<a href="https://aws.amazon.com/lambda/pricing/">Lambda</a>、<a href="https://aws.amazon.com/api-gateway/pricing/">API Gateway</a>の公式料金を実構成で確認します。</p>
+  <div class="note"><strong>今回の到達点:</strong> 現行の一次資料から実現方式・禁止される近道・検証条件を整理しました。実際のdistribution、ALB、APIのmethod、protobuf schema、認証、clientを調べた結果ではありません。特に通常HTTP POSTのCustomErrorResponse、error pathのpolicy適用、gRPC-WebのCloudFront経路、API Gateway案の統合挙動は実機確認が残ります。</div>
+</section>
+<section id="references">
+  <h2>一次資料</h2>
+  <p class="small">AWS機能はAWS公式資料を使用。gRPC / gRPC-Webのwire protocolだけはプロジェクトの公式仕様を補助資料にしています。リンク先は更新され得るため、採用時にも確認してください。</p>
+  <ol class="small">
+  <li id="s1"><a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/functions-event-structure.html">CloudFront Functions event structure</a></li>
+  <li id="s2"><a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/helper-functions-origin-modification.html">Helper methods for origin modification</a></li>
+  <li id="s3"><a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-generating-http-responses.html">Lambda@Edge: Work with requests and responses</a></li>
+  <li id="s4"><a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-at-edge-function-restrictions.html">Restrictions on Lambda@Edge</a></li>
+  <li id="s5"><a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/HTTPStatusCodes.html">How CloudFront processes HTTP 4xx and 5xx</a></li>
+  <li id="s6"><a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesErrorPages.html">Custom error pages and error caching</a></li>
+  <li id="s7"><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/rule-action-types.html">ALB action types for listener rules</a></li>
+  <li id="s8"><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_FixedResponseActionConfig.html">FixedResponseActionConfig</a></li>
+  <li id="s9"><a href="https://docs.aws.amazon.com/waf/latest/developerguide/cloudfront-waf-use-cases.html">WAF: CloudFront custom error pages</a></li>
+  <li id="s10"><a href="https://docs.aws.amazon.com/waf/latest/developerguide/customizing-the-response-for-blocked-requests.html">WAF Block custom responseと優先順位</a></li>
+  <li id="s11"><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">S3 GetObject</a></li>
+  <li id="s12"><a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-using-grpc.html">Using gRPC with CloudFront distributions</a></li>
+  <li id="s13"><a href="https://github.com/grpc/grpc/blob/master/doc/PROTOCOL-HTTP2.md">gRPC over HTTP/2 protocol</a></li>
+  <li id="s14"><a href="https://github.com/grpc/grpc/blob/master/doc/PROTOCOL-WEB.md">gRPC-Web protocol</a></li>
+  <li id="s15"><a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/high_availability_origin_failover.html">CloudFront origin failover</a></li>
+  <li id="s16"><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingMetadata.html">Working with S3 object metadata</a></li>
+  <li id="s17"><a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html">Restrict access to an S3 origin with OAC</a></li>
+  <li id="s18"><a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html">Response streaming for Lambda functions</a></li>
+  <li id="s19"><a href="https://docs.aws.amazon.com/lambda/latest/dg/response-streaming-tutorial.html">Lambda Function URL streaming tutorial</a></li>
+  <li id="s20"><a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-lambda.html">Restrict access to a Lambda Function URL origin</a></li>
+  <li id="s21"><a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-content-encodings-examples-image-s3.html">API Gateway: Access binary files in S3</a></li>
+  <li id="s22"><a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-payload-encodings-workflow.html">API Gateway content type conversions</a></li>
+  <li id="s23"><a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-integration-settings-integration-response.html">API Gateway integration response</a></li>
+  <li id="s24"><a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages-expiration.html">Control how long CloudFront caches errors</a></li>
+  <li id="s25"><a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html">CloudFront object expiration</a></li>
+  <li id="s26"><a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/modifying-response-headers.html">Add or remove HTTP headers with a policy</a></li>
+  <li id="s27"><a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/understanding-response-headers-policies.html">Understand response headers policies</a></li>
+  <li id="s28"><a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_Distribution.html">Distribution status: Deployed</a></li>
+  <li id="s29"><a href="https://docs.aws.amazon.com/waf/latest/developerguide/web-acl-testing.html">WAF temporary inconsistencies during updates</a></li>
+  <li id="s30"><a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/creating-custom-error-pages.html">Custom error pagesの対応statusと例外</a></li>
+  </ol>
+</section>
+</article>
+</main>
+<footer>2026年10月7日時点の設計比較。公開内容に認証情報・AWSアカウント情報・非公開の設定値は含みません。</footer>
+</body>
+</html>
