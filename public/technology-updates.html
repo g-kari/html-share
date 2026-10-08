@@ -6,7 +6,28 @@
 @media(max-width:560px){body{font-size:15px}.wrap{width:calc(100% - 32px)}.topbar{padding:16px 0;font-size:12px}.topbar nav{gap:12px}.intro h1{font-size:29px}.edition{display:block}.edition strong{margin-bottom:6px}.quick ul{grid-template-columns:1fr;gap:10px}.correction{padding:16px}.tools{grid-template-columns:1fr;padding:16px;gap:12px}.tools button{grid-column:auto}.collection-title{display:block}.collection-title p{margin-top:8px}.update{padding:20px}.update h3{font-size:19px}.updates{gap:18px}.notes{padding:22px;gap:20px}.history{padding:20px}.quick{padding-bottom:20px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 @media print{body{background:#fff;color:#000;font-size:11pt}.wrap{width:100%}.topbar nav,.tools,.quick,.permalink,.site-footer{display:none!important}.intro{padding:12px 0}.updates,.notes{display:block}.update{break-inside:avoid;margin-bottom:20px}.update[hidden]{display:block!important}.collection{padding-bottom:20px}.correction,.test{background:#fff;border:1px solid #aaa}a{color:#000}.history{break-inside:avoid}}
-</style></head>
+</style>  <!-- html-share: social metadata -->
+  <link rel="canonical" href="https://share.0g0.xyz/technology-updates">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="HTML Share">
+  <meta property="og:title" content="重要技術アップデート｜AI・開発ツール・MCP">
+  <meta property="og:description" content="AIモデル、料金、OSS・ローカル実行、開発エージェント、音声・画像・動画、MCPの重要更新を一次資料で確認。利用条件と再テスト案、訂正履歴をまとめる。">
+  <meta property="og:url" content="https://share.0g0.xyz/technology-updates">
+  <meta property="og:image" content="https://share.0g0.xyz/assets/html-share-card-v1.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="HTML Shareのロゴと共有ページを表すカード">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="重要技術アップデート｜AI・開発ツール・MCP">
+  <meta name="twitter:description" content="AIモデル、料金、OSS・ローカル実行、開発エージェント、音声・画像・動画、MCPの重要更新を一次資料で確認。利用条件と再テスト案、訂正履歴をまとめる。">
+  <meta name="twitter:image" content="https://share.0g0.xyz/assets/html-share-card-v1.png">
+  <meta name="twitter:image:alt" content="HTML Shareのロゴと共有ページを表すカード">
+  <!-- /html-share: social metadata -->
+  <!-- html-share: rss discovery -->
+  <link rel="alternate" type="application/rss+xml" title="HTML Share RSS" href="https://share.0g0.xyz/feed.xml">
+  <!-- /html-share: rss discovery -->
+</head>
 <body><a class="skip" href="#updates">本文へ移動</a><header class="masthead" id="top"><div class="wrap"><div class="topbar"><a href="/">共有ノート</a><nav aria-label="ページ案内"><a href="#updates">更新一覧</a><a href="#method">掲載基準</a><a href="#history">履歴</a></nav></div><div class="intro"><div><h1>重要技術アップデート</h1><p>何が変わり、どんな作業で役立つか。AIモデルと料金だけでなく、ローカル実行、開発エージェント、音声・画像・動画、MCPまで。試す前に確認したい条件を、一次資料からまとめます。</p></div><aside class="edition" aria-label="確認範囲"><strong>2026年10月8日 UTC 確認</strong><p><span>初版の対象：10月1日〜8日の発表</span><span>16項目 / 6分野</span><span>実機での性能測定は未実施</span></p></aside></div></div></header>
 <main class="wrap"><aside class="correction" aria-label="重要な訂正"><strong>訂正：Gemini 3.1 Flash Image の終了日は未発表</strong><p>「10月29日終了」という説明を訂正しました。推奨置換先は Nano Banana 2.1 ですが、終了日は公式表で未発表です。<a href="#gemini-image-lifecycle">根拠と移行の確認点</a></p></aside>
 <section class="quick" aria-labelledby="quick-title"><h2 id="quick-title">まず確認したいこと</h2><ul><li><a href="#claude-monthly-api-credits"><strong>APIの費用を見直す</strong><span>Claude の月次クレジット、Haiku と Sonnet の料金条件</span></a></li><li><a href="#claude-code-21294"><strong>自作のフックを再テスト</strong><span>Claude Code の禁止・継続条件の判定修正</span></a></li><li><a href="#lightonocr-3"><strong>ローカルの文書処理を試す</strong><span>小型 OCR、図表抽出と Ollama モデルの入口</span></a></li><li><a href="#runway-draft-mcp"><strong>動画制作のラフを軽くする</strong><span>480p Draft → enhance と画像生成 MCP</span></a></li></ul></section>

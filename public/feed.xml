@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Thu, 08 Oct 2026 16:56:45 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 08 Oct 2026 23:59:03 GMT</lastBuildDate>
+    <item>
+      <title>重要技術アップデート｜AI・開発ツール・MCP</title>
+      <link>https://share.0g0.xyz/technology-updates</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/technology-updates</guid>
+      <description>AIモデル、料金、OSS・ローカル実行、開発エージェント、音声・画像・動画、MCPの重要更新を一次資料で確認。利用条件と再テスト案、訂正履歴をまとめる。</description>
+      <pubDate>Thu, 08 Oct 2026 23:59:03 GMT</pubDate>
+      <dcterms:created>2026-10-08T23:59:03.000Z</dcterms:created>
+      <dcterms:modified>2026-10-08T23:59:03.000Z</dcterms:modified>
+    </item>
     <item>
       <title>MAI-Code-1.1-Flash動画のHTML再現（非公式）</title>
       <link>https://share.0g0.xyz/microsoft-ai-video-recreation</link>
