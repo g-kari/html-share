@@ -11,12 +11,19 @@
   const byId = new Map(view.rows.map(row => [row.id, row]));
   const cards = new Map([...list.querySelectorAll('.advisory')].map(el => [el.id, el.outerHTML]));
   const requests = new Map();
-  const pagination = document.getElementById('pagination');
+  const pagers = ['', '-top'].map(suffix => ({
+    container: document.getElementById('pagination' + suffix),
+    previous: document.getElementById('previous-page' + suffix),
+    next: document.getElementById('next-page' + suffix),
+    status: document.getElementById('page-status' + suffix),
+  })).filter(pager => pager.container && pager.previous && pager.next && pager.status);
   const failure = document.getElementById('load-error');
   let page = 1;
   let generation = 0;
   let text;
   let debounce;
+  // Leave legacy fragments visible when JavaScript is disabled or fails early.
+  document.getElementById('archive-index')?.removeAttribute('open');
   // Legacy fragment targets in the static archive index must not duplicate cards.
   document.querySelectorAll('[data-fallback-id]').forEach(el => el.removeAttribute('id'));
   async function getJson(url) {
@@ -95,10 +102,12 @@
       list.innerHTML = selected.map(row => cards.get(row.id)).join('\n');
       document.getElementById('result-count').textContent = filtered.length.toLocaleString('ja-JP') + '件が一致 / 全' + view.rows.length + '件（このページ ' + selected.length + '件）';
       document.getElementById('empty').hidden = filtered.length > 0;
-      document.getElementById('page-status').textContent = page + ' / ' + pages + 'ページ';
-      document.getElementById('previous-page').disabled = page <= 1;
-      document.getElementById('next-page').disabled = page >= pages;
-      pagination.hidden = filtered.length <= view.pageSize;
+      for (const pager of pagers) {
+        pager.status.textContent = page + ' / ' + pages + 'ページ';
+        pager.previous.disabled = page <= 1;
+        pager.next.disabled = page >= pages;
+        pager.container.hidden = filtered.length <= view.pageSize;
+      }
       if (sync) syncUrl(push, revealHash);
       if (id) document.getElementById(id)?.scrollIntoView();
     } catch {
@@ -118,8 +127,10 @@
   form.addEventListener('change', changed);
   form.addEventListener('submit', event => { event.preventDefault(); clearTimeout(debounce); page = 1; update(); });
   form.addEventListener('reset', () => { clearTimeout(debounce); setTimeout(() => { page = 1; update(); }, 0); });
-  document.getElementById('previous-page').addEventListener('click', () => { page--; update(true, true); document.getElementById('advisories-heading').scrollIntoView(); });
-  document.getElementById('next-page').addEventListener('click', () => { page++; update(true, true); document.getElementById('advisories-heading').scrollIntoView(); });
+  for (const pager of pagers) {
+    pager.previous.addEventListener('click', () => { page--; update(true, true); document.getElementById('advisories-heading').scrollIntoView(); });
+    pager.next.addEventListener('click', () => { page++; update(true, true); document.getElementById('advisories-heading').scrollIntoView(); });
+  }
   window.addEventListener('popstate', () => { clearTimeout(debounce); readUrl(); update(false, false, true); });
   window.addEventListener('hashchange', () => { clearTimeout(debounce); update(false, false, true); });
 })();
