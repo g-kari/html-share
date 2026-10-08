@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AWS WAFで不審なアクセス元を止める：マネージドルールとIP・UA対策</title>
+  <meta name="description" content="Amazon IP reputation listとAnonymous IP listの違い、Countからの安全な導入、JPCERT/CC公表の8IP・5User-Agentの扱いを短く整理。2026年10月8日確認。">
+  <style>
+    :root{color-scheme:light;--ink:#192b3c;--muted:#526272;--line:#d8dfe3;--paper:#faf9f5;--accent:#a4481d;--soft:#f4e9de;--blue:#edf3f5}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI","Noto Sans JP",sans-serif;font-size:18px;line-height:1.8;overflow-wrap:anywhere}
+    a{color:#235a78;text-decoration:underline;text-underline-offset:.18em}a:hover{color:var(--accent)}a:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:5px;border-radius:3px}
+    .skip{position:absolute;left:16px;top:-100px;padding:8px 14px;background:white;z-index:2}.skip:focus{top:12px}
+    main{max-width:900px;margin:auto;padding:42px 34px 56px}.eyebrow{font-size:16px;letter-spacing:.04em;color:var(--accent);font-weight:700;margin:0 0 15px}
+    h1{font-size:clamp(30px,4.3vw,42px);line-height:1.45;letter-spacing:-.025em;max-width:790px;margin:0 0 22px;text-wrap:pretty}h2{font-size:24px;line-height:1.5;margin:34px 0 15px}h3{font-size:19px;line-height:1.6;margin:18px 0 9px}p{margin:0 0 14px}strong{font-weight:750}
+    .lead{font-size:20px;max-width:780px}.meta,.source,.fine{font-size:16px;color:var(--muted)}.meta{margin:20px 0 26px}.source{margin:9px 0 0}.tag{display:inline-block;font-size:16px;line-height:1.5;font-weight:700;color:var(--accent)}
+    .options{margin:0}.option{display:grid;grid-template-columns:225px 1fr;gap:28px;padding:22px 0;border-top:1px solid var(--line)}.option:last-child{border-bottom:1px solid var(--line)}.option dt{font-weight:750;line-height:1.6}.option dd{margin:0}.option dd p{margin-bottom:7px}
+    .flow{list-style:none;display:grid;grid-template-columns:1fr 1fr 1fr;gap:28px;margin:18px 0 14px;padding:0}.flow li{position:relative;background:var(--blue);padding:17px 18px;border-top:3px solid #6c899b;line-height:1.65}.flow li+li:before{content:"→";position:absolute;left:-24px;top:29px;color:var(--muted)}.flow b{display:block;font-size:19px}.flow span{display:block;font-size:16px;margin-top:5px}
+    .warning{background:var(--soft);border-left:4px solid var(--accent);padding:17px 20px;margin:24px 0;font-size:18px}.warning p:last-child{margin-bottom:0}.closing{margin:22px 0 32px}
+    .reference{border-top:1px solid var(--line);margin-top:20px}details{border-bottom:1px solid var(--line);font-size:16px}summary{padding:18px 2px;cursor:pointer;font-size:18px;font-weight:700;line-height:1.6}details[open] summary{padding-bottom:10px}.detail-body{padding:0 4px 21px}.detail-body p{margin-bottom:12px}ul,ol{padding-left:1.4em;margin:8px 0 16px}li{margin:5px 0}code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:1em;overflow-wrap:anywhere;word-break:break-word;background:#ecefee;border-radius:3px;padding:1px 4px}
+    .rules{display:grid;grid-template-columns:1fr auto;gap:9px 18px;margin:10px 0 18px}.rules dt,.rules dd{margin:0}.rules dd{font-weight:750}.ioc{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:7px 10px}.ioc li{margin:0}.ua{list-style:none;padding:0}.ua li{margin:7px 0}.case{padding:4px 0 14px}.case+.case{border-top:1px solid var(--line);padding-top:14px}
+    footer{border-top:1px solid var(--line);margin-top:28px;padding-top:18px;font-size:16px;color:var(--muted)}footer p{margin-bottom:7px}
+    @media(max-width:640px){main{padding:28px 20px 40px}.lead{font-size:18px}.option{grid-template-columns:1fr;gap:8px;padding:20px 0}.option dt{font-size:19px}.flow{grid-template-columns:1fr;gap:24px}.flow li+li:before{content:"↓";left:calc(50% - 8px);top:-28px}.flow li{padding:12px 16px}.flow span{margin-top:2px}.rules{grid-template-columns:1fr;gap:3px}.rules dd{margin-bottom:7px}.warning{padding:15px 16px}h2{font-size:23px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
+</head>
+<body>
+<a class="skip" href="#main">本文へ移動</a>
+<main id="main">
+  <header>
+    <p class="eyebrow">AWS WAF · 調査メモ</p>
+    <h1>不審なアクセス元は、<br>AWS WAFでどこまで止められる？</h1>
+    <p class="lead"><strong>該当するのは「Amazon IP reputation list」。</strong><br>悪性・偵察IPの遮断をAWSの脅威情報に任せられる。ただし、今回公表されたIP・UAへの対策は、別に検討する。</p>
+    <p class="meta">確認日：2026年10月8日 · JPCERT/CC注意喚起の公表日：同日<br>公開資料による整理。個別環境の設定・ログは未確認。</p>
+  </header>
+
+  <section aria-labelledby="choose">
+    <h2 id="choose">まず選ぶルール</h2>
+    <dl class="options">
+      <div class="option">
+        <dt><span class="tag">最初の候補</span><br>Amazon IP<br>reputation list</dt>
+        <dd><p>AWSの脅威情報に基づく悪性IP・偵察IPを対象にする。<strong>「不審なアクセス元を止める」目的に最も近い。</strong></p><p class="fine">グループ名：<code>AWSManagedRulesAmazonIpReputationList</code></p></dd>
+      </div>
+      <div class="option">
+        <dt><span class="tag">用途を絞って検討</span><br>Anonymous IP list</dt>
+        <dd><p>VPN・プロキシ・Tor・ホスティング事業者等のIPが対象。正規のVPN利用者、外部サービスのAPI通信も止まり得るため、<strong>特にHostingProviderIPListの一律Blockは慎重に。</strong></p><p class="fine">グループ名：<code>AWSManagedRulesAnonymousIpList</code></p></dd>
+      </div>
+      <div class="option">
+        <dt><span class="tag">今回の事案への補助</span><br>手動IP set・UA条件</dt>
+        <dd><p>公表IPは期限を決めたIP setで検討。UAは<strong>対象パス・HTTPメソッド・頻度</strong>と組み合わせる。Chrome、curl、python-requestsという名前だけで全体を遮断しない。</p></dd>
+      </div>
+    </dl>
+    <p class="source">AWSの仕様：<a href="https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-ip-rep.html">IP reputation rule groups</a>。優先候補と運用上の注意は、この仕様に基づく判断。</p>
+  </section>
+
+  <section aria-labelledby="start">
+    <h2 id="start">導入は「観測 → 調整 → 遮断」</h2>
+    <ol class="flow" aria-label="安全な導入の3段階">
+      <li><b>1. Countで観測</b><span>各ルールのアクションをCountへ上書き</span></li>
+      <li><b>2. 正規通信を確認</b><span>ラベル・パス・件数をログと突き合わせる</span></li>
+      <li><b>3. 必要な範囲をBlock</b><span>誤検知を調整し、戻す条件も決める</span></li>
+    </ol>
+    <p class="source">Countは遮断せず後続の評価へ進む。他ルールでは遮断され得る。<a href="https://docs.aws.amazon.com/waf/latest/developerguide/web-acl-rule-group-override-options.html">AWS：ルール単位のCount上書き</a> / <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-action.html">アクションの意味</a></p>
+  </section>
+
+  <aside class="warning" aria-label="今回の公表情報を使うときの重要な注意">
+    <p><strong>JPCERT/CCの8IPが、AWSのマネージドリストに含まれる保証はない。</strong></p>
+    <p>公表IP・UAは過去の観測情報。現在は正規利用されている可能性があり、一致しただけで攻撃・被害の確定にはならない。UAだけの遮断も回避されやすい。</p>
+    <p class="source"><a href="https://www.jpcert.or.jp/at/2026/at260030.html">JPCERT/CC：2026年10月8日の注意喚起</a></p>
+  </aside>
+  <p class="closing"><strong>WAFは補助防御。</strong>APIの認証・認可、最小権限、機能別レート制限、修正済みバージョンへの更新は別に必要。マネージドルールだけで情報漏えいを防げるとは言えない。</p>
+
+  <section class="reference" aria-label="詳しい仕様と公表指標">
+    <details>
+      <summary>AWSの正式ルール名・既定アクション</summary>
+      <div class="detail-body">
+        <h3>Amazon IP reputation list</h3>
+        <dl class="rules">
+          <dt><code>AWSManagedIPReputationList</code>：悪性活動IP</dt><dd>Block</dd>
+          <dt><code>AWSManagedReconnaissanceList</code>：AWSへの偵察IP</dt><dd>Block</dd>
+          <dt><code>AWSManagedIPDDoSList</code>：DDoS活動IP</dt><dd>Count</dd>
+        </dl>
+        <p><strong>DDoSリストは既定で遮断しない。</strong>他の2ルールと同じBlockだと思い込まない。</p>
+        <h3>Anonymous IP list</h3>
+        <dl class="rules">
+          <dt><code>AnonymousIPList</code>：匿名化サービス等</dt><dd>Block</dd>
+          <dt><code>HostingProviderIPList</code>：ホスティング・クラウド事業者</dt><dd>Block</dd>
+        </dl>
+        <p>HostingProviderIPListのリストは<strong>AWSのIPを含まない</strong>。これはAmazon IP reputation listの対象外であることを意味しない。</p>
+        <p>両グループとも、判定はAWS WAFが受け取るリクエスト起点の送信元IPに基づく。手前に第三者プロキシ等があると、そのIPを見てしまうことがある。<strong>これらのグループを任意のX-Forwarded-For検査に切り替える設定はない。</strong></p>
+        <p>このカテゴリにはバージョン固定・SNS更新通知の仕組みがない。公開指標との一致を前提にせず、継続的に正規通信への影響を確認する。</p>
+        <p class="source"><a href="https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-ip-rep.html">AWS公式：各ルールの対象・既定アクション・送信元IPの注意</a></p>
+      </div>
+    </details>
+
+    <details>
+      <summary>JPCERT/CCの公表IP 8件・User-Agent 5例</summary>
+      <div class="detail-body">
+        <p>出典：<a href="https://www.jpcert.or.jp/at/2026/at260030.html">JPCERT-AT-2026-0030</a>（公表・確認：2026年10月8日）。IPは原文の無害化表記を保持。全事案に共通する指標ではない。</p>
+        <div class="case">
+          <h3>ケースB：API経由の不正な操作</h3>
+          <p>IPの悪用観測は<strong>2026年9月ごろ</strong>。</p>
+          <ul class="ioc" aria-label="ケースBの5IP">
+            <li><code>3.112.252[.]14</code></li><li><code>54.95.112[.]6</code></li><li><code>69.10.51[.]162</code></li><li><code>172.86.91[.]7</code></li><li><code>210.149.87[.]120</code></li>
+          </ul>
+          <ul class="ua" aria-label="ケースBの3User-Agent例">
+            <li><code>curl/7.88.1</code></li>
+            <li><code>python-requests/2.34.2</code></li>
+            <li><code>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36</code></li>
+          </ul>
+        </div>
+        <div class="case">
+          <h3>ケースC：MetabaseのSQLインジェクション</h3>
+          <p>対象は<strong>CVE-2026-72898</strong>。IPの悪用観測は<strong>2026年8月上旬〜9月上旬</strong>。</p>
+          <ul class="ioc" aria-label="ケースCの3IP">
+            <li><code>213.163.202[.]171</code></li><li><code>221.216.140[.]49</code></li><li><code>221.216.140[.]129</code></li>
+          </ul>
+          <ul class="ua" aria-label="ケースCの2User-Agent例">
+            <li><code>python-requests/2.33.1</code></li><li><code>Metabase-GHSA-vwf4/2.0</code></li>
+          </ul>
+          <p class="source">影響バージョン・更新先は<a href="https://www.jpcert.or.jp/at/2026/at260023.html">Metabaseの個別注意喚起</a>で確認する。</p>
+        </div>
+        <p><strong>両ケースとも、調査時点でIPが正規利用されている可能性がある</strong>とJPCERT/CCが明記している。通常のブラウザ・ツールと同じUAもあり、送信者はUAを変更できる。ログ照合の手がかりとして使う。</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>設定前の確認点：Count、優先順位、手動対策</summary>
+      <div class="detail-body">
+        <ol>
+          <li><strong>Countはルール単位で指定。</strong><code>RuleActionOverrides</code>で各ルールをCountへ上書きする。グループ全体の返り値だけをCountにする方法では、内部の最初のBlock一致でグループ内の評価が止まり、全ルールの観測には不向き。<a href="https://docs.aws.amazon.com/waf/latest/developerguide/web-acl-rule-group-override-options.html">AWS：2種類の上書きの違い</a></li>
+          <li><strong>Allowの位置を確認。</strong>優先順位の数値が小さい順に評価され、Allow・Blockで終了する。広いAllowが先にあると、後ろの防御ルールを通らない。例外は対象のルール・パス等を絞り、他の検査まで迂回させない。<a href="https://docs.aws.amazon.com/waf/latest/developerguide/web-acl-processing-order.html">AWS：評価順</a> / <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-action.html">終了アクション</a></li>
+          <li><strong>公表IPは短期の補助。</strong>自環境のアクセス内容と照合してから、必要なら単一IPv4の<code>/32</code>を手動IP setへ。見直し日・解除条件・担当を決める。AWS WAFのIP setに自動失効がある前提で放置しない。</li>
+          <li><strong>UAは狭い条件で観測。</strong>対象API・メソッドとUAの一致、またはその範囲への頻度超過を確認する。レート閾値は正規のバッチ・API利用量を見て決める。汎用UAだけの全サイト遮断は避ける。<a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-type-rate-based.html">AWS：レートベースルール</a> / <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-scope-down-statements.html">検査範囲を絞る設定</a></li>
+          <li><strong>IPの取得経路を確認。</strong>手動IP set・レートベースルールで転送ヘッダーを使う場合、信頼できるプロキシが上書きするヘッダー、欠落時・不正値時の扱いまで確認する。Scope-downの転送IP設定は、外側のマネージドルールへ引き継がれない。<a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-forwarded-ip-address.html">AWS：転送IP</a> / <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-scope-down-statements.html">設定の非継承</a></li>
+        </ol>
+        <p>ログでは送信元IP・URI・メソッド・件数・応答の変化を突き合わせる。<strong>HTTP 200だから安全とも、IP一致だから侵害とも判断しない。</strong>不審な操作があればログを保全し、アプリ・DB側の記録と確認する。</p>
+        <p class="source"><a href="https://security.macnica.co.jp/blog/2026/10/web-incidents2026.html">マクニカ：公開事案・対応事案の分析とログ点検の観点</a>（2026年10月6日時点の分析、10月8日追記・本メモ確認）。</p>
+        <p>上記の運用手順は公開資料に基づく提案。防御効果や利用者への無影響を保証するものではなく、設定変更の前に自環境で検証する。</p>
+      </div>
+    </details>
+  </section>
+  <footer>
+    <p>参照範囲：AWS公式ドキュメント、JPCERT/CC、マクニカの公開情報。</p>
+    <p>このページは調査結果の公開のみ。AWSアカウント・WAF設定の変更は含まない。</p>
+    <p><a href="/">HTML Shareの一覧へ</a></p>
+  </footer>
+</main>
+</body>
+</html>
