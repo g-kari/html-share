@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Thu, 08 Oct 2026 13:49:52 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 08 Oct 2026 16:08:38 GMT</lastBuildDate>
+    <item>
+      <title>Grok Bot・Dots・個人AIエージェント9製品の比較｜料金・並列性・透明性</title>
+      <link>https://share.0g0.xyz/personal-ai-agent-comparison</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/personal-ai-agent-comparison</guid>
+      <description>Grok Bot、Dots、Hark Proなど個人AIエージェント9製品を料金・並列性・記憶・データ境界で比較。HarkとSuperGrok・X Premium+のGrok Bot利用条件を2026年10月8日に公式確認。</description>
+      <pubDate>Thu, 08 Oct 2026 16:08:38 GMT</pubDate>
+      <dcterms:created>2026-10-07T16:46:20.000Z</dcterms:created>
+      <dcterms:modified>2026-10-08T16:08:38.000Z</dcterms:modified>
+    </item>
     <item>
       <title>号外｜Windows、AIを手元とクラウドで動かす時代へ</title>
       <link>https://share.0g0.xyz/windows-hybrid-extra</link>
@@ -25,15 +34,6 @@
       <pubDate>Thu, 08 Oct 2026 13:44:50 GMT</pubDate>
       <dcterms:created>2026-10-08T13:44:50.000Z</dcterms:created>
       <dcterms:modified>2026-10-08T13:44:50.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>Grok Bot・Dots・個人AIエージェント9製品の比較｜料金・並列性・透明性</title>
-      <link>https://share.0g0.xyz/personal-ai-agent-comparison</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/personal-ai-agent-comparison</guid>
-      <description>Grok Bot、Dots、Hark Proなど個人AIエージェント9製品を料金・並列性・記憶・データ境界で比較。Harkは2026年10月8日に公式情報を確認し追記。</description>
-      <pubDate>Thu, 08 Oct 2026 11:28:48 GMT</pubDate>
-      <dcterms:created>2026-10-07T16:46:20.000Z</dcterms:created>
-      <dcterms:modified>2026-10-08T11:28:48.000Z</dcterms:modified>
     </item>
     <item>
       <title>AWS WAFで不審なアクセス元を止める：マネージドルールとIP・UA対策</title>
