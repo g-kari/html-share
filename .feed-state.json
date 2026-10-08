@@ -1,6 +1,11 @@
 {
   "version": 1,
   "pages": {
+    "aws-waf-ip-reputation.html": {
+      "fingerprint": "4e4f01e455d8b5dc93e47b8bc56260c69f0878155cb591be19aa0a84ce7ddc38",
+      "published": "2026-10-08T07:03:55.000Z",
+      "updated": "2026-10-08T07:03:55.000Z"
+    },
     "cloudfront-protobuf-maintenance.html": {
       "fingerprint": "3ac82cf61b10d53fa300c9ba5c09c2fc6f1395e9abc8cc079309fd56c7d7508e",
       "published": "2026-10-07T16:24:47.000Z",

@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Thu, 08 Oct 2026 03:08:19 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 08 Oct 2026 07:03:55 GMT</lastBuildDate>
+    <item>
+      <title>AWS WAFで不審なアクセス元を止める：マネージドルールとIP・UA対策</title>
+      <link>https://share.0g0.xyz/aws-waf-ip-reputation</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/aws-waf-ip-reputation</guid>
+      <description>Amazon IP reputation listとAnonymous IP listの違い、Countからの安全な導入、JPCERT/CC公表の8IP・5User-Agentの扱いを短く整理。2026年10月8日確認。</description>
+      <pubDate>Thu, 08 Oct 2026 07:03:55 GMT</pubDate>
+      <dcterms:created>2026-10-08T07:03:55.000Z</dcterms:created>
+      <dcterms:modified>2026-10-08T07:03:55.000Z</dcterms:modified>
+    </item>
     <item>
       <title>CloudFrontのprotobufメンテ応答: 8つの構成図</title>
       <link>https://share.0g0.xyz/cloudfront-protobuf-maintenance</link>
