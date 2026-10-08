@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Thu, 08 Oct 2026 13:10:15 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 08 Oct 2026 13:44:50 GMT</lastBuildDate>
+    <item>
+      <title>ソフトウェアデモを動かす スキルとプラグイン調査</title>
+      <link>https://share.0g0.xyz/animation-skills-research</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/animation-skills-research</guid>
+      <description>ソフトウェアデモ動画を作る Remotion、HyperFrames、GSAP、Motion の公式スキルとプラグインを比較。導入方法、動画とWebの違い、費用、ライセンス、再現工程を整理。</description>
+      <pubDate>Thu, 08 Oct 2026 13:44:50 GMT</pubDate>
+      <dcterms:created>2026-10-08T13:44:50.000Z</dcterms:created>
+      <dcterms:modified>2026-10-08T13:44:50.000Z</dcterms:modified>
+    </item>
     <item>
       <title>号外｜Windows、AIを手元とクラウドで動かす時代へ</title>
       <link>https://share.0g0.xyz/windows-hybrid-extra</link>

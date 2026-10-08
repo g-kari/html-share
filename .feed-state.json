@@ -1,6 +1,11 @@
 {
   "version": 1,
   "pages": {
+    "animation-skills-research.html": {
+      "fingerprint": "cad7f20a534129cac6d0e324c73af6c499e1306aaaee1bec38a26aeb98b5cf75",
+      "published": "2026-10-08T13:44:50.000Z",
+      "updated": "2026-10-08T13:44:50.000Z"
+    },
     "aws-waf-ip-reputation.html": {
       "fingerprint": "4e4f01e455d8b5dc93e47b8bc56260c69f0878155cb591be19aa0a84ce7ddc38",
       "published": "2026-10-08T07:03:55.000Z",
