@@ -7,6 +7,10 @@ ChatGPT から生成した HTML を Cloudflare Workers Static Assets で共有�
 - `public/index.html` - 自動生成されるトップページ / SPA fallback
 - `public/feed.xml` - 自動生成されるRSS 2.0（新規公開・更新）
 - `public/**/*.html` - 共有用HTML
+- `reports/vulnerabilities.source.html` - 脆弱性レポートの編集原本（非配信）
+- `scripts/split-vulnerabilities.mjs` - 原本から軽量トップ・20件単位の本文JSON・静的分割ページを生成
+- `public/assets/vulnerabilities-view.js` - 全件検索・絞り込み・ページ送り・旧anchor解決
+- `public/assets/vulnerabilities/*.json` / `public/vulnerabilities/archive/*.html` - 自動生成の本文・全件検索索引・JavaScript不要の分割ページ
 - `scripts/generate-index.mjs` - HTML一覧・RSS・OGP・Twitterカードを生成
 - `scripts/rss-feed.mjs` - RSS・購読リンク・コンテンツ更新日時の共通処理
 - `scripts/report-feeds.mjs` - 脆弱性・漏洩レポートの実質的更新を独立項目で配信
@@ -164,6 +168,16 @@ Gitも状態もない事案の初回backfillでは、UIのみの履歴との判�
 
 生成物は `.report-feed-state.json` も含めて現在のmainからまとめてcommitします。
 並行更新でpushに失敗したら、mainを再取得して再生成します。手作業で生成物を上書きしないでください。
+
+## Lightweight vulnerability report
+
+`/vulnerabilities` の公開URLと既存の各項目 `#id` は維持します。初期HTMLは対処優先度順の20件のみで、本文は20件単位の同一origin JSONに分割します。検索は従来の全カード本文・出典テキストを含む別の索引を初回の検索時だけ取得し、分野・悪用状況・深刻度・並べ方は小さいmanifestで全件を判定します。1ページ20件のDOMだけを維持し、本文chunkは必要な分だけ読み込んで再利用します。検索・ページ番号はURLに保存し、古い直接anchorとBack/Forwardも対象本文へ解決します。
+
+JavaScript無効時は初期20件・全項目一覧と `/vulnerabilities/archive/page-N` の静的な分割ページから全本文・一次資料・確認範囲・更新履歴を読めます。読込失敗時は表示済み本文を残し、再試行と対象の静的ページへのリンクを表示します。各分割ページには固有canonical・通常/専用RSS discoveryを生成しますが、トップのページ一覧と全体RSSには独立の新ページとして載せません。
+
+編集は `reports/vulnerabilities.source.html` にだけ行います。原本の既存HTMLカードとJSON `vulnerability-report-data` のID集合を一致させ、実質更新なら従来通り `changes[].summary` も同時に記録します。公開済みデータを追加・訂正する契約は変わりません。`public/vulnerabilities.html`、本文JSON、静的分割ページは手編集せず `npm run build` で生成します。原本はStatic Assetsに含めません。古い単体HTMLの更新候補は、現在の原本へ差分だけを再適用してから生成・テストしてください。
+
+通常RSSのhash/日時判定・専用RSSの実質差分判定には編集原本を使用します。移行前の `public/vulnerabilities.html` と新しい原本の両Git履歴を一つの順序で調べ、旧GUIDと元の日時・配信履歴を保持します。原本をbyte-identicalで移すだけの構造変更や、表示chunkの再生成は新しい脆弱性の追加更新として配信しません。hash付きのJSONファイル名で世代を分離し、古いcacheと新しい本文の混在を防ぎます。通常RSSの他ページ・漏洩事案レポートの既存契約は維持します。
 
 ## Social previews (OGP / Twitter Cards)
 

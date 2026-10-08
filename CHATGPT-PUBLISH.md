@@ -57,6 +57,14 @@ Examples:
 - 共通画像は `/assets/html-share-card-v1.png`（1200×630 PNG）
 - 独自画像を使う場合は幅・高さ・MIME type・altも設定する
 
+## Vulnerability report authoring
+
+- `/vulnerabilities` の編集原本は `reports/vulnerabilities.source.html`。非配信の原本を更新し、既存HTMLカードと `vulnerability-report-data` JSONのID集合を一致させる。
+- `public/vulnerabilities.html`、`public/assets/vulnerabilities/*.json`、`public/vulnerabilities/archive/*.html` は生成物で、直接更新しない。`node scripts/generate-index.mjs` が20件単位の軽量本文と静的な代替ページを生成する。
+- 全件検索索引は検索時のみ、本文JSONは該当ページ分だけ取得。旧 `/vulnerabilities#id`・検索/絞り込み・履歴・出典は維持する。JS無効/読込失敗時の全本文リンクも削らない。
+- 通常/専用RSSは原本を読み、移行前の公開HTMLと新原本のGit履歴を連続して扱う。構造だけの変更を新しい脆弱性更新として配信しない。静的分割ページを通常RSSやトップ一覧に追加しない。
+- 旧単体HTMLの未反映候補をそのまま公開ファイルへ上書きせず、最新原本に事実の差分だけを再baseして生成・テストする。
+
 ## Important
 
 - `.git` やリポジトリ直下全体を Static Assets にしない

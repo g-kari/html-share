@@ -3,6 +3,7 @@ import { execFileSync } from "node:child_process";
 import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { addSocialMetadata, escapeHtml, headTags, SITE_NAME, SITE_URL } from "./social-metadata.mjs";
+import { committedReportSource, reportSourcePaths } from "./report-source.mjs";
 
 export const FEED_PATH = "/feed.xml";
 export const STATE_FILE = ".feed-state.json";
@@ -95,7 +96,7 @@ export function pageDates(root, relativePath, fingerprint, previous) {
   const repositoryPath = `public/${relativePath}`;
   let history = [];
   try {
-    history = git(root, ["log", "--format=%H%x09%cI", "--", repositoryPath]).trim().split("\n").filter(Boolean)
+    history = git(root, ["log", "--format=%H%x09%cI", "--", ...reportSourcePaths(relativePath)]).trim().split("\n").filter(Boolean)
       .map((line) => { const [sha, date] = line.split("\t"); return { sha, date: timestamp(date) }; });
   } catch { /* A source export can reuse the saved state or SOURCE_DATE_EPOCH. */ }
   let updated;
@@ -103,7 +104,7 @@ export function pageDates(root, relativePath, fingerprint, previous) {
   // date; a later metadata-only bot commit must not reset it.
   for (const commit of history) {
     let committed;
-    try { committed = contentFingerprint(git(root, ["show", `${commit.sha}:${repositoryPath}`]), relativePath); }
+    try { committed = contentFingerprint(committedReportSource((args) => git(root, args), relativePath, commit.sha), relativePath); }
     catch { break; }
     if (committed !== fingerprint) break;
     updated = commit.date;

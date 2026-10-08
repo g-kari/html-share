@@ -4,6 +4,7 @@ import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { escapeHtml, scanTags, SITE_URL } from "./social-metadata.mjs";
 import { escapeXml } from "./rss-feed.mjs";
+import { committedReportSource, reportSourcePaths } from "./report-source.mjs";
 
 export const REPORT_STATE_FILE = ".report-feed-state.json";
 export const CORRECTION_FILE = "report-feed-corrections.json";
@@ -108,7 +109,8 @@ function itemFor(fingerprint, changes, date) {
 // that only changes observation dates, styling or wording never creates an item.
 function historicalItems(root, feed, previous = null) {
   let history;
-  try { history = execFileSync("git", ["-C", root, "log", "--reverse", "--format=%H%x09%cI", "--", `public/${feed.relativePath}`], { encoding: "utf8", stdio: "pipe" }).trim().split("\n").filter(Boolean).map((line) => { const [sha, date] = line.split("\t"); return { sha, date }; }); }
+  const git = (args) => execFileSync("git", ["-C", root, ...args], { encoding: "utf8", maxBuffer: 16 * 1024 * 1024, stdio: "pipe" });
+  try { history = git(["log", "--reverse", "--format=%H%x09%cI", "--", ...reportSourcePaths(feed.relativePath)]).trim().split("\n").filter(Boolean).map((line) => { const [sha, date] = line.split("\t"); return { sha, date }; }); }
   catch { return null; }
   if (!history.length) return null;
   const start = previous ? history.findIndex((commit) => commit.sha === previous.cursor) + 1 : 0;
@@ -122,7 +124,7 @@ function historicalItems(root, feed, previous = null) {
   for (const { sha, date } of history.slice(start)) {
     let data;
     try {
-      const source = execFileSync("git", ["-C", root, "show", `${sha}:public/${feed.relativePath}`], { encoding: "utf8", maxBuffer: 16 * 1024 * 1024, stdio: "pipe" });
+      const source = committedReportSource(git, feed.relativePath, sha);
       data = reportData(source, feed);
     } catch { continue; } // Earlier versions may predate the structured journal.
     const records = recordFingerprints(data, feed);

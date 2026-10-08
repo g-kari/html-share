@@ -6,6 +6,7 @@ import { tmpdir } from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { addFeedDiscovery } from "../scripts/rss-feed.mjs";
+import { authoredReportSource } from "../scripts/report-source.mjs";
 import { REPORT_FEEDS, REPORT_STATE_FILE, CORRECTION_FILE, readDeliveryCorrections, readReportState, reportData, renderReportFeed, writeReportFeeds } from "../scripts/report-feeds.mjs";
 const root = fileURLToPath(new URL("../", import.meta.url));
 const [vulnerability, incident] = REPORT_FEEDS;
@@ -34,7 +35,7 @@ const count = (text) => (text.match(/<item>/g) || []).length;
 
 test("real report JSON formats parse; discovery adds topic feeds without altering body or duplicating links", async () => {
   for (const feed of REPORT_FEEDS) {
-    const source = await readFile(path.join(root, "public", feed.relativePath), "utf8");
+    const source = await authoredReportSource(root, feed.relativePath, await readFile(path.join(root, "public", feed.relativePath), "utf8"));
     assert.ok(reportData(source, feed)[feed.recordsKey].length);
     const output = addFeedDiscovery(source, [feed]);
     assert.equal(addFeedDiscovery(output, [feed]), output);
@@ -149,7 +150,7 @@ test("actual schema observation clocks and derived fingerprints remain non-mater
   const cwd = await fixture();
   try {
     for (const feed of REPORT_FEEDS) {
-      const source = await readFile(path.join(root, "public", feed.relativePath), "utf8");
+      const source = await authoredReportSource(root, feed.relativePath, await readFile(path.join(root, "public", feed.relativePath), "utf8"));
       const value = reportData(source, feed);
       let page = await save(cwd, feed, value); commit(cwd, dates[0]); await writeReportFeeds(cwd, [page]);
       const before = await xml(cwd, feed);

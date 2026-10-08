@@ -3,9 +3,12 @@ import path from "node:path";
 import { addSocialMetadata, escapeHtml, pageDetails, routeFor } from "./social-metadata.mjs";
 import { addFeedDiscovery, writeFeed } from "./rss-feed.mjs";
 import { REPORT_FEEDS, writeReportFeeds } from "./report-feeds.mjs";
+import { authoredReportSource } from "./report-source.mjs";
+import { generateSplitVulnerabilities, isReportArchive } from "./split-vulnerabilities.mjs";
 
 const publicDir = path.resolve("public");
 const outputFile = path.join(publicDir, "index.html");
+await generateSplitVulnerabilities(path.resolve("."));
 
 async function walk(dir) {
   const entries = await readdir(dir, { withFileTypes: true });
@@ -26,13 +29,14 @@ async function walk(dir) {
 
 const files = (await walk(publicDir))
   .filter((file) => path.resolve(file) !== path.resolve(outputFile))
+  .filter((file) => !isReportArchive(path.relative(publicDir, file).split(path.sep).join("/")))
   .sort((a, b) => a.localeCompare(b, "ja"));
 
 const pages = [];
 
 for (const file of files) {
   const relativePath = path.relative(publicDir, file);
-  const html = await readFile(file, "utf8");
+  const html = await authoredReportSource(path.resolve("."), relativePath, await readFile(file, "utf8"));
   const route = routeFor(relativePath);
   const fallbackTitle = path.basename(file, ".html");
   const details = pageDetails(html, fallbackTitle);
