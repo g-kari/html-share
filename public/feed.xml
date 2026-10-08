@@ -7,15 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Thu, 08 Oct 2026 03:05:46 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 08 Oct 2026 03:08:19 GMT</lastBuildDate>
     <item>
       <title>CloudFrontのprotobufメンテ応答: 8つの構成図</title>
       <link>https://share.0g0.xyz/cloudfront-protobuf-maintenance</link>
       <guid isPermaLink="true">https://share.0g0.xyz/cloudfront-protobuf-maintenance</guid>
       <description>GET・POST・gRPCのメンテナンス応答を8図で比較。例外path、キャッシュ、raw protobufの注意点を短く整理し、詳しい説明と一次資料は折りたたみで掲載。</description>
-      <pubDate>Thu, 08 Oct 2026 03:05:46 GMT</pubDate>
+      <pubDate>Thu, 08 Oct 2026 03:08:19 GMT</pubDate>
       <dcterms:created>2026-10-07T16:24:47.000Z</dcterms:created>
-      <dcterms:modified>2026-10-08T03:05:46.000Z</dcterms:modified>
+      <dcterms:modified>2026-10-08T03:08:19.000Z</dcterms:modified>
     </item>
     <item>
       <title>Grok Bot・Dots・個人AIエージェント8製品の比較｜料金・並列性・透明性</title>
