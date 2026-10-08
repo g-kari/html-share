@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - "public/**"
+      - "reports/**"
       - "scripts/**"
       - "tests/**"
       - "wrangler.jsonc"
@@ -16,6 +17,7 @@ on:
   pull_request:
     paths:
       - "public/**"
+      - "reports/**"
       - "scripts/**"
       - "tests/**"
       - "wrangler.jsonc"
