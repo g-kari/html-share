@@ -12,6 +12,7 @@
 :root{--paper:#efefea;--ink:#17201d;--muted:#535c57;--red:#b32928;--line:#969b94;--green:#184d42;--serif:"Noto Serif CJK JP","Yu Mincho","Hiragino Mincho ProN",serif;--sans:"Noto Sans CJK JP","Yu Gothic",sans-serif}*{box-sizing:border-box}body{margin:0;background:#d7dad5;color:var(--ink);font-family:var(--serif);line-height:1.9}a{color:inherit;text-decoration-thickness:1px;text-underline-offset:4px}a:hover{color:var(--red)}a:focus-visible,button:focus-visible{outline:3px solid var(--red);outline-offset:5px}.skip{position:absolute;top:-100px;left:16px;background:white;padding:8px;z-index:10}.skip:focus{top:12px}.paper{max-width:1200px;margin:28px auto;background:var(--paper);padding:30px 46px 24px;box-shadow:0 5px 25px #17201d14}.masthead{display:flex;align-items:center;justify-content:space-between;gap:20px;border-bottom:6px double var(--ink);padding-bottom:15px}.brand{font-size:32px;letter-spacing:.12em;font-weight:900;line-height:1.2}.brand small{display:block;font:11px/1.5 var(--sans);letter-spacing:.12em;margin-top:9px}.edition{text-align:right;font:12px/1.7 var(--sans)}.extra{background:var(--red);color:#fff;font:900 28px/1.2 var(--serif);letter-spacing:.2em;padding:12px 14px 12px 20px;white-space:nowrap}.strap{margin:15px 0 0;font:700 14px/1.8 var(--sans);display:flex;justify-content:space-between;gap:15px}.headline{display:grid;grid-template-columns:1fr 82px;gap:25px;padding:25px 0 30px;border-bottom:2px solid var(--ink)}h1{font-size:clamp(38px,6.2vw,76px);font-weight:900;line-height:1.23;letter-spacing:-.045em;margin:0;text-wrap:balance}.vertical{writing-mode:vertical-rl;font-size:27px;line-height:1.45;letter-spacing:.12em;border-left:1px solid var(--line);padding-left:20px}.deck{font-size:20px;line-height:1.6;font-weight:700;margin:24px 0 0;max-width:40em}.opening{display:grid;grid-template-columns:1.2fr 1fr;gap:30px;padding:25px 0;border-bottom:1px solid var(--ink)}p{margin:0 0 15px;font-size:16px}p:last-child{margin-bottom:0}.intro{font-size:18px;line-height:1.95}.byline,.source,.caption{font:12px/1.7 var(--sans);color:var(--muted)}.lead-note{border:1px solid var(--ink);padding:18px 20px;background:#e4e8df}.lead-note h2{font:700 16px/1.5 var(--sans);margin:0 0 10px}.lead-note p{font:15px/1.8 var(--sans)}.columns{display:grid;grid-template-columns:1fr 1fr 1fr;gap:26px;padding:30px 0}.columns article+article{border-left:1px solid var(--line);padding-left:26px}h2{font-size:26px;line-height:1.5;margin:0 0 16px;letter-spacing:-.03em}h2 small{display:block;font:700 12px/1.7 var(--sans);color:var(--red);letter-spacing:.05em;margin-bottom:8px}.fact{font-family:var(--sans);font-size:14px;line-height:1.9}.schedule{border-top:5px double var(--ink);border-bottom:1px solid var(--ink);padding:24px 0;display:grid;grid-template-columns:185px 1fr;gap:30px}.schedule h2{font-size:23px}.schedule ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.schedule li{border-left:3px solid var(--red);padding-left:13px;font:14px/1.8 var(--sans)}.schedule strong{display:block;font-size:18px;margin-bottom:7px}.analysis{padding:26px 0;display:grid;grid-template-columns:1fr 1fr;gap:30px}.analysis h2{font-size:23px}.references{border-top:1px solid var(--ink);padding-top:18px;font:12px/1.9 var(--sans)}.references ol{padding-left:20px;columns:2;column-gap:30px}.references li{break-inside:avoid;margin-bottom:8px}.footer{border-top:4px solid var(--ink);margin-top:18px;padding-top:12px;display:flex;justify-content:space-between;gap:18px;font:11px/1.8 var(--sans)}.animation{margin:0 0 24px}button{font:inherit;cursor:pointer} @media(max-width:800px){.paper{margin:0;padding:22px}.brand{font-size:25px}.extra{font-size:22px}.edition{font-size:10px}.headline{grid-template-columns:1fr 46px;gap:15px}.vertical{font-size:19px;padding-left:10px}.deck{font-size:17px}.opening,.analysis{grid-template-columns:1fr;gap:20px}.columns{grid-template-columns:1fr;gap:24px}.columns article+article{border-left:0;border-top:1px solid var(--line);padding:24px 0 0}.schedule{grid-template-columns:1fr;gap:5px}.schedule ol{gap:16px}.schedule h2{margin-bottom:12px}.references ol{columns:1}}@media(max-width:480px){.paper{padding:16px}.masthead{gap:10px;flex-wrap:wrap}.brand{font-size:24px}.edition{order:3;width:100%;text-align:left;border-top:1px solid var(--line);padding-top:8px}.strap{font-size:11px}.strap span:last-child{display:none}h1{font-size:38px}.headline{padding-top:20px}.vertical{font-size:17px}.schedule ol{grid-template-columns:1fr}.footer{flex-direction:column;gap:8px}}@media print{body{background:#fff}.paper{margin:0;padding:0;box-shadow:none}.skip,button{display:none}a{text-decoration:none}.animation{break-inside:avoid}*{animation:none!important}}
 
 .motion-heading{display:flex;justify-content:space-between;align-items:center;gap:18px;margin:25px 0 12px}.motion-heading h2{font-size:20px;margin:0}.motion-controls{display:flex;gap:8px;flex-wrap:wrap}.motion-controls button{font:12px/1.4 var(--sans);border:1px solid var(--ink);padding:9px 12px;background:transparent;color:var(--ink)}.motion-controls button:hover{background:var(--ink);color:var(--paper)}.demo{position:relative;background:#101015;aspect-ratio:2.5;min-height:280px;overflow:hidden;color:#e7e5f0;font-family:var(--sans)}.terminal{position:absolute;inset:24px 8%;border:1px solid #474451;background:#17151d;transform:scale(1);opacity:1}.terminal-bar{height:37px;border-bottom:1px solid #38323f;display:flex;align-items:center;padding:0 15px;gap:6px}.terminal-bar i{width:6px;height:6px;border-radius:50%;background:#77717d}.terminal-bar span{font-size:10px;margin-left:12px;color:#bcb6c4}.terminal-body{padding:20px 25px;font-family:ui-monospace,"Noto Sans CJK JP",monospace;font-size:13px;line-height:1.8}.dim{color:#b0a9b8}.model{margin-top:12px;display:flex;justify-content:space-between;gap:12px;padding:5px 12px;position:relative}.model span:last-child{font-size:11px}.selected{background:#ad8ce7;color:#211532;font-weight:700}.cursor{font-size:32px;position:absolute;right:40px;top:7px;color:#fff;text-shadow:1px 1px #16101d,-1px -1px #16101d;font-family:sans-serif}.execution{margin-top:15px}.prompt{font-size:11px;color:#c7c0d1}.progress{height:4px;background:#42394d;margin:8px 0}.progress span{display:block;height:100%;width:100%;background:#b698e9}.done{font-size:13px;color:#d2c4e9}.terminal-foot{font-size:10px;color:#b7afc1;margin-top:14px}.demo-title{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;opacity:0;pointer-events:none}.demo-title span{font-size:clamp(20px,3vw,36px);font-weight:700}.demo-title small{font-size:12px;color:#bdb5ca}.animation figcaption{margin-top:10px}.playing .demo-title{animation:title-in 12s both}.playing .terminal{animation:terminal-in 12s both}.playing .cursor{animation:pointer-in 12s both}.playing .progress span{animation:progress-in 12s both;transform-origin:left}.playing .done{animation:done-in 12s both}.paused *{animation-play-state:paused!important}@keyframes title-in{0%,13%{opacity:1}20%,100%{opacity:0}}@keyframes terminal-in{0%,15%{opacity:0;transform:scale(.94)}24%,34%{opacity:1;transform:scale(1)}45%,70%{opacity:1;transform:scale(1.075)}88%,100%{opacity:1;transform:scale(1)}}@keyframes pointer-in{0%,30%{opacity:0;transform:translate(25px,10px)}40%,55%{opacity:1;transform:translate(0,0)}65%,100%{opacity:0}}@keyframes progress-in{0%,45%{transform:scaleX(0)}76%,100%{transform:scaleX(1)}}@keyframes done-in{0%,76%{opacity:0}84%,100%{opacity:1}}@media(max-width:600px){.motion-heading{align-items:flex-start;flex-direction:column;gap:10px}.demo{min-height:295px}.terminal{inset:16px 12px}.terminal-body{padding:14px;font-size:11px}.terminal-foot{font-size:9px}.model{padding:6px;gap:6px}.model span:last-child{font-size:10px}.terminal-bar span{font-size:9px}}@media(prefers-reduced-motion:reduce){.demo *{animation:none!important}.demo-title{display:none}.cursor{display:none}}
+.motion-controls button:disabled{cursor:default;opacity:.65}.motion-controls button:disabled:hover{background:transparent;color:var(--ink)}.motion-status{margin:0 0 10px}.demo.waiting .progress span{transform:scaleX(0);transform-origin:left}.demo.waiting .done{opacity:0}
 </style>
   
   <!-- html-share: social metadata -->
@@ -40,7 +41,8 @@
 <section class="headline"><div><h1>Windows、AIを<br>手元とクラウドで<br>動かす時代へ</h1><p class="deck">MXCが一般提供。ローカルAIとクラウドをつなぐ「ハイブリッド・インテリジェンス」構想を発表。</p></div><div class="vertical" aria-hidden="true">パソコンが、エージェントの拠点に。</div></section>
 <section class="opening"><div><p class="intro">Microsoftは10月7日、AIの処理をPC内とクラウドで使い分けるWindowsの方向性を示した。処理能力だけでなく、エージェントに渡す権限の管理も柱となる。<a href="#s1" aria-label="出典1">[1]</a></p><p class="byline">公式発表・技術解説に基づく要約。製品の実機検証ではありません。</p></div><aside class="lead-note"><h2>いま読むべきポイント</h2><p>「発表された機能」と「すでに使える機能」は分けて読む。MXCは一般提供。一方、Copilotのハイブリッド機能は段階的な展開予定だ。</p></aside></section>
 <figure class="animation" aria-labelledby="motion-title">
-<div class="motion-heading"><h2 id="motion-title">AIが手元で動く、そのイメージ</h2><div class="motion-controls"><button type="button" id="motion-toggle" hidden>一時停止</button><button type="button" id="motion-replay" hidden>もう一度見る</button></div></div>
+<div class="motion-heading"><h2 id="motion-title">AIが手元で動く、そのイメージ</h2><div class="motion-controls"><button type="button" id="motion-toggle" aria-controls="demo" hidden>再生する</button><button type="button" id="motion-replay" aria-controls="demo" hidden>最初から再生</button></div></div>
+<p class="caption motion-status" id="motion-status" role="status" aria-live="polite">ローカルモデルを選び、準備し、このPCで処理する流れの概念図です。</p>
 <div class="demo" id="demo"><div class="demo-title" aria-hidden="true"><span>ローカルAIという選択。</span><small>Windows × Hybrid intelligence</small></div><div class="terminal" aria-hidden="true"><div class="terminal-bar"><i></i><i></i><i></i><span>推論先の選択 / 概念デモ</span></div><div class="terminal-body"><div class="dim">› この作業を、どこで動かす？</div><div class="model dim">Cloud model <span>複雑なタスクに</span></div><div class="model selected"><span>Local model</span><span>このPCで推論</span><b class="cursor">↖</b></div><div class="execution"><div class="prompt">› ローカルのモデルを準備</div><div class="progress"><span></span></div><div class="done">✓ このPCで処理を実行</div></div><div class="terminal-foot">推論の場所と、ツールのアクセス権は別々に管理。</div></div></div></div>
 <figcaption class="caption">Microsoft AIの<a href="https://x.com/MicrosoftAI/status/2107926901150908483">紹介動画</a>のターミナル演出を参考にした独自アニメーション。実際の製品UI・性能・待ち時間を示すものではありません。通信の有無はモデル以外の処理にも依存します。</figcaption>
 </figure>
@@ -55,5 +57,88 @@
 </main><footer class="footer"><span>技術通信 / Windows 特別版</span><a href="/">公開記事の一覧へ</a></footer>
 </div>
 <script>
-(()=>{const demo=document.getElementById('demo'),toggle=document.getElementById('motion-toggle'),replay=document.getElementById('motion-replay'),reduced=matchMedia('(prefers-reduced-motion: reduce)');let ended=false;toggle.hidden=false;replay.hidden=false;function finish(){ended=true;toggle.hidden=true;replay.textContent='もう一度見る'}function play(){if(reduced.matches){demo.className='demo';toggle.hidden=true;replay.hidden=true;return}ended=false;demo.className='demo';void demo.offsetWidth;demo.className='demo playing';toggle.hidden=false;toggle.textContent='一時停止'}toggle.addEventListener('click',()=>{if(ended)return;const paused=demo.classList.toggle('paused');toggle.textContent=paused?'再生を続ける':'一時停止'});replay.addEventListener('click',play);demo.querySelector('.terminal').addEventListener('animationend',finish);reduced.addEventListener('change',()=>{replay.hidden=false;play()});play()})();
+(() => {
+  const demo = document.getElementById('demo');
+  const toggle = document.getElementById('motion-toggle');
+  const replay = document.getElementById('motion-replay');
+  const status = document.getElementById('motion-status');
+  const terminal = demo.querySelector('.terminal');
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  let state = 'waiting';
+  let inView = false;
+  let autoPaused = false;
+
+  function render() {
+    toggle.hidden = false;
+    toggle.disabled = reduced.matches;
+    replay.hidden = reduced.matches || state === 'waiting';
+    if (reduced.matches) {
+      toggle.textContent = '静止表示中';
+      status.textContent = '端末の「動きを抑える」設定に合わせて静止表示しています。';
+      return;
+    }
+    toggle.textContent = state === 'playing' ? '一時停止' : state === 'paused' ? '再生を続ける' : state === 'ended' ? 'もう一度再生' : '再生する';
+    status.textContent = state === 'playing' ? '再生中 · 約12秒の概念アニメーション' : state === 'paused' ? (autoPaused ? '画面の外では一時停止。戻ると続きから再生します。' : '一時停止中') : state === 'ended' ? '再生終了。「もう一度再生」で見直せます。' : '画面に入ると再生します。「再生する」でも開始できます。';
+  }
+  function start() {
+    if (reduced.matches) return;
+    autoPaused = false;
+    demo.className = 'demo';
+    void demo.offsetWidth;
+    demo.className = 'demo playing';
+    state = 'playing';
+    render();
+  }
+  function pause(automatic = false) {
+    if (state !== 'playing') return;
+    autoPaused = automatic;
+    state = 'paused';
+    demo.classList.add('paused');
+    render();
+  }
+  function resume() {
+    if (state !== 'paused' || reduced.matches) return;
+    autoPaused = false;
+    state = 'playing';
+    demo.classList.remove('paused');
+    render();
+  }
+  toggle.addEventListener('click', () => {
+    if (reduced.matches) return;
+    if (state === 'playing') pause();
+    else if (state === 'paused') resume();
+    else start();
+  });
+  replay.addEventListener('click', start);
+  terminal.addEventListener('animationend', event => {
+    if (event.target !== terminal || event.animationName !== 'terminal-in' || state !== 'playing') return;
+    state = 'ended';
+    autoPaused = false;
+    render();
+  });
+  function applyMotionPreference() {
+    autoPaused = false;
+    state = 'waiting';
+    demo.className = reduced.matches ? 'demo' : 'demo waiting';
+    render();
+    if (!reduced.matches && inView) start();
+  }
+  reduced.addEventListener('change', applyMotionPreference);
+  applyMotionPreference();
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      const entry = entries.find(item => item.target === demo);
+      if (!entry) return;
+      inView = entry.isIntersecting && entry.intersectionRatio >= 0.3;
+      if (reduced.matches) return;
+      if (inView && state === 'waiting') start();
+      else if (!inView && state === 'playing') pause(true);
+      else if (inView && state === 'paused' && autoPaused) resume();
+    }, { threshold: [0, 0.3] });
+    observer.observe(demo);
+  } else {
+    status.textContent = reduced.matches ? status.textContent : '「再生する」で約12秒のアニメーションを開始します。';
+  }
+})();
 </script></body></html>
+
