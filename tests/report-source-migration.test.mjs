@@ -276,18 +276,20 @@ test("the current authored snapshot migration preserves all three RSS outputs an
     const recordCount = value.records.length;
     assert.ok(recordCount > 0);
     const originalFeedState = await readFeedState(root);
-    const legacyDate = originalFeedState.pages[vulnerability.relativePath].updated;
+    // The copied snapshot includes every page, not just the report being moved.
+    // Pending edits to a newer page must not be assigned an older report date.
+    const snapshotDate = new Date(Math.max(...Object.values(originalFeedState.pages)
+      .map((page) => Date.parse(page.updated)))).toISOString();
     await cp(path.join(root, "public"), path.join(cwd, "public"), { recursive: true });
     for (const file of [STATE_FILE, REPORT_STATE_FILE, CORRECTION_FILE]) await cp(path.join(root, file), path.join(cwd, file));
     await writeFile(path.join(cwd, legacyPath), source);
-    // A coherent pre-migration snapshot can also contain a pending CSS edit or
-    // future authored facts. Initialize it at its saved publication date, rather
-    // than backdating new source bytes before the already-preserved dates.
-    commit(cwd, legacyDate, "Legacy real report snapshot with preserved publication state");
+    // Initialize all copied source bytes no earlier than any preserved page date.
+    // Keep the generator's backwards-date guard intact.
+    commit(cwd, snapshotDate, "Legacy real report snapshot with preserved publication state");
     generate(cwd);
     const shipped = await snapshot(cwd);
     const itemCount = (await readReportState(cwd)).reports.vulnerabilities.items.length;
-    const moved = await migrate(cwd, new Date(Date.parse(legacyDate) + 1000).toISOString());
+    const moved = await migrate(cwd, new Date(Date.parse(snapshotDate) + 1000).toISOString());
     generate(cwd);
     const after = await snapshot(cwd);
     assertUnchangedFeeds(after, shipped);
