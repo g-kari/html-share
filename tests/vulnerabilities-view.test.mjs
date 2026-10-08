@@ -122,11 +122,12 @@ async function flushUpdates() {
   await nextTurn();
 }
 
-async function createBrowser(start = '/vulnerabilities', { fetchOverride } = {}) {
+async function createBrowser(start = '/vulnerabilities', { fetchOverride, manifest = view } = {}) {
   const elements = new Map();
   for (const id of [
     'filters', 'advisories', 'vulnerability-view-data', 'pagination', 'load-error',
-    'result-count', 'empty', 'page-status', 'previous-page', 'next-page', 'advisories-heading',
+    'result-count', 'empty', 'page-status', 'previous-page', 'next-page', 'advisories-heading', 'archive-index',
+    'pagination-top', 'previous-page-top', 'next-page-top', 'page-status-top',
   ]) {
     elements.set(id, new Element(id, id.endsWith('-page') ? 'BUTTON' : 'DIV'));
   }
@@ -134,7 +135,8 @@ async function createBrowser(start = '/vulnerabilities', { fetchOverride } = {})
   for (const [id, options] of Object.entries(selectOptions)) {
     elements.set(id, new Element(id, 'SELECT', options));
   }
-  elements.get('vulnerability-view-data').textContent = JSON.stringify(view);
+  elements.get('archive-index').setAttribute('open', '');
+  elements.get('vulnerability-view-data').textContent = typeof manifest === 'string' ? manifest : JSON.stringify(manifest);
   elements.get('advisories').innerHTML = initialCards.join('\n');
 
   const fallbackTargets = [...archiveIndexHtml.matchAll(/<li\b([^>]*data-fallback-id="[^"]+"[^>]*)>([\s\S]*?)<\/li>/g)]
@@ -249,7 +251,12 @@ async function createBrowser(start = '/vulnerabilities', { fetchOverride } = {})
 function assertPage(browser, rows, page = 1) {
   const pages = Math.max(1, Math.ceil(rows.length / pageSize));
   assert.deepEqual(browser.visibleIds(), ids(pageRows(rows, page)));
-  assert.equal(browser.elements.get('page-status').textContent, `${page} / ${pages}ページ`);
+  for (const suffix of ['', '-top']) {
+    assert.equal(browser.elements.get('page-status' + suffix).textContent, `${page} / ${pages}ページ`);
+    assert.equal(browser.elements.get('previous-page' + suffix).disabled, page === 1);
+    assert.equal(browser.elements.get('next-page' + suffix).disabled, page === pages);
+    assert.equal(browser.elements.get('pagination' + suffix).hidden, rows.length <= pageSize);
+  }
   assert.equal(browser.elements.get('empty').hidden, rows.length > 0);
   assert.equal(browser.elements.get('previous-page').disabled, page === 1);
   assert.equal(browser.elements.get('next-page').disabled, page === pages);
@@ -470,4 +477,59 @@ test('a stale page chunk cannot overwrite a newer metadata filter', { timeout: 3
   assert.equal(browser.location.search, '?product=windows');
   assert.equal(browser.elements.get('product').value, 'windows');
   assert.equal(browser.historyEntries.length, 1, 'The superseded page request must not push history');
+});
+
+test('a validated interactive view collapses the initially open static archive', async () => {
+  const browser = await createBrowser();
+  assert.equal(browser.elements.get('archive-index').getAttribute('open'), undefined);
+  assert.deepEqual(browser.archiveLinks, staticArchiveLinks);
+  assert.equal(browser.requests.length, 0);
+});
+
+test('invalid manifest leaves the static legacy targets open and readable', async t => {
+  for (const manifest of ['invalid JSON', { ...view, version: 2 }]) {
+    await t.test(typeof manifest === 'string' ? 'malformed JSON' : 'unsupported schema', async () => {
+      const browser = await createBrowser('/vulnerabilities#cve-2026-18022', { manifest });
+      assert.equal(browser.elements.get('archive-index').getAttribute('open'), '');
+      assert.ok(browser.fallbackTargets.some(target => target.id === 'cve-2026-18022'));
+      assert.deepEqual(browser.archiveLinks, staticArchiveLinks);
+      assert.equal(browser.elements.get('filters').hidden, true);
+      assert.equal(browser.requests.length, 0);
+    });
+  }
+});
+
+
+test('upper and lower pagers share query, sorting, disabled boundaries and history', async () => {
+  const browser = await createBrowser();
+  assertPage(browser, priorityRows);
+  await browser.click('previous-page-top');
+  assertPage(browser, priorityRows);
+  assert.equal(browser.historyEntries.length, 1);
+  await browser.click('next-page-top');
+  assertPage(browser, priorityRows, 2);
+  assert.equal(browser.location.search, '?page=2');
+  await browser.click('next-page');
+  assertPage(browser, priorityRows, 3);
+  await browser.back();
+  assertPage(browser, priorityRows, 2);
+  await browser.forward();
+  assertPage(browser, priorityRows, 3);
+  await browser.change('product', 'windows');
+  assertPage(browser, priorityRows.filter(row => row.category === 'windows'));
+  await browser.change('sort', 'severity');
+  assertPage(browser, [...view.rows].filter(row => row.category === 'windows').sort(comparators.severity));
+  await browser.change('product', '');
+  await browser.change('sort', 'priority');
+  await browser.change('q', 'not-a-real-term');
+  assertPage(browser, []);
+  await browser.change('q', '');
+  assertPage(browser, priorityRows);
+  const last = Math.ceil(priorityRows.length / pageSize);
+  while (browser.elements.get('page-status-top').textContent !== `${last} / ${last}ページ`) await browser.click('next-page-top');
+  assertPage(browser, priorityRows, last);
+  const before = browser.historyEntries;
+  await browser.click('next-page-top');
+  assertPage(browser, priorityRows, last);
+  assert.deepEqual(browser.historyEntries, before);
 });

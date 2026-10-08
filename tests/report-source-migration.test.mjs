@@ -268,29 +268,32 @@ test("postmove shallow builds reuse unchanged saved state but reject state-free 
   } finally { await rm(full, { recursive: true, force: true }); await rm(directory, { recursive: true, force: true }); }
 });
 
-test("the real 201-record, 340-CVE migration preserves all three RSS outputs and general state bytes", async () => {
+test("the current authored snapshot migration preserves all three RSS outputs and general state bytes", async () => {
   const cwd = await fixture();
   try {
     const source = await authoredReportSource(root, vulnerability.relativePath, await readFile(path.join(root, legacyPath), "utf8"));
     const value = reportData(source, vulnerability);
-    assert.equal(value.records.length, 201);
-    assert.equal(new Set(value.records.flatMap((record) => record.ids).filter((id) => /^CVE-\d{4}-\d+$/i.test(id))).size, 340);
-    const shippedState = await readReportState(root);
-    assert.equal(shippedState.reports.vulnerabilities.items.length, 25);
+    const recordCount = value.records.length;
+    assert.ok(recordCount > 0);
+    const originalFeedState = await readFeedState(root);
+    const legacyDate = originalFeedState.pages[vulnerability.relativePath].updated;
     await cp(path.join(root, "public"), path.join(cwd, "public"), { recursive: true });
     for (const file of [STATE_FILE, REPORT_STATE_FILE, CORRECTION_FILE]) await cp(path.join(root, file), path.join(cwd, file));
     await writeFile(path.join(cwd, legacyPath), source);
-    commit(cwd, dates[0], "Legacy real report snapshot with preserved publication state");
-    const shipped = await snapshot(cwd);
+    // A coherent pre-migration snapshot can also contain a pending CSS edit or
+    // future authored facts. Initialize it at its saved publication date, rather
+    // than backdating new source bytes before the already-preserved dates.
+    commit(cwd, legacyDate, "Legacy real report snapshot with preserved publication state");
     generate(cwd);
-    assertUnchangedFeeds(await snapshot(cwd), shipped);
-    const moved = await migrate(cwd);
+    const shipped = await snapshot(cwd);
+    const itemCount = (await readReportState(cwd)).reports.vulnerabilities.items.length;
+    const moved = await migrate(cwd, new Date(Date.parse(legacyDate) + 1000).toISOString());
     generate(cwd);
     const after = await snapshot(cwd);
     assertUnchangedFeeds(after, shipped);
     assert.equal(await readFile(path.join(cwd, sourcePath), "utf8"), moved.source);
-    assert.equal((await readReportState(cwd)).reports.vulnerabilities.items.length, 25);
-    assert.equal(reportData(await readFile(path.join(cwd, sourcePath), "utf8"), vulnerability).records.length, 201);
+    assert.equal((await readReportState(cwd)).reports.vulnerabilities.items.length, itemCount);
+    assert.equal(reportData(await readFile(path.join(cwd, sourcePath), "utf8"), vulnerability).records.length, recordCount);
     assert.doesNotMatch(after["public/feed.xml"], /vulnerabilities\/archive/);
   } finally { await rm(cwd, { recursive: true, force: true }); }
 });

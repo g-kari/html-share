@@ -35,8 +35,26 @@ export function splitVulnerabilitySource(source) {
 }
 
 const compare = (a, b) => a.priority.localeCompare(b.priority) || b.date.localeCompare(a.date);
+export function compactLeadPrefix(prefix, cards, data, leadHref = (id) => `/vulnerabilities#${id}`) {
+  const match = prefix.match(/(<section class="brief"><h2>いま先に確認したいこと<\/h2>)(<ul>[\s\S]*?<\/ul>)(<\/section>)/);
+  if (!match) return prefix;
+  const records = new Map(data.records.map((record) => [record.id, record]));
+  const first = [...cards].sort(compare).slice(0, 3).map((card) => records.get(card.id));
+  const cues = new Map([
+    ['windows-exploited-eop', ['Windows', '該当系列・条件を照合して対処を確認']],
+    ['zammad-exploited-chain', ['Zammad', '対象版・修正状況を分けて確認']],
+    ['fortimail-exploited-file-write', ['FortiMail', 'Cloud/applianceの対処を分けて確認']],
+  ]);
+  const lines = first.map((record) => {
+    const [product, cue] = cues.get(record.id) || [Array.from(record.product || record.title).slice(0, 24).join(''), '利用・版・構成が該当する場合の対処へ'];
+    return `<li data-lead-record="${record.id}"><a href="${escapeHtml(leadHref(record.id))}" aria-label="${escapeHtml(`${record.product}：${record.title}`)}">${escapeHtml(product)}</a>：${escapeHtml(cue)}</li>`;
+  }).join('');
+  const evidence = first.every((record) => record.exploitation === 'confirmed') ? '実悪用の一次資料あり。' : '悪用・修正の状況は各本文を確認。';
+  const count = [...match[2].matchAll(/<li\b/g)].length;
+  return prefix.replace(match[0], `${match[1]}<ul class="lead-summary">${lines}</ul><p class="tiny">${evidence}製品の利用状況は未確認。</p><details class="lead-more"><summary>詳しい確認ポイント・これまでの補足（${count}件）</summary>${match[2]}</details>${match[3]}`);
+}
 const pagination = (total, current) => `<nav class="archive-pages" aria-label="本文の分割ページ"><a href="/vulnerabilities">検索・絞り込みへ</a>${Array.from({ length: total }, (_, index) => `<a href="/vulnerabilities/archive/page-${index + 1}"${current === index + 1 ? ' aria-current="page"' : ""}>${index + 1}ページ</a>`).join("")}</nav>`;
-const extraCss = '.pagination{display:flex;gap:.7rem;align-items:center;flex-wrap:wrap;margin:1rem 0}.pagination[hidden]{display:none}.archive-pages{margin:1rem 0}.archive-index li{margin:.35rem 0}.load-error{padding:1rem;border:1px solid #b66100;background:#fff4dd}.load-error[hidden]{display:none}.archive-index{margin:1.5rem 0}.advisory{content-visibility:auto;contain-intrinsic-size:auto 750px}';
+const extraCss = '.pagination{display:flex;gap:.7rem;align-items:center;flex-wrap:wrap;margin:1rem 0}.pagination[hidden]{display:none}body.js .static-pagination{display:none}.archive-pages{margin:1rem 0}.archive-index li{margin:.35rem 0}.load-error{padding:1rem;border:1px solid #b66100;background:#fff4dd}.load-error[hidden]{display:none}.archive-index{margin:1.5rem 0}.lead-more{margin-top:.8rem}.advisory{content-visibility:auto;contain-intrinsic-size:auto 750px}';
 
 // Generate all public pieces from a non-served, byte-preserved authored source.
 // The source is also the RSS input, so a representation change is not news.
@@ -44,7 +62,7 @@ export async function generateSplitVulnerabilities(root) {
   let source;
   try { source = await readFile(path.join(root, SOURCE_PATH), "utf8"); }
   catch (error) { if (error.code === "ENOENT") return null; throw error; }
-  const { cards, prefix, tail } = splitVulnerabilitySource(source);
+  const { data, cards, prefix, tail } = splitVulnerabilitySource(source);
   const publicDir = path.join(root, "public");
   const sorted = [...cards].sort(compare);
   const chunks = [];
@@ -65,16 +83,21 @@ export async function generateSplitVulnerabilities(root) {
   const searchUrl = `/${ASSET_DIR}/search-${digest(search)}.json`;
   files.set(searchUrl.slice(1), search);
   const manifest = { version: 1, pageSize: PAGE_SIZE, searchUrl, rows };
-  const basePrefix = prefix.replace("</style>", `${extraCss}\n  </style>`);
+  const basePrefix = compactLeadPrefix(prefix, cards, data).replace("</style>", `${extraCss}\n  </style>`);
+  const archiveById = new Map(rows.map(({ id, archive }) => [id, archive]));
+  const archiveBasePrefix = compactLeadPrefix(prefix, cards, data, (id) => `${archiveById.get(id)}#${id}`).replace("</style>", `${extraCss}\n  </style>`);
   const nav = pagination(chunks.length, 0);
-  const index = `<details class="archive-index" id="archive-index"><summary>全${cards.length}項目の一覧・JavaScriptなしで読む</summary><ol>${rows.map(({ id, title, archive }) => `<li${chunks[0].selected.some((card) => card.id === id) ? "" : ` id="${id}"`} data-fallback-id="${id}"><a href="${archive}#${id}">${escapeHtml(title)}</a></li>`).join("")}</ol></details>`;
-  const controls = '<div id="pagination" class="pagination" hidden><button type="button" id="previous-page">前の20件</button><span id="page-status"></span><button type="button" id="next-page">次の20件</button></div><div id="load-error" class="load-error" role="alert" hidden></div>';
+  const index = `<details class="archive-index" id="archive-index" open><summary>全${cards.length}項目の一覧・JavaScriptなしで読む</summary><ol>${rows.map(({ id, title, archive }) => `<li${chunks[0].selected.some((card) => card.id === id) ? "" : ` id="${id}"`} data-fallback-id="${id}"><a href="${archive}#${id}">${escapeHtml(title)}</a></li>`).join("")}</ol></details>`;
+  const pager = (top) => `<nav id="pagination${top ? '-top' : ''}" class="pagination" hidden aria-label="一覧${top ? '上部' : '下部'}のページ送り"><button type="button" id="previous-page${top ? '-top' : ''}">前の20件</button><span id="page-status${top ? '-top' : ''}"></span><button type="button" id="next-page${top ? '-top' : ''}">次の20件</button></nav>`;
+  const controls = pager(false) + '<div id="load-error" class="load-error" role="alert" hidden></div>';
+  const staticTop = pagination(chunks.length, 1).replace('class="archive-pages"', 'class="archive-pages static-pagination"').replace('aria-label="本文の分割ページ"', 'aria-label="JavaScriptなしの上部ページ送り"');
+  const mainPrefix = basePrefix.replace('<div id="advisories">', `${pager(true)}${staticTop}<div id="advisories">`);
   const mainTail = tail.replace('<p id="empty"', `${controls}${nav}${index}<p id="empty"`);
-  const main = `${basePrefix}${chunks[0].selected.map((card) => card.html).join("\n")}${mainTail}<script type="application/json" id="vulnerability-view-data">${json(manifest)}</script>\n<script src="/assets/vulnerabilities-view.js" defer></script>\n</body>\n</html>\n`;
+  const main = `${mainPrefix}${chunks[0].selected.map((card) => card.html).join("\n")}${mainTail}<script type="application/json" id="vulnerability-view-data">${json(manifest)}</script>\n<script src="/assets/vulnerabilities-view.js" defer></script>\n</body>\n</html>\n`;
   files.set("vulnerabilities.html", main);
   for (const [index, { selected }] of chunks.entries()) {
     const relativePath = `${ARCHIVE_DIR}/page-${index + 1}.html`;
-    let archivePrefix = basePrefix.replace(/<title>[\s\S]*?<\/title>/, `<title>脆弱性レポート ${index + 1}/${chunks.length}ページ | 本文・一次資料</title>`);
+    let archivePrefix = archiveBasePrefix.replace(/<title>[\s\S]*?<\/title>/, `<title>脆弱性レポート ${index + 1}/${chunks.length}ページ | 本文・一次資料</title>`);
     archivePrefix = archivePrefix.replace('<div id="advisories">', `${pagination(chunks.length, index + 1)}<p class="tiny">本文 ${index * PAGE_SIZE + 1}–${index * PAGE_SIZE + selected.length} / 全${cards.length}項目。全件の検索・絞り込みはレポートのトップで利用できます。</p><div id="advisories">`);
     const archiveTail = tail.replace('<p id="empty"', `${pagination(chunks.length, index + 1)}<p id="empty"`);
     const html = `${archivePrefix}${selected.map((card) => card.html).join("\n")}${archiveTail}</body>\n</html>\n`;

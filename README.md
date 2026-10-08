@@ -173,7 +173,9 @@ Gitも状態もない事案の初回backfillでは、UIのみの履歴との判�
 
 `/vulnerabilities` の公開URLと既存の各項目 `#id` は維持します。初期HTMLは対処優先度順の20件のみで、本文は20件単位の同一origin JSONに分割します。検索は従来の全カード本文・出典テキストを含む別の索引を初回の検索時だけ取得し、分野・悪用状況・深刻度・並べ方は小さいmanifestで全件を判定します。1ページ20件のDOMだけを維持し、本文chunkは必要な分だけ読み込んで再利用します。検索・ページ番号はURLに保存し、古い直接anchorとBack/Forwardも対象本文へ解決します。
 
-JavaScript無効時は初期20件・全項目一覧と `/vulnerabilities/archive/page-N` の静的な分割ページから全本文・一次資料・確認範囲・更新履歴を読めます。読込失敗時は表示済み本文を残し、再試行と対象の静的ページへのリンクを表示します。各分割ページには固有canonical・通常/専用RSS discoveryを生成しますが、トップのページ一覧と全体RSSには独立の新ページとして載せません。
+冒頭の要点は一覧の既存優先順から3件だけを短く表示し、元の確認ポイント全文は折りたたみに保存します。事実・採点・優先度を新しく追加する処理ではありません。要点リンクはトップでは `/vulnerabilities#id`、分割ページでは対象本文を含む静的な `/vulnerabilities/archive/page-N#id` へ移動します。対処条件と利用状況未確認の表示は保持します。対話用ページ送りは一覧の上下に置き、件数・境界・検索・絞り込み・並べ方・Back/Forwardを同じ状態で更新します。上部にはJavaScript不要の静的なページリンクも用意します。
+
+JavaScript無効時は旧fragmentの一覧を初期openにし、JS初期化の検証成功後だけ折りたたみます。初期20件・全項目一覧と `/vulnerabilities/archive/page-N` の静的な分割ページから全本文・一次資料・確認範囲・更新履歴を読めます。読込失敗時は表示済み本文を残し、再試行と対象の静的ページへのリンクを表示します。各分割ページには固有canonical・通常/専用RSS discoveryを生成しますが、トップのページ一覧と全体RSSには独立の新ページとして載せません。
 
 編集は `reports/vulnerabilities.source.html` にだけ行います。原本の既存HTMLカードとJSON `vulnerability-report-data` のID集合を一致させ、実質更新なら従来通り `changes[].summary` も同時に記録します。公開済みデータを追加・訂正する契約は変わりません。`public/vulnerabilities.html`、本文JSON、静的分割ページは手編集せず `npm run build` で生成します。原本はStatic Assetsに含めません。古い単体HTMLの更新候補は、現在の原本へ差分だけを再適用してから生成・テストしてください。
 
