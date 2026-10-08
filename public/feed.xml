@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Thu, 08 Oct 2026 11:28:48 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 08 Oct 2026 13:10:15 GMT</lastBuildDate>
+    <item>
+      <title>号外｜Windows、AIを手元とクラウドで動かす時代へ</title>
+      <link>https://share.0g0.xyz/windows-hybrid-extra</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/windows-hybrid-extra</guid>
+      <description>MicrosoftがWindowsのハイブリッドAI構想を発表。MXCの一般提供、GitHub Copilotの実験プレビュー、次世代PCを、提供時期と注意点を分けて読む号外。</description>
+      <pubDate>Thu, 08 Oct 2026 13:10:15 GMT</pubDate>
+      <dcterms:created>2026-10-08T13:10:15.000Z</dcterms:created>
+      <dcterms:modified>2026-10-08T13:10:15.000Z</dcterms:modified>
+    </item>
     <item>
       <title>Grok Bot・Dots・個人AIエージェント9製品の比較｜料金・並列性・透明性</title>
       <link>https://share.0g0.xyz/personal-ai-agent-comparison</link>
