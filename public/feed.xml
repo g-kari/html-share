@@ -7,15 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Fri, 09 Oct 2026 17:29:05 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 09 Oct 2026 18:23:10 GMT</lastBuildDate>
     <item>
       <title>2026年 不正アクセス・情報漏えいウォッチ｜原因・出典・続報</title>
       <link>https://share.0g0.xyz/security-incidents</link>
       <guid isPermaLink="true">https://share.0g0.xyz/security-incidents</guid>
-      <description>2026年の不正アクセス・情報漏えい事案と過去の主要事例を、原因・影響・対応・日付・一次資料で整理。ブックオフ、NewsPicks、IDCFの利用者側続報、IDScan、DIVDを含む145件。</description>
-      <pubDate>Fri, 09 Oct 2026 17:29:05 GMT</pubDate>
+      <description>2026年の不正アクセス・情報漏えい事案と過去の主要事例を、原因・影響・対応・日付・一次資料で整理。エネコム、ユニリタ、Hasbro、Photon Health、Egide、e-votezと委託先続報を含む151件。</description>
+      <pubDate>Fri, 09 Oct 2026 18:23:10 GMT</pubDate>
       <dcterms:created>2026-10-02T06:08:44.000Z</dcterms:created>
-      <dcterms:modified>2026-10-09T17:29:05.000Z</dcterms:modified>
+      <dcterms:modified>2026-10-09T18:23:10.000Z</dcterms:modified>
     </item>
     <item>
       <title>脆弱性レポート | 実悪用・修正版・対処</title>

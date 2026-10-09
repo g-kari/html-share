@@ -885,7 +885,7 @@
         "cinra-job-cloud-20260818": "e59118944b62794f4d6162a2069c14940b69c70c9904544f2afad6b238ff1187",
         "coastline-sumareji-app-2026": "a37bd8f809252455357754b6483fdc6db2dcc4a3827575a0432614096f6d0ff0",
         "coconala-resume-20261008": "eb238bb47e37b31ac1b72f96a1443f5fa5b5bde6c97aec836f0e052dd64a785c",
-        "commune-community-20261005": "417d3c490eceeb04c78e9dbe9c957cadc6a8c8c10f8dfa400d60916e62ce4bcd",
+        "commune-community-20261005": "eef0cd4785f8fcdee329b1124f41a05b1e7eec79559ef29b1d1a970e7a86674a",
         "cynd-beautymerit-2026": "dc70226d1acb1c024eae63c2ccc36cd9c2a69ee4860d4e516419d871b6b3b207",
         "daiichikosho-ncg-pc-20261002": "d35a2b8b8d7e0e315603bff41756cafb621d19524b6147deb26e3dea3d8d7447",
         "daiichilife-hr-20260924": "1e98e1d06a6656056652dc03334c624398f2c266f1b39b3c83499cf0683de3b7",
@@ -897,12 +897,15 @@
         "dotmoney-2026": "c7af7398ec07c643e78a40077d281d63aa937bb31a8d699183657191fc17be88",
         "dtu-dtubasen-20261002": "726e62cc3cfa7b584e780c786e0d6df3b223a71b81a665df96754943bf8806c6",
         "ec-europa-20260319": "3814ad41120ae20c97a2fef8b6ae8a6a420c332b912bce3f73ecf1fd9a11a0a3",
+        "egide-bollene-it-provider-20261006": "18b35eca9a01a3c904e0aad8625f050a5543a77afeaf958a0c62353d5801a63d",
+        "enecom-internal-network-20261006": "2e9d0c6a3dd1f3c13dd4ae05891f49359cf684e91918cc13ab042385370484d0",
         "epark-peakmanager-20260727": "8364fc3f64783fe1461ddc50cff369c154f2b36a8c0e157e7289b912ff476c2a",
         "eplus-refund-20260911": "587271ff57268b54810daba4f046b894c03a52a9a01d1964cb0b77d1fc90a4e0",
         "equifax-20170513": "95b76d0b5dab3fe9d2578f5d68bd04e98c2d95e47424bed2400ffbe77e9a8f8c",
         "espec-2026": "4745adfb5b223f45c43c1659bc4ff954a24e9167a7f58140a4245a468183d16a",
         "estore-shops-20260521": "29cb684649a93f3ca2182aaa64f2f35e4391cbac06035ccc3c909654236f850e",
         "evergreen-mail-20260626": "cddbc0247b50925cc204b08e8563ad3eda59663219ec8cbfa47913ab21c69148",
+        "evotez-choisir2027-bots-20261009": "53c5990f0026bdc9d0b408e036989648037a0d415ba2e6bece24621f6ac5dcbe",
         "fines-reservation-20260922": "a06cf490adcf9315e09d023a9c139c9d1394b1e007a4a0e859b3abb29481a26e",
         "frontline-education-202608": "95fa7f7fec7c445194020134cf3fca8389272c32523a2c0242176f8f5f4faffb",
         "gmo-infoq-20261002": "f70ab913a112b709c89954d2afd762bddff28de999a4bc19f1cdb3da1c015202",
@@ -910,9 +913,10 @@
         "gyazo-20260911": "5cfea9221bbe5d1a4c8a843dc35940bd4efc77229f33fbaf2dc725e15a21914c",
         "hachijuni-nagano-mail-20261007": "d60ef399deb6dff6ffb177c658b88c66e35121591d8c220d1e786232cc9f2e10",
         "haicheese-photo-2026": "48d970231e574d0dd68b64859ed4996aa8f4a44a3e518aaf17003b85f72048a8",
+        "hasbro-network-20260328": "073d95bbcc6abbff7ec335ef3a6edf58e9d3c040aea6de66231d4f46bbdfdb1f",
         "his-thailand-files-20251211": "39bc712b0110e2c0c3835834fda56b62fa724b3cc1e749a240f62479d6b6a0a9",
         "icc-2026": "46efd179efcaa10ceca01aa9b87e511375c341ca055eb4a98c61bdff02fa1f53",
-        "idcf-cloud-east1-20261007": "7bf86b249fc5a4fb9deed33280cbe441d58219ea822a8159a162e03e10d9b511",
+        "idcf-cloud-east1-20261007": "a0974fbe3c2556243dc37d44c922ba9bcd0c79bd2c4781084793ec36524f5166",
         "idscan-veriscan-cloud-20260404": "2a57e6a7865983acb4b7456db224f250f8cb2cc0a6fa759056bf925086d36ece",
         "ieej-m365-20260729": "fa99e2b810a20bc27c306797d14b3da0f8d8c266ee8d2d200fccbc03140f552e",
         "ielove-2026": "59e7a5fcf1890717adab0af4da194f253baf584af11b667d3124908d14f5be65",
@@ -972,6 +976,7 @@
         "osaka-redaction-20260608": "d02decc00a8edd938ebf3229b1ac9e9668b4c969642db13461d8b64d3b95fbc8",
         "ozmall-20260926": "ce00c46bd69400064edec6258d9c59c6abe632c55e60f9c1d3b86f306bfd2fb6",
         "paperlogic-cloud-20260827": "f59bdf5b4d99338a511c08bef82f4ee97658bcd046144dd9314300485a752d24",
+        "photon-health-metabase-202608": "558c59e446aba4aaa7f9c384e4db33a324ecaf83bfbddca3b1055702a71f8ce1",
         "rakuten-drive-storage-20260129": "8ae32f2f5a1811466e9f1411b384e3c66d36169db75a8e5dfbd6cdc6bc24be9b",
         "relycomply-20260908": "981c4411cd7e77a861436ceaa824ec88624d990f7a6b6d61a8c2160ae63d18dd",
         "rext-ransomware-20260809": "ac7dea267b9040122bb038d38b11b80eca4b58fa7ed591083ef7da3b701f9730",
@@ -987,7 +992,7 @@
         "sodick-2026": "4bc4212814b1a3658aba8ff5c65dec182463c72027b209b2256eab615f63b28f",
         "stryker-20260311": "5d10f30fbd12193c4a1c0d96dc51c40c5a4e32965b82d66f7812f26c5ae8eeb3",
         "studysapuri-20260930": "6c257d9dc0b16b352fdeb16d5c5d2bd098875f582461b35855ecfdbca24d19aa",
-        "temairazu-202609": "2699d45ecff6f84c7827025957fabf2a2a38993afea373bf57809373b3208f23",
+        "temairazu-202609": "86b662cdba269ee234cb7e1c7c3bd148eb729927682b8b26cb145890d471565f",
         "thinca-web-20260824": "13e60be593b76aac4fad05987f4b1f0b1241a894fea87bfadc116cd754ac0422",
         "timescar-20260925": "49b3ce060402c1c7f10049c5b7c8d3c216af695ef2e0d801764e258f97d7befa",
         "toda-payment-employee-20261001": "7b4e7cd110fd480dc1d3c1b7a7ea87d141b47251e638af0f24d77012706e506f",
@@ -998,6 +1003,7 @@
         "toppan-misdelivery-20260901": "37cfb2080797348fb34a390292e115ab2b292be07930bc34363038088c8685f9",
         "toyobo-mail-20260924": "96f77099191bfdb586a57b0f3920274b0ee09915f84d94037877e8f895a8a718",
         "trizetto-provider-202411": "f193fd781374e9af909ff60526fcf94fb74c556758c7d89b9e8de76425a993e6",
+        "unirita-saas-documents-20260928": "d44d3c81b8ea48a4e95cd1ba77b79772db4aa280dff3a62902a0e02a14212344",
         "upsider-2026": "cfb9c6481c4b13b592a581f379351111343525a8fdf7ebae5d7491f2500a0cbd",
         "visualarts-2026": "469d0c4db409d206a90b6e2b9030cd86fbc579b27a41b2bd4e687387a77060e4",
         "voising-bi-20260810": "9f123bcffb197958aa2957a3dc7ac3b0be4d5b9d26dfe8af791ce1dcf2ec7486",
@@ -1408,6 +1414,22 @@
             "idscan-veriscan-cloud-20260404",
             "newspicks-admin-tool-20261008",
             "paperlogic-cloud-20260827"
+          ],
+          "date": "2026-10-10"
+        },
+        {
+          "signature": "ddf136290f6168cb82c242217b3ac4c2ebd09d89c6cab9a4ba3d6dc0ba41fec8",
+          "summary": "エネコム、ユニリタ、Hasbro、Photon Health、Egide、フランスe-votezの未掲載事案を一次資料で追加。エネコムは一部電子ファイルの流出痕跡と対象範囲調査、ユニリタは文書管理SaaSの取得確認、Hasbroは音声詐欺由来の認証情報と関連する二度の侵入・608人はRI州のみ、Photonは自己ホストMetabaseの未公表脆弱性悪用と医薬品情報の可能性を分離。Egideの予防的部分停止とデータ影響調査、e-votezの接続困難と主催者による投票完全性維持の説明を区別。続報は同じ攻撃基盤へ統合し、JR九州のIDCF利用者側影響、Commune利用各社の対象範囲・サービス停止、手間いらずの最大約445万人の可能性範囲と通常稼働を追記。ヤマハ約1,600名の漏えい確認とスズキ約3,000名の可能性を区別し、異なる単位・顧客範囲を加算しない。Communeの分類根拠から一次資料で裏付けのないマルウェア表記を除き、確認済み不正アクセスの手順に統一。漏えい可能性・取得確認・当事者説明・調査中を分ける。既存145件・全出典285本・全履歴20件を保持。計151件・参照302本。新規掲載日と発生・初回公表・続報日を区別。",
+          "ids": [
+            "commune-community-20261005",
+            "egide-bollene-it-provider-20261006",
+            "enecom-internal-network-20261006",
+            "evotez-choisir2027-bots-20261009",
+            "hasbro-network-20260328",
+            "idcf-cloud-east1-20261007",
+            "photon-health-metabase-202608",
+            "temairazu-202609",
+            "unirita-saas-documents-20260928"
           ],
           "date": "2026-10-10"
         }
@@ -1909,9 +1931,33 @@
           ],
           "published": "2026-10-09T17:29:05.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "6d3d82caa68f5e4bf7965dea3268d38b99b1de1f593392447bdc96b6271ee7eb",
+          "summary": "エネコム、ユニリタ、Hasbro、Photon Health、Egide、フランスe-votezの未掲載事案を一次資料で追加。エネコムは一部電子ファイルの流出痕跡と対象範囲調査、ユニリタは文書管理SaaSの取得確認、Hasbroは音声詐欺由来の認証情報と関連する二度の侵入・608人はRI州のみ、Photonは自己ホストMetabaseの未公表脆弱性悪用と医薬品情報の可能性を分離。Egideの予防的部分停止とデータ影響調査、e-votezの接続困難と主催者による投票完全性維持の説明を区別。続報は同じ攻撃基盤へ統合し、JR九州のIDCF利用者側影響、Commune利用各社の対象範囲・サービス停止、手間いらずの最大約445万人の可能性範囲と通常稼働を追記。ヤマハ約1,600名の漏えい確認とスズキ約3,000名の可能性を区別し、異なる単位・顧客範囲を加算しない。Communeの分類根拠から一次資料で裏付けのないマルウェア表記を除き、確認済み不正アクセスの手順に統一。漏えい可能性・取得確認・当事者説明・調査中を分ける。既存145件・全出典285本・全履歴20件を保持。計151件・参照302本。新規掲載日と発生・初回公表・続報日を区別。",
+          "journal": [
+            {
+              "signature": "ddf136290f6168cb82c242217b3ac4c2ebd09d89c6cab9a4ba3d6dc0ba41fec8",
+              "summary": "エネコム、ユニリタ、Hasbro、Photon Health、Egide、フランスe-votezの未掲載事案を一次資料で追加。エネコムは一部電子ファイルの流出痕跡と対象範囲調査、ユニリタは文書管理SaaSの取得確認、Hasbroは音声詐欺由来の認証情報と関連する二度の侵入・608人はRI州のみ、Photonは自己ホストMetabaseの未公表脆弱性悪用と医薬品情報の可能性を分離。Egideの予防的部分停止とデータ影響調査、e-votezの接続困難と主催者による投票完全性維持の説明を区別。続報は同じ攻撃基盤へ統合し、JR九州のIDCF利用者側影響、Commune利用各社の対象範囲・サービス停止、手間いらずの最大約445万人の可能性範囲と通常稼働を追記。ヤマハ約1,600名の漏えい確認とスズキ約3,000名の可能性を区別し、異なる単位・顧客範囲を加算しない。Communeの分類根拠から一次資料で裏付けのないマルウェア表記を除き、確認済み不正アクセスの手順に統一。漏えい可能性・取得確認・当事者説明・調査中を分ける。既存145件・全出典285本・全履歴20件を保持。計151件・参照302本。新規掲載日と発生・初回公表・続報日を区別。",
+              "ids": [
+                "commune-community-20261005",
+                "egide-bollene-it-provider-20261006",
+                "enecom-internal-network-20261006",
+                "evotez-choisir2027-bots-20261009",
+                "hasbro-network-20260328",
+                "idcf-cloud-east1-20261007",
+                "photon-health-metabase-202608",
+                "temairazu-202609",
+                "unirita-saas-documents-20260928"
+              ],
+              "date": "2026-10-10"
+            }
+          ],
+          "published": "2026-10-09T18:23:10.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "d2c11729f972a3865fc65ef4c8e47bd17bb05094"
+      "cursor": "c92a0327d03605328c110f66d328b52d83d6c9b0"
     }
   }
 }

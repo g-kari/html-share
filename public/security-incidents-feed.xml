@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Fri, 09 Oct 2026 17:29:05 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 09 Oct 2026 18:23:10 GMT</lastBuildDate>
+    <item>
+      <title>エネコム、ユニリタ、Hasbro、Photon Health、Egide、フランスe-votezの未掲載事案を一次資料で追加</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#6d3d82caa68f5e4bf7965dea3268d38b99b1de1f593392447bdc96b6271ee7eb</guid>
+      <description>エネコム、ユニリタ、Hasbro、Photon Health、Egide、フランスe-votezの未掲載事案を一次資料で追加。エネコムは一部電子ファイルの流出痕跡と対象範囲調査、ユニリタは文書管理SaaSの取得確認、Hasbroは音声詐欺由来の認証情報と関連する二度の侵入・608人はRI州のみ、Photonは自己ホストMetabaseの未公表脆弱性悪用と医薬品情報の可能性を分離。Egideの予防的部分停止とデータ影響調査、e-votezの接続困難と主催者による投票完全性維持の説明を区別。続報は同じ攻撃基盤へ統合し、JR九州のIDCF利用者側影響、Commune利用各社の対象範囲・サービス停止、手間いらずの最大約445万人の可能性範囲と通常稼働を追記。ヤマハ約1,600名の漏えい確認とスズキ約3,000名の可能性を区別し、異なる単位・顧客範囲を加算しない。Communeの分類根拠から一次資料で裏付けのないマルウェア表記を除き、確認済み不正アクセスの手順に統一。漏えい可能性・取得確認・当事者説明・調査中を分ける。既存145件・全出典285本・全履歴20件を保持。計151件・参照302本。新規掲載日と発生・初回公表・続報日を区別。</description>
+      <pubDate>Fri, 09 Oct 2026 18:23:10 GMT</pubDate>
+      <dcterms:created>2026-10-09T18:23:10.000Z</dcterms:created>
+    </item>
     <item>
       <title>ブックオフ、NewsPicks（10月9日第二報を含む）、八十二長野銀行、ペーパーロジック、IDScan／VeriScan、オランダDIVDの未掲載6件を公式・規制当局資料で追加</title>
       <link>https://share.0g0.xyz/security-incidents</link>
