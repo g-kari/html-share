@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/vulnerabilities-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Fri, 09 Oct 2026 16:18:48 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 09 Oct 2026 17:19:38 GMT</lastBuildDate>
+    <item>
+      <title>公開一次資料からHermes Agentのdashboard・自動git処理・email gateway、WP Post Author、Uptime Kuma、fast-jwt6件、IBM Verif</title>
+      <link>https://share.0g0.xyz/vulnerabilities</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/vulnerabilities-feed.xml#fa10bdc561695e50c3ac61aa1acfa0ef6afbf29ca2091b6ceca5e41678395820</guid>
+      <description>公開一次資料からHermes Agentのdashboard・自動git処理・email gateway、WP Post Author、Uptime Kuma、fast-jwt6件、IBM Verify2件・Guardium製品固有4件、Microsoft Bookingsを9カード・15 CVE追加し221項目・374 CVEへ。Oct9の公表・CVE登録と以前のGHSA・修正版提供を区別。HermesのDesktop等未配布、WPのCNA・TRA採点差、fast-jwtの別々の前提と最低修正版6.3.4、IBMの役割別パッチとコンテナー留保、Bookingsのホスト型サービス限定と提供側の修復未確認を明記。実悪用の一次資料あり26項目・悪性パッケージ3項目は不変。既存212カード・359 CVE・28履歴を保持。</description>
+      <pubDate>Fri, 09 Oct 2026 17:19:38 GMT</pubDate>
+      <dcterms:created>2026-10-09T17:19:38.000Z</dcterms:created>
+    </item>
     <item>
       <title>16 UTC確認の公開一次資料からAhsayCBS2件、10月8日KEV追加の旧5件、NetScaler107406、openPDC / openHistorian6件を8カード・14 CVEとして収</title>
       <link>https://share.0g0.xyz/vulnerabilities</link>

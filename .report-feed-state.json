@@ -76,6 +76,7 @@
         "express-gateway-oauth-refresh-token-secret-client-validation-bypass": "61543d874aa7589b87953c4adadf047e75fc28ec47e93112066d91904eb2bbc0",
         "external-secrets-webhook-label-bypass": "94c350b1e50372ac8d639303d3b5f27aace07f46c9a5a8333053a2620137028c",
         "fanvil-x7a-pa2s-management-websocket-boundaries": "b7162cbf689bdd1d02a80028a6bc49dc543e0a2ace0eb860beabca32c6ee5aaa",
+        "fast-jwt-algorithm-claims-cache-boundaries": "bbebcc6be62529bc478b9f9b21a92248f3af77b474fa6494a9cd5dfddb73ab53",
         "flexnet-lmadmin-soap-administrator-authentication-bypass": "c0c46f88cc5eb93a801f236135c1d52feff0fb7362b41c5ae1ac43f13b7c3039",
         "fortimail-exploited-file-write": "4e5e49df2593e4129f842786d14bac6ae2b2a9821197b940543262ba5c57d720",
         "fsspec-kerchunk-reference-template-rce": "705ae5a63259e036dd006e78097cf6baa674b50eb6208985834c264b3e1c75fb",
@@ -101,11 +102,16 @@
         "gitlab-exploited-repository-api-file-read": "7e4570f922221db47a07868bfaec02eb40843955ed1cb2e93de325ae8c34cea9",
         "handlebars-own-property-and-ast-compilation-rce": "818cefb25a07707a1ff1bea6dcfa7d602c5177159c2ec085a86b4f42eea4bd70",
         "hdf5-fill-value-corruption-and-scale-offset-boundary": "9141a6573eae2d4df9dbe7814ffd940f96955be990b5ed233a9aa8d82cbe509b",
+        "hermes-automatic-git-config-execution": "833129c476e243893eb7b452e99594a212c66a6cc3471154a09819479753933f",
+        "hermes-dashboard-authentication-resource-boundaries": "92812e899d022abc81d3e890079c1088841a8870a2186662e11e9b8df0adf623",
+        "hermes-email-sender-allowlist-spoofing": "01d6c533107edd645410b63a95901ce1cbd5a2c88fa936c82d1a2874a1683590",
         "hpe-aos-switch-october-critical-management": "9c31ff6d4ab464ac76fe513eb79dc4d1ddf99d86a12518ea7fb9a66eddfd21e1",
         "hpe-clearpass-manager-onguard-client-high-ten": "e19d890b8f976b6f7b5cfc51405d9c33498c2cd57ad7f5c340bc9ee983616962",
         "hpe-clearpass-october-client-integrity-rce": "2c60a69b0db1cbb989c36f7bd4bcb71f94d48d39d9a055c00406fcc1ec7e848e",
         "hpe-clearpass-october-critical-server-boundaries": "85fc9d42b184d74f5744c24dd7110eb3272386e4d35b102eb756173bdbe3e8b8",
         "hpe-ilo7-user-validation": "8e0f2c16a1ad700b952c97786125817306f7b06697f128d78c0c8838b7ff8229",
+        "ibm-guardium-edge-authentication-and-native-boundaries": "6ee88e27fa6ba849fbcbab5e6027501eadcc95ab1b45ad715af597f3c0264888",
+        "ibm-verify-access-unauthenticated-deserialization-rce": "349f69651a16d17b42ab9d0d8a044a682d96fb5fba952fe6cf88c981987202d2",
         "kibana-fleet-custom-package-cross-tenant-stream-interception": "0b8a32f40777111e19e1d1f0a0a8d9e37207b6532da657a490b735d622f5219d",
         "kiota-java-php-generation-code-injection": "aaeac28646bf7b332e42d5ac155ea13defb52d6710a8f82dd94980cccdf6b6ca",
         "kkfileview-upload-path-directory-traversal": "c2912a1f9d01a9006d4ce0ed0429362e2bf5a5fa490c8799e64fcf4495910d06",
@@ -126,6 +132,7 @@
         "mcp-python-http-memory-dos": "ae99ce63b94828d9194f277847916d86957d5aa34733ff6001a7a7e4ee300e1f",
         "mcp-python-oauth-boundaries": "8a5abc6a70d18baaf4e230c692cc88d547bfe74deb4e7b6bcdb414dc64ff785d",
         "mcp-typescript-oauth-issuer-boundary": "09496f89acc700c0c56778484b062143e48582ae5ef2999e8496e477d7da0e77",
+        "microsoft-bookings-hosted-authorization-bypass": "8db2f4686143bc6cc8be276628b45e60ca9d6b65ac73496f584ee0494d4b9fa6",
         "microsoft-ufo-mcp-command-boundaries": "e0af5bb22b46826609dcd7b0cecae1eb40b47e75ddcdc2578be73e4a41290d30",
         "mindsearch-planner-unsandboxed-python-execution": "62aeb76c55594d571cfaee0847de2af2f21573529087e4e1f34bb38dc130c86b",
         "misp-mandatory-totp-enrolment-nonbrowser-session-bypass": "8026f35ec515bb82f51f1cef275752277124c24d1454ac459f7eed2f01247de1",
@@ -201,6 +208,7 @@
         "telegram-desktop-ipc-file-exfiltration": "9d392d502cfac992ded2aeefcdbf5ec7b66916183fac4f8b4fee1fbea9c10f1c",
         "tenda-ac5-wifi-handler-authenticated-overflow": "a794752e56573fd8cc988ee20b4330ffa0562a928c27015fae239311cb297ba7",
         "twenty-workspace-graphql-external-credentials": "f5bd3f14152bcf42f91803d50e951c6e2f508ffd1f40da34009e546a374eb5e8",
+        "uptime-kuma-public-ping-badge-resource-dos": "5f271286bda5e8194576686034cedf77818a6a6040414a4603e0ce87d75192d1",
         "veeam-backup-viewer-system-rce": "1c44858ba7f94d378bcb8ac2b3e348d3f7905e1f0329bc5f19d94a211181d954",
         "veeam-cloud-connect-tenant-host-file-read": "6edc206a28e6d4fefce1488008997120ac3db952ca5edd4eeae14d364afba3f0",
         "virtualbox-pcnet-guest-host-oob-write": "78803d2c56a95eda4ab48af77bcc22ff1cdfc4994b36e1dcce0b5dae52f60276",
@@ -211,6 +219,7 @@
         "weasyprint-eps-ghostscript-dispatch": "b6d6385b11a49561386bf7af95533dca5c21ac02c96d6fe9bbb85fdfb7d09d9c",
         "wger-gym-trainer-authorization-csrf": "7c06ee7c73d1027097cb5d20216a4f27f6fa6fe6e71da0c634c55ce5a9927775",
         "windows-exploited-eop": "9a0d69060c4fa2f2c50a6674477bed037d31268fce5cc202e7acdd0860a847ac",
+        "wp-post-author-authenticated-and-second-order-sqli": "e1ad32f391b891d83f73a93c1700697558008c6f4a4b4082319727fc00b6fb5c",
         "zammad-exploited-chain": "c06f7dfb1a18efcd827f3701847396b27773d8cb395fada4c90c78178ed1e6ab",
         "zephyr-bluetooth-mesh-solicitation-stack-overflow": "8a2f09f4543eb7131ac4d61acdfe4dba73e3ff0d3c6b1db8a858770fad5fd630",
         "zimbra-exploited-snmp-smtp-command-injection": "7fd79bf9f4708c6e550cc041c903670a77e25c482cd42174c3077729b31ab5b4",
@@ -396,6 +405,22 @@
             "proftpd-modcopy-october-kev-followup",
             "strapi-private-filter-reset-token-october-kev-followup",
             "struts-dmi-method-prefix-october-kev-followup"
+          ],
+          "date": "2026-10-10"
+        },
+        {
+          "signature": "a4acc66ee9019179f47d476054180fe4cd9ce45e082d203a5fc93d7c5d3a7781",
+          "summary": "公開一次資料からHermes Agentのdashboard・自動git処理・email gateway、WP Post Author、Uptime Kuma、fast-jwt6件、IBM Verify2件・Guardium製品固有4件、Microsoft Bookingsを9カード・15 CVE追加し221項目・374 CVEへ。Oct9の公表・CVE登録と以前のGHSA・修正版提供を区別。HermesのDesktop等未配布、WPのCNA・TRA採点差、fast-jwtの別々の前提と最低修正版6.3.4、IBMの役割別パッチとコンテナー留保、Bookingsのホスト型サービス限定と提供側の修復未確認を明記。実悪用の一次資料あり26項目・悪性パッケージ3項目は不変。既存212カード・359 CVE・28履歴を保持。",
+          "ids": [
+            "fast-jwt-algorithm-claims-cache-boundaries",
+            "hermes-automatic-git-config-execution",
+            "hermes-dashboard-authentication-resource-boundaries",
+            "hermes-email-sender-allowlist-spoofing",
+            "ibm-guardium-edge-authentication-and-native-boundaries",
+            "ibm-verify-access-unauthenticated-deserialization-rce",
+            "microsoft-bookings-hosted-authorization-bypass",
+            "uptime-kuma-public-ping-badge-resource-dos",
+            "wp-post-author-authenticated-and-second-order-sqli"
           ],
           "date": "2026-10-10"
         }
@@ -806,9 +831,33 @@
           ],
           "published": "2026-10-09T16:18:48.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "fa10bdc561695e50c3ac61aa1acfa0ef6afbf29ca2091b6ceca5e41678395820",
+          "summary": "公開一次資料からHermes Agentのdashboard・自動git処理・email gateway、WP Post Author、Uptime Kuma、fast-jwt6件、IBM Verify2件・Guardium製品固有4件、Microsoft Bookingsを9カード・15 CVE追加し221項目・374 CVEへ。Oct9の公表・CVE登録と以前のGHSA・修正版提供を区別。HermesのDesktop等未配布、WPのCNA・TRA採点差、fast-jwtの別々の前提と最低修正版6.3.4、IBMの役割別パッチとコンテナー留保、Bookingsのホスト型サービス限定と提供側の修復未確認を明記。実悪用の一次資料あり26項目・悪性パッケージ3項目は不変。既存212カード・359 CVE・28履歴を保持。",
+          "journal": [
+            {
+              "signature": "a4acc66ee9019179f47d476054180fe4cd9ce45e082d203a5fc93d7c5d3a7781",
+              "summary": "公開一次資料からHermes Agentのdashboard・自動git処理・email gateway、WP Post Author、Uptime Kuma、fast-jwt6件、IBM Verify2件・Guardium製品固有4件、Microsoft Bookingsを9カード・15 CVE追加し221項目・374 CVEへ。Oct9の公表・CVE登録と以前のGHSA・修正版提供を区別。HermesのDesktop等未配布、WPのCNA・TRA採点差、fast-jwtの別々の前提と最低修正版6.3.4、IBMの役割別パッチとコンテナー留保、Bookingsのホスト型サービス限定と提供側の修復未確認を明記。実悪用の一次資料あり26項目・悪性パッケージ3項目は不変。既存212カード・359 CVE・28履歴を保持。",
+              "ids": [
+                "fast-jwt-algorithm-claims-cache-boundaries",
+                "hermes-automatic-git-config-execution",
+                "hermes-dashboard-authentication-resource-boundaries",
+                "hermes-email-sender-allowlist-spoofing",
+                "ibm-guardium-edge-authentication-and-native-boundaries",
+                "ibm-verify-access-unauthenticated-deserialization-rce",
+                "microsoft-bookings-hosted-authorization-bypass",
+                "uptime-kuma-public-ping-badge-resource-dos",
+                "wp-post-author-authenticated-and-second-order-sqli"
+              ],
+              "date": "2026-10-10"
+            }
+          ],
+          "published": "2026-10-09T17:19:38.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "93bb5507952d0e5dd827453f6b8ec74522a2c6c8"
+      "cursor": "261a9a413d629b2ef9599a34915c7c15d50a6b41"
     },
     "security-incidents": {
       "records": {
