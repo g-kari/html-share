@@ -4,6 +4,7 @@ import path from "node:path";
 import { decodeHTML } from "entities";
 import { pageDetails, routeFor, scanTags } from "./social-metadata.mjs";
 import { isReportArchive } from "./split-vulnerabilities.mjs";
+import { isTechnologyArchive } from "./split-technology-updates.mjs";
 
 const voidTags = new Set("area base br col embed hr img input link meta param source track wbr".split(" "));
 const excluded = new Set("head script style template noscript textarea nav form button select option".split(" "));
@@ -73,14 +74,14 @@ export function publicSections(html) {
   return sections;
 }
 
-function publicAdvisories(html) {
+function publicArticles(html, className = "advisory") {
   const sections = [];
   let start = null;
   let depth = 0;
   for (const tag of scanTags(html)) {
     if (tag.name !== "article") continue;
     if (!tag.closing) {
-      if (start === null && tag.attrs.get("class")?.value.split(/\s+/).includes("advisory")) start = tag.start;
+      if (start === null && tag.attrs.get("class")?.value.split(/\s+/).includes(className)) start = tag.start;
       if (start !== null) depth++;
     } else if (start !== null && --depth === 0) {
       sections.push(...publicSections(`<body>${html.slice(start, tag.end)}</body>`));
@@ -94,15 +95,28 @@ export async function writeSearchIndex(root, htmlFiles) {
   const publicDir = path.join(root, "public");
   const documents = [];
   const archives = [];
+  const technologyArchives = [];
   for (const file of htmlFiles) {
     const relative = path.relative(publicDir, file).split(path.sep).join("/");
     if (relative.startsWith("../") || path.isAbsolute(relative) || relative === "index.html") continue;
     const html = await readFile(file, "utf8");
-    if (isReportArchive(relative)) { archives.push(...publicAdvisories(html)); continue; }
+    if (isReportArchive(relative)) { archives.push(...publicArticles(html)); continue; }
+    if (isTechnologyArchive(relative)) {
+      if (relative.startsWith("technology-updates/archive/")) technologyArchives.push(...publicArticles(html, "update"));
+      if (relative.startsWith("technology-updates/history")) {
+        const section = html.match(/<section class="history"[\s\S]*?<\/section>/)?.[0];
+        // A historical correction may be absent from the bounded recent shell.
+        // Link its match to the actual static history page that contains it.
+        if (section) documents.push({ route: routeFor(relative), ...pageDetails(html, "更新・訂正履歴"), sections: publicSections(`<body>${section}</body>`) });
+      }
+      continue;
+    }
     documents.push({ route: routeFor(relative), ...pageDetails(html, path.basename(relative, ".html")), sections: publicSections(html) });
   }
   const vulnerabilities = documents.find((document) => document.route === "/vulnerabilities");
   if (vulnerabilities) vulnerabilities.sections.push(...archives);
+  const technology = documents.find((document) => document.route === "/technology-updates");
+  if (technology) technology.sections.push(...technologyArchives);
   for (const document of documents) {
     const seen = new Set();
     document.sections = document.sections.filter((section) => {

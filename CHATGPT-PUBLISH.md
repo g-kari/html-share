@@ -67,6 +67,15 @@ Examples:
 - 通常/専用RSSは原本を読み、移行前の公開HTMLと新原本のGit履歴を連続して扱う。構造だけの変更を新しい脆弱性更新として配信しない。静的分割ページを通常RSSやトップ一覧に追加しない。
 - 旧単体HTMLの未反映候補をそのまま公開ファイルへ上書きせず、最新原本に事実の差分だけを再baseして生成・テストする。
 
+## Technology updates authoring
+
+- `/technology-updates` の編集原本は `reports/technology-updates.source.html`。HTMLカードと `technology-update-data` JSONのID/categoryを一致させ、公式発表日・確認日・具体的な追加訂正履歴を保持する。
+- `public/technology-updates.html`、`public/assets/technology-updates/*.json`、`public/technology-updates/archive*.html` と archive/history配下は生成物。直接編集せず `npm run build` で再生成する。
+- 最新12件だけを初期表示し、本文は必要な12件chunk、全件metadataは絞り込み/ページ送り/古いanchor使用時、全文索引は検索時だけ取得する。過去の全本文・一次資料は12件単位の月別静的ページに残し、全履歴は20件ずつ残す。
+- 製品・分野・変更種別のタグは `scripts/technology-tags.mjs` により毎回自動生成する。外部AI・追加料金不要。タグを事実の代わりにせず、本文のない属性を推測しない。新製品の判定はmoduleとtestsを合わせて更新する。
+- 旧 `/technology-updates#id`、全過去を対象とするサイト全文検索、検索URL・Back/Forwardを維持する。JS無効/読込失敗でも月別アーカイブから全本文を辿れる。
+- 通常RSSは原本の旧/新Git履歴を連続して扱う。原本のbyte-identical移動・自動タグ・表示構造だけの変更を新着にせず、静的アーカイブも独立ページとしてRSS/トップ一覧に加えない。既存の脆弱性・事案の内容をこの作業に含めない。
+
 ## Important
 
 - `.git` やリポジトリ直下全体を Static Assets にしない
