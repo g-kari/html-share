@@ -5,6 +5,7 @@
       "records": {
         "aas-edge-client-unmaintained-unauthenticated-api": "84ccea7ec5917de021ecbe5367ffdcfbb307243618d04b7315b93ee46c1e8d7f",
         "actual-sync-server-github-prefix-token-disclosure": "10ccb84a6ccbd61028edd541378ae85def658bf040674da9f26fee92538c8446",
+        "ahsaycbs-exploited-authentication-command-chain": "84cfea68ea3f648074ffafd44eeaafa557d210d34ef2fd791b4e017065eb373b",
         "amd-rccl-proxy-untrusted-peer-pointer": "ff6332721c6b7e765c7e68cd1df45c475f0b904a14c62990a518e6d121cf5958",
         "android-october-critical-components": "9bb6543d037be34881589620674a02613f83e2e571fc7660b5e2b98266b3c5ba",
         "apache-bcel-class-name-repository-cache-poisoning": "941d62bc68c0b57f6d99448e1b0dadd2fcf229431cb33209124e0943b01ff1d7",
@@ -38,6 +39,7 @@
         "backstage-techdocs-markdown-mapping-sanitization-followup": "e7350c738d94ae4e26716e3d0a86177b70e4499d781b03aee0c4958a6bd37bd2",
         "backstage-techdocs-mkdocs-plugin-configuration-ssrf": "6fd315508b254caf157a36f0a85fdbdd42e9a644fd498759cceb700dbb1837eb",
         "backstage-techdocs-mkdocs-sanitizer-theme-code-execution": "c5995734f8dca70e53d035224422c6f20834abd97f31f096d631ad121faf208b",
+        "bind-tkey-dos-october-kev-followup": "cb402560e9ebcc44123fc348921c054513761cddbd3f52c61ac3da67838eda1f",
         "capacitor-native-webview-origin-proxy": "664019fab05a7bb19a09675443758dd4e9b970df8de83a85f0e2de29865ff9fa",
         "checkpoint-management-exploited-script-upload": "5a079d0149879e339c9df0e66463db668d2dd23028ae1abe0bc3c0e767e604d4",
         "checkpoint-vpn-exploited-certificate-rce": "061d31fd8854be97ecdcaae792d0269b248c75426512f6efd23bd18176419559",
@@ -132,6 +134,7 @@
         "mooncake-store-unauthenticated-rest-rpc": "171a7f0caab7c88784a8b00541a03d963b7d075e41c0c6123543b8fc95e5628b",
         "movabletype-upgrade-code-injection-and-search-sql-injection": "0707d5e19204a611411b0e1fc836fa1dfb4ad923464268a6b9bfa2af4ceb20ef",
         "msquic-openssl-hostname-validation": "3e6a94fcc3783038d3daa07639add691a11df4e54a45635780e247e26a0d2337",
+        "netscaler-saml-october-memory-overflow-rce": "b4045d6b1562e0ad0d3594b7781e686c2550b757587f5a06075a7a4fd88760f5",
         "nexi-xpay-build-unauthenticated-order-payment-integrity": "04e4749cb988aaf5f1d3b2e73926c59f8149c9d10b260626ae3c09f937ccc674",
         "next-og-satori-generated-svg-boundary": "4d9750c55d16e3273d8111b79c5609f7f8ce8d983df2061ff9e5ac4faf19071b",
         "npm-css-jptvix-polyfill-malware": "c6f42d03229a0d0b38f6f2efb85be87095f396d09d0c1ade3310cbd69ee7af64",
@@ -150,8 +153,10 @@
         "nx-docker-ci-release-command-injection": "72f0ca387125bcba61bf2b08bedc068e29b978c8f877126764c2f4244633e1e2",
         "obot-catalog-static-secret-vmcp-and-group-boundaries": "8f09b2d9ee7cea8dacf05bce4e0e6e00526d41c82849a02e28fbf13309faab9d",
         "oj-uaf-iterator-and-symbol-cache-boundaries": "b49c6ede5582825b5e3987fc035ed98224d27c495ec1b988123934014bbdffa3",
+        "onlyoffice-upload-jwt-traversal-october-kev-followup": "86a5cba68f10d50a21d6cb339118c4247779dca68cad790d53fcf94d421c2356",
         "openapi-python-client-generation-injection": "4c07046eaba05f218c128edb3787de46e09cb9d091cd92d841f9e556853c247d",
         "openoffice-java-document-rce": "68dc10ceafd6e7cd6585835b65d0ed414f4db6813eb13aa87b21504ab53cb5c3",
+        "openpdc-openhistorian-console-publisher-docker-boundaries": "66e7044909c5e591d7d4291312b96cb51d524e6f2ca799c099f9d96ddcd96853",
         "openssl-dtls-retransmission-heap-disclosure": "f52e014ed97559cab65b9cafaf49759c2b36f7ff24e5a2b739c27e4bb903d481",
         "openwebui-community-session-theft": "4285411e86e7a5d39675eb9ce9b4fcb9c5495fcb90f0e9cce6007e6f010e7536",
         "patool-windows-archive-filename-shell-injection": "3a127c61378699c39faae13a89523e234a5814f5e2cb836cbaf154f5ca604335",
@@ -169,6 +174,7 @@
         "pixel-october-critical-bluetooth-gdmc-gsa": "3ad631bd2bdfa4d540222b0ee7109387dd54dd6de31e18237b26abff790feda0",
         "planka-totp-bruteforce": "336ec8f5f57298328f8541660a026ede451f768e694f63505031c7795805c4d1",
         "praisonai-agentmail-webhook-signature-boundary": "b1ad779b94bb2f78e50d7e7ef3a4afee26a71e7af828da3a7bb420580b3e3c82",
+        "proftpd-modcopy-october-kev-followup": "a8a51a57c7d678397bf39c2bcc946fb59c22b8623a2689dc7d39a0382185bc92",
         "progress-arcgenai-generator-command-injection": "846fa21f1032fdd5f374daef49160eb4d1bd1e47fabe19bbfbffd4d530997d70",
         "pulp-container-ansible-cross-remote-credential-leakage": "0ccc7bdfd24ed82f7a859dac0440631f945aee712de56b90152f1f262be8026a",
         "pypi-anthropic-sdk-malware": "31ad5fe130d79ee48a2ce9fe0ed03b6e098996af9ad73c877b2d30da00e9d083",
@@ -185,6 +191,8 @@
         "smarty-inheritance-cache-rce": "a6cf35adbfcaeda249d4d096c8237b9dee785fa20c3ab23b841fc4adf2130de4",
         "sonicwall-sma1000-october-boundaries": "fe157a4e6b4cffadc3ce0b221d7cf762bc4513635a7c2e67e3b99381eef992be",
         "spip-october-core-crayons-simplog": "df57a5e9024df782c4173b2f38670524a2b782d4503e18cd10bab209bcdd70d6",
+        "strapi-private-filter-reset-token-october-kev-followup": "98d9284f67e1ee6f29656c0e33578397f3db9b51e9f4314fdcc3a4d98dc9e99e",
+        "struts-dmi-method-prefix-october-kev-followup": "549f8ec35b27ab155b656de232e5d55f87e10eac118dd238cc8840265c325421",
         "struts-legacy-restful-ognl-rce": "4cc4c5c50df6f279740f2a903e211346a68f0aee83be8d6daae3ef7fb1f45ea5",
         "sungrow-isolarcloud-hosted-authentication-bypass": "970605182144b9c454ec6e1d0cc6f093e6fc70efdde0b5f4998ec4e29467b6d4",
         "teamcity-exploited-agent-polling-rce": "019c49f89f61595af4c714fa1132db69e399b4af80f72f31c41940082b3424a1",
@@ -375,6 +383,21 @@
             "sipay-pos-opencart-prestashop-signature-validation"
           ],
           "date": "2026-10-09"
+        },
+        {
+          "signature": "54bfc15dba6424ba1d519652d8bc6a0a89ac2d40af88b399c9ded4db1c139805",
+          "summary": "16 UTC確認の公開一次資料からAhsayCBS2件、10月8日KEV追加の旧5件、NetScaler107406、openPDC / openHistorian6件を8カード・14 CVEとして収録補完し、212項目・359 CVEへ。AhsayCBSの実悪用と10.3.4も影響するHuntress後続を旧CNA修正記録と区別し、正式修正版を留保。KEVの旧5件は新しい脆弱性公表ではなく実悪用記録の補完。NetScalerのversion別SAML条件、openPDCのnative修正とDocker未修正・upgrade後binding、各主体の版表・CVSS競合を保持。実悪用の一次資料ありは26項目、悪性packageは3項目で不変。既存204カード・345 CVE・27履歴の全内容とIDを保持し、他の未反映候補を含めない。",
+          "ids": [
+            "ahsaycbs-exploited-authentication-command-chain",
+            "bind-tkey-dos-october-kev-followup",
+            "netscaler-saml-october-memory-overflow-rce",
+            "onlyoffice-upload-jwt-traversal-october-kev-followup",
+            "openpdc-openhistorian-console-publisher-docker-boundaries",
+            "proftpd-modcopy-october-kev-followup",
+            "strapi-private-filter-reset-token-october-kev-followup",
+            "struts-dmi-method-prefix-october-kev-followup"
+          ],
+          "date": "2026-10-10"
         }
       ],
       "items": [
@@ -760,9 +783,32 @@
           ],
           "published": "2026-10-09T13:33:47.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "6f59e694942ef57c9c65ac88517b61e3bf4423b904a0052819dcf5f57f8fafc2",
+          "summary": "16 UTC確認の公開一次資料からAhsayCBS2件、10月8日KEV追加の旧5件、NetScaler107406、openPDC / openHistorian6件を8カード・14 CVEとして収録補完し、212項目・359 CVEへ。AhsayCBSの実悪用と10.3.4も影響するHuntress後続を旧CNA修正記録と区別し、正式修正版を留保。KEVの旧5件は新しい脆弱性公表ではなく実悪用記録の補完。NetScalerのversion別SAML条件、openPDCのnative修正とDocker未修正・upgrade後binding、各主体の版表・CVSS競合を保持。実悪用の一次資料ありは26項目、悪性packageは3項目で不変。既存204カード・345 CVE・27履歴の全内容とIDを保持し、他の未反映候補を含めない。",
+          "journal": [
+            {
+              "signature": "54bfc15dba6424ba1d519652d8bc6a0a89ac2d40af88b399c9ded4db1c139805",
+              "summary": "16 UTC確認の公開一次資料からAhsayCBS2件、10月8日KEV追加の旧5件、NetScaler107406、openPDC / openHistorian6件を8カード・14 CVEとして収録補完し、212項目・359 CVEへ。AhsayCBSの実悪用と10.3.4も影響するHuntress後続を旧CNA修正記録と区別し、正式修正版を留保。KEVの旧5件は新しい脆弱性公表ではなく実悪用記録の補完。NetScalerのversion別SAML条件、openPDCのnative修正とDocker未修正・upgrade後binding、各主体の版表・CVSS競合を保持。実悪用の一次資料ありは26項目、悪性packageは3項目で不変。既存204カード・345 CVE・27履歴の全内容とIDを保持し、他の未反映候補を含めない。",
+              "ids": [
+                "ahsaycbs-exploited-authentication-command-chain",
+                "bind-tkey-dos-october-kev-followup",
+                "netscaler-saml-october-memory-overflow-rce",
+                "onlyoffice-upload-jwt-traversal-october-kev-followup",
+                "openpdc-openhistorian-console-publisher-docker-boundaries",
+                "proftpd-modcopy-october-kev-followup",
+                "strapi-private-filter-reset-token-october-kev-followup",
+                "struts-dmi-method-prefix-october-kev-followup"
+              ],
+              "date": "2026-10-10"
+            }
+          ],
+          "published": "2026-10-09T16:18:48.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "637a7ddf7495864903f6b69d843bb8e015bd903d"
+      "cursor": "93bb5507952d0e5dd827453f6b8ec74522a2c6c8"
     },
     "security-incidents": {
       "records": {

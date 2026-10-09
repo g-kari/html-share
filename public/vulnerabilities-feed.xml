@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/vulnerabilities-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Fri, 09 Oct 2026 13:33:47 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 09 Oct 2026 16:18:48 GMT</lastBuildDate>
+    <item>
+      <title>16 UTC確認の公開一次資料からAhsayCBS2件、10月8日KEV追加の旧5件、NetScaler107406、openPDC / openHistorian6件を8カード・14 CVEとして収</title>
+      <link>https://share.0g0.xyz/vulnerabilities</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/vulnerabilities-feed.xml#6f59e694942ef57c9c65ac88517b61e3bf4423b904a0052819dcf5f57f8fafc2</guid>
+      <description>16 UTC確認の公開一次資料からAhsayCBS2件、10月8日KEV追加の旧5件、NetScaler107406、openPDC / openHistorian6件を8カード・14 CVEとして収録補完し、212項目・359 CVEへ。AhsayCBSの実悪用と10.3.4も影響するHuntress後続を旧CNA修正記録と区別し、正式修正版を留保。KEVの旧5件は新しい脆弱性公表ではなく実悪用記録の補完。NetScalerのversion別SAML条件、openPDCのnative修正とDocker未修正・upgrade後binding、各主体の版表・CVSS競合を保持。実悪用の一次資料ありは26項目、悪性packageは3項目で不変。既存204カード・345 CVE・27履歴の全内容とIDを保持し、他の未反映候補を含めない。</description>
+      <pubDate>Fri, 09 Oct 2026 16:18:48 GMT</pubDate>
+      <dcterms:created>2026-10-09T16:18:48.000Z</dcterms:created>
+    </item>
     <item>
       <title>13 UTC確認の新規CVE catalog登録4件をKaravan・Sipayの2カードとして追加し、204項目・345CVEへ</title>
       <link>https://share.0g0.xyz/vulnerabilities</link>
