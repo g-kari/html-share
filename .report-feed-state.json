@@ -857,7 +857,7 @@
           "precision": "second"
         }
       ],
-      "cursor": "261a9a413d629b2ef9599a34915c7c15d50a6b41"
+      "cursor": "f56e303597ac9dbe74ac767a1664ca60dd80693c"
     },
     "security-incidents": {
       "records": {
@@ -874,6 +874,7 @@
         "asos-notification-20261006": "19d853c4bab6710920f572828c16815fb17faf865d780aef55d184921954d7ad",
         "athome-moving-2026": "63561e0babe0775d6a8781697268ebc7b4909a68f712837ac63bcac42a985802",
         "betterment-20260109": "cc2c1bfecf04020942044bb16dff619b33bba75f4ab1c426b8ce12b4fe950821",
+        "bookoff-member-system-20261006": "8f07e896b7da25d122f98e27112242df0ad3cdb29fc1223abafb5adb81a5d4cc",
         "cac-academic-support-navi-2026": "cbf8ed75b6ee7050432be8cf2b9aaab88f90624ed43f062e415eb293a9414aae",
         "campfire-2026": "37c0a8675d7223d50cc14144335757683b806fc3031b7b5da7baffdafcc43d7c",
         "canvass-ransomware-2026": "08322821b15ef207849b08301407a805285713a78ea97bddf53306123d90a8a3",
@@ -892,6 +893,7 @@
         "daiwa-sc-inquiry-20261002": "10b219d3cf389f148ce418689f2102227f042973c3c2d241e6588fb6ab8a98ae",
         "denmark-cpr-202609": "09530cda566c311efec57744d4aac7f0b639d60adec60ba71becf9f6e77af99a",
         "digital-gss-20260625": "cc80960f66e57c16c31434b188bc63b70a51ddc777c374564f6462a08863a5f0",
+        "divd-zammad-20260921": "d2ed878c758362ae76bd4939b2fcf4e8d0598bc5d2dcbdcf2af782ac87ebd48e",
         "dotmoney-2026": "c7af7398ec07c643e78a40077d281d63aa937bb31a8d699183657191fc17be88",
         "dtu-dtubasen-20261002": "726e62cc3cfa7b584e780c786e0d6df3b223a71b81a665df96754943bf8806c6",
         "ec-europa-20260319": "3814ad41120ae20c97a2fef8b6ae8a6a420c332b912bce3f73ecf1fd9a11a0a3",
@@ -906,10 +908,12 @@
         "gmo-infoq-20261002": "f70ab913a112b709c89954d2afd762bddff28de999a4bc19f1cdb3da1c015202",
         "gmo-trustlogin-storage-20260914": "2adc230ca2e280b49e89cf76b0f9e41a74d1b72ba2247eac22aa0f05ec8b22c6",
         "gyazo-20260911": "5cfea9221bbe5d1a4c8a843dc35940bd4efc77229f33fbaf2dc725e15a21914c",
+        "hachijuni-nagano-mail-20261007": "d60ef399deb6dff6ffb177c658b88c66e35121591d8c220d1e786232cc9f2e10",
         "haicheese-photo-2026": "48d970231e574d0dd68b64859ed4996aa8f4a44a3e518aaf17003b85f72048a8",
         "his-thailand-files-20251211": "39bc712b0110e2c0c3835834fda56b62fa724b3cc1e749a240f62479d6b6a0a9",
         "icc-2026": "46efd179efcaa10ceca01aa9b87e511375c341ca055eb4a98c61bdff02fa1f53",
-        "idcf-cloud-east1-20261007": "36727c2a313a1eef2aa9504a6fa90985f960513be5613a576893360ccdd46891",
+        "idcf-cloud-east1-20261007": "7bf86b249fc5a4fb9deed33280cbe441d58219ea822a8159a162e03e10d9b511",
+        "idscan-veriscan-cloud-20260404": "2a57e6a7865983acb4b7456db224f250f8cb2cc0a6fa759056bf925086d36ece",
         "ieej-m365-20260729": "fa99e2b810a20bc27c306797d14b3da0f8d8c266ee8d2d200fccbc03140f552e",
         "ielove-2026": "59e7a5fcf1890717adab0af4da194f253baf584af11b667d3124908d14f5be65",
         "ifapme-database-202602": "b65ac624b8f7d89be31e93117213e156d9481d444578d9d6d85beeae5bebf641",
@@ -951,6 +955,7 @@
         "murata-it-20260228": "c02d8a8a68ec1215588f128f5e15dbba4e285059545726505fa3bfce9b54217b",
         "murauchi-web-20260715": "cdb19b93ec3d5a24f51080962f31cfc0be62283a7997da076e1b2825506e98d9",
         "mynavi-cloud-2026": "0d11dc39a8e547b90603ec8b4909efcac0430e9b498d3d7f612657fb49976354",
+        "newspicks-admin-tool-20261008": "badc45af5b2f17c916a4c36a358caa74a5d8b5ad292a1523d95650781dc0a585",
         "nichirei-20260713": "c8adf5c623f94672e2410b59b17c038bd7f01ad173aa7dc6c8eb8a428d443a60",
         "nihonkotsu-malware-20260711": "371e5a09123b6ec32affba6c56abaf06df8a2a120264cfc63855a26ae5010aa3",
         "nikkei-m365-20260930": "546ac944f7ce4be0178ef76ee990583bfaba33d484099dff8a5932f363b1bb36",
@@ -966,6 +971,7 @@
         "omu-ransomware-20261002": "a3c51a6b24064a0e30456e6e397d437ef6039845ab5e88fc51a3c1c5fe02b30c",
         "osaka-redaction-20260608": "d02decc00a8edd938ebf3229b1ac9e9668b4c969642db13461d8b64d3b95fbc8",
         "ozmall-20260926": "ce00c46bd69400064edec6258d9c59c6abe632c55e60f9c1d3b86f306bfd2fb6",
+        "paperlogic-cloud-20260827": "f59bdf5b4d99338a511c08bef82f4ee97658bcd046144dd9314300485a752d24",
         "rakuten-drive-storage-20260129": "8ae32f2f5a1811466e9f1411b384e3c66d36169db75a8e5dfbd6cdc6bc24be9b",
         "relycomply-20260908": "981c4411cd7e77a861436ceaa824ec88624d990f7a6b6d61a8c2160ae63d18dd",
         "rext-ransomware-20260809": "ac7dea267b9040122bb038d38b11b80eca4b58fa7ed591083ef7da3b701f9730",
@@ -1388,6 +1394,20 @@
             "daiichikosho-ncg-pc-20261002",
             "lawson-id-reservation-20260912",
             "skyticket-three-paths-20261009"
+          ],
+          "date": "2026-10-10"
+        },
+        {
+          "signature": "8b77671a0cf1414b9f52bfec1e422b765b83df37a3a36ec5e73d55c5fc98db90",
+          "summary": "ブックオフ、NewsPicks（10月9日第二報を含む）、八十二長野銀行、ペーパーロジック、IDScan／VeriScan、オランダDIVDの未掲載6件を公式・規制当局資料で追加。ブックオフは外部取得確認と最大約643万会員番号の可能性範囲を分け、NewsPicksは項目別最大想定数を合算・人数化しない。ペーパーロジックは文書等の取得形跡なしとの続報を保持。IDScanの巨大報道件数は確定値にせず、DIVDはメールアドレス流出確認と他データ調査を区別。既存IDCF事案へJR東日本の167万件・39万件の可能性範囲と、シックス・アパート31台の暫定移行完了を統合し、ビューカード件数と人数合算しない。既存139件・全出典273本・全履歴19件を保持。計145件・参照285本。",
+          "ids": [
+            "bookoff-member-system-20261006",
+            "divd-zammad-20260921",
+            "hachijuni-nagano-mail-20261007",
+            "idcf-cloud-east1-20261007",
+            "idscan-veriscan-cloud-20260404",
+            "newspicks-admin-tool-20261008",
+            "paperlogic-cloud-20260827"
           ],
           "date": "2026-10-10"
         }
@@ -1867,9 +1887,31 @@
           ],
           "published": "2026-10-09T16:00:31.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "b1e6ffd1ca6b2d33029954c2ce829f856fc3133f39ab771d268c904cdd76ad73",
+          "summary": "ブックオフ、NewsPicks（10月9日第二報を含む）、八十二長野銀行、ペーパーロジック、IDScan／VeriScan、オランダDIVDの未掲載6件を公式・規制当局資料で追加。ブックオフは外部取得確認と最大約643万会員番号の可能性範囲を分け、NewsPicksは項目別最大想定数を合算・人数化しない。ペーパーロジックは文書等の取得形跡なしとの続報を保持。IDScanの巨大報道件数は確定値にせず、DIVDはメールアドレス流出確認と他データ調査を区別。既存IDCF事案へJR東日本の167万件・39万件の可能性範囲と、シックス・アパート31台の暫定移行完了を統合し、ビューカード件数と人数合算しない。既存139件・全出典273本・全履歴19件を保持。計145件・参照285本。",
+          "journal": [
+            {
+              "signature": "8b77671a0cf1414b9f52bfec1e422b765b83df37a3a36ec5e73d55c5fc98db90",
+              "summary": "ブックオフ、NewsPicks（10月9日第二報を含む）、八十二長野銀行、ペーパーロジック、IDScan／VeriScan、オランダDIVDの未掲載6件を公式・規制当局資料で追加。ブックオフは外部取得確認と最大約643万会員番号の可能性範囲を分け、NewsPicksは項目別最大想定数を合算・人数化しない。ペーパーロジックは文書等の取得形跡なしとの続報を保持。IDScanの巨大報道件数は確定値にせず、DIVDはメールアドレス流出確認と他データ調査を区別。既存IDCF事案へJR東日本の167万件・39万件の可能性範囲と、シックス・アパート31台の暫定移行完了を統合し、ビューカード件数と人数合算しない。既存139件・全出典273本・全履歴19件を保持。計145件・参照285本。",
+              "ids": [
+                "bookoff-member-system-20261006",
+                "divd-zammad-20260921",
+                "hachijuni-nagano-mail-20261007",
+                "idcf-cloud-east1-20261007",
+                "idscan-veriscan-cloud-20260404",
+                "newspicks-admin-tool-20261008",
+                "paperlogic-cloud-20260827"
+              ],
+              "date": "2026-10-10"
+            }
+          ],
+          "published": "2026-10-09T17:29:05.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "49ecc80c9b91bb445751bcdff0ea1d1bbd9318ce"
+      "cursor": "d2c11729f972a3865fc65ef4c8e47bd17bb05094"
     }
   }
 }

@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Fri, 09 Oct 2026 16:00:31 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 09 Oct 2026 17:29:05 GMT</lastBuildDate>
+    <item>
+      <title>ブックオフ、NewsPicks（10月9日第二報を含む）、八十二長野銀行、ペーパーロジック、IDScan／VeriScan、オランダDIVDの未掲載6件を公式・規制当局資料で追加</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#b1e6ffd1ca6b2d33029954c2ce829f856fc3133f39ab771d268c904cdd76ad73</guid>
+      <description>ブックオフ、NewsPicks（10月9日第二報を含む）、八十二長野銀行、ペーパーロジック、IDScan／VeriScan、オランダDIVDの未掲載6件を公式・規制当局資料で追加。ブックオフは外部取得確認と最大約643万会員番号の可能性範囲を分け、NewsPicksは項目別最大想定数を合算・人数化しない。ペーパーロジックは文書等の取得形跡なしとの続報を保持。IDScanの巨大報道件数は確定値にせず、DIVDはメールアドレス流出確認と他データ調査を区別。既存IDCF事案へJR東日本の167万件・39万件の可能性範囲と、シックス・アパート31台の暫定移行完了を統合し、ビューカード件数と人数合算しない。既存139件・全出典273本・全履歴19件を保持。計145件・参照285本。</description>
+      <pubDate>Fri, 09 Oct 2026 17:29:05 GMT</pubDate>
+      <dcterms:created>2026-10-09T17:29:05.000Z</dcterms:created>
+    </item>
     <item>
       <title>ローソンID・アプリ予約、コミューン共通基盤（Sansan User Forumの利用者側影響を統合）、第一興商の委託先端末、skyticketの異なる3経路、ココナラの登録書類の未掲載5件を一次資料</title>
       <link>https://share.0g0.xyz/security-incidents</link>
