@@ -174,6 +174,7 @@
         "python-hostname-verification": "7e0749c1308beec4599616fca0aaf37a49275ccaa231c7c4c6fab5fd6ed66a7d",
         "python-ssl-uaf": "40a4f9a6fd331242511a179c1445b44ff842e917f63fc6fcf2768ba56b24d637",
         "quasar-ssr-meta-xss-user-agent-dos": "4ec50fde11f17b0a4e3d68dae1104e96d2af467f049f478de2a169b5fa31bcae",
+        "react-server-components-formdata-dos": "cf35ff5a5098fc223628b109192b2e891bea254c702632ebc73c3d08e52d89c2",
         "redhat-globalhub-postgres-exporter-unauthenticated-pprof": "16f932a5fc7ae919e0cd7208b9048dee02aa3e1539a8cdce05bf70d9d112c405",
         "rejetto-hfs-exploited-session-forgery": "60fce22d154da5d7bced98ea27f202eb64d9597df60c7af05860a606bd341507",
         "rundeck-windows-job-option-command-injection": "1548ad49cb2da99fa37a95e4d5664a5c107db83a613608e39eaae2afded215bc",
@@ -355,6 +356,14 @@
           "summary": "15 UTC確認分を201項目・340CVEへ補完。Backstage5CVE、Expat2CVE、PraisonAI有効2CVE、Actual1CVE、Fanvil8CVEを6新カード・18CVE追加し、NTFS-3Gへ46570を1CVE追記。Windows KB不足解消・kube-compare4.19.50・旧Backstage2件の対処後続を含む既存5カードを補足。195旧カードの全IDと24履歴を保持、他190カードはbyte-exact。CVSSversion/評価主体・元公表/提供/索引時刻・PoC/実悪用・package/core版・棄却duplicate・未確定修正版を区別。新しい実悪用の確認はなく20項目/悪性3項目不変。",
           "ids": [],
           "date": "2026-10-07"
+        },
+        {
+          "signature": "b8a3a3ed5fa800ff2a2dee2b914023fcc1a0bdbeb8000f06df020b2539e22dd7",
+          "summary": "ユーザー指定のReact Server Components CVE-2026-23870 / GHSA-rv78-f8rc-xrxhを1カード・1CVE追加し、202項目・341CVEへ。5月6日のMeta初公表・修正境界と、10月8日の研究者技術解説・PoC、10月9日の紹介記事を分離。対象3 package・RSC/server到達条件・CVSS v3.1 7.5・parcel 19.0.6の配布確認留保を明記。既存201カード・25履歴を保持し、未反映の別項目は追加しない。新しい実悪用の確認はなく20項目・悪性3項目不変。",
+          "ids": [
+            "react-server-components-formdata-dos"
+          ],
+          "date": "2026-10-09"
         }
       ],
       "items": [
@@ -707,9 +716,25 @@
           ],
           "published": "2026-10-07T15:23:16.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "8cb358c1e9ab83fae9db81b1d9400124e94661a1f2da9b711aef8501ff777b80",
+          "summary": "ユーザー指定のReact Server Components CVE-2026-23870 / GHSA-rv78-f8rc-xrxhを1カード・1CVE追加し、202項目・341CVEへ。5月6日のMeta初公表・修正境界と、10月8日の研究者技術解説・PoC、10月9日の紹介記事を分離。対象3 package・RSC/server到達条件・CVSS v3.1 7.5・parcel 19.0.6の配布確認留保を明記。既存201カード・25履歴を保持し、未反映の別項目は追加しない。新しい実悪用の確認はなく20項目・悪性3項目不変。",
+          "journal": [
+            {
+              "signature": "b8a3a3ed5fa800ff2a2dee2b914023fcc1a0bdbeb8000f06df020b2539e22dd7",
+              "summary": "ユーザー指定のReact Server Components CVE-2026-23870 / GHSA-rv78-f8rc-xrxhを1カード・1CVE追加し、202項目・341CVEへ。5月6日のMeta初公表・修正境界と、10月8日の研究者技術解説・PoC、10月9日の紹介記事を分離。対象3 package・RSC/server到達条件・CVSS v3.1 7.5・parcel 19.0.6の配布確認留保を明記。既存201カード・25履歴を保持し、未反映の別項目は追加しない。新しい実悪用の確認はなく20項目・悪性3項目不変。",
+              "ids": [
+                "react-server-components-formdata-dos"
+              ],
+              "date": "2026-10-09"
+            }
+          ],
+          "published": "2026-10-09T12:53:44.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "0320349ee47450ce37fe8845ecbe261888ca980b"
+      "cursor": "f857c4e87574518704230d568ff7b69e8504b82f"
     },
     "security-incidents": {
       "records": {
