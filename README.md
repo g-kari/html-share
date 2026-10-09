@@ -12,6 +12,8 @@ ChatGPT から生成した HTML を Cloudflare Workers Static Assets で共有�
 - `public/assets/vulnerabilities-view.js` - 全件検索・絞り込み・ページ送り・旧anchor解決
 - `public/assets/vulnerabilities/*.json` / `public/vulnerabilities/archive/*.html` - 自動生成の本文・全件検索索引・JavaScript不要の分割ページ
 - `scripts/generate-index.mjs` - HTML一覧・RSS・OGP・Twitterカードを生成
+- `scripts/search-index.mjs` - 配信済み公開HTMLの本文からサイト全体の検索索引を生成
+- `public/assets/site-search*.js` / `public/assets/search/index-*.json` - 検索時だけ取得する全文検索と本文抜粋
 - `scripts/rss-feed.mjs` - RSS・購読リンク・コンテンツ更新日時の共通処理
 - `scripts/report-feeds.mjs` - 脆弱性・漏洩レポートの実質的更新を独立項目で配信
 - `public/vulnerabilities-feed.xml` / `public/security-incidents-feed.xml` - 自動生成される専用RSS
@@ -68,11 +70,27 @@ Cloudflare Workers Static Assets の HTML handling により、URLは次のよ�
 5. `public/index.html` を再生成
 6. 全ページの `<head>` にOGP・Twitterカードを補完
 7. RSSと全ページのRSS autodiscoveryリンクを生成
-8. 差分がある場合だけ `github-actions[bot]` が生成物と日時状態をまとめて commit / push
+8. 公開HTML本文の全文検索索引を生成
+9. 差分がある場合だけ `github-actions[bot]` が生成物と日時状態をまとめて commit / push
 
 生成処理は現在の `main` を読み直してから実行します。並行してページが更新された場合も、新しい本文を古い生成結果で上書きしません。PRではテストだけを実行し、`main` に書き込みません。
 
 そのため `public/index.html`、`public/feed.xml`、専用RSS XML、`.feed-state.json`、`.report-feed-state.json` は手編集しません。
+
+## Site-wide full-text search
+
+トップページからタイトル・説明・公開本文を検索できます。スペース区切りはAND検索で、
+全角/半角・英字大小・ひらがな/カタカナを正規化します。一致した本文の前後を抜粋し、
+存在する本文anchorにリンクします。検索語は `?q=` に保存し、Back/Forwardで復元します。
+索引は最初の空でない検索時だけ同一originから取得し、通常のページ一覧表示では取得しません。
+結果は20件ずつ表示し、日本語IME入力中は検索を待ちます。失敗時は一覧を残し再試行できます。
+
+索引の入力は `public/**/*.html` の本文だけです。script/JSON、style、head、template、
+非配信の `reports/` 原本・状態・Git履歴・認証情報は読みません。
+脆弱性レポートの全文は公開の静的archiveから補完し、トップの1ページに集約します。
+そのため軽量HTMLに載っていない記事も検索できます。索引の生成やUI変更ではRSSの日時を変えません。
+`public/assets/search/index-*.json` は内容hash付き生成物で、手編集しません。
+JavaScript無効時も既存のページ一覧と公開ページは利用できます。
 
 手元で再生成する場合（初回は `npm ci --ignore-scripts`）:
 
