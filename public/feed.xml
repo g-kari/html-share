@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Thu, 08 Oct 2026 23:59:03 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 09 Oct 2026 01:43:48 GMT</lastBuildDate>
+    <item>
+      <title>【速報】Googleが仕事用「Gemini agent」を発表、主要機能は先行提供</title>
+      <link>https://share.0g0.xyz/gemini-agent-2026-10</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/gemini-agent-2026-10</guid>
+      <description>2026年10月8日発表の企業向けGemini agentを一次情報で整理。クラウド常駐、複数AI連携、先行提供の範囲と、個人向けGemini Sparkとの違い。</description>
+      <pubDate>Fri, 09 Oct 2026 01:43:48 GMT</pubDate>
+      <dcterms:created>2026-10-09T01:43:48.000Z</dcterms:created>
+      <dcterms:modified>2026-10-09T01:43:48.000Z</dcterms:modified>
+    </item>
     <item>
       <title>重要技術アップデート｜AI・開発ツール・MCP</title>
       <link>https://share.0g0.xyz/technology-updates</link>
