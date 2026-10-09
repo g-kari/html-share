@@ -14,6 +14,7 @@
         "apache-httpd-october-http2-and-config-overflows": "bcef95b066294df34d40cde8085b2fa456762a07627f78b11e091b397764c476",
         "apache-impala-trusted-jar-path-traversal": "0df867eafedc2543d9f742f4748b2f3e73284ee7cd201f83dee11d33fc931ac2",
         "apple-coregraphics-exploited-file-rce": "d3ef514ed3f433382d8b85be586d4fc476be15018bc5d56448181250c00c65f8",
+        "argo-cd-ssh-repository-proxy-command-injection": "ea55bb8381d4686243d85771641001ec6395705b951612f8522cd89738013957",
         "arista-cloudvision-sensor-high-privilege-path-traversal": "531c278e385bbb224d376b70ece034a7e9b91d51bcafdd7ef94d30be86523fb9",
         "arista-cloudvision-sso-auth-material-redirect": "d31258374dcf77370548183515587933c4ff051e390411e9e6f4a63b11b56fd8",
         "arista-cloudvision-upload-filesystem-xss": "e8382503a545d797d82c2ff2587776fa8a240109a66e0033663202f91449667d",
@@ -26,6 +27,7 @@
         "authlib-empty-signatures-jws-verification-bypass": "a037c64f1df320520beaa8d1d2aebb3ea0b741d102eb487a991ec6bb632010b4",
         "avideo-youphpflix-trailer-url-stored-xss": "9d5860a130f9547d4e4825338da8a22ce2c4c5a07fd4d3b277e326966f357921",
         "aws-agentcore-import-generated-code-and-openapi-boundaries": "6ea6e6d7d27aecf1ad0470d0c30900427ccf115bae3151b7a148f842a83b3be7",
+        "aws-powershell-iam-console-password-log-disclosure": "89d978ec84df97f0c3fae6d1f08440c67a9c01aeb63dac62a35568b433934cf9",
         "aws-qnabot-optional-qbusiness-hook-s3-authorization": "31beafcab9201fdf9d64fe331d2a5a690433ba49037f9cc6d84e83040da8e21b",
         "backstage-bitbucket-scaffolder-pr-filesystem-validation": "c5167adddf649c9650374486930f67b92a7e8716a4d60f1b8e597c9a17ad3655",
         "backstage-catalog-placeholder-repository-url-validation": "729c1f729354365c369d4bb9f761da9cde395b300fd09e91e674b6d248d38410",
@@ -52,7 +54,7 @@
         "claude-code-write-time-symlink-outside-project": "f7aa37b0dff9f98c22bf9950ec0708169e16a64d00f5931d3a5382d307a74389",
         "cloudflare-containers-residual-data": "697eb8f64e6623a13596210e3b7c8a9268999211f28e0fc80b4412dcb6bb1a53",
         "convertx-calibre-recipe-execution": "f9e216fa2494213b3d816fec59a1659aaafe31f4420c1c9c6d3b7656ce68e579",
-        "coraza-argument-limit-bypass-and-json-stack-crash": "e6b7e886083d9b21686f45f75157b635a792fd1e0b0f8e0c0f3d7ba0a5ea11a7",
+        "coraza-argument-limit-bypass-and-json-stack-crash": "3ed7660b6d2583fdf1f04ec873b8edbba817588a94b800d84602dadab8546784",
         "cpanel-september-adminbin-xss": "4aa2bbc63bfce68577ba1a550f6a81257ef7f7e9efdb320b9c6a25cff38db483",
         "cve-2026-102478": "9928e9bee0891bf9ba3b6e9f40fd0b2be2880d4aa52d64033f1d14a5d385e226",
         "cve-2026-105324": "73ece2770cad0aa9765fb20ca143a207fdf0d5bff7f523b150b2ce2f2ae67421",
@@ -100,6 +102,8 @@
         "github-enterprise-server-secret-validation-and-default-branch": "6ba8d3ad1218bb22188e2fae4adda875c35780c50ec233395639aacd37a7d45c",
         "gitlab-ai-gateway-template-escape": "5e50a3d18b626de79909181e6f0fefaac17f674c8b81eb94ad4d26049945b345",
         "gitlab-exploited-repository-api-file-read": "7e4570f922221db47a07868bfaec02eb40843955ed1cb2e93de325ae8c34cea9",
+        "google-gvisor-vfs-double-free-sentry-boundary": "e58dbd8f908615663079cec06d981ab79b06279b056cefbe9ff71935df400f83",
+        "guava-java-deserialization-array-allocation-dos": "483d97c8690b289e7cff9c89940dedb52332248d5d4a57a3017b4717fba9b6e3",
         "handlebars-own-property-and-ast-compilation-rce": "818cefb25a07707a1ff1bea6dcfa7d602c5177159c2ec085a86b4f42eea4bd70",
         "hdf5-fill-value-corruption-and-scale-offset-boundary": "9141a6573eae2d4df9dbe7814ffd940f96955be990b5ed233a9aa8d82cbe509b",
         "hermes-automatic-git-config-execution": "833129c476e243893eb7b452e99594a212c66a6cc3471154a09819479753933f",
@@ -110,6 +114,7 @@
         "hpe-clearpass-october-client-integrity-rce": "2c60a69b0db1cbb989c36f7bd4bcb71f94d48d39d9a055c00406fcc1ec7e848e",
         "hpe-clearpass-october-critical-server-boundaries": "85fc9d42b184d74f5744c24dd7110eb3272386e4d35b102eb756173bdbe3e8b8",
         "hpe-ilo7-user-validation": "8e0f2c16a1ad700b952c97786125817306f7b06697f128d78c0c8838b7ff8229",
+        "ibm-datapower-ldap-jws-and-memory-rce": "2a9d1374ea79d9291094e06da0269527120db637d7f97ed31d03cf14d44754a2",
         "ibm-guardium-edge-authentication-and-native-boundaries": "6ee88e27fa6ba849fbcbab5e6027501eadcc95ab1b45ad715af597f3c0264888",
         "ibm-verify-access-unauthenticated-deserialization-rce": "349f69651a16d17b42ab9d0d8a044a682d96fb5fba952fe6cf88c981987202d2",
         "kibana-fleet-custom-package-cross-tenant-stream-interception": "0b8a32f40777111e19e1d1f0a0a8d9e37207b6532da657a490b735d622f5219d",
@@ -128,6 +133,8 @@
         "llama-cpp-client-chat-parser-use-after-free": "c3158b1324eff9c1b7a41d249b92a0bf50a19211edef08c5b0cda85d9120440b",
         "lmcache-multiprocess-zmq-pickle-unauthenticated-rce": "9aeff2fb42d1ff615012e689fce28ac9b2b8cd3d5822ab737ee50147eda581f6",
         "lwip-smtp-auth-line-buffer-overflow": "2c618c6dc9e3a82ed358f12afcc0482079b3f8cdd22573fcaf44e5ccf683043e",
+        "mariadb-connector-c-2026-107819": "4e119feac4cf98edd1ca50d4c31d5524d36542c3a45493fc4a90ff663b450221",
+        "mariadb-server-2026-107814-107823": "6d374e1a5e2c96ac1f766fe93b6133d19310410bf4463a919add02d4626dd3d3",
         "mcc-uldaq-network-packet-overflow": "0ca499a52a4214a8071c2a295e672302ad934a379546c64a38976e0d84185bf3",
         "mcp-python-http-memory-dos": "ae99ce63b94828d9194f277847916d86957d5aa34733ff6001a7a7e4ee300e1f",
         "mcp-python-oauth-boundaries": "8a5abc6a70d18baaf4e230c692cc88d547bfe74deb4e7b6bcdb414dc64ff785d",
@@ -144,6 +151,7 @@
         "netscaler-saml-october-memory-overflow-rce": "b4045d6b1562e0ad0d3594b7781e686c2550b757587f5a06075a7a4fd88760f5",
         "nexi-xpay-build-unauthenticated-order-payment-integrity": "04e4749cb988aaf5f1d3b2e73926c59f8149c9d10b260626ae3c09f937ccc674",
         "next-og-satori-generated-svg-boundary": "4d9750c55d16e3273d8111b79c5609f7f8ce8d983df2061ff9e5ac4faf19071b",
+        "nginx-ui-2026-107804-107813": "a007dfd7169272d4804dc362f7ccab05b07265c8b392df17496db4aa4d24faef",
         "npm-css-jptvix-polyfill-malware": "c6f42d03229a0d0b38f6f2efb85be87095f396d09d0c1ade3310cbd69ee7af64",
         "npm-proxyaddr-trust-subnet-spoofing": "323d3a44e8a40098435c6974bef0b5221ea82d9fcbae5cc05acdce71de5cba95",
         "npm-seroval-fromjson-bypass": "65a00bffb700da1c7f1e5ae9fc3e784593b3d75f56ace5c65310f70715333572",
@@ -178,6 +186,7 @@
         "payload-stripe-ecommerce-boundaries": "f1abf2d213bfd6124dfd91c960ad0550e3eef5662de0ae2133fd423da076bb43",
         "payload-upload-trust-lifecycle": "8d8353ce5acaaba355c89b61d9f6ae84fc433836d34d138b81fbe90dd2ec298e",
         "penpot-svg-export-command-injection": "8e9a3484b4f092ed9bd8a574153302ce8e093a0cd96c6c5da7455ef071ace2b5",
+        "pingvin-share-x-oauth-email-account-linking-takeover": "c3b8a06d672df78c2b192e2c417baf23eb7b3f78f8a43440aefb21cc581e974f",
         "pixel-october-critical-bluetooth-gdmc-gsa": "3ad631bd2bdfa4d540222b0ee7109387dd54dd6de31e18237b26abff790feda0",
         "planka-totp-bruteforce": "336ec8f5f57298328f8541660a026ede451f768e694f63505031c7795805c4d1",
         "praisonai-agentmail-webhook-signature-boundary": "b1ad779b94bb2f78e50d7e7ef3a4afee26a71e7af828da3a7bb420580b3e3c82",
@@ -185,16 +194,18 @@
         "progress-arcgenai-generator-command-injection": "846fa21f1032fdd5f374daef49160eb4d1bd1e47fabe19bbfbffd4d530997d70",
         "pulp-container-ansible-cross-remote-credential-leakage": "0ccc7bdfd24ed82f7a859dac0440631f945aee712de56b90152f1f262be8026a",
         "pypi-anthropic-sdk-malware": "31ad5fe130d79ee48a2ce9fe0ed03b6e098996af9ad73c877b2d30da00e9d083",
-        "python-hostname-verification": "7e0749c1308beec4599616fca0aaf37a49275ccaa231c7c4c6fab5fd6ed66a7d",
-        "python-ssl-uaf": "40a4f9a6fd331242511a179c1445b44ff842e917f63fc6fcf2768ba56b24d637",
+        "python-hostname-verification": "e1c81ab568e146ff1d1a7e8d3a854830612d4f85b86f565a5315f679cf4eca3f",
+        "python-ssl-uaf": "6d631b0549159b56eddc431982fd1ebbbc03fb5322d958915246f9aa71ec2eea",
         "quasar-ssr-meta-xss-user-agent-dos": "4ec50fde11f17b0a4e3d68dae1104e96d2af467f049f478de2a169b5fa31bcae",
         "react-server-components-formdata-dos": "cf35ff5a5098fc223628b109192b2e891bea254c702632ebc73c3d08e52d89c2",
         "redhat-globalhub-postgres-exporter-unauthenticated-pprof": "16f932a5fc7ae919e0cd7208b9048dee02aa3e1539a8cdce05bf70d9d112c405",
         "rejetto-hfs-exploited-session-forgery": "60fce22d154da5d7bced98ea27f202eb64d9597df60c7af05860a606bd341507",
+        "riot-sixlowpan-and-nanocoap-read-assertion-boundaries": "8c5215e145f9f7822dadc6363bbdbb4a568dca4172fcea77b39cbb5b01718963",
         "rundeck-windows-job-option-command-injection": "1548ad49cb2da99fa37a95e4d5664a5c107db83a613608e39eaae2afded215bc",
         "sagemaker-distribution-project-startup-command-injection": "2f2fbd7c0c30e9cac8c1f5fbb9c048989c1beac62ad70e955609bd49f0e946f7",
         "sharepoint-exploited-authenticated-code-injection": "474a959d4cb9e863dcec1ee5b6714dd865d2ddc5544d333d7710fb9da0227b6e",
         "sipay-pos-opencart-prestashop-signature-validation": "e64e2745ef891107dbf5fd309d2e4e93f31358c3ccf51e2937e3d0ab58c8b022",
+        "smartermail-volume-script-jwt-demotion-and-mutation-xss": "c939fffdc9ddf5b5f17f57109000bcd5b4fa00cc83788d12eca1793335dcbb24",
         "smarty-inheritance-cache-rce": "a6cf35adbfcaeda249d4d096c8237b9dee785fa20c3ab23b841fc4adf2130de4",
         "sonicwall-sma1000-october-boundaries": "fe157a4e6b4cffadc3ce0b221d7cf762bc4513635a7c2e67e3b99381eef992be",
         "spip-october-core-crayons-simplog": "df57a5e9024df782c4173b2f38670524a2b782d4503e18cd10bab209bcdd70d6",
@@ -206,6 +217,7 @@
         "teamcity-kotlin-dsl-sandbox-escape": "2f9c65288575b79e7f3114e123f2670efe0d7b0ab71f4c729a519c99bb1584bf",
         "teamviewer-session-recording-ipc-and-rollback-boundaries": "23a9db7b7bb4a1964082af670f494855fa0373bfa785d8f2adc9ce7f261f924c",
         "telegram-desktop-ipc-file-exfiltration": "9d392d502cfac992ded2aeefcdbf5ec7b66916183fac4f8b4fee1fbea9c10f1c",
+        "tenable-identity-exposure-ad-listener-command-injection": "957a4dc3d7a58255ab39e03011b181d0e470c049a9591fe81b47f1d3e937297d",
         "tenda-ac5-wifi-handler-authenticated-overflow": "a794752e56573fd8cc988ee20b4330ffa0562a928c27015fae239311cb297ba7",
         "twenty-workspace-graphql-external-credentials": "f5bd3f14152bcf42f91803d50e951c6e2f508ffd1f40da34009e546a374eb5e8",
         "uptime-kuma-public-ping-badge-resource-dos": "5f271286bda5e8194576686034cedf77818a6a6040414a4603e0ce87d75192d1",
@@ -220,8 +232,10 @@
         "wger-gym-trainer-authorization-csrf": "7c06ee7c73d1027097cb5d20216a4f27f6fa6fe6e71da0c634c55ce5a9927775",
         "windows-exploited-eop": "9a0d69060c4fa2f2c50a6674477bed037d31268fce5cc202e7acdd0860a847ac",
         "wp-post-author-authenticated-and-second-order-sqli": "e1ad32f391b891d83f73a93c1700697558008c6f4a4b4082319727fc00b6fb5c",
+        "x64dbg-mcp-unauthenticated-debugger-and-preauth-dos": "987775ce90da146831ba6b66cfbdb49fe5e1a57d5d954358f7c26f8b13e8d643",
         "zammad-exploited-chain": "c06f7dfb1a18efcd827f3701847396b27773d8cb395fada4c90c78178ed1e6ab",
         "zephyr-bluetooth-mesh-solicitation-stack-overflow": "8a2f09f4543eb7131ac4d61acdfe4dba73e3ff0d3c6b1db8a858770fad5fd630",
+        "zephyr-userspace-dynamic-kernel-object-size-overflow": "025ca09525f7683fbd36bd0a8f9c787c9c01b54f05ec62e5c43f97fd52be3694",
         "zimbra-exploited-snmp-smtp-command-injection": "7fd79bf9f4708c6e550cc041c903670a77e25c482cd42174c3077729b31ab5b4",
         "zitadel-external-idp-linking-account-takeover": "02df49097db58e2c767eff3b4ef162cae58ff661a7d34a813444c7344df7a847"
       },
@@ -421,6 +435,30 @@
             "microsoft-bookings-hosted-authorization-bypass",
             "uptime-kuma-public-ping-badge-resource-dos",
             "wp-post-author-authenticated-and-second-order-sqli"
+          ],
+          "date": "2026-10-10"
+        },
+        {
+          "signature": "8a1ef028f5ca41f1bc8101a80e560233e10a27846dfbb4c8f411e8f387010fad",
+          "summary": "18 UTC確認：公開一次資料からNginx UI10件、MariaDB Server8件とConnector/C、x64dbg MCP2件、Argo CD、DataPower高影響7件、gVisor、Guava、SmarterMail3件、AWS Tools for PowerShell、Pingvin Share X、RIOT3件、Zephyr、Tenable Identity Exposureを14カード・41 CVE追加。既存Corazaに107826を対応付け、CPython ssl2件に3.15.0正式版の提供を補足し235項目・416 CVEへ。元のGHSA・修正配布とCVE catalog公表を区別。x64dbg資料の版境界競合、Connector/C単独配布3.4.11、Tenableの監視リスナー再インストール、sentryの残存隔離、RIOT / Zephyrの正式修正版留保を明記。新しい実悪用は未確認。既存221 ID・374 CVE・29履歴を保持し、変更3項目以外の218カードは不変。",
+          "ids": [
+            "argo-cd-ssh-repository-proxy-command-injection",
+            "aws-powershell-iam-console-password-log-disclosure",
+            "coraza-argument-limit-bypass-and-json-stack-crash",
+            "google-gvisor-vfs-double-free-sentry-boundary",
+            "guava-java-deserialization-array-allocation-dos",
+            "ibm-datapower-ldap-jws-and-memory-rce",
+            "mariadb-connector-c-2026-107819",
+            "mariadb-server-2026-107814-107823",
+            "nginx-ui-2026-107804-107813",
+            "pingvin-share-x-oauth-email-account-linking-takeover",
+            "python-hostname-verification",
+            "python-ssl-uaf",
+            "riot-sixlowpan-and-nanocoap-read-assertion-boundaries",
+            "smartermail-volume-script-jwt-demotion-and-mutation-xss",
+            "tenable-identity-exposure-ad-listener-command-injection",
+            "x64dbg-mcp-unauthenticated-debugger-and-preauth-dos",
+            "zephyr-userspace-dynamic-kernel-object-size-overflow"
           ],
           "date": "2026-10-10"
         }
@@ -855,9 +893,41 @@
           ],
           "published": "2026-10-09T17:19:38.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "6d44c676a630d5a77afc57593e01bcb9e116960d4fe94656fbb348ebcd43baac",
+          "summary": "18 UTC確認：公開一次資料からNginx UI10件、MariaDB Server8件とConnector/C、x64dbg MCP2件、Argo CD、DataPower高影響7件、gVisor、Guava、SmarterMail3件、AWS Tools for PowerShell、Pingvin Share X、RIOT3件、Zephyr、Tenable Identity Exposureを14カード・41 CVE追加。既存Corazaに107826を対応付け、CPython ssl2件に3.15.0正式版の提供を補足し235項目・416 CVEへ。元のGHSA・修正配布とCVE catalog公表を区別。x64dbg資料の版境界競合、Connector/C単独配布3.4.11、Tenableの監視リスナー再インストール、sentryの残存隔離、RIOT / Zephyrの正式修正版留保を明記。新しい実悪用は未確認。既存221 ID・374 CVE・29履歴を保持し、変更3項目以外の218カードは不変。",
+          "journal": [
+            {
+              "signature": "8a1ef028f5ca41f1bc8101a80e560233e10a27846dfbb4c8f411e8f387010fad",
+              "summary": "18 UTC確認：公開一次資料からNginx UI10件、MariaDB Server8件とConnector/C、x64dbg MCP2件、Argo CD、DataPower高影響7件、gVisor、Guava、SmarterMail3件、AWS Tools for PowerShell、Pingvin Share X、RIOT3件、Zephyr、Tenable Identity Exposureを14カード・41 CVE追加。既存Corazaに107826を対応付け、CPython ssl2件に3.15.0正式版の提供を補足し235項目・416 CVEへ。元のGHSA・修正配布とCVE catalog公表を区別。x64dbg資料の版境界競合、Connector/C単独配布3.4.11、Tenableの監視リスナー再インストール、sentryの残存隔離、RIOT / Zephyrの正式修正版留保を明記。新しい実悪用は未確認。既存221 ID・374 CVE・29履歴を保持し、変更3項目以外の218カードは不変。",
+              "ids": [
+                "argo-cd-ssh-repository-proxy-command-injection",
+                "aws-powershell-iam-console-password-log-disclosure",
+                "coraza-argument-limit-bypass-and-json-stack-crash",
+                "google-gvisor-vfs-double-free-sentry-boundary",
+                "guava-java-deserialization-array-allocation-dos",
+                "ibm-datapower-ldap-jws-and-memory-rce",
+                "mariadb-connector-c-2026-107819",
+                "mariadb-server-2026-107814-107823",
+                "nginx-ui-2026-107804-107813",
+                "pingvin-share-x-oauth-email-account-linking-takeover",
+                "python-hostname-verification",
+                "python-ssl-uaf",
+                "riot-sixlowpan-and-nanocoap-read-assertion-boundaries",
+                "smartermail-volume-script-jwt-demotion-and-mutation-xss",
+                "tenable-identity-exposure-ad-listener-command-injection",
+                "x64dbg-mcp-unauthenticated-debugger-and-preauth-dos",
+                "zephyr-userspace-dynamic-kernel-object-size-overflow"
+              ],
+              "date": "2026-10-10"
+            }
+          ],
+          "published": "2026-10-09T18:38:23.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "f56e303597ac9dbe74ac767a1664ca60dd80693c"
+      "cursor": "6f06e13367c6240c88c05ad846e0661d93d4c394"
     },
     "security-incidents": {
       "records": {
@@ -1957,7 +2027,7 @@
           "precision": "second"
         }
       ],
-      "cursor": "c92a0327d03605328c110f66d328b52d83d6c9b0"
+      "cursor": "5c32cf99df57b45cb06f87f1f203fa8838817494"
     }
   }
 }

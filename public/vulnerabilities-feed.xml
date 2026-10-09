@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/vulnerabilities-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Fri, 09 Oct 2026 17:19:38 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 09 Oct 2026 18:38:23 GMT</lastBuildDate>
+    <item>
+      <title>18 UTC確認：公開一次資料からNginx UI10件、MariaDB Server8件とConnector/C、x64dbg MCP2件、Argo CD、DataPower高影響7件、gVisor</title>
+      <link>https://share.0g0.xyz/vulnerabilities</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/vulnerabilities-feed.xml#6d44c676a630d5a77afc57593e01bcb9e116960d4fe94656fbb348ebcd43baac</guid>
+      <description>18 UTC確認：公開一次資料からNginx UI10件、MariaDB Server8件とConnector/C、x64dbg MCP2件、Argo CD、DataPower高影響7件、gVisor、Guava、SmarterMail3件、AWS Tools for PowerShell、Pingvin Share X、RIOT3件、Zephyr、Tenable Identity Exposureを14カード・41 CVE追加。既存Corazaに107826を対応付け、CPython ssl2件に3.15.0正式版の提供を補足し235項目・416 CVEへ。元のGHSA・修正配布とCVE catalog公表を区別。x64dbg資料の版境界競合、Connector/C単独配布3.4.11、Tenableの監視リスナー再インストール、sentryの残存隔離、RIOT / Zephyrの正式修正版留保を明記。新しい実悪用は未確認。既存221 ID・374 CVE・29履歴を保持し、変更3項目以外の218カードは不変。</description>
+      <pubDate>Fri, 09 Oct 2026 18:38:23 GMT</pubDate>
+      <dcterms:created>2026-10-09T18:38:23.000Z</dcterms:created>
+    </item>
     <item>
       <title>公開一次資料からHermes Agentのdashboard・自動git処理・email gateway、WP Post Author、Uptime Kuma、fast-jwt6件、IBM Verif</title>
       <link>https://share.0g0.xyz/vulnerabilities</link>
