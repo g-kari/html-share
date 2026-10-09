@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>【速報】Googleが仕事用「Gemini agent」を発表、主要機能は先行提供</title>
+<meta name="description" content="2026年10月8日発表の企業向けGemini agentを一次情報で整理。クラウド常駐、複数AI連携、先行提供の範囲と、個人向けGemini Sparkとの違い。">
+<style>
+:root{--paper:#fff;--wash:#eef4fb;--ink:#182b45;--muted:#4d617a;--blue:#1355a4;--line:#cbd9e9;--note:#e9f1fd;--alert:#8d3424;--space:24px}
+*{box-sizing:border-box}html{scroll-padding-top:24px}body{margin:0;color:var(--ink);background:var(--wash);font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;font-size:16px;line-height:1.9}a{color:var(--blue);text-decoration-thickness:1px;text-underline-offset:4px}a:hover{text-decoration-thickness:2px}a:focus-visible{outline:3px solid var(--blue);outline-offset:4px}.skip{position:absolute;top:-100px;left:16px;z-index:2;background:var(--paper);padding:8px 16px}.skip:focus{top:8px}
+.page{max-width:960px;margin:auto;padding:28px 28px 64px}.site-nav{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:24px;font-size:14px}.article{background:var(--paper);border-radius:10px;padding:clamp(24px,5vw,56px);box-shadow:0 4px 22px #18365b08}.flag{display:inline-block;color:var(--alert);border:1px solid #cfab9f;padding:1px 10px;border-radius:3px;font-size:14px;font-weight:700}.meta{color:var(--muted);font-size:13px;margin:14px 0 20px}h1{font-size:clamp(26px,4.2vw,42px);font-weight:750;line-height:1.5;letter-spacing:.015em;margin:16px 0 18px;text-wrap:pretty}h2{font-size:23px;line-height:1.6;margin:0 0 16px}h3{font-size:17px;margin:0 0 5px}p{margin:0 0 16px}.lead{font-size:18px;line-height:1.9}.takeaway{margin-top:28px;padding:20px 24px;border-left:4px solid var(--blue);background:var(--note)}.takeaway p{margin:0}section{margin-top:40px}dl{margin:0}dt{font-weight:700}dd{margin:4px 0 18px;color:var(--muted)}.source{font-size:13px;color:var(--muted);margin-top:16px}.status{background:#f4f7fc;border:1px solid var(--line);border-radius:6px;padding:24px}.status ul{margin:0;padding-left:1.3em}.status li+li{margin-top:12px}.references{border-top:1px solid var(--line);padding-top:28px}.references ul{margin:0;padding-left:1.2em}.references li{margin:10px 0}.references a{overflow-wrap:anywhere}.footnote{color:var(--muted);font-size:13px;margin-top:28px}
+@media(max-width:600px){.page{padding:16px 12px 32px}.site-nav{padding:0 6px;margin-bottom:16px}.article{border-radius:8px;padding:24px 20px}.takeaway,.status{padding:18px}h2{font-size:21px}.lead{font-size:17px}section{margin-top:32px}.meta{font-size:12px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{body{background:#fff}.page{max-width:none;padding:0}.article{box-shadow:none;padding:0}.site-nav,.skip{display:none}a{color:inherit}.status,.takeaway{break-inside:avoid}}
+</style>
+</head>
+<body>
+<a class="skip" href="#article">本文へ移動</a>
+<div class="page">
+<nav class="site-nav" aria-label="サイト内ナビゲーション"><a href="/">html-share の記事一覧</a><a href="/feed.xml">新着RSS</a></nav>
+<main id="article" class="article">
+<header>
+<span class="flag">速報</span>
+<p class="meta">発表：2026年10月8日（Google公式掲載日）<br>確認：2026年10月9日 01:41 UTC ／ 10:41 JST</p>
+<h1>Googleが仕事用「Gemini agent」を発表。主要機能は先行提供</h1>
+<p class="lead">Google Cloudは「Gemini at Work 2026」で、企業向けのGemini agentを発表した。会話から複数段階の仕事を引き受け、クラウドで実行を続ける構想だ。</p>
+<p class="source">出典：<a href="https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026">Google Cloudの10月8日発表</a></p>
+<div class="takeaway"><p><strong>現時点の要点：</strong>長時間のバックグラウンド作業と複数エージェント連携を打ち出した。ただし、公式製品FAQでは主要機能を先行提供と案内している。発表された機能すべてを、すべての契約者が今日使えるとは確認できていない。</p></div>
+</header>
+<section aria-labelledby="features">
+<h2 id="features">発表された働き方</h2>
+<dl>
+<dt>端末を閉じても、仕事を続ける</dt>
+<dd>クラウド上で数時間・数日単位の作業を継続。端末やチャネルをまたいで記憶と文脈を共有し、定時やイベントをきっかけに動く。</dd>
+<dt>仕事に合わせて、他のエージェントに任せる</dt>
+<dd>特定作業のサブエージェントに加え、継続的な役割を持つcoworker agentsを発表。固有のメールアドレスを持たせる例も示した。</dd>
+<dt>企業の権限と管理の中で動かす</dt>
+<dd>MCPによるツール接続、エージェントの識別・最小権限・監査、Agent Sandbox / Gateway、プロジェクトの支出上限などを説明した。</dd>
+</dl>
+<p class="source">これらは<a href="https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026">公式発表で示された機能・構想</a>。契約ごとの利用可否は別途確認が必要。</p>
+</section>
+<section class="status" aria-labelledby="availability">
+<h2 id="availability">提供状況と料金で、まだ確定していないこと</h2>
+<ul>
+<li><strong>主要機能はearly access。</strong>公式FAQは、複数段階のバックグラウンド委任、モバイル／デスクトップ、外部モデル選択を先行提供と記載し、全顧客への提供は「近日」と案内している。</li>
+<li><strong>Claude連携は発表と現行案内を分けて読む。</strong>基調発表ではGeminiとClaudeの振り分けを説明。製品FAQは現在Google Geminiモデルを提供し、追加モデルは今後と記載している。</li>
+<li><strong>新Agent専用の確定料金・一般提供日は未確認。</strong>日本での個別利用条件も今回の確認範囲では確定できなかった。既存プランや個人向けGeminiの月額を、新Agentの料金として扱わない。</li>
+</ul>
+<p class="source">出典：<a href="https://cloud.google.com/gemini-enterprise">Gemini Enterprise公式製品ページのFAQ</a>と<a href="https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026">基調発表</a>。営業相談・試用の案内はあるが、試用で新機能すべてが使えるとは確認できていない。</p>
+</section>
+<section aria-labelledby="spark">
+<h2 id="spark">個人向け「Gemini Spark」とは区別</h2>
+<p>個人向けの常駐エージェントはGemini Spark。5月に発表され、7月には日本向け提供が案内された。今回の速報は、10月8日に発表された仕事用Gemini agentについてまとめている。</p>
+<p class="source">出典：<a href="https://blog.google/innovation-and-ai/products/gemini-app/next-evolution-gemini-app/">Sparkの5月発表</a>、<a href="https://blog.google/intl/ja-jp/company-news/technology/gemini-spark-comes-to-japan/">Sparkの日本向け公式案内</a></p>
+</section>
+<section class="references" aria-labelledby="sources">
+<h2 id="sources">一次情報</h2>
+<ul>
+<li><a href="https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026">Google Cloud：Gemini at Work 2026の発表</a></li>
+<li><a href="https://cloud.google.com/gemini-enterprise">Google Cloud：Gemini Enterprise製品ページ・FAQ</a></li>
+<li><a href="https://blog.google/innovation-and-ai/products/gemini-app/next-evolution-gemini-app/">Google：個人向けGemini Sparkの発表</a></li>
+<li><a href="https://blog.google/intl/ja-jp/company-news/technology/gemini-spark-comes-to-japan/">Google Japan：Gemini Sparkの日本提供</a></li>
+</ul>
+<p class="footnote">速報のため、発表内容と現在の提供案内を分けて記載した。提供条件は変更される可能性がある。Google公式情報の要約であり、Googleの公式記事ではない。</p>
+</section>
+</main>
+</div>
+</body>
+</html>
