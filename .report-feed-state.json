@@ -788,7 +788,10 @@
         "chuden-credentials-20260729": "1231c7761d4f157f05b11d9e51e68267dee9e9bb48fb872bdc228ecf9a976138",
         "cinra-job-cloud-20260818": "e59118944b62794f4d6162a2069c14940b69c70c9904544f2afad6b238ff1187",
         "coastline-sumareji-app-2026": "a37bd8f809252455357754b6483fdc6db2dcc4a3827575a0432614096f6d0ff0",
+        "coconala-resume-20261008": "eb238bb47e37b31ac1b72f96a1443f5fa5b5bde6c97aec836f0e052dd64a785c",
+        "commune-community-20261005": "417d3c490eceeb04c78e9dbe9c957cadc6a8c8c10f8dfa400d60916e62ce4bcd",
         "cynd-beautymerit-2026": "dc70226d1acb1c024eae63c2ccc36cd9c2a69ee4860d4e516419d871b6b3b207",
+        "daiichikosho-ncg-pc-20261002": "d35a2b8b8d7e0e315603bff41756cafb621d19524b6147deb26e3dea3d8d7447",
         "daiichilife-hr-20260924": "1e98e1d06a6656056652dc03334c624398f2c266f1b39b3c83499cf0683de3b7",
         "daiki-app-20260915": "c6b2d634d0ceb02bbe009b8d07a45c184eb3bdb16d2c7b4c5531eba813fae0d2",
         "daiwa-sc-inquiry-20261002": "10b219d3cf389f148ce418689f2102227f042973c3c2d241e6588fb6ab8a98ae",
@@ -839,6 +842,7 @@
         "kuins-eportfolio-20260930": "ea2ba18fb8a9dc5e7d1c39f719588feab4c1732c3db70a2745949d5b900836df",
         "lashinbang-20260914": "1025cd57c78faf179128f22ae815ef7b54222d8b780b5f203e6109a8eb10b2d3",
         "lawson-2026-mail": "f37705791d7a9bc7040119e3f24e0ff8dac77137a14b6274a120d8f877a868ee",
+        "lawson-id-reservation-20260912": "fbad7d29e9d7cc04f65966e4ca2adb5728d03f87737f36f8403cdb788e4b4fc1",
         "line-games-ad-20220525": "1567b92a31485e0b9d50c3f41cde8346299ee69878d98503e1650d6dfed8dfdd",
         "logicvein-vpn-20251208-update": "0e9861717c0ede0efadf52b2435bdad7a850883d52e095f329cfee0c9ea36fd3",
         "lycorp-20230914": "09d1ad9f63ba870a1616e164edef3f9c19091827e5668c73be18c21fe17e1227",
@@ -878,6 +882,7 @@
         "sammy-777conpass-20260925": "0ddd7ed0a519b461063980550af8d3fb28036656fb558427e540a93ec903501e",
         "seicomart-app-20260924": "f14bf9d749a2fc8634f8951945d5a47893a8ea10e6d51b23fca2f812dbe8c30e",
         "shueisha-hpc-20260909": "f90c6e88cfabe4ff0fe0609a104a01b1fff540bb2112e06ed2d373496ae0e978",
+        "skyticket-three-paths-20261009": "0b74296ce2e8ea118774aa00a1109f5277223733358ebad8e7fd19056de39d2f",
         "sodick-2026": "4bc4212814b1a3658aba8ff5c65dec182463c72027b209b2256eab615f63b28f",
         "stryker-20260311": "5d10f30fbd12193c4a1c0d96dc51c40c5a4e32965b82d66f7812f26c5ae8eeb3",
         "studysapuri-20260930": "6c257d9dc0b16b352fdeb16d5c5d2bd098875f582461b35855ecfdbca24d19aa",
@@ -1278,6 +1283,18 @@
             "idcf-cloud-east1-20261007"
           ],
           "date": "2026-10-09"
+        },
+        {
+          "signature": "84e0ef3faa705f9bce9f3d1f563296aec592896ad158ec4df7e6e4792e6bec0c",
+          "summary": "ローソンID・アプリ予約、コミューン共通基盤（Sansan User Forumの利用者側影響を統合）、第一興商の委託先端末、skyticketの異なる3経路、ココナラの登録書類の未掲載5件を一次資料で追加。ローソンの既存メール事案を保持し、Communeの内訳・内数と顧客側人数を加算しない。第一興商は約872.4万件の流出可能性、skyticketはサーバー流出確認と他経路の流出・閲覧可能性を分離し、約413万件のハッシュ値は約1,464万件の内数。ココナラの449件・1,845件は書類数で人数にしない。発生・検知・10月8〜9日の公表と、10月10日JSTの資料確認を分け、通知・再開の予定と実施を区別。既存134件・全出典265本・全履歴18件を保持。計139件・参照273本。",
+          "ids": [
+            "coconala-resume-20261008",
+            "commune-community-20261005",
+            "daiichikosho-ncg-pc-20261002",
+            "lawson-id-reservation-20260912",
+            "skyticket-three-paths-20261009"
+          ],
+          "date": "2026-10-10"
         }
       ],
       "items": [
@@ -1735,9 +1752,29 @@
           ],
           "published": "2026-10-09T14:00:16.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "ca3be08b293c1cdf1a6c3e2839d2a5e7bbd275a1e15ba6535da07cb01367c77a",
+          "summary": "ローソンID・アプリ予約、コミューン共通基盤（Sansan User Forumの利用者側影響を統合）、第一興商の委託先端末、skyticketの異なる3経路、ココナラの登録書類の未掲載5件を一次資料で追加。ローソンの既存メール事案を保持し、Communeの内訳・内数と顧客側人数を加算しない。第一興商は約872.4万件の流出可能性、skyticketはサーバー流出確認と他経路の流出・閲覧可能性を分離し、約413万件のハッシュ値は約1,464万件の内数。ココナラの449件・1,845件は書類数で人数にしない。発生・検知・10月8〜9日の公表と、10月10日JSTの資料確認を分け、通知・再開の予定と実施を区別。既存134件・全出典265本・全履歴18件を保持。計139件・参照273本。",
+          "journal": [
+            {
+              "signature": "84e0ef3faa705f9bce9f3d1f563296aec592896ad158ec4df7e6e4792e6bec0c",
+              "summary": "ローソンID・アプリ予約、コミューン共通基盤（Sansan User Forumの利用者側影響を統合）、第一興商の委託先端末、skyticketの異なる3経路、ココナラの登録書類の未掲載5件を一次資料で追加。ローソンの既存メール事案を保持し、Communeの内訳・内数と顧客側人数を加算しない。第一興商は約872.4万件の流出可能性、skyticketはサーバー流出確認と他経路の流出・閲覧可能性を分離し、約413万件のハッシュ値は約1,464万件の内数。ココナラの449件・1,845件は書類数で人数にしない。発生・検知・10月8〜9日の公表と、10月10日JSTの資料確認を分け、通知・再開の予定と実施を区別。既存134件・全出典265本・全履歴18件を保持。計139件・参照273本。",
+              "ids": [
+                "coconala-resume-20261008",
+                "commune-community-20261005",
+                "daiichikosho-ncg-pc-20261002",
+                "lawson-id-reservation-20260912",
+                "skyticket-three-paths-20261009"
+              ],
+              "date": "2026-10-10"
+            }
+          ],
+          "published": "2026-10-09T16:00:31.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "b7b884e2143e44813a9c5bbf71f63f1cb7156c27"
+      "cursor": "49ecc80c9b91bb445751bcdff0ea1d1bbd9318ce"
     }
   }
 }

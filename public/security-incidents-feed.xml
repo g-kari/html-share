@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Fri, 09 Oct 2026 14:00:16 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 09 Oct 2026 16:00:31 GMT</lastBuildDate>
+    <item>
+      <title>ローソンID・アプリ予約、コミューン共通基盤（Sansan User Forumの利用者側影響を統合）、第一興商の委託先端末、skyticketの異なる3経路、ココナラの登録書類の未掲載5件を一次資料</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#ca3be08b293c1cdf1a6c3e2839d2a5e7bbd275a1e15ba6535da07cb01367c77a</guid>
+      <description>ローソンID・アプリ予約、コミューン共通基盤（Sansan User Forumの利用者側影響を統合）、第一興商の委託先端末、skyticketの異なる3経路、ココナラの登録書類の未掲載5件を一次資料で追加。ローソンの既存メール事案を保持し、Communeの内訳・内数と顧客側人数を加算しない。第一興商は約872.4万件の流出可能性、skyticketはサーバー流出確認と他経路の流出・閲覧可能性を分離し、約413万件のハッシュ値は約1,464万件の内数。ココナラの449件・1,845件は書類数で人数にしない。発生・検知・10月8〜9日の公表と、10月10日JSTの資料確認を分け、通知・再開の予定と実施を区別。既存134件・全出典265本・全履歴18件を保持。計139件・参照273本。</description>
+      <pubDate>Fri, 09 Oct 2026 16:00:31 GMT</pubDate>
+      <dcterms:created>2026-10-09T16:00:31.000Z</dcterms:created>
+    </item>
     <item>
       <title>IDCFの既存事案に10月8日第3報の対象4ゾーンと顧客データの取り出し・復元が困難との見通し、顧客保有バックアップからの復元・別環境再構築案内、10月9日第4報のソフトバンク連携体制を追記</title>
       <link>https://share.0g0.xyz/security-incidents</link>
