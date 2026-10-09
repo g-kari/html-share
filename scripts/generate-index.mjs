@@ -5,6 +5,7 @@ import { addFeedDiscovery, writeFeed } from "./rss-feed.mjs";
 import { REPORT_FEEDS, writeReportFeeds } from "./report-feeds.mjs";
 import { authoredReportSource } from "./report-source.mjs";
 import { generateSplitVulnerabilities, isReportArchive } from "./split-vulnerabilities.mjs";
+import { writeSearchIndex } from "./search-index.mjs";
 
 const publicDir = path.resolve("public");
 const outputFile = path.join(publicDir, "index.html");
@@ -27,7 +28,10 @@ async function walk(dir) {
   return files;
 }
 
-const files = (await walk(publicDir))
+const allFiles = (await walk(publicDir))
+  .filter((file) => path.resolve(file) !== path.resolve(outputFile))
+  .sort((a, b) => a.localeCompare(b, "ja"));
+const files = allFiles
   .filter((file) => path.resolve(file) !== path.resolve(outputFile))
   .filter((file) => !isReportArchive(path.relative(publicDir, file).split(path.sep).join("/")))
   .sort((a, b) => a.localeCompare(b, "ja"));
@@ -48,6 +52,8 @@ for (const file of files) {
     ...details,
   });
 }
+
+const searchUrl = await writeSearchIndex(path.resolve("."), allFiles);
 
 const cards = pages.length
   ? pages.map(({ route, title, description }) => `
@@ -114,6 +120,22 @@ const html = `<!doctype html>
     .card p { margin: 0 0 12px; color: var(--sub); }
     code { color: var(--accent); }
     .empty { color: var(--sub); }
+    [hidden] { display: none !important; }
+    .search { margin: 24px 0 20px; }
+    .search label { display: block; font-weight: 650; margin-bottom: 8px; }
+    .search-controls { display: flex; flex-wrap: wrap; gap: 8px; }
+    .search input { flex: 1 1 260px; min-width: 0; width: 100%; }
+    .search input, button { border: 1px solid var(--border); border-radius: 10px; background: var(--panel); color: var(--text); font: inherit; padding: 10px 14px; min-height: 44px; }
+    button { cursor: pointer; }
+    .search-help, .search-status { color: var(--sub); font-size: .95rem; margin: 8px 0 0; }
+    .search-status { min-height: 1.65em; }
+    :focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+    .card h2, .card p, .result-route { overflow-wrap: anywhere; }
+    .result-route { color: var(--accent); font-size: .9rem; }
+    mark { background: #ffdb83; color: #1a1720; border-radius: 2px; }
+    #search-more { margin-top: 16px; }
+    @media (max-width: 480px) { main { padding-top: 28px; } .card a { padding: 16px; } }
+    @media (prefers-reduced-motion: reduce) { .card { transition: none; } .card:hover { transform: none; } }
   </style>
 </head>
 <body>
@@ -125,10 +147,24 @@ const html = `<!doctype html>
       <p>${REPORT_FEEDS.map((feed) => `<a class="rss" href="${feed.path}">${escapeHtml(feed.title)}を購読</a>`).join(" · ")}</p>
       <p class="count">${pages.length} page${pages.length === 1 ? "" : "s"}</p>
     </header>
-    <section class="grid">
+    <form id="site-search" class="search" role="search" data-index="${searchUrl}" hidden>
+      <label for="search-query">タイトル・本文を検索</label>
+      <div class="search-controls">
+        <input id="search-query" name="q" type="search" placeholder="例：Cloudflare 日本語" maxlength="200" enterkeyhint="search" autocomplete="off" aria-describedby="search-help search-status">
+        <button type="submit">検索</button>
+        <button id="search-clear" type="button" hidden>クリア</button>
+      </div>
+      <p id="search-help" class="search-help">スペース区切りで複数の言葉を検索できます。全角・半角、ひらがな・カタカナを区別しません。</p>
+      <p id="search-status" class="search-status" role="status" aria-live="polite" aria-atomic="true">タイトルと本文を検索できます。</p>
+    </form>
+    <noscript><p class="search-help">全文検索にはJavaScriptが必要です。下の一覧から各ページを開けます。</p></noscript>
+    <section id="search-results" class="grid" aria-label="検索結果" hidden></section>
+    <button id="search-more" type="button" hidden>さらに20件を表示</button>
+    <section id="page-list" class="grid" aria-label="共有ページ一覧">
 ${cards}
     </section>
   </main>
+  <script type="module" src="/assets/site-search.js"></script>
 </body>
 </html>
 `;
@@ -148,5 +184,5 @@ for (const file of files) {
   const generated = addFeedDiscovery(addSocialMetadata(source, relativePath), REPORT_FEEDS.filter((feed) => feed.relativePath === relativePath));
   if (generated !== source) await writeFile(file, generated, "utf8");
 }
-console.log(`Generated index, general/report RSS feeds and social metadata for ${pages.length} page(s).`);
+console.log(`Generated index, lazy full-text search, general/report RSS feeds and social metadata for ${pages.length} page(s).`);
 
