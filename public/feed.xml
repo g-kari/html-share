@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Fri, 09 Oct 2026 18:38:23 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 09 Oct 2026 19:24:01 GMT</lastBuildDate>
+    <item>
+      <title>2026年 不正アクセス・情報漏えいウォッチ｜原因・出典・続報</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/security-incidents</guid>
+      <description>2026年の不正アクセス・情報漏えい事案と過去の主要事例を、原因・影響・対応・日付・一次資料で整理。大手前病院、Commune・IDCFの利用組織側続報、Frontlineの通知進捗を含む152件。</description>
+      <pubDate>Fri, 09 Oct 2026 19:24:01 GMT</pubDate>
+      <dcterms:created>2026-10-02T06:08:44.000Z</dcterms:created>
+      <dcterms:modified>2026-10-09T19:24:01.000Z</dcterms:modified>
+    </item>
     <item>
       <title>脆弱性レポート | 実悪用・修正版・対処</title>
       <link>https://share.0g0.xyz/vulnerabilities</link>
@@ -16,15 +25,6 @@
       <pubDate>Fri, 09 Oct 2026 18:38:23 GMT</pubDate>
       <dcterms:created>2026-10-06T05:47:01.000Z</dcterms:created>
       <dcterms:modified>2026-10-09T18:38:23.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>2026年 不正アクセス・情報漏えいウォッチ｜原因・出典・続報</title>
-      <link>https://share.0g0.xyz/security-incidents</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/security-incidents</guid>
-      <description>2026年の不正アクセス・情報漏えい事案と過去の主要事例を、原因・影響・対応・日付・一次資料で整理。エネコム、ユニリタ、Hasbro、Photon Health、Egide、e-votezと委託先続報を含む151件。</description>
-      <pubDate>Fri, 09 Oct 2026 18:23:10 GMT</pubDate>
-      <dcterms:created>2026-10-02T06:08:44.000Z</dcterms:created>
-      <dcterms:modified>2026-10-09T18:23:10.000Z</dcterms:modified>
     </item>
     <item>
       <title>【速報】Googleが仕事用「Gemini agent」を発表、主要機能は先行提供</title>

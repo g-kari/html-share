@@ -927,7 +927,7 @@
           "precision": "second"
         }
       ],
-      "cursor": "6f06e13367c6240c88c05ad846e0661d93d4c394"
+      "cursor": "c04e05e761bba3c25e2c781123b7f821ece19e49"
     },
     "security-incidents": {
       "records": {
@@ -955,7 +955,7 @@
         "cinra-job-cloud-20260818": "e59118944b62794f4d6162a2069c14940b69c70c9904544f2afad6b238ff1187",
         "coastline-sumareji-app-2026": "a37bd8f809252455357754b6483fdc6db2dcc4a3827575a0432614096f6d0ff0",
         "coconala-resume-20261008": "eb238bb47e37b31ac1b72f96a1443f5fa5b5bde6c97aec836f0e052dd64a785c",
-        "commune-community-20261005": "eef0cd4785f8fcdee329b1124f41a05b1e7eec79559ef29b1d1a970e7a86674a",
+        "commune-community-20261005": "1818430c9ad5ef9ef36c9e8858a66d594ba2342715229ec2b8ab2c86ae4558eb",
         "cynd-beautymerit-2026": "dc70226d1acb1c024eae63c2ccc36cd9c2a69ee4860d4e516419d871b6b3b207",
         "daiichikosho-ncg-pc-20261002": "d35a2b8b8d7e0e315603bff41756cafb621d19524b6147deb26e3dea3d8d7447",
         "daiichilife-hr-20260924": "1e98e1d06a6656056652dc03334c624398f2c266f1b39b3c83499cf0683de3b7",
@@ -977,7 +977,7 @@
         "evergreen-mail-20260626": "cddbc0247b50925cc204b08e8563ad3eda59663219ec8cbfa47913ab21c69148",
         "evotez-choisir2027-bots-20261009": "53c5990f0026bdc9d0b408e036989648037a0d415ba2e6bece24621f6ac5dcbe",
         "fines-reservation-20260922": "a06cf490adcf9315e09d023a9c139c9d1394b1e007a4a0e859b3abb29481a26e",
-        "frontline-education-202608": "95fa7f7fec7c445194020134cf3fca8389272c32523a2c0242176f8f5f4faffb",
+        "frontline-education-202608": "a8d574db6207ab5adbfe3096d7b149a892eec44fdf99d8a4b047ebd7b6c26f7f",
         "gmo-infoq-20261002": "f70ab913a112b709c89954d2afd762bddff28de999a4bc19f1cdb3da1c015202",
         "gmo-trustlogin-storage-20260914": "2adc230ca2e280b49e89cf76b0f9e41a74d1b72ba2247eac22aa0f05ec8b22c6",
         "gyazo-20260911": "5cfea9221bbe5d1a4c8a843dc35940bd4efc77229f33fbaf2dc725e15a21914c",
@@ -986,7 +986,7 @@
         "hasbro-network-20260328": "073d95bbcc6abbff7ec335ef3a6edf58e9d3c040aea6de66231d4f46bbdfdb1f",
         "his-thailand-files-20251211": "39bc712b0110e2c0c3835834fda56b62fa724b3cc1e749a240f62479d6b6a0a9",
         "icc-2026": "46efd179efcaa10ceca01aa9b87e511375c341ca055eb4a98c61bdff02fa1f53",
-        "idcf-cloud-east1-20261007": "a0974fbe3c2556243dc37d44c922ba9bcd0c79bd2c4781084793ec36524f5166",
+        "idcf-cloud-east1-20261007": "d0097b4699351bb7e42d94abf3b447f7ff001c37e63f59cd0d2369f66326fd71",
         "idscan-veriscan-cloud-20260404": "2a57e6a7865983acb4b7456db224f250f8cb2cc0a6fa759056bf925086d36ece",
         "ieej-m365-20260729": "fa99e2b810a20bc27c306797d14b3da0f8d8c266ee8d2d200fccbc03140f552e",
         "ielove-2026": "59e7a5fcf1890717adab0af4da194f253baf584af11b667d3124908d14f5be65",
@@ -1044,6 +1044,7 @@
         "nyk-2026": "06a21effc496a3be7ada96d7b08fb02fb9ccd65419efb5a8be96df568c329ddb",
         "omu-ransomware-20261002": "a3c51a6b24064a0e30456e6e397d437ef6039845ab5e88fc51a3c1c5fe02b30c",
         "osaka-redaction-20260608": "d02decc00a8edd938ebf3229b1ac9e9668b4c969642db13461d8b64d3b95fbc8",
+        "otemae-hospital-mail-20261008": "520eceaa7b77557b469fccf0d21ab0ac9b5c0622ffb1d81e3609ec2e3f6cc8f5",
         "ozmall-20260926": "ce00c46bd69400064edec6258d9c59c6abe632c55e60f9c1d3b86f306bfd2fb6",
         "paperlogic-cloud-20260827": "f59bdf5b4d99338a511c08bef82f4ee97658bcd046144dd9314300485a752d24",
         "photon-health-metabase-202608": "558c59e446aba4aaa7f9c384e4db33a324ecaf83bfbddca3b1055702a71f8ce1",
@@ -1500,6 +1501,17 @@
             "photon-health-metabase-202608",
             "temairazu-202609",
             "unirita-saas-documents-20260928"
+          ],
+          "date": "2026-10-10"
+        },
+        {
+          "signature": "44e26735480e181b098da9dbad8557328356762b26b59d8720a4d5baf41f0023",
+          "summary": "大手前病院の10月8日公表を一次資料で追加。メールアカウント侵害を確認、職員等の情報は漏えい可能性、患者情報は対象データに含まれないとの病院確認を分け、発生・検知日と人数は非公表とした。CommuneへVALXと青森びいきの利用組織側範囲を統合。VALXは3,813名中2,950名の可能性推計、青森県の差替資料は想定最大2,950人・正確な人数調査中で、同じ数値を同一対象とせず、合算や提供元約30.7万人への加算をしない。確認できた公式公表を10月8日へ遡及し、提供元詳報10月9日とそれ以前の初報未確認を区別。IDCFへ滋賀県3サイトの閲覧支障と非公開情報非保有の説明、ソリトンの同一基盤バックアップ利用不可・別基盤再構築準備を追記し、永久喪失や復旧完了とは扱わない。Frontline現FAQの最終データ検証・提供遅延を追記。学区通知と本人通知完了、現在のニュース一覧表示日10月9日と本文更新日時非表示を区別し、新規侵害や範囲拡大とはしない。既存151件・全出典302本・全履歴21件を保持。計152件・参照308本。",
+          "ids": [
+            "commune-community-20261005",
+            "frontline-education-202608",
+            "idcf-cloud-east1-20261007",
+            "otemae-hospital-mail-20261008"
           ],
           "date": "2026-10-10"
         }
@@ -2025,9 +2037,28 @@
           ],
           "published": "2026-10-09T18:23:10.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "d10bd4537611413113bb0ba69fdc81737e2450c6ef88fde1918485848692d7c4",
+          "summary": "大手前病院の10月8日公表を一次資料で追加。メールアカウント侵害を確認、職員等の情報は漏えい可能性、患者情報は対象データに含まれないとの病院確認を分け、発生・検知日と人数は非公表とした。CommuneへVALXと青森びいきの利用組織側範囲を統合。VALXは3,813名中2,950名の可能性推計、青森県の差替資料は想定最大2,950人・正確な人数調査中で、同じ数値を同一対象とせず、合算や提供元約30.7万人への加算をしない。確認できた公式公表を10月8日へ遡及し、提供元詳報10月9日とそれ以前の初報未確認を区別。IDCFへ滋賀県3サイトの閲覧支障と非公開情報非保有の説明、ソリトンの同一基盤バックアップ利用不可・別基盤再構築準備を追記し、永久喪失や復旧完了とは扱わない。Frontline現FAQの最終データ検証・提供遅延を追記。学区通知と本人通知完了、現在のニュース一覧表示日10月9日と本文更新日時非表示を区別し、新規侵害や範囲拡大とはしない。既存151件・全出典302本・全履歴21件を保持。計152件・参照308本。",
+          "journal": [
+            {
+              "signature": "44e26735480e181b098da9dbad8557328356762b26b59d8720a4d5baf41f0023",
+              "summary": "大手前病院の10月8日公表を一次資料で追加。メールアカウント侵害を確認、職員等の情報は漏えい可能性、患者情報は対象データに含まれないとの病院確認を分け、発生・検知日と人数は非公表とした。CommuneへVALXと青森びいきの利用組織側範囲を統合。VALXは3,813名中2,950名の可能性推計、青森県の差替資料は想定最大2,950人・正確な人数調査中で、同じ数値を同一対象とせず、合算や提供元約30.7万人への加算をしない。確認できた公式公表を10月8日へ遡及し、提供元詳報10月9日とそれ以前の初報未確認を区別。IDCFへ滋賀県3サイトの閲覧支障と非公開情報非保有の説明、ソリトンの同一基盤バックアップ利用不可・別基盤再構築準備を追記し、永久喪失や復旧完了とは扱わない。Frontline現FAQの最終データ検証・提供遅延を追記。学区通知と本人通知完了、現在のニュース一覧表示日10月9日と本文更新日時非表示を区別し、新規侵害や範囲拡大とはしない。既存151件・全出典302本・全履歴21件を保持。計152件・参照308本。",
+              "ids": [
+                "commune-community-20261005",
+                "frontline-education-202608",
+                "idcf-cloud-east1-20261007",
+                "otemae-hospital-mail-20261008"
+              ],
+              "date": "2026-10-10"
+            }
+          ],
+          "published": "2026-10-09T19:24:01.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "5c32cf99df57b45cb06f87f1f203fa8838817494"
+      "cursor": "1708c74564a559ef7c0ee9fc11dbbe8008360ab5"
     }
   }
 }

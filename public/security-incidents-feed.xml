@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Fri, 09 Oct 2026 18:23:10 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 09 Oct 2026 19:24:01 GMT</lastBuildDate>
+    <item>
+      <title>大手前病院の10月8日公表を一次資料で追加</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#d10bd4537611413113bb0ba69fdc81737e2450c6ef88fde1918485848692d7c4</guid>
+      <description>大手前病院の10月8日公表を一次資料で追加。メールアカウント侵害を確認、職員等の情報は漏えい可能性、患者情報は対象データに含まれないとの病院確認を分け、発生・検知日と人数は非公表とした。CommuneへVALXと青森びいきの利用組織側範囲を統合。VALXは3,813名中2,950名の可能性推計、青森県の差替資料は想定最大2,950人・正確な人数調査中で、同じ数値を同一対象とせず、合算や提供元約30.7万人への加算をしない。確認できた公式公表を10月8日へ遡及し、提供元詳報10月9日とそれ以前の初報未確認を区別。IDCFへ滋賀県3サイトの閲覧支障と非公開情報非保有の説明、ソリトンの同一基盤バックアップ利用不可・別基盤再構築準備を追記し、永久喪失や復旧完了とは扱わない。Frontline現FAQの最終データ検証・提供遅延を追記。学区通知と本人通知完了、現在のニュース一覧表示日10月9日と本文更新日時非表示を区別し、新規侵害や範囲拡大とはしない。既存151件・全出典302本・全履歴21件を保持。計152件・参照308本。</description>
+      <pubDate>Fri, 09 Oct 2026 19:24:01 GMT</pubDate>
+      <dcterms:created>2026-10-09T19:24:01.000Z</dcterms:created>
+    </item>
     <item>
       <title>エネコム、ユニリタ、Hasbro、Photon Health、Egide、フランスe-votezの未掲載事案を一次資料で追加</title>
       <link>https://share.0g0.xyz/security-incidents</link>
