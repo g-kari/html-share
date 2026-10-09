@@ -5,11 +5,13 @@ import { addFeedDiscovery, writeFeed } from "./rss-feed.mjs";
 import { REPORT_FEEDS, writeReportFeeds } from "./report-feeds.mjs";
 import { authoredReportSource } from "./report-source.mjs";
 import { generateSplitVulnerabilities, isReportArchive } from "./split-vulnerabilities.mjs";
+import { generateSplitTechnologyUpdates, isTechnologyArchive } from "./split-technology-updates.mjs";
 import { writeSearchIndex } from "./search-index.mjs";
 
 const publicDir = path.resolve("public");
 const outputFile = path.join(publicDir, "index.html");
 await generateSplitVulnerabilities(path.resolve("."));
+await generateSplitTechnologyUpdates(path.resolve("."));
 
 async function walk(dir) {
   const entries = await readdir(dir, { withFileTypes: true });
@@ -34,6 +36,7 @@ const allFiles = (await walk(publicDir))
 const files = allFiles
   .filter((file) => path.resolve(file) !== path.resolve(outputFile))
   .filter((file) => !isReportArchive(path.relative(publicDir, file).split(path.sep).join("/")))
+  .filter((file) => !isTechnologyArchive(path.relative(publicDir, file).split(path.sep).join("/")))
   .sort((a, b) => a.localeCompare(b, "ja"));
 
 const pages = [];

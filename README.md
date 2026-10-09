@@ -199,6 +199,51 @@ JavaScript無効時は旧fragmentの一覧を初期openにし、JS初期化の�
 
 通常RSSのhash/日時判定・専用RSSの実質差分判定には編集原本を使用します。移行前の `public/vulnerabilities.html` と新しい原本の両Git履歴を一つの順序で調べ、旧GUIDと元の日時・配信履歴を保持します。原本をbyte-identicalで移すだけの構造変更や、表示chunkの再生成は新しい脆弱性の追加更新として配信しません。hash付きのJSONファイル名で世代を分離し、古いcacheと新しい本文の混在を防ぎます。通常RSSの他ページ・漏洩事案レポートの既存契約は維持します。
 
+## Lightweight technology updates and automatic tags
+
+`/technology-updates` は最新の12件だけを初期HTMLに含めます。全件の本文やregisterを
+隠して同梱したり先読みしたりせず、検索・絞り込み・ページ送り・古い `#id` を使った時だけ
+同一originのmanifestと必要な12件chunkを読みます。本文検索用の全文索引は検索語を入れた時だけ
+取得します。タグ・発表月の選択肢はmanifestから作り、本文DOMは12件、本文cacheは8chunkまでです。
+検索語・分野・タグ・発表月・ページはURLに保存し、Back/Forwardと既存の直接anchorを扱います。
+読込失敗では表示済み本文を残し、再試行と静的アーカイブへのリンクを表示します。
+
+全本文は `/technology-updates/archive/YYYY-MM` に月別・12件単位の静的ページとして保持します。
+同月の2ページ目以降は `YYYY-MM-2` のように続きます。月一覧も20か月単位に分割し、
+`/technology-updates/archive` からすべて辿れます。JavaScriptがなくても全本文と一次資料を読めます。
+最近のページには履歴5件まで、`/technology-updates/history` には全履歴を20件単位で保持します。
+JavaScript無効時の古いfragmentは最近のページで自動解決しないため、月別アーカイブを利用してください。
+サイト全体の全文検索は公開済みの静的本文・履歴から全過去分を取り込み、検索結果は従来の
+`/technology-updates#id` に戻ります。古い履歴の検索結果は、その履歴を含む静的履歴ページへ
+移動します。アーカイブはトップの別ページやRSS新着として並べません。
+
+編集原本は `reports/technology-updates.source.html` です。旧単体HTMLをbyte-identicalで移し、
+全記録、出典URL、事実・条件、既存ID、訂正・更新履歴を保持しています。
+HTMLカードと `technology-update-data` JSON registerのID・categoryを一致させて更新します。
+公式発表の日付は `records[].date`、確認日は `checked_at_utc` に分け、実質的な追加・訂正は
+従来どおり `changes[].summary` と読者向け履歴へ具体的に記録してください。
+`public/technology-updates.html`、`public/assets/technology-updates/*.json`、月別・履歴ページは
+手編集せず `npm run build` で生成します。古い候補HTMLを公開ファイルへ上書きせず、
+最新原本へ事実の差分を再適用します。原本はStatic Assets外に置きます。
+
+タグは `scripts/technology-tags.mjs` が生成時に製品・分野・変更種別の3軸で自動付与します。
+各軸は安定したASCII IDと表示名を持ち、同じ入力なら同じタグになります。製品は見出し・leadと
+公式出典の明確な識別子、分野は既存category、変更種別は見出し・lead・flagから判定します。
+無関係な試験手順から変更を推測せず、不明なら中立のfallbackを使います。
+タグは便利な分類で、利用可否・性能・契約条件などの新しい事実を追加するものではありません。
+外部AI API、サービス接続、料金は不要です。新製品の認識ルールが必要なら同moduleとtestsを
+一緒に更新してください。本文にないタグを手作業で捏造しません。
+
+RSSは生成HTMLではなく編集原本をhashと日時の入力にし、旧 `public/technology-updates.html` の
+Git履歴も継続して読みます。この移動、タグの自動生成、chunk・索引再生成だけでは初版の
+GUID・公開日時・更新日時を変えません。既存脆弱性・セキュリティ事案の公開内容と専用RSSの
+契約は変更しません。hash付きJSON名でcacheの世代を分離します。
+
+検証は `npm test` と `npm run build`。`tests/split-technology-updates.test.mjs` は元の16件の
+本文・一次資料の完全保持、1000件と1000履歴のサイズ上限、全過去の全文検索、RSS不変を確認し、
+`tests/technology-tags.test.mjs` と `tests/technology-updates-view.test.mjs` はタグルールと
+遅延読込・絞り込み・旧anchor・エラー・非同期競合を検証します。
+
 ## Social previews (OGP / Twitter Cards)
 
 全ページとトップページに、共有URL・ページタイトル・説明・共通画像を自動補完します。

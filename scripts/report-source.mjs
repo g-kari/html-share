@@ -4,9 +4,11 @@ import path from "node:path";
 // New reports retain their old public path as historical lineage. The route,
 // feed key and fingerprint normalization always remain the public HTML path.
 export function reportSourcePaths(relativePath) {
-  return relativePath === "vulnerabilities.html"
-    ? ["reports/vulnerabilities.source.html", "public/vulnerabilities.html"]
-    : [`public/${relativePath}`];
+  const sources = {
+    "vulnerabilities.html": "reports/vulnerabilities.source.html",
+    "technology-updates.html": "reports/technology-updates.source.html",
+  };
+  return sources[relativePath] ? [sources[relativePath], `public/${relativePath}`] : [`public/${relativePath}`];
 }
 
 export async function authoredReportSource(root, relativePath, publicSource) {
