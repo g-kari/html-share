@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Wed, 07 Oct 2026 17:18:29 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 09 Oct 2026 14:00:16 GMT</lastBuildDate>
+    <item>
+      <title>IDCFの既存事案に10月8日第3報の対象4ゾーンと顧客データの取り出し・復元が困難との見通し、顧客保有バックアップからの復元・別環境再構築案内、10月9日第4報のソフトバンク連携体制を追記</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#1d829d0b364626a1ad81a757c6d44639a261df6b4be5ed271b511509dcb81a7c</guid>
+      <description>IDCFの既存事案に10月8日第3報の対象4ゾーンと顧客データの取り出し・復元が困難との見通し、顧客保有バックアップからの復元・別環境再構築案内、10月9日第4報のソフトバンク連携体制を追記。ビューカードの10月9日発表を同じ基盤侵害の利用者側影響として加え、メールアドレス対象約403万件の閲覧・取得可能性、対象者調査中、iiマークカード・法人カード除外、他の個人情報は漏えい可能性なしとの同社説明を記録。流出確定・人数・復旧完了とせず、企業・自治体数やサーバー数へ加算しない。10月7日の把握・対策本部設置と続報日、通知予定を分離。既存134件・全履歴・既存出典を保持し、参照資料は265本。</description>
+      <pubDate>Fri, 09 Oct 2026 14:00:16 GMT</pubDate>
+      <dcterms:created>2026-10-09T14:00:16.000Z</dcterms:created>
+    </item>
     <item>
       <title>RSS初回配信訂正：漏洩・セキュリティ事案レポートの過去履歴</title>
       <link>https://share.0g0.xyz/security-incidents</link>
