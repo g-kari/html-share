@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Sat, 10 Oct 2026 02:54:58 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 10 Oct 2026 07:02:56 GMT</lastBuildDate>
+    <item>
+      <title>Hermes Agent を図で理解する｜個人AIを育てるための比較ガイド</title>
+      <link>https://share.0g0.xyz/hermes-agent-comparison</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/hermes-agent-comparison</guid>
+      <description>Nous Research の Hermes Agent と OpenClaw、Letta、n8n、Claude Code を、記憶・実行環境・料金・安全性・用途で比較。初心者向けの図解と用語集付き。2026年10月10日確認。</description>
+      <pubDate>Sat, 10 Oct 2026 07:02:56 GMT</pubDate>
+      <dcterms:created>2026-10-10T07:02:56.000Z</dcterms:created>
+      <dcterms:modified>2026-10-10T07:02:56.000Z</dcterms:modified>
+    </item>
     <item>
       <title>2026年 不正アクセス・情報漏えいウォッチ｜原因・出典・続報</title>
       <link>https://share.0g0.xyz/security-incidents</link>
