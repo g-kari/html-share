@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Sat, 10 Oct 2026 22:26:17 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 10 Oct 2026 23:05:01 GMT</lastBuildDate>
+    <item>
+      <title>英国図書館の2023年ランサムウェア攻撃と2024年3月の当事者レビュー、Synnovisの2024年6月の攻撃と2025年11月のNHS続報を過去の比較例として追加</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#45b6db1bb15978431a237d750bd15bb37d6168d58f2e21050e9d085dee9d0a75</guid>
+      <description>英国図書館の2023年ランサムウェア攻撃と2024年3月の当事者レビュー、Synnovisの2024年6月の攻撃と2025年11月のNHS続報を過去の比較例として追加。窃取・公開の確認、入口の仮説、サービス回復とデータ評価・本人通知を区別し、初回Web公表・2026年現在の状態は未確認と明記。既存163件・全出典・26件の更新履歴を保持して計165件。</description>
+      <pubDate>Sat, 10 Oct 2026 23:05:01 GMT</pubDate>
+      <dcterms:created>2026-10-10T23:05:01.000Z</dcterms:created>
+    </item>
     <item>
       <title>Comhairle nan Eilean Siarの2023年11月の攻撃と2025年4月の自治体報告を過去の比較例として追加</title>
       <link>https://share.0g0.xyz/security-incidents</link>

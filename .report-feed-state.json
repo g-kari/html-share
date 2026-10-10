@@ -971,6 +971,7 @@
         "betterment-20260109": "cc2c1bfecf04020942044bb16dff619b33bba75f4ab1c426b8ce12b4fe950821",
         "blueberry-metabase-20260810": "2e917563578164373e74131b55e6e9dd9fcc85ce7d5647bde28c008b9a4f2e09",
         "bookoff-member-system-20261006": "8f07e896b7da25d122f98e27112242df0ad3cdb29fc1223abafb5adb81a5d4cc",
+        "british-library-ransomware-20231028": "06d7b001f2b4406ebed239d7ada7b7fc6efd34e4a0e498af611d825cbd944ecb",
         "cac-academic-support-navi-2026": "cbf8ed75b6ee7050432be8cf2b9aaab88f90624ed43f062e415eb293a9414aae",
         "campfire-2026": "37c0a8675d7223d50cc14144335757683b806fc3031b7b5da7baffdafcc43d7c",
         "canvass-ransomware-2026": "08322821b15ef207849b08301407a805285713a78ea97bddf53306123d90a8a3",
@@ -1099,6 +1100,7 @@
         "sodick-2026": "4bc4212814b1a3658aba8ff5c65dec182463c72027b209b2256eab615f63b28f",
         "stryker-20260311": "5d10f30fbd12193c4a1c0d96dc51c40c5a4e32965b82d66f7812f26c5ae8eeb3",
         "studysapuri-20260930": "6c257d9dc0b16b352fdeb16d5c5d2bd098875f582461b35855ecfdbca24d19aa",
+        "synnovis-cyber-202406": "67020ec420f09e223a206a2319f1ebf7490a033d7d6feb7fc406d28d985d36b5",
         "temairazu-202609": "86b662cdba269ee234cb7e1c7c3bd148eb729927682b8b26cb145890d471565f",
         "thinca-web-20260824": "13e60be593b76aac4fad05987f4b1f0b1241a894fea87bfadc116cd754ac0422",
         "timescar-20260925": "49b3ce060402c1c7f10049c5b7c8d3c216af695ef2e0d801764e258f97d7befa",
@@ -1603,6 +1605,15 @@
           "summary": "Comhairle nan Eilean Siarの2023年11月の攻撃と2025年4月の自治体報告を過去の比較例として追加。運用データ利用不能、IT稼働後も続く業務残件、盗難・公開の証拠なしとの説明を分離し、初回Web公表日は未確認と明記。既存162件・全出典・25件の更新履歴を保持して計163件。",
           "ids": [
             "comhairle-cyberattack-20231107"
+          ],
+          "date": "2026-10-11"
+        },
+        {
+          "signature": "44177b8550f0d6ee8eb16083aa02a4eb42108e570ccaaaa259ef58278d78cd51",
+          "summary": "英国図書館の2023年ランサムウェア攻撃と2024年3月の当事者レビュー、Synnovisの2024年6月の攻撃と2025年11月のNHS続報を過去の比較例として追加。窃取・公開の確認、入口の仮説、サービス回復とデータ評価・本人通知を区別し、初回Web公表・2026年現在の状態は未確認と明記。既存163件・全出典・26件の更新履歴を保持して計165件。",
+          "ids": [
+            "british-library-ransomware-20231028",
+            "synnovis-cyber-202406"
           ],
           "date": "2026-10-11"
         }
@@ -2226,9 +2237,26 @@
           ],
           "published": "2026-10-10T22:26:17.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "45b6db1bb15978431a237d750bd15bb37d6168d58f2e21050e9d085dee9d0a75",
+          "summary": "英国図書館の2023年ランサムウェア攻撃と2024年3月の当事者レビュー、Synnovisの2024年6月の攻撃と2025年11月のNHS続報を過去の比較例として追加。窃取・公開の確認、入口の仮説、サービス回復とデータ評価・本人通知を区別し、初回Web公表・2026年現在の状態は未確認と明記。既存163件・全出典・26件の更新履歴を保持して計165件。",
+          "journal": [
+            {
+              "signature": "44177b8550f0d6ee8eb16083aa02a4eb42108e570ccaaaa259ef58278d78cd51",
+              "summary": "英国図書館の2023年ランサムウェア攻撃と2024年3月の当事者レビュー、Synnovisの2024年6月の攻撃と2025年11月のNHS続報を過去の比較例として追加。窃取・公開の確認、入口の仮説、サービス回復とデータ評価・本人通知を区別し、初回Web公表・2026年現在の状態は未確認と明記。既存163件・全出典・26件の更新履歴を保持して計165件。",
+              "ids": [
+                "british-library-ransomware-20231028",
+                "synnovis-cyber-202406"
+              ],
+              "date": "2026-10-11"
+            }
+          ],
+          "published": "2026-10-10T23:05:01.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "ebb261dc1e662248e5eb93dc7bf0be78e1a11219"
+      "cursor": "f2957385bc45426475f988ca12180fec0652b4d9"
     }
   }
 }
