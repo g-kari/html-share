@@ -982,6 +982,7 @@
         "cinra-job-cloud-20260818": "e59118944b62794f4d6162a2069c14940b69c70c9904544f2afad6b238ff1187",
         "coastline-sumareji-app-2026": "a37bd8f809252455357754b6483fdc6db2dcc4a3827575a0432614096f6d0ff0",
         "coconala-resume-20261008": "eb238bb47e37b31ac1b72f96a1443f5fa5b5bde6c97aec836f0e052dd64a785c",
+        "comhairle-cyberattack-20231107": "969973749209f04fd022ca4fbbb96b8912e33f409bfbbfcfd6b7da252cd459b5",
         "commune-community-20261005": "b4599d1026933e213b6a162cc71aba12c6384d33724860491b3e186d3e6ef519",
         "cynd-beautymerit-2026": "dc70226d1acb1c024eae63c2ccc36cd9c2a69ee4860d4e516419d871b6b3b207",
         "daiichikosho-ncg-pc-20261002": "d35a2b8b8d7e0e315603bff41756cafb621d19524b6147deb26e3dea3d8d7447",
@@ -1596,6 +1597,14 @@
             "nihracs-email-20261007"
           ],
           "date": "2026-10-10"
+        },
+        {
+          "signature": "0b9e807e51e219abcf7db68e8cb42841ca45b68ad87c39356af35108d84ec353",
+          "summary": "Comhairle nan Eilean Siarの2023年11月の攻撃と2025年4月の自治体報告を過去の比較例として追加。運用データ利用不能、IT稼働後も続く業務残件、盗難・公開の証拠なしとの説明を分離し、初回Web公表日は未確認と明記。既存162件・全出典・25件の更新履歴を保持して計163件。",
+          "ids": [
+            "comhairle-cyberattack-20231107"
+          ],
+          "date": "2026-10-11"
         }
       ],
       "items": [
@@ -2201,9 +2210,25 @@
           ],
           "published": "2026-10-10T16:46:53.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "5a41e6ffbbb385c910a7c820fe345d2d61f6ef457077f16e529e8da8dc45e548",
+          "summary": "Comhairle nan Eilean Siarの2023年11月の攻撃と2025年4月の自治体報告を過去の比較例として追加。運用データ利用不能、IT稼働後も続く業務残件、盗難・公開の証拠なしとの説明を分離し、初回Web公表日は未確認と明記。既存162件・全出典・25件の更新履歴を保持して計163件。",
+          "journal": [
+            {
+              "signature": "0b9e807e51e219abcf7db68e8cb42841ca45b68ad87c39356af35108d84ec353",
+              "summary": "Comhairle nan Eilean Siarの2023年11月の攻撃と2025年4月の自治体報告を過去の比較例として追加。運用データ利用不能、IT稼働後も続く業務残件、盗難・公開の証拠なしとの説明を分離し、初回Web公表日は未確認と明記。既存162件・全出典・25件の更新履歴を保持して計163件。",
+              "ids": [
+                "comhairle-cyberattack-20231107"
+              ],
+              "date": "2026-10-11"
+            }
+          ],
+          "published": "2026-10-10T22:26:17.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "c50463c9def63b88dac0e19f92353c98d01cabc5"
+      "cursor": "ebb261dc1e662248e5eb93dc7bf0be78e1a11219"
     }
   }
 }

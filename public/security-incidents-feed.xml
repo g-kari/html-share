@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Sat, 10 Oct 2026 16:46:53 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 10 Oct 2026 22:26:17 GMT</lastBuildDate>
+    <item>
+      <title>Comhairle nan Eilean Siarの2023年11月の攻撃と2025年4月の自治体報告を過去の比較例として追加</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#5a41e6ffbbb385c910a7c820fe345d2d61f6ef457077f16e529e8da8dc45e548</guid>
+      <description>Comhairle nan Eilean Siarの2023年11月の攻撃と2025年4月の自治体報告を過去の比較例として追加。運用データ利用不能、IT稼働後も続く業務残件、盗難・公開の証拠なしとの説明を分離し、初回Web公表日は未確認と明記。既存162件・全出典・25件の更新履歴を保持して計163件。</description>
+      <pubDate>Sat, 10 Oct 2026 22:26:17 GMT</pubDate>
+      <dcterms:created>2026-10-10T22:26:17.000Z</dcterms:created>
+    </item>
     <item>
       <title>公式告知に基づきNIHRACSの少数メールアカウントへの攻撃・封じ込めと情報アクセス範囲未確定、Blueberry Medicalの8月Metabase管理者侵害と本人・医療項目の露出可能性を追加し、</title>
       <link>https://share.0g0.xyz/security-incidents</link>
