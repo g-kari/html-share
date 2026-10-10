@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Sat, 10 Oct 2026 02:54:58 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 10 Oct 2026 16:46:53 GMT</lastBuildDate>
+    <item>
+      <title>公式告知に基づきNIHRACSの少数メールアカウントへの攻撃・封じ込めと情報アクセス範囲未確定、Blueberry Medicalの8月Metabase管理者侵害と本人・医療項目の露出可能性を追加し、</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#65a76c3786fb380667fd673b5ba7e2b193eb7f2534d838289af9a87543eafbea</guid>
+      <description>公式告知に基づきNIHRACSの少数メールアカウントへの攻撃・封じ込めと情報アクセス範囲未確定、Blueberry Medicalの8月Metabase管理者侵害と本人・医療項目の露出可能性を追加し、発生・検知と10月告知日を分離。CommuneへZENB、ちとせアカデミー、高知の知、時間ラボ、nest Portal、湖池屋、湾岸ポータル、カルビー、DyDoの9公式告知を統合。ZENBの確認897名と訂正された最大可能性949名、利用組織ごとの確認・可能性・単位・停止や再開予定、DyDo限定の漏えいなしという提供元報告を区別し、人数と事件数を合算しない。IDCFへLearningWareの17:40代替メール切替・条件付き順次再開と郡山のメール83件漏えい疑いを追加。郡山→プロシーズ／LearningWare→IDCFは別々の一次資料からの推論で、郡山PDFの直接言及とはしない。既存160件・全出典・24件の更新履歴を保持し、計162件。</description>
+      <pubDate>Sat, 10 Oct 2026 16:46:53 GMT</pubDate>
+      <dcterms:created>2026-10-10T16:46:53.000Z</dcterms:created>
+    </item>
     <item>
       <title>リゾートトラスト、キッセイ商事、Double Counter、PUBLICAの未掲載4件を一次資料で追加</title>
       <link>https://share.0g0.xyz/security-incidents</link>

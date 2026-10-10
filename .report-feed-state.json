@@ -969,6 +969,7 @@
         "asos-notification-20261006": "19d853c4bab6710920f572828c16815fb17faf865d780aef55d184921954d7ad",
         "athome-moving-2026": "63561e0babe0775d6a8781697268ebc7b4909a68f712837ac63bcac42a985802",
         "betterment-20260109": "cc2c1bfecf04020942044bb16dff619b33bba75f4ab1c426b8ce12b4fe950821",
+        "blueberry-metabase-20260810": "2e917563578164373e74131b55e6e9dd9fcc85ce7d5647bde28c008b9a4f2e09",
         "bookoff-member-system-20261006": "8f07e896b7da25d122f98e27112242df0ad3cdb29fc1223abafb5adb81a5d4cc",
         "cac-academic-support-navi-2026": "cbf8ed75b6ee7050432be8cf2b9aaab88f90624ed43f062e415eb293a9414aae",
         "campfire-2026": "37c0a8675d7223d50cc14144335757683b806fc3031b7b5da7baffdafcc43d7c",
@@ -981,7 +982,7 @@
         "cinra-job-cloud-20260818": "e59118944b62794f4d6162a2069c14940b69c70c9904544f2afad6b238ff1187",
         "coastline-sumareji-app-2026": "a37bd8f809252455357754b6483fdc6db2dcc4a3827575a0432614096f6d0ff0",
         "coconala-resume-20261008": "eb238bb47e37b31ac1b72f96a1443f5fa5b5bde6c97aec836f0e052dd64a785c",
-        "commune-community-20261005": "2c6f6308a37ee5ae8cea5b4b6ca0e01113548935658aec2f29c5be63a6d38d93",
+        "commune-community-20261005": "b4599d1026933e213b6a162cc71aba12c6384d33724860491b3e186d3e6ef519",
         "cynd-beautymerit-2026": "dc70226d1acb1c024eae63c2ccc36cd9c2a69ee4860d4e516419d871b6b3b207",
         "daiichikosho-ncg-pc-20261002": "d35a2b8b8d7e0e315603bff41756cafb621d19524b6147deb26e3dea3d8d7447",
         "daiichilife-hr-20260924": "1e98e1d06a6656056652dc03334c624398f2c266f1b39b3c83499cf0683de3b7",
@@ -1014,7 +1015,7 @@
         "hasbro-network-20260328": "073d95bbcc6abbff7ec335ef3a6edf58e9d3c040aea6de66231d4f46bbdfdb1f",
         "his-thailand-files-20251211": "39bc712b0110e2c0c3835834fda56b62fa724b3cc1e749a240f62479d6b6a0a9",
         "icc-2026": "46efd179efcaa10ceca01aa9b87e511375c341ca055eb4a98c61bdff02fa1f53",
-        "idcf-cloud-east1-20261007": "62248c75818bb5e69c517e1af32555b6b4a732ea9cda921e99c40f9081181276",
+        "idcf-cloud-east1-20261007": "665c31e2c3fa749e3895213878c9ea202f0273926f048326f3a4410f2fd2d638",
         "idscan-veriscan-cloud-20260404": "2a57e6a7865983acb4b7456db224f250f8cb2cc0a6fa759056bf925086d36ece",
         "ieej-m365-20260729": "fa99e2b810a20bc27c306797d14b3da0f8d8c266ee8d2d200fccbc03140f552e",
         "ielove-2026": "59e7a5fcf1890717adab0af4da194f253baf584af11b667d3124908d14f5be65",
@@ -1063,6 +1064,7 @@
         "newspicks-admin-tool-20261008": "badc45af5b2f17c916a4c36a358caa74a5d8b5ad292a1523d95650781dc0a585",
         "nichirei-20260713": "c8adf5c623f94672e2410b59b17c038bd7f01ad173aa7dc6c8eb8a428d443a60",
         "nihonkotsu-malware-20260711": "371e5a09123b6ec32affba6c56abaf06df8a2a120264cfc63855a26ae5010aa3",
+        "nihracs-email-20261007": "fe98c1249b2d3c903d7bb46f75be741564b0bc7d385608dbab8f1d0778bac57b",
         "nikkei-m365-20260930": "546ac944f7ce4be0178ef76ee990583bfaba33d484099dff8a5932f363b1bb36",
         "nikkei-workspace-202607": "b6c26afe580735b6315ba7485032a25da7c67dbedebc16360c6414d9899b3b4a",
         "nikkeibp-mail-phishing-20260930": "529f126c8f9f67929f6b820d8092fef582047ff1ddbe836f96f2114eb1884219",
@@ -1581,6 +1583,17 @@
             "publica-software-provider-202609",
             "resorttrust-web-20261005",
             "sagawa-tracking-20260930"
+          ],
+          "date": "2026-10-10"
+        },
+        {
+          "signature": "39ecb5a6fa889265bb8a5d4087cd4127dfea85fe78267acf793b9600ca851cd4",
+          "summary": "公式告知に基づきNIHRACSの少数メールアカウントへの攻撃・封じ込めと情報アクセス範囲未確定、Blueberry Medicalの8月Metabase管理者侵害と本人・医療項目の露出可能性を追加し、発生・検知と10月告知日を分離。CommuneへZENB、ちとせアカデミー、高知の知、時間ラボ、nest Portal、湖池屋、湾岸ポータル、カルビー、DyDoの9公式告知を統合。ZENBの確認897名と訂正された最大可能性949名、利用組織ごとの確認・可能性・単位・停止や再開予定、DyDo限定の漏えいなしという提供元報告を区別し、人数と事件数を合算しない。IDCFへLearningWareの17:40代替メール切替・条件付き順次再開と郡山のメール83件漏えい疑いを追加。郡山→プロシーズ／LearningWare→IDCFは別々の一次資料からの推論で、郡山PDFの直接言及とはしない。既存160件・全出典・24件の更新履歴を保持し、計162件。",
+          "ids": [
+            "blueberry-metabase-20260810",
+            "commune-community-20261005",
+            "idcf-cloud-east1-20261007",
+            "nihracs-email-20261007"
           ],
           "date": "2026-10-10"
         }
@@ -2169,9 +2182,28 @@
           ],
           "published": "2026-10-10T02:54:58.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "65a76c3786fb380667fd673b5ba7e2b193eb7f2534d838289af9a87543eafbea",
+          "summary": "公式告知に基づきNIHRACSの少数メールアカウントへの攻撃・封じ込めと情報アクセス範囲未確定、Blueberry Medicalの8月Metabase管理者侵害と本人・医療項目の露出可能性を追加し、発生・検知と10月告知日を分離。CommuneへZENB、ちとせアカデミー、高知の知、時間ラボ、nest Portal、湖池屋、湾岸ポータル、カルビー、DyDoの9公式告知を統合。ZENBの確認897名と訂正された最大可能性949名、利用組織ごとの確認・可能性・単位・停止や再開予定、DyDo限定の漏えいなしという提供元報告を区別し、人数と事件数を合算しない。IDCFへLearningWareの17:40代替メール切替・条件付き順次再開と郡山のメール83件漏えい疑いを追加。郡山→プロシーズ／LearningWare→IDCFは別々の一次資料からの推論で、郡山PDFの直接言及とはしない。既存160件・全出典・24件の更新履歴を保持し、計162件。",
+          "journal": [
+            {
+              "signature": "39ecb5a6fa889265bb8a5d4087cd4127dfea85fe78267acf793b9600ca851cd4",
+              "summary": "公式告知に基づきNIHRACSの少数メールアカウントへの攻撃・封じ込めと情報アクセス範囲未確定、Blueberry Medicalの8月Metabase管理者侵害と本人・医療項目の露出可能性を追加し、発生・検知と10月告知日を分離。CommuneへZENB、ちとせアカデミー、高知の知、時間ラボ、nest Portal、湖池屋、湾岸ポータル、カルビー、DyDoの9公式告知を統合。ZENBの確認897名と訂正された最大可能性949名、利用組織ごとの確認・可能性・単位・停止や再開予定、DyDo限定の漏えいなしという提供元報告を区別し、人数と事件数を合算しない。IDCFへLearningWareの17:40代替メール切替・条件付き順次再開と郡山のメール83件漏えい疑いを追加。郡山→プロシーズ／LearningWare→IDCFは別々の一次資料からの推論で、郡山PDFの直接言及とはしない。既存160件・全出典・24件の更新履歴を保持し、計162件。",
+              "ids": [
+                "blueberry-metabase-20260810",
+                "commune-community-20261005",
+                "idcf-cloud-east1-20261007",
+                "nihracs-email-20261007"
+              ],
+              "date": "2026-10-10"
+            }
+          ],
+          "published": "2026-10-10T16:46:53.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "2b06e4fd146de55fe45f4d31c06212f5a0cad246"
+      "cursor": "c50463c9def63b88dac0e19f92353c98d01cabc5"
     }
   }
 }
