@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Sat, 10 Oct 2026 07:02:56 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 10 Oct 2026 07:04:20 GMT</lastBuildDate>
+    <item>
+      <title>Proton をまとめて使う？ 必要な道具だけ選ぶ？</title>
+      <link>https://share.0g0.xyz/proton-suite-comparison</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/proton-suite-comparison</guid>
+      <description>Proton Mail、VPN、Pass、Drive、Calendar と競合の初心者向け比較。暗号化の境界、初回と更新の価格、復旧と移行を図で解説。</description>
+      <pubDate>Sat, 10 Oct 2026 07:04:20 GMT</pubDate>
+      <dcterms:created>2026-10-10T07:04:20.000Z</dcterms:created>
+      <dcterms:modified>2026-10-10T07:04:20.000Z</dcterms:modified>
+    </item>
     <item>
       <title>Hermes Agent を図で理解する｜個人AIを育てるための比較ガイド</title>
       <link>https://share.0g0.xyz/hermes-agent-comparison</link>
