@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Fri, 09 Oct 2026 19:24:01 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 10 Oct 2026 02:54:58 GMT</lastBuildDate>
+    <item>
+      <title>リゾートトラスト、キッセイ商事、Double Counter、PUBLICAの未掲載4件を一次資料で追加</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#8a6b3cf49252e773f7a68190863016a4b6c384cf4f622472e2020e95f7f550b4</guid>
+      <description>リゾートトラスト、キッセイ商事、Double Counter、PUBLICAの未掲載4件を一次資料で追加。リゾートトラストは会員約2.6万件と予約者約3.6万件の漏えい確認、キッセイ商事は不正アクセス確認と機微情報の流出可能性・調査中を分ける。Double Counterは約12GBコピー、部分コピーで全体を露出扱いするアカウント概数、未ダウンロードの5.0GB出力、運営者説明による復旧を区別。PUBLICAは供給元の流出確認と個別項目の可能性を分け、年金資産の安全を情報無漏えいとしない。佐川第4報へ発覚・遮断日時、重複整理とWeb停止継続、アバハウス続報へ追加対策と警察への被害届を追記。CommuneにDS.LAB・森永乳業・ソフトブレーン・BASE FOODの利用組織別可能性範囲を統合し、提供元推計へ加算しない。IDCFに東京酒粋のメール配信サービス名と可能性項目、FrontlineにWaco学区の提供元説明上の日付・職員対象・学生無影響・本人通知開始予定を追加。学区説明を全国の確定範囲へ拡張しない。既存152件・出典310本・履歴22件を保持。計156件・参照322本。新規掲載と発生・検知・公表日を分け、確認時刻だけの更新はしない。 20〜00UTCの未反映資料を統合。20UTC候補のリゾートトラスト・キッセイ商事・Double Counter・PUBLICAの追加と佐川・アバハウス・Commune・IDCF・Frontlineの続報を保持し、キッセイのメール送信時刻を受信時刻としない表現とDouble Counterの到達可能な旧サーバー表現へ訂正。Luminis Health、イタリア外務省の緩和済み攻撃試行、Casper Orthopedic Associates、GhostActionの2026年波を追加。IDCFへ日水物流の一部入出荷再開公表と被害サーバーの非保有情報、フューチャーショップ2配信サービスの代替基盤再開・予定メール非自動再送、高島屋の保有項目とメルマガ停止、ファイバーゲートのサービス別部分復旧、Peachの約189万記録と遅延メール順次送信、ブロッコリーの停止と調査、らくらく在庫の8月30日バックアップによる復旧・店舗側再設定条件を同一事案内に追加。東京酒粋の旧停止説明を10月9日の観察として保持し、提供元の再開と同社自身の再開を分ける。PUBLICAのIBAN等は可能性項目で、10月8日メール送付と郵便通知予定を区別。Luminisの復旧後記録照合と個人情報調査、Casperの発見・調査・本人通知と無日付Web告知、イタリア声明の試行・無中断を分離。GhostActionは研究機関の一次解析として8〜9月772件・標的2,577参照と確認流出26secrets／13件、10月8日346／345件の集計差、10月9日検索378件を合算せず記録。資料確認日を事件・初回公表日とせず、初期侵入・全体実流出・封じ込め等の未確定点を保持。基準版152件と20UTC候補の全履歴を削除せず、計160件。</description>
+      <pubDate>Sat, 10 Oct 2026 02:54:58 GMT</pubDate>
+      <dcterms:created>2026-10-10T02:54:58.000Z</dcterms:created>
+    </item>
     <item>
       <title>大手前病院の10月8日公表を一次資料で追加</title>
       <link>https://share.0g0.xyz/security-incidents</link>
