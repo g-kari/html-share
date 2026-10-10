@@ -15,6 +15,11 @@ const keys = (record, kind) => automaticTags(record).filter((item) => item.kind 
 const record = (title, lead = "", category = "agent", extra = {}) => ({ title, lead, category, ...extra });
 
 const existingProducts = {
+  "puripuly-heart-282-network-stt": ["puripuly-heart"],
+  "cloudflare-api-mcp-skills": ["other"],
+  "unity-edm-edm4u-deprecation": ["other"],
+  "cloudflare-agents-028-browser-lifecycle": ["cloudflare-agents-sdk"],
+  "cloudflare-failed-detections-field": ["other"],
   "cloudflare-markdown-streaming-6mib": ["cloudflare-markdown-agents"],
   "cloudflare-clef-omni-flash-limits": ["cloudflare-clef"],
   "cloudflare-http3-client-cancel-499": ["cloudflare-http3"],
@@ -65,6 +70,11 @@ test("all authored records have deterministic product/domain/change dimensions",
 
 test("current change tags distinguish pricing, fixes, public weights, GA, beta and correction", () => {
   const expected = {
+  "puripuly-heart-282-network-stt": ["fix"],
+  "cloudflare-api-mcp-skills": ["update"],
+  "unity-edm-edm4u-deprecation": ["compatibility", "deprecation"],
+  "cloudflare-agents-028-browser-lifecycle": ["feature", "compatibility", "lifecycle"],
+  "cloudflare-failed-detections-field": ["update"],
   "cloudflare-markdown-streaming-6mib": ["compatibility"],
   "cloudflare-clef-omni-flash-limits": ["pricing"],
   "cloudflare-http3-client-cancel-499": ["improvement"],
@@ -81,7 +91,7 @@ test("current change tags distinguish pricing, fixes, public weights, GA, beta a
     "claude-code-21294": ["fix", "improvement"],
     "codex-cli-01620": ["performance", "improvement"],
     "lightonocr-3": ["release"],
-    "llamacpp-stable-development": ["improvement"],
+    "llamacpp-stable-development": ["fix", "improvement"],
     "claude-monthly-api-credits": ["pricing"],
     "claude-haiku-55": ["pricing", "compatibility"],
     "claude-sonnet-cache-price": ["pricing"],
