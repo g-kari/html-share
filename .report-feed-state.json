@@ -117,6 +117,7 @@
         "ibm-datapower-ldap-jws-and-memory-rce": "2a9d1374ea79d9291094e06da0269527120db637d7f97ed31d03cf14d44754a2",
         "ibm-guardium-edge-authentication-and-native-boundaries": "6ee88e27fa6ba849fbcbab5e6027501eadcc95ab1b45ad715af597f3c0264888",
         "ibm-verify-access-unauthenticated-deserialization-rce": "349f69651a16d17b42ab9d0d8a044a682d96fb5fba952fe6cf88c981987202d2",
+        "jetbrains-exposed-string-sql-function-injection": "4cd317d9bfcf3c62e3d64218fed6412cbfc160d68a061a20f6da3d3b759a970b",
         "kibana-fleet-custom-package-cross-tenant-stream-interception": "0b8a32f40777111e19e1d1f0a0a8d9e37207b6532da657a490b735d622f5219d",
         "kiota-java-php-generation-code-injection": "aaeac28646bf7b332e42d5ac155ea13defb52d6710a8f82dd94980cccdf6b6ca",
         "kkfileview-upload-path-directory-traversal": "c2912a1f9d01a9006d4ce0ed0429362e2bf5a5fa490c8799e64fcf4495910d06",
@@ -459,6 +460,14 @@
             "tenable-identity-exposure-ad-listener-command-injection",
             "x64dbg-mcp-unauthenticated-debugger-and-preauth-dos",
             "zephyr-userspace-dynamic-kernel-object-size-overflow"
+          ],
+          "date": "2026-10-10"
+        },
+        {
+          "signature": "6ae8ba83f97cbfbc4e067ff00a33abd6c567dc2ac995c6dd978a4424c7032f12",
+          "summary": "JetBrains Exposedの新規公表CVE-2026-108474を1項目・1 CVE追加し236項目・417 CVEへ。JetBrains CNAの1.5.1未満・CVSS v3.1 9.8、SQL関数の文字列引数と修正時のparameter binding / DB固有escapingを記載。10月9日23:13 UTCのCVE公表と先行する20:39 UTCの1.5.1正式配布を区別し、未信頼入力経路の条件は推論として明記。旧client-side escapingとの互換性テストを推奨。利用状況・実悪用は未確認。既存235項目・416 CVEと全履歴を保持。",
+          "ids": [
+            "jetbrains-exposed-string-sql-function-injection"
           ],
           "date": "2026-10-10"
         }
@@ -925,9 +934,25 @@
           ],
           "published": "2026-10-09T18:38:23.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "c150e2893d367af0c45a1e558a1226dc65642314acfded3e2d3271e8048f6762",
+          "summary": "JetBrains Exposedの新規公表CVE-2026-108474を1項目・1 CVE追加し236項目・417 CVEへ。JetBrains CNAの1.5.1未満・CVSS v3.1 9.8、SQL関数の文字列引数と修正時のparameter binding / DB固有escapingを記載。10月9日23:13 UTCのCVE公表と先行する20:39 UTCの1.5.1正式配布を区別し、未信頼入力経路の条件は推論として明記。旧client-side escapingとの互換性テストを推奨。利用状況・実悪用は未確認。既存235項目・416 CVEと全履歴を保持。",
+          "journal": [
+            {
+              "signature": "6ae8ba83f97cbfbc4e067ff00a33abd6c567dc2ac995c6dd978a4424c7032f12",
+              "summary": "JetBrains Exposedの新規公表CVE-2026-108474を1項目・1 CVE追加し236項目・417 CVEへ。JetBrains CNAの1.5.1未満・CVSS v3.1 9.8、SQL関数の文字列引数と修正時のparameter binding / DB固有escapingを記載。10月9日23:13 UTCのCVE公表と先行する20:39 UTCの1.5.1正式配布を区別し、未信頼入力経路の条件は推論として明記。旧client-side escapingとの互換性テストを推奨。利用状況・実悪用は未確認。既存235項目・416 CVEと全履歴を保持。",
+              "ids": [
+                "jetbrains-exposed-string-sql-function-injection"
+              ],
+              "date": "2026-10-10"
+            }
+          ],
+          "published": "2026-10-10T00:30:27.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "c04e05e761bba3c25e2c781123b7f821ece19e49"
+      "cursor": "05ad3fdea67e5d629114bd4d9858a9818335f5f0"
     },
     "security-incidents": {
       "records": {
@@ -2058,7 +2083,7 @@
           "precision": "second"
         }
       ],
-      "cursor": "1708c74564a559ef7c0ee9fc11dbbe8008360ab5"
+      "cursor": "3a15b6f910cac3689ce2df4e396bb68f3e1917d9"
     }
   }
 }
