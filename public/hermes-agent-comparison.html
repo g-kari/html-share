@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hermes Agent を図で理解する｜個人AIを育てるための比較ガイド</title>
+<meta name="description" content="Nous Research の Hermes Agent と OpenClaw、Letta、n8n、Claude Code を、記憶・実行環境・料金・安全性・用途で比較。初心者向けの図解と用語集付き。2026年10月10日確認。">
+<style>
+:root{--ink:#182d42;--muted:#526579;--blue:#245caa;--blue-pale:#edf4fa;--paper:#fff;--base:#f4f7fb;--line:#cad7e4;--purple:#6656a8;--purple-pale:#f1effa;--amber:#885611;--amber-pale:#fff5df;--green:#286b55;--green-pale:#edf7f2;--radius:12px;--shadow:0 5px 20px #183d6310}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:24px}body{margin:0;background:var(--base);color:var(--ink);font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;line-height:1.85;overflow-wrap:anywhere}a{color:var(--blue);text-underline-offset:.22em}a:hover{text-decoration-thickness:2px}a:focus-visible,summary:focus-visible,button:focus-visible{outline:3px solid var(--amber);outline-offset:5px}p{margin:.6rem 0 1rem}h1,h2,h3,h4{line-height:1.45;letter-spacing:.01em}h1{font-size:clamp(2rem,5vw,3.4rem);margin:.35rem 0 1rem;font-weight:800}h2{font-size:clamp(1.5rem,3vw,2rem);margin:0 0 1rem}h3{font-size:1.15rem;margin:0 0 .65rem}h4{font-size:1rem;margin:0 0 .4rem}.small{font-size:.85rem;color:var(--muted)}.source{font-size:.8rem;color:var(--muted);line-height:1.65;margin:.6rem 0 0}.source a{color:#456382}strong{font-weight:800}.skip{position:absolute;left:12px;top:-80px;background:white;padding:10px;z-index:3}.skip:focus{top:10px}.mast{background:var(--paper);border-top:7px solid var(--blue);border-bottom:1px solid var(--line)}.mast-inner{max-width:1180px;margin:auto;padding:42px 28px 35px}.meta{font-size:.85rem;display:flex;gap:1rem;flex-wrap:wrap;color:var(--muted)}.intro{font-size:1.1rem;max-width:850px}.identity{padding:14px 18px;border-left:4px solid var(--blue);background:var(--blue-pale);font-size:.93rem;max-width:900px}.layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:180px minmax(0,1fr);gap:35px;padding:35px 28px 70px}.toc{position:sticky;top:24px;align-self:start;font-size:.87rem;line-height:1.55}.toc strong{display:block;margin-bottom:14px}.toc a{display:block;text-decoration:none;padding:8px 10px;border-left:2px solid var(--line);color:var(--muted)}.toc a:hover{border-color:var(--blue);color:var(--blue);background:var(--blue-pale)}main{min-width:0}.section{margin-bottom:42px;padding:28px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.section:last-child{margin-bottom:0}.lead{font-size:1.05rem;max-width:750px}.rule{padding:17px 20px;background:var(--blue-pale);border-left:4px solid var(--blue);margin:20px 0}.warning{padding:17px 20px;background:var(--amber-pale);border-left:4px solid var(--amber);margin:20px 0}.warning strong{color:#6b430b}.note{padding:15px 18px;background:var(--base);border:1px solid var(--line);margin:18px 0}.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:.82rem;margin:12px 0}.legend span{display:flex;align-items:center;gap:7px}.dot{width:11px;height:11px;border-radius:50%;background:var(--blue);display:inline-block}.dot.purple{background:var(--purple)}.dot.amber{background:var(--amber)}figure{margin:22px 0}.diagram{background:#f9fbfe;border:1px solid var(--line);padding:10px;border-radius:8px;overflow-x:auto}.diagram svg{display:block;width:100%;height:auto;min-width:650px}.diagram text{font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;fill:var(--ink)}figcaption{font-size:.84rem;color:var(--muted);margin-top:10px;line-height:1.65}.columns{display:grid;grid-template-columns:1fr 1fr;gap:20px}.mini{padding:19px;background:var(--base);border-top:4px solid var(--blue)}.mini.memory{background:var(--purple-pale);border-color:var(--purple)}.mini.safe{background:var(--green-pale);border-color:var(--green)}.mini.warn{background:var(--amber-pale);border-color:var(--amber)}ul,ol{padding-left:1.4rem;margin:.6rem 0 1rem}li{margin:.35rem 0}.capabilities{display:grid;grid-template-columns:1fr 1fr;gap:0 25px}.capabilities article{padding:17px 0;border-top:1px solid var(--line)}.capabilities h3{margin-bottom:.35rem}.capabilities p{font-size:.95rem;margin:.35rem 0}.cost-stack{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:20px 0}.cost-part{padding:16px 12px;border:1px solid var(--line);background:var(--base);position:relative}.cost-part strong{display:block;color:var(--blue);font-size:1.03rem;margin-bottom:.4rem}.cost-part:not(:last-child)::after{content:"＋";position:absolute;right:-16px;top:28px;background:var(--paper);z-index:1;line-height:1;font-weight:bold}.cost-part span{font-size:.85rem;display:block;color:var(--muted)}.table-scroll{overflow-x:auto;margin:20px 0;border:1px solid var(--line);border-radius:8px}table{border-collapse:collapse;width:100%;font-size:.87rem;line-height:1.65;min-width:760px}caption{font-weight:bold;text-align:left;padding:14px 16px;background:var(--base)}th,td{padding:14px 15px;vertical-align:top;border-bottom:1px solid var(--line);border-right:1px solid var(--line)}thead th{background:var(--blue-pale);text-align:left;color:var(--blue)}tbody th{background:#f8fafc;text-align:left;width:120px}td:last-child,th:last-child{border-right:0}tr:last-child td,tr:last-child th{border-bottom:0}.feature-table{min-width:1100px}.feature-table th:first-child{width:145px}.feature-table td{width:195px}.hermes-col{background:#f2f7fe}.tag{display:inline-block;font-size:.78rem;border:1px solid var(--line);padding:2px 8px;margin:0 4px 6px 0;background:white;color:var(--muted);border-radius:4px}.profiles article{display:grid;grid-template-columns:135px 1fr;gap:20px;padding:22px 0;border-top:1px solid var(--line)}.profiles article:first-child{border-top:0}.profiles h3{color:var(--blue);font-size:1.15rem}.profiles p{margin:.25rem 0 .7rem;font-size:.94rem}.choice-list{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0}.choice{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--base);padding:17px}.choice strong{display:block;color:var(--blue);margin-bottom:5px}.choice:hover{background:var(--blue-pale)}.choice small{font-size:.84rem;color:var(--muted)}.steps{list-style:none;padding:0;counter-reset:setup}.steps li{counter-increment:setup;padding:17px 0 17px 54px;position:relative;border-top:1px solid var(--line)}.steps li::before{content:counter(setup);position:absolute;left:0;top:20px;width:33px;height:33px;background:var(--blue);color:white;display:grid;place-items:center;border-radius:50%;font-weight:bold}.steps strong{display:block}.usecase{border-left:4px solid var(--blue);padding-left:16px;margin:22px 0}.usecase p{margin:.35rem 0 .55rem;font-size:.95rem}.glossary{display:grid;grid-template-columns:1fr 1fr;gap:0 20px}details{padding:13px 0;border-top:1px solid var(--line)}summary{font-weight:bold;cursor:pointer;line-height:1.5}details p{font-size:.91rem;margin:12px 0}.sources{font-size:.86rem;line-height:1.7;display:grid;grid-template-columns:1fr 1fr;gap:8px 25px;list-style:none;padding:0}.sources li{padding-top:9px;border-top:1px solid var(--line)}.sources span{display:block;color:var(--muted);font-size:.8rem}.footer{max-width:1180px;margin:auto;padding:0 28px 35px;color:var(--muted);font-size:.8rem}.back{display:inline-block;margin-top:20px}.mobile-hint{display:none}
+@media(max-width:950px){.layout{grid-template-columns:1fr;gap:22px}.toc{position:static;display:flex;flex-wrap:wrap;gap:4px 8px}.toc strong{width:100%;margin:0}.toc a{padding:7px 9px;border-left:0;border-bottom:1px solid var(--line)}.mast-inner{padding-top:30px}.cost-stack{grid-template-columns:1fr 1fr}.cost-part:nth-child(2)::after{display:none}}
+@media(max-width:620px){.mast-inner{padding:25px 18px}.layout{padding:23px 14px 38px}.section{padding:21px 17px;margin-bottom:25px}.columns,.capabilities,.choice-list,.glossary,.sources{grid-template-columns:1fr}.profiles article{grid-template-columns:1fr;gap:2px}.cost-stack{gap:8px}.cost-part{padding:14px 11px}.cost-part strong{font-size:.95rem}.mobile-hint{display:block;font-size:.78rem;color:var(--muted);margin-top:7px}.legend{gap:8px 12px}h1{font-size:2rem}.meta{gap:.3rem .8rem}.toc{font-size:.8rem}.diagram{padding:5px}.steps li{padding-left:45px}.footer{padding-left:20px;padding-right:20px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{body{background:white;color:#111}.mast{border-top:3px solid #333}.layout{display:block;padding:20px}.toc,.skip,.back,.mobile-hint{display:none}.section{box-shadow:none;border-color:#ccc;break-inside:avoid;padding:20px;margin-bottom:20px}.diagram{overflow:visible}.diagram svg{min-width:0}.table-scroll{overflow:visible}.feature-table{min-width:0;font-size:.7rem}.feature-table th,.feature-table td{padding:8px}a{color:#111}.sources{display:block}.sources li{break-inside:avoid}.footer{padding:20px}}
+</style>
+</head>
+<body id="top">
+<a class="skip" href="#main">本文へ移動</a>
+<header class="mast"><div class="mast-inner">
+<div class="meta"><span>初心者向け・個人AI開発の比較ガイド</span><time datetime="2026-10-10">公開一次資料の確認日：2026年10月10日（UTC）</time></div>
+<h1>Hermes Agent を、<br>部品から理解する。</h1>
+<p class="intro">話を覚え、道具を使い、いつもの仕事のやり方を蓄えていくAI。その「動く仕組み」を、自分の環境で持つための選択肢です。</p>
+<div class="identity"><strong>このページの Hermes Agent：</strong>Nous Research が開発する <a href="https://github.com/NousResearch/hermes-agent">NousResearch/hermes-agent</a> と <a href="https://hermes-agent.nousresearch.com/">公式サイト</a>を対象にしています。Hermes 系の言語モデルそのものや、同名の別プロジェクトとは区別します。</div>
+</div></header>
+<div class="layout">
+<nav class="toc" aria-label="目次"><strong>読みたいところへ</strong><a href="#conclusion">まず結論</a><a href="#parts">エージェントの部品</a><a href="#learning">「育つ」の仕組み</a><a href="#capabilities">できること・導入</a><a href="#cost">料金の分け方</a><a href="#compare">他の選択肢</a><a href="#safety">安全とデータの境界</a><a href="#choose">選び方</a><a href="#start">最初の実験</a><a href="#glossary">用語集</a><a href="#sources">公式資料</a></nav>
+<main id="main">
+<section class="section" id="conclusion">
+<h2>まず結論：何を作りたいかで選ぶ</h2>
+<p class="lead"><strong>「自分の好みや仕事の手順を覚える、道具付きの個人AI」を育てたいなら、Hermes Agent は有力な候補。</strong>一方、決まった自動処理や独自アプリの開発では、別の土台が使いやすいこともあります。</p>
+<div class="choice-list">
+<a class="choice" href="#hermes-profile"><strong>自分用の相棒を育てたい</strong>Hermes Agent<small>：記憶・再利用できる手順・会話窓口をまとめて試す</small></a>
+<a class="choice" href="#openclaw-profile"><strong>チャットや端末の接続を組みたい</strong>OpenClaw<small>：多様な窓口と、交換可能な実行部を中心に構成する</small></a>
+<a class="choice" href="#letta-profile"><strong>記憶を持つ独自AIアプリを作りたい</strong>Letta<small>：SDK で独自の画面や複数ユーザーの仕組みを作る</small></a>
+<a class="choice" href="#n8n-profile"><strong>毎日の処理を図で組みたい</strong>n8n<small>：条件分岐・サービス連携・承認を見える形にする</small></a>
+</div>
+<p>主目的が「コードを書き、テストして直す」なら <a href="#claude-profile">Claude Code</a> も比較対象です。これらはすべて同じ種類の製品ではありません。<strong>上の選び分けは、機能の公式説明をもとにした用途別の判断で、性能ランキングではありません。</strong></p>
+<p class="source">根拠：<a href="https://hermes-agent.nousresearch.com/docs">Hermes 概要</a>、<a href="https://docs.openclaw.ai/">OpenClaw 概要</a>、<a href="https://docs.letta.com/agent-sdk">Letta SDK</a>、<a href="https://docs.n8n.io/build/build-and-manage-agents.md">n8n Agents</a>、<a href="https://code.claude.com/docs/en/overview">Claude Code 概要</a></p>
+</section>
+
+<section class="section" id="parts">
+<h2>AIモデルと、エージェントは別の部品</h2>
+<p>モデルは文章を読んで次の行動を考える「頭脳」。エージェントは、その頭脳に記憶・道具・繰り返しの実行を組み合わせる「仕事の仕組み」です。Hermes Agent は後者にあたります。</p>
+<figure><div class="diagram">
+<svg viewBox="0 0 960 405" role="img" aria-labelledby="parts-title parts-desc">
+<title id="parts-title">Hermes Agent を構成する部品</title><desc id="parts-desc">ユーザーが画面やチャットから依頼すると Hermes が選択したAIモデルへ相談し、記憶・技能・道具を使って結果を返す。モデルと道具は接続先によって外部サービスまたは自分の環境にある。</desc>
+<defs><marker id="arrow-parts" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#245caa"/></marker></defs>
+<rect x="15" y="37" width="205" height="152" rx="14" fill="#fff" stroke="#cad7e4" stroke-width="2"/>
+<text x="117" y="80" text-anchor="middle" font-size="24" font-weight="bold">あなた</text><text x="117" y="115" text-anchor="middle" font-size="18">デスクトップ・端末</text><text x="117" y="144" text-anchor="middle" font-size="18">Telegram・Discord 等</text>
+<rect x="300" y="37" width="340" height="152" rx="14" fill="#edf4fa" stroke="#245caa" stroke-width="3"/>
+<text x="470" y="80" text-anchor="middle" font-size="26" font-weight="bold">Hermes Agent</text><text x="470" y="115" text-anchor="middle" font-size="19">依頼 → 道具を選ぶ → 結果を確認</text><text x="470" y="144" text-anchor="middle" font-size="18">必要なら、この流れを繰り返す</text>
+<rect x="720" y="37" width="225" height="152" rx="14" fill="#fff" stroke="#245caa" stroke-width="2"/>
+<text x="832" y="80" text-anchor="middle" font-size="24" font-weight="bold">AIモデル</text><text x="832" y="115" text-anchor="middle" font-size="18">外部API / Nous Portal</text><text x="832" y="144" text-anchor="middle" font-size="18">またはローカルモデル</text>
+<path d="M224 97H288M288 135H224M644 97H708M708 135H644" fill="none" stroke="#245caa" stroke-width="2.5" marker-end="url(#arrow-parts)"/>
+<path d="M470 190V220H190V242M470 220V242M470 220H750V242" fill="none" stroke="#245caa" stroke-width="2.5" marker-end="url(#arrow-parts)"/>
+<rect x="55" y="248" width="270" height="120" rx="9" fill="#f1effa" stroke="#6656a8" stroke-width="2"/><text x="190" y="285" text-anchor="middle" font-size="22" font-weight="bold">記憶・会話履歴</text><text x="190" y="317" text-anchor="middle" font-size="18">好み・プロジェクトの要点</text><text x="190" y="345" text-anchor="middle" font-size="17">必要に応じて過去の会話を検索</text>
+<rect x="345" y="248" width="250" height="120" rx="9" fill="#f1effa" stroke="#6656a8" stroke-width="2"/><text x="470" y="285" text-anchor="middle" font-size="22" font-weight="bold">技能（スキル）</text><text x="470" y="317" text-anchor="middle" font-size="18">「いつものやり方」の手順書</text><text x="470" y="345" text-anchor="middle" font-size="17">関連する仕事で読み込む</text>
+<rect x="615" y="248" width="270" height="120" rx="9" fill="#edf7f2" stroke="#286b55" stroke-width="2"/><text x="750" y="285" text-anchor="middle" font-size="22" font-weight="bold">道具（ツール）</text><text x="750" y="317" text-anchor="middle" font-size="18">検索・ファイル・コマンド</text><text x="750" y="345" text-anchor="middle" font-size="17">ブラウザー・外部サービス 等</text>
+</svg></div><p class="mobile-hint">図は横にスクロールできます。</p><figcaption>概念図。実際のモデル・道具・会話窓口は設定したものだけが使えます。すべてが最初から接続されているわけではありません。</figcaption></figure>
+<div class="rule"><strong>Hermes を入れたら、専用の超大型モデルが必須？</strong><br>必須ではありません。Nous Portal、OpenRouter、OpenAI などの接続先や、自前の対応エンドポイントを選べます。ただし、道具を正しく呼べるか・長い文脈を扱えるかはモデル次第です。</div>
+<p class="source">根拠：<a href="https://github.com/NousResearch/hermes-agent">公式 README</a>、<a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/tools">Tools &amp; Toolsets</a>、<a href="https://hermes-agent.nousresearch.com/docs/user-guide/local-models">Local Models</a></p>
+</section>
+
+<section class="section" id="learning">
+<h2>「使うほど育つ」は、何が変わるのか</h2>
+<p>中心は、仕事で得た知識を文章として保存し、次の仕事で再利用する仕組みです。この説明でいう「学習」は、<strong>記憶や手順書の更新</strong>です。通常利用で基盤モデルの重みを毎回再訓練する、という意味ではありません。</p>
+<figure><div class="diagram">
+<svg viewBox="0 0 960 365" role="img" aria-labelledby="loop-title loop-desc"><title id="loop-title">Hermes の学習ループ</title><desc id="loop-desc">依頼を実行し結果や修正を振り返り、要点を記憶へ、再利用する手順をスキルへ保存する。それを次の関連する依頼で使う。誤った記憶や手順も保存されうるため確認が必要。</desc>
+<defs><marker id="arrow-loop" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#245caa"/></marker></defs>
+<rect x="25" y="30" width="190" height="105" rx="10" fill="#edf4fa" stroke="#245caa" stroke-width="2"/><text x="120" y="67" font-size="21" text-anchor="middle" font-weight="bold">① 仕事をする</text><text x="120" y="104" font-size="17" text-anchor="middle">調べる・実行する</text>
+<rect x="267" y="30" width="190" height="105" rx="10" fill="#edf4fa" stroke="#245caa" stroke-width="2"/><text x="362" y="67" font-size="21" text-anchor="middle" font-weight="bold">② 振り返る</text><text x="362" y="104" font-size="17" text-anchor="middle">結果・訂正・再利用性</text>
+<rect x="510" y="30" width="190" height="105" rx="10" fill="#f1effa" stroke="#6656a8" stroke-width="2"/><text x="605" y="67" font-size="21" text-anchor="middle" font-weight="bold">③ 保存する</text><text x="605" y="104" font-size="17" text-anchor="middle">要点・手順をファイル化</text>
+<rect x="752" y="30" width="183" height="105" rx="10" fill="#edf7f2" stroke="#286b55" stroke-width="2"/><text x="843" y="67" font-size="21" text-anchor="middle" font-weight="bold">④ 再利用する</text><text x="843" y="104" font-size="17" text-anchor="middle">次の関連する依頼へ</text>
+<path d="M218 82H255M460 82H498M703 82H740" stroke="#245caa" stroke-width="2.5" marker-end="url(#arrow-loop)"/>
+<path d="M605 138V166H425V190M605 166H735V190" fill="none" stroke="#6656a8" stroke-width="2.5"/>
+<rect x="267" y="192" width="316" height="120" rx="10" fill="#f1effa" stroke="#6656a8" stroke-width="2"/><text x="425" y="228" font-size="21" text-anchor="middle" font-weight="bold">記憶：何を知っているか</text><text x="425" y="262" font-size="17" text-anchor="middle">好み・環境・プロジェクトの要点</text><text x="425" y="291" font-size="16" text-anchor="middle">例：「完成品はHTMLで見る」</text>
+<rect x="598" y="192" width="315" height="120" rx="10" fill="#f1effa" stroke="#6656a8" stroke-width="2"/><text x="755" y="228" font-size="21" text-anchor="middle" font-weight="bold">技能：どう進めるか</text><text x="755" y="262" font-size="17" text-anchor="middle">手順・注意点・確認方法</text><text x="755" y="291" font-size="16" text-anchor="middle">例：「調査→図解→表示を確認」</text>
+<path d="M843 138V158H940V335H120V138" fill="none" stroke="#cad7e4" stroke-width="2" stroke-dasharray="7 6" marker-end="url(#arrow-loop)"/><text x="148" y="323" font-size="16">修正して、次の周回へ</text>
+</svg></div><p class="mobile-hint">図は横にスクロールできます。</p><figcaption>説明用の例です。すべての仕事で自動保存される、毎回必ず良くなる、という保証ではありません。</figcaption></figure>
+<div class="columns">
+<article class="mini memory"><h3>記憶は、短い重要メモ</h3><p>標準の MEMORY.md は環境や学んだ事柄、USER.md はユーザーの好みを保存。既定の上限はそれぞれ 2,200 文字と 1,375 文字で、会話開始時に読み込みます。会話履歴は別の SQLite データベースに保存して検索できます。</p><p class="source"><a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/memory">Persistent Memory</a></p></article>
+<article class="mini memory"><h3>技能は、必要なときの手順書</h3><p>スキルは文章・参考資料・スクリプトなどをまとめた再利用用の束。関連する仕事で読み込み、作成や更新もできます。「/learn」で資料や経験を技能にする入口もあります。</p><p class="source"><a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/skills">Skills System</a></p></article>
+</div>
+<div class="warning"><strong>覚えた内容も、間違えることがあります。</strong><br>「保存した」と言っただけでは、保存の成功を確認したことにはなりません。記憶・技能の書き込みは既定では自由ですが、両方にレビュー待ちにする設定があります。個人情報や重要な手順を扱う初期運用では、保存内容を確認する使い方が向いています。</div>
+<p class="source">根拠：<a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/memory">記憶の書き込み承認</a>、<a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/skills">技能の書き込み承認</a></p>
+</section>
+
+<section class="section" id="capabilities">
+<h2>何ができる？ 何を準備する？</h2>
+<div class="capabilities">
+<article><h3>調べて、成果物を作る</h3><p>Web検索や抽出、ファイル読み書き、端末コマンド、ブラウザー操作などを組み合わせます。実際の道具はツール設定やサービス接続に依存します。</p><p class="source"><a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/tools">道具一覧と実行先</a></p></article>
+<article><h3>チャットから依頼する</h3><p>デスクトップや端末に加え、Telegram、Discord、Slack 等を入口にできます。ボット設定やアクセスできる人の制限は自分で用意します。</p><p class="source"><a href="https://hermes-agent.nousresearch.com/docs/user-guide/messaging">Messaging Gateway</a></p></article>
+<article><h3>定期的な仕事を動かす</h3><p>cron で日時や周期を指定し、結果を届けられます。通常は gateway の常駐プロセスが実行するため、保存した予定だけで動くわけではありません。</p><p class="source"><a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/cron">Scheduled Tasks</a></p></article>
+<article><h3>仕事を分け、機能を足す</h3><p>サブエージェントへの委譲や MCP による道具の追加に対応。外部ツールの権限・費用・実行先まで自動で安全に整うわけではありません。</p><p class="source"><a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/delegation">Delegation</a>、<a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/mcp">MCP</a></p></article>
+</div>
+<div class="table-scroll"><table><caption>導入の負担は、「何を動かすか」で変わる</caption><thead><tr><th scope="col">構成</th><th scope="col">準備するもの</th><th scope="col">続けて面倒を見ること</th></tr></thead><tbody>
+<tr><th scope="row">外部モデル＋手動利用</th><td>Hermes、本体を動かすPC、1つのモデル接続先</td><td>利用量・保存内容・更新・道具の許可</td></tr>
+<tr><th scope="row">常時稼働の個人AI</th><td>常時動くPCまたはサーバー、gateway、チャット接続</td><td>停止・障害・バックアップ・課金・権限</td></tr>
+<tr><th scope="row">ローカルモデル</th><td>モデルに合うメモリーやGPU、対応モデル実行環境</td><td>速度・文脈長・道具呼び出しの精度・容量</td></tr>
+<tr><th scope="row">隔離した実行</th><td>Docker や別の実行環境、必要最小限のファイル・通信設定</td><td>共有ファイル・鍵・外部操作に対する境界</td></tr>
+</tbody></table></div>
+<p class="small">この表は必要な作業を整理した評価です。インストールの所要時間を実測したものではありません。</p>
+<p><strong>OSの現行対応：</strong>公式の優先サポートには Apple Silicon の macOS、Windows 10/11 のネイティブ版、Linux/WSL2、Docker が含まれます。Windows の MSIX 版には Windows 11 22H2 以降など、配布方法による条件があります。古い「Windows は WSL2 必須」という記事をそのまま前提にしないでください。</p>
+<p class="source">根拠：<a href="https://hermes-agent.nousresearch.com/docs/getting-started/platform-support">Platform Support</a>、<a href="https://hermes-agent.nousresearch.com/docs/getting-started/installation">Installation</a>、<a href="https://hermes-agent.nousresearch.com/docs/user-guide/local-models">Local Models</a></p>
+</section>
+
+<section class="section" id="cost">
+<h2>「本体無料」と「毎月0円」は違う</h2>
+<p>Hermes Agent 本体は MIT ライセンスの無料ソフトです。実際の総額は、選んだ構成の各費用を足して考えます。</p>
+<div class="cost-stack" aria-label="費用の4つの層">
+<div class="cost-part"><strong>本体・基盤</strong><span>Hermes 本体は $0<br>商用サービスのプランは別</span></div>
+<div class="cost-part"><strong>AIモデル</strong><span>APIの従量料金<br>または対応する定額枠</span></div>
+<div class="cost-part"><strong>道具・外部API</strong><span>検索・画像・音声・<br>クラウドブラウザー等</span></div>
+<div class="cost-part"><strong>動かす場所</strong><span>PC・電気代・サーバー・<br>GPU・バックアップ等</span></div>
+</div>
+<div class="table-scroll"><table><caption>公式ページで確認した料金の入口</caption><thead><tr><th scope="col">製品 / サービス</th><th scope="col">価格表示</th><th scope="col">何を払う料金か</th></tr></thead><tbody>
+<tr><th scope="row">Hermes Agent</th><td>本体 $0（MIT）</td><td>モデル・道具・任意のホスティングは別。<br><a href="https://hermes-agent.nousresearch.com/">公式料金説明</a></td></tr>
+<tr><th scope="row">Nous Portal</th><td>Free $0 / Plus $20 / Super $100 / Ultra $200、月額USD</td><td>公式サイトの月次クレジット表示：Plus $22、Super $110、Ultra $220。無制限利用の表示ではなく、モデルやホストされた道具の利用枠。<br><a href="https://hermes-agent.nousresearch.com/">公式プラン表示</a>、<a href="https://hermes-agent.nousresearch.com/docs/integrations/nous-portal">Portal の仕組み</a></td></tr>
+<tr><th scope="row">OpenClaw</th><td>本体 $0（MIT）</td><td>公式の有料ティアやホストサービスはなし。モデル・外部ツール・自己運用費用は別。<br><a href="https://github.com/openclaw/openclaw">公式 README</a></td></tr>
+<tr><th scope="row">Letta</th><td>Free $0 / Personal Pro $20/月<br>API Plan $20/月、ほか従量</td><td>Free は3つの stateful agent、Pro は最大20。API Plan は LLM 利用に加え active agent $0.10/月、サーバー側ツール実行 $0.00015/秒など。BYOK のモデル料金は接続先へ。<br><a href="https://docs.letta.com/pricing">公式料金表</a></td></tr>
+<tr><th scope="row">n8n</th><td>Community 自己ホスト版は条件内で無料<br>Cloud Starter €20/月相当（年払い）、2,500 executions/月</td><td>有料基盤はワークフローやエージェントの実行回数で計数。外部モデルや Gateway credits の利用も確認が必要。年契約の月換算額で、月払い価格とは別。<br><a href="https://n8n.io/pricing/">公式料金表</a>、<a href="https://docs.n8n.io/n8n-community-license/community-license/license-faq.md">無料版の利用条件</a></td></tr>
+<tr><th scope="row">Claude Code</th><td>Claude Pro $20/月（月払い）<br>Max $100/月から / API 従量利用も可</td><td>Claude Pro に Claude Code が含まれます。定額枠には利用制限があり、API利用はトークンに応じた料金。<br><a href="https://claude.com/pricing">公式料金表</a>、<a href="https://code.claude.com/docs/en/costs">利用量と料金</a></td></tr>
+</tbody></table></div>
+<div class="warning"><strong>月額を断定できない理由</strong><br>長い会話、並列の作業、失敗時の再試行、記憶・技能の振り返りもモデルを使います。同じ「1件の仕事」でも呼び出す回数が違います。モデル未指定の状態で「月○円で必ず足りる」とは言えません。</div>
+<p class="small">2026年10月10日に公開表示を確認。税・地域・プラン・契約条件で変わります。為替換算はしていません。Portal の常時稼働ホスティングの具体的料金はこの調査では確認していません。契約前に各サービスの請求画面で再確認してください。</p>
+<p class="source">Hermes の追加モデル呼び出しについて：<a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/memory">バックグラウンドの振り返り</a></p>
+</section>
+
+<section class="section" id="compare">
+<h2>比較：同じ「AI」でも、得意な土台が違う</h2>
+<p>単純な○×や架空の点数ではなく、主な設計と必要な作業で比べます。機能は重なり合います。たとえば、OpenClaw や Claude Code にも記憶があり、「記憶は Hermes だけ」という説明は正確ではありません。</p>
+<div class="table-scroll"><table class="feature-table"><caption>5つの選択肢を、同じ観点で見る</caption><thead><tr><th scope="col">観点</th><th scope="col" class="hermes-col">Hermes Agent</th><th scope="col">OpenClaw</th><th scope="col">Letta</th><th scope="col">n8n</th><th scope="col">Claude Code</th></tr></thead><tbody>
+<tr><th scope="row">主な役割</th><td class="hermes-col">記憶・技能を持つ、個人向け実行エージェント</td><td>チャット・端末・実行部をつなぐ、自己運用の個人AI基盤</td><td>継続する人格・記憶を持つエージェントと、独自アプリ用 SDK</td><td>図で組むワークフローと、AIエージェント</td><td>コードを読んで編集・実行・検証する開発エージェント</td></tr>
+<tr><th scope="row">記憶</th><td class="hermes-col">短い重要メモ＋会話検索＋技能ファイル</td><td>Markdown の長期・日次メモ。検索や記憶プラグイン</td><td>Git 管理の MemFS。状態を継続し、記憶を必要に応じて読む</td><td>ワークフロー側は記憶ノードを構成。新 Agents はセッション記憶と、任意の過去セッション記憶</td><td>プロジェクトの指示ファイル＋自動記憶。保存内容を編集可能</td></tr>
+<tr><th scope="row">道具の実行</th><td class="hermes-col">端末・ファイル・ブラウザー・MCP。実行先を選べる</td><td>ゲートウェイと実行部を構成。ブラウザー・端末・MCP等</td><td>本体 / SDK のホスト / MCP サーバーで道具を実行</td><td>接続ノード・コード・API。道具に人の承認を挟める</td><td>ファイル編集・コマンド・開発ツール。権限と隔離を設定</td></tr>
+<tr><th scope="row">モデル</th><td class="hermes-col">複数の外部接続先、自前の対応エンドポイント、ローカル</td><td>交換可能なプロバイダー・実行部。ローカルモデルも選べる</td><td>複数のモデル接続先。ローカル構成とクラウド構成</td><td>モデルノードやサービス接続を選ぶ</td><td>Claude 中心。対応する外部クラウド経由の構成もあり</td></tr>
+<tr><th scope="row">導入の入口</th><td class="hermes-col">Desktop / CLI、モデルを1つ接続。常時運用は gateway を管理</td><td>セットアップ＋モデル接続＋ gateway。窓口・端末を増やすほど設定増</td><td>App / CLI または SDK。独自画面・複数ユーザーは開発作業が必要</td><td>Cloud ならサーバー運用を省ける。自己ホストはDB・更新・監視を管理</td><td>アプリ / IDE / CLI から開発を開始。一般生活の常駐AI化は追加設計</td></tr>
+<tr><th scope="row">データの考え方</th><td class="hermes-col">保存先は自分で管理できる。外部モデル・道具へ送るデータは別問題</td><td>状態は自己管理。設定したモデル・チャットへは送信される</td><td>クラウドでは状態をLetta側へ。ローカル運用では端末へ保存</td><td>Cloud / 自己ホストで保存先が変わる。接続サービスへの送信にも注意</td><td>モデルへコードやプロンプトを送信。保存・学習利用は契約と設定による</td></tr>
+</tbody></table></div>
+<p class="small">表はスマートフォンでは横にスクロールできます。下の説明は、各製品ごとに読むための短い比較です。</p>
+<div class="profiles">
+<article id="hermes-profile"><h3>Hermes Agent</h3><div><span class="tag">個人の相棒</span><span class="tag">技能の再利用</span><p><strong>向く：</strong>同じ人の依頼を繰り返し受け、調査・ファイル作成・開発補助などを横断するAI。最初から記憶、技能、道具、会話窓口を一緒に試せます。</p><p><strong>気にする点：</strong>モデルの道具呼び出し精度、記憶の訂正、常時稼働の維持、実行権限。個人の全データを最初から渡す構成は避けるのが実験しやすい進め方です。</p><p class="source"><a href="https://hermes-agent.nousresearch.com/docs">概要</a>、<a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/memory">記憶</a>、<a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/skills">技能</a></p></div></article>
+<article id="openclaw-profile"><h3>OpenClaw</h3><div><span class="tag">接続を組み立てる</span><span class="tag">個人AIの直接比較</span><p><strong>向く：</strong>チャットや端末の多様な入口、交換可能なモデル・実行部、プラグインを中心に、自分の個人AI基盤を組む用途。Hermes に最も近い比較対象です。</p><p><strong>気にする点：</strong>Markdown メモや検索、技能も備えます。違いは「記憶があるか」より、運用の仕方と構成の相性で判断します。サンドボックスは既定で無効なので、有効化の確認が重要です。</p><p class="source"><a href="https://docs.openclaw.ai/">概要</a>、<a href="https://docs.openclaw.ai/concepts/memory">記憶</a>、<a href="https://docs.openclaw.ai/sandboxing">隔離の既定</a>、<a href="https://github.com/openclaw/openclaw">ライセンス・データ送信</a></p></div></article>
+<article id="letta-profile"><h3>Letta</h3><div><span class="tag">独自アプリ</span><span class="tag">継続する記憶</span><p><strong>向く：</strong>記憶を持つAIを、自作のWeb画面やアプリに組み込む用途。SDK では一度作ったエージェントを継続し、モデルや動く端末を変えながら扱えます。</p><p><strong>気にする点：</strong>現行の MemFS は Git 管理の記憶で、標準では意味検索の索引を持ちません。ローカルと自己ホストの選択肢もあります。現行対話CLIの既定は unrestricted なので、初期テストでは承認が必要なモードを明示する判断が重要です。</p><p class="source"><a href="https://docs.letta.com/agent-sdk">SDK</a>、<a href="https://docs.letta.com/concepts/memfs">MemFS</a>、<a href="https://docs.letta.com/self-hosting">自己運用</a>、<a href="https://docs.letta.com/configuration/permissions">権限の既定</a></p></div></article>
+<article id="n8n-profile"><h3>n8n</h3><div><span class="tag">図で自動化</span><span class="tag">条件と承認</span><p><strong>向く：</strong>「毎朝取得→要約→保存」「条件に合ったら下書き→人が確認」のように、順番や分岐が明確な処理。AIを必要な部分だけに置く構成に向いています。</p><p><strong>気にする点：</strong>新しい Agents 機能は Preview。セッション記憶や任意の episodic memory、ツール、スケジュールもあります。現行の episodic memory には OpenAI 接続が必要です。自己ホストには一部追加設定や制約があります。Community 版は利用条件付きで、MIT のように無条件の再販・ホスト提供ができるソフトではありません。</p><p class="source"><a href="https://github.com/n8n-io/n8n">概要</a>、<a href="https://docs.n8n.io/build/build-and-manage-agents.md">Agents と Preview 制約</a>、<a href="https://docs.n8n.io/build/integrate-ai/ai-examples/human-in-the-loop-for-tools.md">道具の承認</a>、<a href="https://docs.n8n.io/n8n-community-license/community-license/license-faq.md">ライセンスFAQ</a></p></div></article>
+<article id="claude-profile"><h3>Claude Code</h3><div><span class="tag">コードの編集・検証</span><span class="tag">開発を先に進める</span><p><strong>向く：</strong>自作AIのアプリや連携コードを作る、既存コードのバグを直す、テストする、といった開発作業。自分用AIの「実装を手伝う道具」として組み合わせる考え方もあります。</p><p><strong>気にする点：</strong>自動記憶や指示ファイルもあり、記憶のない使い捨てチャットではありません。権限とOSレベルの隔離を組み合わせます。個人プランと商用契約では、学習利用やデータ保持の扱いを別に確認します。</p><p class="source"><a href="https://code.claude.com/docs/en/overview">概要</a>、<a href="https://code.claude.com/docs/en/memory">記憶</a>、<a href="https://code.claude.com/docs/en/permissions">権限</a>、<a href="https://code.claude.com/docs/en/data-usage">データの扱い</a></p></div></article>
+</div>
+</section>
+
+<section class="section" id="safety">
+<h2>安全性は、保存先と実行権限を分けて考える</h2>
+<p><strong>自己ホストでも、外部AIへ送る内容は外へ出ます。</strong>記憶ファイルを自分のPCに置くことと、推論に使うデータを外部へ送らないことは別です。クラウドの検索・ブラウザー・記憶サービスを足せば、その接続先も確認対象になります。</p>
+<figure><div class="diagram">
+<svg viewBox="0 0 960 490" role="img" aria-labelledby="boundary-title boundary-desc"><title id="boundary-title">データの保存と外部への送信の境界</title><desc id="boundary-desc">自分で管理する環境には Hermes、記憶、許可した作業用ファイルがある。外部モデルに会話や必要な文脈が送られ、チャット基盤やツール提供者にも必要なデータが渡る。隔離環境はコマンドの影響を限定するが、渡した鍵や外部サービスの権限を消すことはない。</desc>
+<defs><marker id="arrow-boundary" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#245caa"/></marker></defs>
+<rect x="20" y="30" width="432" height="430" rx="15" fill="#edf4fa" stroke="#245caa" stroke-width="2"/><text x="236" y="68" text-anchor="middle" font-size="21" font-weight="bold">自分で管理する環境</text>
+<rect x="56" y="95" width="360" height="95" rx="8" fill="#fff" stroke="#245caa" stroke-width="2"/><text x="236" y="132" text-anchor="middle" font-size="24" font-weight="bold">Hermes Agent</text><text x="236" y="164" text-anchor="middle" font-size="17">会話・記憶・道具の組み合わせを管理</text>
+<rect x="56" y="214" width="165" height="91" rx="8" fill="#f1effa" stroke="#6656a8" stroke-width="2"/><text x="138" y="250" text-anchor="middle" font-size="20" font-weight="bold">記憶・履歴</text><text x="138" y="279" text-anchor="middle" font-size="16">保存する個人データ</text>
+<rect x="237" y="214" width="179" height="91" rx="8" fill="#fff" stroke="#cad7e4" stroke-width="2"/><text x="326" y="250" text-anchor="middle" font-size="20" font-weight="bold">作業用ファイル</text><text x="326" y="279" text-anchor="middle" font-size="16">渡した範囲だけ</text>
+<rect x="56" y="331" width="360" height="100" rx="8" fill="#edf7f2" stroke="#286b55" stroke-width="2" stroke-dasharray="8 5"/><text x="236" y="369" text-anchor="middle" font-size="21" font-weight="bold">選べる隔離環境</text><text x="236" y="400" text-anchor="middle" font-size="17">コマンド・実行コードの影響を限定</text>
+<rect x="588" y="30" width="350" height="430" rx="15" fill="#fff" stroke="#cad7e4" stroke-width="2"/><text x="763" y="68" text-anchor="middle" font-size="21" font-weight="bold">設定した外部の接続先</text>
+<rect x="614" y="95" width="298" height="91" rx="8" fill="#edf4fa" stroke="#245caa" stroke-width="2"/><text x="763" y="132" text-anchor="middle" font-size="22" font-weight="bold">モデル提供者</text><text x="763" y="164" text-anchor="middle" font-size="17">会話・必要な記憶やファイル内容</text>
+<rect x="614" y="216" width="298" height="91" rx="8" fill="#fff5df" stroke="#885611" stroke-width="2"/><text x="763" y="253" text-anchor="middle" font-size="22" font-weight="bold">チャット基盤</text><text x="763" y="285" text-anchor="middle" font-size="17">送受信したメッセージや添付</text>
+<rect x="614" y="337" width="298" height="91" rx="8" fill="#fff5df" stroke="#885611" stroke-width="2"/><text x="763" y="374" text-anchor="middle" font-size="22" font-weight="bold">道具・外部サービス</text><text x="763" y="406" text-anchor="middle" font-size="17">検索語・操作・渡したデータ等</text>
+<path d="M420 139H603M452 261H603M420 382H603" fill="none" stroke="#245caa" stroke-width="2.5" marker-end="url(#arrow-boundary)"/>
+<text x="502" y="119" text-anchor="middle" font-size="16">推論</text><text x="523" y="241" text-anchor="middle" font-size="16">会話</text><text x="502" y="362" text-anchor="middle" font-size="16">実行</text>
+</svg></div><p class="mobile-hint">図は横にスクロールできます。</p><figcaption>一般的な外部モデル利用の概念図。ローカルモデルなら「モデル提供者への送信」を避けられますが、チャットや外部ツールを使う通信まで消えるわけではありません。隔離環境が別サーバーにある構成もあります。</figcaption></figure>
+<div class="columns">
+<article class="mini safe"><h3>用意されている防御</h3><p>Hermes は利用者制限、DMペアリング、危険コマンドの確認、ファイル書き込み制限、コンテナー隔離、文脈ファイルの検査などを備えます。</p><p class="source"><a href="https://hermes-agent.nousresearch.com/docs/user-guide/security">Security</a></p></article>
+<article class="mini warn"><h3>設定次第で変わる境界</h3><p>既定の local 実行はホスト上で動き、隔離はありません。Docker 等の隔離バックエンドでは、通常の危険コマンド確認が省略される仕様です。</p><p class="source"><a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/tools">実行先の既定</a>、<a href="https://hermes-agent.nousresearch.com/docs/user-guide/security">バックエンド別の境界</a></p></article>
+</div>
+<div class="warning"><strong>コンテナーだけで、外部操作は無害になりません。</strong><br>中に渡したAPIキーや共有ファイル、サービス側で許可した権限には影響できます。公式資料も、コンテナーへ渡した環境変数の秘密情報は読み出し・外部送信されうると注意しています。コマンド承認は、送信・購入・アカウント変更などすべてを判断する万能な承認機構ではありません。</div>
+<p class="source">根拠：<a href="https://hermes-agent.nousresearch.com/docs/user-guide/security">隔離と環境変数の注意</a>。外部操作の影響に関する説明は、この境界からの安全設計上の判断です。</p>
+<ul><li><strong>権限は小さく：</strong>最初は公開情報の調査と、試験用フォルダーだけ</li><li><strong>読み取りと書き込みを分ける：</strong>送信・削除・公開・支払いは別の承認地点を作る</li><li><strong>第三者の技能も確認：</strong>文章だけでなく同梱スクリプト・接続先・必要権限を見る</li><li><strong>障害に備える：</strong>記憶・技能・設定・会話をバックアップし、戻せるか試す</li></ul>
+<p class="small">上の4点は本レポートの運用提案です。製品の防御機能を実際に侵入テストした結果ではありません。プロンプト注入の検査や危険パターン検知には限界があります。</p>
+<p class="source">関連資料：<a href="https://hermes-agent.nousresearch.com/docs/user-guide/security">文脈ファイル検査の限界</a>、<a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/skills">技能の配布・検査</a>、<a href="https://hermes-agent.nousresearch.com/docs/user-guide/local-models">ローカルモデル</a></p>
+</section>
+
+<section class="section" id="choose">
+<h2>迷ったら、欲しい成果から戻る</h2>
+<div class="table-scroll"><table><caption>最初の候補を決めるための問い</caption><thead><tr><th scope="col">欲しいもの</th><th scope="col">最初の候補</th><th scope="col">比較するときの確認ポイント</th></tr></thead><tbody>
+<tr><th scope="row">「いつもの私」を覚える相棒</th><td>Hermes Agent / OpenClaw / Letta</td><td>記憶を読めるか、訂正できるか、使いたい窓口があるか</td></tr>
+<tr><th scope="row">同じ仕事を毎回同じ順番で</th><td>n8n</td><td>条件・失敗時の経路・承認地点を図で固定できるか</td></tr>
+<tr><th scope="row">自分の画面・独自機能・複数ユーザー</th><td>Letta SDK</td><td>状態の置き場所、ユーザー間の分離、道具の実行先を設計できるか</td></tr>
+<tr><th scope="row">まずアプリや連携コードを完成させる</th><td>Claude Code</td><td>コード編集、テスト、レビュー、差分の確認がしやすいか</td></tr>
+<tr><th scope="row">外へデータを出す範囲を最小に</th><td>自己運用＋ローカルモデルの構成を検討</td><td>モデルだけでなく、検索・記憶・音声・チャットまで通信先を確認</td></tr>
+</tbody></table></div>
+<div class="rule"><strong>今回のおすすめの見方</strong><br>「個人AIを育てる仕組み」を見たいなら Hermes を中心に、OpenClaw と同じ小さな仕事で比べる。独自アプリを作るなら Letta も並べる。定型部分は n8n に寄せ、コード作成は Claude Code のような開発道具を使う、という組み合わせも考えられます。</div>
+<p class="small">具体的な機材、モデル、使いたいチャット、予算が未指定のため、1つに断定していません。この選び方は用途に基づく提案です。</p>
+</section>
+
+<section class="section" id="start">
+<h2>最初は、小さな「覚えて作る」実験から</h2>
+<p>最初からメール・全ファイル・決済までつなぐと、失敗の原因も権限の影響も追いづらくなります。次の実験なら、記憶・技能・道具の価値を切り分けて確認できます。</p>
+<ol class="steps">
+<li><strong>試験用の環境とデータを決める</strong>公開資料、ダミーのプロジェクトメモ、作業用フォルダーを用意。重要な本番データは入れない。</li>
+<li><strong>モデルと道具を最小限つなぐ</strong>公式インストールガイドを確認し、モデル1つと必要な読み取り道具から開始。API側にも試験予算の上限を設ける。</li>
+<li><strong>同じテーマで、1つ作らせる</strong>例：「公開記事3本を比較し、日本語の短いHTMLにまとめる」。出典、ファイル内容、実行ログを人が確認する。</li>
+<li><strong>好みと手順を保存して確認する</strong>「私の好み」と「次回の手順」を分けて保存。実ファイルが更新されたか、誤った推測が混ざっていないかを見る。</li>
+<li><strong>新しい会話で、似た仕事を頼む</strong>説明し直す量が減ったか、根拠が残ったか、料金が増えすぎないかを比較。うまくいってから常時稼働や連携を増やす。</li>
+</ol>
+<p class="small">これは本レポートが提案する検証手順です。実機への導入・課金・外部連携を実行した記録ではありません。</p>
+<p class="source">導入と記憶の検証方法：<a href="https://hermes-agent.nousresearch.com/docs/getting-started/installation">Installation</a>、<a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/memory">保存確認の公式説明</a></p>
+<h3>個人AI開発で使いやすい実験テーマ</h3>
+<div class="usecase"><h4>資料の比較と、見やすいHTML</h4><p>公開資料を調べる→差を整理→図入りHTMLを作る。好みは記憶、出典確認や表示確認の流れは技能にする。Hermes の横断作業を試しやすい題材です。</p></div>
+<div class="usecase"><h4>Unity・Blender などの制作メモ</h4><p>仕様、命名、作業手順をダミーの記録で共有し、次の会話で再利用できるか見る。アプリの実操作には別途、対応する道具や連携が必要です。Hermes を入れるだけで制作ソフトを自在に操作できる、とは限りません。</p></div>
+<div class="usecase"><h4>朝の更新チェックと、確認待ちの一覧</h4><p>公開サイトやリリースを定時に確認し、リンク付きでまとめる。順番が固定なら n8n、調査の判断を多く任せるなら Hermes / OpenClaw を比較。最初は通知内容の確認までに範囲を限定します。</p></div>
+</section>
+
+<section class="section" id="glossary">
+<h2>用語を、普通の言葉に戻す</h2>
+<p class="small">項目を開くと、意味とこの比較での読み方がわかります。</p>
+<div class="glossary">
+<details><summary>エージェント</summary><p>頼まれた目的に向けて、次に何をするか考え、道具を使い、結果を見て進める仕組み。文章を返すだけでなく、実行のループを持ちます。</p></details>
+<details><summary>LLM / AIモデル</summary><p>文章などから応答や判断を生成する部分。エージェントの「頭脳」です。同じ本体でもモデルを替えると、能力・速度・費用が変わります。</p></details>
+<details><summary>ツール / ツール呼び出し</summary><p>検索、ファイル操作、コマンド、APIなどの実行機能。モデルが適切な名前や引数で呼べる必要があり、返答が上手でも実行が得意とは限りません。</p></details>
+<details><summary>スキル / 技能</summary><p>特定の仕事で使う手順書・参考資料・必要なスクリプトをまとめたもの。単なる説明文だけとは限らず、配布元と同梱コードを確認します。</p></details>
+<details><summary>メモリー / 永続記憶</summary><p>会話を閉じても残る情報。常に読む短い要点、必要なときだけ検索する履歴、技能などで役割が違います。保存は、正しさの保証ではありません。</p></details>
+<details><summary>コンテキスト / 文脈</summary><p>その時点でモデルに渡されている情報。会話・指示・記憶・道具の結果などが入ります。保存されていても、いま読まれているとは限りません。</p></details>
+<details><summary>API / プロバイダー / BYOK</summary><p>APIはサービスをプログラムから使う窓口、プロバイダーは提供者。BYOK は「自分のAPIキーを持ち込む」方式です。費用やデータ条件は接続先でも確認します。</p></details>
+<details><summary>MCP</summary><p>AIアプリが外部の道具やデータ源に接続するための共通の方式。接続方法が共通でも、接続先の安全性・権限・料金が同じになるわけではありません。</p></details>
+<details><summary>CLI / TUI / SDK</summary><p>CLIはコマンドで操作する入口、TUIは端末内の画面、SDKは自作アプリから機能を使うための開発部品です。まず使うならApp/CLI、組み込むならSDKを見ます。</p></details>
+<details><summary>gateway / cron / webhook</summary><p>gatewayはチャットとAIなどをつなぐ常駐の入口。cronは時刻や周期での実行。webhookは「出来事が起きた」という外部通知です。正確な役割は製品ごとに異なります。</p></details>
+<details><summary>自己ホスト / ローカルモデル / VPS</summary><p>自己ホストは自分で実行環境を管理すること。ローカルモデルは自分の機器で推論すること。VPSは借りた仮想サーバーです。自己ホストに外部モデルを組み合わせることもできます。</p></details>
+<details><summary>サンドボックス / プロンプト注入</summary><p>サンドボックスは実行の影響を限定する環境。プロンプト注入は、Webページや資料などがAIに不正な指示を混ぜる攻撃です。隔離・権限・承認・確認を重ねて対処します。</p></details>
+<details><summary>トークン / 従量課金 / execution</summary><p>トークンはモデルが扱う文章などの単位で、文字数とは一致しません。従量課金は使った量での料金。n8n の execution は処理の1回分で、単純な「ノード数」とは別です。</p></details>
+<details><summary>MIT / ソース公開 / Preview</summary><p>MIT は再利用しやすいライセンスですが、モデルや外部サービスの契約は別。ソースが読める製品でも利用条件に制限がある場合があります。Preview は試験提供中で、仕様や制約が変わりやすい段階です。</p></details>
+</div>
+</section>
+
+<section class="section" id="sources">
+<h2>確認した公式資料</h2>
+<p class="small">確認日：2026年10月10日（UTC）。公式の公開ページを使い、非公式まとめの数値や宣伝用の唯一性・性能優位は根拠にしていません。公開仕様の調査であり、製品の実機テストやセキュリティ監査ではありません。</p>
+<ul class="sources">
+<li><a href="https://hermes-agent.nousresearch.com/">Hermes Agent 公式サイト</a><span>製品、無料本体、Portal プラン表示</span></li>
+<li><a href="https://github.com/NousResearch/hermes-agent">Hermes 公式リポジトリ</a><span>対象プロジェクト、ライセンス、モデル接続</span></li>
+<li><a href="https://hermes-agent.nousresearch.com/docs">Hermes ドキュメント</a><span>全体の機能と入口</span></li>
+<li><a href="https://hermes-agent.nousresearch.com/docs/getting-started/installation">Hermes Installation</a><span>導入経路と条件</span></li>
+<li><a href="https://hermes-agent.nousresearch.com/docs/getting-started/platform-support">Hermes Platform Support</a><span>現在のOS・配布方法別サポート</span></li>
+<li><a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/memory">Hermes Persistent Memory</a><span>保存上限、会話検索、承認、振り返り</span></li>
+<li><a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/skills">Hermes Skills System</a><span>技能、/learn、保存承認、配布の検査</span></li>
+<li><a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/tools">Hermes Tools &amp; Toolsets</a><span>道具と実行先、local の既定</span></li>
+<li><a href="https://hermes-agent.nousresearch.com/docs/user-guide/security">Hermes Security</a><span>利用者制限、承認、隔離、検査の限界</span></li>
+<li><a href="https://hermes-agent.nousresearch.com/docs/user-guide/local-models">Hermes Local Models</a><span>自前のモデルと実行環境</span></li>
+<li><a href="https://hermes-agent.nousresearch.com/docs/user-guide/messaging">Hermes Messaging Gateway</a><span>会話窓口と常駐プロセス</span></li>
+<li><a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/delegation">Hermes Delegation</a><span>仕事を分けるサブエージェント</span></li>
+<li><a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/mcp">Hermes MCP</a><span>外部の道具サーバーとの接続</span></li>
+<li><a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/cron">Hermes Scheduled Tasks</a><span>gateway による定時実行</span></li>
+<li><a href="https://hermes-agent.nousresearch.com/docs/integrations/nous-portal">Hermes Nous Portal</a><span>モデルとホストされた道具の接続</span></li>
+<li><a href="https://docs.openclaw.ai/">OpenClaw 公式ドキュメント</a><span>ゲートウェイ、入口、モデルと道具</span></li>
+<li><a href="https://github.com/openclaw/openclaw">OpenClaw 公式リポジトリ</a><span>MIT、自己管理の状態、外部送信</span></li>
+<li><a href="https://docs.openclaw.ai/concepts/memory">OpenClaw Memory</a><span>長期・日次のファイル記憶</span></li>
+<li><a href="https://docs.openclaw.ai/sandboxing">OpenClaw Sandboxing</a><span>既定で無効の隔離、境界の限界</span></li>
+<li><a href="https://docs.letta.com/agent-sdk">Letta Agent SDK</a><span>継続するエージェントと独自アプリ</span></li>
+<li><a href="https://docs.letta.com/concepts/memfs">Letta MemFS</a><span>Git 管理の記憶と索引</span></li>
+<li><a href="https://docs.letta.com/self-hosting">Letta Self-hosting</a><span>ローカルと自己運用、道具の実行先</span></li>
+<li><a href="https://docs.letta.com/configuration/permissions">Letta Permissions</a><span>現在のCLI権限モード</span></li>
+<li><a href="https://docs.letta.com/pricing">Letta Pricing</a><span>個人・API のプランと別料金</span></li>
+<li><a href="https://github.com/n8n-io/n8n">n8n 公式リポジトリ</a><span>図とコードを使う基盤、利用条件</span></li>
+<li><a href="https://docs.n8n.io/build/build-and-manage-agents.md">n8n Agents</a><span>Preview、記憶、道具、定時実行</span></li>
+<li><a href="https://docs.n8n.io/build/integrate-ai/ai-examples/human-in-the-loop-for-tools.md">n8n Human-in-the-loop</a><span>道具ごとの人による承認</span></li>
+<li><a href="https://docs.n8n.io/n8n-community-license/community-license/license-faq.md">n8n License FAQ</a><span>無料自己ホスト版の利用範囲</span></li>
+<li><a href="https://n8n.io/pricing/">n8n Pricing</a><span>年払い月換算額と実行枠</span></li>
+<li><a href="https://code.claude.com/docs/en/overview">Claude Code Overview</a><span>開発作業と利用の入口</span></li>
+<li><a href="https://code.claude.com/docs/en/memory">Claude Code Memory</a><span>指示ファイルと自動記憶</span></li>
+<li><a href="https://code.claude.com/docs/en/permissions">Claude Code Permissions</a><span>道具の権限とOSの隔離</span></li>
+<li><a href="https://code.claude.com/docs/en/data-usage">Claude Code Data usage</a><span>契約別のデータ利用・保持</span></li>
+<li><a href="https://code.claude.com/docs/en/costs">Claude Code Costs</a><span>定額枠とAPI料金の区別</span></li>
+<li><a href="https://claude.com/pricing">Claude Pricing</a><span>Pro / Max の公開料金表示</span></li>
+</ul>
+<div class="note small"><strong>調査の限界：</strong>能力差を同条件で測定していないため、速度・成功率・安全性に順位は付けていません。設定済みの個人アカウント、機材、実際の使用量も調べていません。本文の用途例・試験手順・おすすめ構成は、確認した仕様からの提案です。</div>
+<a class="back" href="#top">ページの先頭へ</a>
+</section>
+</main></div>
+<footer class="footer">公開一次資料に基づく比較ガイド。外部フォント・画像・JavaScript・解析タグを使わない、単体で読めるHTMLです。</footer>
+</body>
+</html>
