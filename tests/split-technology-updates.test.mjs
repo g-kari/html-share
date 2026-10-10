@@ -37,11 +37,13 @@ function scaled(count) {
   return `<html lang="ja"><head><title>技術更新</title><meta name="description" content="公開資料"><style>body{color:black}</style></head><body><header id="top">16項目 / 6分野</header><main><section class="quick"><a href="#sample-999">最古</a></section><section class="collection" id="updates"><form id="filters" hidden><input id="query"><select id="category"></select><button type="reset">条件をクリア</button><p class="filter-status" id="filter-status">全件</p></form><div class="updates">${cards}</div><p id="empty" hidden>なし</p></section><section class="history" id="history"><ul>${history}</ul></section></main><script type="application/json" id="technology-update-data">${JSON.stringify({ schema_version: 1, records, changes: [] })}</script><script>PRIVATE_OLD_SCRIPT</script></body></html>`;
 }
 
-test('current technology source preserves all 16 records, facts, official links and history', async () => {
+test('current technology source preserves all authored records, facts, official links and history', async () => {
   const root = await fixture();
   try {
     const result = await generateSplitTechnologyUpdates(root);
-    assert.equal(result.manifest.rows.length, 16);
+    const authoredRecords = JSON.parse(current.match(/id="technology-update-data">([\s\S]*?)<\/script>/)[1]).records;
+    assert.equal(result.manifest.rows.length, authoredRecords.length);
+    assert.deepEqual(new Set(result.manifest.rows.map((record) => record.id)), new Set(authoredRecords.map((record) => record.id)));
     const main = result.files.get('technology-updates.html');
     assert.equal(articles(main).length, 12);
     assert.doesNotMatch(main, /technology-update-data|PRIVATE_OLD_SCRIPT|rel="(?:preload|prefetch)"/);

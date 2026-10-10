@@ -15,6 +15,19 @@ const keys = (record, kind) => automaticTags(record).filter((item) => item.kind 
 const record = (title, lead = "", category = "agent", extra = {}) => ({ title, lead, category, ...extra });
 
 const existingProducts = {
+  "cloudflare-markdown-streaming-6mib": ["cloudflare-markdown-agents"],
+  "cloudflare-clef-omni-flash-limits": ["cloudflare-clef"],
+  "cloudflare-http3-client-cancel-499": ["cloudflare-http3"],
+  "codex-cli-01621": ["codex"],
+  "claude-code-21296": ["claude-code"],
+  "vrchat-202641-open-beta": ["vrchat"],
+  "vrchat-planned-parameters-raycast-colliders": ["vrchat"],
+  "aws-bedrock-cost-product-attributes": ["aws-bedrock"],
+  "cloudflare-workflows-createbatch-object": ["cloudflare-workflows"],
+  "unity-cli-beta13-pipeline-names": ["unity-cli"],
+  "ollama-0402-model-backups": ["ollama"],
+  "puripuly-heart-281-tag-fixes": ["puripuly-heart"],
+
   "openai-sol-ultrafast": ["gpt", "responses-api"],
   "claude-code-21294": ["claude-code"],
   "codex-cli-01620": ["codex"],
@@ -33,8 +46,8 @@ const existingProducts = {
   "cloudflare-oauth-v1": ["workers-oauth-provider"],
 };
 
-test("all 16 authored records have deterministic product/domain/change dimensions", () => {
-  assert.equal(records.length, 16);
+test("all authored records have deterministic product/domain/change dimensions", () => {
+  assert.equal(records.length, Object.keys(existingProducts).length);
   for (const item of records) {
     const tags = automaticTags(item);
     assert.deepEqual(keys(item, "product"), existingProducts[item.id], item.id);
@@ -52,6 +65,18 @@ test("all 16 authored records have deterministic product/domain/change dimension
 
 test("current change tags distinguish pricing, fixes, public weights, GA, beta and correction", () => {
   const expected = {
+  "cloudflare-markdown-streaming-6mib": ["compatibility"],
+  "cloudflare-clef-omni-flash-limits": ["pricing"],
+  "cloudflare-http3-client-cancel-499": ["improvement"],
+  "codex-cli-01621": ["fix"],
+  "claude-code-21296": ["fix","compatibility"],
+  "vrchat-202641-open-beta": ["fix","preview"],
+  "vrchat-planned-parameters-raycast-colliders": ["preview"],
+  "aws-bedrock-cost-product-attributes": ["pricing"],
+  "cloudflare-workflows-createbatch-object": ["compatibility"],
+  "unity-cli-beta13-pipeline-names": ["preview"],
+  "ollama-0402-model-backups": ["update"],
+  "puripuly-heart-281-tag-fixes": ["fix","release"],
     "openai-sol-ultrafast": ["pricing", "performance", "feature"],
     "claude-code-21294": ["fix", "improvement"],
     "codex-cli-01620": ["performance", "improvement"],
@@ -72,9 +97,9 @@ test("current change tags distinguish pricing, fixes, public weights, GA, beta a
   for (const item of records) assert.deepEqual(keys(item, "change"), expected[item.id], item.id);
 });
 
-test("category mapping uses only the six existing categories, including MCP in a media lead", () => {
-  const labels = ["モデル・API料金", "開発エージェント", "OSS・ローカル", "音声・字幕", "画像・動画", "MCP・実行基盤"];
-  ["api", "agent", "local", "audio", "media", "mcp"].forEach((category, i) => {
+test("category mapping uses the eight supported categories, including MCP in a media lead", () => {
+  const labels = ["モデル・API料金", "開発エージェント", "OSS・ローカル", "音声・字幕", "画像・動画", "MCP・実行基盤", "クラウド・運用", "VRChat・制作互換性"];
+  ["api", "agent", "local", "audio", "media", "mcp", "cloud", "vr"].forEach((category, i) => {
     const tags = automaticTags(record("Runway", "MCP を追加", category));
     assert.deepEqual(tags.filter((item) => item.kind === "domain"), [{ id: `domain-${category}`, label: labels[i], kind: "domain" }]);
   });

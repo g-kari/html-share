@@ -11,7 +11,7 @@
  * Explicit “compared with / より / と比較” reference products are excluded;
  * named integrations or multiple updated products remain eligible.
  *
- * Domains follow the report's six category values, never keyword guesses.
+ * Domains follow the report's eight category values, never keyword guesses.
  * Change signals come only from title/lead/flag. Multiple supported tags are
  * retained, but negated/corrected signals are skipped. Lifecycle/compatibility
  * and correction are deliberately distinct from confirmed deprecation.
@@ -31,6 +31,8 @@ const DOMAINS = new Map([
   ["audio", ["audio", "音声・字幕"]],
   ["media", ["media", "画像・動画"]],
   ["mcp", ["mcp", "MCP・実行基盤"]],
+  ["cloud", ["cloud", "クラウド・運用"]],
+  ["vr", ["vr", "VRChat・制作互換性"]],
 ]);
 
 function sourceURLs(record) {
@@ -59,6 +61,21 @@ const cloudflareContext = (text, urls) => /\bcloudflare\b/.test(text) || someSou
 // The regex boundaries exclude English substring collisions, while allowing
 // Japanese particles directly after a Latin product name and version suffixes.
 const PRODUCTS = [
+  { key: "cloudflare-markdown-agents", label: "Markdown for Agents", names: /\bmarkdown[\s-]+for[\s-]+agents(?=$|[^a-z0-9])/g, context: cloudflareContext,
+    source: officialPath(["developers.cloudflare.com"], /^\/(?:fundamentals\/reference\/markdown-for-agents|changelog\/post\/2026-10-09-markdown-for-agents-in-process-conversion)\/?$/) },
+  { key: "cloudflare-clef", label: "Cloudflare Clef", names: /\b(?:cloudflare[\s-]+clef|clef-(?:omni|flash))(?=$|[^a-z0-9])/g, context: cloudflareContext,
+    source: officialPath(["developers.cloudflare.com"], /^\/(?:workers-ai\/models\/clef(?:-(?:omni|flash))?|changelog\/post\/2026-10-09-clef-omni-workers-ai)\/?$/) },
+  { key: "cloudflare-http3", label: "Cloudflare HTTP/3", names: /\bcloudflare[\s-]+http\/3(?=$|[^a-z0-9])/g,
+    source: officialPath(["developers.cloudflare.com"], /^\/changelog\/post\/2026-10-09-http3-499-reporting-improvement\/?$/) },
+  { key: "cloudflare-workflows", label: "Cloudflare Workflows", names: /\bcloudflare[\s-]+workflows(?=$|[^a-z0-9])/g,
+    source: officialPath(["developers.cloudflare.com"], /^\/(?:workflows(?:\/|$)|changelog\/post\/2026-10-08-create-batch-object-form\/?$)/) },
+  { key: "aws-bedrock", label: "Amazon Bedrock", names: /\b(?:amazon|aws)[\s-]+bedrock(?=$|[^a-z0-9])/g,
+    source: officialPath(["aws.amazon.com"], /^\/about-aws\/whats-new\/2026\/10\/aws-bedrock-attributes-in-cost-explorer\/?$/) },
+  { key: "vrchat", label: "VRChat", names: /\bvrchat(?=$|[^a-z0-9])/g,
+    source: (url) => repository("vrchat-community", "creator-docs")(url) || officialPath(["docs.vrchat.com"], /^\/docs\/vrchat-202641-open-beta\/?$/)(url) || officialPath(["ask.vrchat.com"], /^\/t\/developer-update-8-october-2026\/49095\/?$/)(url) },
+  { key: "unity-cli", label: "Unity CLI", names: /\bunity[\s-]+cli(?=$|[^a-z0-9])/g,
+    source: officialPath(["discussions.unity.com"], /^\/t\/(?:unity-cli-1-0-0-beta-13-is-rolling-out\/1738551|heads-up-upcoming-com-unity-pipeline-0-9-0-release-will-include-breaking-changes-to-command-names\/1738559)\/?$/) },
+
   { key: "claude-code", label: "Claude Code", names: /\bclaude[\s-]+code(?=$|[^a-z0-9])/g, source: repository("anthropics", "claude-code") },
   { key: "claude-haiku", label: "Claude Haiku", names: /\b(?:claude[\s-]+haiku|haiku[\s-]+\d)(?=$|[^a-z])/g,
     source: officialPath(["www.anthropic.com", "anthropic.com", "platform.claude.com"], /^\/(?:claude-haiku(?:-\d)+\/?$|docs\/en\/models\/haiku(?:-\d)+(?:\/|$))/) },
@@ -181,3 +198,4 @@ export function automaticTags(record) {
   result.push(...(changes.length ? changes.map(([key, name]) => tag("change", key, name)) : [tag("change", "update", "更新")]));
   return result;
 }
+
