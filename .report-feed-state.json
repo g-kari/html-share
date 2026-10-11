@@ -1100,6 +1100,7 @@
         "shueisha-hpc-20260909": "f90c6e88cfabe4ff0fe0609a104a01b1fff540bb2112e06ed2d373496ae0e978",
         "skyticket-three-paths-20261009": "0b74296ce2e8ea118774aa00a1109f5277223733358ebad8e7fd19056de39d2f",
         "sodick-2026": "4bc4212814b1a3658aba8ff5c65dec182463c72027b209b2256eab615f63b28f",
+        "sony-psn-qriocity-20110417": "141d9587da6ad9a8542a405a2db9ec9cde4bc8e86348390a7b07afaad0f2faa3",
         "stryker-20260311": "5d10f30fbd12193c4a1c0d96dc51c40c5a4e32965b82d66f7812f26c5ae8eeb3",
         "studysapuri-20260930": "6c257d9dc0b16b352fdeb16d5c5d2bd098875f582461b35855ecfdbca24d19aa",
         "synnovis-cyber-202406": "67020ec420f09e223a206a2319f1ebf7490a033d7d6feb7fc406d28d985d36b5",
@@ -1627,6 +1628,14 @@
             "commune-community-20261005",
             "nhs-wannacry-20170512",
             "odawara-mailbox-20260327"
+          ],
+          "date": "2026-10-11"
+        },
+        {
+          "signature": "b1272335709f05b1e84889c679457ccdab44ea1c9df2b61526c4cb6c38496d16",
+          "summary": "2011年のSony PlayStation Network／Qriocity事案を、公式告知・ハッシュ保存の説明・地域別再開予告・決算資料の復旧確認から過去の比較例として補完。情報取得に関する当事者評価と可能性、告知日・復旧日・決算対象期間を分け、SOEの情報件数とは合算しない。現在の新規攻撃や2026年の安全性を示すものではなく、既存167件・全出典・28件の履歴を保持して計168件。",
+          "ids": [
+            "sony-psn-qriocity-20110417"
           ],
           "date": "2026-10-11"
         }
@@ -2286,9 +2295,25 @@
           ],
           "published": "2026-10-11T01:13:16.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "4b3f9e61f709be8d0c06c55ac2627dbe6c688e6973cce97d467d0c618ad96a55",
+          "summary": "2011年のSony PlayStation Network／Qriocity事案を、公式告知・ハッシュ保存の説明・地域別再開予告・決算資料の復旧確認から過去の比較例として補完。情報取得に関する当事者評価と可能性、告知日・復旧日・決算対象期間を分け、SOEの情報件数とは合算しない。現在の新規攻撃や2026年の安全性を示すものではなく、既存167件・全出典・28件の履歴を保持して計168件。",
+          "journal": [
+            {
+              "signature": "b1272335709f05b1e84889c679457ccdab44ea1c9df2b61526c4cb6c38496d16",
+              "summary": "2011年のSony PlayStation Network／Qriocity事案を、公式告知・ハッシュ保存の説明・地域別再開予告・決算資料の復旧確認から過去の比較例として補完。情報取得に関する当事者評価と可能性、告知日・復旧日・決算対象期間を分け、SOEの情報件数とは合算しない。現在の新規攻撃や2026年の安全性を示すものではなく、既存167件・全出典・28件の履歴を保持して計168件。",
+              "ids": [
+                "sony-psn-qriocity-20110417"
+              ],
+              "date": "2026-10-11"
+            }
+          ],
+          "published": "2026-10-11T02:27:33.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "e8cf26cb43752f6473ace1b636fdad06496ec7fc"
+      "cursor": "8728b5b9dd7e0d47ab2f2a06bed7b4bd3c91758b"
     }
   }
 }

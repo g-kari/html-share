@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Sun, 11 Oct 2026 01:13:16 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 11 Oct 2026 02:27:33 GMT</lastBuildDate>
+    <item>
+      <title>2011年のSony PlayStation Network／Qriocity事案を、公式告知・ハッシュ保存の説明・地域別再開予告・決算資料の復旧確認から過去の比較例として補完</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#4b3f9e61f709be8d0c06c55ac2627dbe6c688e6973cce97d467d0c618ad96a55</guid>
+      <description>2011年のSony PlayStation Network／Qriocity事案を、公式告知・ハッシュ保存の説明・地域別再開予告・決算資料の復旧確認から過去の比較例として補完。情報取得に関する当事者評価と可能性、告知日・復旧日・決算対象期間を分け、SOEの情報件数とは合算しない。現在の新規攻撃や2026年の安全性を示すものではなく、既存167件・全出典・28件の履歴を保持して計168件。</description>
+      <pubDate>Sun, 11 Oct 2026 02:27:33 GMT</pubDate>
+      <dcterms:created>2026-10-11T02:27:33.000Z</dcterms:created>
+    </item>
     <item>
       <title>高知の知の10月11日9:00 JST続報で氏名・住所の漏えいなし確認をCommuneの既存事案へ限定追記</title>
       <link>https://share.0g0.xyz/security-incidents</link>
