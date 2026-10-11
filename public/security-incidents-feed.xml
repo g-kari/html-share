@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Sat, 10 Oct 2026 23:05:01 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 11 Oct 2026 01:13:16 GMT</lastBuildDate>
+    <item>
+      <title>高知の知の10月11日9:00 JST続報で氏名・住所の漏えいなし確認をCommuneの既存事案へ限定追記</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#53d9c2d5c30eb70f6ca13ba2081f0ed15462d12465e69a7f2e7faa0e85432213</guid>
+      <description>高知の知の10月11日9:00 JST続報で氏名・住所の漏えいなし確認をCommuneの既存事案へ限定追記。小田原エンジニアリングの9月告知とNHS WannaCryの過去比較例を補完し、メール通数・人数、金銭被害、NAOの確認PDF80/34と旧概要81/37を区別。新規発生・現在の完全復旧とは扱わず、既存165件・全出典・27件の履歴を保持して計167件。英国図書館の確度フィルターキーを修正し、侵入経路の未確定という事実は保持。</description>
+      <pubDate>Sun, 11 Oct 2026 01:13:16 GMT</pubDate>
+      <dcterms:created>2026-10-11T01:13:16.000Z</dcterms:created>
+    </item>
     <item>
       <title>英国図書館の2023年ランサムウェア攻撃と2024年3月の当事者レビュー、Synnovisの2024年6月の攻撃と2025年11月のNHS続報を過去の比較例として追加</title>
       <link>https://share.0g0.xyz/security-incidents</link>

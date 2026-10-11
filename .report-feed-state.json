@@ -971,7 +971,7 @@
         "betterment-20260109": "cc2c1bfecf04020942044bb16dff619b33bba75f4ab1c426b8ce12b4fe950821",
         "blueberry-metabase-20260810": "2e917563578164373e74131b55e6e9dd9fcc85ce7d5647bde28c008b9a4f2e09",
         "bookoff-member-system-20261006": "8f07e896b7da25d122f98e27112242df0ad3cdb29fc1223abafb5adb81a5d4cc",
-        "british-library-ransomware-20231028": "06d7b001f2b4406ebed239d7ada7b7fc6efd34e4a0e498af611d825cbd944ecb",
+        "british-library-ransomware-20231028": "f76a46df8a40302d377e82e4dc5ff6018edfb95b43df1dc3cd8282cb68b9ce0c",
         "cac-academic-support-navi-2026": "cbf8ed75b6ee7050432be8cf2b9aaab88f90624ed43f062e415eb293a9414aae",
         "campfire-2026": "37c0a8675d7223d50cc14144335757683b806fc3031b7b5da7baffdafcc43d7c",
         "canvass-ransomware-2026": "08322821b15ef207849b08301407a805285713a78ea97bddf53306123d90a8a3",
@@ -984,7 +984,7 @@
         "coastline-sumareji-app-2026": "a37bd8f809252455357754b6483fdc6db2dcc4a3827575a0432614096f6d0ff0",
         "coconala-resume-20261008": "eb238bb47e37b31ac1b72f96a1443f5fa5b5bde6c97aec836f0e052dd64a785c",
         "comhairle-cyberattack-20231107": "969973749209f04fd022ca4fbbb96b8912e33f409bfbbfcfd6b7da252cd459b5",
-        "commune-community-20261005": "b4599d1026933e213b6a162cc71aba12c6384d33724860491b3e186d3e6ef519",
+        "commune-community-20261005": "c7e3067ecf9df1e0cf52ccd5cdcb2ae987f9ae07f4161dd504aaa62d5229c008",
         "cynd-beautymerit-2026": "dc70226d1acb1c024eae63c2ccc36cd9c2a69ee4860d4e516419d871b6b3b207",
         "daiichikosho-ncg-pc-20261002": "d35a2b8b8d7e0e315603bff41756cafb621d19524b6147deb26e3dea3d8d7447",
         "daiichilife-hr-20260924": "1e98e1d06a6656056652dc03334c624398f2c266f1b39b3c83499cf0683de3b7",
@@ -1064,6 +1064,7 @@
         "murauchi-web-20260715": "cdb19b93ec3d5a24f51080962f31cfc0be62283a7997da076e1b2825506e98d9",
         "mynavi-cloud-2026": "0d11dc39a8e547b90603ec8b4909efcac0430e9b498d3d7f612657fb49976354",
         "newspicks-admin-tool-20261008": "badc45af5b2f17c916a4c36a358caa74a5d8b5ad292a1523d95650781dc0a585",
+        "nhs-wannacry-20170512": "24a54c63b3e16400333ccf2988517cdb4ffd1e4e51886285169ac4cefc8d7f64",
         "nichirei-20260713": "c8adf5c623f94672e2410b59b17c038bd7f01ad173aa7dc6c8eb8a428d443a60",
         "nihonkotsu-malware-20260711": "371e5a09123b6ec32affba6c56abaf06df8a2a120264cfc63855a26ae5010aa3",
         "nihracs-email-20261007": "fe98c1249b2d3c903d7bb46f75be741564b0bc7d385608dbab8f1d0778bac57b",
@@ -1077,6 +1078,7 @@
         "ns-biojapan-2026": "fac5d87184cc520290dcf87fe1d99c132be2733476d1e6304c6ffae2f05cd63a",
         "ntt-west-insider-20231017": "00e8fe96ab1f93f613d14a39d3cc9ccc357f2cf51ca83e6c3975261b7398615e",
         "nyk-2026": "06a21effc496a3be7ada96d7b08fb02fb9ccd65419efb5a8be96df568c329ddb",
+        "odawara-mailbox-20260327": "4573fd6668cd51e5da61f70a6b46dace40a31375ca483f409fbfa11698f581fd",
         "omu-ransomware-20261002": "a3c51a6b24064a0e30456e6e397d437ef6039845ab5e88fc51a3c1c5fe02b30c",
         "osaka-redaction-20260608": "d02decc00a8edd938ebf3229b1ac9e9668b4c969642db13461d8b64d3b95fbc8",
         "otemae-hospital-mail-20261008": "520eceaa7b77557b469fccf0d21ab0ac9b5c0622ffb1d81e3609ec2e3f6cc8f5",
@@ -1614,6 +1616,17 @@
           "ids": [
             "british-library-ransomware-20231028",
             "synnovis-cyber-202406"
+          ],
+          "date": "2026-10-11"
+        },
+        {
+          "signature": "b2f3cab57bc97378d02d4bd176daa05b2699955386de34b937e4667fab075f80",
+          "summary": "高知の知の10月11日9:00 JST続報で氏名・住所の漏えいなし確認をCommuneの既存事案へ限定追記。小田原エンジニアリングの9月告知とNHS WannaCryの過去比較例を補完し、メール通数・人数、金銭被害、NAOの確認PDF80/34と旧概要81/37を区別。新規発生・現在の完全復旧とは扱わず、既存165件・全出典・27件の履歴を保持して計167件。英国図書館の確度フィルターキーを修正し、侵入経路の未確定という事実は保持。",
+          "ids": [
+            "british-library-ransomware-20231028",
+            "commune-community-20261005",
+            "nhs-wannacry-20170512",
+            "odawara-mailbox-20260327"
           ],
           "date": "2026-10-11"
         }
@@ -2254,9 +2267,28 @@
           ],
           "published": "2026-10-10T23:05:01.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "53d9c2d5c30eb70f6ca13ba2081f0ed15462d12465e69a7f2e7faa0e85432213",
+          "summary": "高知の知の10月11日9:00 JST続報で氏名・住所の漏えいなし確認をCommuneの既存事案へ限定追記。小田原エンジニアリングの9月告知とNHS WannaCryの過去比較例を補完し、メール通数・人数、金銭被害、NAOの確認PDF80/34と旧概要81/37を区別。新規発生・現在の完全復旧とは扱わず、既存165件・全出典・27件の履歴を保持して計167件。英国図書館の確度フィルターキーを修正し、侵入経路の未確定という事実は保持。",
+          "journal": [
+            {
+              "signature": "b2f3cab57bc97378d02d4bd176daa05b2699955386de34b937e4667fab075f80",
+              "summary": "高知の知の10月11日9:00 JST続報で氏名・住所の漏えいなし確認をCommuneの既存事案へ限定追記。小田原エンジニアリングの9月告知とNHS WannaCryの過去比較例を補完し、メール通数・人数、金銭被害、NAOの確認PDF80/34と旧概要81/37を区別。新規発生・現在の完全復旧とは扱わず、既存165件・全出典・27件の履歴を保持して計167件。英国図書館の確度フィルターキーを修正し、侵入経路の未確定という事実は保持。",
+              "ids": [
+                "british-library-ransomware-20231028",
+                "commune-community-20261005",
+                "nhs-wannacry-20170512",
+                "odawara-mailbox-20260327"
+              ],
+              "date": "2026-10-11"
+            }
+          ],
+          "published": "2026-10-11T01:13:16.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "8756beb9d3baa58964339feeba2441bbad6d852f"
+      "cursor": "e8cf26cb43752f6473ace1b636fdad06496ec7fc"
     }
   }
 }
