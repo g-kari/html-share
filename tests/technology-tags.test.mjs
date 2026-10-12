@@ -15,6 +15,8 @@ const keys = (record, kind) => automaticTags(record).filter((item) => item.kind 
 const record = (title, lead = "", category = "agent", extra = {}) => ({ title, lead, category, ...extra });
 
 const existingProducts = {
+  "cloudflare-runtime-update-grace-20min": ["cloudflare-workers"],
+  "cloudflare-opencode-experimental-harness": ["cloudflare-agents-sdk", "cloudflare-durable-objects"],
   "puripuly-heart-282-network-stt": ["puripuly-heart"],
   "cloudflare-api-mcp-skills": ["other"],
   "unity-edm-edm4u-deprecation": ["other"],
@@ -70,6 +72,8 @@ test("all authored records have deterministic product/domain/change dimensions",
 
 test("current change tags distinguish pricing, fixes, public weights, GA, beta and correction", () => {
   const expected = {
+  "cloudflare-runtime-update-grace-20min": ["update"],
+  "cloudflare-opencode-experimental-harness": ["preview", "lifecycle"],
   "puripuly-heart-282-network-stt": ["fix"],
   "cloudflare-api-mcp-skills": ["update"],
   "unity-edm-edm4u-deprecation": ["compatibility", "deprecation"],
