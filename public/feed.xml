@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Sun, 11 Oct 2026 02:27:33 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 12 Oct 2026 23:19:22 GMT</lastBuildDate>
+    <item>
+      <title>重要技術アップデート｜AI・開発ツール・MCP</title>
+      <link>https://share.0g0.xyz/technology-updates</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/technology-updates</guid>
+      <description>AIモデル、料金、OSS・ローカル実行、開発エージェント、音声・画像・動画、MCPの重要更新を一次資料で確認。利用条件と再テスト案、訂正履歴をまとめる。</description>
+      <pubDate>Mon, 12 Oct 2026 23:19:22 GMT</pubDate>
+      <dcterms:created>2026-10-08T23:59:03.000Z</dcterms:created>
+      <dcterms:modified>2026-10-12T23:19:22.000Z</dcterms:modified>
+    </item>
     <item>
       <title>2026年 不正アクセス・情報漏えいウォッチ｜原因・出典・続報</title>
       <link>https://share.0g0.xyz/security-incidents</link>
@@ -16,15 +25,6 @@
       <pubDate>Sun, 11 Oct 2026 02:27:33 GMT</pubDate>
       <dcterms:created>2026-10-02T06:08:44.000Z</dcterms:created>
       <dcterms:modified>2026-10-11T02:27:33.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>重要技術アップデート｜AI・開発ツール・MCP</title>
-      <link>https://share.0g0.xyz/technology-updates</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/technology-updates</guid>
-      <description>AIモデル、料金、OSS・ローカル実行、開発エージェント、音声・画像・動画、MCPの重要更新を一次資料で確認。利用条件と再テスト案、訂正履歴をまとめる。</description>
-      <pubDate>Sat, 10 Oct 2026 23:13:45 GMT</pubDate>
-      <dcterms:created>2026-10-08T23:59:03.000Z</dcterms:created>
-      <dcterms:modified>2026-10-10T23:13:45.000Z</dcterms:modified>
     </item>
     <item>
       <title>Proton をまとめて使う？ 必要な道具だけ選ぶ？</title>
