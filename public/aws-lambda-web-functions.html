@@ -129,7 +129,7 @@
               <div class="field"><label for="env-hours">仮定/実測の総環境時間 H（h）</label><input id="env-hours" type="number" min="0" max="1000000000" step="any" value="720" required><small>全region・全環境の生存時間。idleも含む</small></div>
               <div class="field"><label for="migration">一時的な移行費（USD）</label><input id="migration" type="number" min="0" max="1000000000000" step="any" value="0" required><small>任意。入力期間が1か月なら回収月数を表示</small></div>
             </div>
-            <div class="actions"><button type="submit">計算する</button><button id="reset" type="button" class="secondary">標準の仮定へ戻す</button></div>
+            <div class="actions"><button type="submit">計算する</button><button id="reset-cost" type="button" class="secondary">標準の仮定へ戻す</button></div>
           </form>
           <div id="calc-result" class="result" role="status" aria-live="polite" aria-atomic="true"></div>
         </div>
@@ -191,7 +191,7 @@ function renderCost(){
   line('米国東部Armのlist price。起動追加CPU・周辺費・無料枠・credit・割引・税は未反映。Hは実際のautoscale曲線の予測ではありません。');
 }
 form.addEventListener('submit',event=>{event.preventDefault();renderCost();});
-document.getElementById('reset').addEventListener('click',()=>{form.reset();renderCost();});
+document.getElementById('reset-cost').addEventListener('click',()=>{form.reset();renderCost();});
 document.getElementById('calculator').hidden=false;
 renderCost();
 </script>
