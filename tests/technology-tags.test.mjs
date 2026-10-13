@@ -15,6 +15,9 @@ const keys = (record, kind) => automaticTags(record).filter((item) => item.kind 
 const record = (title, lead = "", category = "agent", extra = {}) => ({ title, lead, category, ...extra });
 
 const existingProducts = {
+  "gemini-4-argon-ga-unified-context": ["gemini"],
+  "cloudflare-agents-0281-transport-harness": ["cloudflare-agents-sdk"],
+  "cloudflare-workers-issues-mcp-events": ["cloudflare-workers"],
   "cloudflare-runtime-update-grace-20min": ["cloudflare-workers"],
   "cloudflare-opencode-experimental-harness": ["cloudflare-agents-sdk", "cloudflare-durable-objects"],
   "puripuly-heart-282-network-stt": ["puripuly-heart"],
@@ -72,6 +75,9 @@ test("all authored records have deterministic product/domain/change dimensions",
 
 test("current change tags distinguish pricing, fixes, public weights, GA, beta and correction", () => {
   const expected = {
+  "gemini-4-argon-ga-unified-context": ["pricing", "ga", "compatibility"],
+  "cloudflare-agents-0281-transport-harness": ["fix", "compatibility"],
+  "cloudflare-workers-issues-mcp-events": ["feature", "preview"],
   "cloudflare-runtime-update-grace-20min": ["update"],
   "cloudflare-opencode-experimental-harness": ["preview", "lifecycle"],
   "puripuly-heart-282-network-stt": ["fix"],
