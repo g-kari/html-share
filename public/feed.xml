@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Wed, 14 Oct 2026 10:10:47 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 14 Oct 2026 12:48:56 GMT</lastBuildDate>
+    <item>
+      <title>2026年 不正アクセス・情報漏えいウォッチ｜原因・出典・続報</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/security-incidents</guid>
+      <description>2026年の不正アクセス・情報漏えい事案と過去の主要事例を、原因・影響・対応・日付・一次資料で整理。infoQの確定件数とREXTの調査・復旧続報を反映した168件。</description>
+      <pubDate>Wed, 14 Oct 2026 12:48:56 GMT</pubDate>
+      <dcterms:created>2026-10-02T06:08:44.000Z</dcterms:created>
+      <dcterms:modified>2026-10-14T12:48:56.000Z</dcterms:modified>
+    </item>
     <item>
       <title>GoのLambda、ZIPとコンテナはどちらが速い？ | コールドスタート調査</title>
       <link>https://share.0g0.xyz/aws-lambda-go-cold-start</link>
@@ -43,15 +52,6 @@
       <pubDate>Tue, 13 Oct 2026 23:10:52 GMT</pubDate>
       <dcterms:created>2026-10-08T23:59:03.000Z</dcterms:created>
       <dcterms:modified>2026-10-13T23:10:52.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>2026年 不正アクセス・情報漏えいウォッチ｜原因・出典・続報</title>
-      <link>https://share.0g0.xyz/security-incidents</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/security-incidents</guid>
-      <description>2026年の不正アクセス・情報漏えい事案と過去の主要事例を、原因・影響・対応・日付・一次資料で整理。Sonyの2011年PSN／Qriocity事案を過去の比較例として補完した168件。</description>
-      <pubDate>Sun, 11 Oct 2026 02:27:33 GMT</pubDate>
-      <dcterms:created>2026-10-02T06:08:44.000Z</dcterms:created>
-      <dcterms:modified>2026-10-11T02:27:33.000Z</dcterms:modified>
     </item>
     <item>
       <title>Proton をまとめて使う？ 必要な道具だけ選ぶ？</title>

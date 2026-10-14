@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Sun, 11 Oct 2026 02:27:33 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 14 Oct 2026 12:48:56 GMT</lastBuildDate>
+    <item>
+      <title>infoQの10月14日第2報で個人情報の持出し確定件数894,082件へ訂正し、初報最大948,498件の内訳9,068件（個人情報なしの持出し）・45,348件（未持出し）を区別</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#02801d4720e5c97a721a87af93124a6b88dc6dab2ee8bf6b8529d03b970dee79</guid>
+      <description>infoQの10月14日第2報で個人情報の持出し確定件数894,082件へ訂正し、初報最大948,498件の内訳9,068件（個人情報なしの持出し）・45,348件（未持出し）を区別。10月7日の全会員パスワード無効化を補足し、ポイント不正交換611件は別指標、停止継続/再開未定を保持。 REXTの10月9日第5報による詳細調査完了、公開確認310ファイル/約54MB、応募者/従業員27名への通知、漏えいのおそれ1,044,906件を異なる確度/単位として補足。ネットワーク機器経由侵入の高い可能性という見解と、経路対策/ランサム除去完了・全店営業再開を記録。10月14日のHAPiNSオンラインショップ顧客漏えい/おそれ未確認も区別する。</description>
+      <pubDate>Wed, 14 Oct 2026 12:48:56 GMT</pubDate>
+      <dcterms:created>2026-10-14T12:48:56.000Z</dcterms:created>
+    </item>
     <item>
       <title>2011年のSony PlayStation Network／Qriocity事案を、公式告知・ハッシュ保存の説明・地域別再開予告・決算資料の復旧確認から過去の比較例として補完</title>
       <link>https://share.0g0.xyz/security-incidents</link>
