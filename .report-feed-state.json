@@ -105,6 +105,7 @@
         "gitlab-ai-gateway-template-escape": "5e50a3d18b626de79909181e6f0fefaac17f674c8b81eb94ad4d26049945b345",
         "gitlab-exploited-repository-api-file-read": "7e4570f922221db47a07868bfaec02eb40843955ed1cb2e93de325ae8c34cea9",
         "google-gvisor-vfs-double-free-sentry-boundary": "e58dbd8f908615663079cec06d981ab79b06279b056cefbe9ff71935df400f83",
+        "gstreamer-editing-project-autoplug-arbitrary-elements": "0df574a7d3ecd10d33af298bce834d713dbe32bb31f23f40af999c8b2e7b7728",
         "guava-java-deserialization-array-allocation-dos": "483d97c8690b289e7cff9c89940dedb52332248d5d4a57a3017b4717fba9b6e3",
         "handlebars-own-property-and-ast-compilation-rce": "818cefb25a07707a1ff1bea6dcfa7d602c5177159c2ec085a86b4f42eea4bd70",
         "hdf5-fill-value-corruption-and-scale-offset-boundary": "9141a6573eae2d4df9dbe7814ffd940f96955be990b5ed233a9aa8d82cbe509b",
@@ -135,6 +136,7 @@
         "libreoffice-jdbc-document-rce": "0fe05f7c8a5b05eb0d0db011054aeae48353519b47340e515951734387b5248f",
         "linux-rdma-rxe-mr-range-overflow-oob-access": "dc26e07289498c500b4a444d1d3b452c39a030bc43f104eddac11c299e994dd1",
         "linux-rdma-siw-fragmented-header-oob-write": "6d909d43481acf47bdf0b5bf13e035fedb58da4f8036b0efdaeff8b9a74b4741",
+        "linux-vhost-stale-iotlb-vghost-disclosure": "9cf6521fa934f6f28a8938e92f6532cc173c4a1ea36c416ae4f41e9d8686e615",
         "llama-cpp-client-chat-parser-use-after-free": "c3158b1324eff9c1b7a41d249b92a0bf50a19211edef08c5b0cda85d9120440b",
         "lmcache-multiprocess-zmq-pickle-unauthenticated-rce": "9aeff2fb42d1ff615012e689fce28ac9b2b8cd3d5822ab737ee50147eda581f6",
         "lwip-smtp-auth-line-buffer-overflow": "2c618c6dc9e3a82ed358f12afcc0482079b3f8cdd22573fcaf44e5ccf683043e",
@@ -153,10 +155,12 @@
         "mooncake-store-unauthenticated-rest-rpc": "171a7f0caab7c88784a8b00541a03d963b7d075e41c0c6123543b8fc95e5628b",
         "movabletype-upgrade-code-injection-and-search-sql-injection": "0707d5e19204a611411b0e1fc836fa1dfb4ad923464268a6b9bfa2af4ceb20ef",
         "msquic-openssl-hostname-validation": "3e6a94fcc3783038d3daa07639add691a11df4e54a45635780e247e26a0d2337",
+        "netbird-desktop-peer-ssh-config-injection": "2ade398c7d7333549082412a9494ada3f7c0779ea1c087ec389e0e8c728167f4",
         "netscaler-saml-october-memory-overflow-rce": "b4045d6b1562e0ad0d3594b7781e686c2550b757587f5a06075a7a4fd88760f5",
         "nexi-xpay-build-unauthenticated-order-payment-integrity": "04e4749cb988aaf5f1d3b2e73926c59f8149c9d10b260626ae3c09f937ccc674",
         "next-og-satori-generated-svg-boundary": "4d9750c55d16e3273d8111b79c5609f7f8ce8d983df2061ff9e5ac4faf19071b",
         "nginx-ui-2026-107804-107813": "a007dfd7169272d4804dc362f7ccab05b07265c8b392df17496db4aa4d24faef",
+        "nix-lix-october-store-sandbox-installer-boundaries": "35504814accfa97c75f757f51c7779ab536dd9d8d52f06d1e436bb189f353df9",
         "npm-css-jptvix-polyfill-malware": "c6f42d03229a0d0b38f6f2efb85be87095f396d09d0c1ade3310cbd69ee7af64",
         "npm-proxyaddr-trust-subnet-spoofing": "323d3a44e8a40098435c6974bef0b5221ea82d9fcbae5cc05acdce71de5cba95",
         "npm-seroval-fromjson-bypass": "65a00bffb700da1c7f1e5ae9fc3e784593b3d75f56ace5c65310f70715333572",
@@ -226,6 +230,7 @@
         "tenable-identity-exposure-ad-listener-command-injection": "957a4dc3d7a58255ab39e03011b181d0e470c049a9591fe81b47f1d3e937297d",
         "tenda-ac5-wifi-handler-authenticated-overflow": "a794752e56573fd8cc988ee20b4330ffa0562a928c27015fae239311cb297ba7",
         "twenty-workspace-graphql-external-credentials": "f5bd3f14152bcf42f91803d50e951c6e2f508ffd1f40da34009e546a374eb5e8",
+        "unifi-protect-ai-key-command-and-access-boundaries": "4074a31aed6d1212fbedd07fc73f7507f08d7fdd2221aa2743267e451c24bcae",
         "uptime-kuma-public-ping-badge-resource-dos": "5f271286bda5e8194576686034cedf77818a6a6040414a4603e0ce87d75192d1",
         "veeam-backup-viewer-system-rce": "1c44858ba7f94d378bcb8ac2b3e348d3f7905e1f0329bc5f19d94a211181d954",
         "veeam-cloud-connect-tenant-host-file-read": "6edc206a28e6d4fefce1488008997120ac3db952ca5edd4eeae14d364afba3f0",
@@ -492,6 +497,18 @@
             "curl-http2-upload-rst-stream-use-after-free",
             "eccube-amazonpay-order-redirect-confirmed-exploitation",
             "siteguard-server-statistics-exploited-command-injection"
+          ],
+          "date": "2026-10-14"
+        },
+        {
+          "signature": "f692e3f76ee3442542a5aa4ad1587acccbb6fde22f80791319484317997a0dc3",
+          "summary": "既存未掲載候補からNix/Lix5件、NetBird SSH設定注入、Linux vhost、UniFi Protect AI Key5件を一次資料で再確認して追加。GStreamer Editing Servicesの公式修正も再確認して追加。計246項目・434 CVE。Nix installerは更新後も既存store所有権確認、Lixは導入方式別更新、NetBirdは0.74.7と次回SSH実行条件、vhostはdevice権限・VM構成と系列別fix、AI Keyは2.2.8境界を区別。CNA/GHSAの採点差を保持し、研究者の実証を実悪用と扱わない。UniFi本文はLoadingで配布日時を未確認と明記。既存241項目・422 CVEと全33履歴を保持。",
+          "ids": [
+            "gstreamer-editing-project-autoplug-arbitrary-elements",
+            "linux-vhost-stale-iotlb-vghost-disclosure",
+            "netbird-desktop-peer-ssh-config-injection",
+            "nix-lix-october-store-sandbox-installer-boundaries",
+            "unifi-protect-ai-key-command-and-access-boundaries"
           ],
           "date": "2026-10-14"
         }
@@ -1009,9 +1026,29 @@
           ],
           "published": "2026-10-14T13:29:48.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "94427634de526658ecca94589ed2ad5afbec264c97dd41d8cd9ef56015d85e1d",
+          "summary": "既存未掲載候補からNix/Lix5件、NetBird SSH設定注入、Linux vhost、UniFi Protect AI Key5件を一次資料で再確認して追加。GStreamer Editing Servicesの公式修正も再確認して追加。計246項目・434 CVE。Nix installerは更新後も既存store所有権確認、Lixは導入方式別更新、NetBirdは0.74.7と次回SSH実行条件、vhostはdevice権限・VM構成と系列別fix、AI Keyは2.2.8境界を区別。CNA/GHSAの採点差を保持し、研究者の実証を実悪用と扱わない。UniFi本文はLoadingで配布日時を未確認と明記。既存241項目・422 CVEと全33履歴を保持。",
+          "journal": [
+            {
+              "signature": "f692e3f76ee3442542a5aa4ad1587acccbb6fde22f80791319484317997a0dc3",
+              "summary": "既存未掲載候補からNix/Lix5件、NetBird SSH設定注入、Linux vhost、UniFi Protect AI Key5件を一次資料で再確認して追加。GStreamer Editing Servicesの公式修正も再確認して追加。計246項目・434 CVE。Nix installerは更新後も既存store所有権確認、Lixは導入方式別更新、NetBirdは0.74.7と次回SSH実行条件、vhostはdevice権限・VM構成と系列別fix、AI Keyは2.2.8境界を区別。CNA/GHSAの採点差を保持し、研究者の実証を実悪用と扱わない。UniFi本文はLoadingで配布日時を未確認と明記。既存241項目・422 CVEと全33履歴を保持。",
+              "ids": [
+                "gstreamer-editing-project-autoplug-arbitrary-elements",
+                "linux-vhost-stale-iotlb-vghost-disclosure",
+                "netbird-desktop-peer-ssh-config-injection",
+                "nix-lix-october-store-sandbox-installer-boundaries",
+                "unifi-protect-ai-key-command-and-access-boundaries"
+              ],
+              "date": "2026-10-14"
+            }
+          ],
+          "published": "2026-10-14T13:44:39.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "191dcb88c1cfdd71366a749ca973cf6e7bfabd66"
+      "cursor": "0a9cb18b954a97db2de71ad93716edabeed1e44d"
     },
     "security-incidents": {
       "records": {

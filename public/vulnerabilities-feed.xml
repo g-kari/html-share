@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/vulnerabilities-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Wed, 14 Oct 2026 13:29:48 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 14 Oct 2026 13:44:39 GMT</lastBuildDate>
+    <item>
+      <title>既存未掲載候補からNix/Lix5件、NetBird SSH設定注入、Linux vhost、UniFi Protect AI Key5件を一次資料で再確認して追加</title>
+      <link>https://share.0g0.xyz/vulnerabilities</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/vulnerabilities-feed.xml#94427634de526658ecca94589ed2ad5afbec264c97dd41d8cd9ef56015d85e1d</guid>
+      <description>既存未掲載候補からNix/Lix5件、NetBird SSH設定注入、Linux vhost、UniFi Protect AI Key5件を一次資料で再確認して追加。GStreamer Editing Servicesの公式修正も再確認して追加。計246項目・434 CVE。Nix installerは更新後も既存store所有権確認、Lixは導入方式別更新、NetBirdは0.74.7と次回SSH実行条件、vhostはdevice権限・VM構成と系列別fix、AI Keyは2.2.8境界を区別。CNA/GHSAの採点差を保持し、研究者の実証を実悪用と扱わない。UniFi本文はLoadingで配布日時を未確認と明記。既存241項目・422 CVEと全33履歴を保持。</description>
+      <pubDate>Wed, 14 Oct 2026 13:44:39 GMT</pubDate>
+      <dcterms:created>2026-10-14T13:44:39.000Z</dcterms:created>
+    </item>
     <item>
       <title>既通知・未掲載のSiteGuard CVE-2026-106931、EC-CUBE AmazonPay CVE-2026-103671、curl CVE-2026-92392を、10月14日の一次資料</title>
       <link>https://share.0g0.xyz/vulnerabilities</link>
