@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GoのLambda、ZIPとコンテナはどちらが速い？ | コールドスタート調査</title>
+<meta name="description" content="Go LambdaのZIP・公式OSコンテナ・SnapStartを一次資料から比較。起動経路の動く図解、条件付き実測チャート、正しい計測手順をまとめた2026年10月の調査。">
+<meta name="theme-color" content="#edf3fa">
+<style>
+:root{--ink:#1d314d;--muted:#50627a;--paper:#f5f8fc;--white:#fff;--line:#ccd8e7;--blue:#245dcc;--teal:#087a72;--amber:#92500b;--soft-blue:#e8efff;--soft-teal:#e1f3ef;--radius:16px;--ease:cubic-bezier(.2,.7,.2,1)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:78px}body{margin:0;background:var(--paper);color:var(--ink);font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif;font-size:16px;line-height:1.85;overflow-wrap:anywhere}a{color:var(--blue);text-underline-offset:4px}a:hover{text-decoration-thickness:2px}button,select{font:inherit}button{cursor:pointer}button:disabled{cursor:default;opacity:.55}button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var(--blue);outline-offset:5px}h1,h2,h3,p,figure{margin:0}h1,h2,h3{line-height:1.5;font-weight:750;letter-spacing:.01em}h1{font-size:clamp(29px,4.5vw,53px);letter-spacing:-.035em}h2{font-size:clamp(23px,3vw,32px)}h3{font-size:19px}p+p{margin-top:14px}strong{font-weight:750}code{font-family:ui-monospace,"Cascadia Code",monospace;font-size:.89em;background:#eaf0f7;padding:.12em .32em;border-radius:4px;overflow-wrap:anywhere}pre{white-space:pre-wrap;overflow-wrap:anywhere;padding:18px;background:#ecf2f9;border:1px solid var(--line);border-radius:10px;line-height:1.7;font-size:14px}pre code{padding:0;background:none}sup{font-size:11px;line-height:0;margin-left:3px}sup a{text-decoration:none}small,.small{font-size:13px;line-height:1.75;color:var(--muted)}.wrap{width:min(1120px,calc(100% - 64px));margin:auto}.topbar{background:rgba(245,248,252,.97);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:62px}.brand{text-decoration:none;color:var(--ink);font-size:14px;font-weight:700}.toplinks{display:flex;align-items:center;gap:21px;font-size:13px}.toplinks a{color:var(--muted);text-decoration:none}.skip{position:fixed;top:-80px;left:16px;z-index:9;padding:10px;background:white}.skip:focus{top:10px}.hero{padding:66px 0 45px}.meta{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:22px;font-size:12px;color:var(--muted)}.chip{border:1px solid var(--line);padding:3px 10px;border-radius:20px;background:white}.hero-lead{margin-top:24px;max-width:760px;font-size:18px}.hero-lead strong{background:linear-gradient(transparent 65%,#d9e5fb 65%)}.summary-grid{display:grid;grid-template-columns:repeat(3,1fr);margin-top:34px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0;gap:28px}.summary-grid article+article{border-left:1px solid var(--line);padding-left:28px}.verdict-label{display:block;font-size:12px;color:var(--muted);margin-bottom:6px}.summary-grid h2{font-size:19px;margin-bottom:8px}.summary-grid p{font-size:14px;line-height:1.85}.section{padding:49px 0;border-top:1px solid var(--line)}.section-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:24px}.section-head p{max-width:600px;margin-top:11px;color:var(--muted)}.read-label{font-size:12px;color:var(--muted);white-space:nowrap}.plate{background:white;border:1px solid var(--line);border-radius:var(--radius);padding:28px}.plate-head{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:22px}.plate-head h3{font-size:16px}.btn{background:white;color:var(--ink);border:1px solid var(--line);border-radius:9px;padding:8px 14px;font-size:13px;line-height:1.6;transition:background .2s,color .2s,border-color .2s}.btn:hover{background:#edf3ff;border-color:var(--blue)}.btn.primary{background:var(--ink);color:white;border-color:var(--ink)}.btn[aria-pressed="true"]{background:var(--ink);color:white;border-color:var(--ink)}.js-control[hidden]{display:none}.diagram{position:relative}.diagram-labels{display:grid;grid-template-columns:165px 1fr 1fr 1.12fr;gap:13px;margin-bottom:12px;font-size:11px;color:var(--muted);text-align:center}.lane{--accent:var(--blue);--tint:var(--soft-blue);display:grid;grid-template-columns:165px 1fr 1fr 1.12fr;gap:13px;align-items:stretch;margin-bottom:14px;position:relative}.lane.image{--accent:var(--teal);--tint:var(--soft-teal)}.lane-name{padding:18px 12px 18px 0;display:flex;flex-direction:column;justify-content:center}.lane-name b{font-size:21px;line-height:1.4;color:var(--accent)}.lane-name span{font-size:11px;color:var(--muted);line-height:1.6;margin-top:7px}.node{border:1px solid var(--line);border-radius:12px;padding:18px 16px;position:relative;min-height:136px;background:var(--white);transition:background .4s,border-color .4s,transform .4s,box-shadow .4s}.node:not(:last-child)::after{content:'›';position:absolute;right:-13px;top:42%;color:var(--accent);font-size:23px;line-height:1;z-index:1;background:white;width:12px;text-align:center}.node b{display:block;font-size:14px;margin:9px 0 4px}.node span{display:block;font-size:12px;line-height:1.7;color:var(--muted)}.node.final{background:var(--tint);border-color:transparent}.glyph{height:22px;display:flex;gap:4px;align-items:end}.glyph i{display:block;width:13px;border:1.5px solid var(--accent);height:16px;border-radius:2px;background:var(--tint)}.glyph i:nth-child(2){height:20px}.glyph i:nth-child(3){height:13px}.glyph.go{font-size:16px;font-weight:800;letter-spacing:-.05em;color:var(--accent);line-height:22px}.diagram[data-step="1"] .s1,.diagram[data-step="2"] .s2,.diagram[data-step="3"] .s3{background:var(--tint);border-color:var(--accent);box-shadow:0 0 0 3px var(--tint);transform:translateY(-3px)}.diagram-progress{height:3px;background:#e7edf5;margin:22px 0 14px;border-radius:3px;overflow:hidden}.diagram-progress i{display:block;width:0;height:100%;background:var(--blue);transition:width .6s var(--ease)}.flow-caption{font-size:13px;color:var(--muted);min-height:47px}.notice{padding:14px 17px;background:#f9f2e7;border-left:3px solid #b6752c;border-radius:0 8px 8px 0;font-size:14px;line-height:1.85;margin-top:21px}.notice strong{color:var(--amber)}.insights{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:26px}.insights article{padding-left:16px;border-left:3px solid var(--line)}.insights h3{font-size:16px;margin-bottom:7px}.insights p{font-size:14px;color:var(--muted)}details{margin-top:18px;border:1px solid var(--line);border-radius:11px;background:white}summary{padding:16px 20px;cursor:pointer;font-weight:650;font-size:14px;list-style-position:outside;margin-left:19px}summary:hover{color:var(--blue)}details[open]>summary{border-bottom:1px solid #e4eaf3}details .detail-body{padding:21px 24px;font-size:14px}details .detail-body h3{margin:22px 0 10px;font-size:16px}details .detail-body h3:first-child{margin-top:0}.detail-body ul,.detail-body ol{padding-left:22px;margin:12px 0}.detail-body li+li{margin-top:11px}.cache-explainer{display:flex;align-items:center;justify-content:center;gap:22px;flex-wrap:wrap;padding:26px 0}.chunk-grid{display:grid;grid-template-columns:repeat(6,20px);gap:5px}.chunk-grid i{height:20px;border:1px solid #b8c8de;background:#e8eef6;border-radius:3px}.chunk-grid i.used{background:var(--soft-teal);border:2px solid var(--teal)}.cache-legend{max-width:420px;font-size:13px}.status-note{display:flex;gap:14px;padding:18px 20px;background:#eaf1fd;border-radius:12px;margin-bottom:25px;align-items:flex-start}.status-note b{font-size:13px;white-space:nowrap;color:#1e5099}.status-note p{font-size:14px;line-height:1.8}.data-grid{display:grid;grid-template-columns:1.3fr .8fr;gap:28px;align-items:start}.measure-title{font-size:13px;color:var(--muted);margin-bottom:7px}.segmented{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 25px}.chart-axis{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-left:90px;margin-right:70px;margin-bottom:8px}.chart-row{display:grid;grid-template-columns:78px 1fr 59px;gap:12px;align-items:center;margin:20px 0}.chart-name{font-size:12px;font-weight:650}.track{height:37px;background:#edf1f6;border-radius:5px;position:relative}.bar{height:100%;border-radius:5px;background:var(--blue);width:71%;transition:width .75s var(--ease)}.bar.on{background:var(--teal);width:80.4286%}.chart-num{font-size:15px;font-variant-numeric:tabular-nums;text-align:right;font-weight:750}.chart-result{margin-top:23px;padding-top:19px;border-top:1px solid var(--line);font-size:20px;font-weight:750}.chart-result small{display:block;font-size:12px;font-weight:400;margin-top:7px}.evidence-aside{padding:12px 0 0}.evidence-aside h3{font-size:18px;margin-bottom:12px}.evidence-aside p{font-size:14px;line-height:1.85}.evidence-aside .boundary{padding:15px 0;margin:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}table{border-collapse:collapse;width:100%;text-align:left;font-size:13px;line-height:1.8}caption{font-weight:650;text-align:left;margin-bottom:12px}th,td{padding:13px 12px;border-bottom:1px solid var(--line);vertical-align:top}th{background:#edf3fa;font-weight:650}td:first-child{font-weight:650}thead th{white-space:normal}.table-scroll{overflow-x:auto}.compat th:first-child{width:30%}.good{color:var(--teal);font-weight:700}.no{color:var(--muted);font-weight:700}.footnote{margin-top:15px;font-size:13px;color:var(--muted)}.time-frame{padding:26px;background:white;border:1px solid var(--line);border-radius:16px}.bracket{border-top:2px solid var(--ink);border-left:2px solid var(--ink);border-right:2px solid var(--ink);height:10px;margin-top:10px;position:relative}.scope-caption{text-align:center;font-size:14px;font-weight:700}.time-track{display:grid;grid-template-columns:1fr 1.1fr 1.1fr 1fr;gap:5px;margin-top:10px}.time-block{background:#edf1f6;text-align:center;min-height:91px;padding:16px 7px;display:flex;align-items:center;justify-content:center;flex-direction:column;font-size:13px;line-height:1.7}.time-block.init{background:var(--soft-blue);color:#1b51b5}.time-block.run{background:var(--soft-teal);color:#076b63}.time-block small{font-size:10px;margin-top:6px;color:inherit}.time-bottom{display:grid;grid-template-columns:1fr 1.1fr 1.1fr 1fr;gap:5px;margin-top:7px;font-size:10px;text-align:center;color:var(--muted)}.time-bottom span{border-top:2px solid var(--line);padding-top:6px}.time-bottom .init-scope{border-color:var(--blue);color:var(--blue)}.time-bottom .run-scope{border-color:var(--teal);color:var(--teal)}.measure-rules{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:27px}.measure-rules h3{font-size:16px;margin-bottom:8px}.measure-rules p{font-size:14px;color:var(--muted)}.decision{display:grid;grid-template-columns:160px 1fr;gap:14px 22px;border-top:1px solid var(--line);padding:21px 0}.decision:last-child{border-bottom:1px solid var(--line)}.decision .condition{font-size:13px;color:var(--muted)}.decision h3{font-size:17px;margin-bottom:7px}.decision p{font-size:14px;color:var(--muted)}.source-list{list-style:none;padding:0!important;margin:0!important;counter-reset:source}.source-list li{display:grid;grid-template-columns:28px 1fr;gap:10px;padding:14px 0;border-bottom:1px solid #e3eaf4;counter-increment:source;scroll-margin-top:90px}.source-list li::before{content:counter(source);font-variant-numeric:tabular-nums;font-size:12px;color:var(--muted)}.source-list li:last-child{border-bottom:0}.source-list a{font-size:14px}.source-list small{display:block;margin-top:4px;font-size:12px}.source-list li:target{background:#eaf1ff;outline:6px solid #eaf1ff}.footer{padding:32px 0 45px;color:var(--muted);font-size:12px}.footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}.footer a{color:var(--muted)}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:850px){.wrap{width:calc(100% - 40px)}.hero{padding-top:43px}.summary-grid{gap:18px}.summary-grid article+article{padding-left:18px}.diagram-labels,.lane{grid-template-columns:120px 1fr 1fr 1fr;gap:10px}.node{padding:14px 11px}.lane-name b{font-size:18px}.node:not(:last-child)::after{right:-11px;width:10px}.plate{padding:22px}.data-grid{grid-template-columns:1fr;gap:10px}.evidence-aside{padding-top:16px}.measure-rules{gap:17px}}
+@media(max-width:600px){body{font-size:15px}.wrap{width:calc(100% - 32px)}.topbar .wrap{min-height:57px;gap:12px}.toplinks{gap:13px;font-size:12px}.toplinks .desktop-link{display:none}.brand{font-size:12px}.hero{padding:31px 0 32px}.meta{font-size:11px;margin-bottom:19px}.hero-lead{font-size:16px;margin-top:19px}.summary-grid{grid-template-columns:1fr;gap:17px;padding:19px 0}.summary-grid article+article{border-left:0;padding-left:0;border-top:1px solid #e1e8f3;padding-top:17px}.summary-grid h2{font-size:18px}.summary-grid p{font-size:13px}.verdict-label{font-size:11px}.section{padding:32px 0}.section-head{display:block}.section-head p{font-size:14px}.read-label{display:none}.plate{padding:18px 14px}.plate-head{gap:12px;align-items:start}.plate-head h3{font-size:14px}.btn{padding:8px 10px;font-size:12px}.diagram-labels{display:none}.lane{grid-template-columns:1fr;gap:9px;margin-bottom:23px}.lane-name{padding:4px 1px 5px;display:flex;flex-direction:row;align-items:baseline;justify-content:space-between;gap:8px}.lane-name b{font-size:20px}.lane-name span{margin-top:0;max-width:60%;text-align:right;font-size:10px}.node{min-height:0;padding:12px 14px;display:grid;grid-template-columns:42px 1fr;column-gap:12px}.node b{margin:0;font-size:13px}.node span{grid-column:2;font-size:11px}.glyph{grid-row:1/3;align-self:center}.node:not(:last-child)::after{content:'⌄';top:auto;bottom:-12px;left:calc(50% - 6px);font-size:18px;width:12px;height:12px;line-height:11px}.diagram-progress{margin-top:5px}.flow-caption{font-size:12px;min-height:63px}.insights{grid-template-columns:1fr;gap:19px}.notice{font-size:13px;padding:13px}.status-note{display:block;padding:15px}.status-note b{display:block;margin-bottom:6px}.status-note p{font-size:13px}.chart-axis{margin-left:76px;margin-right:64px}.chart-row{grid-template-columns:65px 1fr 52px;gap:10px}.chart-name{font-size:11px}.chart-num{font-size:13px}.track{height:32px}.chart-result{font-size:18px}.time-frame{padding:18px 10px}.time-block{font-size:11px;padding:13px 3px;min-height:92px}.time-block small{font-size:9px}.scope-caption{font-size:13px}.time-bottom{font-size:9px}.measure-rules{grid-template-columns:1fr;gap:18px}.measure-rules h3{font-size:16px}.decision{grid-template-columns:1fr;gap:5px;padding:18px 0}.decision .condition{font-size:12px}.decision h3{font-size:16px}summary{font-size:13px;padding:14px 14px;margin-left:15px}details .detail-body{padding:17px 15px;font-size:13px}th,td{font-size:12px;padding:11px 9px}.compat th:first-child{width:34%}.cache-explainer{gap:16px}.source-list a{font-size:13px}.source-list small{font-size:11px}.source-list li{grid-template-columns:20px 1fr;gap:7px}.footer{padding:24px 0}.footer .wrap{gap:12px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.diagram .node{transform:none!important}}
+html[data-motion="off"]{scroll-behavior:auto}html[data-motion="off"] *,html[data-motion="off"] *::before,html[data-motion="off"] *::after{animation:none!important;transition:none!important}html[data-motion="off"] .diagram .node{transform:none!important}
+@media print{.topbar,.js-control,.skip{display:none!important}.wrap{width:100%}.hero{padding-top:0}.section{padding:20px 0}.plate,details,.time-frame{break-inside:avoid}.section-head{margin-bottom:12px}body{font-size:11pt;background:white}h1{font-size:27pt}h2{font-size:19pt}.footer{padding-bottom:0}a{color:inherit}.source-list{font-size:9pt}.bar{print-color-adjust:exact;-webkit-print-color-adjust:exact}.summary-grid{display:block}.summary-grid article+article{border:0;padding-left:0;margin-top:12px}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">本文へ移動</a>
+<header class="topbar"><div class="wrap"><a class="brand" href="/">共有レポート / Lambda</a><nav class="toplinks" aria-label="ページ内"><a href="#routes">仕組み</a><a href="#evidence">実測</a><a class="desktop-link" href="#measurement">測り方</a><a href="#sources">出典</a></nav></div></header>
+<main id="main" class="wrap">
+<section class="hero" aria-labelledby="title">
+<div class="meta"><span class="chip">2026年10月14日 調査</span><span>文献調査 / AWS環境での独自実測は未実施</span></div>
+<h1 id="title">GoのLambda、<br>ZIPとコンテナは<br>どちらが速い？</h1>
+<p class="hero-lead"><strong>ZIPが最速とは限らない。<br>公式OSイメージでも、同速の保証はない。</strong><br>配布形式だけでは勝敗は決まらない。Goの同一アプリを同じ条件で測るまでは、「何ms速い」とは言い切れない。</p>
+<div class="summary-grid">
+<article><span class="verdict-label">仕組みから分かること</span><h2>コンテナには専用の最適化</h2><p>Lambdaはイメージの事前処理・キャッシュ・必要部分の読み込みを活用する。「毎回、巨大なDockerイメージを丸ごと取得する」だけの構造ではない。<sup><a href="#source-3" aria-label="出典3">[3]</a></sup></p></article>
+<article><span class="verdict-label">実測でまだ言えないこと</span><h2>Goの普遍的な速度差</h2><p>今回確認できた資料では、現在のGoを同一条件でZIPと公式OSイメージに分けた、十分な直接比較は見つからなかった。他言語の数値はGoの予測値にしない。</p></article>
+<article><span class="verdict-label">この調査からの判断</span><h2>速度だけを理由に移行しない</h2><p>既存の公式コンテナをZIPに戻す根拠は、一般論だけでは弱い。まず応答時間の比較を。厳しい遅延要件なら、配布形式とは別にProvisioned Concurrencyを検討する。<sup><a href="#source-10" aria-label="出典10">[10]</a></sup></p></article>
+</div>
+</section>
+
+<section class="section" id="routes" aria-labelledby="routes-title">
+<div class="section-head"><div><h2 id="routes-title">同じGoでも、届き方が違う。</h2><p>ZIPかコンテナかは「配送方式」。Goの初期化が終わっているかは、別の話。</p></div><span class="read-label">概念図 / 時間の比較ではありません</span></div>
+<figure class="plate">
+<div class="plate-head"><h3>オンデマンドの新しい実行環境に届くまで</h3><button class="btn primary js-control" id="replay" hidden>流れを再生</button></div>
+<div class="diagram" id="flow" data-step="0">
+<div class="diagram-labels" aria-hidden="true"><span>配布形式</span><span>コードの準備</span><span>実行に必要な状態へ</span><span>アプリケーション</span></div>
+<div class="lane">
+<div class="lane-name"><b>ZIP</b><span>Goバイナリ +<br>provided.al2023</span></div>
+<div class="node s1"><div class="glyph" aria-hidden="true"><i></i><i></i><i></i></div><b>ZIPのコードを用意</b><span>配布パッケージを<br>実行環境へ</span></div>
+<div class="node s2"><div class="glyph" aria-hidden="true"><i></i><i></i><i></i></div><b>取得・展開</b><span>実行するファイルを<br>利用可能にする</span></div>
+<div class="node final s3"><div class="glyph go" aria-hidden="true">Go</div><b>Go初期化 → 処理</b><span>静的初期化・接続準備など<br>その後、ハンドラー</span></div>
+</div>
+<div class="lane image">
+<div class="lane-name"><b>Image</b><span>Goバイナリ +<br>provided:al2023 など</span></div>
+<div class="node s1"><div class="glyph" aria-hidden="true"><i></i><i></i><i></i></div><b>配置時に事前処理</b><span>ECRイメージから<br>配信に適した形式を準備</span></div>
+<div class="node s2"><div class="glyph" aria-hidden="true"><i></i><i></i><i></i></div><b>必要部分を読み込む</b><span>キャッシュを活用<br>未取得部分は要求時に取得</span></div>
+<div class="node final s3"><div class="glyph go" aria-hidden="true">Go</div><b>Go初期化 → 処理</b><span>こちらもネイティブ実行<br>初期化済みとは限らない</span></div>
+</div>
+<div class="diagram-progress" aria-hidden="true"><i id="flow-progress"></i></div>
+<p class="flow-caption" id="flow-status" aria-live="polite">同じアーキテクチャ・同じGoバイナリを基準に比較する。箱の幅とアニメーションの長さは実測時間を表しません。</p>
+</div>
+<figcaption class="small">図は起動経路を簡略化したもの。イメージの事前処理は呼び出し前に行われ、必要部分の読み込みは初期化中・実行中にも発生し得ます。内部構成はAWSの2023年論文に基づきます。<sup><a href="#source-1" aria-label="出典1">[1]</a><a href="#source-3" aria-label="出典3">[3]</a></sup></figcaption>
+</figure>
+<div class="insights">
+<article><h3>公式ベースイメージの利点はある</h3><p>AWSは公式イメージを積極的にキャッシュすると説明している。ただし元資料は主に配置・更新の最適化の話。「Goの各コールドスタートがZIPと同速」と保証する記述ではない。<sup><a href="#source-2" aria-label="出典2">[2]</a></sup></p></article>
+<article><h3>小さい独自イメージにも、一律の勝敗はない</h3><p>イメージ全体のサイズと、起動時に実際に読む量は別。キャッシュの当たり方や初期化処理も関わるため、総MB数だけの比較では不足する。独自イメージもLambda側の読み込み方式の対象になる。<sup><a href="#source-3" aria-label="出典3">[3]</a></sup></p></article>
+</div>
+<details><summary>もう一段深く：キャッシュは「Goが起動済み」という意味ではない</summary><div class="detail-body">
+<div class="cache-explainer"><div class="chunk-grid" aria-hidden="true"><i></i><i class="used"></i><i class="used"></i><i></i><i></i><i></i><i></i><i></i><i class="used"></i><i class="used"></i><i></i><i></i><i></i><i class="used"></i><i></i><i></i><i></i><i class="used"></i></div><p class="cache-legend">色付きのブロックは、その時点で必要な部分のイメージ。割合は模式的で、実測ではありません。</p></div>
+<p>AWSの論文では、配置時にOCIレイヤーをブロック形式のファイルシステムへ平坦化し、重複排除と段階的なキャッシュを使い、必要な部分を要求時に読み込む方式を説明している。通常のDockerホストで起動する処理を、そのまま各Lambda呼び出しに当てはめるのは不正確。<sup><a href="#source-3" aria-label="出典3">[3]</a></sup></p>
+<p><strong>バイト列のキャッシュ、初期化済みのスナップショット、実行待機中の環境は別物。</strong>最後のものを用意するのがProvisioned Concurrency。ベースイメージがキャッシュされていても、アプリの初期化やDB接続の待ち時間が消えるとは限らない。<sup><a href="#source-2" aria-label="出典2">[2]</a><a href="#source-5" aria-label="出典5">[5]</a><a href="#source-10" aria-label="出典10">[10]</a></sup></p>
+</div></details>
+</section>
+
+<section class="section" id="evidence" aria-labelledby="evidence-title">
+<div class="section-head"><div><h2 id="evidence-title">数字は、比較した条件とセット。</h2><p>Goの実測がない部分を、RustやNode.jsの数字で埋めない。</p></div></div>
+<div class="status-note"><b>Goの直接比較は未確認</b><p>「Go / ZIP」と「同じGo / AWS公式OSイメージ」のどちらが何ms速いかは、この調査では確定していません。以下は<strong>仕組みの理解に役立つ、別の比較</strong>です。</p></div>
+<div class="data-grid">
+<figure class="plate">
+<p class="measure-title">参考実測：RustコンテナのSnapStart有無</p><h3 id="case-title">最小関数では、66ms遅かった。</h3>
+<div class="segmented js-control" id="case-controls" role="group" aria-label="Rustの測定ケース" hidden><button class="btn" data-case="light" aria-pressed="true">最小関数</button><button class="btn" data-case="heavy" aria-pressed="false">重い辞書初期化</button></div>
+<div aria-label="コールド呼び出しのクライアント往復時間、中央値、ミリ秒">
+<div class="chart-axis" aria-hidden="true"><span>0</span><span id="axis-mid">350</span><span id="axis-max">700 ms</span></div>
+<div class="chart-row"><span class="chart-name">SnapStart<br>なし</span><div class="track" aria-hidden="true"><div class="bar" id="bar-off"></div></div><span class="chart-num" id="value-off">497</span></div>
+<div class="chart-row"><span class="chart-name">SnapStart<br>あり</span><div class="track" aria-hidden="true"><div class="bar on" id="bar-on"></div></div><span class="chart-num" id="value-on">563</span></div>
+</div>
+<p class="chart-result" id="chart-result" aria-live="polite">+66 ms <small>中央値の差（あり − なし）。小さいほど速い。</small></p>
+<figcaption class="small" style="margin-top:18px">東京 / x86_64 / 512 MB。日本国内のクライアントからInvokeした往復時間のp50。2026年9月4日の公開実測を再描画。2本の棒は同じ目盛りで、ケース切替時には最大目盛りも変わります。<sup><a href="#source-7" aria-label="出典7">[7]</a></sup></figcaption>
+</figure>
+<aside class="evidence-aside"><h3>SnapStartは、初期化を<br>「復元」に置き換える。</h3><p>元の初期化が軽いと、復元にかかる時間が上回る場合がある。逆に重い初期化では改善が大きくなり得る。<sup><a href="#source-7" aria-label="出典7">[7]</a></sup></p><div class="boundary"><p><strong>このグラフはGoの性能予測でも、ZIP対コンテナの比較でもありません。</strong>Goでの改善率や、「何秒以上なら必ず得」という境界値は、ここからは決められません。</p></div><p class="small">p50は中央値。まれに遅い呼び出しが問題になる用途では、p95・p99などの裾側と、失敗・再試行も別に評価します。</p></aside>
+</div>
+<details><summary>出典の実測表と、ZIP対コンテナの別の実験を見る</summary><div class="detail-body">
+<div class="table-scroll"><table><caption>Rustのクライアント往復時間（ms）<sup><a href="#source-7" aria-label="出典7">[7]</a></sup></caption><thead><tr><th>処理</th><th>指標</th><th>SnapStartなし</th><th>あり</th></tr></thead><tbody><tr><td>最小関数</td><td>p50 / p90</td><td>497 / 507</td><td>563 / 630</td></tr><tr><td>辞書初期化 約4.6秒</td><td>p50 / p90</td><td>4,894 / 5,045</td><td>884 / 1,000</td></tr></tbody></table></div>
+<p class="footnote">同じイメージの別関数で比較した観測値。軽い関数と重い関数を混ぜた集計ではありません。サンプル数・並列実行・事前初期化の除外手順などは出典を参照。表から算出した重いケースの短縮率は約81.9%、速度比は約5.5倍であり、AWSの保証値ではありません。</p>
+<h3>2024年のZIP対コンテナ比較は、Goではない</h3>
+<p>AJ Stuyvenberg氏の実験はNode.js 18とPython 3.11が対象。同一リージョンでコールド呼び出しの往復時間を測り、追加依存がNode.jsで約30 MB、Pythonで約200 MBを超える条件ではコンテナ優位と報告している。数千回の測定だが、これらの閾値を現在のGoやイメージ全体のサイズに転用することはできない。<sup><a href="#source-4" aria-label="出典4">[4]</a></sup></p>
+<p>この実験が否定するのは「どんな関数でもZIPが必ず速い」という一般化。Goの同速や優劣を直接証明するものではない。</p>
+</div></details>
+</section>
+
+<section class="section" id="snapstart" aria-labelledby="snap-title">
+<div class="section-head"><div><h2 id="snap-title">GoのSnapStartは、コンテナで条件付き。</h2><p>2026年9月2日にコンテナイメージ対応が発表された。OSイメージを選ぶだけで、安全に有効になるわけではない。<sup><a href="#source-5" aria-label="出典5">[5]</a><a href="#source-6" aria-label="出典6">[6]</a></sup></p></div></div>
+<div class="plate"><table class="compat"><thead><tr><th>Goの配置方法</th><th>SnapStart</th><th>確認すること</th></tr></thead><tbody><tr><td>ZIP + <code>provided.al2023</code></td><td class="no">対象外</td><td>GoのOS-only ZIPは対応対象として案内されていない。<sup><a href="#source-15" aria-label="出典15">[15]</a></sup></td></tr><tr><td>公式OSイメージ + Go</td><td class="good">条件付き対応</td><td><code>provided:al2023</code>でも互換性確認と、フックまたは所定ラベルが必要。<sup><a href="#source-6" aria-label="出典6">[6]</a></sup></td></tr><tr><td>独自ベースイメージ + Go</td><td class="good">条件付き対応</td><td>Lambda Runtime APIへの対応に加え、スナップショットの安全性を確認する。<sup><a href="#source-1" aria-label="出典1">[1]</a><a href="#source-6" aria-label="出典6">[6]</a></sup></td></tr></tbody></table>
+<p class="footnote">利用時はSnapStart設定を有効化してバージョンを発行し、そのバージョンまたはエイリアスを呼び出す。<code>$LATEST</code>は対象外。同じバージョンでProvisioned Concurrencyとは併用できない。<sup><a href="#source-15" aria-label="出典15">[15]</a><a href="#source-16" aria-label="出典16">[16]</a></sup></p></div>
+<div class="notice"><strong>「DB接続が遅いから、その接続ごと保存」で完了ではない。</strong><br>初期化で作った一意ID、時刻に依存する状態、認証情報、ネットワーク接続は復元後の扱いを検証する。復元時の再接続や再取得の時間も応答時間に含める。<sup><a href="#source-6" aria-label="出典6">[6]</a><a href="#source-15" aria-label="出典15">[15]</a></sup></div>
+<details><summary>フック・ラベル・料金と、古い資料との読み分け</summary><div class="detail-body">
+<p>独自ランタイムで復元前後の処理が必要なら、公式のライフサイクルAPIを実装する。フックが不要だと検証できた場合は、次のラベルで対応を明示できる。ラベルは安全性を自動検証するものではない。<sup><a href="#source-6" aria-label="出典6">[6]</a></sup></p>
+<pre><code># 復元後の状態の安全性を確認し、フックが不要な場合だけ
+LABEL com.amazonaws.lambda.feature.snapstart="Allow"</code></pre>
+<p>コンテナのSnapStartにはスナップショットのキャッシュと復元の追加課金がある。料金はメモリ量・バージョン・復元回数などに依存するため、「Javaの一部構成で追加料金なし」をGoコンテナへ一般化しない。正確な対象リージョン・単価は料金表で確認する。<sup><a href="#source-12" aria-label="出典12">[12]</a><a href="#source-16" aria-label="出典16">[16]</a></sup></p>
+<p><strong>資料の鮮度に注意。</strong>今回取得できた概要ページには「コンテナ非対応」という旧記載が残る一方、2026年9月2日の発表とコンテナ専用ガイドは対応を明記している。本レポートは新しい発表と専用ガイドを優先した。2026年10月6日は解説記事の公開日であり、対応開始日ではない。実AWSアカウントでの有効化はこの調査では試していない。<sup><a href="#source-5" aria-label="出典5">[5]</a><a href="#source-6" aria-label="出典6">[6]</a><a href="#source-15" aria-label="出典15">[15]</a><a href="#source-16" aria-label="出典16">[16]</a></sup></p>
+</div></details>
+</section>
+
+<section class="section" id="measurement" aria-labelledby="measure-title">
+<div class="section-head"><div><h2 id="measure-title">Init Durationだけを競わせない。</h2><p>利用者の待ち時間と、Lambdaの初期化ログは、同じ時計ではない。</p></div></div>
+<figure class="time-frame"><div class="scope-caption">クライアントの要求開始から、応答の完了まで</div><div class="bracket" aria-hidden="true"></div><div class="time-track"><div class="time-block">通信・サービス側の<br>準備など</div><div class="time-block init">拡張機能・ランタイム<br>アプリ初期化<small>通常のInit</small></div><div class="time-block run">ハンドラーの処理<small>通常の実行</small></div><div class="time-block">応答処理・通信<br>など</div></div><div class="time-bottom"><span>Initの外側にも時間</span><span class="init-scope">Init Duration</span><span class="run-scope">Duration</span><span>利用者へ戻るまで</span></div><figcaption class="small" style="margin-top:19px">通常のオンデマンド初期化を簡略化した範囲図。箱の幅は実測の比率ではありません。SnapStartのRestore DurationはMicroVM外の処理も含み得るため、Init Durationと完全に同じ範囲の指標ではありません。<sup><a href="#source-8" aria-label="出典8">[8]</a><a href="#source-9" aria-label="出典9">[9]</a></sup></figcaption></figure>
+<div class="measure-rules"><article><h3>まず、往復時間</h3><p>呼び出し元で応答完了まで計測し、同じ条件で比較する。InitやRestoreは「なぜ遅いか」の切り分けに使う。<sup><a href="#source-4" aria-label="出典4">[4]</a><a href="#source-9" aria-label="出典9">[9]</a></sup></p></article><article><h3>コールド群を分ける</h3><p>全体のp99だけでは、頻度が低いコールドを見落とし得る。コールド比率・件数・コールド群のp95/p99を、全体の値と分けて残す。</p></article><article><h3>同じ呼び出しを足す</h3><p>一般に <code>p95(A) + p95(B)</code> は <code>p95(A+B)</code> ではない。内訳を合算する場合は、呼び出しごとに足してから分位点を取る。</p></article></div>
+<details><summary>再現できる比較の設計：何を揃え、何を記録するか</summary><div class="detail-body">
+<h3>第1段階は配布方式だけを変える</h3>
+<p>比較の提案：同一Goソース・ビルドフラグ・アーキテクチャ・依存関係のバイナリを使い、ZIPと公式OSイメージを用意する。静的リンクなどで実行条件を揃えられることを確認し、SHA-256を記録する。メモリ、リージョン、ネットワーク、拡張機能、トリガー、接続先、入力、タイムアウトも揃える。</p>
+<p>Gin/EchoをWeb Adapter経由で動かす構成と、Runtime APIを直接扱うGoハンドラーを混ぜない。アダプターや起動確認の違いまで「ZIP対コンテナ」の差にしない。公式OSイメージと独自イメージの比較は次の段階に分ける。<sup><a href="#source-1" aria-label="出典1">[1]</a></sup></p>
+<h3>第2段階でメモリとアーキテクチャを調整</h3>
+<p>例えば512 / 1,024 / 1,769 MBを別条件として比較する。これは検証候補であって最適値ではない。AWSではメモリに応じてCPU資源が増え、1,769 MBで1 vCPU相当となるが、初期化全体が比例して短くなるとは限らない。arm64とx86_64の差も、配布方式の差から分離する。<sup><a href="#source-11" aria-label="出典11">[11]</a></sup></p>
+<h3>コールドの作り方と、測れないものを残す</h3>
+<ul><li>新規配置直後、しばらく使わなかった後、並列数を増やした時を別ケースにする。新しい環境でも、AWS内部のイメージキャッシュまで空になったとは限らない。<sup><a href="#source-3" aria-label="出典3">[3]</a></sup></li><li>環境変数の変更などで新規環境を促す方法はあるが、オンデマンドでも事前初期化が起こり得る。Initログの存在だけで、その時間を要求が待ったと断定しない。<sup><a href="#source-4" aria-label="出典4">[4]</a><a href="#source-8" aria-label="出典8">[8]</a></sup></li><li>失敗後の再初期化（suppressed init）やタイムアウトを捨てない。通常のInitは10秒を超えると呼び出し時に再試行される場合があるため、極端に重い初期化の倍率には、この挙動が混ざり得る。<sup><a href="#source-8" aria-label="出典8">[8]</a></sup></li><li>提案として各条件100件程度から傾向を見て、p99を重視するなら1,000件以上など追加標本とばらつきを検討する。固定回数で信頼性が保証されるわけではない。n、測定期間、失敗率、分位点の計算法も記録する。</li></ul>
+<p>API Gatewayの<code>IntegrationLatency</code>は統合先との往復、Function URLの<code>UrlRequestLatency</code>はURL側での受信から応答まで。どちらもブラウザーとAWS間の通信をすべて含む指標ではない。<sup><a href="#source-9" aria-label="出典9">[9]</a></sup></p>
+<p><strong>このページではAWS関数の作成・負荷試験・課金を伴う検証は実施していない。</strong>ここに書いた測定設計は、公開資料と測定上の考え方からの提案である。</p>
+</div></details>
+</section>
+
+<section class="section" id="decision" aria-labelledby="decision-title"><div class="section-head"><div><h2 id="decision-title">では、どこから手を付ける？</h2><p>配布方式の引っ越しより先に、遅い部分を切り分ける。</p></div></div>
+<div class="decision"><div class="condition">すでに公式コンテナで稼働</div><div><h3>構成を維持して、ZIPとのA/Bを先に。</h3><p>「ZIPは軽いから速いはず」だけでは移行しない。差が実測できなければ、運用・配布のしやすさで選ぶ。これは調査からの判断であり、速度保証ではない。</p></div></div>
+<div class="decision"><div class="condition">小さいGo関数を新しく作る</div><div><h3>ZIPは単純な出発点。最速の証明ではない。</h3><p>コンテナが必要なら、最終イメージにビルドツールを残さない。<code>-tags lambda.norpc</code>は不要な旧RPC処理を除き、バイナリを小さくできる。改善幅は実測する。<sup><a href="#source-1" aria-label="出典1">[1]</a><a href="#source-2" aria-label="出典2">[2]</a></sup></p></div></div>
+<div class="decision"><div class="condition">アプリの初期化が重い</div><div><h3>初期化を整理し、SnapStart有無を測る。</h3><p>復元後も安全な状態か確認する。重い処理をハンドラーへ移してInitだけ短くしても、初回応答が短くなるとは限らない。<sup><a href="#source-6" aria-label="出典6">[6]</a></sup></p></div></div>
+<div class="decision"><div class="condition">まれな遅さも厳しく制限</div><div><h3>Provisioned Concurrencyを別軸で検討。</h3><p>初期化済み環境を待機させる選択肢。ただし確保数を超える呼び出し、ハンドラーや接続先の遅延は別途考える。Reserved Concurrencyは同時実行数の制御であり、事前起動ではない。追加料金も比較する。<sup><a href="#source-10" aria-label="出典10">[10]</a><a href="#source-12" aria-label="出典12">[12]</a></sup></p></div></div>
+<details><summary>採用しなかった数字・古い前提</summary><div class="detail-body"><p>「Goコンテナ20 ms」「9 MBなら35〜45 ms」という値は、提示されていた2023年のエムスリー記事から根拠を確認できなかったため、採用していない。同記事のローカルRIE実行ログを、AWS本番のコールド往復時間に置き換えることもできない。<sup><a href="#source-14" aria-label="出典14">[14]</a></sup></p><p>小標本のGoのInitだけを、コンテナの往復時間と並べた順位表は作らない。また、旧ベンチマークの「マネージドZIPのInitは非課金」という費用前提は、2025年8月1日の課金統一後の判断には使わない。<sup><a href="#source-13" aria-label="出典13">[13]</a></sup></p></div></details>
+</section>
+
+<section class="section" id="sources" aria-labelledby="sources-title"><div class="section-head"><div><h2 id="sources-title">出典と、確認できた範囲。</h2><p>公式の仕様、AWSのシステム論文、実験者自身の報告を区別して参照。</p></div><button class="btn js-control" id="motion" aria-pressed="false" hidden>動きを止める</button></div>
+<details id="source-details"><summary>一次資料・実測の出典 16件</summary><div class="detail-body"><ol class="source-list">
+<li id="source-1"><div><a href="https://docs.aws.amazon.com/lambda/latest/dg/go-image.html">AWS：Deploy Go Lambda functions with container images</a><small>公式ドキュメント。GoのRuntime API、OS-only / 独自イメージ、lambda.norpc。2026-10-14参照。</small></div></li>
+<li id="source-2"><div><a href="https://aws.amazon.com/blogs/compute/optimizing-lambda-functions-packaged-as-container-images/">AWS：Optimizing Lambda functions packaged as container images</a><small>2021-01-11。公式イメージの事前キャッシュ、マルチステージ、更新順序。古いランタイム・サイズの例は現行値として採用しない。</small></div></li>
+<li id="source-3"><div><a href="https://www.usenix.org/conference/atc23/presentation/brooker">AWS著者 / USENIX ATC 2023：On-demand Container Loading in AWS Lambda</a><small>2023年7月。配置時の平坦化、要求時の読み込み、重複排除とキャッシュ。論文が説明する時点の設計であり、内部詳細の永続保証ではない。</small></div></li>
+<li id="source-4"><div><a href="https://aaronstuyvenberg.com/posts/containers-on-lambda">AJ Stuyvenberg：The case for containers on Lambda (with benchmarks)</a><small>2024-01-02。実験者によるNode.js / PythonのZIP対コンテナ比較。Goは対象外。</small></div></li>
+<li id="source-5"><div><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/aws-lambda-snapstart-container/">AWS：SnapStart for container image functions</a><small>ページ記載の発表日は2026-09-02。URL中の「07」を発表月として扱わない。</small></div></li>
+<li id="source-6"><div><a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart-runtime-hooks-custom.html">AWS：Implementing SnapStart hooks for container images</a><small>公式のコンテナ専用ガイド。provided.al2023・独自RICの対応手順、復元フック、Allowラベル、状態の一意性。2026-10-14参照。</small></div></li>
+<li id="source-7"><div><a href="https://dev.classmethod.jp/articles/lambda-snapstart-container-benchmark/">DevelopersIO：Lambda SnapStartがコンテナイメージに対応したので試してみた</a><small>中村修太氏、2026-09-04。Rust / TypeScriptの本人実測。本ページのチャートはRustのクライアント往復時間だけを使用。</small></div></li>
+<li id="source-8"><div><a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtime-environment.html">AWS：Lambda execution environment lifecycle</a><small>Initの範囲・タイムアウト・事前初期化・suppressed init。2026-10-14参照。</small></div></li>
+<li id="source-9"><div><a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart-monitoring.html">AWS：Monitoring for Lambda SnapStart</a><small>RestoreとBilled Restoreの違い、ログ、API Gateway / Function URLの計測範囲。2026-10-14参照。</small></div></li>
+<li id="source-10"><div><a href="https://docs.aws.amazon.com/lambda/latest/dg/provisioned-concurrency.html">AWS：Configuring provisioned concurrency</a><small>初期化済み環境の確保、同時実行数と呼び出し先バージョン。2026-10-14参照。</small></div></li>
+<li id="source-11"><div><a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-memory.html">AWS：Configure Lambda function memory</a><small>メモリとCPU配分、1,769 MBの1 vCPU相当。2026-10-14参照。</small></div></li>
+<li id="source-12"><div><a href="https://aws.amazon.com/lambda/pricing/">AWS Lambda Pricing</a><small>SnapStartのキャッシュ・復元とProvisioned Concurrencyの料金。単価はリージョン・構成を指定して再確認する。</small></div></li>
+<li id="source-13"><div><a href="https://aws.amazon.com/blogs/compute/aws-lambda-standardizes-billing-for-init-phase/">AWS：AWS Lambda standardizes billing for INIT phase</a><small>2025-08-01からのInit課金統一。過去ベンチマークの費用前提を読み替える根拠。</small></div></li>
+<li id="source-14"><div><a href="https://www.m3tech.blog/entry/2023/08/31/110000">エムスリーテックブログ：2023年8月31日のGo Lambdaコンテナ解説</a><small>コンテナ構成とローカル実行の参考。過去に引用されていたGoの20ms等のクラウド比較値は本文から確認できず。</small></div></li>
+<li id="source-15"><div><a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">AWS：Improving startup performance with Lambda SnapStart</a><small>互換性と対応制限。取得版に旧コンテナ非対応記載があるため、その箇所は出典5・6の新情報を優先。2026-10-14参照。</small></div></li>
+<li id="source-16"><div><a href="https://aws.amazon.com/blogs/compute/get-started-with-aws-lambda-snapstart-for-container-images/">AWS：Get started with AWS Lambda SnapStart for container images</a><small>2026-10-06公開の解説。配置・バージョン発行・コンテナの料金項目。9月の対応発表とは別。</small></div></li>
+</ol></div></details>
+<details><summary>調査範囲・更新履歴</summary><div class="detail-body"><p><strong>対象：</strong>GoをRuntime API経由で実行する通常のLambda関数。ZIP、公式OS-onlyイメージ、独自ベースイメージの配布と、SnapStart / Provisioned Concurrencyの違い。独自AWSベンチマーク、全ランタイム網羅、利用中アカウントの構成診断は含まない。</p><p><strong>2026-10-14 初版：</strong>AWSの発表・専用ガイドと旧概要の記述差を整理。Goの未確認値を採用せず、Rustの参考実測を別枠で図示。Initと往復時間の違い、比較設計を追加。</p><p>公開資料の取得時点や記載の更新に差があり、Goの同条件比較は未確認。内部キャッシュの実装・数値は、公開資料の時点と条件を超えて保証されるものではない。</p></div></details>
+</section>
+</main>
+<footer class="footer"><div class="wrap"><p>2026年10月14日版 · 文献調査レポート<br>外部JavaScript・外部フォント・アクセス解析は使用していません。</p><p><a href="/">レポート一覧</a> / <a href="/feed.xml">RSS</a> / <a href="#main">先頭へ</a></p></div></footer>
+<script>
+(()=>{'use strict';
+ const $=id=>document.getElementById(id);
+ const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
+ let manualOff=false,timers=[];
+ const flow=$('flow'),replay=$('replay'),motion=$('motion');
+ function quiet(){return manualOff||reduced.matches;}
+ function clearFlow(){timers.forEach(clearTimeout);timers=[];flow.dataset.step='0';replay.disabled=false;}
+ function setStep(n){flow.dataset.step=String(n);$('flow-progress').style.width=(n/3*100)+'%';}
+ function refreshMotion(){
+  document.documentElement.dataset.motion=quiet()?'off':'on';
+  motion.setAttribute('aria-pressed',String(quiet()));
+  motion.textContent=quiet()?'動きは停止中':'動きを止める';
+  replay.textContent=quiet()?'流れを確認':'流れを再生';
+  if(quiet()){clearFlow();$('flow-progress').style.width='0%';}
+ }
+ replay.addEventListener('click',()=>{
+  clearFlow();
+  if(quiet()){$('flow-status').textContent='ZIPは取得・展開、Imageは事前処理と必要部分の読み込み。その後にGoの初期化と処理が続く、という違いです。';return;}
+  replay.disabled=true;setStep(1);
+  $('flow-status').textContent='1 / 3 配布：Imageの事前処理は配置時。2つの経路は同じ時刻に始まるタイムラインではありません。';
+  timers.push(setTimeout(()=>{setStep(2);$('flow-status').textContent='2 / 3 読み込み：イメージ全体のサイズだけでなく、必要な部分とキャッシュの状態が関わります。';},1100));
+  timers.push(setTimeout(()=>{setStep(3);$('flow-status').textContent='3 / 3 実行：どちらもGoの初期化とハンドラー処理へ。公式イメージのキャッシュは、Goの初期化完了を意味しません。';},2200));
+  timers.push(setTimeout(()=>{clearFlow();$('flow-status').textContent='2つの経路を確認しました。箱の幅・再生時間は実測値ではなく、この図から速度の優劣は比較できません。';},3800));
+ });
+ motion.addEventListener('click',()=>{if(reduced.matches){manualOff=false;}else{manualOff=!manualOff;}refreshMotion();if(reduced.matches)motion.textContent='OS設定で動きを停止中';});
+ if(reduced.addEventListener)reduced.addEventListener('change',refreshMotion);
+ const cases={light:{off:497,on:563,max:700,title:'最小関数では、66ms遅かった。'},heavy:{off:4894,on:884,max:5500,title:'重い初期化では、4,010ms短縮。'}};
+ document.querySelectorAll('[data-case]').forEach(button=>button.addEventListener('click',()=>{
+  const data=cases[button.dataset.case];if(!data)return;
+  document.querySelectorAll('[data-case]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));
+  $('case-title').textContent=data.title;
+  $('axis-mid').textContent=(data.max/2).toLocaleString('ja-JP');$('axis-max').textContent=data.max.toLocaleString('ja-JP')+' ms';
+  $('value-off').textContent=data.off.toLocaleString('ja-JP');$('value-on').textContent=data.on.toLocaleString('ja-JP');
+  $('bar-off').style.width=(data.off/data.max*100)+'%';$('bar-on').style.width=(data.on/data.max*100)+'%';
+  const delta=data.on-data.off;
+  $('chart-result').replaceChildren(document.createTextNode((delta>0?'+':'−')+Math.abs(delta).toLocaleString('ja-JP')+' ms '));
+  const note=document.createElement('small');note.textContent='中央値の差（あり − なし）。小さいほど速い。';$('chart-result').append(note);
+ }));
+ function openHash(){let id;try{id=decodeURIComponent(location.hash.slice(1));}catch{return;}if(!id)return;const target=$(id);if(!target)return;let node=target;while(node){if(node.tagName==='DETAILS')node.open=true;node=node.parentElement;}requestAnimationFrame(()=>target.scrollIntoView({block:'start',behavior:'auto'}));}
+ window.addEventListener('hashchange',openHash);
+ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',()=>{const target=$(a.getAttribute('href').slice(1));if(!target)return;let n=target;while(n){if(n.tagName==='DETAILS')n.open=true;n=n.parentElement;}}));
+ window.addEventListener('beforeprint',()=>{document.querySelectorAll('details').forEach(d=>{d.dataset.wasOpen=String(d.open);d.open=true;});});
+ window.addEventListener('afterprint',()=>{document.querySelectorAll('details').forEach(d=>{d.open=d.dataset.wasOpen==='true';delete d.dataset.wasOpen;});});
+ document.querySelectorAll('.js-control').forEach(el=>el.hidden=false);refreshMotion();openHash();
+})();
+</script>
+</body>
+</html>
