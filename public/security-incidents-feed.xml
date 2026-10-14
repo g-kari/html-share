@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Wed, 14 Oct 2026 13:27:38 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 14 Oct 2026 13:55:52 GMT</lastBuildDate>
+    <item>
+      <title>アルカディアのSpeeCAN RAIDEN・NET119・119RAIDEN事案を追加</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#b6818d289440ec66c2ea0eecec8437313609a5d722b39403d1ffbb3e9f3734db</guid>
+      <description>アルカディアのSpeeCAN RAIDEN・NET119・119RAIDEN事案を追加。10月14日の対象追加、119RAIDENの件数縮小訂正、NET119対象URL追加・映像通報除外を経緯付きで保持。自治体10資料と岡山市PDFで利用範囲を確認し、可能性の件数を合算せず、停止と継続を区別。 札幌国際大学の7月フィッシング事案と10月14日続報を追加。調査・不正な痕跡除去・全員の資格情報リセットとMFA必須化完了、通常運用再開の案内を記録。個人情報流出は未確認で、全員侵害やパスキー導入完了とはしない。</description>
+      <pubDate>Wed, 14 Oct 2026 13:55:52 GMT</pubDate>
+      <dcterms:created>2026-10-14T13:55:52.000Z</dcterms:created>
+    </item>
     <item>
       <title>下関市の防災メール緊急停止を追加</title>
       <link>https://share.0g0.xyz/security-incidents</link>

@@ -1048,7 +1048,7 @@
           "precision": "second"
         }
       ],
-      "cursor": "0a9cb18b954a97db2de71ad93716edabeed1e44d"
+      "cursor": "696dc7700181ecfdb23bb248b8fad9889377a99b"
     },
     "security-incidents": {
       "records": {
@@ -1059,6 +1059,7 @@
         "ahold-delhaize-cybersecurity-20261012": "302feb2347880bc07092e65f606d3e33bae88b654aba622c01205b1934bfa5ff",
         "alpsalpine-2026": "d0b97049c7f4319d2e0155c5c84c144e5b7ee0bd5011e7f4aab5a6fee73a7f36",
         "applynow-analysis-20260809": "56ab14073225d70dff90cadffc4d6518114f5b4ce14d5d6f4ba23094d6ec99c5",
+        "arcadia-speecan-20261011": "f8658b82a25afcf9e24de8b9ca114e66e6f80308ff90ebb740c5d7c03dac2c6d",
         "arizona-courts-backups-20260924": "dd75acc97413bc42826c238b9a92c5ccf0298a41a689bb8aed03c0614b3eaf57",
         "asahi-20250929": "2ff3828a9d0efc3795b2ab714b01fb27bb3faca24a2a09326c2bd8bd3c5f504a",
         "asahi-kasei-pharma-digital-20261002": "aa9a28808ed77d108b43a6ab5b1d1d89fc46e0eb3f0a1fca7504d38da216133c",
@@ -1197,6 +1198,7 @@
         "seicomart-app-20260924": "f14bf9d749a2fc8634f8951945d5a47893a8ea10e6d51b23fca2f812dbe8c30e",
         "shimonoseki-disaster-mail-20261013": "d4af2bf0535c5001bf81067e8edc2a9ebfc44f871fa1417930f43d551cbe2405",
         "shueisha-hpc-20260909": "f90c6e88cfabe4ff0fe0609a104a01b1fff540bb2112e06ed2d373496ae0e978",
+        "siu-phishing-20260709": "a449fe6d1aa354632cbe6b0d9e247ce5038d1e9be331a209c833f3ab6ea0667b",
         "skyticket-three-paths-20261009": "0b74296ce2e8ea118774aa00a1109f5277223733358ebad8e7fd19056de39d2f",
         "sodick-2026": "4bc4212814b1a3658aba8ff5c65dec182463c72027b209b2256eab615f63b28f",
         "sony-psn-qriocity-20110417": "141d9587da6ad9a8542a405a2db9ec9cde4bc8e86348390a7b07afaad0f2faa3",
@@ -1783,6 +1785,22 @@
           "summary": "Ahold Delhaizeの社内ネットワーク事案を追加。10月12日初報と10月13日の一部制御再稼働を区別。10月14日更新でデータ取得の証拠なしとする対象に取引先が加わった本文差分を記録し、流出なしの最終確定や全面復旧とはしない。",
           "ids": [
             "ahold-delhaize-cybersecurity-20261012"
+          ],
+          "date": "2026-10-14"
+        },
+        {
+          "signature": "d5711a0c3ae2cf89f68ef30ca1ab7c17dc3650fb33c291ea6769b719e40354d0",
+          "summary": "アルカディアのSpeeCAN RAIDEN・NET119・119RAIDEN事案を追加。10月14日の対象追加、119RAIDENの件数縮小訂正、NET119対象URL追加・映像通報除外を経緯付きで保持。自治体10資料と岡山市PDFで利用範囲を確認し、可能性の件数を合算せず、停止と継続を区別。",
+          "ids": [
+            "arcadia-speecan-20261011"
+          ],
+          "date": "2026-10-14"
+        },
+        {
+          "signature": "e38df17653a80a517463e228a1449ab88c7ce5f33f675f2414f783cbc9a9686a",
+          "summary": "札幌国際大学の7月フィッシング事案と10月14日続報を追加。調査・不正な痕跡除去・全員の資格情報リセットとMFA必須化完了、通常運用再開の案内を記録。個人情報流出は未確認で、全員侵害やパスキー導入完了とはしない。",
+          "ids": [
+            "siu-phishing-20260709"
           ],
           "date": "2026-10-14"
         }
@@ -2530,9 +2548,33 @@
           ],
           "published": "2026-10-14T13:27:38.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "b6818d289440ec66c2ea0eecec8437313609a5d722b39403d1ffbb3e9f3734db",
+          "summary": "アルカディアのSpeeCAN RAIDEN・NET119・119RAIDEN事案を追加。10月14日の対象追加、119RAIDENの件数縮小訂正、NET119対象URL追加・映像通報除外を経緯付きで保持。自治体10資料と岡山市PDFで利用範囲を確認し、可能性の件数を合算せず、停止と継続を区別。 札幌国際大学の7月フィッシング事案と10月14日続報を追加。調査・不正な痕跡除去・全員の資格情報リセットとMFA必須化完了、通常運用再開の案内を記録。個人情報流出は未確認で、全員侵害やパスキー導入完了とはしない。",
+          "journal": [
+            {
+              "signature": "d5711a0c3ae2cf89f68ef30ca1ab7c17dc3650fb33c291ea6769b719e40354d0",
+              "summary": "アルカディアのSpeeCAN RAIDEN・NET119・119RAIDEN事案を追加。10月14日の対象追加、119RAIDENの件数縮小訂正、NET119対象URL追加・映像通報除外を経緯付きで保持。自治体10資料と岡山市PDFで利用範囲を確認し、可能性の件数を合算せず、停止と継続を区別。",
+              "ids": [
+                "arcadia-speecan-20261011"
+              ],
+              "date": "2026-10-14"
+            },
+            {
+              "signature": "e38df17653a80a517463e228a1449ab88c7ce5f33f675f2414f783cbc9a9686a",
+              "summary": "札幌国際大学の7月フィッシング事案と10月14日続報を追加。調査・不正な痕跡除去・全員の資格情報リセットとMFA必須化完了、通常運用再開の案内を記録。個人情報流出は未確認で、全員侵害やパスキー導入完了とはしない。",
+              "ids": [
+                "siu-phishing-20260709"
+              ],
+              "date": "2026-10-14"
+            }
+          ],
+          "published": "2026-10-14T13:55:52.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "4508fc2cd320cfd0ec0f5ea4b95067d36f5c12d6"
+      "cursor": "01fe4f224bcbd301dc67a30619b67d7ea34bcb8e"
     }
   }
 }
