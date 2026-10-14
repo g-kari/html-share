@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Wed, 14 Oct 2026 13:55:52 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 14 Oct 2026 15:12:12 GMT</lastBuildDate>
+    <item>
+      <title>ユニリタ10月14日第3報を追記</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#1fa98b6e6f42e278890a9feb641a50dc94f9cd1390a09ea0e8b92ce67a4db2b7</guid>
+      <description>ユニリタ10月14日第3報を追記。10月12日に把握した公開情報に自社情報が含まれることを10月14日確認。10月9日の公開未確認は当時の状態として保持し、漏えいファイル特定・内容解析中と個別連絡予定を区別。 アエナ10月14日公表のECアプリ不正閲覧を追加。最大817,215人は閲覧可能性の範囲。カード一部情報と全桁・セキュリティコード・パスワードの非流出説明、アクセス遮断と調査中の状態を分離。</description>
+      <pubDate>Wed, 14 Oct 2026 15:12:12 GMT</pubDate>
+      <dcterms:created>2026-10-14T15:12:12.000Z</dcterms:created>
+    </item>
     <item>
       <title>アルカディアのSpeeCAN RAIDEN・NET119・119RAIDEN事案を追加</title>
       <link>https://share.0g0.xyz/security-incidents</link>
