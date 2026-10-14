@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Wed, 14 Oct 2026 02:24:15 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 14 Oct 2026 02:32:43 GMT</lastBuildDate>
+    <item>
+      <title>Lambda Web Functions・Web Adapter・API Gateway比較｜図解と損益分岐点</title>
+      <link>https://share.0g0.xyz/aws-lambda-web-functions</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/aws-lambda-web-functions</guid>
+      <description>Lambda Web Functionsの仕様と限界、Web Adapter＋Function URL／API Gateway HTTP・RESTの違いを図解。認証・制限・streaming・入口料金込みの小計と条件付き損益分岐点。2026年10月14日、入力連動グラフを追加。</description>
+      <pubDate>Wed, 14 Oct 2026 02:32:43 GMT</pubDate>
+      <dcterms:created>2026-10-13T06:12:48.000Z</dcterms:created>
+      <dcterms:modified>2026-10-14T02:32:43.000Z</dcterms:modified>
+    </item>
     <item>
       <title>form以前、Webは何を送った？｜動かしてわかるHTMLフォームの歴史</title>
       <link>https://share.0g0.xyz/html-form-history</link>
@@ -25,15 +34,6 @@
       <pubDate>Tue, 13 Oct 2026 23:10:52 GMT</pubDate>
       <dcterms:created>2026-10-08T23:59:03.000Z</dcterms:created>
       <dcterms:modified>2026-10-13T23:10:52.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>Lambda Web Functions・Web Adapter・API Gateway比較｜図解と損益分岐点</title>
-      <link>https://share.0g0.xyz/aws-lambda-web-functions</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/aws-lambda-web-functions</guid>
-      <description>Lambda Web Functionsの仕様と限界、Web Adapter＋Function URL／API Gateway HTTP・RESTの違いを図解。認証・制限・streaming・入口料金込みの小計と条件付き損益分岐点。2026年10月13日確認。</description>
-      <pubDate>Tue, 13 Oct 2026 10:47:39 GMT</pubDate>
-      <dcterms:created>2026-10-13T06:12:48.000Z</dcterms:created>
-      <dcterms:modified>2026-10-13T10:47:39.000Z</dcterms:modified>
     </item>
     <item>
       <title>2026年 不正アクセス・情報漏えいウォッチ｜原因・出典・続報</title>
