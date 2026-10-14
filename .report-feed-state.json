@@ -48,6 +48,7 @@
         "checkpoint-management-exploited-script-upload": "5a079d0149879e339c9df0e66463db668d2dd23028ae1abe0bc3c0e767e604d4",
         "checkpoint-vpn-exploited-certificate-rce": "061d31fd8854be97ecdcaae792d0269b248c75426512f6efd23bd18176419559",
         "chrome-october-six-critical-use-after-free": "48931811b31e8cf4fc362330457e29a1b4c6f8fc33a8b9326352b28a15971a48",
+        "chrome-october-thirteen-critical-memory-fixes": "087cca90bc673f89aa681dacfa917207f7bea71187db066ee75b35bc6d6fd49d",
         "chrome-v8-exploited-september": "9c096eda40cfb0400d083b402082b5be0fc595df88b696a2a05d820259106556",
         "chrome-webgl": "75328e936e24a3657f8bae0cee8b954b7bddabf810e8bbe3e131b9ee7a1c5ec8",
         "cisco-fmc-exploited-authentication-root": "5b94f05d52c4c9d7577fdbb882711f27a41a41f440863a8a6c623ffba3ef4316",
@@ -124,6 +125,7 @@
         "ibm-datapower-ldap-jws-and-memory-rce": "2a9d1374ea79d9291094e06da0269527120db637d7f97ed31d03cf14d44754a2",
         "ibm-guardium-edge-authentication-and-native-boundaries": "6ee88e27fa6ba849fbcbab5e6027501eadcc95ab1b45ad715af597f3c0264888",
         "ibm-verify-access-unauthenticated-deserialization-rce": "349f69651a16d17b42ab9d0d8a044a682d96fb5fba952fe6cf88c981987202d2",
+        "ivanti-connect-secure-auth-bypass-104935": "5e0111e45acefb8ffff51122aab6151a36a075514e8c1e62ecad774276b9619c",
         "jetbrains-exposed-string-sql-function-injection": "4cd317d9bfcf3c62e3d64218fed6412cbfc160d68a061a20f6da3d3b759a970b",
         "jtl-shop-consent-statistics-stored-xss": "b12dac1cafd212d60bbe8bf5999b9809632afd13e8dc4cea78ff129d59fbeae2",
         "jtl-shop-unauthenticated-plugin-safe-mode-toggle": "da87cbc4c635229ad93918fc31d53db4144504067c1ef49d2a14519a744555b2",
@@ -247,6 +249,7 @@
         "weasyprint-eps-ghostscript-dispatch": "b6d6385b11a49561386bf7af95533dca5c21ac02c96d6fe9bbb85fdfb7d09d9c",
         "wger-gym-trainer-authorization-csrf": "7c06ee7c73d1027097cb5d20216a4f27f6fa6fe6e71da0c634c55ce5a9927775",
         "windows-exploited-eop": "9a0d69060c4fa2f2c50a6674477bed037d31268fce5cc202e7acdd0860a847ac",
+        "windows-shell-motw-bypass-96951": "0709c08412abdf2f9c049810088dc27adc1177033e764eca648cfcf2a7f23551",
         "wp-post-author-authenticated-and-second-order-sqli": "e1ad32f391b891d83f73a93c1700697558008c6f4a4b4082319727fc00b6fb5c",
         "x64dbg-mcp-unauthenticated-debugger-and-preauth-dos": "987775ce90da146831ba6b66cfbdb49fe5e1a57d5d954358f7c26f8b13e8d643",
         "zammad-exploited-chain": "c06f7dfb1a18efcd827f3701847396b27773d8cb395fada4c90c78178ed1e6ab",
@@ -528,6 +531,16 @@
             "libsoup-http2-upload-goaway-uaf-rhel-eus-fix"
           ],
           "date": "2026-10-14"
+        },
+        {
+          "signature": "6bb93aaef20542be37850c2099d83968b48b1b8c5bd9a7cbd1785904d3d7aaac",
+          "summary": "Windows Shell CVE-2026-96951とIvanti Connect Secure CVE-2026-104935の10月13日KEV実悪用登録、Chrome10月13日Critical7件を追加し254項目・453 CVEへ。WindowsはMOTW回避の要操作条件とMSRC公式KB/build、22H2の版表不整合を区別。IvantiはCNAで確認可能なbranch境界とWeb本文未取得の留保を掲載。ChromeはAndroid限定2件とsandbox内外、Google CNAの数値CVSSなしとCISA ADPの別評価を分離。既存251項目・444 CVEと履歴を保持。Node.jsの10月21日予告はCVE未公表のため今回の脆弱性件数に加算しない。",
+          "ids": [
+            "chrome-october-thirteen-critical-memory-fixes",
+            "ivanti-connect-secure-auth-bypass-104935",
+            "windows-shell-motw-bypass-96951"
+          ],
+          "date": "2026-10-15"
         }
       ],
       "items": [
@@ -1083,9 +1096,27 @@
           ],
           "published": "2026-10-14T14:01:30.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "69b88a7c7b662b29cb4ab03c075a3751dd419e732ad54afc87ebb19a7c877268",
+          "summary": "Windows Shell CVE-2026-96951とIvanti Connect Secure CVE-2026-104935の10月13日KEV実悪用登録、Chrome10月13日Critical7件を追加し254項目・453 CVEへ。WindowsはMOTW回避の要操作条件とMSRC公式KB/build、22H2の版表不整合を区別。IvantiはCNAで確認可能なbranch境界とWeb本文未取得の留保を掲載。ChromeはAndroid限定2件とsandbox内外、Google CNAの数値CVSSなしとCISA ADPの別評価を分離。既存251項目・444 CVEと履歴を保持。Node.jsの10月21日予告はCVE未公表のため今回の脆弱性件数に加算しない。",
+          "journal": [
+            {
+              "signature": "6bb93aaef20542be37850c2099d83968b48b1b8c5bd9a7cbd1785904d3d7aaac",
+              "summary": "Windows Shell CVE-2026-96951とIvanti Connect Secure CVE-2026-104935の10月13日KEV実悪用登録、Chrome10月13日Critical7件を追加し254項目・453 CVEへ。WindowsはMOTW回避の要操作条件とMSRC公式KB/build、22H2の版表不整合を区別。IvantiはCNAで確認可能なbranch境界とWeb本文未取得の留保を掲載。ChromeはAndroid限定2件とsandbox内外、Google CNAの数値CVSSなしとCISA ADPの別評価を分離。既存251項目・444 CVEと履歴を保持。Node.jsの10月21日予告はCVE未公表のため今回の脆弱性件数に加算しない。",
+              "ids": [
+                "chrome-october-thirteen-critical-memory-fixes",
+                "ivanti-connect-secure-auth-bypass-104935",
+                "windows-shell-motw-bypass-96951"
+              ],
+              "date": "2026-10-15"
+            }
+          ],
+          "published": "2026-10-14T15:18:03.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "da2b611831f27ce54e185c76b9a9f3ff8881413f"
+      "cursor": "4bdab907f030946b51573d29c653667347ddb976"
     },
     "security-incidents": {
       "records": {

@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/vulnerabilities-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Wed, 14 Oct 2026 14:01:30 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 14 Oct 2026 15:18:03 GMT</lastBuildDate>
+    <item>
+      <title>Windows Shell CVE-2026-96951とIvanti Connect Secure CVE-2026-104935の10月13日KEV実悪用登録、Chrome10月13日Critic</title>
+      <link>https://share.0g0.xyz/vulnerabilities</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/vulnerabilities-feed.xml#69b88a7c7b662b29cb4ab03c075a3751dd419e732ad54afc87ebb19a7c877268</guid>
+      <description>Windows Shell CVE-2026-96951とIvanti Connect Secure CVE-2026-104935の10月13日KEV実悪用登録、Chrome10月13日Critical7件を追加し254項目・453 CVEへ。WindowsはMOTW回避の要操作条件とMSRC公式KB/build、22H2の版表不整合を区別。IvantiはCNAで確認可能なbranch境界とWeb本文未取得の留保を掲載。ChromeはAndroid限定2件とsandbox内外、Google CNAの数値CVSSなしとCISA ADPの別評価を分離。既存251項目・444 CVEと履歴を保持。Node.jsの10月21日予告はCVE未公表のため今回の脆弱性件数に加算しない。</description>
+      <pubDate>Wed, 14 Oct 2026 15:18:03 GMT</pubDate>
+      <dcterms:created>2026-10-14T15:18:03.000Z</dcterms:created>
+    </item>
     <item>
       <title>Akamai GPA5件、libsoup、GStreamer asfmux、BusyBox2件、Cowlibを現行一次資料で再確認して5項目・10 CVE追加し251項目・444 CVEへ</title>
       <link>https://share.0g0.xyz/vulnerabilities</link>
