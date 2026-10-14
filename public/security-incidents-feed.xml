@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Wed, 14 Oct 2026 13:09:15 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 14 Oct 2026 13:27:38 GMT</lastBuildDate>
+    <item>
+      <title>下関市の防災メール緊急停止を追加</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#6d52ad7cac4be7ae3b609171111e4dfb0b155664a0cc763bec632864c9b625a5</guid>
+      <description>下関市の防災メール緊急停止を追加。10月13日初報、10月14日更新表示の第2報、第3報を保持し、漏えい可能性・登録変更停止・代替情報経路を記録。提供元名、確定流出、公表時刻は推定しない。 Ahold Delhaizeの社内ネットワーク事案を追加。10月12日初報と10月13日の一部制御再稼働を区別。10月14日更新でデータ取得の証拠なしとする対象に取引先が加わった本文差分を記録し、流出なしの最終確定や全面復旧とはしない。</description>
+      <pubDate>Wed, 14 Oct 2026 13:27:38 GMT</pubDate>
+      <dcterms:created>2026-10-14T13:27:38.000Z</dcterms:created>
+    </item>
     <item>
       <title>くふう まちトークβ版の10月13日調査結果を反映</title>
       <link>https://share.0g0.xyz/security-incidents</link>
