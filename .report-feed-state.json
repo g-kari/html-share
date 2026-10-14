@@ -56,6 +56,7 @@
         "convertx-calibre-recipe-execution": "f9e216fa2494213b3d816fec59a1659aaafe31f4420c1c9c6d3b7656ce68e579",
         "coraza-argument-limit-bypass-and-json-stack-crash": "3ed7660b6d2583fdf1f04ec873b8edbba817588a94b800d84602dadab8546784",
         "cpanel-september-adminbin-xss": "4aa2bbc63bfce68577ba1a550f6a81257ef7f7e9efdb320b9c6a25cff38db483",
+        "curl-http2-upload-rst-stream-use-after-free": "7c63d5ebe4cac61b2cc6f3ee49bd95fdf4e17b9b5d75748a70257ed56154a7ab",
         "cve-2026-102478": "9928e9bee0891bf9ba3b6e9f40fd0b2be2880d4aa52d64033f1d14a5d385e226",
         "cve-2026-105324": "73ece2770cad0aa9765fb20ca143a207fdf0d5bff7f523b150b2ce2f2ae67421",
         "cve-2026-16516": "3e68198880291267b496b9ec40458ef630246dea0e77ffe2eb5a3fdf82e5948b",
@@ -71,6 +72,7 @@
         "dell-system-update-root-path-and-permissions": "e2349581b1cf61fa9fad11e69144b5439dc8b6ec4be69175eadc7c9e33f5b8cb",
         "devolutions-server-login-replay-and-global-vault": "d7ebf909d206f5037d36384bf53347ae92eaecb8cad3fc158a93b66dd588bb27",
         "dormakaba-evolo-service-system-rce": "2c2e3d72530737599b05463d3d00d7ea41d11d1733da732d4062e34a784a12fe",
+        "eccube-amazonpay-order-redirect-confirmed-exploitation": "a8005be95e3223634746695d60caf53f7710b451a7fc5359a09df4a2c1897ac1",
         "eclipse-netxduo-tls13-handshake-cache-overflow": "ce32baded63b412aae8c6a0bae01bd85d979d01775fed61d57baef069322e644",
         "elasticsearch-delegated-role-and-cross-cluster-shard-authorization": "a7c1463940b4a93c7e38cec692a80d70fc5eaea4890538fec29f0c401ed4988a",
         "exchange-authenticated-eop": "9922c69b7ce7db1c6018a085b21c4426dfadca8db6a77638a1da793590e1434d",
@@ -208,6 +210,7 @@
         "sagemaker-distribution-project-startup-command-injection": "2f2fbd7c0c30e9cac8c1f5fbb9c048989c1beac62ad70e955609bd49f0e946f7",
         "sharepoint-exploited-authenticated-code-injection": "474a959d4cb9e863dcec1ee5b6714dd865d2ddc5544d333d7710fb9da0227b6e",
         "sipay-pos-opencart-prestashop-signature-validation": "e64e2745ef891107dbf5fd309d2e4e93f31358c3ccf51e2937e3d0ab58c8b022",
+        "siteguard-server-statistics-exploited-command-injection": "ca1b0298a5c508271938160886448df8bbbbfedf77efb33da8b19a9787cc14a5",
         "smartermail-volume-script-jwt-demotion-and-mutation-xss": "c939fffdc9ddf5b5f17f57109000bcd5b4fa00cc83788d12eca1793335dcbb24",
         "smarty-inheritance-cache-rce": "a6cf35adbfcaeda249d4d096c8237b9dee785fa20c3ab23b841fc4adf2130de4",
         "sonicwall-sma1000-october-boundaries": "fe157a4e6b4cffadc3ce0b221d7cf762bc4513635a7c2e67e3b99381eef992be",
@@ -479,6 +482,16 @@
           "ids": [
             "jtl-shop-consent-statistics-stored-xss",
             "jtl-shop-unauthenticated-plugin-safe-mode-toggle"
+          ],
+          "date": "2026-10-14"
+        },
+        {
+          "signature": "9b3723a262ddab7bc15f6ed8e59a7db26869365c4f36887cbde446a5c3f539e1",
+          "summary": "既通知・未掲載のSiteGuard CVE-2026-106931、EC-CUBE AmazonPay CVE-2026-103671、curl CVE-2026-92392を、10月14日の一次資料再確認に基づき3項目・3 CVE追加して241項目・422 CVEへ。SiteGuardの実悪用、更新前の診断情報保全、統計機能無効化とOS別修正境界、AmazonPayの実悪用と系列別影響範囲、curlの8.23.0・保守枝修正とHTTP/2回避策を記載。EC-CUBE開発者本文は今回403で再取得できず、最低修正版・直接更新可否は断定しない。curlの条件付きRCE実証を実悪用と区別。既存238項目・419 CVE（JTL2件を含む）と全32履歴を保持。",
+          "ids": [
+            "curl-http2-upload-rst-stream-use-after-free",
+            "eccube-amazonpay-order-redirect-confirmed-exploitation",
+            "siteguard-server-statistics-exploited-command-injection"
           ],
           "date": "2026-10-14"
         }
@@ -978,9 +991,27 @@
           ],
           "published": "2026-10-14T13:17:21.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "ae9c9fd519a3ee4d99013e55b73f0dda798a596b1bd1127498a03c0be198c25b",
+          "summary": "既通知・未掲載のSiteGuard CVE-2026-106931、EC-CUBE AmazonPay CVE-2026-103671、curl CVE-2026-92392を、10月14日の一次資料再確認に基づき3項目・3 CVE追加して241項目・422 CVEへ。SiteGuardの実悪用、更新前の診断情報保全、統計機能無効化とOS別修正境界、AmazonPayの実悪用と系列別影響範囲、curlの8.23.0・保守枝修正とHTTP/2回避策を記載。EC-CUBE開発者本文は今回403で再取得できず、最低修正版・直接更新可否は断定しない。curlの条件付きRCE実証を実悪用と区別。既存238項目・419 CVE（JTL2件を含む）と全32履歴を保持。",
+          "journal": [
+            {
+              "signature": "9b3723a262ddab7bc15f6ed8e59a7db26869365c4f36887cbde446a5c3f539e1",
+              "summary": "既通知・未掲載のSiteGuard CVE-2026-106931、EC-CUBE AmazonPay CVE-2026-103671、curl CVE-2026-92392を、10月14日の一次資料再確認に基づき3項目・3 CVE追加して241項目・422 CVEへ。SiteGuardの実悪用、更新前の診断情報保全、統計機能無効化とOS別修正境界、AmazonPayの実悪用と系列別影響範囲、curlの8.23.0・保守枝修正とHTTP/2回避策を記載。EC-CUBE開発者本文は今回403で再取得できず、最低修正版・直接更新可否は断定しない。curlの条件付きRCE実証を実悪用と区別。既存238項目・419 CVE（JTL2件を含む）と全32履歴を保持。",
+              "ids": [
+                "curl-http2-upload-rst-stream-use-after-free",
+                "eccube-amazonpay-order-redirect-confirmed-exploitation",
+                "siteguard-server-statistics-exploited-command-injection"
+              ],
+              "date": "2026-10-14"
+            }
+          ],
+          "published": "2026-10-14T13:29:48.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "0c5aff71904acf9d363d156498153cc711a1027c"
+      "cursor": "191dcb88c1cfdd71366a749ca973cf6e7bfabd66"
     },
     "security-incidents": {
       "records": {

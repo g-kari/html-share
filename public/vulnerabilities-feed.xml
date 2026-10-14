@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/vulnerabilities-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Wed, 14 Oct 2026 13:17:21 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 14 Oct 2026 13:29:48 GMT</lastBuildDate>
+    <item>
+      <title>既通知・未掲載のSiteGuard CVE-2026-106931、EC-CUBE AmazonPay CVE-2026-103671、curl CVE-2026-92392を、10月14日の一次資料</title>
+      <link>https://share.0g0.xyz/vulnerabilities</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/vulnerabilities-feed.xml#ae9c9fd519a3ee4d99013e55b73f0dda798a596b1bd1127498a03c0be198c25b</guid>
+      <description>既通知・未掲載のSiteGuard CVE-2026-106931、EC-CUBE AmazonPay CVE-2026-103671、curl CVE-2026-92392を、10月14日の一次資料再確認に基づき3項目・3 CVE追加して241項目・422 CVEへ。SiteGuardの実悪用、更新前の診断情報保全、統計機能無効化とOS別修正境界、AmazonPayの実悪用と系列別影響範囲、curlの8.23.0・保守枝修正とHTTP/2回避策を記載。EC-CUBE開発者本文は今回403で再取得できず、最低修正版・直接更新可否は断定しない。curlの条件付きRCE実証を実悪用と区別。既存238項目・419 CVE（JTL2件を含む）と全32履歴を保持。</description>
+      <pubDate>Wed, 14 Oct 2026 13:29:48 GMT</pubDate>
+      <dcterms:created>2026-10-14T13:29:48.000Z</dcterms:created>
+    </item>
     <item>
       <title>JTL-ShopのCVE-2026-103904（Consent統計の保存型XSS、管理者閲覧が必要）と103905（未認証のPlugin Safe Mode切替による機能停止）をENISA CNAの</title>
       <link>https://share.0g0.xyz/vulnerabilities</link>
