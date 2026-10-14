@@ -1106,7 +1106,7 @@
         "athome-moving-2026": "63561e0babe0775d6a8781697268ebc7b4909a68f712837ac63bcac42a985802",
         "betterment-20260109": "cc2c1bfecf04020942044bb16dff619b33bba75f4ab1c426b8ce12b4fe950821",
         "blueberry-metabase-20260810": "2e917563578164373e74131b55e6e9dd9fcc85ce7d5647bde28c008b9a4f2e09",
-        "bookoff-member-system-20261006": "8f07e896b7da25d122f98e27112242df0ad3cdb29fc1223abafb5adb81a5d4cc",
+        "bookoff-member-system-20261006": "ca021b38a194d8ee09c9b7b9a55d70884e674514d7896770e33bd3643c5a1271",
         "british-library-ransomware-20231028": "f76a46df8a40302d377e82e4dc5ff6018edfb95b43df1dc3cd8282cb68b9ce0c",
         "cac-academic-support-navi-2026": "cbf8ed75b6ee7050432be8cf2b9aaab88f90624ed43f062e415eb293a9414aae",
         "campfire-2026": "37c0a8675d7223d50cc14144335757683b806fc3031b7b5da7baffdafcc43d7c",
@@ -1153,7 +1153,7 @@
         "hasbro-network-20260328": "073d95bbcc6abbff7ec335ef3a6edf58e9d3c040aea6de66231d4f46bbdfdb1f",
         "his-thailand-files-20251211": "39bc712b0110e2c0c3835834fda56b62fa724b3cc1e749a240f62479d6b6a0a9",
         "icc-2026": "46efd179efcaa10ceca01aa9b87e511375c341ca055eb4a98c61bdff02fa1f53",
-        "idcf-cloud-east1-20261007": "665c31e2c3fa749e3895213878c9ea202f0273926f048326f3a4410f2fd2d638",
+        "idcf-cloud-east1-20261007": "e63b24908e948d71d08ed06d16cf64cfe8b04c3f777bb6fb9b124136f3f915ac",
         "idscan-veriscan-cloud-20260404": "2a57e6a7865983acb4b7456db224f250f8cb2cc0a6fa759056bf925086d36ece",
         "ieej-m365-20260729": "fa99e2b810a20bc27c306797d14b3da0f8d8c266ee8d2d200fccbc03140f552e",
         "ielove-2026": "59e7a5fcf1890717adab0af4da194f253baf584af11b667d3124908d14f5be65",
@@ -1855,6 +1855,22 @@
           "summary": "アエナ10月14日公表のECアプリ不正閲覧を追加。最大817,215人は閲覧可能性の範囲。カード一部情報と全桁・セキュリティコード・パスワードの非流出説明、アクセス遮断と調査中の状態を分離。",
           "ids": [
             "aena-ec-app-20261013"
+          ],
+          "date": "2026-10-15"
+        },
+        {
+          "signature": "ded49acdc5e44e3d467f0223e4cb70704f0fa119119438d96a8b104c1ef729fd",
+          "summary": "IDCF10月14日第5報を追記。仮想サーバーデータの外部流出なしとの同社判断、ポータル48社の不正照会確認・持出し痕跡未確認、194顧客のバックアップ取出し可・復元可否の個別連絡中を区別。",
+          "ids": [
+            "idcf-cloud-east1-20261007"
+          ],
+          "date": "2026-10-15"
+        },
+        {
+          "signature": "56678d064bda1a63850ff00633fe90aaaae806c946b71cf1baaed70fa50e9b9b",
+          "summary": "BOOKOFF10月13日第2報を追記。漏えい会員番号6,427,735件と同一メール単位の6,383,279人を確定。初報の概数を保持し、10月15日からの通知予定、封じ込め完了と全システム点検継続を区別。",
+          "ids": [
+            "bookoff-member-system-20261006"
           ],
           "date": "2026-10-15"
         }
@@ -2650,9 +2666,33 @@
           ],
           "published": "2026-10-14T15:12:12.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "affdacb93ffb950bc52c9109fb089d03fecdda9b112d36ad348e4cead8e08c78",
+          "summary": "IDCF10月14日第5報を追記。仮想サーバーデータの外部流出なしとの同社判断、ポータル48社の不正照会確認・持出し痕跡未確認、194顧客のバックアップ取出し可・復元可否の個別連絡中を区別。 BOOKOFF10月13日第2報を追記。漏えい会員番号6,427,735件と同一メール単位の6,383,279人を確定。初報の概数を保持し、10月15日からの通知予定、封じ込め完了と全システム点検継続を区別。",
+          "journal": [
+            {
+              "signature": "ded49acdc5e44e3d467f0223e4cb70704f0fa119119438d96a8b104c1ef729fd",
+              "summary": "IDCF10月14日第5報を追記。仮想サーバーデータの外部流出なしとの同社判断、ポータル48社の不正照会確認・持出し痕跡未確認、194顧客のバックアップ取出し可・復元可否の個別連絡中を区別。",
+              "ids": [
+                "idcf-cloud-east1-20261007"
+              ],
+              "date": "2026-10-15"
+            },
+            {
+              "signature": "56678d064bda1a63850ff00633fe90aaaae806c946b71cf1baaed70fa50e9b9b",
+              "summary": "BOOKOFF10月13日第2報を追記。漏えい会員番号6,427,735件と同一メール単位の6,383,279人を確定。初報の概数を保持し、10月15日からの通知予定、封じ込め完了と全システム点検継続を区別。",
+              "ids": [
+                "bookoff-member-system-20261006"
+              ],
+              "date": "2026-10-15"
+            }
+          ],
+          "published": "2026-10-14T15:16:47.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "5c147a168bd11f260b71481607bd681224351e7b"
+      "cursor": "5e4585c0c74795699e90734b82af25a0eef16d9b"
     }
   }
 }

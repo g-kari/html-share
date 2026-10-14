@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Wed, 14 Oct 2026 15:12:12 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 14 Oct 2026 15:16:47 GMT</lastBuildDate>
+    <item>
+      <title>IDCF10月14日第5報を追記</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#affdacb93ffb950bc52c9109fb089d03fecdda9b112d36ad348e4cead8e08c78</guid>
+      <description>IDCF10月14日第5報を追記。仮想サーバーデータの外部流出なしとの同社判断、ポータル48社の不正照会確認・持出し痕跡未確認、194顧客のバックアップ取出し可・復元可否の個別連絡中を区別。 BOOKOFF10月13日第2報を追記。漏えい会員番号6,427,735件と同一メール単位の6,383,279人を確定。初報の概数を保持し、10月15日からの通知予定、封じ込め完了と全システム点検継続を区別。</description>
+      <pubDate>Wed, 14 Oct 2026 15:16:47 GMT</pubDate>
+      <dcterms:created>2026-10-14T15:16:47.000Z</dcterms:created>
+    </item>
     <item>
       <title>ユニリタ10月14日第3報を追記</title>
       <link>https://share.0g0.xyz/security-incidents</link>
