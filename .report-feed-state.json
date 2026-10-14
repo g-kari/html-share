@@ -6,6 +6,7 @@
         "aas-edge-client-unmaintained-unauthenticated-api": "84ccea7ec5917de021ecbe5367ffdcfbb307243618d04b7315b93ee46c1e8d7f",
         "actual-sync-server-github-prefix-token-disclosure": "10ccb84a6ccbd61028edd541378ae85def658bf040674da9f26fee92538c8446",
         "ahsaycbs-exploited-authentication-command-chain": "84cfea68ea3f648074ffafd44eeaafa557d210d34ef2fd791b4e017065eb373b",
+        "akamai-gpa-jwt-local-privilege-and-platform-dos": "98a650c3d05645a370459b1040b316c5bbe9a0678f2d7fa7133e369bfe7fd66f",
         "amd-rccl-proxy-untrusted-peer-pointer": "ff6332721c6b7e765c7e68cd1df45c475f0b904a14c62990a518e6d121cf5958",
         "android-october-critical-components": "9bb6543d037be34881589620674a02613f83e2e571fc7660b5e2b98266b3c5ba",
         "apache-bcel-class-name-repository-cache-poisoning": "941d62bc68c0b57f6d99448e1b0dadd2fcf229431cb33209124e0943b01ff1d7",
@@ -42,6 +43,7 @@
         "backstage-techdocs-mkdocs-plugin-configuration-ssrf": "6fd315508b254caf157a36f0a85fdbdd42e9a644fd498759cceb700dbb1837eb",
         "backstage-techdocs-mkdocs-sanitizer-theme-code-execution": "c5995734f8dca70e53d035224422c6f20834abd97f31f096d631ad121faf208b",
         "bind-tkey-dos-october-kev-followup": "cb402560e9ebcc44123fc348921c054513761cddbd3f52c61ac3da67838eda1f",
+        "busybox-proxy-prefix-smuggling-and-deb-extraction-escape": "5eed4a36be7cd80be42b13ac6c667d0d4f6e4f0de3d4043b3a43560a23c1924a",
         "capacitor-native-webview-origin-proxy": "664019fab05a7bb19a09675443758dd4e9b970df8de83a85f0e2de29865ff9fa",
         "checkpoint-management-exploited-script-upload": "5a079d0149879e339c9df0e66463db668d2dd23028ae1abe0bc3c0e767e604d4",
         "checkpoint-vpn-exploited-certificate-rce": "061d31fd8854be97ecdcaae792d0269b248c75426512f6efd23bd18176419559",
@@ -55,6 +57,7 @@
         "cloudflare-containers-residual-data": "697eb8f64e6623a13596210e3b7c8a9268999211f28e0fc80b4412dcb6bb1a53",
         "convertx-calibre-recipe-execution": "f9e216fa2494213b3d816fec59a1659aaafe31f4420c1c9c6d3b7656ce68e579",
         "coraza-argument-limit-bypass-and-json-stack-crash": "3ed7660b6d2583fdf1f04ec873b8edbba817588a94b800d84602dadab8546784",
+        "cowlib-structured-header-crlf-source-fix-unreleased": "97358c76feb65614282fdd1a6f39f1b1bd28f58e4b3ce3030bcbb9fc02bfc58e",
         "cpanel-september-adminbin-xss": "4aa2bbc63bfce68577ba1a550f6a81257ef7f7e9efdb320b9c6a25cff38db483",
         "curl-http2-upload-rst-stream-use-after-free": "7c63d5ebe4cac61b2cc6f3ee49bd95fdf4e17b9b5d75748a70257ed56154a7ab",
         "cve-2026-102478": "9928e9bee0891bf9ba3b6e9f40fd0b2be2880d4aa52d64033f1d14a5d385e226",
@@ -105,6 +108,7 @@
         "gitlab-ai-gateway-template-escape": "5e50a3d18b626de79909181e6f0fefaac17f674c8b81eb94ad4d26049945b345",
         "gitlab-exploited-repository-api-file-read": "7e4570f922221db47a07868bfaec02eb40843955ed1cb2e93de325ae8c34cea9",
         "google-gvisor-vfs-double-free-sentry-boundary": "e58dbd8f908615663079cec06d981ab79b06279b056cefbe9ff71935df400f83",
+        "gstreamer-asfmux-non-bmp-metadata-heap-write": "e58e09d8ec6beef9db8c10c8d7beeae2b48e109a5423b8ec875e317e60bf97ef",
         "gstreamer-editing-project-autoplug-arbitrary-elements": "0df574a7d3ecd10d33af298bce834d713dbe32bb31f23f40af999c8b2e7b7728",
         "guava-java-deserialization-array-allocation-dos": "483d97c8690b289e7cff9c89940dedb52332248d5d4a57a3017b4717fba9b6e3",
         "handlebars-own-property-and-ast-compilation-rce": "818cefb25a07707a1ff1bea6dcfa7d602c5177159c2ec085a86b4f42eea4bd70",
@@ -134,6 +138,7 @@
         "langflow-python-interpreter-boundary": "f9c4bf8781cc85efcfe937484e076f50dab788646e5e2c9a7e2d0f7bf2ff05c2",
         "libexpat-buffer-length-32bit-realloc": "246e3bf22529a2b200567bac1f9b7cb1bd88bcfd5caac2f25df2667c92b8e661",
         "libreoffice-jdbc-document-rce": "0fe05f7c8a5b05eb0d0db011054aeae48353519b47340e515951734387b5248f",
+        "libsoup-http2-upload-goaway-uaf-rhel-eus-fix": "e7d4121b8b427f0ea75c34fa70039337147953cd024f01d91375384fd4d0303c",
         "linux-rdma-rxe-mr-range-overflow-oob-access": "dc26e07289498c500b4a444d1d3b452c39a030bc43f104eddac11c299e994dd1",
         "linux-rdma-siw-fragmented-header-oob-write": "6d909d43481acf47bdf0b5bf13e035fedb58da4f8036b0efdaeff8b9a74b4741",
         "linux-vhost-stale-iotlb-vghost-disclosure": "9cf6521fa934f6f28a8938e92f6532cc173c4a1ea36c416ae4f41e9d8686e615",
@@ -509,6 +514,18 @@
             "netbird-desktop-peer-ssh-config-injection",
             "nix-lix-october-store-sandbox-installer-boundaries",
             "unifi-protect-ai-key-command-and-access-boundaries"
+          ],
+          "date": "2026-10-14"
+        },
+        {
+          "signature": "e8e8441102385e6886f4264919511e7666e3ac2c6f068f46003bfa0cfeef3654",
+          "summary": "Akamai GPA5件、libsoup、GStreamer asfmux、BusyBox2件、Cowlibを現行一次資料で再確認して5項目・10 CVE追加し251項目・444 CVEへ。GPAは7.4修正と先行LA/GA提供、Windows/macOSの条件と本文・CVSSの不一致を区別。libsoupはRHEL系列別の修正RPM、asfmuxは非信頼metadataをASFへ変換する条件と修正版未確認、BusyBoxはproxyと.deb展開の別経路、Cowlibはsource fixとHex配布版・別層header検査を分離。Red Hat Web本文は今回取得不能のため現行CNAで確認できる範囲に限定。新しい実悪用の確認ではない。既存246項目・434 CVEと全34履歴を保持。",
+          "ids": [
+            "akamai-gpa-jwt-local-privilege-and-platform-dos",
+            "busybox-proxy-prefix-smuggling-and-deb-extraction-escape",
+            "cowlib-structured-header-crlf-source-fix-unreleased",
+            "gstreamer-asfmux-non-bmp-metadata-heap-write",
+            "libsoup-http2-upload-goaway-uaf-rhel-eus-fix"
           ],
           "date": "2026-10-14"
         }
@@ -1046,9 +1063,29 @@
           ],
           "published": "2026-10-14T13:44:39.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "436755eca04ba8356d342bbb3296fc3e1da6cb3e051cf158ad05b9e844058626",
+          "summary": "Akamai GPA5件、libsoup、GStreamer asfmux、BusyBox2件、Cowlibを現行一次資料で再確認して5項目・10 CVE追加し251項目・444 CVEへ。GPAは7.4修正と先行LA/GA提供、Windows/macOSの条件と本文・CVSSの不一致を区別。libsoupはRHEL系列別の修正RPM、asfmuxは非信頼metadataをASFへ変換する条件と修正版未確認、BusyBoxはproxyと.deb展開の別経路、Cowlibはsource fixとHex配布版・別層header検査を分離。Red Hat Web本文は今回取得不能のため現行CNAで確認できる範囲に限定。新しい実悪用の確認ではない。既存246項目・434 CVEと全34履歴を保持。",
+          "journal": [
+            {
+              "signature": "e8e8441102385e6886f4264919511e7666e3ac2c6f068f46003bfa0cfeef3654",
+              "summary": "Akamai GPA5件、libsoup、GStreamer asfmux、BusyBox2件、Cowlibを現行一次資料で再確認して5項目・10 CVE追加し251項目・444 CVEへ。GPAは7.4修正と先行LA/GA提供、Windows/macOSの条件と本文・CVSSの不一致を区別。libsoupはRHEL系列別の修正RPM、asfmuxは非信頼metadataをASFへ変換する条件と修正版未確認、BusyBoxはproxyと.deb展開の別経路、Cowlibはsource fixとHex配布版・別層header検査を分離。Red Hat Web本文は今回取得不能のため現行CNAで確認できる範囲に限定。新しい実悪用の確認ではない。既存246項目・434 CVEと全34履歴を保持。",
+              "ids": [
+                "akamai-gpa-jwt-local-privilege-and-platform-dos",
+                "busybox-proxy-prefix-smuggling-and-deb-extraction-escape",
+                "cowlib-structured-header-crlf-source-fix-unreleased",
+                "gstreamer-asfmux-non-bmp-metadata-heap-write",
+                "libsoup-http2-upload-goaway-uaf-rhel-eus-fix"
+              ],
+              "date": "2026-10-14"
+            }
+          ],
+          "published": "2026-10-14T14:01:30.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "696dc7700181ecfdb23bb248b8fad9889377a99b"
+      "cursor": "f4c770f0a54aea43fbc00f758bb55b70c65e6b3e"
     },
     "security-incidents": {
       "records": {

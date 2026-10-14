@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/vulnerabilities-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Wed, 14 Oct 2026 13:44:39 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 14 Oct 2026 14:01:30 GMT</lastBuildDate>
+    <item>
+      <title>Akamai GPA5件、libsoup、GStreamer asfmux、BusyBox2件、Cowlibを現行一次資料で再確認して5項目・10 CVE追加し251項目・444 CVEへ</title>
+      <link>https://share.0g0.xyz/vulnerabilities</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/vulnerabilities-feed.xml#436755eca04ba8356d342bbb3296fc3e1da6cb3e051cf158ad05b9e844058626</guid>
+      <description>Akamai GPA5件、libsoup、GStreamer asfmux、BusyBox2件、Cowlibを現行一次資料で再確認して5項目・10 CVE追加し251項目・444 CVEへ。GPAは7.4修正と先行LA/GA提供、Windows/macOSの条件と本文・CVSSの不一致を区別。libsoupはRHEL系列別の修正RPM、asfmuxは非信頼metadataをASFへ変換する条件と修正版未確認、BusyBoxはproxyと.deb展開の別経路、Cowlibはsource fixとHex配布版・別層header検査を分離。Red Hat Web本文は今回取得不能のため現行CNAで確認できる範囲に限定。新しい実悪用の確認ではない。既存246項目・434 CVEと全34履歴を保持。</description>
+      <pubDate>Wed, 14 Oct 2026 14:01:30 GMT</pubDate>
+      <dcterms:created>2026-10-14T14:01:30.000Z</dcterms:created>
+    </item>
     <item>
       <title>既存未掲載候補からNix/Lix5件、NetBird SSH設定注入、Linux vhost、UniFi Protect AI Key5件を一次資料で再確認して追加</title>
       <link>https://share.0g0.xyz/vulnerabilities</link>
