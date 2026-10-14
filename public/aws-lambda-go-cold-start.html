@@ -6,6 +6,7 @@
 <title>GoのLambda、ZIPとコンテナはどちらが速い？ | コールドスタート調査</title>
 <meta name="description" content="Go LambdaのZIP・公式OSコンテナ・SnapStartを一次資料から比較。起動経路の動く図解、条件付き実測チャート、正しい計測手順をまとめた2026年10月の調査。">
 <meta name="theme-color" content="#edf3fa">
+<meta name="ui-revision" content="readable-type-20261014">
 <style>
 :root{--ink:#1d314d;--muted:#50627a;--paper:#f5f8fc;--white:#fff;--line:#ccd8e7;--blue:#245dcc;--teal:#087a72;--amber:#92500b;--soft-blue:#e8efff;--soft-teal:#e1f3ef;--radius:16px;--ease:cubic-bezier(.2,.7,.2,1)}
 *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:78px}body{margin:0;background:var(--paper);color:var(--ink);font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif;font-size:16px;line-height:1.85;overflow-wrap:anywhere}a{color:var(--blue);text-underline-offset:4px}a:hover{text-decoration-thickness:2px}button,select{font:inherit}button{cursor:pointer}button:disabled{cursor:default;opacity:.55}button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var(--blue);outline-offset:5px}h1,h2,h3,p,figure{margin:0}h1,h2,h3{line-height:1.5;font-weight:750;letter-spacing:.01em}h1{font-size:clamp(29px,4.5vw,53px);letter-spacing:-.035em}h2{font-size:clamp(23px,3vw,32px)}h3{font-size:19px}p+p{margin-top:14px}strong{font-weight:750}code{font-family:ui-monospace,"Cascadia Code",monospace;font-size:.89em;background:#eaf0f7;padding:.12em .32em;border-radius:4px;overflow-wrap:anywhere}pre{white-space:pre-wrap;overflow-wrap:anywhere;padding:18px;background:#ecf2f9;border:1px solid var(--line);border-radius:10px;line-height:1.7;font-size:14px}pre code{padding:0;background:none}sup{font-size:11px;line-height:0;margin-left:3px}sup a{text-decoration:none}small,.small{font-size:13px;line-height:1.75;color:var(--muted)}.wrap{width:min(1120px,calc(100% - 64px));margin:auto}.topbar{background:rgba(245,248,252,.97);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:62px}.brand{text-decoration:none;color:var(--ink);font-size:14px;font-weight:700}.toplinks{display:flex;align-items:center;gap:21px;font-size:13px}.toplinks a{color:var(--muted);text-decoration:none}.skip{position:fixed;top:-80px;left:16px;z-index:9;padding:10px;background:white}.skip:focus{top:10px}.hero{padding:66px 0 45px}.meta{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:22px;font-size:12px;color:var(--muted)}.chip{border:1px solid var(--line);padding:3px 10px;border-radius:20px;background:white}.hero-lead{margin-top:24px;max-width:760px;font-size:18px}.hero-lead strong{background:linear-gradient(transparent 65%,#d9e5fb 65%)}.summary-grid{display:grid;grid-template-columns:repeat(3,1fr);margin-top:34px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0;gap:28px}.summary-grid article+article{border-left:1px solid var(--line);padding-left:28px}.verdict-label{display:block;font-size:12px;color:var(--muted);margin-bottom:6px}.summary-grid h2{font-size:19px;margin-bottom:8px}.summary-grid p{font-size:14px;line-height:1.85}.section{padding:49px 0;border-top:1px solid var(--line)}.section-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:24px}.section-head p{max-width:600px;margin-top:11px;color:var(--muted)}.read-label{font-size:12px;color:var(--muted);white-space:nowrap}.plate{background:white;border:1px solid var(--line);border-radius:var(--radius);padding:28px}.plate-head{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:22px}.plate-head h3{font-size:16px}.btn{background:white;color:var(--ink);border:1px solid var(--line);border-radius:9px;padding:8px 14px;font-size:13px;line-height:1.6;transition:background .2s,color .2s,border-color .2s}.btn:hover{background:#edf3ff;border-color:var(--blue)}.btn.primary{background:var(--ink);color:white;border-color:var(--ink)}.btn[aria-pressed="true"]{background:var(--ink);color:white;border-color:var(--ink)}.js-control[hidden]{display:none}.diagram{position:relative}.diagram-labels{display:grid;grid-template-columns:165px 1fr 1fr 1.12fr;gap:13px;margin-bottom:12px;font-size:11px;color:var(--muted);text-align:center}.lane{--accent:var(--blue);--tint:var(--soft-blue);display:grid;grid-template-columns:165px 1fr 1fr 1.12fr;gap:13px;align-items:stretch;margin-bottom:14px;position:relative}.lane.image{--accent:var(--teal);--tint:var(--soft-teal)}.lane-name{padding:18px 12px 18px 0;display:flex;flex-direction:column;justify-content:center}.lane-name b{font-size:21px;line-height:1.4;color:var(--accent)}.lane-name span{font-size:11px;color:var(--muted);line-height:1.6;margin-top:7px}.node{border:1px solid var(--line);border-radius:12px;padding:18px 16px;position:relative;min-height:136px;background:var(--white);transition:background .4s,border-color .4s,transform .4s,box-shadow .4s}.node:not(:last-child)::after{content:'›';position:absolute;right:-13px;top:42%;color:var(--accent);font-size:23px;line-height:1;z-index:1;background:white;width:12px;text-align:center}.node b{display:block;font-size:14px;margin:9px 0 4px}.node span{display:block;font-size:12px;line-height:1.7;color:var(--muted)}.node.final{background:var(--tint);border-color:transparent}.glyph{height:22px;display:flex;gap:4px;align-items:end}.glyph i{display:block;width:13px;border:1.5px solid var(--accent);height:16px;border-radius:2px;background:var(--tint)}.glyph i:nth-child(2){height:20px}.glyph i:nth-child(3){height:13px}.glyph.go{font-size:16px;font-weight:800;letter-spacing:-.05em;color:var(--accent);line-height:22px}.diagram[data-step="1"] .s1,.diagram[data-step="2"] .s2,.diagram[data-step="3"] .s3{background:var(--tint);border-color:var(--accent);box-shadow:0 0 0 3px var(--tint);transform:translateY(-3px)}.diagram-progress{height:3px;background:#e7edf5;margin:22px 0 14px;border-radius:3px;overflow:hidden}.diagram-progress i{display:block;width:0;height:100%;background:var(--blue);transition:width .6s var(--ease)}.flow-caption{font-size:13px;color:var(--muted);min-height:47px}.notice{padding:14px 17px;background:#f9f2e7;border-left:3px solid #b6752c;border-radius:0 8px 8px 0;font-size:14px;line-height:1.85;margin-top:21px}.notice strong{color:var(--amber)}.insights{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:26px}.insights article{padding-left:16px;border-left:3px solid var(--line)}.insights h3{font-size:16px;margin-bottom:7px}.insights p{font-size:14px;color:var(--muted)}details{margin-top:18px;border:1px solid var(--line);border-radius:11px;background:white}summary{padding:16px 20px;cursor:pointer;font-weight:650;font-size:14px;list-style-position:outside;margin-left:19px}summary:hover{color:var(--blue)}details[open]>summary{border-bottom:1px solid #e4eaf3}details .detail-body{padding:21px 24px;font-size:14px}details .detail-body h3{margin:22px 0 10px;font-size:16px}details .detail-body h3:first-child{margin-top:0}.detail-body ul,.detail-body ol{padding-left:22px;margin:12px 0}.detail-body li+li{margin-top:11px}.cache-explainer{display:flex;align-items:center;justify-content:center;gap:22px;flex-wrap:wrap;padding:26px 0}.chunk-grid{display:grid;grid-template-columns:repeat(6,20px);gap:5px}.chunk-grid i{height:20px;border:1px solid #b8c8de;background:#e8eef6;border-radius:3px}.chunk-grid i.used{background:var(--soft-teal);border:2px solid var(--teal)}.cache-legend{max-width:420px;font-size:13px}.status-note{display:flex;gap:14px;padding:18px 20px;background:#eaf1fd;border-radius:12px;margin-bottom:25px;align-items:flex-start}.status-note b{font-size:13px;white-space:nowrap;color:#1e5099}.status-note p{font-size:14px;line-height:1.8}.data-grid{display:grid;grid-template-columns:1.3fr .8fr;gap:28px;align-items:start}.measure-title{font-size:13px;color:var(--muted);margin-bottom:7px}.segmented{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 25px}.chart-axis{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-left:90px;margin-right:70px;margin-bottom:8px}.chart-row{display:grid;grid-template-columns:78px 1fr 59px;gap:12px;align-items:center;margin:20px 0}.chart-name{font-size:12px;font-weight:650}.track{height:37px;background:#edf1f6;border-radius:5px;position:relative}.bar{height:100%;border-radius:5px;background:var(--blue);width:71%;transition:width .75s var(--ease)}.bar.on{background:var(--teal);width:80.4286%}.chart-num{font-size:15px;font-variant-numeric:tabular-nums;text-align:right;font-weight:750}.chart-result{margin-top:23px;padding-top:19px;border-top:1px solid var(--line);font-size:20px;font-weight:750}.chart-result small{display:block;font-size:12px;font-weight:400;margin-top:7px}.evidence-aside{padding:12px 0 0}.evidence-aside h3{font-size:18px;margin-bottom:12px}.evidence-aside p{font-size:14px;line-height:1.85}.evidence-aside .boundary{padding:15px 0;margin:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}table{border-collapse:collapse;width:100%;text-align:left;font-size:13px;line-height:1.8}caption{font-weight:650;text-align:left;margin-bottom:12px}th,td{padding:13px 12px;border-bottom:1px solid var(--line);vertical-align:top}th{background:#edf3fa;font-weight:650}td:first-child{font-weight:650}thead th{white-space:normal}.table-scroll{overflow-x:auto}.compat th:first-child{width:30%}.good{color:var(--teal);font-weight:700}.no{color:var(--muted);font-weight:700}.footnote{margin-top:15px;font-size:13px;color:var(--muted)}.time-frame{padding:26px;background:white;border:1px solid var(--line);border-radius:16px}.bracket{border-top:2px solid var(--ink);border-left:2px solid var(--ink);border-right:2px solid var(--ink);height:10px;margin-top:10px;position:relative}.scope-caption{text-align:center;font-size:14px;font-weight:700}.time-track{display:grid;grid-template-columns:1fr 1.1fr 1.1fr 1fr;gap:5px;margin-top:10px}.time-block{background:#edf1f6;text-align:center;min-height:91px;padding:16px 7px;display:flex;align-items:center;justify-content:center;flex-direction:column;font-size:13px;line-height:1.7}.time-block.init{background:var(--soft-blue);color:#1b51b5}.time-block.run{background:var(--soft-teal);color:#076b63}.time-block small{font-size:10px;margin-top:6px;color:inherit}.time-bottom{display:grid;grid-template-columns:1fr 1.1fr 1.1fr 1fr;gap:5px;margin-top:7px;font-size:10px;text-align:center;color:var(--muted)}.time-bottom span{border-top:2px solid var(--line);padding-top:6px}.time-bottom .init-scope{border-color:var(--blue);color:var(--blue)}.time-bottom .run-scope{border-color:var(--teal);color:var(--teal)}.measure-rules{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:27px}.measure-rules h3{font-size:16px;margin-bottom:8px}.measure-rules p{font-size:14px;color:var(--muted)}.decision{display:grid;grid-template-columns:160px 1fr;gap:14px 22px;border-top:1px solid var(--line);padding:21px 0}.decision:last-child{border-bottom:1px solid var(--line)}.decision .condition{font-size:13px;color:var(--muted)}.decision h3{font-size:17px;margin-bottom:7px}.decision p{font-size:14px;color:var(--muted)}.source-list{list-style:none;padding:0!important;margin:0!important;counter-reset:source}.source-list li{display:grid;grid-template-columns:28px 1fr;gap:10px;padding:14px 0;border-bottom:1px solid #e3eaf4;counter-increment:source;scroll-margin-top:90px}.source-list li::before{content:counter(source);font-variant-numeric:tabular-nums;font-size:12px;color:var(--muted)}.source-list li:last-child{border-bottom:0}.source-list a{font-size:14px}.source-list small{display:block;margin-top:4px;font-size:12px}.source-list li:target{background:#eaf1ff;outline:6px solid #eaf1ff}.footer{padding:32px 0 45px;color:var(--muted);font-size:12px}.footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}.footer a{color:var(--muted)}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
@@ -14,6 +15,96 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.diagram .node{transform:none!important}}
 html[data-motion="off"]{scroll-behavior:auto}html[data-motion="off"] *,html[data-motion="off"] *::before,html[data-motion="off"] *::after{animation:none!important;transition:none!important}html[data-motion="off"] .diagram .node{transform:none!important}
 @media print{.topbar,.js-control,.skip{display:none!important}.wrap{width:100%}.hero{padding-top:0}.section{padding:20px 0}.plate,details,.time-frame{break-inside:avoid}.section-head{margin-bottom:12px}body{font-size:11pt;background:white}h1{font-size:27pt}h2{font-size:19pt}.footer{padding-bottom:0}a{color:inherit}.source-list{font-size:9pt}.bar{print-color-adjust:exact;-webkit-print-color-adjust:exact}.summary-grid{display:block}.summary-grid article+article{border:0;padding-left:0;margin-top:12px}}
+
+/* Reading sizes: retain the report's content, color system and motion. */
+@media screen{
+ :root{--reader-body:1.25rem;--reader-detail:1.125rem;--reader-note:1rem}
+ body{font-size:var(--reader-body)}
+ h1{font-size:clamp(2rem,4.5vw,3.3125rem)}
+ h2{font-size:clamp(1.75rem,3vw,2.25rem)}
+ h3,.summary-grid h2,.evidence-aside h3{font-size:1.5rem}
+ .hero-lead{font-size:1.5rem;max-width:42em}
+ .summary-grid p,.section-head p,.insights p,.notice,.status-note p,.evidence-aside p,.measure-rules p,.decision p{font-size:var(--reader-body);line-height:1.9}
+ .plate-head h3,.node b,.insights h3,details .detail-body h3,.measure-rules h3,.decision h3,.scope-caption{font-size:var(--reader-body)}
+ summary,details .detail-body,pre,table,th,td,.source-list a,.time-block{font-size:var(--reader-detail)}
+ details .detail-body{line-height:1.9}
+ pre code{font-size:1em}
+ small,.small,.brand,.toplinks,.meta,.verdict-label,.read-label,.btn,.diagram-labels,.lane-name span,.node span,.flow-caption,.cache-legend,.status-note b,.measure-title,.chart-axis,.chart-name,.chart-result small,.footnote,.time-block small,.time-bottom,.decision .condition,.source-list li::before,.source-list small,.footer{font-size:var(--reader-note)}
+ sup{font-size:.875rem}
+ .lane-name b{font-size:1.625rem}
+ .chart-num{font-size:1.25rem;white-space:nowrap}
+ .chart-result{font-size:1.75rem}
+ .wrap>* ,article,.lane>*,.data-grid>*,.section-head>*,.plate-head>*{min-width:0}
+ .section-head,.plate-head,.topbar .wrap{flex-wrap:wrap}
+ .topbar .wrap{padding-block:10px;row-gap:8px}
+ .toplinks{flex-wrap:wrap}
+ .read-label,.status-note b{white-space:normal}
+ .status-note{flex-wrap:wrap}
+ .section-head p{max-width:42em}
+ .btn{min-height:44px;flex-shrink:0;white-space:normal}
+ .plate-head .btn{white-space:nowrap}
+ .chart-row{grid-template-columns:96px minmax(0,1fr) 80px;gap:12px}
+ .chart-axis{margin-left:108px;margin-right:92px;gap:12px;flex-wrap:wrap}
+ .flow-caption{min-height:4em}
+ .table-scroll{overflow-x:auto;overscroll-behavior-x:contain}
+ .table-scroll:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
+ .table-scroll table{min-width:38rem}
+ .table-hint{display:none}
+ .time-bottom span{overflow-wrap:anywhere}
+}
+@media screen and (max-width:56.25em){
+ .summary-grid,.measure-rules{grid-template-columns:1fr}
+ .summary-grid article+article{border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:20px}
+ .data-grid{grid-template-columns:1fr}
+ .diagram-labels{display:none}
+ .lane{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+ .lane-name{grid-column:1/-1;flex-direction:row;align-items:baseline;justify-content:space-between;padding:6px 0;gap:14px}
+ .lane-name span{max-width:65%;text-align:right;margin-top:0}
+ .node:not(:last-child)::after{right:-14px;width:13px}
+}
+@media screen and (max-width:43.75em){
+ .lane{grid-template-columns:1fr;gap:14px}
+ .node{min-height:0;padding:16px;display:grid;grid-template-columns:32px minmax(0,1fr);column-gap:12px}
+ .node b{margin:0}
+ .node span{grid-column:2}
+ .glyph{grid-row:1/3;align-self:center}
+ .node:not(:last-child)::after{content:'⌄';top:auto;bottom:-14px;left:calc(50% - 7px);width:14px;height:14px;line-height:13px;font-size:20px}
+ .insights{grid-template-columns:1fr}
+ .chart-row{grid-template-columns:minmax(0,1fr) auto;gap:6px 12px}
+ .chart-name{grid-column:1;grid-row:1}
+ .chart-name br{display:none}
+ .chart-num{grid-column:2;grid-row:1}
+ .track{grid-column:1/-1;grid-row:2;height:38px}
+ .chart-axis{margin-inline:0}
+ .table-hint{display:block;margin-block:0 12px}
+ .time-frame{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.85fr);gap:12px;padding:20px 14px}
+ .scope-caption,.bracket,.time-frame>figcaption{grid-column:1/-1}
+ .scope-caption{grid-row:1}
+ .bracket{grid-row:2}
+ .time-track,.time-bottom{display:contents}
+ .time-block{grid-column:1;min-height:105px;padding:16px 10px}
+ .time-bottom>span{grid-column:2;display:flex;align-items:center;text-align:left;border-top:0;border-left:2px solid var(--line);padding:12px;font-size:var(--reader-note)}
+ .time-track>.time-block:nth-child(1),.time-bottom>span:nth-child(1){grid-row:3}
+ .time-track>.time-block:nth-child(2),.time-bottom>span:nth-child(2){grid-row:4}
+ .time-track>.time-block:nth-child(3),.time-bottom>span:nth-child(3){grid-row:5}
+ .time-track>.time-block:nth-child(4),.time-bottom>span:nth-child(4){grid-row:6}
+ .time-frame>figcaption{grid-row:7}
+}
+@media screen and (max-width:37.5em){
+ :root{--reader-body:1.125rem}
+ html{scroll-padding-top:120px}
+ .source-list li{scroll-margin-top:120px}
+ .hero-lead{font-size:1.25rem}
+ .summary-grid h2,.evidence-aside h3{font-size:1.375rem}
+ .plate-head{flex-direction:column;align-items:flex-start}
+ .toplinks{gap:14px}
+ .lane-name{flex-wrap:wrap}
+ .lane-name span{max-width:100%}
+ .chart-result{font-size:1.5rem}
+ .decision{grid-template-columns:1fr}
+ .source-list li{grid-template-columns:26px minmax(0,1fr);gap:8px}
+}
+@media print{.table-hint{display:none}}
 </style>
   <!-- html-share: social metadata -->
   <link rel="canonical" href="https://share.0g0.xyz/aws-lambda-go-cold-start">
@@ -104,7 +195,7 @@ html[data-motion="off"]{scroll-behavior:auto}html[data-motion="off"] *,html[data
 <aside class="evidence-aside"><h3>SnapStartは、初期化を<br>「復元」に置き換える。</h3><p>元の初期化が軽いと、復元にかかる時間が上回る場合がある。逆に重い初期化では改善が大きくなり得る。<sup><a href="#source-7" aria-label="出典7">[7]</a></sup></p><div class="boundary"><p><strong>このグラフはGoの性能予測でも、ZIP対コンテナの比較でもありません。</strong>Goでの改善率や、「何秒以上なら必ず得」という境界値は、ここからは決められません。</p></div><p class="small">p50は中央値。まれに遅い呼び出しが問題になる用途では、p95・p99などの裾側と、失敗・再試行も別に評価します。</p></aside>
 </div>
 <details><summary>出典の実測表と、ZIP対コンテナの別の実験を見る</summary><div class="detail-body">
-<div class="table-scroll"><table><caption>Rustのクライアント往復時間（ms）<sup><a href="#source-7" aria-label="出典7">[7]</a></sup></caption><thead><tr><th>処理</th><th>指標</th><th>SnapStartなし</th><th>あり</th></tr></thead><tbody><tr><td>最小関数</td><td>p50 / p90</td><td>497 / 507</td><td>563 / 630</td></tr><tr><td>辞書初期化 約4.6秒</td><td>p50 / p90</td><td>4,894 / 5,045</td><td>884 / 1,000</td></tr></tbody></table></div>
+<p class="table-hint small">表は横にスクロールできます。</p><div class="table-scroll" role="region" aria-label="Rustの実測値比較表" tabindex="0"><table><caption>Rustのクライアント往復時間（ms）<sup><a href="#source-7" aria-label="出典7">[7]</a></sup></caption><thead><tr><th>処理</th><th>指標</th><th>SnapStartなし</th><th>あり</th></tr></thead><tbody><tr><td>最小関数</td><td>p50 / p90</td><td>497 / 507</td><td>563 / 630</td></tr><tr><td>辞書初期化 約4.6秒</td><td>p50 / p90</td><td>4,894 / 5,045</td><td>884 / 1,000</td></tr></tbody></table></div>
 <p class="footnote">同じイメージの別関数で比較した観測値。軽い関数と重い関数を混ぜた集計ではありません。サンプル数・並列実行・事前初期化の除外手順などは出典を参照。表から算出した重いケースの短縮率は約81.9%、速度比は約5.5倍であり、AWSの保証値ではありません。</p>
 <h3>2024年のZIP対コンテナ比較は、Goではない</h3>
 <p>AJ Stuyvenberg氏の実験はNode.js 18とPython 3.11が対象。同一リージョンでコールド呼び出しの往復時間を測り、追加依存がNode.jsで約30 MB、Pythonで約200 MBを超える条件ではコンテナ優位と報告している。数千回の測定だが、これらの閾値を現在のGoやイメージ全体のサイズに転用することはできない。<sup><a href="#source-4" aria-label="出典4">[4]</a></sup></p>
@@ -114,7 +205,7 @@ html[data-motion="off"]{scroll-behavior:auto}html[data-motion="off"] *,html[data
 
 <section class="section" id="snapstart" aria-labelledby="snap-title">
 <div class="section-head"><div><h2 id="snap-title">GoのSnapStartは、コンテナで条件付き。</h2><p>2026年9月2日にコンテナイメージ対応が発表された。OSイメージを選ぶだけで、安全に有効になるわけではない。<sup><a href="#source-5" aria-label="出典5">[5]</a><a href="#source-6" aria-label="出典6">[6]</a></sup></p></div></div>
-<div class="plate"><table class="compat"><thead><tr><th>Goの配置方法</th><th>SnapStart</th><th>確認すること</th></tr></thead><tbody><tr><td>ZIP + <code>provided.al2023</code></td><td class="no">対象外</td><td>GoのOS-only ZIPは対応対象として案内されていない。<sup><a href="#source-15" aria-label="出典15">[15]</a></sup></td></tr><tr><td>公式OSイメージ + Go</td><td class="good">条件付き対応</td><td><code>provided:al2023</code>でも互換性確認と、フックまたは所定ラベルが必要。<sup><a href="#source-6" aria-label="出典6">[6]</a></sup></td></tr><tr><td>独自ベースイメージ + Go</td><td class="good">条件付き対応</td><td>Lambda Runtime APIへの対応に加え、スナップショットの安全性を確認する。<sup><a href="#source-1" aria-label="出典1">[1]</a><a href="#source-6" aria-label="出典6">[6]</a></sup></td></tr></tbody></table>
+<div class="plate"><p class="table-hint small">表は横にスクロールできます。</p><div class="table-scroll" role="region" aria-label="Goの配置方法とSnapStartの対応表" tabindex="0"><table class="compat"><thead><tr><th>Goの配置方法</th><th>SnapStart</th><th>確認すること</th></tr></thead><tbody><tr><td>ZIP + <code>provided.al2023</code></td><td class="no">対象外</td><td>GoのOS-only ZIPは対応対象として案内されていない。<sup><a href="#source-15" aria-label="出典15">[15]</a></sup></td></tr><tr><td>公式OSイメージ + Go</td><td class="good">条件付き対応</td><td><code>provided:al2023</code>でも互換性確認と、フックまたは所定ラベルが必要。<sup><a href="#source-6" aria-label="出典6">[6]</a></sup></td></tr><tr><td>独自ベースイメージ + Go</td><td class="good">条件付き対応</td><td>Lambda Runtime APIへの対応に加え、スナップショットの安全性を確認する。<sup><a href="#source-1" aria-label="出典1">[1]</a><a href="#source-6" aria-label="出典6">[6]</a></sup></td></tr></tbody></table></div>
 <p class="footnote">利用時はSnapStart設定を有効化してバージョンを発行し、そのバージョンまたはエイリアスを呼び出す。<code>$LATEST</code>は対象外。同じバージョンでProvisioned Concurrencyとは併用できない。<sup><a href="#source-15" aria-label="出典15">[15]</a><a href="#source-16" aria-label="出典16">[16]</a></sup></p></div>
 <div class="notice"><strong>「DB接続が遅いから、その接続ごと保存」で完了ではない。</strong><br>初期化で作った一意ID、時刻に依存する状態、認証情報、ネットワーク接続は復元後の扱いを検証する。復元時の再接続や再取得の時間も応答時間に含める。<sup><a href="#source-6" aria-label="出典6">[6]</a><a href="#source-15" aria-label="出典15">[15]</a></sup></div>
 <details><summary>フック・ラベル・料金と、古い資料との読み分け</summary><div class="detail-body">
@@ -170,7 +261,7 @@ LABEL com.amazonaws.lambda.feature.snapstart="Allow"</code></pre>
 <li id="source-15"><div><a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">AWS：Improving startup performance with Lambda SnapStart</a><small>互換性と対応制限。取得版に旧コンテナ非対応記載があるため、その箇所は出典5・6の新情報を優先。2026-10-14参照。</small></div></li>
 <li id="source-16"><div><a href="https://aws.amazon.com/blogs/compute/get-started-with-aws-lambda-snapstart-for-container-images/">AWS：Get started with AWS Lambda SnapStart for container images</a><small>2026-10-06公開の解説。配置・バージョン発行・コンテナの料金項目。9月の対応発表とは別。</small></div></li>
 </ol></div></details>
-<details><summary>調査範囲・更新履歴</summary><div class="detail-body"><p><strong>対象：</strong>GoをRuntime API経由で実行する通常のLambda関数。ZIP、公式OS-onlyイメージ、独自ベースイメージの配布と、SnapStart / Provisioned Concurrencyの違い。独自AWSベンチマーク、全ランタイム網羅、利用中アカウントの構成診断は含まない。</p><p><strong>2026-10-14 初版：</strong>AWSの発表・専用ガイドと旧概要の記述差を整理。Goの未確認値を採用せず、Rustの参考実測を別枠で図示。Initと往復時間の違い、比較設計を追加。</p><p>公開資料の取得時点や記載の更新に差があり、Goの同条件比較は未確認。内部キャッシュの実装・数値は、公開資料の時点と条件を超えて保証されるものではない。</p></div></details>
+<details><summary>調査範囲・更新履歴</summary><div class="detail-body"><p><strong>対象：</strong>GoをRuntime API経由で実行する通常のLambda関数。ZIP、公式OS-onlyイメージ、独自ベースイメージの配布と、SnapStart / Provisioned Concurrencyの違い。独自AWSベンチマーク、全ランタイム網羅、利用中アカウントの構成診断は含まない。</p><p><strong>2026-10-14 初版：</strong>AWSの発表・専用ガイドと旧概要の記述差を整理。Goの未確認値を採用せず、Rustの参考実測を別枠で図示。Initと往復時間の違い、比較設計を追加。</p><p><strong>2026-10-14 表示改善：</strong>本文をPC20px・スマートフォン18pxへ、図と注釈を16px以上へ拡大。表と計測範囲図の折り返しを調整。調査内容・数値・出典は変更していません。</p><p>公開資料の取得時点や記載の更新に差があり、Goの同条件比較は未確認。内部キャッシュの実装・数値は、公開資料の時点と条件を超えて保証されるものではない。</p></div></details>
 </section>
 </main>
 <footer class="footer"><div class="wrap"><p>2026年10月14日版 · 文献調査レポート<br>外部JavaScript・外部フォント・アクセス解析は使用していません。</p><p><a href="/">レポート一覧</a> / <a href="/feed.xml">RSS</a> / <a href="#main">先頭へ</a></p></div></footer>
