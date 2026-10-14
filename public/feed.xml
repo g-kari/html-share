@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Wed, 14 Oct 2026 02:32:43 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 14 Oct 2026 08:28:12 GMT</lastBuildDate>
+    <item>
+      <title>GoのLambda、ZIPとコンテナはどちらが速い？ | コールドスタート調査</title>
+      <link>https://share.0g0.xyz/aws-lambda-go-cold-start</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/aws-lambda-go-cold-start</guid>
+      <description>Go LambdaのZIP・公式OSコンテナ・SnapStartを一次資料から比較。起動経路の動く図解、条件付き実測チャート、正しい計測手順をまとめた2026年10月の調査。</description>
+      <pubDate>Wed, 14 Oct 2026 08:28:12 GMT</pubDate>
+      <dcterms:created>2026-10-14T08:28:12.000Z</dcterms:created>
+      <dcterms:modified>2026-10-14T08:28:12.000Z</dcterms:modified>
+    </item>
     <item>
       <title>Lambda Web Functions・Web Adapter・API Gateway比較｜図解と損益分岐点</title>
       <link>https://share.0g0.xyz/aws-lambda-web-functions</link>
