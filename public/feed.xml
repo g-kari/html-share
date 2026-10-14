@@ -7,15 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Wed, 14 Oct 2026 12:51:31 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 14 Oct 2026 13:09:15 GMT</lastBuildDate>
     <item>
       <title>2026年 不正アクセス・情報漏えいウォッチ｜原因・出典・続報</title>
       <link>https://share.0g0.xyz/security-incidents</link>
       <guid isPermaLink="true">https://share.0g0.xyz/security-incidents</guid>
-      <description>2026年の不正アクセス・情報漏えい事案と過去の主要事例を、原因・影響・対応・日付・一次資料で整理。infoQの確定件数とREXTの調査・復旧続報を反映した168件。</description>
-      <pubDate>Wed, 14 Oct 2026 12:51:31 GMT</pubDate>
+      <description>2026年の不正アクセス・情報漏えい事案と過去の主要事例を、原因・影響・対応・日付・一次資料で整理。infoQ・REXTの続報を保持し、くふうの調査結果とライドオンの漏えい可能性を反映した169件。</description>
+      <pubDate>Wed, 14 Oct 2026 13:09:15 GMT</pubDate>
       <dcterms:created>2026-10-02T06:08:44.000Z</dcterms:created>
-      <dcterms:modified>2026-10-14T12:51:31.000Z</dcterms:modified>
+      <dcterms:modified>2026-10-14T13:09:15.000Z</dcterms:modified>
     </item>
     <item>
       <title>GoのLambda、ZIPとコンテナはどちらが速い？ | コールドスタート調査</title>

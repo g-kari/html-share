@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Wed, 14 Oct 2026 12:48:56 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 14 Oct 2026 13:09:15 GMT</lastBuildDate>
+    <item>
+      <title>くふう まちトークβ版の10月13日調査結果を反映</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#f3941958fb1a3be28211e6c02529ea95cac07e79ef4bf734aa320988564759be</guid>
+      <description>くふう まちトークβ版の10月13日調査結果を反映。308名の生年月日・性別の外部閲覧可能状態、1名のメール取得確認、残る307名のメール閲覧・取得なしを区別。脆弱性対策実施と停止継続・再開日未定を追加。 ライドオンエクスプレスを追加。停止初報10月7日、第2報10月8日、メニュー等公開10月9日、第3報10月13日の経緯を保持。最大約650万件は漏えい可能性の範囲であり、確定流出件数・人数ではない。公式サイト・アプリ注文の停止と代替注文手段を記載。</description>
+      <pubDate>Wed, 14 Oct 2026 13:09:15 GMT</pubDate>
+      <dcterms:created>2026-10-14T13:09:15.000Z</dcterms:created>
+    </item>
     <item>
       <title>infoQの10月14日第2報で個人情報の持出し確定件数894,082件へ訂正し、初報最大948,498件の内訳9,068件（個人情報なしの持出し）・45,348件（未持出し）を区別</title>
       <link>https://share.0g0.xyz/security-incidents</link>
