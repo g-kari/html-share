@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Tue, 13 Oct 2026 23:10:52 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 14 Oct 2026 02:24:15 GMT</lastBuildDate>
+    <item>
+      <title>form以前、Webは何を送った？｜動かしてわかるHTMLフォームの歴史</title>
+      <link>https://share.0g0.xyz/html-form-history</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/html-form-history</guid>
+      <description>HTMLのform以前は何を送っていた？ リンク、ISINDEX、フォームの違いを、入力を変えられる通信アニメーションと一次資料で学ぶ。</description>
+      <pubDate>Wed, 14 Oct 2026 02:24:15 GMT</pubDate>
+      <dcterms:created>2026-10-14T02:24:15.000Z</dcterms:created>
+      <dcterms:modified>2026-10-14T02:24:15.000Z</dcterms:modified>
+    </item>
     <item>
       <title>重要技術アップデート｜AI・開発ツール・MCP</title>
       <link>https://share.0g0.xyz/technology-updates</link>
