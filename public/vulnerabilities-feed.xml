@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/vulnerabilities-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Sat, 10 Oct 2026 00:30:27 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 14 Oct 2026 13:17:21 GMT</lastBuildDate>
+    <item>
+      <title>JTL-ShopのCVE-2026-103904（Consent統計の保存型XSS、管理者閲覧が必要）と103905（未認証のPlugin Safe Mode切替による機能停止）をENISA CNAの</title>
+      <link>https://share.0g0.xyz/vulnerabilities</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/vulnerabilities-feed.xml#e310c4e46688d7f99ac3a94b2d35415cddc49c1572ac99fc8e71b1decf26978d</guid>
+      <description>JTL-ShopのCVE-2026-103904（Consent統計の保存型XSS、管理者閲覧が必要）と103905（未認証のPlugin Safe Mode切替による機能停止）をENISA CNAの10月14日公開レコードから2項目・2 CVE追加し238項目・419 CVEへ。XSSの下限5.4.0とSafe Modeの下限5.3.0、系列ごとの修正境界5.6.5／5.7.5／5.8.2、CVSS v4.0の8.6／8.7を区別。公式告知本文は今回403で再取得できず、旧版手動patch公開済み・実悪用・配布日時を断定しない。既存236項目・417 CVEと旧履歴を保持。</description>
+      <pubDate>Wed, 14 Oct 2026 13:17:21 GMT</pubDate>
+      <dcterms:created>2026-10-14T13:17:21.000Z</dcterms:created>
+    </item>
     <item>
       <title>JetBrains Exposedの新規公表CVE-2026-108474を1項目・1 CVE追加し236項目・417 CVEへ</title>
       <link>https://share.0g0.xyz/vulnerabilities</link>

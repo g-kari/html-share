@@ -118,6 +118,8 @@
         "ibm-guardium-edge-authentication-and-native-boundaries": "6ee88e27fa6ba849fbcbab5e6027501eadcc95ab1b45ad715af597f3c0264888",
         "ibm-verify-access-unauthenticated-deserialization-rce": "349f69651a16d17b42ab9d0d8a044a682d96fb5fba952fe6cf88c981987202d2",
         "jetbrains-exposed-string-sql-function-injection": "4cd317d9bfcf3c62e3d64218fed6412cbfc160d68a061a20f6da3d3b759a970b",
+        "jtl-shop-consent-statistics-stored-xss": "b12dac1cafd212d60bbe8bf5999b9809632afd13e8dc4cea78ff129d59fbeae2",
+        "jtl-shop-unauthenticated-plugin-safe-mode-toggle": "da87cbc4c635229ad93918fc31d53db4144504067c1ef49d2a14519a744555b2",
         "kibana-fleet-custom-package-cross-tenant-stream-interception": "0b8a32f40777111e19e1d1f0a0a8d9e37207b6532da657a490b735d622f5219d",
         "kiota-java-php-generation-code-injection": "aaeac28646bf7b332e42d5ac155ea13defb52d6710a8f82dd94980cccdf6b6ca",
         "kkfileview-upload-path-directory-traversal": "c2912a1f9d01a9006d4ce0ed0429362e2bf5a5fa490c8799e64fcf4495910d06",
@@ -470,6 +472,15 @@
             "jetbrains-exposed-string-sql-function-injection"
           ],
           "date": "2026-10-10"
+        },
+        {
+          "signature": "2118bc57059736186fbf0ff548dd8c5a6ad983d643c8a65b6648b5ffdd9ae56d",
+          "summary": "JTL-ShopのCVE-2026-103904（Consent統計の保存型XSS、管理者閲覧が必要）と103905（未認証のPlugin Safe Mode切替による機能停止）をENISA CNAの10月14日公開レコードから2項目・2 CVE追加し238項目・419 CVEへ。XSSの下限5.4.0とSafe Modeの下限5.3.0、系列ごとの修正境界5.6.5／5.7.5／5.8.2、CVSS v4.0の8.6／8.7を区別。公式告知本文は今回403で再取得できず、旧版手動patch公開済み・実悪用・配布日時を断定しない。既存236項目・417 CVEと旧履歴を保持。",
+          "ids": [
+            "jtl-shop-consent-statistics-stored-xss",
+            "jtl-shop-unauthenticated-plugin-safe-mode-toggle"
+          ],
+          "date": "2026-10-14"
         }
       ],
       "items": [
@@ -950,9 +961,26 @@
           ],
           "published": "2026-10-10T00:30:27.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "e310c4e46688d7f99ac3a94b2d35415cddc49c1572ac99fc8e71b1decf26978d",
+          "summary": "JTL-ShopのCVE-2026-103904（Consent統計の保存型XSS、管理者閲覧が必要）と103905（未認証のPlugin Safe Mode切替による機能停止）をENISA CNAの10月14日公開レコードから2項目・2 CVE追加し238項目・419 CVEへ。XSSの下限5.4.0とSafe Modeの下限5.3.0、系列ごとの修正境界5.6.5／5.7.5／5.8.2、CVSS v4.0の8.6／8.7を区別。公式告知本文は今回403で再取得できず、旧版手動patch公開済み・実悪用・配布日時を断定しない。既存236項目・417 CVEと旧履歴を保持。",
+          "journal": [
+            {
+              "signature": "2118bc57059736186fbf0ff548dd8c5a6ad983d643c8a65b6648b5ffdd9ae56d",
+              "summary": "JTL-ShopのCVE-2026-103904（Consent統計の保存型XSS、管理者閲覧が必要）と103905（未認証のPlugin Safe Mode切替による機能停止）をENISA CNAの10月14日公開レコードから2項目・2 CVE追加し238項目・419 CVEへ。XSSの下限5.4.0とSafe Modeの下限5.3.0、系列ごとの修正境界5.6.5／5.7.5／5.8.2、CVSS v4.0の8.6／8.7を区別。公式告知本文は今回403で再取得できず、旧版手動patch公開済み・実悪用・配布日時を断定しない。既存236項目・417 CVEと旧履歴を保持。",
+              "ids": [
+                "jtl-shop-consent-statistics-stored-xss",
+                "jtl-shop-unauthenticated-plugin-safe-mode-toggle"
+              ],
+              "date": "2026-10-14"
+            }
+          ],
+          "published": "2026-10-14T13:17:21.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "054bf2f72bb1ae8718f74f2d7750f9f96adb9f7b"
+      "cursor": "5697fbb8f3f1867555f2eee2da0351489cb2b079"
     },
     "security-incidents": {
       "records": {
