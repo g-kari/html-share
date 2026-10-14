@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/vulnerabilities-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Wed, 14 Oct 2026 15:18:03 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 14 Oct 2026 15:21:55 GMT</lastBuildDate>
+    <item>
+      <title>Claude Code pluginのSHA pin回避（CVE-2026-86063）とWindows Claude Desktopのproject内git.exe検索（CVE-2026-88066</title>
+      <link>https://share.0g0.xyz/vulnerabilities</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/vulnerabilities-feed.xml#57fb592f4ba676a4288a304ddf7b9f8a45174e7ea16ea7a720f5146f14e9135b</guid>
+      <description>Claude Code pluginのSHA pin回避（CVE-2026-86063）とWindows Claude Desktopのproject内git.exe検索（CVE-2026-88066）を公式GHSAで確認して2項目・2 CVE追加し256項目・455 CVEへ。Code 2.1.179とDesktop 1.8089.0の修正境界、GHSA CVSS v4.0 7.7/7.5と86063 CNA側7.5/UI:Aとの差、必要なplugin導入・projectを開く操作を区別。86063の10月9日GHSA公表・10月13日CVE登録と6月16日の正式修正版提供を分離。88066のCVEProject取得404は不存在・安全の証明とせず、公式GHSAのCVE表記を根拠とする。実悪用・一般公開PoCの確認を新たに主張しない。既存254項目・453 CVEと全履歴を保持。</description>
+      <pubDate>Wed, 14 Oct 2026 15:21:55 GMT</pubDate>
+      <dcterms:created>2026-10-14T15:21:55.000Z</dcterms:created>
+    </item>
     <item>
       <title>Windows Shell CVE-2026-96951とIvanti Connect Secure CVE-2026-104935の10月13日KEV実悪用登録、Chrome10月13日Critic</title>
       <link>https://share.0g0.xyz/vulnerabilities</link>

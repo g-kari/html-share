@@ -55,6 +55,8 @@
         "cisco-ios-xe-august-hardening-october-fix-table": "d9137245aaf8690b8ff4c264591a7b6dde6dfb295ff0c46026199ca36e5cd4eb",
         "cisco-sdwan-exploited-api-bypass": "9258609fe2b2fa147a76fc01e387736e172428431f1e50f39b8c9e06cf504b0a",
         "claude-code-write-time-symlink-outside-project": "f7aa37b0dff9f98c22bf9950ec0708169e16a64d00f5931d3a5382d307a74389",
+        "claude-desktop-windows-project-git-executable-search": "a98588be4d1d1177bbd1f067176bcc5be543a35b4c8ef7562172acae4cd713c9",
+        "claude-plugin-sha-pin-checkout-bypass": "6997249a276c537cd304c8ed5ff476e23497ba84f43e4885357263ec3e92db10",
         "cloudflare-containers-residual-data": "697eb8f64e6623a13596210e3b7c8a9268999211f28e0fc80b4412dcb6bb1a53",
         "convertx-calibre-recipe-execution": "f9e216fa2494213b3d816fec59a1659aaafe31f4420c1c9c6d3b7656ce68e579",
         "coraza-argument-limit-bypass-and-json-stack-crash": "3ed7660b6d2583fdf1f04ec873b8edbba817588a94b800d84602dadab8546784",
@@ -539,6 +541,15 @@
             "chrome-october-thirteen-critical-memory-fixes",
             "ivanti-connect-secure-auth-bypass-104935",
             "windows-shell-motw-bypass-96951"
+          ],
+          "date": "2026-10-15"
+        },
+        {
+          "signature": "6f3d9d92bfdc0f4d34c3045d7d4dd70cb99330da6a5bb0158955cdb9b181b957",
+          "summary": "Claude Code pluginのSHA pin回避（CVE-2026-86063）とWindows Claude Desktopのproject内git.exe検索（CVE-2026-88066）を公式GHSAで確認して2項目・2 CVE追加し256項目・455 CVEへ。Code 2.1.179とDesktop 1.8089.0の修正境界、GHSA CVSS v4.0 7.7/7.5と86063 CNA側7.5/UI:Aとの差、必要なplugin導入・projectを開く操作を区別。86063の10月9日GHSA公表・10月13日CVE登録と6月16日の正式修正版提供を分離。88066のCVEProject取得404は不存在・安全の証明とせず、公式GHSAのCVE表記を根拠とする。実悪用・一般公開PoCの確認を新たに主張しない。既存254項目・453 CVEと全履歴を保持。",
+          "ids": [
+            "claude-desktop-windows-project-git-executable-search",
+            "claude-plugin-sha-pin-checkout-bypass"
           ],
           "date": "2026-10-15"
         }
@@ -1114,9 +1125,26 @@
           ],
           "published": "2026-10-14T15:18:03.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "57fb592f4ba676a4288a304ddf7b9f8a45174e7ea16ea7a720f5146f14e9135b",
+          "summary": "Claude Code pluginのSHA pin回避（CVE-2026-86063）とWindows Claude Desktopのproject内git.exe検索（CVE-2026-88066）を公式GHSAで確認して2項目・2 CVE追加し256項目・455 CVEへ。Code 2.1.179とDesktop 1.8089.0の修正境界、GHSA CVSS v4.0 7.7/7.5と86063 CNA側7.5/UI:Aとの差、必要なplugin導入・projectを開く操作を区別。86063の10月9日GHSA公表・10月13日CVE登録と6月16日の正式修正版提供を分離。88066のCVEProject取得404は不存在・安全の証明とせず、公式GHSAのCVE表記を根拠とする。実悪用・一般公開PoCの確認を新たに主張しない。既存254項目・453 CVEと全履歴を保持。",
+          "journal": [
+            {
+              "signature": "6f3d9d92bfdc0f4d34c3045d7d4dd70cb99330da6a5bb0158955cdb9b181b957",
+              "summary": "Claude Code pluginのSHA pin回避（CVE-2026-86063）とWindows Claude Desktopのproject内git.exe検索（CVE-2026-88066）を公式GHSAで確認して2項目・2 CVE追加し256項目・455 CVEへ。Code 2.1.179とDesktop 1.8089.0の修正境界、GHSA CVSS v4.0 7.7/7.5と86063 CNA側7.5/UI:Aとの差、必要なplugin導入・projectを開く操作を区別。86063の10月9日GHSA公表・10月13日CVE登録と6月16日の正式修正版提供を分離。88066のCVEProject取得404は不存在・安全の証明とせず、公式GHSAのCVE表記を根拠とする。実悪用・一般公開PoCの確認を新たに主張しない。既存254項目・453 CVEと全履歴を保持。",
+              "ids": [
+                "claude-desktop-windows-project-git-executable-search",
+                "claude-plugin-sha-pin-checkout-bypass"
+              ],
+              "date": "2026-10-15"
+            }
+          ],
+          "published": "2026-10-14T15:21:55.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "4bdab907f030946b51573d29c653667347ddb976"
+      "cursor": "b7a0071a1ea8acd939b8f4a4d3fe3cf42fdb76a2"
     },
     "security-incidents": {
       "records": {
