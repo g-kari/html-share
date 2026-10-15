@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Thu, 15 Oct 2026 01:03:28 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 15 Oct 2026 07:56:12 GMT</lastBuildDate>
+    <item>
+      <title>メドレーの10月15日提供元公表で不正アクセス確認・14日深夜の一時停止実施を反映</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#3d6984567270f7b56c13e58b99fdfd1dd7e72250c2d1b68baa20cf9a59b1490a</guid>
+      <description>メドレーの10月15日提供元公表で不正アクセス確認・14日深夜の一時停止実施を反映。最大787医療機関は可能性範囲で、漏えい有無・項目・対象施設は調査中。 アルカディア10月15日の関係機関への報告・相談と、raiden3/s2の同日15時頃の復旧予定を追記。実際の復旧確認とは区別し、10月13日時点の復旧未定説明と対象範囲訂正を保持。 WestJetの2025年侵害について、2026年10月14日のOPC調査終了と7月公開合意書を追加。約516.4万人はカナダの従業員・顧客。対策の約束履行による調査終了であり、責任免除や侵害の不存在とは扱わない。 アルカディア公式ページの停止告知に復旧済みの記載を確認し、raiden3/s2の状態を追記。先行する10月15日15時頃の予定と、正確な完了時刻が未記載である点を区別。自治体ごとの運用再開や調査終結を推定しない。</description>
+      <pubDate>Thu, 15 Oct 2026 07:56:12 GMT</pubDate>
+      <dcterms:created>2026-10-15T07:56:12.000Z</dcterms:created>
+    </item>
     <item>
       <title>IDCF利用先SB C&amp;Sの10月14日続報を追記</title>
       <link>https://share.0g0.xyz/security-incidents</link>

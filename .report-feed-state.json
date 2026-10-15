@@ -1424,7 +1424,7 @@
           "precision": "second"
         }
       ],
-      "cursor": "915d8f44be89dcc62e412d1463bc4024f30ae66a"
+      "cursor": "767ef600ce94812a1212f8186f1514ebec276355"
     },
     "security-incidents": {
       "records": {
@@ -1436,7 +1436,7 @@
         "ahold-delhaize-cybersecurity-20261012": "302feb2347880bc07092e65f606d3e33bae88b654aba622c01205b1934bfa5ff",
         "alpsalpine-2026": "d0b97049c7f4319d2e0155c5c84c144e5b7ee0bd5011e7f4aab5a6fee73a7f36",
         "applynow-analysis-20260809": "56ab14073225d70dff90cadffc4d6518114f5b4ce14d5d6f4ba23094d6ec99c5",
-        "arcadia-speecan-20261011": "ef116927c9dbbcd9ab27851fe9990d0646a1c820cf3e533e81aa7a8f14957bb2",
+        "arcadia-speecan-20261011": "76357200139cc917bce67b8f90d29008a57ae8a1d0c635efdeac881968b40cac",
         "arizona-courts-backups-20260924": "dd75acc97413bc42826c238b9a92c5ccf0298a41a689bb8aed03c0614b3eaf57",
         "asahi-20250929": "2ff3828a9d0efc3795b2ab714b01fb27bb3faca24a2a09326c2bd8bd3c5f504a",
         "asahi-kasei-pharma-digital-20261002": "aa9a28808ed77d108b43a6ab5b1d1d89fc46e0eb3f0a1fca7504d38da216133c",
@@ -1534,7 +1534,7 @@
         "manage-my-health-202512": "744d4fa236324ce62fb2fe1661ddc693f6ea9ca7732b8cfe149e348837159d3f",
         "mazda-warehouse-2026": "06d9ca5d8d084bb80d6d41ad3466e35bea4c59b500b610f88f19d3f8ddbb9adc",
         "media4u-sms-20260624": "2b4a9f6b981516711c61ae6b4469f30c7922ccdf4c6c32f80ff63495bc7c9b30",
-        "medley-atlink-20261011": "f2901495a82b5d4d88298a74a80f3c03024ccf038fc6cecd19334862093183a1",
+        "medley-atlink-20261011": "9769523910b24474698656c95de1bb1f19ff32318a5bd429aec33cbf20614a26",
         "mercor-litellm-202603": "c8ca789b983a3bd3087df6c7637546860e044118afd838b4f7639eebc1e0310d",
         "moneyforward-2026": "33cbcbaccbb94cc411955fd3704627f0de88ba38802f4790e204757c7711ede5",
         "monogatari-king-app-20261002": "c9c3108e37c9847a29891e18d6a5f2cbcf53eac1050384410ae23746475d4f46",
@@ -1606,6 +1606,7 @@
         "upsider-2026": "cfb9c6481c4b13b592a581f379351111343525a8fdf7ebae5d7491f2500a0cbd",
         "visualarts-2026": "469d0c4db409d206a90b6e2b9030cd86fbc579b27a41b2bd4e687387a77060e4",
         "voising-bi-20260810": "9f123bcffb197958aa2957a3dc7ac3b0be4d5b9d26dfe8af791ce1dcf2ec7486",
+        "westjet-social-engineering-20250612": "6b4160f7b35077f82e3c3739ea070f95acf5f2128439913acbc70ae80103a0bc",
         "whiteessence-reservation-20260805": "7e4305ed1095ddbd3b4e023d3f4ffde7dceca44b08df74fe79b2d689e9941e50",
         "yamato-paylater-20260928": "e23ee526abc0209d19a1401134d029f0d83a64e08edebebc5305597e3e67dbb9",
         "ycc-2026": "1b505f87536962594cefeba1e83ccc9845780a02f22066fb52898e7660150303",
@@ -2337,6 +2338,38 @@
         {
           "signature": "a3815f956e8c0bd1721598403e3db1b12addb7c32e5da916065a6efaa56d38f6",
           "summary": "千葉県・三鷹市の10月14日公表を同一提供元の利用範囲として補足。職員等の人数と市民・施設・職員の情報件数を区別し、漏えい可能性として保持。",
+          "ids": [
+            "arcadia-speecan-20261011"
+          ],
+          "date": "2026-10-15"
+        },
+        {
+          "signature": "5f03317548dc5a2459eb7c485451365551672b1fbba7f8009c895691acd5c13a",
+          "summary": "メドレーの10月15日提供元公表で不正アクセス確認・14日深夜の一時停止実施を反映。最大787医療機関は可能性範囲で、漏えい有無・項目・対象施設は調査中。",
+          "ids": [
+            "medley-atlink-20261011"
+          ],
+          "date": "2026-10-15"
+        },
+        {
+          "signature": "751d8ff932842f9d8e9b66abfe981a6ca43a451ec8c876bb107c93d7e7ff964e",
+          "summary": "アルカディア10月15日の関係機関への報告・相談と、raiden3/s2の同日15時頃の復旧予定を追記。実際の復旧確認とは区別し、10月13日時点の復旧未定説明と対象範囲訂正を保持。",
+          "ids": [
+            "arcadia-speecan-20261011"
+          ],
+          "date": "2026-10-15"
+        },
+        {
+          "signature": "df34832d9bc9c664f55ddbf6c3587790a52ecfb4dd18e36d10bae40766c4b274",
+          "summary": "WestJetの2025年侵害について、2026年10月14日のOPC調査終了と7月公開合意書を追加。約516.4万人はカナダの従業員・顧客。対策の約束履行による調査終了であり、責任免除や侵害の不存在とは扱わない。",
+          "ids": [
+            "westjet-social-engineering-20250612"
+          ],
+          "date": "2026-10-15"
+        },
+        {
+          "signature": "aceb18d50c2b3f6c00d1ea39f667e5be185390ba531fab1f2132b6bbe32ba2b7",
+          "summary": "アルカディア公式ページの停止告知に復旧済みの記載を確認し、raiden3/s2の状態を追記。先行する10月15日15時頃の予定と、正確な完了時刻が未記載である点を区別。自治体ごとの運用再開や調査終結を推定しない。",
           "ids": [
             "arcadia-speecan-20261011"
           ],
@@ -3286,9 +3319,49 @@
           ],
           "published": "2026-10-15T01:03:28.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "3d6984567270f7b56c13e58b99fdfd1dd7e72250c2d1b68baa20cf9a59b1490a",
+          "summary": "メドレーの10月15日提供元公表で不正アクセス確認・14日深夜の一時停止実施を反映。最大787医療機関は可能性範囲で、漏えい有無・項目・対象施設は調査中。 アルカディア10月15日の関係機関への報告・相談と、raiden3/s2の同日15時頃の復旧予定を追記。実際の復旧確認とは区別し、10月13日時点の復旧未定説明と対象範囲訂正を保持。 WestJetの2025年侵害について、2026年10月14日のOPC調査終了と7月公開合意書を追加。約516.4万人はカナダの従業員・顧客。対策の約束履行による調査終了であり、責任免除や侵害の不存在とは扱わない。 アルカディア公式ページの停止告知に復旧済みの記載を確認し、raiden3/s2の状態を追記。先行する10月15日15時頃の予定と、正確な完了時刻が未記載である点を区別。自治体ごとの運用再開や調査終結を推定しない。",
+          "journal": [
+            {
+              "signature": "5f03317548dc5a2459eb7c485451365551672b1fbba7f8009c895691acd5c13a",
+              "summary": "メドレーの10月15日提供元公表で不正アクセス確認・14日深夜の一時停止実施を反映。最大787医療機関は可能性範囲で、漏えい有無・項目・対象施設は調査中。",
+              "ids": [
+                "medley-atlink-20261011"
+              ],
+              "date": "2026-10-15"
+            },
+            {
+              "signature": "751d8ff932842f9d8e9b66abfe981a6ca43a451ec8c876bb107c93d7e7ff964e",
+              "summary": "アルカディア10月15日の関係機関への報告・相談と、raiden3/s2の同日15時頃の復旧予定を追記。実際の復旧確認とは区別し、10月13日時点の復旧未定説明と対象範囲訂正を保持。",
+              "ids": [
+                "arcadia-speecan-20261011"
+              ],
+              "date": "2026-10-15"
+            },
+            {
+              "signature": "df34832d9bc9c664f55ddbf6c3587790a52ecfb4dd18e36d10bae40766c4b274",
+              "summary": "WestJetの2025年侵害について、2026年10月14日のOPC調査終了と7月公開合意書を追加。約516.4万人はカナダの従業員・顧客。対策の約束履行による調査終了であり、責任免除や侵害の不存在とは扱わない。",
+              "ids": [
+                "westjet-social-engineering-20250612"
+              ],
+              "date": "2026-10-15"
+            },
+            {
+              "signature": "aceb18d50c2b3f6c00d1ea39f667e5be185390ba531fab1f2132b6bbe32ba2b7",
+              "summary": "アルカディア公式ページの停止告知に復旧済みの記載を確認し、raiden3/s2の状態を追記。先行する10月15日15時頃の予定と、正確な完了時刻が未記載である点を区別。自治体ごとの運用再開や調査終結を推定しない。",
+              "ids": [
+                "arcadia-speecan-20261011"
+              ],
+              "date": "2026-10-15"
+            }
+          ],
+          "published": "2026-10-15T07:56:12.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "0f6599112fcb495ac5693f762a94075b4cd7f3f9"
+      "cursor": "01e2b3e3694a11167577ab85f2641211c45b214d"
     }
   }
 }

@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Thu, 15 Oct 2026 07:53:31 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 15 Oct 2026 07:56:12 GMT</lastBuildDate>
+    <item>
+      <title>2026年 不正アクセス・情報漏えいウォッチ｜原因・出典・続報</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/security-incidents</guid>
+      <description>2026年の不正アクセス・情報漏えい事案と過去の主要事例を、原因・影響・対応・日付・一次資料で整理。既存の続報を保持し、WestJetのOPC調査終了を追加した184件。</description>
+      <pubDate>Thu, 15 Oct 2026 07:56:12 GMT</pubDate>
+      <dcterms:created>2026-10-02T06:08:44.000Z</dcterms:created>
+      <dcterms:modified>2026-10-15T07:56:12.000Z</dcterms:modified>
+    </item>
     <item>
       <title>脆弱性レポート | 実悪用・修正版・対処</title>
       <link>https://share.0g0.xyz/vulnerabilities</link>
@@ -16,15 +25,6 @@
       <pubDate>Thu, 15 Oct 2026 07:53:31 GMT</pubDate>
       <dcterms:created>2026-10-06T05:47:01.000Z</dcterms:created>
       <dcterms:modified>2026-10-15T07:53:31.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>2026年 不正アクセス・情報漏えいウォッチ｜原因・出典・続報</title>
-      <link>https://share.0g0.xyz/security-incidents</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/security-incidents</guid>
-      <description>2026年の不正アクセス・情報漏えい事案と過去の主要事例を、原因・影響・対応・日付・一次資料で整理。既存の続報を保持し、IDARE・カインドオル・トイポの公表と調査結果を加えた183件。</description>
-      <pubDate>Thu, 15 Oct 2026 01:03:28 GMT</pubDate>
-      <dcterms:created>2026-10-02T06:08:44.000Z</dcterms:created>
-      <dcterms:modified>2026-10-15T01:03:28.000Z</dcterms:modified>
     </item>
     <item>
       <title>GoのLambda、ZIPとコンテナはどちらが速い？ | コールドスタート調査</title>
