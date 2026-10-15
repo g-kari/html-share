@@ -5,7 +5,7 @@
       "records": {
         "aas-edge-client-unmaintained-unauthenticated-api": "84ccea7ec5917de021ecbe5367ffdcfbb307243618d04b7315b93ee46c1e8d7f",
         "actual-sync-server-github-prefix-token-disclosure": "10ccb84a6ccbd61028edd541378ae85def658bf040674da9f26fee92538c8446",
-        "ahsaycbs-exploited-authentication-command-chain": "84cfea68ea3f648074ffafd44eeaafa557d210d34ef2fd791b4e017065eb373b",
+        "ahsaycbs-exploited-authentication-command-chain": "b4e56f1c74b1f7518083e6f0fa0eb2e83ee38339c2bc2f9e1579a9555aba6a2b",
         "akamai-gpa-jwt-local-privilege-and-platform-dos": "98a650c3d05645a370459b1040b316c5bbe9a0678f2d7fa7133e369bfe7fd66f",
         "amd-rccl-proxy-untrusted-peer-pointer": "ff6332721c6b7e765c7e68cd1df45c475f0b904a14c62990a518e6d121cf5958",
         "android-october-critical-components": "9bb6543d037be34881589620674a02613f83e2e571fc7660b5e2b98266b3c5ba",
@@ -15,6 +15,7 @@
         "apache-httpd-october-http2-and-config-overflows": "bcef95b066294df34d40cde8085b2fa456762a07627f78b11e091b397764c476",
         "apache-impala-trusted-jar-path-traversal": "0df867eafedc2543d9f742f4748b2f3e73284ee7cd201f83dee11d33fc931ac2",
         "apple-coregraphics-exploited-file-rce": "d3ef514ed3f433382d8b85be586d4fc476be15018bc5d56448181250c00c65f8",
+        "apprise-cross-origin-redirect-auth-headers": "7f4cdb0eb7c0ad525fa5ab5337f85a0c8d0397511df854241d84afac3df16e7d",
         "argo-cd-ssh-repository-proxy-command-injection": "ea55bb8381d4686243d85771641001ec6395705b951612f8522cd89738013957",
         "arista-cloudvision-sensor-high-privilege-path-traversal": "531c278e385bbb224d376b70ece034a7e9b91d51bcafdd7ef94d30be86523fb9",
         "arista-cloudvision-sso-auth-material-redirect": "d31258374dcf77370548183515587933c4ff051e390411e9e6f4a63b11b56fd8",
@@ -24,6 +25,14 @@
         "arista-wifi-ap-gateway-uplink-capture-corruption": "b8b094b22f49b7a0cc3849dd354a980b5431712006a2b703b4736da60fd53c1e",
         "arista-wifi-captive-portal-associated-client-dos": "3d668f80d78367920bff1b2a89d05d21db031331e536e67ac9eb2ed5904e39d7",
         "arista-wifi-wips-rf-sensor-memory-corruption": "6d1cf8163e3a8bae4e344d6dba402969e2ed157990921c36c27d8fc52dad678c",
+        "aspnetcore-blazor-authorization-race-70183": "e3d451339e4b355460f369ca0b90eb6c683721e898fdf0419a212858f1dd4aa3",
+        "aspnetcore-blazor-debug-xss-96230": "28c6460c003f5a683c07bbbf0dfb42f305e01ce2c8ef017817099449747f0dad",
+        "aspnetcore-kestrel-cve-2026-70188": "81c4b55d0231c6aefcb48b830d2c1a3ccf03f526678e456f02ca09ac42f7c542",
+        "aspnetcore-kestrel-cve-2026-88092": "fb341194f8bcfd986339190b80ef3384fe66aae1fb72ed5909c8979925daf1cf",
+        "aspnetcore-kestrel-http3-dos-70186": "da2565e78bc1364a6b37eb580beca0efdff2513811709829f523ff9e90a642a6",
+        "aspnetcore-localization-cache-dos-96236": "dc492da8497d66bf7f18589137decac22b63a0beea66dac3e4c18a0abdb4c9a1",
+        "aspnetcore-multipart-buffer-dos-70181": "15435cc27039423ff6f460179727469168cd215a639ad31b3d6d865408e85f32",
+        "aspnetcore-negotiate-ldap-principal-70179": "b2bc8f6787bd11fcaed5925ba3662f5cf79ceff527380efe72d9acdaf6c33366",
         "atlassian-multiproduct-unauthenticated-file-access": "84855125c9650d72abbc9bb74a7f3e6fff4dfba4f8570d58e67500a69866573b",
         "authlib-empty-signatures-jws-verification-bypass": "a037c64f1df320520beaa8d1d2aebb3ea0b741d102eb487a991ec6bb632010b4",
         "avideo-youphpflix-trailer-url-stored-xss": "9d5860a130f9547d4e4825338da8a22ce2c4c5a07fd4d3b277e326966f357921",
@@ -54,6 +63,7 @@
         "cisco-fmc-exploited-authentication-root": "5b94f05d52c4c9d7577fdbb882711f27a41a41f440863a8a6c623ffba3ef4316",
         "cisco-ios-xe-august-hardening-october-fix-table": "d9137245aaf8690b8ff4c264591a7b6dde6dfb295ff0c46026199ca36e5cd4eb",
         "cisco-sdwan-exploited-api-bypass": "9258609fe2b2fa147a76fc01e387736e172428431f1e50f39b8c9e06cf504b0a",
+        "cisco-secure-email-amp-file-reputation-root-rce": "b08de0ee498e6926d811e330e4c06b71d4b193835099f3e4228e73a90fe7e400",
         "claude-code-write-time-symlink-outside-project": "f7aa37b0dff9f98c22bf9950ec0708169e16a64d00f5931d3a5382d307a74389",
         "claude-desktop-windows-project-git-executable-search": "a98588be4d1d1177bbd1f067176bcc5be543a35b4c8ef7562172acae4cd713c9",
         "claude-plugin-sha-pin-checkout-bypass": "6997249a276c537cd304c8ed5ff476e23497ba84f43e4885357263ec3e92db10",
@@ -78,6 +88,12 @@
         "dell-system-update-root-path-and-permissions": "e2349581b1cf61fa9fad11e69144b5439dc8b6ec4be69175eadc7c9e33f5b8cb",
         "devolutions-server-login-replay-and-global-vault": "d7ebf909d206f5037d36384bf53347ae92eaecb8cad3fc158a93b66dd588bb27",
         "dormakaba-evolo-service-system-rce": "2c2e3d72530737599b05463d3d00d7ea41d11d1733da732d4062e34a784a12fe",
+        "dotnet-wpf-xaml-xps-rce-70035": "12e4b87faffbac64dc30957b1ff01c519b8cba1d1189bfa1e72f4c2a8758fdc6",
+        "drupal-entity-list-contributed-module-rce": "b0f522096e2c406bd77b24cec106b8c8e76fbeccf612ff4faa9d67b86e0cbb85",
+        "drupal-field-ui-contributed-module-rce": "b78b23df328df914a835662b5e94048b4a8bab07de533504f999c00a8da3c404",
+        "drupal-gin-admin-theme-attributes-xss": "4e4df0137e37c4ac7f3f71a750f32d0d7f9ed79d21149ad5a5f184a07c18ff56",
+        "drupal-link-markup-xss": "0cbb8a93c9e86c12fe933c0e7f24409ec663d04663d58a500aa9d095b11671fe",
+        "drupal-navigation-attributes-xss": "39e4d5fee21f326093f07431e7e37feac46695ecd074dbc57f4fd8c61c37068a",
         "eccube-amazonpay-order-redirect-confirmed-exploitation": "a8005be95e3223634746695d60caf53f7710b451a7fc5359a09df4a2c1897ac1",
         "eclipse-netxduo-tls13-handshake-cache-overflow": "ce32baded63b412aae8c6a0bae01bd85d979d01775fed61d57baef069322e644",
         "elasticsearch-delegated-role-and-cross-cluster-shard-authorization": "a7c1463940b4a93c7e38cec692a80d70fc5eaea4890538fec29f0c401ed4988a",
@@ -108,6 +124,13 @@
         "gitea-push-mirror-policy-and-local-path-principal": "bde9579d6afd049f6ff194ff29af844b943d3922e0d0ec3c289a16427507876a",
         "gitea-push-mirror-sync-host-policy-bypass": "3e5cb05f3048205e284a7ea93e8fb6a63401d4dd2fb5e23e470e68686e823938",
         "github-enterprise-server-secret-validation-and-default-branch": "6ba8d3ad1218bb22188e2fae4adda875c35780c50ec233395639aacd37a7d45c",
+        "gitlab-105458": "df4e65d3959d5db7e4b79875d83f4b5373ad9865000fec735af5025be0cbca43",
+        "gitlab-14814": "18502721d630b2bc2741c4b208d16467e8ebddfb7349880b3916b94df4256df1",
+        "gitlab-16301": "c82de01e6ea26624f19404793f3f3fa748ab9c58e3ec1c5032384883c00007d6",
+        "gitlab-81839": "579d957556e9a52fa4fc8297f565b1f5b35dd0c2486b7c91be78d1f85e5bb5a7",
+        "gitlab-92883": "0fb0397df3defaef72682cb8924aea6fcd8d0eca9eafd1e221f87ac5532b09a0",
+        "gitlab-96893": "5c6df724206f910b7c860c22b420714b774df5dba214bf2c5a6ebf4d2d8f3da1",
+        "gitlab-97229": "5bdd79fea976ae272643c75afba4e4f914abdb2da11a24548e3bdd5928da0136",
         "gitlab-ai-gateway-template-escape": "5e50a3d18b626de79909181e6f0fefaac17f674c8b81eb94ad4d26049945b345",
         "gitlab-exploited-repository-api-file-read": "7e4570f922221db47a07868bfaec02eb40843955ed1cb2e93de325ae8c34cea9",
         "google-gvisor-vfs-double-free-sentry-boundary": "e58dbd8f908615663079cec06d981ab79b06279b056cefbe9ff71935df400f83",
@@ -131,6 +154,18 @@
         "jetbrains-exposed-string-sql-function-injection": "4cd317d9bfcf3c62e3d64218fed6412cbfc160d68a061a20f6da3d3b759a970b",
         "jtl-shop-consent-statistics-stored-xss": "b12dac1cafd212d60bbe8bf5999b9809632afd13e8dc4cea78ff129d59fbeae2",
         "jtl-shop-unauthenticated-plugin-safe-mode-toggle": "da87cbc4c635229ad93918fc31d53db4144504067c1ef49d2a14519a744555b2",
+        "juniper-101954": "bbbc8ab0ec6aac7c01d99b178625419b21d73ff8507cd6d47e079801c725ff94",
+        "juniper-101982": "90d0398819eb8ddb93e872ef091d7fc59358928c515482ed50de4d02e1856cc9",
+        "juniper-101983": "ef264189f4f309e60aa2ae630ae623356c5845a6fa4eaa2a3225b73dbb04495b",
+        "juniper-102062": "ff4f5f95b944ed0763c8c2de6b39ca85ef21e12eddba682de9094b1de4a834d0",
+        "juniper-102068": "0de26262831bd79118e791460c346317eadd74cf9fa6af28bda5f33d12484324",
+        "juniper-102070": "6390d7fecb7db81561a3aefe56da07b9286d108875f3645f6bc9182c3b5a9c87",
+        "juniper-102084": "e5b9234bebce280ed520cd12ea539071c1a3386f5ca0cdb92d243772e374983d",
+        "juniper-102175": "c2b4c24b866bf0a4e6f7c919accab219ba7a7daf3a52c0fd18c3a87d17342944",
+        "juniper-102178": "859e9d697ff7b69b86285e3723983deb8d4081ce7e4b272c65dbfefa0d5459e9",
+        "juniper-33789": "710a9cebe36271fbceeef8c3795de78576f2fa9072922289afd1404614e033d1",
+        "juniper-33792": "61a315c2d4c46587b363e7d21b60e0eb3907d26a3ee805214a816f393a12f440",
+        "juniper-33796": "be6d801d799926a3c8893684f7701a333baed5296ad65a79ced4b9a1953d5b72",
         "kibana-fleet-custom-package-cross-tenant-stream-interception": "0b8a32f40777111e19e1d1f0a0a8d9e37207b6532da657a490b735d622f5219d",
         "kiota-java-php-generation-code-injection": "aaeac28646bf7b332e42d5ac155ea13defb52d6710a8f82dd94980cccdf6b6ca",
         "kkfileview-upload-path-directory-traversal": "c2912a1f9d01a9006d4ce0ed0429362e2bf5a5fa490c8799e64fcf4495910d06",
@@ -192,6 +227,18 @@
         "openpdc-openhistorian-console-publisher-docker-boundaries": "66e7044909c5e591d7d4291312b96cb51d524e6f2ca799c099f9d96ddcd96853",
         "openssl-dtls-retransmission-heap-disclosure": "f52e014ed97559cab65b9cafaf49759c2b36f7ff24e5a2b739c27e4bb903d481",
         "openwebui-community-session-theft": "4285411e86e7a5d39675eb9ce9b4fcb9c5495fcb90f0e9cce6007e6f010e7536",
+        "paloalto-checkov-path-traversal-0312": "4374d68538b2672e4c04567b37d82e6627a8ad2aa8f0829992480e770353c675",
+        "paloalto-checkov-ssrf-0311": "f7b1e6fd090f26b1229c84ea7edaaf43a437fdcd27ee426b57e25aced746b042",
+        "paloalto-cortex-os-query-command-injection-0313": "c737e02dc9c8da858918a898c54d3f865f900e49af00f807a6bba88fffca7ac3",
+        "paloalto-globalprotect-macos-root-0315": "4b13dfd3cf81a3bb29b02d58cd82041ed69f6b3ef6470c014eb21aa452a4205a",
+        "paloalto-globalprotect-windows-dos-0314": "fd3e3985eb0e45998dd2af856b8c454347bbab9fae5d2f5f23f2ebef5b50b7a3",
+        "paloalto-pan-os-316": "0bd44b9e277c4caffcf3bcbea585dd45beb033b0aebf45d10373504690b458d6",
+        "paloalto-pan-os-317": "0bb4cbb5f6c476fd6aa1727a4af39e9fa5a2636d4753bb8f184354d165fb8608",
+        "paloalto-pan-os-318": "06e71017eba8d8fff7bf3eca2c2d1a2fca3f767e11a8db7c298404f201df021c",
+        "paloalto-pan-os-319": "0a1fe7ba21b98c570f7cd769b555564fac6aa383672db5203196cb356a1cd156",
+        "paloalto-pan-os-320": "fb74b60ffa425fc0299f4d5304d059d6b4e73d81e9f65c00f7bc70aa8ebc933b",
+        "paloalto-pan-os-321": "34e13c488ce19a73c244bf87f7fdafb6cee13c8b0ca4822b3223e8739e863eb3",
+        "paloalto-pan-os-322": "1d9fbb98d90de3d6dca7d93e3864233b80b24c1b3504b69948c8bdfc857dfc26",
         "patool-windows-archive-filename-shell-injection": "3a127c61378699c39faae13a89523e234a5814f5e2cb836cbaf154f5ca604335",
         "payload-auth-field-write-boundaries": "f5849cb62d0d1a6608c0625b012a63f6da46f22ada4d872b4d830e646cca3a06",
         "payload-form-first-register-rce": "d9bd21f8fd40c1efd5c7f39d0f24d4e4d975992c04f749bdb15a3d1c7d800053",
@@ -550,6 +597,106 @@
           "ids": [
             "claude-desktop-windows-project-git-executable-search",
             "claude-plugin-sha-pin-checkout-bypass"
+          ],
+          "date": "2026-10-15"
+        },
+        {
+          "signature": "af3ad41eee3215e5cd4f92d382d04c5e847caf41820a53c4eb91f7a2b5981a7d",
+          "summary": "Drupal Field UI RCEとGitLabの10月12日Critical Patch Releaseから計8項目・8 CVEを追加し264項目・463 CVEへ。Drupalはcore単独で直接悪用不可、独自risk19/25・E:TheoreticalとCVSSを区別。GitLabは認証不要RCE、High5件、Duoガバナンス回避を個別収録し現行公式の19.2.8/19.3.5/19.4.2を採用。実悪用・一般公開PoCは未確認。既存256項目・455 CVEと全履歴を保持。",
+          "ids": [
+            "drupal-field-ui-contributed-module-rce",
+            "gitlab-105458",
+            "gitlab-14814",
+            "gitlab-16301",
+            "gitlab-81839",
+            "gitlab-92883",
+            "gitlab-96893",
+            "gitlab-97229"
+          ],
+          "date": "2026-10-15"
+        },
+        {
+          "signature": "4b1b380892fa0fa9e8f62809b5e163c3b532a59f9a7c0d52e87c0048cc0f6af1",
+          "summary": "Drupal Link・Navigation・Entity List・Ginの4項目・4 CVEを追加し268項目・467 CVEへ。Drupal独自riskとCVSS、E:Proofと一般公開PoC・実悪用を区別。Field UIの初回配布確認保留は日時付きで残し、2026-10-14 18:05 UTCに11.3.19公式ページの配布リンク・掲載SHA-256を確認した続報を追加。バイナリ取得・hash照合と12 beta2配布は未確認。",
+          "ids": [
+            "drupal-entity-list-contributed-module-rce",
+            "drupal-field-ui-contributed-module-rce",
+            "drupal-gin-admin-theme-attributes-xss",
+            "drupal-link-markup-xss",
+            "drupal-navigation-attributes-xss"
+          ],
+          "date": "2026-10-15"
+        },
+        {
+          "signature": "273367b444c4a1622dd2208726e3d095238a5b8aa5a81eb2c40418cacf7b462b",
+          "summary": "Cisco Secure Email Gatewayの実悪用確認済みCVE-2026-76519とJuniperの12 CVEを収録補完し281項目・480 CVEへ。初公表は10月14日16〜17時台UTCで、18:32 UTCのGHSA掲載とは区別。CiscoはAMPとContent Scanner Tools条件・修正package、Juniperは機能別条件・respins・CVSS 3.1/4.0・SIRT見解を記載。Juniper CVE-2026-102182はCNA内の版記述不一致が未解決のため未追加。 後続確認ではCisco.com公式本文を直接取得し、既載の修正表・条件・侵害時対応を照合。出典の補強であり、新規脆弱性・新しい修正版の公表ではない。",
+          "ids": [
+            "cisco-secure-email-amp-file-reputation-root-rce",
+            "juniper-101954",
+            "juniper-101982",
+            "juniper-101983",
+            "juniper-102062",
+            "juniper-102068",
+            "juniper-102070",
+            "juniper-102084",
+            "juniper-102175",
+            "juniper-102178",
+            "juniper-33789",
+            "juniper-33792",
+            "juniper-33796"
+          ],
+          "date": "2026-10-15"
+        },
+        {
+          "signature": "45c296b105a980a6c91dfc4b7b2bd92b599f928a2f7eba343ffdf805268b29c3",
+          "summary": "PAN-OSの10月14日16:00 UTC公表7 CVE（0316〜0322）を収録補完し288項目・487 CVEへ。0322の限定的実悪用・認証条件、製品除外、CVSS-B/BTの区別、11.2.16の10月15日ETAと0318の11.2.15境界を記載。",
+          "ids": [
+            "paloalto-pan-os-316",
+            "paloalto-pan-os-317",
+            "paloalto-pan-os-318",
+            "paloalto-pan-os-319",
+            "paloalto-pan-os-320",
+            "paloalto-pan-os-321",
+            "paloalto-pan-os-322"
+          ],
+          "date": "2026-10-15"
+        },
+        {
+          "signature": "e7b36fd8862346b7bf823ba8cdf0c62b1d2588efe3d4d927a9ec580d8baeeebb",
+          "summary": "Palo Alto NetworksのCheckov・Cortex OS Query・GlobalProtect 5 CVE、Microsoft KestrelのCritical 2 CVE、Appriseのredirect認証情報転送1 CVEを収録補完し296項目・495 CVEへ。製品・OS・認証条件とCVSS-B/BTを分離し、Kestrel self-contained再配布とApprise更新後も必要なredirect無効化を明記。",
+          "ids": [
+            "apprise-cross-origin-redirect-auth-headers",
+            "aspnetcore-kestrel-cve-2026-70188",
+            "aspnetcore-kestrel-cve-2026-88092",
+            "paloalto-checkov-path-traversal-0312",
+            "paloalto-checkov-ssrf-0311",
+            "paloalto-cortex-os-query-command-injection-0313",
+            "paloalto-globalprotect-macos-root-0315",
+            "paloalto-globalprotect-windows-dos-0314"
+          ],
+          "date": "2026-10-15"
+        },
+        {
+          "signature": "1c2c738f9cd5483bf063041a66d8801a6940137944906ea7afde4af226f17fc4",
+          "summary": "2026年10月13日公表のMicrosoft .NET / ASP.NET Core 7 CVEを収録補完し303項目・502 CVEへ。Blazor debug endpoint、Kestrel HTTP/3、WPF、認可race、Negotiate LDAP、Localization cache、multipart bufferについて、対象構成・認証条件・利用者操作と系列別修正版を区別。実悪用の新確認ではない。",
+          "ids": [
+            "aspnetcore-blazor-authorization-race-70183",
+            "aspnetcore-blazor-debug-xss-96230",
+            "aspnetcore-kestrel-http3-dos-70186",
+            "aspnetcore-localization-cache-dos-96236",
+            "aspnetcore-multipart-buffer-dos-70181",
+            "aspnetcore-negotiate-ldap-principal-70179",
+            "dotnet-wpf-xaml-xps-rce-70035"
+          ],
+          "date": "2026-10-15"
+        },
+        {
+          "signature": "5f47bcd227090e4f3c9e6691a8fc2158ae54f6a8d60a3da2b622039bca62c85b",
+          "summary": "AhsayCBSの正式修正版未確立という留保を、10月12日の公式hotfix案内に基づき訂正。v10向け10.3.4.45、v7/v8/v9向け9.15.2.70、旧patchの対策不完全・partner login・適用後再起動を区別。10月14日のKEV 1745件を取得し、Ahsay2件・Cisco76519・PAN0322の追加を既存項目へ補足。新たな脆弱性発生や攻撃観測ではなく、303項目・502 CVEを維持。",
+          "ids": [
+            "ahsaycbs-exploited-authentication-command-chain",
+            "cisco-secure-email-amp-file-reputation-root-rce",
+            "paloalto-pan-os-322"
           ],
           "date": "2026-10-15"
         }
@@ -1142,9 +1289,117 @@
           ],
           "published": "2026-10-14T15:21:55.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "6e8d2e5d9dd3950f52863478ca80069c0cdafb187e8d12b12e8b3e77e968b7eb",
+          "summary": "Drupal Field UI RCEとGitLabの10月12日Critical Patch Releaseから計8項目・8 CVEを追加し264項目・463 CVEへ。Drupalはcore単独で直接悪用不可、独自risk19/25・E:TheoreticalとCVSSを区別。GitLabは認証不要RCE、High5件、Duoガバナンス回避を個別収録し現行公式の19.2.8/19.3.5/19.4.2を採用。実悪用・一般公開PoCは未確認。既存256項目・455 CVEと全履歴を保持。 Drupal Link・Navigation・Entity List・Ginの4項目・4 CVEを追加し268項目・467 CVEへ。Drupal独自riskとCVSS、E:Proofと一般公開PoC・実悪用を区別。Field UIの初回配布確認保留は日時付きで残し、2026-10-14 18:05 UTCに11.3.19公式ページの配布リンク・掲載SHA-256を確認した続報を追加。バイナリ取得・hash照合と12 beta2配布は未確認。 Cisco Secure Email Gatewayの実悪用確認済みCVE-2026-76519とJuniperの12 CVEを収録補完し281項目・480 CVEへ。初公表は10月14日16〜17時台UTCで、18:32 UTCのGHSA掲載とは区別。CiscoはAMPとContent Scanner Tools条件・修正package、Juniperは機能別条件・respins・CVSS 3.1/4.0・SIRT見解を記載。Juniper CVE-2026-102182はCNA内の版記述不一致が未解決のため未追加。 後続確認ではCisco.com公式本文を直接取得し、既載の修正表・条件・侵害時対応を照合。出典の補強であり、新規脆弱性・新しい修正版の公表ではない。 PAN-OSの10月14日16:00 UTC公表7 CVE（0316〜0322）を収録補完し288項目・487 CVEへ。0322の限定的実悪用・認証条件、製品除外、CVSS-B/BTの区別、11.2.16の10月15日ETAと0318の11.2.15境界を記載。 Palo Alto NetworksのCheckov・Cortex OS Query・GlobalProtect 5 CVE、Microsoft KestrelのCritical 2 CVE、Appriseのredirect認証情報転送1 CVEを収録補完し296項目・495 CVEへ。製品・OS・認証条件とCVSS-B/BTを分離し、Kestrel self-contained再配布とApprise更新後も必要なredirect無効化を明記。 2026年10月13日公表のMicrosoft .NET / ASP.NET Core 7 CVEを収録補完し303項目・502 CVEへ。Blazor debug endpoint、Kestrel HTTP/3、WPF、認可race、Negotiate LDAP、Localization cache、multipart bufferについて、対象構成・認証条件・利用者操作と系列別修正版を区別。実悪用の新確認ではない。 AhsayCBSの正式修正版未確立という留保を、10月12日の公式hotfix案内に基づき訂正。v10向け10.3.4.45、v7/v8/v9向け9.15.2.70、旧patchの対策不完全・partner login・適用後再起動を区別。10月14日のKEV 1745件を取得し、Ahsay2件・Cisco76519・PAN0322の追加を既存項目へ補足。新たな脆弱性発生や攻撃観測ではなく、303項目・502 CVEを維持。",
+          "journal": [
+            {
+              "signature": "af3ad41eee3215e5cd4f92d382d04c5e847caf41820a53c4eb91f7a2b5981a7d",
+              "summary": "Drupal Field UI RCEとGitLabの10月12日Critical Patch Releaseから計8項目・8 CVEを追加し264項目・463 CVEへ。Drupalはcore単独で直接悪用不可、独自risk19/25・E:TheoreticalとCVSSを区別。GitLabは認証不要RCE、High5件、Duoガバナンス回避を個別収録し現行公式の19.2.8/19.3.5/19.4.2を採用。実悪用・一般公開PoCは未確認。既存256項目・455 CVEと全履歴を保持。",
+              "ids": [
+                "drupal-field-ui-contributed-module-rce",
+                "gitlab-105458",
+                "gitlab-14814",
+                "gitlab-16301",
+                "gitlab-81839",
+                "gitlab-92883",
+                "gitlab-96893",
+                "gitlab-97229"
+              ],
+              "date": "2026-10-15"
+            },
+            {
+              "signature": "4b1b380892fa0fa9e8f62809b5e163c3b532a59f9a7c0d52e87c0048cc0f6af1",
+              "summary": "Drupal Link・Navigation・Entity List・Ginの4項目・4 CVEを追加し268項目・467 CVEへ。Drupal独自riskとCVSS、E:Proofと一般公開PoC・実悪用を区別。Field UIの初回配布確認保留は日時付きで残し、2026-10-14 18:05 UTCに11.3.19公式ページの配布リンク・掲載SHA-256を確認した続報を追加。バイナリ取得・hash照合と12 beta2配布は未確認。",
+              "ids": [
+                "drupal-entity-list-contributed-module-rce",
+                "drupal-field-ui-contributed-module-rce",
+                "drupal-gin-admin-theme-attributes-xss",
+                "drupal-link-markup-xss",
+                "drupal-navigation-attributes-xss"
+              ],
+              "date": "2026-10-15"
+            },
+            {
+              "signature": "273367b444c4a1622dd2208726e3d095238a5b8aa5a81eb2c40418cacf7b462b",
+              "summary": "Cisco Secure Email Gatewayの実悪用確認済みCVE-2026-76519とJuniperの12 CVEを収録補完し281項目・480 CVEへ。初公表は10月14日16〜17時台UTCで、18:32 UTCのGHSA掲載とは区別。CiscoはAMPとContent Scanner Tools条件・修正package、Juniperは機能別条件・respins・CVSS 3.1/4.0・SIRT見解を記載。Juniper CVE-2026-102182はCNA内の版記述不一致が未解決のため未追加。 後続確認ではCisco.com公式本文を直接取得し、既載の修正表・条件・侵害時対応を照合。出典の補強であり、新規脆弱性・新しい修正版の公表ではない。",
+              "ids": [
+                "cisco-secure-email-amp-file-reputation-root-rce",
+                "juniper-101954",
+                "juniper-101982",
+                "juniper-101983",
+                "juniper-102062",
+                "juniper-102068",
+                "juniper-102070",
+                "juniper-102084",
+                "juniper-102175",
+                "juniper-102178",
+                "juniper-33789",
+                "juniper-33792",
+                "juniper-33796"
+              ],
+              "date": "2026-10-15"
+            },
+            {
+              "signature": "45c296b105a980a6c91dfc4b7b2bd92b599f928a2f7eba343ffdf805268b29c3",
+              "summary": "PAN-OSの10月14日16:00 UTC公表7 CVE（0316〜0322）を収録補完し288項目・487 CVEへ。0322の限定的実悪用・認証条件、製品除外、CVSS-B/BTの区別、11.2.16の10月15日ETAと0318の11.2.15境界を記載。",
+              "ids": [
+                "paloalto-pan-os-316",
+                "paloalto-pan-os-317",
+                "paloalto-pan-os-318",
+                "paloalto-pan-os-319",
+                "paloalto-pan-os-320",
+                "paloalto-pan-os-321",
+                "paloalto-pan-os-322"
+              ],
+              "date": "2026-10-15"
+            },
+            {
+              "signature": "e7b36fd8862346b7bf823ba8cdf0c62b1d2588efe3d4d927a9ec580d8baeeebb",
+              "summary": "Palo Alto NetworksのCheckov・Cortex OS Query・GlobalProtect 5 CVE、Microsoft KestrelのCritical 2 CVE、Appriseのredirect認証情報転送1 CVEを収録補完し296項目・495 CVEへ。製品・OS・認証条件とCVSS-B/BTを分離し、Kestrel self-contained再配布とApprise更新後も必要なredirect無効化を明記。",
+              "ids": [
+                "apprise-cross-origin-redirect-auth-headers",
+                "aspnetcore-kestrel-cve-2026-70188",
+                "aspnetcore-kestrel-cve-2026-88092",
+                "paloalto-checkov-path-traversal-0312",
+                "paloalto-checkov-ssrf-0311",
+                "paloalto-cortex-os-query-command-injection-0313",
+                "paloalto-globalprotect-macos-root-0315",
+                "paloalto-globalprotect-windows-dos-0314"
+              ],
+              "date": "2026-10-15"
+            },
+            {
+              "signature": "1c2c738f9cd5483bf063041a66d8801a6940137944906ea7afde4af226f17fc4",
+              "summary": "2026年10月13日公表のMicrosoft .NET / ASP.NET Core 7 CVEを収録補完し303項目・502 CVEへ。Blazor debug endpoint、Kestrel HTTP/3、WPF、認可race、Negotiate LDAP、Localization cache、multipart bufferについて、対象構成・認証条件・利用者操作と系列別修正版を区別。実悪用の新確認ではない。",
+              "ids": [
+                "aspnetcore-blazor-authorization-race-70183",
+                "aspnetcore-blazor-debug-xss-96230",
+                "aspnetcore-kestrel-http3-dos-70186",
+                "aspnetcore-localization-cache-dos-96236",
+                "aspnetcore-multipart-buffer-dos-70181",
+                "aspnetcore-negotiate-ldap-principal-70179",
+                "dotnet-wpf-xaml-xps-rce-70035"
+              ],
+              "date": "2026-10-15"
+            },
+            {
+              "signature": "5f47bcd227090e4f3c9e6691a8fc2158ae54f6a8d60a3da2b622039bca62c85b",
+              "summary": "AhsayCBSの正式修正版未確立という留保を、10月12日の公式hotfix案内に基づき訂正。v10向け10.3.4.45、v7/v8/v9向け9.15.2.70、旧patchの対策不完全・partner login・適用後再起動を区別。10月14日のKEV 1745件を取得し、Ahsay2件・Cisco76519・PAN0322の追加を既存項目へ補足。新たな脆弱性発生や攻撃観測ではなく、303項目・502 CVEを維持。",
+              "ids": [
+                "ahsaycbs-exploited-authentication-command-chain",
+                "cisco-secure-email-amp-file-reputation-root-rce",
+                "paloalto-pan-os-322"
+              ],
+              "date": "2026-10-15"
+            }
+          ],
+          "published": "2026-10-15T01:03:28.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "7426aaa0ce89d3422d5d1e009d9677413f2d104a"
+      "cursor": "0f6599112fcb495ac5693f762a94075b4cd7f3f9"
     },
     "security-incidents": {
       "records": {
@@ -1156,7 +1411,7 @@
         "ahold-delhaize-cybersecurity-20261012": "302feb2347880bc07092e65f606d3e33bae88b654aba622c01205b1934bfa5ff",
         "alpsalpine-2026": "d0b97049c7f4319d2e0155c5c84c144e5b7ee0bd5011e7f4aab5a6fee73a7f36",
         "applynow-analysis-20260809": "56ab14073225d70dff90cadffc4d6518114f5b4ce14d5d6f4ba23094d6ec99c5",
-        "arcadia-speecan-20261011": "f8658b82a25afcf9e24de8b9ca114e66e6f80308ff90ebb740c5d7c03dac2c6d",
+        "arcadia-speecan-20261011": "ef116927c9dbbcd9ab27851fe9990d0646a1c820cf3e533e81aa7a8f14957bb2",
         "arizona-courts-backups-20260924": "dd75acc97413bc42826c238b9a92c5ccf0298a41a689bb8aed03c0614b3eaf57",
         "asahi-20250929": "2ff3828a9d0efc3795b2ab714b01fb27bb3faca24a2a09326c2bd8bd3c5f504a",
         "asahi-kasei-pharma-digital-20261002": "aa9a28808ed77d108b43a6ab5b1d1d89fc46e0eb3f0a1fca7504d38da216133c",
@@ -1173,13 +1428,14 @@
         "casper-orthopedics-20260523": "d6848ed4cf517dcabb5f872572ccb0c0b5b58352472cb8740eb235bb96ce8ad8",
         "cec-datacenter-20260805": "64512b0b0b2e1693ee0e33f2f3d94daca3397821cbd5aeb71afcd6f242895ce1",
         "ceres-pointincome-20261005": "8e4ba99ea257fb88a31ceda3c6159823b8ae821a51243f31063d82cab97e4e17",
+        "certfr-refrigeration-20261012": "d83a4a7b8ced172a461391aedc2e339f383a5fd8dac81590af88e909d6813108",
         "change-healthcare-20240212": "b916068f884c94a6d1d4569351b251b68b49afa1686518bc562cbda572ba08b0",
         "chuden-credentials-20260729": "1231c7761d4f157f05b11d9e51e68267dee9e9bb48fb872bdc228ecf9a976138",
         "cinra-job-cloud-20260818": "e59118944b62794f4d6162a2069c14940b69c70c9904544f2afad6b238ff1187",
         "coastline-sumareji-app-2026": "a37bd8f809252455357754b6483fdc6db2dcc4a3827575a0432614096f6d0ff0",
         "coconala-resume-20261008": "eb238bb47e37b31ac1b72f96a1443f5fa5b5bde6c97aec836f0e052dd64a785c",
         "comhairle-cyberattack-20231107": "969973749209f04fd022ca4fbbb96b8912e33f409bfbbfcfd6b7da252cd459b5",
-        "commune-community-20261005": "c7e3067ecf9df1e0cf52ccd5cdcb2ae987f9ae07f4161dd504aaa62d5229c008",
+        "commune-community-20261005": "d322cd9f8add11e34e8ae71a6b6c313316b51096170f1b4ff1ed21bd1ce467f5",
         "cynd-beautymerit-2026": "dc70226d1acb1c024eae63c2ccc36cd9c2a69ee4860d4e516419d871b6b3b207",
         "daiichikosho-ncg-pc-20261002": "d35a2b8b8d7e0e315603bff41756cafb621d19524b6147deb26e3dea3d8d7447",
         "daiichilife-hr-20260924": "1e98e1d06a6656056652dc03334c624398f2c266f1b39b3c83499cf0683de3b7",
@@ -1202,6 +1458,7 @@
         "evergreen-mail-20260626": "cddbc0247b50925cc204b08e8563ad3eda59663219ec8cbfa47913ab21c69148",
         "evotez-choisir2027-bots-20261009": "53c5990f0026bdc9d0b408e036989648037a0d415ba2e6bece24621f6ac5dcbe",
         "fines-reservation-20260922": "a06cf490adcf9315e09d023a9c139c9d1394b1e007a4a0e859b3abb29481a26e",
+        "fivot-idare-20260810": "2aca31ddceded7f3e6deb19564e5d2ccd824ea65a99cc3a071ca8a598b7c6e58",
         "frontline-education-202608": "8a0b42fcf90da9ccb59c81c0e9e9cbffe00b10826254b4020b9870efc6034d49",
         "ghostaction-actions-20260831": "574819c206a94c471aee7c13a933559ea42cf7f9414571dcc36c8c9a900ddba4",
         "gmo-infoq-20261002": "dc3bea01b9b4470cc5e2a23cb979616f526e00f4a70afb70a467d439e6723ace",
@@ -1212,7 +1469,7 @@
         "hasbro-network-20260328": "073d95bbcc6abbff7ec335ef3a6edf58e9d3c040aea6de66231d4f46bbdfdb1f",
         "his-thailand-files-20251211": "39bc712b0110e2c0c3835834fda56b62fa724b3cc1e749a240f62479d6b6a0a9",
         "icc-2026": "46efd179efcaa10ceca01aa9b87e511375c341ca055eb4a98c61bdff02fa1f53",
-        "idcf-cloud-east1-20261007": "e63b24908e948d71d08ed06d16cf64cfe8b04c3f777bb6fb9b124136f3f915ac",
+        "idcf-cloud-east1-20261007": "99187302a06fb634b5ebcc807805c382d1440e8adfd35b3cb5d58b2c2360c8a4",
         "idscan-veriscan-cloud-20260404": "2a57e6a7865983acb4b7456db224f250f8cb2cc0a6fa759056bf925086d36ece",
         "ieej-m365-20260729": "fa99e2b810a20bc27c306797d14b3da0f8d8c266ee8d2d200fccbc03140f552e",
         "ielove-2026": "59e7a5fcf1890717adab0af4da194f253baf584af11b667d3124908d14f5be65",
@@ -1236,6 +1493,7 @@
         "kawasaki-kbic-web-20260720": "76d23f033f5a5078a0889a80c025d0adfc94f8581b6302dda69f4a3216042ad6",
         "kddi-isp-2026": "057c008f3285af4e90837f04ca79a08b60d0355162bc624326716134c47c6f53",
         "keio-ransomware-20260926": "13e10aee1904514e97def4a8408fa35320953a60eab3c6c3c38d4ab2cdeb33cb",
+        "kindal-phishing-20260823": "65fe8360da616869d63369e7972d432cb6eaa902731e6b4ba8e472a6abd7f695",
         "kissei-shoji-20261007": "b47fc68e7b0b42d04f62b2c571f471905b952b02c4a9a4450d77e933a08751b7",
         "kitakyu-2026": "b64adccb10cb700d6454d71d288577742532ad7e8c5f1c3a03fe1407239f4b9d",
         "kufu-machitalk-20261002": "4059e75c08416bf9db747460a4eb31843ce875bbadd4e7c3c77aca2490c987ee",
@@ -1251,6 +1509,7 @@
         "manage-my-health-202512": "744d4fa236324ce62fb2fe1661ddc693f6ea9ca7732b8cfe149e348837159d3f",
         "mazda-warehouse-2026": "06d9ca5d8d084bb80d6d41ad3466e35bea4c59b500b610f88f19d3f8ddbb9adc",
         "media4u-sms-20260624": "2b4a9f6b981516711c61ae6b4469f30c7922ccdf4c6c32f80ff63495bc7c9b30",
+        "medley-atlink-20261011": "f2901495a82b5d4d88298a74a80f3c03024ccf038fc6cecd19334862093183a1",
         "mercor-litellm-202603": "c8ca789b983a3bd3087df6c7637546860e044118afd838b4f7639eebc1e0310d",
         "moneyforward-2026": "33cbcbaccbb94cc411955fd3704627f0de88ba38802f4790e204757c7711ede5",
         "monogatari-king-app-20261002": "c9c3108e37c9847a29891e18d6a5f2cbcf53eac1050384410ae23746475d4f46",
@@ -1272,6 +1531,7 @@
         "nms-musashikosugi-2026": "52a060013b23833dcd9fb0f8f8bac9b364a0ffd3edcc0f424cf37176d5f90d13",
         "ns-biojapan-2026": "fac5d87184cc520290dcf87fe1d99c132be2733476d1e6304c6ffae2f05cd63a",
         "ntt-west-insider-20231017": "00e8fe96ab1f93f613d14a39d3cc9ccc357f2cf51ca83e6c3975261b7398615e",
+        "ntv-wands-faveconnect-20261011": "94f94c2a5d9e1a148f59088a0d9d6cd77f8f5fac7d61f9fe8ad02a4fc3983d10",
         "nyk-2026": "06a21effc496a3be7ada96d7b08fb02fb9ccd65419efb5a8be96df568c329ddb",
         "odawara-mailbox-20260327": "4573fd6668cd51e5da61f70a6b46dace40a31375ca483f409fbfa11698f581fd",
         "omu-ransomware-20261002": "a3c51a6b24064a0e30456e6e397d437ef6039845ab5e88fc51a3c1c5fe02b30c",
@@ -1301,6 +1561,7 @@
         "sony-psn-qriocity-20110417": "141d9587da6ad9a8542a405a2db9ec9cde4bc8e86348390a7b07afaad0f2faa3",
         "stryker-20260311": "5d10f30fbd12193c4a1c0d96dc51c40c5a4e32965b82d66f7812f26c5ae8eeb3",
         "studysapuri-20260930": "6c257d9dc0b16b352fdeb16d5c5d2bd098875f582461b35855ecfdbca24d19aa",
+        "suzukiworld-form-20260729": "6e1a19fbfc402c7b8fc024cc0f2c3c37c25dec6ab619e7eadbe744ccc184a5fe",
         "synnovis-cyber-202406": "67020ec420f09e223a206a2319f1ebf7490a033d7d6feb7fc406d28d985d36b5",
         "temairazu-202609": "86b662cdba269ee234cb7e1c7c3bd148eb729927682b8b26cb145890d471565f",
         "thinca-web-20260824": "13e60be593b76aac4fad05987f4b1f0b1241a894fea87bfadc116cd754ac0422",
@@ -1311,8 +1572,11 @@
         "tokyo-tda-2026": "c454893705e7021a3acd1988deecce34aacf74941e2b871cd53eae2306d30f0b",
         "tokyometro-metpo-20260927": "3357e33d2a1dd4058628afdee367d6f12b38c07375ade919952c031ba8c70071",
         "toppan-misdelivery-20260901": "37cfb2080797348fb34a390292e115ab2b292be07930bc34363038088c8685f9",
+        "toppan-payments-20261014": "22e09fe9f648ae26ee25159836858f47f1d5a06e9057c41a72c87a7b2dfe60e9",
         "toyobo-mail-20260924": "96f77099191bfdb586a57b0f3920274b0ee09915f84d94037877e8f895a8a718",
+        "toypo-api-20261004": "2ffc9d550dd64a0f495ae6d70e4818be649ee28a49480c2128cd7f0913a5d648",
         "trizetto-provider-202411": "f193fd781374e9af909ff60526fcf94fb74c556758c7d89b9e8de76425a993e6",
+        "uk-laa-20250423": "4d2a946b1a351ab29475cc146e09580b37f070785c1747cccc72a3ae59cf6063",
         "unirita-saas-documents-20260928": "b4373441f8674f9c64d65a4e8b9bf847b45eff8566b9b237e34e9217665a6793",
         "upsider-2026": "cfb9c6481c4b13b592a581f379351111343525a8fdf7ebae5d7491f2500a0cbd",
         "visualarts-2026": "469d0c4db409d206a90b6e2b9030cd86fbc579b27a41b2bd4e687387a77060e4",
@@ -1930,6 +2194,126 @@
           "summary": "BOOKOFF10月13日第2報を追記。漏えい会員番号6,427,735件と同一メール単位の6,383,279人を確定。初報の概数を保持し、10月15日からの通知予定、封じ込め完了と全システム点検継続を区別。",
           "ids": [
             "bookoff-member-system-20261006"
+          ],
+          "date": "2026-10-15"
+        },
+        {
+          "signature": "dbcedbb9830421adbfd902779e00509c3697285c37f11d6ff1c1fb7324b17bb1",
+          "summary": "IDCF利用先SB C&Sの10月14日続報を追記。同社顧客登録情報の外部流出なしとの判断、情報検索等を除く概ね通常利用への回復、対応待ち案件の継続対応を区別。過去の利用先公表とポータル不正照会の説明は保持。",
+          "ids": [
+            "idcf-cloud-east1-20261007"
+          ],
+          "date": "2026-10-15"
+        },
+        {
+          "signature": "a028528ff2709d221bb0504d6a3b9e54c8f56d5075d87b8776afc8e76e621131",
+          "summary": "CERT-FRの冷却設備コントローラー侵害警報を追加。初版10月12日・対象追加10月13日、多数の侵害確認と被害台数・漏えい・操業影響非公表を分離。推奨対策を実施・復旧完了とはせず、CVEや侵入原因を推定しない。",
+          "ids": [
+            "certfr-refrigeration-20261012"
+          ],
+          "date": "2026-10-15"
+        },
+        {
+          "signature": "f10addd1151bdea850a8eab3b2c51700f7c4a0138a5d6a9ea3a93da40820d06b",
+          "summary": "Communeの既存事案へマツダ10月14日公表を追記。最大4,103名の閲覧・取得可能性、対象情報、コミュニティ停止・調査中と自社システム影響未確認を区別。別事件化せず、提供元推計や3月の倉庫管理システム事案へ合算しない。",
+          "ids": [
+            "commune-community-20261005"
+          ],
+          "date": "2026-10-15"
+        },
+        {
+          "signature": "f39154c09a40745485409f7ebf44972ceaf9a75562e41335ecb59f40d6197762",
+          "summary": "TOPPANペイメンツの10月14日調査結果を追加。テーブル名一覧の参照痕跡と顧客情報漏えいなしとの同社判断を区別し、機能別再開実績と10月下旬予定を分離。既存TOPPAN誤送付と統合しない。初回告知・発生日は未確認。",
+          "ids": [
+            "toppan-payments-20261014"
+          ],
+          "date": "2026-10-15"
+        },
+        {
+          "signature": "1c3f5f3896b4f8f48d1e3b0c9f3260fbec120fead63ea9d5fc00b2e2db00d89d",
+          "summary": "英国Legal Aid Agencyの2025年侵害・2026年10月14日続報を追加。2007年より前の約25万記録、最古1978年、限定的HMPPS保護観察情報と政府の脆弱性悪用説明を記録。部分記録数を総数・人数にせず、全員全項目流出や新規攻撃としない。",
+          "ids": [
+            "uk-laa-20250423"
+          ],
+          "date": "2026-10-15"
+        },
+        {
+          "signature": "75612b076581303e3143fea6d58bbea66450814e57a2cecccf92b9cbb7ea41a2",
+          "summary": "7月29日の不正アクセス検知後の調査で、問い合わせログ約4,400件の閲覧・取得可能性を10月14日に公表。",
+          "ids": [
+            "suzukiworld-form-20260729"
+          ],
+          "date": "2026-10-15"
+        },
+        {
+          "signature": "b4a9f3bd075e4feaac0d06904e3c6c29e0f47a30843b7ca4164869435ccf97f7",
+          "summary": "利用医療機関が10月15日0時からアプリ・Web予約・周辺サービス停止を告知。個人情報への影響は調査中。",
+          "ids": [
+            "medley-atlink-20261011"
+          ],
+          "date": "2026-10-15"
+        },
+        {
+          "signature": "e8abab79663f3c190109d50ba73846ae8e136e0626c38d3594d46783bb6c9e3f",
+          "summary": "高嶺のなでしこ・HEROINESの2サービスで管理画面に不正ログイン。117,392アカウントが閲覧可能性対象。",
+          "ids": [
+            "ntv-wands-faveconnect-20261011"
+          ],
+          "date": "2026-10-15"
+        },
+        {
+          "signature": "f7c818acdd380e011386a62dfb7f6f5fdddf517cde1f81a916d2aa3631434b39",
+          "summary": "10月14日の補足で、対象はユーザーコミュニティサイトの外部クラウドサービスと説明。esm、eセールスマネージャーRemix Cloud、esm marketing/service/AIコンシェルジュ/appli/flow/call/linkage/schedulelinkへの影響は発生していないと明示。",
+          "ids": [
+            "commune-community-20261005"
+          ],
+          "date": "2026-10-15"
+        },
+        {
+          "signature": "a28b4cd555fa191bece48c12b534271691d5a9c49d34392b4cdc9a778cece58a",
+          "summary": "IDAREで129,659人の情報漏えいを確認。外部ソフトウェアの脆弱性が悪用され、残高・取引履歴等も対象。",
+          "ids": [
+            "fivot-idare-20260810"
+          ],
+          "date": "2026-10-15"
+        },
+        {
+          "signature": "0d7844f3a4d374e4787e0c9d657b371ba59a8c2018a561caafd96a573eee36bb",
+          "summary": "10月13日の第三報で136,464名の漏えい対象を確定。住所を含む109,311名は内数。フィッシング経路を特定。",
+          "ids": [
+            "kindal-phishing-20260823"
+          ],
+          "date": "2026-10-15"
+        },
+        {
+          "signature": "99a7e8c4aa75c65c293b4bc3429dd9aced5e477e57027345e8f85e568bee8624",
+          "summary": "トイポのAPIアクセス権限の不備による情報漏えいをJR九州フードサービスが公表。約26,900名は可能性範囲。",
+          "ids": [
+            "toypo-api-20261004"
+          ],
+          "date": "2026-10-15"
+        },
+        {
+          "signature": "c89b04df17e06ae7c3ede14c53328961030f2d8b5c20312f98260e958541ba3f",
+          "summary": "ピーチ・ジョン10月14日公表のメールアドレス漏えい可能性とメルマガ停止を同じ基盤事案に追加。",
+          "ids": [
+            "idcf-cloud-east1-20261007"
+          ],
+          "date": "2026-10-15"
+        },
+        {
+          "signature": "805991fcb7bcd84c92fa7ec47d746468ad52678fb97ea30ea86f50ba4ec4f90e",
+          "summary": "MIXI10月14日公表のコトポータル750名の閲覧・取得可能性を補足。メールアドレスを含む749名は内数。",
+          "ids": [
+            "commune-community-20261005"
+          ],
+          "date": "2026-10-15"
+        },
+        {
+          "signature": "a3815f956e8c0bd1721598403e3db1b12addb7c32e5da916065a6efaa56d38f6",
+          "summary": "千葉県・三鷹市の10月14日公表を同一提供元の利用範囲として補足。職員等の人数と市民・施設・職員の情報件数を区別し、漏えい可能性として保持。",
+          "ids": [
+            "arcadia-speecan-20261011"
           ],
           "date": "2026-10-15"
         }
@@ -2749,9 +3133,137 @@
           ],
           "published": "2026-10-14T15:16:47.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "49982198c4eb805dfce0885c61f7cb18448fb56b9f2ceff2187068b82e22a92e",
+          "summary": "IDCF利用先SB C&Sの10月14日続報を追記。同社顧客登録情報の外部流出なしとの判断、情報検索等を除く概ね通常利用への回復、対応待ち案件の継続対応を区別。過去の利用先公表とポータル不正照会の説明は保持。 CERT-FRの冷却設備コントローラー侵害警報を追加。初版10月12日・対象追加10月13日、多数の侵害確認と被害台数・漏えい・操業影響非公表を分離。推奨対策を実施・復旧完了とはせず、CVEや侵入原因を推定しない。 Communeの既存事案へマツダ10月14日公表を追記。最大4,103名の閲覧・取得可能性、対象情報、コミュニティ停止・調査中と自社システム影響未確認を区別。別事件化せず、提供元推計や3月の倉庫管理システム事案へ合算しない。 TOPPANペイメンツの10月14日調査結果を追加。テーブル名一覧の参照痕跡と顧客情報漏えいなしとの同社判断を区別し、機能別再開実績と10月下旬予定を分離。既存TOPPAN誤送付と統合しない。初回告知・発生日は未確認。 英国Legal Aid Agencyの2025年侵害・2026年10月14日続報を追加。2007年より前の約25万記録、最古1978年、限定的HMPPS保護観察情報と政府の脆弱性悪用説明を記録。部分記録数を総数・人数にせず、全員全項目流出や新規攻撃としない。 7月29日の不正アクセス検知後の調査で、問い合わせログ約4,400件の閲覧・取得可能性を10月14日に公表。 利用医療機関が10月15日0時からアプリ・Web予約・周辺サービス停止を告知。個人情報への影響は調査中。 高嶺のなでしこ・HEROINESの2サービスで管理画面に不正ログイン。117,392アカウントが閲覧可能性対象。 10月14日の補足で、対象はユーザーコミュニティサイトの外部クラウドサービスと説明。esm、eセールスマネージャーRemix Cloud、esm marketing/service/AIコンシェルジュ/appli/flow/call/linkage/schedulelinkへの影響は発生していないと明示。 IDAREで129,659人の情報漏えいを確認。外部ソフトウェアの脆弱性が悪用され、残高・取引履歴等も対象。 10月13日の第三報で136,464名の漏えい対象を確定。住所を含む109,311名は内数。フィッシング経路を特定。 トイポのAPIアクセス権限の不備による情報漏えいをJR九州フードサービスが公表。約26,900名は可能性範囲。 ピーチ・ジョン10月14日公表のメールアドレス漏えい可能性とメルマガ停止を同じ基盤事案に追加。 MIXI10月14日公表のコトポータル750名の閲覧・取得可能性を補足。メールアドレスを含む749名は内数。 千葉県・三鷹市の10月14日公表を同一提供元の利用範囲として補足。職員等の人数と市民・施設・職員の情報件数を区別し、漏えい可能性として保持。",
+          "journal": [
+            {
+              "signature": "dbcedbb9830421adbfd902779e00509c3697285c37f11d6ff1c1fb7324b17bb1",
+              "summary": "IDCF利用先SB C&Sの10月14日続報を追記。同社顧客登録情報の外部流出なしとの判断、情報検索等を除く概ね通常利用への回復、対応待ち案件の継続対応を区別。過去の利用先公表とポータル不正照会の説明は保持。",
+              "ids": [
+                "idcf-cloud-east1-20261007"
+              ],
+              "date": "2026-10-15"
+            },
+            {
+              "signature": "a028528ff2709d221bb0504d6a3b9e54c8f56d5075d87b8776afc8e76e621131",
+              "summary": "CERT-FRの冷却設備コントローラー侵害警報を追加。初版10月12日・対象追加10月13日、多数の侵害確認と被害台数・漏えい・操業影響非公表を分離。推奨対策を実施・復旧完了とはせず、CVEや侵入原因を推定しない。",
+              "ids": [
+                "certfr-refrigeration-20261012"
+              ],
+              "date": "2026-10-15"
+            },
+            {
+              "signature": "f10addd1151bdea850a8eab3b2c51700f7c4a0138a5d6a9ea3a93da40820d06b",
+              "summary": "Communeの既存事案へマツダ10月14日公表を追記。最大4,103名の閲覧・取得可能性、対象情報、コミュニティ停止・調査中と自社システム影響未確認を区別。別事件化せず、提供元推計や3月の倉庫管理システム事案へ合算しない。",
+              "ids": [
+                "commune-community-20261005"
+              ],
+              "date": "2026-10-15"
+            },
+            {
+              "signature": "f39154c09a40745485409f7ebf44972ceaf9a75562e41335ecb59f40d6197762",
+              "summary": "TOPPANペイメンツの10月14日調査結果を追加。テーブル名一覧の参照痕跡と顧客情報漏えいなしとの同社判断を区別し、機能別再開実績と10月下旬予定を分離。既存TOPPAN誤送付と統合しない。初回告知・発生日は未確認。",
+              "ids": [
+                "toppan-payments-20261014"
+              ],
+              "date": "2026-10-15"
+            },
+            {
+              "signature": "1c3f5f3896b4f8f48d1e3b0c9f3260fbec120fead63ea9d5fc00b2e2db00d89d",
+              "summary": "英国Legal Aid Agencyの2025年侵害・2026年10月14日続報を追加。2007年より前の約25万記録、最古1978年、限定的HMPPS保護観察情報と政府の脆弱性悪用説明を記録。部分記録数を総数・人数にせず、全員全項目流出や新規攻撃としない。",
+              "ids": [
+                "uk-laa-20250423"
+              ],
+              "date": "2026-10-15"
+            },
+            {
+              "signature": "75612b076581303e3143fea6d58bbea66450814e57a2cecccf92b9cbb7ea41a2",
+              "summary": "7月29日の不正アクセス検知後の調査で、問い合わせログ約4,400件の閲覧・取得可能性を10月14日に公表。",
+              "ids": [
+                "suzukiworld-form-20260729"
+              ],
+              "date": "2026-10-15"
+            },
+            {
+              "signature": "b4a9f3bd075e4feaac0d06904e3c6c29e0f47a30843b7ca4164869435ccf97f7",
+              "summary": "利用医療機関が10月15日0時からアプリ・Web予約・周辺サービス停止を告知。個人情報への影響は調査中。",
+              "ids": [
+                "medley-atlink-20261011"
+              ],
+              "date": "2026-10-15"
+            },
+            {
+              "signature": "e8abab79663f3c190109d50ba73846ae8e136e0626c38d3594d46783bb6c9e3f",
+              "summary": "高嶺のなでしこ・HEROINESの2サービスで管理画面に不正ログイン。117,392アカウントが閲覧可能性対象。",
+              "ids": [
+                "ntv-wands-faveconnect-20261011"
+              ],
+              "date": "2026-10-15"
+            },
+            {
+              "signature": "f7c818acdd380e011386a62dfb7f6f5fdddf517cde1f81a916d2aa3631434b39",
+              "summary": "10月14日の補足で、対象はユーザーコミュニティサイトの外部クラウドサービスと説明。esm、eセールスマネージャーRemix Cloud、esm marketing/service/AIコンシェルジュ/appli/flow/call/linkage/schedulelinkへの影響は発生していないと明示。",
+              "ids": [
+                "commune-community-20261005"
+              ],
+              "date": "2026-10-15"
+            },
+            {
+              "signature": "a28b4cd555fa191bece48c12b534271691d5a9c49d34392b4cdc9a778cece58a",
+              "summary": "IDAREで129,659人の情報漏えいを確認。外部ソフトウェアの脆弱性が悪用され、残高・取引履歴等も対象。",
+              "ids": [
+                "fivot-idare-20260810"
+              ],
+              "date": "2026-10-15"
+            },
+            {
+              "signature": "0d7844f3a4d374e4787e0c9d657b371ba59a8c2018a561caafd96a573eee36bb",
+              "summary": "10月13日の第三報で136,464名の漏えい対象を確定。住所を含む109,311名は内数。フィッシング経路を特定。",
+              "ids": [
+                "kindal-phishing-20260823"
+              ],
+              "date": "2026-10-15"
+            },
+            {
+              "signature": "99a7e8c4aa75c65c293b4bc3429dd9aced5e477e57027345e8f85e568bee8624",
+              "summary": "トイポのAPIアクセス権限の不備による情報漏えいをJR九州フードサービスが公表。約26,900名は可能性範囲。",
+              "ids": [
+                "toypo-api-20261004"
+              ],
+              "date": "2026-10-15"
+            },
+            {
+              "signature": "c89b04df17e06ae7c3ede14c53328961030f2d8b5c20312f98260e958541ba3f",
+              "summary": "ピーチ・ジョン10月14日公表のメールアドレス漏えい可能性とメルマガ停止を同じ基盤事案に追加。",
+              "ids": [
+                "idcf-cloud-east1-20261007"
+              ],
+              "date": "2026-10-15"
+            },
+            {
+              "signature": "805991fcb7bcd84c92fa7ec47d746468ad52678fb97ea30ea86f50ba4ec4f90e",
+              "summary": "MIXI10月14日公表のコトポータル750名の閲覧・取得可能性を補足。メールアドレスを含む749名は内数。",
+              "ids": [
+                "commune-community-20261005"
+              ],
+              "date": "2026-10-15"
+            },
+            {
+              "signature": "a3815f956e8c0bd1721598403e3db1b12addb7c32e5da916065a6efaa56d38f6",
+              "summary": "千葉県・三鷹市の10月14日公表を同一提供元の利用範囲として補足。職員等の人数と市民・施設・職員の情報件数を区別し、漏えい可能性として保持。",
+              "ids": [
+                "arcadia-speecan-20261011"
+              ],
+              "date": "2026-10-15"
+            }
+          ],
+          "published": "2026-10-15T01:03:28.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "5e4585c0c74795699e90734b82af25a0eef16d9b"
+      "cursor": "0f6599112fcb495ac5693f762a94075b4cd7f3f9"
     }
   }
 }

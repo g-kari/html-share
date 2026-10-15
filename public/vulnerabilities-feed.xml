@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/vulnerabilities-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Wed, 14 Oct 2026 15:21:55 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 15 Oct 2026 01:03:28 GMT</lastBuildDate>
+    <item>
+      <title>Drupal Field UI RCEとGitLabの10月12日Critical Patch Releaseから計8項目・8 CVEを追加し264項目・463 CVEへ</title>
+      <link>https://share.0g0.xyz/vulnerabilities</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/vulnerabilities-feed.xml#6e8d2e5d9dd3950f52863478ca80069c0cdafb187e8d12b12e8b3e77e968b7eb</guid>
+      <description>Drupal Field UI RCEとGitLabの10月12日Critical Patch Releaseから計8項目・8 CVEを追加し264項目・463 CVEへ。Drupalはcore単独で直接悪用不可、独自risk19/25・E:TheoreticalとCVSSを区別。GitLabは認証不要RCE、High5件、Duoガバナンス回避を個別収録し現行公式の19.2.8/19.3.5/19.4.2を採用。実悪用・一般公開PoCは未確認。既存256項目・455 CVEと全履歴を保持。 Drupal Link・Navigation・Entity List・Ginの4項目・4 CVEを追加し268項目・467 CVEへ。Drupal独自riskとCVSS、E:Proofと一般公開PoC・実悪用を区別。Field UIの初回配布確認保留は日時付きで残し、2026-10-14 18:05 UTCに11.3.19公式ページの配布リンク・掲載SHA-256を確認した続報を追加。バイナリ取得・hash照合と12 beta2配布は未確認。 Cisco Secure Email Gatewayの実悪用確認済みCVE-2026-76519とJuniperの12 CVEを収録補完し281項目・480 CVEへ。初公表は10月14日16〜17時台UTCで、18:32 UTCのGHSA掲載とは区別。CiscoはAMPとContent Scanner Tools条件・修正package、Juniperは機能別条件・respins・CVSS 3.1/4.0・SIRT見解を記載。Juniper CVE-2026-102182はCNA内の版記述不一致が未解決のため未追加。 後続確認ではCisco.com公式本文を直接取得し、既載の修正表・条件・侵害時対応を照合。出典の補強であり、新規脆弱性・新しい修正版の公表ではない。 PAN-OSの10月14日16:00 UTC公表7 CVE（0316〜0322）を収録補完し288項目・487 CVEへ。0322の限定的実悪用・認証条件、製品除外、CVSS-B/BTの区別、11.2.16の10月15日ETAと0318の11.2.15境界を記載。 Palo Alto NetworksのCheckov・Cortex OS Query・GlobalProtect 5 CVE、Microsoft KestrelのCritical 2 CVE、Appriseのredirect認証情報転送1 CVEを収録補完し296項目・495 CVEへ。製品・OS・認証条件とCVSS-B/BTを分離し、Kestrel self-contained再配布とApprise更新後も必要なredirect無効化を明記。 2026年10月13日公表のMicrosoft .NET / ASP.NET Core 7 CVEを収録補完し303項目・502 CVEへ。Blazor debug endpoint、Kestrel HTTP/3、WPF、認可race、Negotiate LDAP、Localization cache、multipart bufferについて、対象構成・認証条件・利用者操作と系列別修正版を区別。実悪用の新確認ではない。 AhsayCBSの正式修正版未確立という留保を、10月12日の公式hotfix案内に基づき訂正。v10向け10.3.4.45、v7/v8/v9向け9.15.2.70、旧patchの対策不完全・partner login・適用後再起動を区別。10月14日のKEV 1745件を取得し、Ahsay2件・Cisco76519・PAN0322の追加を既存項目へ補足。新たな脆弱性発生や攻撃観測ではなく、303項目・502 CVEを維持。</description>
+      <pubDate>Thu, 15 Oct 2026 01:03:28 GMT</pubDate>
+      <dcterms:created>2026-10-15T01:03:28.000Z</dcterms:created>
+    </item>
     <item>
       <title>Claude Code pluginのSHA pin回避（CVE-2026-86063）とWindows Claude Desktopのproject内git.exe検索（CVE-2026-88066</title>
       <link>https://share.0g0.xyz/vulnerabilities</link>

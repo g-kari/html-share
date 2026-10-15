@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Wed, 14 Oct 2026 15:16:47 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 15 Oct 2026 01:03:28 GMT</lastBuildDate>
+    <item>
+      <title>IDCF利用先SB C&amp;Sの10月14日続報を追記</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#49982198c4eb805dfce0885c61f7cb18448fb56b9f2ceff2187068b82e22a92e</guid>
+      <description>IDCF利用先SB C&amp;amp;Sの10月14日続報を追記。同社顧客登録情報の外部流出なしとの判断、情報検索等を除く概ね通常利用への回復、対応待ち案件の継続対応を区別。過去の利用先公表とポータル不正照会の説明は保持。 CERT-FRの冷却設備コントローラー侵害警報を追加。初版10月12日・対象追加10月13日、多数の侵害確認と被害台数・漏えい・操業影響非公表を分離。推奨対策を実施・復旧完了とはせず、CVEや侵入原因を推定しない。 Communeの既存事案へマツダ10月14日公表を追記。最大4,103名の閲覧・取得可能性、対象情報、コミュニティ停止・調査中と自社システム影響未確認を区別。別事件化せず、提供元推計や3月の倉庫管理システム事案へ合算しない。 TOPPANペイメンツの10月14日調査結果を追加。テーブル名一覧の参照痕跡と顧客情報漏えいなしとの同社判断を区別し、機能別再開実績と10月下旬予定を分離。既存TOPPAN誤送付と統合しない。初回告知・発生日は未確認。 英国Legal Aid Agencyの2025年侵害・2026年10月14日続報を追加。2007年より前の約25万記録、最古1978年、限定的HMPPS保護観察情報と政府の脆弱性悪用説明を記録。部分記録数を総数・人数にせず、全員全項目流出や新規攻撃としない。 7月29日の不正アクセス検知後の調査で、問い合わせログ約4,400件の閲覧・取得可能性を10月14日に公表。 利用医療機関が10月15日0時からアプリ・Web予約・周辺サービス停止を告知。個人情報への影響は調査中。 高嶺のなでしこ・HEROINESの2サービスで管理画面に不正ログイン。117,392アカウントが閲覧可能性対象。 10月14日の補足で、対象はユーザーコミュニティサイトの外部クラウドサービスと説明。esm、eセールスマネージャーRemix Cloud、esm marketing/service/AIコンシェルジュ/appli/flow/call/linkage/schedulelinkへの影響は発生していないと明示。 IDAREで129,659人の情報漏えいを確認。外部ソフトウェアの脆弱性が悪用され、残高・取引履歴等も対象。 10月13日の第三報で136,464名の漏えい対象を確定。住所を含む109,311名は内数。フィッシング経路を特定。 トイポのAPIアクセス権限の不備による情報漏えいをJR九州フードサービスが公表。約26,900名は可能性範囲。 ピーチ・ジョン10月14日公表のメールアドレス漏えい可能性とメルマガ停止を同じ基盤事案に追加。 MIXI10月14日公表のコトポータル750名の閲覧・取得可能性を補足。メールアドレスを含む749名は内数。 千葉県・三鷹市の10月14日公表を同一提供元の利用範囲として補足。職員等の人数と市民・施設・職員の情報件数を区別し、漏えい可能性として保持。</description>
+      <pubDate>Thu, 15 Oct 2026 01:03:28 GMT</pubDate>
+      <dcterms:created>2026-10-15T01:03:28.000Z</dcterms:created>
+    </item>
     <item>
       <title>IDCF10月14日第5報を追記</title>
       <link>https://share.0g0.xyz/security-incidents</link>
