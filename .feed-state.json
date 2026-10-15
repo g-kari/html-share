@@ -36,6 +36,11 @@
       "published": "2026-10-06T06:15:49.000Z",
       "updated": "2026-10-06T06:15:49.000Z"
     },
+    "elasticache-redis-valkey-endpoint.html": {
+      "fingerprint": "d30f055c47c09f6c2140b828f407cd45ab7504669fd1f6a9fddb9900711bae63",
+      "published": "2026-10-15T08:12:23.000Z",
+      "updated": "2026-10-15T08:12:23.000Z"
+    },
     "gemini-agent-2026-10.html": {
       "fingerprint": "717292b8f4bedd072947c9f568b184cdbd3e53a056ca6fac511895f6f728e811",
       "published": "2026-10-09T01:43:48.000Z",
