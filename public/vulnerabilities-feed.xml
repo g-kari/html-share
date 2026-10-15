@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/vulnerabilities-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Thu, 15 Oct 2026 01:03:28 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 15 Oct 2026 07:53:31 GMT</lastBuildDate>
+    <item>
+      <title>NGINX Open Source / Plusの10月14日修正5 CVEを収録補完</title>
+      <link>https://share.0g0.xyz/vulnerabilities</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/vulnerabilities-feed.xml#cd274f3993aa730adff08146a6d4bca75952a08e3a6ff2ee76c69eb9ac606ae5</guid>
+      <description>NGINX Open Source / Plusの10月14日修正5 CVEを収録補完。alias/rewrite・変数評価・AIO/SSIのメモリー破壊、HTTP/3 body注入、TLS session偽造を構成別に区別。Open Source 1.31.7 / 1.30.6とPlusのCVE別境界、CNAとの旧版範囲差異を明記。実悪用の新確認ではない。304項目・507 CVEへ。</description>
+      <pubDate>Thu, 15 Oct 2026 07:53:31 GMT</pubDate>
+      <dcterms:created>2026-10-15T07:53:31.000Z</dcterms:created>
+    </item>
     <item>
       <title>Drupal Field UI RCEとGitLabの10月12日Critical Patch Releaseから計8項目・8 CVEを追加し264項目・463 CVEへ</title>
       <link>https://share.0g0.xyz/vulnerabilities</link>

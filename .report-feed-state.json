@@ -203,6 +203,7 @@
         "netscaler-saml-october-memory-overflow-rce": "b4045d6b1562e0ad0d3594b7781e686c2550b757587f5a06075a7a4fd88760f5",
         "nexi-xpay-build-unauthenticated-order-payment-integrity": "04e4749cb988aaf5f1d3b2e73926c59f8149c9d10b260626ae3c09f937ccc674",
         "next-og-satori-generated-svg-boundary": "4d9750c55d16e3273d8111b79c5609f7f8ce8d983df2061ff9e5ac4faf19071b",
+        "nginx-october-alias-script-http3-tickets-aio": "d7f43596ca93b872b5bb7a32fa41798ab4b054cfb7042d5932716b27c0df9dd5",
         "nginx-ui-2026-107804-107813": "a007dfd7169272d4804dc362f7ccab05b07265c8b392df17496db4aa4d24faef",
         "nix-lix-october-store-sandbox-installer-boundaries": "35504814accfa97c75f757f51c7779ab536dd9d8d52f06d1e436bb189f353df9",
         "npm-css-jptvix-polyfill-malware": "c6f42d03229a0d0b38f6f2efb85be87095f396d09d0c1ade3310cbd69ee7af64",
@@ -697,6 +698,14 @@
             "ahsaycbs-exploited-authentication-command-chain",
             "cisco-secure-email-amp-file-reputation-root-rce",
             "paloalto-pan-os-322"
+          ],
+          "date": "2026-10-15"
+        },
+        {
+          "signature": "6f5fef0336f1885dc1640113ec5f8a0c3443ac8a9d13981cf3252d15d2b041b6",
+          "summary": "NGINX Open Source / Plusの10月14日修正5 CVEを収録補完。alias/rewrite・変数評価・AIO/SSIのメモリー破壊、HTTP/3 body注入、TLS session偽造を構成別に区別。Open Source 1.31.7 / 1.30.6とPlusのCVE別境界、CNAとの旧版範囲差異を明記。実悪用の新確認ではない。304項目・507 CVEへ。",
+          "ids": [
+            "nginx-october-alias-script-http3-tickets-aio"
           ],
           "date": "2026-10-15"
         }
@@ -1397,9 +1406,25 @@
           ],
           "published": "2026-10-15T01:03:28.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "cd274f3993aa730adff08146a6d4bca75952a08e3a6ff2ee76c69eb9ac606ae5",
+          "summary": "NGINX Open Source / Plusの10月14日修正5 CVEを収録補完。alias/rewrite・変数評価・AIO/SSIのメモリー破壊、HTTP/3 body注入、TLS session偽造を構成別に区別。Open Source 1.31.7 / 1.30.6とPlusのCVE別境界、CNAとの旧版範囲差異を明記。実悪用の新確認ではない。304項目・507 CVEへ。",
+          "journal": [
+            {
+              "signature": "6f5fef0336f1885dc1640113ec5f8a0c3443ac8a9d13981cf3252d15d2b041b6",
+              "summary": "NGINX Open Source / Plusの10月14日修正5 CVEを収録補完。alias/rewrite・変数評価・AIO/SSIのメモリー破壊、HTTP/3 body注入、TLS session偽造を構成別に区別。Open Source 1.31.7 / 1.30.6とPlusのCVE別境界、CNAとの旧版範囲差異を明記。実悪用の新確認ではない。304項目・507 CVEへ。",
+              "ids": [
+                "nginx-october-alias-script-http3-tickets-aio"
+              ],
+              "date": "2026-10-15"
+            }
+          ],
+          "published": "2026-10-15T07:53:31.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "0f6599112fcb495ac5693f762a94075b4cd7f3f9"
+      "cursor": "915d8f44be89dcc62e412d1463bc4024f30ae66a"
     },
     "security-incidents": {
       "records": {
