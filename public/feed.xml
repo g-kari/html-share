@@ -7,15 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Thu, 15 Oct 2026 08:12:23 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 15 Oct 2026 08:33:57 GMT</lastBuildDate>
     <item>
-      <title>ElastiCache：Redis 6 → Valkeyでエンドポイントは変わる？</title>
+      <title>ElastiCache：Redis 6 → Valkey 9.1の変更点とエンドポイント</title>
       <link>https://share.0g0.xyz/elasticache-redis-valkey-endpoint</link>
       <guid isPermaLink="true">https://share.0g0.xyz/elasticache-redis-valkey-endpoint</guid>
-      <description>既存ElastiCacheをRedis OSS 6からValkeyへインプレース更新する場合、エンドポイントのDNS名は維持されます。IP変更・切替時の注意・新規クラスター移行との違い・Redis OSS 7.1の位置付けをAWS公式出典付きで解説。</description>
-      <pubDate>Thu, 15 Oct 2026 08:12:23 GMT</pubDate>
+      <description>Redis OSS 6からValkey 9.1までの主要変更点をバージョン別に整理。DNS名を維持する条件、I/O・メモリ改善、新コマンド、互換性、AWS独自版との違いを公式出典付きで解説。</description>
+      <pubDate>Thu, 15 Oct 2026 08:33:57 GMT</pubDate>
       <dcterms:created>2026-10-15T08:12:23.000Z</dcterms:created>
-      <dcterms:modified>2026-10-15T08:12:23.000Z</dcterms:modified>
+      <dcterms:modified>2026-10-15T08:33:57.000Z</dcterms:modified>
     </item>
     <item>
       <title>2026年 不正アクセス・情報漏えいウォッチ｜原因・出典・続報</title>
