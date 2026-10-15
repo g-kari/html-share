@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ElastiCache：Redis 6 → Valkeyでエンドポイントは変わる？</title>
+<meta name="description" content="既存ElastiCacheをRedis OSS 6からValkeyへインプレース更新する場合、エンドポイントのDNS名は維持されます。IP変更・切替時の注意・新規クラスター移行との違い・Redis OSS 7.1の位置付けをAWS公式出典付きで解説。">
+<meta name="color-scheme" content="light">
+<style>
+:root{--paper:#fff;--canvas:#edf3f8;--ink:#203146;--muted:#4e6075;--blue:#175593;--line:#b4c4d4;--blue-soft:#e8f1fc;--green:#075f50;--green-soft:#e9f5f0;--amber:#825000;--amber-soft:#fff5dc;--radius:12px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:24px}body{margin:0;background:var(--canvas);color:var(--ink);font:22px/1.85 "BIZ UDPGothic","Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans CJK JP",sans-serif;overflow-wrap:anywhere}a{color:var(--blue);text-decoration-thickness:1.5px;text-underline-offset:.2em}a:hover{text-decoration-thickness:3px}a:focus-visible,summary:focus-visible{outline:3px solid var(--blue);outline-offset:5px;border-radius:3px}.skip{position:absolute;left:16px;top:-100px;background:white;padding:10px 16px;z-index:10}.skip:focus{top:12px}.sitebar{max-width:1120px;margin:auto;padding:20px 32px;display:flex;justify-content:space-between;gap:20px;font-size:18px}.sitebar a{padding:3px 0}.sheet{max-width:1120px;margin:0 auto 40px;background:var(--paper);border-radius:20px;overflow:hidden}header{padding:48px 56px 32px}.meta{margin:0 0 16px;color:var(--muted);font-size:18px}h1{font-size:clamp(30px,3.6vw,44px);line-height:1.5;letter-spacing:.015em;text-wrap:balance;margin:0 0 26px;font-weight:800}h2{font-size:30px;line-height:1.55;margin:0 0 20px}h3{font-size:24px;line-height:1.6;margin:0 0 10px}p{margin:0 0 20px}.answer{background:var(--blue-soft);border-left:6px solid var(--blue);border-radius:0 var(--radius) var(--radius) 0;padding:26px 30px}.answer p{margin:0}.answer .lead{font-weight:800;font-size:28px;line-height:1.65}.answer .sub{margin-top:16px;font-size:21px}.cite{display:inline-block;white-space:nowrap;font-size:18px;font-weight:600;padding:0 4px}.content{padding:0 56px 48px}section{margin-top:44px}section+section{border-top:1px solid var(--line);padding-top:36px}.scope{font-size:18px;color:var(--muted);margin:20px 0 0}.proof{margin:0;border:0;padding:0}.proof p{margin:0}.proof blockquote{font-family:Georgia,"Noto Serif CJK JP",serif;font-size:24px;line-height:1.7;margin:18px 0;padding:16px 24px;background:#f3f6fa;border-radius:var(--radius);border-left:4px solid var(--line)}.proof figcaption{font-size:18px;color:var(--muted)}.diagram{margin:26px 0 0;border:2px solid var(--line);border-radius:16px;padding:24px}.diagram-intro{font-size:20px;color:var(--muted);margin:0 0 18px}.flow{display:grid;grid-template-columns:80px minmax(0,1fr) 38px minmax(0,1fr);align-items:stretch;gap:14px;margin:14px 0}.stage{align-self:center;font-size:20px;font-weight:700}.endpoint,.engine{border-radius:var(--radius);padding:18px 20px;border:1px solid var(--line)}.endpoint{background:var(--blue-soft);border-color:#90afd2}.engine{background:#f4f6f8}.engine.after{background:var(--green-soft);border-color:#8fbdb0}.node-label{display:block;font-size:18px;color:var(--muted);margin-bottom:4px}.node-value{display:block;font-size:22px;font-weight:800;line-height:1.6}.endpoint .node-value{font-size:20px;word-break:break-word}.node-detail{display:block;font-size:18px;margin-top:6px;color:var(--muted)}.arrow{display:grid;place-items:center;font-size:28px;color:var(--muted)}.unchanged{display:flex;align-items:center;justify-content:center;gap:14px;margin:24px 0 10px;color:var(--blue);font-weight:800;font-size:24px}.unchanged:before,.unchanged:after{content:"";height:3px;flex:1;background:var(--blue);max-width:110px}.diagram figcaption{font-size:18px;color:var(--muted);margin-top:14px}.comparison{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:24px 0}.case{border-top:5px solid var(--blue);background:#f5f8fc;padding:24px}.case.new{border-color:var(--amber);background:var(--amber-soft)}.case .result{font-size:25px;font-weight:800;margin:14px 0;color:var(--blue)}.case.new .result{color:var(--amber)}.case p:last-child{margin-bottom:0}.notice{border-left:5px solid var(--amber);padding:24px 28px;background:var(--amber-soft);margin:26px 0;border-radius:0 var(--radius) var(--radius) 0}.notice h3{color:var(--amber)}.notice p:last-child{margin-bottom:0}.reason{font-size:24px;font-weight:800;line-height:1.7;margin-top:24px}.version{display:flex;align-items:center;gap:28px;background:var(--green-soft);border-radius:var(--radius);padding:24px 28px;margin:24px 0}.version strong{display:block;font-size:44px;line-height:1.2;color:var(--green);white-space:nowrap}.version p{margin:0}.small{font-size:18px;color:var(--muted)}details{border-bottom:1px solid var(--line)}details:first-of-type{border-top:1px solid var(--line)}summary{cursor:pointer;padding:20px 4px;font-size:22px;font-weight:700;list-style:none;display:flex;align-items:baseline;justify-content:space-between;gap:16px}summary::-webkit-details-marker{display:none}summary:after{content:"＋";color:var(--blue);font-size:25px;flex:none;transition:transform .2s ease}details[open]>summary:after{transform:rotate(45deg)}.detail-body{padding:0 4px 18px}.detail-body p:last-child{margin-bottom:0}ul{margin:0 0 20px;padding-left:1.3em}li{margin:.7em 0}.source-list{padding-left:1.6em;font-size:20px;margin-bottom:0}.source-list li{padding:12px 4px 16px 4px}.source-title{font-weight:700}.source-note{display:block;font-size:18px;color:var(--muted);margin-top:6px}.source-list li:target{background:var(--blue-soft);outline:3px solid #a9c2e4;outline-offset:6px;border-radius:4px}.history{font-size:18px;color:var(--muted);border-top:1px solid var(--line);padding-top:24px;margin-top:40px}.history p{margin:0}.footer{padding:22px 56px;background:#e7eef6;display:flex;justify-content:space-between;gap:24px;font-size:18px}.footer p{margin:0}
+@media(max-width:760px){body{font-size:20px;line-height:1.9}.sitebar{padding:15px 20px}.sheet{border-radius:0;margin-bottom:0}header{padding:30px 24px 20px}.content{padding:0 24px 32px}h1{font-size:32px}h2{font-size:27px}h3{font-size:22px}.answer{padding:20px 22px}.answer .lead{font-size:24px}.answer .sub{font-size:20px}.comparison{grid-template-columns:1fr;gap:20px}.case{padding:20px}.flow{grid-template-columns:minmax(0,1fr) 24px minmax(0,1fr);gap:9px}.stage{grid-column:1/-1;font-size:20px}.endpoint,.engine{padding:14px 12px}.node-value{font-size:21px}.endpoint .node-value{font-size:18px}.diagram{padding:18px 14px}.arrow{font-size:24px}.unchanged{font-size:21px;gap:10px}.version{padding:20px;gap:20px}.notice{padding:20px}.footer{padding:22px 24px;flex-wrap:wrap}.proof blockquote{font-size:22px;padding:16px 20px}.reason{font-size:23px}}
+@media(max-width:390px){header{padding:26px 18px 18px}.content{padding:0 18px 28px}.diagram{padding:16px 10px}.flow{gap:6px;grid-template-columns:minmax(0,1fr) 18px minmax(0,1fr)}.endpoint,.engine{padding:12px 8px}.node-value{font-size:20px}.version{align-items:flex-start;flex-direction:column;gap:12px}.answer{padding:18px}.unchanged:before,.unchanged:after{display:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}summary:after{transition:none}}
+@media print{body{background:white;font-size:12pt}.sitebar,.skip{display:none}.sheet{margin:0;max-width:none}.content,header{padding:12pt}.footer{padding:12pt}h1{font-size:24pt}h2{font-size:19pt}.answer .lead{font-size:17pt}details{break-inside:avoid}details>summary{font-size:15pt}details>.detail-body{display:block!important}.diagram,.notice,.case{break-inside:avoid}a{color:inherit}.source-note,.small,.scope,.meta{font-size:11pt}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">本文へ移動</a>
+<nav class="sitebar" aria-label="サイトナビゲーション"><a href="/">共有ページ一覧・検索</a><a href="#sources">引用元を見る</a></nav>
+<main class="sheet" id="main">
+<header>
+<p class="meta">AWS ElastiCache 技術メモ　確認日：<time datetime="2026-10-15">2026年10月15日</time></p>
+<h1>Redis 6 → Valkeyで、<br>エンドポイントは変わる？</h1>
+<div class="answer">
+<p class="lead">既存クラスターをインプレース更新するなら、<br>エンドポイントのDNS名は変わらない。<a class="cite" href="#source-1" aria-label="出典1：AWS公式アップグレード手順">[1]</a></p>
+<p class="sub">ノードベースでは、変わるのは裏側のノードIP。<br>「別のValkeyクラスターを新規作成して移す」場合とは違います。<a class="cite" href="#source-1" aria-label="出典1">[1]</a><a class="cite" href="#source-3" aria-label="出典3：AWS公式移行ガイド">[3]</a></p>
+</div>
+<p class="scope">本稿はAWSの公開仕様を整理したものです。個別環境の構成・移行可否・停止時間は検証していません。AWSリソースの変更手順を実行した報告ではありません。</p>
+</header>
+<div class="content">
+<section aria-labelledby="evidence-title">
+<h2 id="evidence-title">AWSは「DNS名は維持」と明記</h2>
+<figure class="proof">
+<blockquote lang="en"><p>“All aspects of your application, including the endpoint DNS name, will remain unchanged”</p></blockquote>
+<figcaption>AWS公式ドキュメント「How to upgrade from Redis OSS to Valkey」からの短い抜粋。<a class="cite" href="#source-1" aria-label="出典1">[1]</a></figcaption>
+</figure>
+<p style="margin-top:20px">ここでいうインプレース更新は、<strong>既存のElastiCacheのエンジンを変更する操作</strong>です。新しい移行先クラスターを作る操作ではありません。<a class="cite" href="#source-3" aria-label="出典3">[3]</a></p>
+<figure class="diagram" aria-labelledby="diagram-title">
+<p class="diagram-intro" id="diagram-title">同じクラスターを更新した場合の模式図</p>
+<div class="flow">
+<div class="stage">更新前</div>
+<div class="endpoint"><span class="node-label">アプリの接続先</span><span class="node-value">cache.example.invalid</span><span class="node-detail">DNS名（説明用の架空例）</span></div>
+<div class="arrow" aria-hidden="true">→</div>
+<div class="engine"><span class="node-label">エンジン</span><span class="node-value">Redis OSS 6</span><span class="node-detail">ノードIP：A</span></div>
+</div>
+<div class="flow">
+<div class="stage">更新後</div>
+<div class="endpoint"><span class="node-label">アプリの接続先</span><span class="node-value">cache.example.invalid</span><span class="node-detail">同じDNS名を使う</span></div>
+<div class="arrow" aria-hidden="true">→</div>
+<div class="engine after"><span class="node-label">エンジン</span><span class="node-value">Valkey</span><span class="node-detail">ノードIP：B</span></div>
+</div>
+<p class="unchanged">DNS名はそのまま。IPは変わる。</p>
+<figcaption>IPの変更はノードベースクラスターについての説明です。接続先の維持と、接続中ソケットの無停止は別の論点です。<a class="cite" href="#source-1" aria-label="出典1">[1]</a></figcaption>
+</figure>
+</section>
+<section aria-labelledby="method-title">
+<h2 id="method-title">変わるかどうかは「移行方法」で分ける</h2>
+<div class="comparison">
+<article class="case"><h3>既存クラスターの更新</h3><p>今あるリソースで、エンジンをRedis OSSからValkeyへ変更。</p><p class="result">DNS名を維持</p><p>既存のエンドポイントを使用して、更新後の接続を確認します。<a class="cite" href="#source-3" aria-label="出典3">[3]</a></p></article>
+<article class="case new"><h3>別クラスターへ移行</h3><p>例えば、スナップショットから新しいValkeyクラスターを作成。</p><p class="result">新しい接続先へ切り替え</p><p>AWSの手順でも、アプリの設定を新クラスターのエンドポイントへ変更します。<a class="cite" href="#source-3" aria-label="出典3">[3]</a></p></article>
+</div>
+<p class="reason">「接続先を変えたくない」だけが理由なら、<br>Valkeyを候補から外す必要はありません。</p>
+<p class="small">上の公式仕様からの判断です。利用中のクライアントや構成が、目的の更新先に対応するかどうかは別途確認します。</p>
+</section>
+<section aria-labelledby="impact-title">
+<h2 id="impact-title">ただし、「同じDNS名」≠「完全無停止」</h2>
+<div class="notice"><h3>書き込みの瞬断に備える</h3><p>AWSはRedis OSS 5.0.6以降からの更新を、最小限の停止で行うと説明しています。一方で、<strong>数秒のフェイルオーバー中は書き込みが利用できない</strong>とも明記しています。Redis OSS 6は、このバージョン条件を満たします。<a class="cite" href="#source-1" aria-label="出典1">[1]</a></p><p>この「数秒」は更新作業全体の所要時間ではなく、切り替え時の説明です。個別アプリの復旧時間を保証する値ではありません。</p></div>
+<p><strong>実務上の推奨：</strong>IPを固定せずDNS名で接続し、DNSの再解決、接続プールの再接続、タイムアウトとリトライを事前に検証します。書き込みの再試行では、重複実行の影響も確認します。</p>
+</section>
+<section aria-labelledby="redis-title">
+<h2 id="redis-title">Redis OSSを続ける場合の「最新」は？</h2>
+<div class="version"><strong>7.1</strong><p><b>ElastiCacheのRedis OSS提供版で最新の系列</b><br><span class="small">2026年10月15日のAWS公式一覧で確認。<a class="cite" href="#source-2" aria-label="出典2：AWS公式エンジン一覧">[2]</a></span></p></div>
+<p><strong>Redis本体の最新安定版とは別です。</strong>AWSはElastiCacheの7.1をRedis OSS 7.0互換と説明しています。「Redisを最新にする」という場合は、ElastiCacheの提供版と区別して指定します。<a class="cite" href="#source-2" aria-label="出典2">[2]</a></p>
+</section>
+<section aria-labelledby="checks-title">
+<h2 id="checks-title">移行前に確認すること</h2>
+<p class="small">構成や戻し方の注意点は、必要な項目だけ開いて確認できます。</p>
+<details><summary>単一ノード・パラメーターグループ</summary><div class="detail-body"><p>単一ノード（cluster mode disabled）でレプリケーショングループに未所属なら、先にグループへ追加する手順を確認します。<a class="cite" href="#source-1" aria-label="出典1">[1]</a></p><p>カスタムパラメーターグループには、静的パラメーター値を合わせたValkey用のものが必要です。<a class="cite" href="#source-1" aria-label="出典1">[1]</a></p></div></details>
+<details><summary>戻せるバージョンには制限がある</summary><div class="detail-body"><p>インプレースで戻せるのは、<strong>Valkey 7.2 → Redis OSS 7.1</strong>。Redis OSS 6や、任意のValkeyバージョンからの復帰は対象ではありません。<a class="cite" href="#source-3" aria-label="出典3">[3]</a></p><p>更新先を決める前に、バックアップ、復元先、データの扱いまで含めて復旧方針を決めることを推奨します。別クラスターへ復元する場合の接続先切り替えも、計画に含めます。<a class="cite" href="#source-3" aria-label="出典3">[3]</a></p></div></details>
+<details><summary>環境固有の互換性と検証</summary><div class="detail-body"><p>以下は本稿で確認していない、環境ごとの確認項目です。</p><ul><li>正確なRedis OSSバージョン、ノード構成、Multi-AZ、クラスターモード、対象リージョンで選択可能な更新先。</li><li>クライアントライブラリー、接続プール、認証・TLS、ACL、Luaスクリプト、使用コマンドの互換性。</li><li>検証環境での更新前後の読み書き、TTL、接続復旧、レイテンシー・エラー率、および必要なメンテナンス時間。</li></ul><p>本番変更の可否は、上記の確認結果で判断します。DNS名が維持されるという一般仕様だけで、無検証の更新を推奨するものではありません。</p></div></details>
+</section>
+<section id="sources" aria-labelledby="sources-title">
+<h2 id="sources-title">引用元・参考資料</h2>
+<p>すべてAWSの一次資料です。直接引用は上記の短い英文のみで、その他は要約または本稿の推奨事項です。</p>
+<ol class="source-list">
+<li id="source-1"><a class="source-title" href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/VersionManagement.HowTo.html">Upgrading engine versions including cross engine upgrades</a><span class="source-note">AWS ElastiCacheドキュメント。「How to upgrade from Redis OSS to Valkey」「How to downgrade from Valkey to Redis OSS」。DNS名の維持、ノードIP変更、切替時の影響、構成条件とロールバック制限の根拠。</span></li>
+<li id="source-2"><a class="source-title" href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/engine-versions.html">Engine versions and upgrading in ElastiCache</a><span class="source-note">AWS ElastiCacheドキュメント。「Supported Redis OSS engine versions」「ElastiCache version 7.1 for Redis OSS」。AWSの提供版と、Redis OSS 7.0との互換性の根拠。</span></li>
+<li id="source-3"><a class="source-title" href="https://aws.amazon.com/blogs/database/migrating-to-amazon-elasticache-for-valkey-best-practices-and-a-customer-success-story/">Migrating to Amazon ElastiCache for Valkey: Best practices and a customer success story</a><span class="source-note">AWS Database Blog、2026年4月1日公開。「In-place upgrade」「Snapshot-based migration」。既存エンドポイントの利用と、新クラスター移行時の接続先変更を比較する根拠。停止時間の説明は、より条件を明記した資料[1]を優先しました。</span></li>
+</ol>
+</section>
+<div class="history" id="history"><p><strong>更新履歴</strong>　2026年10月15日：初版。DNS名とIPを区別し、移行方法の比較、Redis OSS提供版、構成条件とロールバック制限を掲載。公式仕様・提供バージョンは将来変更される可能性があります。</p></div>
+</div>
+<footer class="footer"><p>ElastiCache エンジン移行メモ</p><a href="/">一覧・全文検索へ戻る</a></footer>
+</main>
+</body>
+</html>
