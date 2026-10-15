@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Thu, 15 Oct 2026 07:56:12 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 15 Oct 2026 09:47:32 GMT</lastBuildDate>
+    <item>
+      <title>シンカ9月17日調査結果：CMSプラグイン脆弱性悪用を確認、漏えいの事実・外部送信痕跡は未確認</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#ce2aed7ae4e07b83b0f31299290d38091f95507dddf05bfc080fd65f68e30b55</guid>
+      <description>シンカ9月17日調査結果：CMSプラグイン脆弱性悪用を確認、漏えいの事実・外部送信痕跡は未確認。調査完了・実施済み対策と予定対策を区別。 英国図書館2026年続報：4月9日に電子納本資料の一部閲覧、7月8日にEThOS書誌レコードを再開。全サービス・本文配信の完全復旧と区別。 キングプリンターズの9月14日初報・25日第2報を追加。AI認証情報不正利用の疑い、漏えい痕跡未確認と外部調査予定を区別。 八王子学園の9月30日第2報を追加。7月侵入・暗号化、RDP経路、復元困難、ログ消去による流出評価の限界を整理。 ワサビ7月6日公表・23日更新を追加。公開された開発DBの窃取・削除、ダミー顧客行と本番用APIキーの違い、失効措置を整理。</description>
+      <pubDate>Thu, 15 Oct 2026 09:47:32 GMT</pubDate>
+      <dcterms:created>2026-10-15T09:47:32.000Z</dcterms:created>
+    </item>
     <item>
       <title>メドレーの10月15日提供元公表で不正アクセス確認・14日深夜の一時停止実施を反映</title>
       <link>https://share.0g0.xyz/security-incidents</link>

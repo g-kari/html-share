@@ -51,6 +51,7 @@
         "backstage-techdocs-markdown-mapping-sanitization-followup": "e7350c738d94ae4e26716e3d0a86177b70e4499d781b03aee0c4958a6bd37bd2",
         "backstage-techdocs-mkdocs-plugin-configuration-ssrf": "6fd315508b254caf157a36f0a85fdbdd42e9a644fd498759cceb700dbb1837eb",
         "backstage-techdocs-mkdocs-sanitizer-theme-code-execution": "c5995734f8dca70e53d035224422c6f20834abd97f31f096d631ad121faf208b",
+        "better-auth-magic-link-oauth-proxy-purpose-isolation": "ff153c1e6208e1a34253f6141f1a54ea75e56cc8fafbcec51763ccf187ff3391",
         "bind-tkey-dos-october-kev-followup": "cb402560e9ebcc44123fc348921c054513761cddbd3f52c61ac3da67838eda1f",
         "busybox-proxy-prefix-smuggling-and-deb-extraction-escape": "5eed4a36be7cd80be42b13ac6c667d0d4f6e4f0de3d4043b3a43560a23c1924a",
         "capacitor-native-webview-origin-proxy": "664019fab05a7bb19a09675443758dd4e9b970df8de83a85f0e2de29865ff9fa",
@@ -133,6 +134,7 @@
         "gitlab-97229": "5bdd79fea976ae272643c75afba4e4f914abdb2da11a24548e3bdd5928da0136",
         "gitlab-ai-gateway-template-escape": "5e50a3d18b626de79909181e6f0fefaac17f674c8b81eb94ad4d26049945b345",
         "gitlab-exploited-repository-api-file-read": "7e4570f922221db47a07868bfaec02eb40843955ed1cb2e93de325ae8c34cea9",
+        "gitpython-remote-pull-refspec-command-injection": "be00e67ab809671b58084be4dd88bc3b31bcabf6adcbd89167b85f331ed539f1",
         "google-gvisor-vfs-double-free-sentry-boundary": "e58dbd8f908615663079cec06d981ab79b06279b056cefbe9ff71935df400f83",
         "gstreamer-asfmux-non-bmp-metadata-heap-write": "e58e09d8ec6beef9db8c10c8d7beeae2b48e109a5423b8ec875e317e60bf97ef",
         "gstreamer-editing-project-autoplug-arbitrary-elements": "0df574a7d3ecd10d33af298bce834d713dbe32bb31f23f40af999c8b2e7b7728",
@@ -266,6 +268,7 @@
         "react-server-components-formdata-dos": "cf35ff5a5098fc223628b109192b2e891bea254c702632ebc73c3d08e52d89c2",
         "redhat-globalhub-postgres-exporter-unauthenticated-pprof": "16f932a5fc7ae919e0cd7208b9048dee02aa3e1539a8cdce05bf70d9d112c405",
         "rejetto-hfs-exploited-session-forgery": "60fce22d154da5d7bced98ea27f202eb64d9597df60c7af05860a606bd341507",
+        "renovate-shared-preset-allowedenv-bypass": "eebda928d7fece7b04f6b3e5bc32d9592a093fd19086c06c4baf6c1e7fb80fdc",
         "riot-sixlowpan-and-nanocoap-read-assertion-boundaries": "8c5215e145f9f7822dadc6363bbdbb4a568dca4172fcea77b39cbb5b01718963",
         "rundeck-windows-job-option-command-injection": "1548ad49cb2da99fa37a95e4d5664a5c107db83a613608e39eaae2afded215bc",
         "sagemaker-distribution-project-startup-command-injection": "2f2fbd7c0c30e9cac8c1f5fbb9c048989c1beac62ad70e955609bd49f0e946f7",
@@ -707,6 +710,12 @@
           "ids": [
             "nginx-october-alias-script-http3-tickets-aio"
           ],
+          "date": "2026-10-15"
+        },
+        {
+          "signature": "a0c18adfff7be3753bcd553db09c4e9d366cf50b7c086fac835b2f1d3b52aafd",
+          "summary": "Better AuthのMagic Link / OAuth Proxy認証回避2 CVE、Renovateのshared preset環境変数制限回避、GitPython Remote.pullのrefspec注入を一次資料で収録補完。9月の公表・先行修正版と10月15日日本時間のCVE公開、CVSS主体・版・採点差を区別。GitPython GHSA本文の未修正記述と現行metadata / 3.2.0 releaseの不一致を明示。実悪用の新確認ではない。307項目・511 CVEへ。",
+          "ids": [],
           "date": "2026-10-15"
         }
       ],
@@ -1422,9 +1431,23 @@
           ],
           "published": "2026-10-15T07:53:31.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "e88bdab9402aa6f5c6c2a0ab67007d93d0a8f9fbf764a2c1a57e1954d8013ce3",
+          "summary": "Better AuthのMagic Link / OAuth Proxy認証回避2 CVE、Renovateのshared preset環境変数制限回避、GitPython Remote.pullのrefspec注入を一次資料で収録補完。9月の公表・先行修正版と10月15日日本時間のCVE公開、CVSS主体・版・採点差を区別。GitPython GHSA本文の未修正記述と現行metadata / 3.2.0 releaseの不一致を明示。実悪用の新確認ではない。307項目・511 CVEへ。",
+          "journal": [
+            {
+              "signature": "a0c18adfff7be3753bcd553db09c4e9d366cf50b7c086fac835b2f1d3b52aafd",
+              "summary": "Better AuthのMagic Link / OAuth Proxy認証回避2 CVE、Renovateのshared preset環境変数制限回避、GitPython Remote.pullのrefspec注入を一次資料で収録補完。9月の公表・先行修正版と10月15日日本時間のCVE公開、CVSS主体・版・採点差を区別。GitPython GHSA本文の未修正記述と現行metadata / 3.2.0 releaseの不一致を明示。実悪用の新確認ではない。307項目・511 CVEへ。",
+              "ids": [],
+              "date": "2026-10-15"
+            }
+          ],
+          "published": "2026-10-15T09:47:34.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "767ef600ce94812a1212f8186f1514ebec276355"
+      "cursor": "f7b7f57ed40584598cc7947458a55f71f7817def"
     },
     "security-incidents": {
       "records": {
@@ -1446,7 +1469,7 @@
         "betterment-20260109": "cc2c1bfecf04020942044bb16dff619b33bba75f4ab1c426b8ce12b4fe950821",
         "blueberry-metabase-20260810": "2e917563578164373e74131b55e6e9dd9fcc85ce7d5647bde28c008b9a4f2e09",
         "bookoff-member-system-20261006": "ca021b38a194d8ee09c9b7b9a55d70884e674514d7896770e33bd3643c5a1271",
-        "british-library-ransomware-20231028": "f76a46df8a40302d377e82e4dc5ff6018edfb95b43df1dc3cd8282cb68b9ce0c",
+        "british-library-ransomware-20231028": "c6bb296c1c37d5873e2ff7e0594d7ef36e93a112f602782d604a69ccac4ae9a0",
         "cac-academic-support-navi-2026": "cbf8ed75b6ee7050432be8cf2b9aaab88f90624ed43f062e415eb293a9414aae",
         "campfire-2026": "37c0a8675d7223d50cc14144335757683b806fc3031b7b5da7baffdafcc43d7c",
         "canvass-ransomware-2026": "08322821b15ef207849b08301407a805285713a78ea97bddf53306123d90a8a3",
@@ -1490,6 +1513,7 @@
         "gmo-trustlogin-storage-20260914": "2adc230ca2e280b49e89cf76b0f9e41a74d1b72ba2247eac22aa0f05ec8b22c6",
         "gyazo-20260911": "5cfea9221bbe5d1a4c8a843dc35940bd4efc77229f33fbaf2dc725e15a21914c",
         "hachijuni-nagano-mail-20261007": "d60ef399deb6dff6ffb177c658b88c66e35121591d8c220d1e786232cc9f2e10",
+        "hachioji-gakuen-ransomware-20260708": "bf01b81c29665c5447402b11c680f995ecbb1bcc14f8270c71b5fbe1c63cc809",
         "haicheese-photo-2026": "48d970231e574d0dd68b64859ed4996aa8f4a44a3e518aaf17003b85f72048a8",
         "hasbro-network-20260328": "073d95bbcc6abbff7ec335ef3a6edf58e9d3c040aea6de66231d4f46bbdfdb1f",
         "his-thailand-files-20251211": "39bc712b0110e2c0c3835834fda56b62fa724b3cc1e749a240f62479d6b6a0a9",
@@ -1519,6 +1543,7 @@
         "kddi-isp-2026": "057c008f3285af4e90837f04ca79a08b60d0355162bc624326716134c47c6f53",
         "keio-ransomware-20260926": "13e10aee1904514e97def4a8408fa35320953a60eab3c6c3c38d4ab2cdeb33cb",
         "kindal-phishing-20260823": "65fe8360da616869d63369e7972d432cb6eaa902731e6b4ba8e472a6abd7f695",
+        "kingprinters-ai-abuse-20260910": "081e8d56fbe36db569514f5973720afea0019af549242d3cc94c766e67b33d80",
         "kissei-shoji-20261007": "b47fc68e7b0b42d04f62b2c571f471905b952b02c4a9a4450d77e933a08751b7",
         "kitakyu-2026": "b64adccb10cb700d6454d71d288577742532ad7e8c5f1c3a03fe1407239f4b9d",
         "kufu-machitalk-20261002": "4059e75c08416bf9db747460a4eb31843ce875bbadd4e7c3c77aca2490c987ee",
@@ -1589,7 +1614,7 @@
         "suzukiworld-form-20260729": "6e1a19fbfc402c7b8fc024cc0f2c3c37c25dec6ab619e7eadbe744ccc184a5fe",
         "synnovis-cyber-202406": "67020ec420f09e223a206a2319f1ebf7490a033d7d6feb7fc406d28d985d36b5",
         "temairazu-202609": "86b662cdba269ee234cb7e1c7c3bd148eb729927682b8b26cb145890d471565f",
-        "thinca-web-20260824": "13e60be593b76aac4fad05987f4b1f0b1241a894fea87bfadc116cd754ac0422",
+        "thinca-web-20260824": "aacaf2422340a1553ea29abfd02d694c8df53784192faacbbcf37fdb2510bb54",
         "timescar-20260925": "49b3ce060402c1c7f10049c5b7c8d3c216af695ef2e0d801764e258f97d7befa",
         "toda-payment-employee-20261001": "7b4e7cd110fd480dc1d3c1b7a7ea87d141b47251e638af0f24d77012706e506f",
         "tohoku-university-2026": "73f66a849f10184a80554f921118119140001b660af722950402e788362250c8",
@@ -1606,6 +1631,7 @@
         "upsider-2026": "cfb9c6481c4b13b592a581f379351111343525a8fdf7ebae5d7491f2500a0cbd",
         "visualarts-2026": "469d0c4db409d206a90b6e2b9030cd86fbc579b27a41b2bd4e687387a77060e4",
         "voising-bi-20260810": "9f123bcffb197958aa2957a3dc7ac3b0be4d5b9d26dfe8af791ce1dcf2ec7486",
+        "wasabi-development-db-20260704": "53039845aabcf1589fb8812d0a774c7118884ab7aa4cdd1d8f6aef2216064127",
         "westjet-social-engineering-20250612": "6b4160f7b35077f82e3c3739ea070f95acf5f2128439913acbc70ae80103a0bc",
         "whiteessence-reservation-20260805": "7e4305ed1095ddbd3b4e023d3f4ffde7dceca44b08df74fe79b2d689e9941e50",
         "yamato-paylater-20260928": "e23ee526abc0209d19a1401134d029f0d83a64e08edebebc5305597e3e67dbb9",
@@ -2372,6 +2398,46 @@
           "summary": "アルカディア公式ページの停止告知に復旧済みの記載を確認し、raiden3/s2の状態を追記。先行する10月15日15時頃の予定と、正確な完了時刻が未記載である点を区別。自治体ごとの運用再開や調査終結を推定しない。",
           "ids": [
             "arcadia-speecan-20261011"
+          ],
+          "date": "2026-10-15"
+        },
+        {
+          "signature": "4838a370682bd7aa677e0ccd5d1b192db0fe9264fbd4f170c5fb86694558d633",
+          "summary": "シンカ9月17日調査結果：CMSプラグイン脆弱性悪用を確認、漏えいの事実・外部送信痕跡は未確認。調査完了・実施済み対策と予定対策を区別。",
+          "ids": [
+            "thinca-web-20260824"
+          ],
+          "date": "2026-10-15"
+        },
+        {
+          "signature": "80879b88121b901efcbe302b6f17945d88d1ba470593d9e1ff0c321ec8e23c5e",
+          "summary": "英国図書館2026年続報：4月9日に電子納本資料の一部閲覧、7月8日にEThOS書誌レコードを再開。全サービス・本文配信の完全復旧と区別。",
+          "ids": [
+            "british-library-ransomware-20231028"
+          ],
+          "date": "2026-10-15"
+        },
+        {
+          "signature": "1b9405038b7489e75fb001f0b87f2a7b8f19b87f765a44b10ab5656f090ded59",
+          "summary": "キングプリンターズの9月14日初報・25日第2報を追加。AI認証情報不正利用の疑い、漏えい痕跡未確認と外部調査予定を区別。",
+          "ids": [
+            "kingprinters-ai-abuse-20260910"
+          ],
+          "date": "2026-10-15"
+        },
+        {
+          "signature": "5394a4f514ac6ced04918909efa8f54da858047d410122843026de611d20c3a2",
+          "summary": "八王子学園の9月30日第2報を追加。7月侵入・暗号化、RDP経路、復元困難、ログ消去による流出評価の限界を整理。",
+          "ids": [
+            "hachioji-gakuen-ransomware-20260708"
+          ],
+          "date": "2026-10-15"
+        },
+        {
+          "signature": "69e3fe9cd05ea76293931b68ae047700b68645e6d4183b872d715be40f8ff48e",
+          "summary": "ワサビ7月6日公表・23日更新を追加。公開された開発DBの窃取・削除、ダミー顧客行と本番用APIキーの違い、失効措置を整理。",
+          "ids": [
+            "wasabi-development-db-20260704"
           ],
           "date": "2026-10-15"
         }
@@ -3359,9 +3425,57 @@
           ],
           "published": "2026-10-15T07:56:12.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "ce2aed7ae4e07b83b0f31299290d38091f95507dddf05bfc080fd65f68e30b55",
+          "summary": "シンカ9月17日調査結果：CMSプラグイン脆弱性悪用を確認、漏えいの事実・外部送信痕跡は未確認。調査完了・実施済み対策と予定対策を区別。 英国図書館2026年続報：4月9日に電子納本資料の一部閲覧、7月8日にEThOS書誌レコードを再開。全サービス・本文配信の完全復旧と区別。 キングプリンターズの9月14日初報・25日第2報を追加。AI認証情報不正利用の疑い、漏えい痕跡未確認と外部調査予定を区別。 八王子学園の9月30日第2報を追加。7月侵入・暗号化、RDP経路、復元困難、ログ消去による流出評価の限界を整理。 ワサビ7月6日公表・23日更新を追加。公開された開発DBの窃取・削除、ダミー顧客行と本番用APIキーの違い、失効措置を整理。",
+          "journal": [
+            {
+              "signature": "4838a370682bd7aa677e0ccd5d1b192db0fe9264fbd4f170c5fb86694558d633",
+              "summary": "シンカ9月17日調査結果：CMSプラグイン脆弱性悪用を確認、漏えいの事実・外部送信痕跡は未確認。調査完了・実施済み対策と予定対策を区別。",
+              "ids": [
+                "thinca-web-20260824"
+              ],
+              "date": "2026-10-15"
+            },
+            {
+              "signature": "80879b88121b901efcbe302b6f17945d88d1ba470593d9e1ff0c321ec8e23c5e",
+              "summary": "英国図書館2026年続報：4月9日に電子納本資料の一部閲覧、7月8日にEThOS書誌レコードを再開。全サービス・本文配信の完全復旧と区別。",
+              "ids": [
+                "british-library-ransomware-20231028"
+              ],
+              "date": "2026-10-15"
+            },
+            {
+              "signature": "1b9405038b7489e75fb001f0b87f2a7b8f19b87f765a44b10ab5656f090ded59",
+              "summary": "キングプリンターズの9月14日初報・25日第2報を追加。AI認証情報不正利用の疑い、漏えい痕跡未確認と外部調査予定を区別。",
+              "ids": [
+                "kingprinters-ai-abuse-20260910"
+              ],
+              "date": "2026-10-15"
+            },
+            {
+              "signature": "5394a4f514ac6ced04918909efa8f54da858047d410122843026de611d20c3a2",
+              "summary": "八王子学園の9月30日第2報を追加。7月侵入・暗号化、RDP経路、復元困難、ログ消去による流出評価の限界を整理。",
+              "ids": [
+                "hachioji-gakuen-ransomware-20260708"
+              ],
+              "date": "2026-10-15"
+            },
+            {
+              "signature": "69e3fe9cd05ea76293931b68ae047700b68645e6d4183b872d715be40f8ff48e",
+              "summary": "ワサビ7月6日公表・23日更新を追加。公開された開発DBの窃取・削除、ダミー顧客行と本番用APIキーの違い、失効措置を整理。",
+              "ids": [
+                "wasabi-development-db-20260704"
+              ],
+              "date": "2026-10-15"
+            }
+          ],
+          "published": "2026-10-15T09:47:32.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "01e2b3e3694a11167577ab85f2641211c45b214d"
+      "cursor": "8a19681a2a7a2c577d76a033eeae2265fcf0ff46"
     }
   }
 }

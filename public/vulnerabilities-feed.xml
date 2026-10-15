@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/vulnerabilities-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Thu, 15 Oct 2026 07:53:31 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 15 Oct 2026 09:47:34 GMT</lastBuildDate>
+    <item>
+      <title>Better AuthのMagic Link / OAuth Proxy認証回避2 CVE、Renovateのshared preset環境変数制限回避、GitPython Remote.pullのr</title>
+      <link>https://share.0g0.xyz/vulnerabilities</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/vulnerabilities-feed.xml#e88bdab9402aa6f5c6c2a0ab67007d93d0a8f9fbf764a2c1a57e1954d8013ce3</guid>
+      <description>Better AuthのMagic Link / OAuth Proxy認証回避2 CVE、Renovateのshared preset環境変数制限回避、GitPython Remote.pullのrefspec注入を一次資料で収録補完。9月の公表・先行修正版と10月15日日本時間のCVE公開、CVSS主体・版・採点差を区別。GitPython GHSA本文の未修正記述と現行metadata / 3.2.0 releaseの不一致を明示。実悪用の新確認ではない。307項目・511 CVEへ。</description>
+      <pubDate>Thu, 15 Oct 2026 09:47:34 GMT</pubDate>
+      <dcterms:created>2026-10-15T09:47:34.000Z</dcterms:created>
+    </item>
     <item>
       <title>NGINX Open Source / Plusの10月14日修正5 CVEを収録補完</title>
       <link>https://share.0g0.xyz/vulnerabilities</link>
