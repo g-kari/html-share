@@ -15,6 +15,15 @@ const keys = (record, kind) => automaticTags(record).filter((item) => item.kind 
 const record = (title, lead = "", category = "agent", extra = {}) => ({ title, lead, category, ...extra });
 
 const existingProducts = {
+  "cloudflare-stream-webrtc-ga-billing": ["other"],
+  "cloudflare-ai-search-cjk-trigram": ["other"],
+  "cloudflare-cli-beta16-breaking-docs-search": ["other"],
+  "codex-cli-01630": ["codex"],
+  "ollama-0406-windows-runner": ["ollama"],
+  "modular-avatar-119-alpha2": ["other"],
+  "flux3-klein-diffusers": ["other"],
+  "lfm25-24b-a2b-local-agents": ["other"],
+  "aws-dynamodb-streams-at-timestamp": ["other"],
   "gemini-4-argon-ga-unified-context": ["gemini"],
   "cloudflare-agents-0281-transport-harness": ["cloudflare-agents-sdk"],
   "cloudflare-workers-issues-mcp-events": ["cloudflare-workers"],
@@ -75,6 +84,15 @@ test("all authored records have deterministic product/domain/change dimensions",
 
 test("current change tags distinguish pricing, fixes, public weights, GA, beta and correction", () => {
   const expected = {
+  "cloudflare-stream-webrtc-ga-billing": ["pricing","ga"],
+  "cloudflare-ai-search-cjk-trigram": ["improvement"],
+  "cloudflare-cli-beta16-breaking-docs-search": ["preview","compatibility"],
+  "codex-cli-01630": ["fix","improvement"],
+  "ollama-0406-windows-runner": ["fix"],
+  "modular-avatar-119-alpha2": ["fix"],
+  "flux3-klein-diffusers": ["release"],
+  "lfm25-24b-a2b-local-agents": ["release"],
+  "aws-dynamodb-streams-at-timestamp": ["update"],
   "gemini-4-argon-ga-unified-context": ["pricing", "ga", "compatibility"],
   "cloudflare-agents-0281-transport-harness": ["fix", "compatibility"],
   "cloudflare-workers-issues-mcp-events": ["feature", "preview"],
@@ -270,3 +288,4 @@ test("mutation of returned tags cannot alter later outputs or the input record",
   assert.deepEqual(input, before);
   assert.deepEqual(automaticTags(input), expected);
 });
+
