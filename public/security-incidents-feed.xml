@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Thu, 15 Oct 2026 09:47:32 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 17 Oct 2026 18:20:05 GMT</lastBuildDate>
+    <item>
+      <title>WASABI SWITCHの10月本番注文情報流出を7月開発DBと別事案で追加</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#c35c69d00840c7c484fdf09f3dcb0fc0122c66d4818cf04c7fbea1226a867b50</guid>
+      <description>WASABI SWITCHの10月本番注文情報流出を7月開発DBと別事案で追加。第三報の流出管理者パスワード悪用、10月17日の注文・メール情報抜き取り、正規メール悪用と暗号化予定の10月18日への訂正、各連携停止を反映。暗号化完了とは扱わない。 GDOの10月13日初報・16日続報を追加。関係者情報1,789件流出と会員照会55件（IDのみ51件・個人情報を含む可能性4件）を分離し、同一攻撃・侵入経路未特定と予約2機能の復旧を整理。 ETS/CDEの生徒情報SFTP侵害を追加。5月22日〜9月18日のコピー、9月25日発見、10月2日初報と16日通知開始を区別。障害・評価等の情報と一定の元生徒を含む対象、人数未公表を明記。</description>
+      <pubDate>Sat, 17 Oct 2026 18:20:05 GMT</pubDate>
+      <dcterms:created>2026-10-17T18:20:05.000Z</dcterms:created>
+    </item>
     <item>
       <title>シンカ9月17日調査結果：CMSプラグイン脆弱性悪用を確認、漏えいの事実・外部送信痕跡は未確認</title>
       <link>https://share.0g0.xyz/security-incidents</link>

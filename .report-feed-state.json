@@ -33,7 +33,7 @@
         "aspnetcore-localization-cache-dos-96236": "dc492da8497d66bf7f18589137decac22b63a0beea66dac3e4c18a0abdb4c9a1",
         "aspnetcore-multipart-buffer-dos-70181": "15435cc27039423ff6f460179727469168cd215a639ad31b3d6d865408e85f32",
         "aspnetcore-negotiate-ldap-principal-70179": "b2bc8f6787bd11fcaed5925ba3662f5cf79ceff527380efe72d9acdaf6c33366",
-        "atlassian-multiproduct-unauthenticated-file-access": "84855125c9650d72abbc9bb74a7f3e6fff4dfba4f8570d58e67500a69866573b",
+        "atlassian-multiproduct-unauthenticated-file-access": "1255249e9e0847733d5d9f4c8cb454fc5e6cd1c6467b73906d029345db5a7d83",
         "authlib-empty-signatures-jws-verification-bypass": "a037c64f1df320520beaa8d1d2aebb3ea0b741d102eb487a991ec6bb632010b4",
         "avideo-youphpflix-trailer-url-stored-xss": "9d5860a130f9547d4e4825338da8a22ce2c4c5a07fd4d3b277e326966f357921",
         "aws-agentcore-import-generated-code-and-openapi-boundaries": "6ea6e6d7d27aecf1ad0470d0c30900427ccf115bae3151b7a148f842a83b3be7",
@@ -52,11 +52,13 @@
         "backstage-techdocs-mkdocs-plugin-configuration-ssrf": "6fd315508b254caf157a36f0a85fdbdd42e9a644fd498759cceb700dbb1837eb",
         "backstage-techdocs-mkdocs-sanitizer-theme-code-execution": "c5995734f8dca70e53d035224422c6f20834abd97f31f096d631ad121faf208b",
         "better-auth-magic-link-oauth-proxy-purpose-isolation": "ff153c1e6208e1a34253f6141f1a54ea75e56cc8fafbcec51763ccf187ff3391",
+        "beyondtrust-remote-support-origin-validation-exploited": "a98f87b8ce4cc54c42ee7dc8168a8933943e43de69b2c0280a6f02733c818bd6",
         "bind-tkey-dos-october-kev-followup": "cb402560e9ebcc44123fc348921c054513761cddbd3f52c61ac3da67838eda1f",
         "busybox-proxy-prefix-smuggling-and-deb-extraction-escape": "5eed4a36be7cd80be42b13ac6c667d0d4f6e4f0de3d4043b3a43560a23c1924a",
         "capacitor-native-webview-origin-proxy": "664019fab05a7bb19a09675443758dd4e9b970df8de83a85f0e2de29865ff9fa",
         "checkpoint-management-exploited-script-upload": "5a079d0149879e339c9df0e66463db668d2dd23028ae1abe0bc3c0e767e604d4",
         "checkpoint-vpn-exploited-certificate-rce": "061d31fd8854be97ecdcaae792d0269b248c75426512f6efd23bd18176419559",
+        "chrome-october-fifteen-prerender-critical-fixes": "385a3034f1ef55430e3637e73c9a4815da5a78958b0328e0f956542b5b89106d",
         "chrome-october-six-critical-use-after-free": "48931811b31e8cf4fc362330457e29a1b4c6f8fc33a8b9326352b28a15971a48",
         "chrome-october-thirteen-critical-memory-fixes": "087cca90bc673f89aa681dacfa917207f7bea71187db066ee75b35bc6d6fd49d",
         "chrome-v8-exploited-september": "9c096eda40cfb0400d083b402082b5be0fc595df88b696a2a05d820259106556",
@@ -106,6 +108,7 @@
         "fast-jwt-algorithm-claims-cache-boundaries": "bbebcc6be62529bc478b9f9b21a92248f3af77b474fa6494a9cd5dfddb73ab53",
         "flexnet-lmadmin-soap-administrator-authentication-bypass": "c0c46f88cc5eb93a801f236135c1d52feff0fb7362b41c5ae1ac43f13b7c3039",
         "fortimail-exploited-file-write": "4e5e49df2593e4129f842786d14bac6ae2b2a9821197b940543262ba5c57d720",
+        "fortinet-admin-cli-path-traversal-exploited-61624": "d2a047aba75e091dd5ecd9c1c4cc3e29a0a5c6b006e1a2dcdac4517823586a68",
         "fsspec-kerchunk-reference-template-rce": "705ae5a63259e036dd006e78097cf6baa674b50eb6208985834c264b3e1c75fb",
         "ghostscript-safer-shading-uaf-command-execution": "d626219835fb198bfef7eac04b05fc946d653fbd7f098284847488ef5d790275",
         "gimp-dds-loader-size-calculation-overflow": "198ebe8edb9e6664768ef60bec88f7e250a96abd9880b6c78e7a17b3f3f8e0df",
@@ -717,6 +720,17 @@
           "summary": "Better AuthのMagic Link / OAuth Proxy認証回避2 CVE、Renovateのshared preset環境変数制限回避、GitPython Remote.pullのrefspec注入を一次資料で収録補完。9月の公表・先行修正版と10月15日日本時間のCVE公開、CVSS主体・版・採点差を区別。GitPython GHSA本文の未修正記述と現行metadata / 3.2.0 releaseの不一致を明示。実悪用の新確認ではない。307項目・511 CVEへ。",
           "ids": [],
           "date": "2026-10-15"
+        },
+        {
+          "signature": "658d72d05ac11d213bf669dd42b19595b3590c6f4e5e8afaa04d28a2fac9d93a",
+          "summary": "BeyondTrust Remote Support CVE-2026-102764とFortinet CVE-2025-61624の10月16日KEV実悪用登録、Chrome10月15日更新10 CVEを追加し310項目・523 CVEへ。既載Atlassian CVE-2026-21589は10月15日KEV登録を受け実悪用確認へ更新。8月/4月の観測・公表と10月の後続、RS/PRAの影響差、Fortinet管理者権限・旧系列表の不一致、Chromeのsandbox内条件と採点主体を区別。 既存の実悪用表示30項目とJSON32項目の不一致を訂正し、今回の3項目増加後は35項目と表示。35件の新規攻撃を意味しない。",
+          "ids": [
+            "atlassian-multiproduct-unauthenticated-file-access",
+            "beyondtrust-remote-support-origin-validation-exploited",
+            "chrome-october-fifteen-prerender-critical-fixes",
+            "fortinet-admin-cli-path-traversal-exploited-61624"
+          ],
+          "date": "2026-10-18"
         }
       ],
       "items": [
@@ -1445,9 +1459,28 @@
           ],
           "published": "2026-10-15T09:47:34.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "db1f988cbdd751cfc0c98466d9e4b045cc9a056afda396bb9d1a5face0e86cd8",
+          "summary": "BeyondTrust Remote Support CVE-2026-102764とFortinet CVE-2025-61624の10月16日KEV実悪用登録、Chrome10月15日更新10 CVEを追加し310項目・523 CVEへ。既載Atlassian CVE-2026-21589は10月15日KEV登録を受け実悪用確認へ更新。8月/4月の観測・公表と10月の後続、RS/PRAの影響差、Fortinet管理者権限・旧系列表の不一致、Chromeのsandbox内条件と採点主体を区別。 既存の実悪用表示30項目とJSON32項目の不一致を訂正し、今回の3項目増加後は35項目と表示。35件の新規攻撃を意味しない。",
+          "journal": [
+            {
+              "signature": "658d72d05ac11d213bf669dd42b19595b3590c6f4e5e8afaa04d28a2fac9d93a",
+              "summary": "BeyondTrust Remote Support CVE-2026-102764とFortinet CVE-2025-61624の10月16日KEV実悪用登録、Chrome10月15日更新10 CVEを追加し310項目・523 CVEへ。既載Atlassian CVE-2026-21589は10月15日KEV登録を受け実悪用確認へ更新。8月/4月の観測・公表と10月の後続、RS/PRAの影響差、Fortinet管理者権限・旧系列表の不一致、Chromeのsandbox内条件と採点主体を区別。 既存の実悪用表示30項目とJSON32項目の不一致を訂正し、今回の3項目増加後は35項目と表示。35件の新規攻撃を意味しない。",
+              "ids": [
+                "atlassian-multiproduct-unauthenticated-file-access",
+                "beyondtrust-remote-support-origin-validation-exploited",
+                "chrome-october-fifteen-prerender-critical-fixes",
+                "fortinet-admin-cli-path-traversal-exploited-61624"
+              ],
+              "date": "2026-10-18"
+            }
+          ],
+          "published": "2026-10-17T18:19:51.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "faa310f3c1d372b060547f2b00a1a7c087cb0d58"
+      "cursor": "c83ed6e5761e8bbba5abad19ae9dbb78b0e6bce2"
     },
     "security-incidents": {
       "records": {
@@ -1503,11 +1536,13 @@
         "equifax-20170513": "95b76d0b5dab3fe9d2578f5d68bd04e98c2d95e47424bed2400ffbe77e9a8f8c",
         "espec-2026": "4745adfb5b223f45c43c1659bc4ff954a24e9167a7f58140a4245a468183d16a",
         "estore-shops-20260521": "29cb684649a93f3ca2182aaa64f2f35e4391cbac06035ccc3c909654236f850e",
+        "ets-california-sftp-20260522": "9bc14c1b4453c2c3a1a22d2fa55d6a8e6acae7ec332129e53ede1e1b0fb27842",
         "evergreen-mail-20260626": "cddbc0247b50925cc204b08e8563ad3eda59663219ec8cbfa47913ab21c69148",
         "evotez-choisir2027-bots-20261009": "53c5990f0026bdc9d0b408e036989648037a0d415ba2e6bece24621f6ac5dcbe",
         "fines-reservation-20260922": "a06cf490adcf9315e09d023a9c139c9d1394b1e007a4a0e859b3abb29481a26e",
         "fivot-idare-20260810": "2aca31ddceded7f3e6deb19564e5d2ccd824ea65a99cc3a071ca8a598b7c6e58",
         "frontline-education-202608": "8a0b42fcf90da9ccb59c81c0e9e9cbffe00b10826254b4020b9870efc6034d49",
+        "gdo-servers-20261013": "1c5262962387099725d5c42acda5bd381a21742a7ac7f10d281b5486db2df058",
         "ghostaction-actions-20260831": "574819c206a94c471aee7c13a933559ea42cf7f9414571dcc36c8c9a900ddba4",
         "gmo-infoq-20261002": "dc3bea01b9b4470cc5e2a23cb979616f526e00f4a70afb70a467d439e6723ace",
         "gmo-trustlogin-storage-20260914": "2adc230ca2e280b49e89cf76b0f9e41a74d1b72ba2247eac22aa0f05ec8b22c6",
@@ -1632,6 +1667,7 @@
         "visualarts-2026": "469d0c4db409d206a90b6e2b9030cd86fbc579b27a41b2bd4e687387a77060e4",
         "voising-bi-20260810": "9f123bcffb197958aa2957a3dc7ac3b0be4d5b9d26dfe8af791ce1dcf2ec7486",
         "wasabi-development-db-20260704": "53039845aabcf1589fb8812d0a774c7118884ab7aa4cdd1d8f6aef2216064127",
+        "wasabi-switch-orders-20261014": "7dfa8605ad265c7737ada0e0484f710748b8a3cd885633b03d814a2940a4f64e",
         "westjet-social-engineering-20250612": "6b4160f7b35077f82e3c3739ea070f95acf5f2128439913acbc70ae80103a0bc",
         "whiteessence-reservation-20260805": "7e4305ed1095ddbd3b4e023d3f4ffde7dceca44b08df74fe79b2d689e9941e50",
         "yamato-paylater-20260928": "e23ee526abc0209d19a1401134d029f0d83a64e08edebebc5305597e3e67dbb9",
@@ -2440,6 +2476,30 @@
             "wasabi-development-db-20260704"
           ],
           "date": "2026-10-15"
+        },
+        {
+          "signature": "3742460481c3ffd5c840e85e43df5bb7dce94e2cbf476f0a3066d3b373146a55",
+          "summary": "WASABI SWITCHの10月本番注文情報流出を7月開発DBと別事案で追加。第三報の流出管理者パスワード悪用、10月17日の注文・メール情報抜き取り、正規メール悪用と暗号化予定の10月18日への訂正、各連携停止を反映。暗号化完了とは扱わない。",
+          "ids": [
+            "wasabi-switch-orders-20261014"
+          ],
+          "date": "2026-10-18"
+        },
+        {
+          "signature": "6d12b3579f929dbd364b3c8b2c0fcfe8d573d058abfd89b2c67ed4c7485e5f4c",
+          "summary": "GDOの10月13日初報・16日続報を追加。関係者情報1,789件流出と会員照会55件（IDのみ51件・個人情報を含む可能性4件）を分離し、同一攻撃・侵入経路未特定と予約2機能の復旧を整理。",
+          "ids": [
+            "gdo-servers-20261013"
+          ],
+          "date": "2026-10-18"
+        },
+        {
+          "signature": "878a099abaccf13cf5c3c1395ffcd2bd8059b1ce912288e54e5e4551c206af5b",
+          "summary": "ETS/CDEの生徒情報SFTP侵害を追加。5月22日〜9月18日のコピー、9月25日発見、10月2日初報と16日通知開始を区別。障害・評価等の情報と一定の元生徒を含む対象、人数未公表を明記。",
+          "ids": [
+            "ets-california-sftp-20260522"
+          ],
+          "date": "2026-10-18"
         }
       ],
       "items": [
@@ -3473,9 +3533,41 @@
           ],
           "published": "2026-10-15T09:47:32.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "c35c69d00840c7c484fdf09f3dcb0fc0122c66d4818cf04c7fbea1226a867b50",
+          "summary": "WASABI SWITCHの10月本番注文情報流出を7月開発DBと別事案で追加。第三報の流出管理者パスワード悪用、10月17日の注文・メール情報抜き取り、正規メール悪用と暗号化予定の10月18日への訂正、各連携停止を反映。暗号化完了とは扱わない。 GDOの10月13日初報・16日続報を追加。関係者情報1,789件流出と会員照会55件（IDのみ51件・個人情報を含む可能性4件）を分離し、同一攻撃・侵入経路未特定と予約2機能の復旧を整理。 ETS/CDEの生徒情報SFTP侵害を追加。5月22日〜9月18日のコピー、9月25日発見、10月2日初報と16日通知開始を区別。障害・評価等の情報と一定の元生徒を含む対象、人数未公表を明記。",
+          "journal": [
+            {
+              "signature": "3742460481c3ffd5c840e85e43df5bb7dce94e2cbf476f0a3066d3b373146a55",
+              "summary": "WASABI SWITCHの10月本番注文情報流出を7月開発DBと別事案で追加。第三報の流出管理者パスワード悪用、10月17日の注文・メール情報抜き取り、正規メール悪用と暗号化予定の10月18日への訂正、各連携停止を反映。暗号化完了とは扱わない。",
+              "ids": [
+                "wasabi-switch-orders-20261014"
+              ],
+              "date": "2026-10-18"
+            },
+            {
+              "signature": "6d12b3579f929dbd364b3c8b2c0fcfe8d573d058abfd89b2c67ed4c7485e5f4c",
+              "summary": "GDOの10月13日初報・16日続報を追加。関係者情報1,789件流出と会員照会55件（IDのみ51件・個人情報を含む可能性4件）を分離し、同一攻撃・侵入経路未特定と予約2機能の復旧を整理。",
+              "ids": [
+                "gdo-servers-20261013"
+              ],
+              "date": "2026-10-18"
+            },
+            {
+              "signature": "878a099abaccf13cf5c3c1395ffcd2bd8059b1ce912288e54e5e4551c206af5b",
+              "summary": "ETS/CDEの生徒情報SFTP侵害を追加。5月22日〜9月18日のコピー、9月25日発見、10月2日初報と16日通知開始を区別。障害・評価等の情報と一定の元生徒を含む対象、人数未公表を明記。",
+              "ids": [
+                "ets-california-sftp-20260522"
+              ],
+              "date": "2026-10-18"
+            }
+          ],
+          "published": "2026-10-17T18:20:05.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "8a19681a2a7a2c577d76a033eeae2265fcf0ff46"
+      "cursor": "6797b7d03a086a93a9c96d5da32a3a8cf290a1e4"
     }
   }
 }

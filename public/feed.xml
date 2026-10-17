@@ -7,24 +7,24 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Thu, 15 Oct 2026 09:47:34 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 17 Oct 2026 18:20:05 GMT</lastBuildDate>
+    <item>
+      <title>2026年 不正アクセス・情報漏えいウォッチ｜原因・出典・続報</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/security-incidents</guid>
+      <description>2026年の不正アクセス・情報漏えい事案と過去の主要事例を、原因・影響・対応・日付・一次資料で整理。既存187件を保持し、WASABI SWITCH第三報・GDO・ETS/CDEを加えた190件。</description>
+      <pubDate>Sat, 17 Oct 2026 18:20:05 GMT</pubDate>
+      <dcterms:created>2026-10-02T06:08:44.000Z</dcterms:created>
+      <dcterms:modified>2026-10-17T18:20:05.000Z</dcterms:modified>
+    </item>
     <item>
       <title>脆弱性レポート | 実悪用・修正版・対処</title>
       <link>https://share.0g0.xyz/vulnerabilities</link>
       <guid isPermaLink="true">https://share.0g0.xyz/vulnerabilities</guid>
       <description>重要な脆弱性の影響製品・実悪用・修正版・対処を公開一次資料で確認するレポート。CVSSと条件付き対処優先度を分けて掲載します。</description>
-      <pubDate>Thu, 15 Oct 2026 09:47:34 GMT</pubDate>
+      <pubDate>Sat, 17 Oct 2026 18:19:51 GMT</pubDate>
       <dcterms:created>2026-10-06T05:47:01.000Z</dcterms:created>
-      <dcterms:modified>2026-10-15T09:47:34.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>2026年 不正アクセス・情報漏えいウォッチ｜原因・出典・続報</title>
-      <link>https://share.0g0.xyz/security-incidents</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/security-incidents</guid>
-      <description>2026年の不正アクセス・情報漏えい事案と過去の主要事例を、原因・影響・対応・日付・一次資料で整理。既存の続報を保持し、シンカの調査結果・英国図書館の復旧続報と国内3事案を加えた187件。</description>
-      <pubDate>Thu, 15 Oct 2026 09:47:32 GMT</pubDate>
-      <dcterms:created>2026-10-02T06:08:44.000Z</dcterms:created>
-      <dcterms:modified>2026-10-15T09:47:32.000Z</dcterms:modified>
+      <dcterms:modified>2026-10-17T18:19:51.000Z</dcterms:modified>
     </item>
     <item>
       <title>ElastiCache：Redis 6 → Valkey 9.1の変更点とエンドポイント</title>

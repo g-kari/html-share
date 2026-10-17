@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/vulnerabilities-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Thu, 15 Oct 2026 09:47:34 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 17 Oct 2026 18:19:51 GMT</lastBuildDate>
+    <item>
+      <title>BeyondTrust Remote Support CVE-2026-102764とFortinet CVE-2025-61624の10月16日KEV実悪用登録、Chrome10月15日更新10 C</title>
+      <link>https://share.0g0.xyz/vulnerabilities</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/vulnerabilities-feed.xml#db1f988cbdd751cfc0c98466d9e4b045cc9a056afda396bb9d1a5face0e86cd8</guid>
+      <description>BeyondTrust Remote Support CVE-2026-102764とFortinet CVE-2025-61624の10月16日KEV実悪用登録、Chrome10月15日更新10 CVEを追加し310項目・523 CVEへ。既載Atlassian CVE-2026-21589は10月15日KEV登録を受け実悪用確認へ更新。8月/4月の観測・公表と10月の後続、RS/PRAの影響差、Fortinet管理者権限・旧系列表の不一致、Chromeのsandbox内条件と採点主体を区別。 既存の実悪用表示30項目とJSON32項目の不一致を訂正し、今回の3項目増加後は35項目と表示。35件の新規攻撃を意味しない。</description>
+      <pubDate>Sat, 17 Oct 2026 18:19:51 GMT</pubDate>
+      <dcterms:created>2026-10-17T18:19:51.000Z</dcterms:created>
+    </item>
     <item>
       <title>Better AuthのMagic Link / OAuth Proxy認証回避2 CVE、Renovateのshared preset環境変数制限回避、GitPython Remote.pullのr</title>
       <link>https://share.0g0.xyz/vulnerabilities</link>
