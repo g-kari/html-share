@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Sat, 17 Oct 2026 18:20:05 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 17 Oct 2026 19:27:36 GMT</lastBuildDate>
+    <item>
+      <title>Studioの9月末クラウド侵害を追加</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#724aaf220f77976e617453bcb740649195cc803c190a41db7a6ac6ac78601667</guid>
+      <description>Studioの9月末クラウド侵害を追加。脆弱性悪用・復号鍵読出しと実データ取得未確認を区別し、10月17日のフォーム利用者向け委員会報告手順案内を本人通知と分離。 Vercelの4月内部侵害と10月16日の是正完了・事故閉鎖を追加。Context.ai経由の侵害と製品上のnon-sensitive指定環境変数を整理し、別起点のアカウント侵害兆候は分離。 CCQの8月検知事案と10月16日続報を追加。約685,000人は慎重な保護提供対象で確定流出人数ではない。9月8日の復旧と通知継続・月末予定を区別。 米国裁判所BNC/BAEの10月15日公式事案を追加。破産通知作成・配布停止を記録し、情報流出・攻撃種別・開始日時は未公表として保持。 アエナ10月16日のECアプリ再開予定を反映。10月19日午後は最終安全性確認後の予定で、再開完了・調査終了とはしない。 ヤマト後払いの10月16日第4報を反映。不正持ち出し確認、526万/5万/4,100の区分別件数と第2報の3項目の非確認訂正を記録し、10月9日13時の再開・期限延長を補足。</description>
+      <pubDate>Sat, 17 Oct 2026 19:27:36 GMT</pubDate>
+      <dcterms:created>2026-10-17T19:27:36.000Z</dcterms:created>
+    </item>
     <item>
       <title>WASABI SWITCHの10月本番注文情報流出を7月開発DBと別事案で追加</title>
       <link>https://share.0g0.xyz/security-incidents</link>

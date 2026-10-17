@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/vulnerabilities-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Sat, 17 Oct 2026 18:19:51 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 17 Oct 2026 19:27:49 GMT</lastBuildDate>
+    <item>
+      <title>10月14日のNext.js/React 2件、10月15日のMCP TypeScript HTTP 3件を一次資料で補完</title>
+      <link>https://share.0g0.xyz/vulnerabilities</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/vulnerabilities-feed.xml#542f474326cde99ac1892859dc414e5feae20a357d815e3760671212583cfc42</guid>
+      <description>10月14日のNext.js/React 2件、10月15日のMCP TypeScript HTTP 3件を一次資料で補完。既存sharp記録へNext.js SVG経路と15.x依存rangeの留保を追記し、既存MCP Python本文DoSへCVE-2026-109527・2.0.0a1下限を追加。今回の新規攻撃発生とは扱わない。 収録315項目・524 CVE、実悪用確認35項目を保持。</description>
+      <pubDate>Sat, 17 Oct 2026 19:27:49 GMT</pubDate>
+      <dcterms:created>2026-10-17T19:27:49.000Z</dcterms:created>
+    </item>
     <item>
       <title>BeyondTrust Remote Support CVE-2026-102764とFortinet CVE-2025-61624の10月16日KEV実悪用登録、Chrome10月15日更新10 C</title>
       <link>https://share.0g0.xyz/vulnerabilities</link>

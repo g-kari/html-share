@@ -192,9 +192,12 @@
         "mariadb-connector-c-2026-107819": "4e119feac4cf98edd1ca50d4c31d5524d36542c3a45493fc4a90ff663b450221",
         "mariadb-server-2026-107814-107823": "6d374e1a5e2c96ac1f766fe93b6133d19310410bf4463a919add02d4626dd3d3",
         "mcc-uldaq-network-packet-overflow": "0ca499a52a4214a8071c2a295e672302ad934a379546c64a38976e0d84185bf3",
-        "mcp-python-http-memory-dos": "ae99ce63b94828d9194f277847916d86957d5aa34733ff6001a7a7e4ee300e1f",
+        "mcp-python-http-memory-dos": "7b76a8918d9e9c68d4c6b6c164eee319152f059b29b2b51d30b6c6efa01fe686",
         "mcp-python-oauth-boundaries": "8a5abc6a70d18baaf4e230c692cc88d547bfe74deb4e7b6bcdb414dc64ff785d",
+        "mcp-typescript-http-body-batch-resource-dos": "a91cbfc38317e513765503d7edd4a55e1e9f413fb343ccfe6894dae8a62bd5cd",
         "mcp-typescript-oauth-issuer-boundary": "09496f89acc700c0c56778484b062143e48582ae5ef2999e8496e477d7da0e77",
+        "mcp-typescript-shared-http-cross-client-messages": "adf241a56d4cdf308d884b864dac14a0c214a6802f09b5838cc7eb1bbe7ef27c",
+        "mcp-typescript-tool-input-validation-memory-dos": "db41e03bcbeaf38b4ade9e2c4bf4965f90f1d61a9c94c80b658c8fbdfd7b6ae0",
         "microsoft-bookings-hosted-authorization-bypass": "8db2f4686143bc6cc8be276628b45e60ca9d6b65ac73496f584ee0494d4b9fa6",
         "microsoft-ufo-mcp-command-boundaries": "e0af5bb22b46826609dcd7b0cecae1eb40b47e75ddcdc2578be73e4a41290d30",
         "mindsearch-planner-unsandboxed-python-execution": "62aeb76c55594d571cfaee0847de2af2f21573529087e4e1f34bb38dc130c86b",
@@ -208,13 +211,15 @@
         "netscaler-saml-october-memory-overflow-rce": "b4045d6b1562e0ad0d3594b7781e686c2550b757587f5a06075a7a4fd88760f5",
         "nexi-xpay-build-unauthenticated-order-payment-integrity": "04e4749cb988aaf5f1d3b2e73926c59f8149c9d10b260626ae3c09f937ccc674",
         "next-og-satori-generated-svg-boundary": "4d9750c55d16e3273d8111b79c5609f7f8ce8d983df2061ff9e5ac4faf19071b",
+        "next-react-server-actions-october-dos": "2789dc96fab0eb32c4bf4fe4085b2a21fd754392632ca5bcfc61ab8721019f8a",
+        "next-react-use-cache-typed-array-rce": "4de6debddb32eb16dfeae4d8749e0e886f048ee11014fb1fd7fafbba6c041fff",
         "nginx-october-alias-script-http3-tickets-aio": "d7f43596ca93b872b5bb7a32fa41798ab4b054cfb7042d5932716b27c0df9dd5",
         "nginx-ui-2026-107804-107813": "a007dfd7169272d4804dc362f7ccab05b07265c8b392df17496db4aa4d24faef",
         "nix-lix-october-store-sandbox-installer-boundaries": "35504814accfa97c75f757f51c7779ab536dd9d8d52f06d1e436bb189f353df9",
         "npm-css-jptvix-polyfill-malware": "c6f42d03229a0d0b38f6f2efb85be87095f396d09d0c1ade3310cbd69ee7af64",
         "npm-proxyaddr-trust-subnet-spoofing": "323d3a44e8a40098435c6974bef0b5221ea82d9fcbae5cc05acdce71de5cba95",
         "npm-seroval-fromjson-bypass": "65a00bffb700da1c7f1e5ae9fc3e784593b3d75f56ace5c65310f70715333572",
-        "npm-sharp-librsvg-svg-uaf": "ae1e4ca190896808b12c3f14bf0683e8e08e6874cd07738066b7dab6942219e2",
+        "npm-sharp-librsvg-svg-uaf": "923414d7501b1de69e1cf315c289e8961f242460ff9710cd031df0aa676d0a8f",
         "npm-shellquote-comment-command-injection": "ecaf4820117322a9b2e55aa564819d38fca87e9c8bf59f2bd4967c8377b98e0e",
         "npm-simple-git": "6b1a3dd1f8a12da2e8776175330cbb685743c3a0be618419e978ddbef1379f47",
         "npm-source-map-js-indexed-eventloop-dos": "21fe3424a7618e6fcc7c092996a7568352d0d42542813696765e284a1a102344",
@@ -729,6 +734,20 @@
             "beyondtrust-remote-support-origin-validation-exploited",
             "chrome-october-fifteen-prerender-critical-fixes",
             "fortinet-admin-cli-path-traversal-exploited-61624"
+          ],
+          "date": "2026-10-18"
+        },
+        {
+          "signature": "65299eb1deac85f4309725ba0c7314362df6bead2817365b8151b76f406bcbee",
+          "summary": "10月14日のNext.js/React 2件、10月15日のMCP TypeScript HTTP 3件を一次資料で補完。既存sharp記録へNext.js SVG経路と15.x依存rangeの留保を追記し、既存MCP Python本文DoSへCVE-2026-109527・2.0.0a1下限を追加。今回の新規攻撃発生とは扱わない。 収録315項目・524 CVE、実悪用確認35項目を保持。",
+          "ids": [
+            "mcp-python-http-memory-dos",
+            "mcp-typescript-http-body-batch-resource-dos",
+            "mcp-typescript-shared-http-cross-client-messages",
+            "mcp-typescript-tool-input-validation-memory-dos",
+            "next-react-server-actions-october-dos",
+            "next-react-use-cache-typed-array-rce",
+            "npm-sharp-librsvg-svg-uaf"
           ],
           "date": "2026-10-18"
         }
@@ -1478,16 +1497,38 @@
           ],
           "published": "2026-10-17T18:19:51.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "542f474326cde99ac1892859dc414e5feae20a357d815e3760671212583cfc42",
+          "summary": "10月14日のNext.js/React 2件、10月15日のMCP TypeScript HTTP 3件を一次資料で補完。既存sharp記録へNext.js SVG経路と15.x依存rangeの留保を追記し、既存MCP Python本文DoSへCVE-2026-109527・2.0.0a1下限を追加。今回の新規攻撃発生とは扱わない。 収録315項目・524 CVE、実悪用確認35項目を保持。",
+          "journal": [
+            {
+              "signature": "65299eb1deac85f4309725ba0c7314362df6bead2817365b8151b76f406bcbee",
+              "summary": "10月14日のNext.js/React 2件、10月15日のMCP TypeScript HTTP 3件を一次資料で補完。既存sharp記録へNext.js SVG経路と15.x依存rangeの留保を追記し、既存MCP Python本文DoSへCVE-2026-109527・2.0.0a1下限を追加。今回の新規攻撃発生とは扱わない。 収録315項目・524 CVE、実悪用確認35項目を保持。",
+              "ids": [
+                "mcp-python-http-memory-dos",
+                "mcp-typescript-http-body-batch-resource-dos",
+                "mcp-typescript-shared-http-cross-client-messages",
+                "mcp-typescript-tool-input-validation-memory-dos",
+                "next-react-server-actions-october-dos",
+                "next-react-use-cache-typed-array-rce",
+                "npm-sharp-librsvg-svg-uaf"
+              ],
+              "date": "2026-10-18"
+            }
+          ],
+          "published": "2026-10-17T19:27:49.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "123c9ae4feef5f20c941c66bdaef3e692242a34d"
+      "cursor": "65d8f243a954ac320285d4648a9a8189fd214ef3"
     },
     "security-incidents": {
       "records": {
         "2rinkan-2026": "16aa6852739ca639b688d4a21ea43e11b7c6bac35bcca8e97dbe8a4194b72f56",
         "abahouse-member-order-20260927": "d8483474b2626fd6500e805eb7ecbfc1188b075c0f7760a0d5de5b32ee816895",
         "advantest-network-20260215": "bfecd51530b48b710f25794f931c13923d63831816c62b611e98944f43d8a87a",
-        "aena-ec-app-20261013": "1b56001da8224c24b5cde8abeba016f01d8ba989c4340310954e51f89366a5cc",
+        "aena-ec-app-20261013": "cbe73577bee23c0224a53bcd409e8ec7bcb93398c2c4aae16dfd3fe98571a0b2",
         "aflac-japan-2026": "c58c9c7d58d1ed7dbe628c8c0174ecb5a43de8dc8a54e4eb917f2ffe8ffc2cb2",
         "ahold-delhaize-cybersecurity-20261012": "302feb2347880bc07092e65f606d3e33bae88b654aba622c01205b1934bfa5ff",
         "alpsalpine-2026": "d0b97049c7f4319d2e0155c5c84c144e5b7ee0bd5011e7f4aab5a6fee73a7f36",
@@ -1507,6 +1548,7 @@
         "campfire-2026": "37c0a8675d7223d50cc14144335757683b806fc3031b7b5da7baffdafcc43d7c",
         "canvass-ransomware-2026": "08322821b15ef207849b08301407a805285713a78ea97bddf53306123d90a8a3",
         "casper-orthopedics-20260523": "d6848ed4cf517dcabb5f872572ccb0c0b5b58352472cb8740eb235bb96ce8ad8",
+        "ccq-cyberattack-20260824": "43fde5c7c4ac6ac301c77d316d5137aca44cadb88afbcd1e92ab51dc081f8a3e",
         "cec-datacenter-20260805": "64512b0b0b2e1693ee0e33f2f3d94daca3397821cbd5aeb71afcd6f242895ce1",
         "ceres-pointincome-20261005": "8e4ba99ea257fb88a31ceda3c6159823b8ae821a51243f31063d82cab97e4e17",
         "certfr-refrigeration-20261012": "d83a4a7b8ced172a461391aedc2e339f383a5fd8dac81590af88e909d6813108",
@@ -1645,6 +1687,7 @@
         "sodick-2026": "4bc4212814b1a3658aba8ff5c65dec182463c72027b209b2256eab615f63b28f",
         "sony-psn-qriocity-20110417": "141d9587da6ad9a8542a405a2db9ec9cde4bc8e86348390a7b07afaad0f2faa3",
         "stryker-20260311": "5d10f30fbd12193c4a1c0d96dc51c40c5a4e32965b82d66f7812f26c5ae8eeb3",
+        "studio-cloud-20260930": "c2c5309aa11d9aa4bf5f3d81b664d1601ba03f7c5d1de43cbc0a24676bbdec2d",
         "studysapuri-20260930": "6c257d9dc0b16b352fdeb16d5c5d2bd098875f582461b35855ecfdbca24d19aa",
         "suzukiworld-form-20260729": "6e1a19fbfc402c7b8fc024cc0f2c3c37c25dec6ab619e7eadbe744ccc184a5fe",
         "synnovis-cyber-202406": "67020ec420f09e223a206a2319f1ebf7490a033d7d6feb7fc406d28d985d36b5",
@@ -1664,13 +1707,15 @@
         "uk-laa-20250423": "4d2a946b1a351ab29475cc146e09580b37f070785c1747cccc72a3ae59cf6063",
         "unirita-saas-documents-20260928": "b4373441f8674f9c64d65a4e8b9bf847b45eff8566b9b237e34e9217665a6793",
         "upsider-2026": "cfb9c6481c4b13b592a581f379351111343525a8fdf7ebae5d7491f2500a0cbd",
+        "us-bnc-bae-202610": "7834ef6bcaf3658394c71b653597f78e6657828d5445b23484d621d58f5c7f98",
+        "vercel-context-ai-202604": "0585127bbed2c9f046a0966e6a34f14a6b065c582d69fba13cc8833fa955a99a",
         "visualarts-2026": "469d0c4db409d206a90b6e2b9030cd86fbc579b27a41b2bd4e687387a77060e4",
         "voising-bi-20260810": "9f123bcffb197958aa2957a3dc7ac3b0be4d5b9d26dfe8af791ce1dcf2ec7486",
         "wasabi-development-db-20260704": "53039845aabcf1589fb8812d0a774c7118884ab7aa4cdd1d8f6aef2216064127",
         "wasabi-switch-orders-20261014": "7dfa8605ad265c7737ada0e0484f710748b8a3cd885633b03d814a2940a4f64e",
         "westjet-social-engineering-20250612": "6b4160f7b35077f82e3c3739ea070f95acf5f2128439913acbc70ae80103a0bc",
         "whiteessence-reservation-20260805": "7e4305ed1095ddbd3b4e023d3f4ffde7dceca44b08df74fe79b2d689e9941e50",
-        "yamato-paylater-20260928": "e23ee526abc0209d19a1401134d029f0d83a64e08edebebc5305597e3e67dbb9",
+        "yamato-paylater-20260928": "43edaa401fb0afc215ea2610792451aacafd3ff0fa4fd0cdb468eb8e0fab66b4",
         "ycc-2026": "1b505f87536962594cefeba1e83ccc9845780a02f22066fb52898e7660150303",
         "zojirushi-taiwan-2026": "8d675e26cdd2a54ee31b8dea02b982443697d27a82ac341f51ac7292413b1f83",
         "zynas-joyfull-2026": "2a4228bf3e60057c5faf59083534cfc72345490c9ae777d66b3aa938ec99a018"
@@ -2498,6 +2543,54 @@
           "summary": "ETS/CDEの生徒情報SFTP侵害を追加。5月22日〜9月18日のコピー、9月25日発見、10月2日初報と16日通知開始を区別。障害・評価等の情報と一定の元生徒を含む対象、人数未公表を明記。",
           "ids": [
             "ets-california-sftp-20260522"
+          ],
+          "date": "2026-10-18"
+        },
+        {
+          "signature": "3f918fcddc6c8585b0632f7fa965ce4ad2b62c9cd420076a8c279ab188d12a82",
+          "summary": "Studioの9月末クラウド侵害を追加。脆弱性悪用・復号鍵読出しと実データ取得未確認を区別し、10月17日のフォーム利用者向け委員会報告手順案内を本人通知と分離。",
+          "ids": [
+            "studio-cloud-20260930"
+          ],
+          "date": "2026-10-18"
+        },
+        {
+          "signature": "4f365ad13514e51c9e42c44eaa655eefb779ad6a185e0ac2477bc5a222cfd711",
+          "summary": "Vercelの4月内部侵害と10月16日の是正完了・事故閉鎖を追加。Context.ai経由の侵害と製品上のnon-sensitive指定環境変数を整理し、別起点のアカウント侵害兆候は分離。",
+          "ids": [
+            "vercel-context-ai-202604"
+          ],
+          "date": "2026-10-18"
+        },
+        {
+          "signature": "550a2691d91acf248126e821f39e8eb585831cadb7f28faed8e51d49a22fbb20",
+          "summary": "CCQの8月検知事案と10月16日続報を追加。約685,000人は慎重な保護提供対象で確定流出人数ではない。9月8日の復旧と通知継続・月末予定を区別。",
+          "ids": [
+            "ccq-cyberattack-20260824"
+          ],
+          "date": "2026-10-18"
+        },
+        {
+          "signature": "ff2dd7490674795227bf708c854fde5d7e4932ad5b239d770399452f5e24a07d",
+          "summary": "米国裁判所BNC/BAEの10月15日公式事案を追加。破産通知作成・配布停止を記録し、情報流出・攻撃種別・開始日時は未公表として保持。",
+          "ids": [
+            "us-bnc-bae-202610"
+          ],
+          "date": "2026-10-18"
+        },
+        {
+          "signature": "cef3a85f76c4f7939a26e9ef28ffdffa3f764046486ad389000ee5e26a45267c",
+          "summary": "アエナ10月16日のECアプリ再開予定を反映。10月19日午後は最終安全性確認後の予定で、再開完了・調査終了とはしない。",
+          "ids": [
+            "aena-ec-app-20261013"
+          ],
+          "date": "2026-10-18"
+        },
+        {
+          "signature": "e674cb5d776ee804de944ee758148e0eca65e7ccd79af545a3922347eb18113d",
+          "summary": "ヤマト後払いの10月16日第4報を反映。不正持ち出し確認、526万/5万/4,100の区分別件数と第2報の3項目の非確認訂正を記録し、10月9日13時の再開・期限延長を補足。",
+          "ids": [
+            "yamato-paylater-20260928"
           ],
           "date": "2026-10-18"
         }
@@ -3565,9 +3658,65 @@
           ],
           "published": "2026-10-17T18:20:05.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "724aaf220f77976e617453bcb740649195cc803c190a41db7a6ac6ac78601667",
+          "summary": "Studioの9月末クラウド侵害を追加。脆弱性悪用・復号鍵読出しと実データ取得未確認を区別し、10月17日のフォーム利用者向け委員会報告手順案内を本人通知と分離。 Vercelの4月内部侵害と10月16日の是正完了・事故閉鎖を追加。Context.ai経由の侵害と製品上のnon-sensitive指定環境変数を整理し、別起点のアカウント侵害兆候は分離。 CCQの8月検知事案と10月16日続報を追加。約685,000人は慎重な保護提供対象で確定流出人数ではない。9月8日の復旧と通知継続・月末予定を区別。 米国裁判所BNC/BAEの10月15日公式事案を追加。破産通知作成・配布停止を記録し、情報流出・攻撃種別・開始日時は未公表として保持。 アエナ10月16日のECアプリ再開予定を反映。10月19日午後は最終安全性確認後の予定で、再開完了・調査終了とはしない。 ヤマト後払いの10月16日第4報を反映。不正持ち出し確認、526万/5万/4,100の区分別件数と第2報の3項目の非確認訂正を記録し、10月9日13時の再開・期限延長を補足。",
+          "journal": [
+            {
+              "signature": "3f918fcddc6c8585b0632f7fa965ce4ad2b62c9cd420076a8c279ab188d12a82",
+              "summary": "Studioの9月末クラウド侵害を追加。脆弱性悪用・復号鍵読出しと実データ取得未確認を区別し、10月17日のフォーム利用者向け委員会報告手順案内を本人通知と分離。",
+              "ids": [
+                "studio-cloud-20260930"
+              ],
+              "date": "2026-10-18"
+            },
+            {
+              "signature": "4f365ad13514e51c9e42c44eaa655eefb779ad6a185e0ac2477bc5a222cfd711",
+              "summary": "Vercelの4月内部侵害と10月16日の是正完了・事故閉鎖を追加。Context.ai経由の侵害と製品上のnon-sensitive指定環境変数を整理し、別起点のアカウント侵害兆候は分離。",
+              "ids": [
+                "vercel-context-ai-202604"
+              ],
+              "date": "2026-10-18"
+            },
+            {
+              "signature": "550a2691d91acf248126e821f39e8eb585831cadb7f28faed8e51d49a22fbb20",
+              "summary": "CCQの8月検知事案と10月16日続報を追加。約685,000人は慎重な保護提供対象で確定流出人数ではない。9月8日の復旧と通知継続・月末予定を区別。",
+              "ids": [
+                "ccq-cyberattack-20260824"
+              ],
+              "date": "2026-10-18"
+            },
+            {
+              "signature": "ff2dd7490674795227bf708c854fde5d7e4932ad5b239d770399452f5e24a07d",
+              "summary": "米国裁判所BNC/BAEの10月15日公式事案を追加。破産通知作成・配布停止を記録し、情報流出・攻撃種別・開始日時は未公表として保持。",
+              "ids": [
+                "us-bnc-bae-202610"
+              ],
+              "date": "2026-10-18"
+            },
+            {
+              "signature": "cef3a85f76c4f7939a26e9ef28ffdffa3f764046486ad389000ee5e26a45267c",
+              "summary": "アエナ10月16日のECアプリ再開予定を反映。10月19日午後は最終安全性確認後の予定で、再開完了・調査終了とはしない。",
+              "ids": [
+                "aena-ec-app-20261013"
+              ],
+              "date": "2026-10-18"
+            },
+            {
+              "signature": "e674cb5d776ee804de944ee758148e0eca65e7ccd79af545a3922347eb18113d",
+              "summary": "ヤマト後払いの10月16日第4報を反映。不正持ち出し確認、526万/5万/4,100の区分別件数と第2報の3項目の非確認訂正を記録し、10月9日13時の再開・期限延長を補足。",
+              "ids": [
+                "yamato-paylater-20260928"
+              ],
+              "date": "2026-10-18"
+            }
+          ],
+          "published": "2026-10-17T19:27:36.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "6797b7d03a086a93a9c96d5da32a3a8cf290a1e4"
+      "cursor": "909553f2b39c4f8a9cf1965c9bb61706e3d0d004"
     }
   }
 }
