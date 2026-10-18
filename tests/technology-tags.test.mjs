@@ -15,6 +15,9 @@ const keys = (record, kind) => automaticTags(record).filter((item) => item.kind 
 const record = (title, lead = "", category = "agent", extra = {}) => ({ title, lead, category, ...extra });
 
 const existingProducts = {
+  "vllm-0320-compatibility-asr": ["other"],
+  "claude-code-21302-mcp-permission-defaults": ["claude-code"],
+  "cloudflare-workers-builds-default-tooling": ["cloudflare-workers"],
   "cloudflare-stream-webrtc-ga-billing": ["other"],
   "cloudflare-ai-search-cjk-trigram": ["other"],
   "cloudflare-cli-beta16-breaking-docs-search": ["other"],
@@ -84,6 +87,9 @@ test("all authored records have deterministic product/domain/change dimensions",
 
 test("current change tags distinguish pricing, fixes, public weights, GA, beta and correction", () => {
   const expected = {
+  "vllm-0320-compatibility-asr": ["compatibility"],
+  "claude-code-21302-mcp-permission-defaults": ["fix"],
+  "cloudflare-workers-builds-default-tooling": ["compatibility"],
   "cloudflare-stream-webrtc-ga-billing": ["pricing","ga"],
   "cloudflare-ai-search-cjk-trigram": ["improvement"],
   "cloudflare-cli-beta16-breaking-docs-search": ["preview","compatibility"],
@@ -288,4 +294,5 @@ test("mutation of returned tags cannot alter later outputs or the input record",
   assert.deepEqual(input, before);
   assert.deepEqual(automaticTags(input), expected);
 });
+
 
