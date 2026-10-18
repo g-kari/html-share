@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Sun, 18 Oct 2026 01:10:55 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 18 Oct 2026 06:04:48 GMT</lastBuildDate>
+    <item>
+      <title>ConnectWiseの10月18日続報を反映</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#0a6680ac68f188c7ec829d4bad521beeec823aea4a3f3b4d5ca33d24b85eb108</guid>
+      <description>ConnectWiseの10月18日続報を反映。SaaS Securityの監視・アラートとCloud Managementのユーザー・ライセンス管理の予防停止、17日07:00 UTCの7アプリ認証主体無効化を補足。既発行トークンや既変更テナント設定・別の認証主体の残存アクセスは自動解消しない点、FAQの10月14日問題識別、Cloud Backupのバックアップ・復元停止継続と復旧時刻未定を区別し、新たな確定流出や顧客数へ換算しない。</description>
+      <pubDate>Sun, 18 Oct 2026 06:04:48 GMT</pubDate>
+      <dcterms:created>2026-10-18T06:04:48.000Z</dcterms:created>
+    </item>
     <item>
       <title>Studio既存事案にFGN・STATION Ai・鹿児島市の利用者側公表を補足</title>
       <link>https://share.0g0.xyz/security-incidents</link>

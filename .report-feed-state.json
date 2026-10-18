@@ -1559,7 +1559,7 @@
         "coconala-resume-20261008": "eb238bb47e37b31ac1b72f96a1443f5fa5b5bde6c97aec836f0e052dd64a785c",
         "comhairle-cyberattack-20231107": "969973749209f04fd022ca4fbbb96b8912e33f409bfbbfcfd6b7da252cd459b5",
         "commune-community-20261005": "d322cd9f8add11e34e8ae71a6b6c313316b51096170f1b4ff1ed21bd1ce467f5",
-        "connectwise-cloud-backup-20261016": "5b16abd46b684a25e87e8a1b003b3c6c4e7d25d94b830badd5ae8b1aef033536",
+        "connectwise-cloud-backup-20261016": "578adf94faeb8c91accb053c05af081df208fd6ff89feb4e007976713f3c5186",
         "cynd-beautymerit-2026": "dc70226d1acb1c024eae63c2ccc36cd9c2a69ee4860d4e516419d871b6b3b207",
         "daiichikosho-ncg-pc-20261002": "d35a2b8b8d7e0e315603bff41756cafb621d19524b6147deb26e3dea3d8d7447",
         "daiichilife-hr-20260924": "1e98e1d06a6656056652dc03334c624398f2c266f1b39b3c83499cf0683de3b7",
@@ -2616,6 +2616,14 @@
           "summary": "アルカディア既存事案に青森市の運用復旧を補足。10月15日更新の市自動配信復旧案内、10月16日の8月15日→10月15日誤記訂正、防災メール約4,900登録者・電話/FAX約100登録者・約2,900職員の可能性対象を区別。提供元側の復旧は既知で、市以外の復旧や確定流出、合計人数に拡張しない。",
           "ids": [
             "arcadia-speecan-20261011"
+          ],
+          "date": "2026-10-18"
+        },
+        {
+          "signature": "14aeec92738f52cbf15c90bd509bfde8bf35c4eef9f5169cb1c2ba90547c053e",
+          "summary": "ConnectWiseの10月18日続報を反映。SaaS Securityの監視・アラートとCloud Managementのユーザー・ライセンス管理の予防停止、17日07:00 UTCの7アプリ認証主体無効化を補足。既発行トークンや既変更テナント設定・別の認証主体の残存アクセスは自動解消しない点、FAQの10月14日問題識別、Cloud Backupのバックアップ・復元停止継続と復旧時刻未定を区別し、新たな確定流出や顧客数へ換算しない。",
+          "ids": [
+            "connectwise-cloud-backup-20261016"
           ],
           "date": "2026-10-18"
         }
@@ -3779,9 +3787,25 @@
           ],
           "published": "2026-10-18T01:10:55.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "0a6680ac68f188c7ec829d4bad521beeec823aea4a3f3b4d5ca33d24b85eb108",
+          "summary": "ConnectWiseの10月18日続報を反映。SaaS Securityの監視・アラートとCloud Managementのユーザー・ライセンス管理の予防停止、17日07:00 UTCの7アプリ認証主体無効化を補足。既発行トークンや既変更テナント設定・別の認証主体の残存アクセスは自動解消しない点、FAQの10月14日問題識別、Cloud Backupのバックアップ・復元停止継続と復旧時刻未定を区別し、新たな確定流出や顧客数へ換算しない。",
+          "journal": [
+            {
+              "signature": "14aeec92738f52cbf15c90bd509bfde8bf35c4eef9f5169cb1c2ba90547c053e",
+              "summary": "ConnectWiseの10月18日続報を反映。SaaS Securityの監視・アラートとCloud Managementのユーザー・ライセンス管理の予防停止、17日07:00 UTCの7アプリ認証主体無効化を補足。既発行トークンや既変更テナント設定・別の認証主体の残存アクセスは自動解消しない点、FAQの10月14日問題識別、Cloud Backupのバックアップ・復元停止継続と復旧時刻未定を区別し、新たな確定流出や顧客数へ換算しない。",
+              "ids": [
+                "connectwise-cloud-backup-20261016"
+              ],
+              "date": "2026-10-18"
+            }
+          ],
+          "published": "2026-10-18T06:04:48.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "28bf301abdf33df98c96c3876767ac12f76c7695"
+      "cursor": "ed8776ee210001c3bbc3a324b112ebf9ec6cb2cb"
     }
   }
 }
