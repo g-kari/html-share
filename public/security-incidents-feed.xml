@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Sun, 18 Oct 2026 00:53:25 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 18 Oct 2026 01:10:55 GMT</lastBuildDate>
+    <item>
+      <title>Studio既存事案にFGN・STATION Ai・鹿児島市の利用者側公表を補足</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#4666a2182626c22f93bec177006d3ee19c779a568b50274ac604cbd60f2b25d0</guid>
+      <description>Studio既存事案にFGN・STATION Ai・鹿児島市の利用者側公表を補足。FGNの6フォーム185/87/190/3/89/75件と期間・項目、保存データ消去・注意喚起、STATION Aiの閉鎖済みフォーム回答保持・API接続設定削除、鹿児島市のMBC開発→Studioと問い合わせ5件の可能性を整理。3件の新規攻撃を追加せず、実取得未確認と件数・人数の非合算を保持。 アルカディア既存事案に青森市の運用復旧を補足。10月15日更新の市自動配信復旧案内、10月16日の8月15日→10月15日誤記訂正、防災メール約4,900登録者・電話/FAX約100登録者・約2,900職員の可能性対象を区別。提供元側の復旧は既知で、市以外の復旧や確定流出、合計人数に拡張しない。</description>
+      <pubDate>Sun, 18 Oct 2026 01:10:55 GMT</pubDate>
+      <dcterms:created>2026-10-18T01:10:55.000Z</dcterms:created>
+    </item>
     <item>
       <title>ConnectWise Cloud Backup（旧SkyKick）の未収録事案を追加</title>
       <link>https://share.0g0.xyz/security-incidents</link>

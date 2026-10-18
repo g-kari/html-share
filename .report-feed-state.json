@@ -1533,7 +1533,7 @@
         "ahold-delhaize-cybersecurity-20261012": "302feb2347880bc07092e65f606d3e33bae88b654aba622c01205b1934bfa5ff",
         "alpsalpine-2026": "d0b97049c7f4319d2e0155c5c84c144e5b7ee0bd5011e7f4aab5a6fee73a7f36",
         "applynow-analysis-20260809": "56ab14073225d70dff90cadffc4d6518114f5b4ce14d5d6f4ba23094d6ec99c5",
-        "arcadia-speecan-20261011": "76357200139cc917bce67b8f90d29008a57ae8a1d0c635efdeac881968b40cac",
+        "arcadia-speecan-20261011": "68ae19b2f1c91d98ba57ae6fd3ae11590b229c2bc2a7965e87bfb3dec5c05f46",
         "arizona-courts-backups-20260924": "dd75acc97413bc42826c238b9a92c5ccf0298a41a689bb8aed03c0614b3eaf57",
         "asahi-20250929": "2ff3828a9d0efc3795b2ab714b01fb27bb3faca24a2a09326c2bd8bd3c5f504a",
         "asahi-kasei-pharma-digital-20261002": "aa9a28808ed77d108b43a6ab5b1d1d89fc46e0eb3f0a1fca7504d38da216133c",
@@ -1688,7 +1688,7 @@
         "sodick-2026": "4bc4212814b1a3658aba8ff5c65dec182463c72027b209b2256eab615f63b28f",
         "sony-psn-qriocity-20110417": "141d9587da6ad9a8542a405a2db9ec9cde4bc8e86348390a7b07afaad0f2faa3",
         "stryker-20260311": "5d10f30fbd12193c4a1c0d96dc51c40c5a4e32965b82d66f7812f26c5ae8eeb3",
-        "studio-cloud-20260930": "c2c5309aa11d9aa4bf5f3d81b664d1601ba03f7c5d1de43cbc0a24676bbdec2d",
+        "studio-cloud-20260930": "750bd72b5db3d0a7e7d2eeb7c05ce8b2be0400fb0c76f088c073b904e8a9d067",
         "studysapuri-20260930": "6c257d9dc0b16b352fdeb16d5c5d2bd098875f582461b35855ecfdbca24d19aa",
         "suzukiworld-form-20260729": "6e1a19fbfc402c7b8fc024cc0f2c3c37c25dec6ab619e7eadbe744ccc184a5fe",
         "synnovis-cyber-202406": "67020ec420f09e223a206a2319f1ebf7490a033d7d6feb7fc406d28d985d36b5",
@@ -2600,6 +2600,22 @@
           "summary": "ConnectWise Cloud Backup（旧SkyKick）の未収録事案を追加。10月16日初報と17日のアプリ認証主体への不正アクセス確認、証明書失効・旧共有認証情報無効化、バックアップ・復元停止を整理。暗号化アーカイブのアクセス証拠なしと下流M365影響の未確定を区別し、顧客数・流出件数を推計しない。既公表情報の収録補完であり、今回新たに発生した攻撃ではない。",
           "ids": [
             "connectwise-cloud-backup-20261016"
+          ],
+          "date": "2026-10-18"
+        },
+        {
+          "signature": "d100e5fb973d130f8c4ae1225d04945225a84648ab62071ddbe4e093be37f9f7",
+          "summary": "Studio既存事案にFGN・STATION Ai・鹿児島市の利用者側公表を補足。FGNの6フォーム185/87/190/3/89/75件と期間・項目、保存データ消去・注意喚起、STATION Aiの閉鎖済みフォーム回答保持・API接続設定削除、鹿児島市のMBC開発→Studioと問い合わせ5件の可能性を整理。3件の新規攻撃を追加せず、実取得未確認と件数・人数の非合算を保持。",
+          "ids": [
+            "studio-cloud-20260930"
+          ],
+          "date": "2026-10-18"
+        },
+        {
+          "signature": "1bc7fd4d27abc47582049e61ef53601e0b9906e7262dce1ff33e92dec007857c",
+          "summary": "アルカディア既存事案に青森市の運用復旧を補足。10月15日更新の市自動配信復旧案内、10月16日の8月15日→10月15日誤記訂正、防災メール約4,900登録者・電話/FAX約100登録者・約2,900職員の可能性対象を区別。提供元側の復旧は既知で、市以外の復旧や確定流出、合計人数に拡張しない。",
+          "ids": [
+            "arcadia-speecan-20261011"
           ],
           "date": "2026-10-18"
         }
@@ -3739,9 +3755,33 @@
           ],
           "published": "2026-10-18T00:53:25.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "4666a2182626c22f93bec177006d3ee19c779a568b50274ac604cbd60f2b25d0",
+          "summary": "Studio既存事案にFGN・STATION Ai・鹿児島市の利用者側公表を補足。FGNの6フォーム185/87/190/3/89/75件と期間・項目、保存データ消去・注意喚起、STATION Aiの閉鎖済みフォーム回答保持・API接続設定削除、鹿児島市のMBC開発→Studioと問い合わせ5件の可能性を整理。3件の新規攻撃を追加せず、実取得未確認と件数・人数の非合算を保持。 アルカディア既存事案に青森市の運用復旧を補足。10月15日更新の市自動配信復旧案内、10月16日の8月15日→10月15日誤記訂正、防災メール約4,900登録者・電話/FAX約100登録者・約2,900職員の可能性対象を区別。提供元側の復旧は既知で、市以外の復旧や確定流出、合計人数に拡張しない。",
+          "journal": [
+            {
+              "signature": "d100e5fb973d130f8c4ae1225d04945225a84648ab62071ddbe4e093be37f9f7",
+              "summary": "Studio既存事案にFGN・STATION Ai・鹿児島市の利用者側公表を補足。FGNの6フォーム185/87/190/3/89/75件と期間・項目、保存データ消去・注意喚起、STATION Aiの閉鎖済みフォーム回答保持・API接続設定削除、鹿児島市のMBC開発→Studioと問い合わせ5件の可能性を整理。3件の新規攻撃を追加せず、実取得未確認と件数・人数の非合算を保持。",
+              "ids": [
+                "studio-cloud-20260930"
+              ],
+              "date": "2026-10-18"
+            },
+            {
+              "signature": "1bc7fd4d27abc47582049e61ef53601e0b9906e7262dce1ff33e92dec007857c",
+              "summary": "アルカディア既存事案に青森市の運用復旧を補足。10月15日更新の市自動配信復旧案内、10月16日の8月15日→10月15日誤記訂正、防災メール約4,900登録者・電話/FAX約100登録者・約2,900職員の可能性対象を区別。提供元側の復旧は既知で、市以外の復旧や確定流出、合計人数に拡張しない。",
+              "ids": [
+                "arcadia-speecan-20261011"
+              ],
+              "date": "2026-10-18"
+            }
+          ],
+          "published": "2026-10-18T01:10:55.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "5a3ac006957586cd798b3c817cd4abd58b80b5b8"
+      "cursor": "28bf301abdf33df98c96c3876767ac12f76c7695"
     }
   }
 }

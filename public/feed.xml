@@ -7,15 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Sun, 18 Oct 2026 00:53:25 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 18 Oct 2026 01:10:55 GMT</lastBuildDate>
     <item>
       <title>2026年 不正アクセス・情報漏えいウォッチ｜原因・出典・続報</title>
       <link>https://share.0g0.xyz/security-incidents</link>
       <guid isPermaLink="true">https://share.0g0.xyz/security-incidents</guid>
-      <description>2026年の不正アクセス・情報漏えい事案と過去の主要事例を、原因・影響・対応・日付・一次資料で整理。全195件。ConnectWise Cloud Backupのアプリ認証主体侵害とバックアップ・復元停止を追加。</description>
-      <pubDate>Sun, 18 Oct 2026 00:53:25 GMT</pubDate>
+      <description>2026年の不正アクセス・情報漏えい事案と過去の主要事例を、原因・影響・対応・日付・一次資料で整理。全195件。Studio利用組織のフォーム情報の可能性範囲と青森市の配信サービス復旧を補足。</description>
+      <pubDate>Sun, 18 Oct 2026 01:10:55 GMT</pubDate>
       <dcterms:created>2026-10-02T06:08:44.000Z</dcterms:created>
-      <dcterms:modified>2026-10-18T00:53:25.000Z</dcterms:modified>
+      <dcterms:modified>2026-10-18T01:10:55.000Z</dcterms:modified>
     </item>
     <item>
       <title>重要技術アップデート｜AI・開発ツール・MCP</title>
