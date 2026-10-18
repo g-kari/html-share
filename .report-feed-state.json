@@ -1559,6 +1559,7 @@
         "coconala-resume-20261008": "eb238bb47e37b31ac1b72f96a1443f5fa5b5bde6c97aec836f0e052dd64a785c",
         "comhairle-cyberattack-20231107": "969973749209f04fd022ca4fbbb96b8912e33f409bfbbfcfd6b7da252cd459b5",
         "commune-community-20261005": "d322cd9f8add11e34e8ae71a6b6c313316b51096170f1b4ff1ed21bd1ce467f5",
+        "connectwise-cloud-backup-20261016": "5b16abd46b684a25e87e8a1b003b3c6c4e7d25d94b830badd5ae8b1aef033536",
         "cynd-beautymerit-2026": "dc70226d1acb1c024eae63c2ccc36cd9c2a69ee4860d4e516419d871b6b3b207",
         "daiichikosho-ncg-pc-20261002": "d35a2b8b8d7e0e315603bff41756cafb621d19524b6147deb26e3dea3d8d7447",
         "daiichilife-hr-20260924": "1e98e1d06a6656056652dc03334c624398f2c266f1b39b3c83499cf0683de3b7",
@@ -2591,6 +2592,14 @@
           "summary": "ヤマト後払いの10月16日第4報を反映。不正持ち出し確認、526万/5万/4,100の区分別件数と第2報の3項目の非確認訂正を記録し、10月9日13時の再開・期限延長を補足。",
           "ids": [
             "yamato-paylater-20260928"
+          ],
+          "date": "2026-10-18"
+        },
+        {
+          "signature": "e2dd676aa72842589e0b0d4d6e2117aceb2fe2da199fa5a503769c1aa12cf573",
+          "summary": "ConnectWise Cloud Backup（旧SkyKick）の未収録事案を追加。10月16日初報と17日のアプリ認証主体への不正アクセス確認、証明書失効・旧共有認証情報無効化、バックアップ・復元停止を整理。暗号化アーカイブのアクセス証拠なしと下流M365影響の未確定を区別し、顧客数・流出件数を推計しない。既公表情報の収録補完であり、今回新たに発生した攻撃ではない。",
+          "ids": [
+            "connectwise-cloud-backup-20261016"
           ],
           "date": "2026-10-18"
         }
@@ -3714,9 +3723,25 @@
           ],
           "published": "2026-10-17T19:27:36.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "85f856495878bd370ab1bd1223ff1e4d554d5fbf7bfb4ecc30f65d67887db0df",
+          "summary": "ConnectWise Cloud Backup（旧SkyKick）の未収録事案を追加。10月16日初報と17日のアプリ認証主体への不正アクセス確認、証明書失効・旧共有認証情報無効化、バックアップ・復元停止を整理。暗号化アーカイブのアクセス証拠なしと下流M365影響の未確定を区別し、顧客数・流出件数を推計しない。既公表情報の収録補完であり、今回新たに発生した攻撃ではない。",
+          "journal": [
+            {
+              "signature": "e2dd676aa72842589e0b0d4d6e2117aceb2fe2da199fa5a503769c1aa12cf573",
+              "summary": "ConnectWise Cloud Backup（旧SkyKick）の未収録事案を追加。10月16日初報と17日のアプリ認証主体への不正アクセス確認、証明書失効・旧共有認証情報無効化、バックアップ・復元停止を整理。暗号化アーカイブのアクセス証拠なしと下流M365影響の未確定を区別し、顧客数・流出件数を推計しない。既公表情報の収録補完であり、今回新たに発生した攻撃ではない。",
+              "ids": [
+                "connectwise-cloud-backup-20261016"
+              ],
+              "date": "2026-10-18"
+            }
+          ],
+          "published": "2026-10-18T00:53:25.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "909553f2b39c4f8a9cf1965c9bb61706e3d0d004"
+      "cursor": "5a3ac006957586cd798b3c817cd4abd58b80b5b8"
     }
   }
 }

@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Sat, 17 Oct 2026 19:27:36 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 18 Oct 2026 00:53:25 GMT</lastBuildDate>
+    <item>
+      <title>ConnectWise Cloud Backup（旧SkyKick）の未収録事案を追加</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#85f856495878bd370ab1bd1223ff1e4d554d5fbf7bfb4ecc30f65d67887db0df</guid>
+      <description>ConnectWise Cloud Backup（旧SkyKick）の未収録事案を追加。10月16日初報と17日のアプリ認証主体への不正アクセス確認、証明書失効・旧共有認証情報無効化、バックアップ・復元停止を整理。暗号化アーカイブのアクセス証拠なしと下流M365影響の未確定を区別し、顧客数・流出件数を推計しない。既公表情報の収録補完であり、今回新たに発生した攻撃ではない。</description>
+      <pubDate>Sun, 18 Oct 2026 00:53:25 GMT</pubDate>
+      <dcterms:created>2026-10-18T00:53:25.000Z</dcterms:created>
+    </item>
     <item>
       <title>Studioの9月末クラウド侵害を追加</title>
       <link>https://share.0g0.xyz/security-incidents</link>
