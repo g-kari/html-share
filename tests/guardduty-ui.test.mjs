@@ -52,7 +52,7 @@ test('Original report content and lazy loading survive command HUD', () => {
   assert.equal((html.match(/class="update"/g)||[]).length,6);
   assert.match(html, /id="search"/);
   assert.match(html, /id="flow-fallback"/);
-  assert.match(html, /guardduty-animate\\.js/);
+  assert.match(html, /guardduty-animate\.js/);
   assert.match(html, /IntersectionObserver/);
   assert.match(html, /rootMargin: '320px'/);
   assert.match(html, /aws\.amazon\.com\/guardduty\/pricing/);
