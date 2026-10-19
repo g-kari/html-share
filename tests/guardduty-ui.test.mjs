@@ -26,3 +26,34 @@ test('GuardDuty runtime waits until the diagram approaches the viewport', () => 
   assert.match(html, /rootMargin: '320px'/);
   assert.match(html, /import\('\/assets\/guardduty-animate\.js'\)/);
 });
+
+
+test('Game briefing uses official-style AWS SVGs, clearly labels simulation, and keeps reduced motion', async () => {
+  const names=['guardduty','rds','lambda','cloudtrail','eventbridge','cloudwatch','securityhub','bedrock','sagemaker','iam'];
+  for(const name of names){
+    const svg=await readFile(new URL('../public/assets/aws-icons/'+name+'.svg',import.meta.url),'utf8');
+    assert.match(svg, /<svg\b/);
+    assert.doesNotMatch(svg, /<script\b|onload\s*=|<foreignObject\b/i);
+    assert.match(ui,new RegExp(name + ": '/assets/aws-icons/" + name + "\\.svg'"));
+  }
+  assert.match(html, /class="gd-hero-status"/);
+  assert.match(html, /gd-release-heading/);
+  assert.match(html, /gd-fallback-nodes/);
+  assert.match(html, /AWS公式アイコン・利用案内/);
+  assert.match(html, /@media\(prefers-reduced-motion:reduce\)/);
+  assert.match(ui, /SIMULATION \/ NOT LIVE/);
+  assert.match(ui, /デモ画面（実測値ではありません）/);
+  assert.match(ui, /gd-defense-core/);
+  assert.match(ui, /gd-mission-step/);
+  assert.match(ui, /aria-pressed=\{fx\}/);
+  assert.match(ui, /setReplay\(x=>x\+1\)/);
+});
+test('Original report content and lazy loading survive command HUD', () => {
+  assert.equal((html.match(/class="update"/g)||[]).length,6);
+  assert.match(html, /id="search"/);
+  assert.match(html, /id="flow-fallback"/);
+  assert.match(html, /guardduty-animate\\.js/);
+  assert.match(html, /IntersectionObserver/);
+  assert.match(html, /rootMargin: '320px'/);
+  assert.match(html, /aws\.amazon\.com\/guardduty\/pricing/);
+});
