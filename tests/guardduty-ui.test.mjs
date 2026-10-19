@@ -46,6 +46,8 @@ test('Game briefing uses official-style AWS SVGs, clearly labels simulation, and
   assert.match(ui, /gd-defense-core/);
   assert.match(ui, /gd-mission-step/);
   assert.match(ui, /aria-pressed=\{fx\}/);
+  assert.match(ui, /gd-effects-paused/);
+  assert.match(html, /gd-effects-paused header::before/);
   assert.match(ui, /setReplay\(x=>x\+1\)/);
 });
 test('Original report content and lazy loading survive command HUD', () => {
