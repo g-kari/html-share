@@ -163,6 +163,10 @@ function Visualizer() {
   const scenario = SCENARIOS.find(s=>s.value===selected)||SCENARIOS[0];
 
   useEffect(() => {
+    document.body.classList.toggle('gd-effects-paused', !animate);
+    return () => document.body.classList.remove('gd-effects-paused');
+  }, [animate]);
+  useEffect(() => {
     const fallback=document.getElementById('flow-fallback');
     if (fallback) fallback.hidden=true;
   }, []);
