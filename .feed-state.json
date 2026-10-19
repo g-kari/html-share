@@ -6,6 +6,11 @@
       "published": "2026-10-08T13:44:50.000Z",
       "updated": "2026-10-08T13:44:50.000Z"
     },
+    "aws-guardduty-2026.html": {
+      "fingerprint": "9e4c05d797c1055a9b6a67e68d1c547a95b7f9efb82bbc39a79c2a4576ac1e4e",
+      "published": "2026-10-19T09:41:18.000Z",
+      "updated": "2026-10-19T09:41:18.000Z"
+    },
     "aws-lambda-go-cold-start.html": {
       "fingerprint": "90e81aef4673477b7f4edf405d4cd33f4758504ea8309af603672b186f857613",
       "published": "2026-10-14T08:28:12.000Z",

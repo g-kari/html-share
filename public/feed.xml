@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Sun, 18 Oct 2026 23:20:07 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 19 Oct 2026 09:41:18 GMT</lastBuildDate>
+    <item>
+      <title>Amazon GuardDuty 2026 アップデート詳解 | AWS Security</title>
+      <link>https://share.0g0.xyz/aws-guardduty-2026</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/aws-guardduty-2026</guid>
+      <description>AWS Amazon GuardDutyの2026年主要アップデートを公式情報から整理。RDS Protection、Custom Detection Rules、攻撃シーケンス、AI調査、料金と導入チェックリスト。</description>
+      <pubDate>Mon, 19 Oct 2026 09:41:18 GMT</pubDate>
+      <dcterms:created>2026-10-19T09:41:18.000Z</dcterms:created>
+      <dcterms:modified>2026-10-19T09:41:18.000Z</dcterms:modified>
+    </item>
     <item>
       <title>重要技術アップデート｜AI・開発ツール・MCP</title>
       <link>https://share.0g0.xyz/technology-updates</link>
