@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - "public/**"
+      - "ui/guardduty/**"
       - "reports/**"
       - "scripts/**"
       - "tests/**"
@@ -17,6 +18,7 @@ on:
   pull_request:
     paths:
       - "public/**"
+      - "ui/guardduty/**"
       - "reports/**"
       - "scripts/**"
       - "tests/**"
@@ -43,6 +45,11 @@ jobs:
         run: npm ci --ignore-scripts
       - name: Test metadata, RSS and generation
         run: node --test tests/*.test.mjs
+      - name: Build isolated GuardDuty Animate UI bundle
+        run: |
+          npm install --prefix ui/guardduty --no-package-lock --no-audit --no-fund
+          npm run build --prefix ui/guardduty
+          test -s public/assets/guardduty-animate.js
 
   generate:
     needs: test
@@ -73,6 +80,9 @@ jobs:
             git reset --hard origin/main
             npm ci --ignore-scripts
             node --test tests/*.test.mjs
+            npm install --prefix ui/guardduty --no-package-lock --no-audit --no-fund
+            npm run build --prefix ui/guardduty
+            test -s public/assets/guardduty-animate.js
             node scripts/generate-index.mjs
             if git diff --quiet -- public .feed-state.json .report-feed-state.json && [ -z "$(git ls-files --others --exclude-standard -- public .feed-state.json .report-feed-state.json)" ]; then
               echo "Generated pages are already up to date."
