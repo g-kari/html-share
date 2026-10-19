@@ -123,6 +123,18 @@ const html = `<!doctype html>
     .card p { margin: 0 0 12px; color: var(--sub); }
     code { color: var(--accent); }
     .empty { color: var(--sub); }
+    .site-guide { margin: 20px 0; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+    .guide-item + .guide-item { border-top: 1px solid var(--border); }
+    .guide-heading { margin: 0; font-size: 1rem; }
+    .guide-trigger, .site-guide summary { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 14px 18px; min-height: 48px; border: 0; border-radius: 0; background: var(--panel); text-align: left; cursor: pointer; font-weight: 650; }
+    .site-guide summary { display: list-item; list-style-position: inside; }
+    .guide-trigger[data-state="open"] .guide-chevron { transform: rotate(180deg); }
+    .guide-inner, .site-guide details > div { padding: 0 18px 14px; }
+    .site-guide p { color: var(--sub); margin: 12px 0; }
+    .site-guide ul { padding-left: 20px; margin: 0; }
+    .site-guide a { display: inline-block; color: var(--accent); padding: 6px 0; text-underline-offset: .2em; overflow-wrap: anywhere; }
+    .guide-panel { overflow: hidden; }
+
     [hidden] { display: none !important; }
     .search { margin: 24px 0 20px; }
     .search label { display: block; font-weight: 650; margin-bottom: 8px; }
@@ -150,6 +162,11 @@ const html = `<!doctype html>
       <p>${REPORT_FEEDS.map((feed) => `<a class="rss" href="${feed.path}">${escapeHtml(feed.title)}を購読</a>`).join(" · ")}</p>
       <p class="count">${pages.length} page${pages.length === 1 ? "" : "s"}</p>
     </header>
+    <div id="site-guide-fallback" class="site-guide" aria-label="ページの探し方と購読">
+      <details class="guide-item" data-guide-section="reports"><summary>よく読むレポートへ</summary><div><p>更新を追いたいページを直接開けます。</p><ul><li><a href="/technology-updates">技術アップデート</a></li><li><a href="/vulnerabilities">重要な脆弱性</a></li><li><a href="/security-incidents">情報流出・セキュリティ事案</a></li></ul></div></details>
+      <details class="guide-item" data-guide-section="search"><summary>本文まで探す・更新を受け取る</summary><div><p>下の検索はスペース区切りのAND検索です。RSSは申込みなしで購読アプリに追加できます。</p><ul><li><a href="#site-search">本文を検索する</a></li><li><a href="/feed.xml">全ページの更新RSS</a></li><li><a href="/vulnerabilities-feed.xml">脆弱性の更新RSS</a></li><li><a href="/security-incidents-feed.xml">事案の更新RSS</a></li></ul></div></details>
+    </div>
+    <div id="site-guide-enhanced" aria-label="ページの探し方と購読" hidden></div>
     <form id="site-search" class="search" role="search" data-index="${searchUrl}" hidden>
       <label for="search-query">タイトル・本文を検索</label>
       <div class="search-controls">
@@ -168,6 +185,7 @@ ${cards}
     </section>
   </main>
   <script type="module" src="/assets/site-search.js"></script>
+  <script type="module" src="/assets/site-guide-loader.js"></script>
 </body>
 </html>
 `;
@@ -188,4 +206,5 @@ for (const file of files) {
   if (generated !== source) await writeFile(file, generated, "utf8");
 }
 console.log(`Generated index, lazy full-text search, general/report RSS feeds and social metadata for ${pages.length} page(s).`);
+
 

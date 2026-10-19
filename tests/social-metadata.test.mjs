@@ -151,7 +151,7 @@ test("versioned common PNG has correct dimensions, cache policy and deploy build
   assert.ok(image.length < 500_000);
   assert.match(await readFile(path.join(root, "public/_headers"), "utf8"), /html-share-card-v1\.png\n  Cache-Control: public, max-age=31536000, immutable/);
   const config = JSON.parse(await readFile(path.join(root, "wrangler.jsonc"), "utf8"));
-  assert.equal(config.build.command, "node scripts/generate-index.mjs");
+  assert.equal(config.build.command, "npm run build");
   assert.deepEqual(config.previews, {});
 });
 
@@ -200,3 +200,4 @@ test("multiple image groups and independent Twitter image keep correct alt text"
   const authored = addSocialMetadata(document('<title>Page</title><meta name="twitter:image" content="/custom.png"><meta name="twitter:image:alt" content="Authored X cover">'), "images.html");
   assert.deepEqual(values(authored, "twitter:image:alt"), ["Authored X cover"]);
 });
+
