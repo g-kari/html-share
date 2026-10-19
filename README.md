@@ -312,3 +312,26 @@ Custom Domain:
 
 - https://share.0g0.xyz
 
+
+
+### Progressive Animate UI guide
+
+The homepage guide uses Animate UI 2.0.0 as an isolated React island. Native
+`details` and links are generated first; the same-origin bundle loads only after
+opening a guide section. Search, article cards, RSS, and report bodies do not
+require React. Keyboard focus/open sections survive enhancement, a focused link
+is not replaced, and failed loading leaves the native guide usable.
+
+Run `npm ci --ignore-scripts`, `npm run build`, and
+`node --test tests/*.test.mjs`. Edit `ui/site-guide.jsx`, never the generated
+`public/assets/site-guide-v1.js`; commit the rebuilt bundle and notices together.
+CI verifies deterministic output and a 140 KB gzip budget. OS reduced-motion
+preferences are passed to Animate UI (height movement is suppressed; this does
+not promise every opacity transition is removed).
+
+Animate UI is MIT **with the Commons Clause**, not unrestricted MIT. Its
+components may be integrated into applications/sites but not sold or redistributed
+as standalone components or component bundles. This site integration retains the
+full upstream license and notices for actually bundled dependencies in
+`public/assets/site-guide-LICENSE.txt`. Upstream: https://animate-ui.com/docs/react
+and https://github.com/imskyleen/animate-ui/blob/main/LICENSE.md.
