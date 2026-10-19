@@ -1,0 +1,17 @@
+{
+  "private": true,
+  "type": "module",
+  "description": "Isolated React/Animate UI bundle for the GuardDuty static article",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "dependencies": {
+    "@animate-ui/react": "^2.0.0",
+    "motion": "^14.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0"
+  }
+}
