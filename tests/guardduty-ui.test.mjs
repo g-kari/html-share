@@ -20,3 +20,9 @@ test('Interactive island uses actual Animate UI primitives and reduced motion', 
   assert.match(ui, /useReducedMotion/);
   assert.match(ui, /getElementById\('flow-fallback'\)/);
 });
+
+test('GuardDuty runtime waits until the diagram approaches the viewport', () => {
+  assert.match(html, /IntersectionObserver/);
+  assert.match(html, /rootMargin: '320px'/);
+  assert.match(html, /import\('\/assets\/guardduty-animate\.js'\)/);
+});
