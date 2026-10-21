@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Mon, 19 Oct 2026 10:54:39 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 21 Oct 2026 00:17:24 GMT</lastBuildDate>
+    <item>
+      <title>重要技術アップデート｜AI・開発ツール・MCP</title>
+      <link>https://share.0g0.xyz/technology-updates</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/technology-updates</guid>
+      <description>AIモデル、料金、OSS・ローカル実行、開発エージェント、音声・画像・動画、MCPの重要更新を一次資料で確認。利用条件と再テスト案、訂正履歴をまとめる。</description>
+      <pubDate>Wed, 21 Oct 2026 00:17:24 GMT</pubDate>
+      <dcterms:created>2026-10-08T23:59:03.000Z</dcterms:created>
+      <dcterms:modified>2026-10-21T00:17:24.000Z</dcterms:modified>
+    </item>
     <item>
       <title>Amazon GuardDuty 2026 アップデート詳解 | AWS Security</title>
       <link>https://share.0g0.xyz/aws-guardduty-2026</link>
@@ -16,15 +25,6 @@
       <pubDate>Mon, 19 Oct 2026 10:54:39 GMT</pubDate>
       <dcterms:created>2026-10-19T09:41:18.000Z</dcterms:created>
       <dcterms:modified>2026-10-19T10:54:39.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>重要技術アップデート｜AI・開発ツール・MCP</title>
-      <link>https://share.0g0.xyz/technology-updates</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/technology-updates</guid>
-      <description>AIモデル、料金、OSS・ローカル実行、開発エージェント、音声・画像・動画、MCPの重要更新を一次資料で確認。利用条件と再テスト案、訂正履歴をまとめる。</description>
-      <pubDate>Sun, 18 Oct 2026 23:20:07 GMT</pubDate>
-      <dcterms:created>2026-10-08T23:59:03.000Z</dcterms:created>
-      <dcterms:modified>2026-10-18T23:20:07.000Z</dcterms:modified>
     </item>
     <item>
       <title>2026年 不正アクセス・情報漏えいウォッチ｜原因・出典・続報</title>
