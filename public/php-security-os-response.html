@@ -8,28 +8,7 @@
 @media(max-width:700px){body{font-size:16px}main{padding:15px 13px 45px}section,.panel{padding:20px 16px;border-radius:13px}.grid{grid-template-columns:1fr}.steps{grid-template-columns:repeat(2,1fr)}.supportgrid{grid-template-columns:1fr}.lede{font-size:17px}}
 @media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
 @media print{body{background:#fff;font-size:12pt}main{max-width:none}.panel,section{box-shadow:none;break-inside:avoid}nav{display:none}.grid{display:block}.card{margin:10px 0}a{color:inherit}}
-</style>  <!-- html-share: social metadata -->
-  <link rel="canonical" href="https://share.0g0.xyz/php-security-os-response">
-  <meta property="og:type" content="article">
-  <meta property="og:site_name" content="HTML Share">
-  <meta property="og:title" content="PHP緊急更新：OS別対応・古い環境・設定でできる対策">
-  <meta property="og:description" content="2026年10月21日のPHP緊急更新を一次資料で追跡。OSごとの修正版、古いPHP・OSのサポート、攻撃成立条件、設定やWAFでできる暫定対策と限界を図解。">
-  <meta property="og:url" content="https://share.0g0.xyz/php-security-os-response">
-  <meta property="og:image" content="https://share.0g0.xyz/assets/html-share-card-v1.png">
-  <meta property="og:image:type" content="image/png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="HTML Shareのロゴと共有ページを表すカード">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="PHP緊急更新：OS別対応・古い環境・設定でできる対策">
-  <meta name="twitter:description" content="2026年10月21日のPHP緊急更新を一次資料で追跡。OSごとの修正版、古いPHP・OSのサポート、攻撃成立条件、設定やWAFでできる暫定対策と限界を図解。">
-  <meta name="twitter:image" content="https://share.0g0.xyz/assets/html-share-card-v1.png">
-  <meta name="twitter:image:alt" content="HTML Shareのロゴと共有ページを表すカード">
-  <!-- /html-share: social metadata -->
-  <!-- html-share: rss discovery -->
-  <link rel="alternate" type="application/rss+xml" title="HTML Share RSS" href="https://share.0g0.xyz/feed.xml">
-  <!-- /html-share: rss discovery -->
-</head><body><main>
+</style></head><body><main>
 <header><p class="eyebrow">PHP SECURITY · 2026.10.21</p><h1>PHPの緊急更新、<br>自分のOSはどうなる？</h1><p class="lede">「23時にパッチ」から「自分のサイトが直った」までは、いくつか段階があります。古い環境や設定だけで守れる範囲も、分けて整理します。</p><p class="time">情報確認：2026-10-21 22:40 JST（13:40 UTC）　｜　公開一次資料のスナップショット。自動で最新になる表示ではありません。</p>
 <nav aria-label="目次"><a href="#now">いま分かっていること</a><a href="#why">なぜ危険？</a><a href="#os">OS別の状況</a><a href="#mitigation">設定で防げる？</a><a href="#old">古いOS・PHP</a><a href="#check">確認の順番</a></nav></header>
 <section class="hero" id="now"><span class="badge good">PHP公式の修正版公開を確認</span><h2>23時を待たず、公式の緊急リリースを確認</h2><p>22:37 JSTまでにPHP公式の公開を確認しました。正確な公開分は未確認ですが、当初の23:00予定より前です。<strong>修正版は8.5.12 / 8.4.27 / 8.3.36 / 8.2.35。</strong>同じ系統でこれら未満のupstream版が対象です。OSのバックポート版は下の完全なパッケージ番号で別判定します。</p><div class="grid"><div class="card"><b>8.5系 → 8.5.12</b><br><b>8.4系 → 8.4.27</b></div><div class="card"><b>8.3系 → 8.3.36</b><br><b>8.2系 → 8.2.35</b></div></div><p><strong>Webリクエストを処理するPHP全般が更新確認の対象</strong>です。PHP-FPM / Apache mod_php / php-cgi / FrankenPHP / LiteSpeedを含み、PHP公式はmod_phpを最も高リスクとしています。<strong>設定だけによる完全な緩和策はありません。</strong></p><p class="source"><a href="https://www.php.net/archive/2026.php">PHP公式のセキュリティ告知・修正版</a><a href="https://www.php.net/releases/index.php?json&amp;version=8.5.12">8.5.12公式配布メタデータ</a></p>
@@ -37,7 +16,7 @@
 <div class="alert"><strong>大事：設定変更だけで「完全に安全」とは言えません。</strong><br>確認できた暫定策は一部経路を閉じるもの。各OSの修正版、実際の適用、稼働中の確認を分けて見ます。</div>
 <p class="small">PHPはサーバー側で動く言語・実行環境です。GoやTLS証明書の問題と同じものではありません。このPHPの告知だけから「Goも更新が必要」とは判断しません。</p>
 </section>
-<section id="why"><p class="eyebrow">WHY IT MATTERS</p><h2>何がエクスプロイトにつながるの？</h2><p><strong>ログイン画面より手前の、PHP自身の後片付けが壊れる問題</strong>です。影響はWeb workerの権限での未認証のコード実行。単なる「アップロードファイルの拡張子チェック漏れ」ではありません。以下は原因の概念図で、攻撃用データや手順ではありません。</p>
+<section id="why"><p class="eyebrow">WHY IT MATTERS</p><h2>何がエクスプロイトにつながるの？</h2><p><strong>アプリのログイン画面だけでは守り切れない、PHP内部のメモリ・リクエスト状態管理の問題</strong>です。影響はWeb workerの権限での未認証のコード実行。単なる「アップロードファイルの拡張子チェック漏れ」ではありません。以下は原因の概念図で、攻撃用データや手順ではありません。</p>
 <div class="grid"><article class="card"><span class="badge partial">CVE-2026-109618 · OOM</span><h3>メモリ不足で<br>作りかけの状態が残る</h3><div class="flow"><div><b>入力処理等でメモリ不足</b><span>OOM = Out Of Memory</span></div><i aria-hidden="true">↓</i><div class="danger"><b>初期化途中の処理を中断</b><span>内部データが不完全なまま</span></div><i aria-hidden="true">↓</i><div><b>後片付けが正しいデータだと思う</b><span>不正なメモリ参照からコード実行へ</span></div></div><p>mod_phpはリクエスト開始に失敗しても後片付けを行うため、<strong>アプリの認証・入力チェックが動く前に成立する実証</strong>があります。FPMは開始失敗時にchildを終了するため同じ経路は残りませんが、正常開始後のアプリ処理でOOMになる場合は別に影響し得ます。</p><p class="source"><a href="https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w">PHP公式OOMアドバイザリ</a></p></article>
 <article class="card"><span class="badge partial">CVE-2026-109619 · 古い状態</span><h3>前のリクエストの<br>「片付け忘れ」を次が使う</h3><div class="flow"><div><b>前の処理が状態を残す</b><span>fatal error等でリセットを飛ばす</span></div><i aria-hidden="true">↓</i><div class="danger"><b>メモリを解放しても参照が残る</b><span>同じworkerが次の処理を担当</span></div><i aria-hidden="true">↓</i><div><b>初期化前に古い参照を使用</b><span>Use After Free → コード実行へ</span></div></div><p><strong>状態を残す処理＋次に使う処理＋同じworker</strong>の組合せが条件です。セッション経路のRCEはmod_phpとFPMで実証されています。FPM側は正常開始後に適切なアプリ処理・fatal error等が必要。<code>session_start()</code>を呼ばないサイトでも、それだけで対象外とは言えません。</p><p class="source"><a href="https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp">PHP公式stale stateアドバイザリ</a></p></article></div>
 <div class="note"><strong>「全Web PHPに更新推奨」と「全部で同じ攻撃を実証」は違います。</strong>OOMの完全なRCE実証はmod_php、FPMのOOMはソース解析上の影響で完全な攻撃実証は未確認。FrankenPHP / LSAPIにも類似性から影響が考えられますが、同じ実証レベルとはしません。一方、stale stateのセッション経路ではFPMでも実証があります。</div>
@@ -60,7 +39,7 @@
 </section>
 <section id="mitigation"><p class="eyebrow">FIX / PARTIAL / NOT A FIX</p><h2>パッチ以外の設定で対応できる？</h2><div class="alert"><strong>PHP公式の結論：完全な解決は更新だけ。</strong><br>以下は更新までの「特定経路のリスクを下げる策」で、安全宣言の代わりにはなりません。この調査では設定変更を実行していません。</div>
 <div class="measure"><span class="badge good">根本対応</span><h3>完全な修正を含むPHPへ更新する</h3><p>8.5.12 / 8.4.27 / 8.3.36 / 8.2.35、または配布元が両CVEを修正済みと明記するバックポート版へ。更新後は古いworkerを残さず、管理手順に従って切替と稼働版を確認します。<strong>ファイル取得だけでは完了ではありません。</strong></p></div>
-<div class="measure"><span class="badge partial">部分緩和：109618</span><h3>memory_limit=-1 と、入口側の制限</h3><p>管理者が上書きされない形でPHPのメモリ制限を外すと、攻撃者が予測できるPHP内のOOMを減らせます。ただし<strong>実メモリの割当失敗は残り、無制限化はメモリ枯渇・サービス停止の危険も増やします</strong>。単独で真似する「安全設定」ではありません。</p><p>公式は小さな<code>post_max_size</code>と、プロキシ等での展開後サイズ・入力数・multipart構造の制限も案内。cgroup等の上限は可用性の境界であり、完全防御ではありません。<strong>RLIMIT_AS / RLIMIT_DATAへの置換は、脆弱な割当失敗を起こすため不可</strong>と明記されています。</p><p class="source"><a href="https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w">PHP公式：OOM対策の条件と限界</a></p></div>
+<div class="measure"><span class="badge partial">部分緩和：109618</span><h3>memory_limit=-1 と、入口側の制限</h3><p>管理者が上書きされない形でPHPのメモリ制限を外すと、攻撃者が予測できるPHP内のOOMを減らせます。ただし<strong>実メモリの割当失敗は残り、無制限化はメモリ枯渇・サービス停止の危険も増やします</strong>。単独で真似する「安全設定」ではありません。<strong>全workerを再起動し、pool・directory・applicationの別設定で有限値に戻っていないことも確認</strong>します。</p><p>公式は小さな<code>post_max_size</code>と、プロキシ等での展開後サイズ・入力数・multipart構造の制限も案内。cgroup等の上限は可用性の境界であり、完全防御ではありません。<strong>RLIMIT_AS / RLIMIT_DATAへの置換は、脆弱な割当失敗を起こすため不可</strong>と明記されています。</p><p class="source"><a href="https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w">PHP公式：OOM対策の条件と限界</a></p></div>
 <div class="measure"><span class="badge partial">部分緩和：109619のセッション経路</span><h3>session.upload_progress.enabled=0</h3><p><strong>リクエスト解析より前に効くphp.ini / FPM pool / サーバー設定で無効化し、全workerを再起動</strong>する策です。<code>ini_set()</code>やFPMの<code>.user.ini</code>頼みでは不十分。確認されたセッション経路を塞いでも、他の状態保持経路は残ります。アップロード進捗表示が使えなくなります。</p><p class="source"><a href="https://www.php.net/archive/2026.php">PHP公式の設定適用位置</a></p></div>
 <div class="measure"><span class="badge partial">部分緩和：PHP 8.5の特定経路</span><h3>fatal_error_backtraces=0</h3><p>8.5で確認されたfatal backtrace経路を減らします。管理者設定で変更して全workerを再起動しても、他の状態や拡張機能まで守る策ではありません。<strong>攻撃者が届くfatal error・タイムアウト、初期化前の不正・非推奨INI設定も見直し対象</strong>です。</p><p class="source"><a href="https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp">PHP公式：stale stateの緩和</a></p></div>
 <div class="measure"><span class="badge partial">部分緩和</span><h3>WAFルール・公開経路の隔離</h3><p>Imunify360のルール8.83は既知のmultipart形状への暫定策で、全経路への完全防御ではありません。即時更新できないときは、NCSCが公開経路の一時隔離・停止を検討するよう勧告しています。どちらも<strong>PHP本体を修正しません</strong>。</p><p class="source"><a href="https://cloudlinux.statuspage.io/incidents/zl0vt1yq3dj5">CloudLinux公式</a><a href="https://www.ncsc.gov.uk/news/critical-security-issue-affecting-php">NCSC公式</a></p></div>
