@@ -8,7 +8,28 @@
 @media(max-width:700px){body{font-size:16px}main{padding:15px 13px 45px}section,.panel{padding:20px 16px;border-radius:13px}.grid{grid-template-columns:1fr}.steps{grid-template-columns:repeat(2,1fr)}.supportgrid{grid-template-columns:1fr}.lede{font-size:17px}}
 @media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
 @media print{body{background:#fff;font-size:12pt}main{max-width:none}.panel,section{box-shadow:none;break-inside:avoid}nav{display:none}.grid{display:block}.card{margin:10px 0}a{color:inherit}}
-</style></head><body><main>
+</style>  <!-- html-share: social metadata -->
+  <link rel="canonical" href="https://share.0g0.xyz/php-security-os-response">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="HTML Share">
+  <meta property="og:title" content="PHP緊急更新：OS・Docker・ECR Publicの対応と暫定対策">
+  <meta property="og:description" content="PHP緊急更新を一次資料で追跡。OS別修正版、Docker HubとAWS ECR Publicのイメージ、旧OSサポート、攻撃成立条件、設定でできる部分対策と限界を図解。">
+  <meta property="og:url" content="https://share.0g0.xyz/php-security-os-response">
+  <meta property="og:image" content="https://share.0g0.xyz/assets/html-share-card-v1.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="HTML Shareのロゴと共有ページを表すカード">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PHP緊急更新：OS・Docker・ECR Publicの対応と暫定対策">
+  <meta name="twitter:description" content="PHP緊急更新を一次資料で追跡。OS別修正版、Docker HubとAWS ECR Publicのイメージ、旧OSサポート、攻撃成立条件、設定でできる部分対策と限界を図解。">
+  <meta name="twitter:image" content="https://share.0g0.xyz/assets/html-share-card-v1.png">
+  <meta name="twitter:image:alt" content="HTML Shareのロゴと共有ページを表すカード">
+  <!-- /html-share: social metadata -->
+  <!-- html-share: rss discovery -->
+  <link rel="alternate" type="application/rss+xml" title="HTML Share RSS" href="https://share.0g0.xyz/feed.xml">
+  <!-- /html-share: rss discovery -->
+</head><body><main>
 <header><p class="eyebrow">PHP SECURITY · 2026.10.21</p><h1>PHPの緊急更新、<br>OS・Dockerはどうなる？</h1><p class="lede">「23時にパッチ」から「自分のサイトが直った」までは、いくつか段階があります。古い環境や設定だけで守れる範囲も、分けて整理します。</p><p class="time">情報確認：2026-10-21 22:54 JST（13:54 UTC）　｜　公開一次資料のスナップショット。自動で最新になる表示ではありません。</p>
 <nav aria-label="目次"><a href="#now">いま分かっていること</a><a href="#why">なぜ危険？</a><a href="#os">OS別の状況</a><a href="#docker">Docker・ECR Public</a><a href="#mitigation">設定で防げる？</a><a href="#old">古いOS・PHP</a><a href="#check">確認の順番</a></nav></header>
 <section class="hero" id="now"><span class="badge good">PHP公式の修正版公開を確認</span><h2>23時を待たず、公式の緊急リリースを確認</h2><p>22:37 JSTまでにPHP公式の公開を確認しました。正確な公開分は未確認ですが、当初の23:00予定より前です。<strong>修正版は8.5.12 / 8.4.27 / 8.3.36 / 8.2.35。</strong>同じ系統でこれら未満のupstream版が対象です。OSのバックポート版は下の完全なパッケージ番号で別判定します。</p><div class="grid"><div class="card"><b>8.5系 → 8.5.12</b><br><b>8.4系 → 8.4.27</b></div><div class="card"><b>8.3系 → 8.3.36</b><br><b>8.2系 → 8.2.35</b></div></div><p><strong>Webリクエストを処理するPHP全般が更新確認の対象</strong>です。PHP-FPM / Apache mod_php / php-cgi / FrankenPHP / LiteSpeedを含み、PHP公式はmod_phpを最も高リスクとしています。<strong>設定だけによる完全な緩和策はありません。</strong></p><p class="source"><a href="https://www.php.net/archive/2026.php">PHP公式のセキュリティ告知・修正版</a><a href="https://www.php.net/releases/index.php?json&amp;version=8.5.12">8.5.12公式配布メタデータ</a></p>
