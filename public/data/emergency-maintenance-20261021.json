@@ -1,8 +1,8 @@
 {
   "title": "2026年10月21日前後 緊急メンテナンス・関連告知一覧",
-  "checkedAt": "2026-10-21T17:17:00Z",
+  "checkedAt": "2026-10-21T18:18:00Z",
   "scope": "PHPの因果不問。今回の緊急/予防メンテと同時期の関連告知・別インシデントを区分。件数による上限なし。",
-  "counting": "confirmedは公式資料を確認した対象別の告知カード数（部分本文・同一基盤・包括/個別の重なりを含む）。固有サイト数・実停止数・独立インシデント数・被害数ではない。pendingは原典/公式所有/対象範囲等の追加照合待ち。関連・重複・除外理由も全収集行に保持し、件数で打ち切らない。",
+  "counting": "confirmedは公式資料を確認した対象別の告知カード数（部分本文・同一基盤・包括/個別の重なりを含む）。固有サイト数・実停止数・独立インシデント数・被害数ではない。pendingは原典/公式所有/対象範囲等の追加照合待ち。関連・重複・除外理由も全収集行に保持し、件数で打ち切らない。 実施自体が未定の停止可能性の予告も別状態（possible_unstarted）で保持し、実停止・復旧には数えません。",
   "confirmed": [
     {
       "id": "base",
@@ -765,18 +765,31 @@
     {
       "id": "priconne",
       "name": "プリンセスコネクト！Re:Dive",
-      "url": "https://priconne-redive.jp/news/89370782/",
-      "start": "10/21 23:00",
-      "end": "未記載",
-      "scope": "ゲームプレイ/データ連携、公式4コマ、Cygames WebStore内の関連サービス。",
-      "safe": "本ゲームのPHP対策と明記。全Cygamesサービスに一律拡大しないでください。",
+      "url": "https://x.com/priconne_redive/status/2112957789073240573",
+      "start": "10/21 22:00頃に変更（後続の開始予定告知）",
+      "end": "10/22 02:10終了（公式報告）",
+      "scope": "『プリンセスコネクト！Re:Dive』ゲームのメンテナンス終了報告。",
+      "safe": "初報23:00開始予定は後続で22:00頃へ変更。開始予定と実開始は区別しています。終了原文が示すゲームの範囲のみを復旧とし、公式4コマなどの状態まで保証しません。WebStore/Eventsは別カードの公式終了報告で確認。公式サイト終了記事は今回取得がタイムアウトしたため、所有照合済み公式X本文を根拠にしています。",
       "reason": "PHP対策",
       "cat": "game",
-      "source": "公式検索本文",
-      "date": "10/20",
-      "tag": "影響範囲を確認",
-      "status": "公式の実施告知・完了未確認",
-      "icon": "https://priconne-redive.jp/favicon.ico"
+      "source": "公式Xの開始変更・終了投稿原文と、運営公式ページ検索本文のSNS所有表記を照合",
+      "date": "10/22 03:18 JST確認",
+      "tag": "ゲームの終了報告・WebStore等は別",
+      "status": "公式のゲームメンテナンス終了報告",
+      "icon": "https://priconne-redive.jp/favicon.ico",
+      "sources": [
+        "https://priconne-redive.jp/news/89370782/",
+        "https://x.com/priconne_redive/status/2112884897560121633",
+        "https://priconne-redive.jp/news/17769732/"
+      ],
+      "ownershipEvidence": [
+        {
+          "url": "https://priconne-redive.jp/news/information/30331/",
+          "note": "公式サイトのお知らせが公式Twitterとしてpriconne_rediveを明記。公開検索本文で照合。"
+        }
+      ],
+      "restored": true,
+      "checkedAt": "2026-10-21T18:18:00Z"
     },
     {
       "id": "maee",
@@ -1674,9 +1687,10 @@
     },
     {
       "id": "buscatch-status",
-      "name": "バスキャッチ各サービス（同日障害表示）",
-      "url": "https://status.buscatch.com/",
+      "name": "バスキャッチ各サービス（再開報告）",
+      "url": "https://x.com/buscatch/status/2112944429694861409",
       "sources": [
+        "https://status.buscatch.com/",
         "https://status.buscatch.com/info.html?service=status-kg",
         "https://status.buscatch.com/info.html?service=status-cb",
         "https://status.buscatch.com/info.html?service=status-sc",
@@ -1684,19 +1698,20 @@
         "https://status.buscatch.com/info.html?service=status-jp",
         "https://status.buscatch.com/info.html?service=status-ag",
         "https://status.buscatch.com/info.html?service=status-nt",
-        "https://x.com/conobell/status/2112839602369388680"
+        "https://x.com/conobell/status/2112839602369388680",
+        "https://www.buscatch.com/kindergarten/blog/info/20260107-1730/"
       ],
       "icon": "https://www.buscatch.com/buscatch/wp-content/uploads/2024/06/favicon.png",
       "start": "個別欄に10/21 18:47～22:49の障害表示",
-      "end": "未記載",
-      "scope": "園支援システム、コノベル、スコラプラス、チャイムリー、自動車学校教習所支援、アクセルGPS、ネクストークの各個別ページに障害表示。",
-      "safe": "これは各ページの表示日時で、緊急メンテ開始時刻とは確認していません。トップは公共版も障害表示ですが、公共版の個別ページは「障害情報はありません」で不整合。製品紹介・コーポレートは正常稼働中と表示。理由や他サービス全体への影響は未確定。 コノベルには別途23:00からの予防保守予告もありますが、先行する障害表示と同じ原因・開始時刻とは確認していません。",
+      "end": "10/22 00:50頃に各種サービス再開（公式報告）",
+      "scope": "VISHの各種サービス、施設側の管理画面、保護者向けアプリの利用再開を案内。公式ステータスの10項目は今回の再読時に正常稼働表示。",
+      "safe": "開始欄は同日ステータスの過去表示であり、今回の緊急保守の実開始時刻ではありません。コノベルの23:00予防保守告知と、それより前の障害表示の原因が同じとは未確認です。再開報告・現在の表示と過去の障害履歴を分けて保持します。",
       "reason": "理由の詳細未公表",
       "cat": "business",
-      "date": "10/21の表示",
-      "tag": "同日障害・緊急メンテとの関連未公表",
-      "status": "公式の個別障害表示を確認",
-      "source": "公式トップからリンクされたステータス・個別7ページ",
+      "date": "10/22 03:18 JST確認",
+      "tag": "施設側・保護者側の再開報告",
+      "status": "公式のサービス再開報告",
+      "source": "公式X再開原文、公式サイトからの正確なSNSリンク、公開ステータスを確認",
       "childNotices": [
         {
           "name": "コノベル",
@@ -1706,7 +1721,15 @@
           "scope": "コノベルの予防的緊急メンテナンス。具体的停止機能の範囲は原文未記載。",
           "note": "公式の23:00予防保守予告を確認。個別ステータスの障害表示とは時刻・原因を同一と断定していません。"
         }
-      ]
+      ],
+      "ownershipEvidence": [
+        {
+          "url": "https://www.buscatch.com/kindergarten/blog/info/20260107-1730/",
+          "note": "運営ブログの告知が公式Xとしてbuscatchへ直接リンク。"
+        }
+      ],
+      "restored": true,
+      "checkedAt": "2026-10-21T18:18:00Z"
     },
     {
       "id": "conoha-wing",
@@ -2683,26 +2706,31 @@
     {
       "id": "crash-fever",
       "name": "クラッシュフィーバー",
-      "url": "https://x.com/CrashFever_PR/status/2112884235321422271",
+      "url": "https://x.com/CrashFever_PR/status/2112959462013366344",
       "start": "10/21 23:00予定",
-      "end": "10/22 01:00予定",
+      "end": "10/22 02:25終了（公式報告）",
       "scope": "アプリ、公式ホームページ、Webショップ。",
-      "safe": "終了時刻は予定。公式サイトの保守画面も取得しましたが、再開実績は確認していません。 終了・復旧の実績は未確認です。",
+      "safe": "初報の01:00は終了予定であり実績ではありません。後続公式告知で02:25終了と明記。ゲームのアカウントへのログインや購入などの実操作は行っていません。",
       "reason": "PHP対策",
       "cat": "game",
-      "date": "10/21",
-      "tag": "予定と実績を区別",
-      "status": "公式の実施予定（開始実績未確認）",
-      "source": "ライブX原文と公式所有根拠を確認",
+      "date": "10/22 03:18 JST確認",
+      "tag": "終了時刻を公式が明記",
+      "status": "公式のメンテナンス終了報告",
+      "source": "公式所有を確認済みのX終了投稿全文を照合",
       "ownershipEvidence": [
         {
           "url": "https://crashfever.com/",
           "note": "公式サイトのメンテ画面が最新情報用としてCrashFever_PRへリンク。"
         }
       ],
-      "checkedAt": "2026-10-21T14:18:00Z",
+      "checkedAt": "2026-10-21T18:18:00Z",
       "timeZone": "本文にTZ明記がある場合のみ表記",
-      "icon": "https://crashfever.com/favicon.ico"
+      "icon": "https://crashfever.com/favicon.ico",
+      "sources": [
+        "https://x.com/CrashFever_PR/status/2112884235321422271",
+        "https://crashfever.com/"
+      ],
+      "restored": true
     },
     {
       "id": "hinakoi",
@@ -3200,29 +3228,31 @@
     {
       "id": "another-eidos-r",
       "name": "龍脈のアナザーエイドスR",
-      "url": "https://x.com/AnotherEidos_R/status/2112887955329352054",
-      "start": "10/21 23:00予定",
-      "end": "10/22 03:00予定へ変更",
+      "url": "https://x.com/AnotherEidos_R/status/2112949046675693842",
+      "start": "10/21 23:00予定（初報）",
+      "end": "10/22 01:48 JSTの投稿時点で終了報告（正確な終了時刻なし）",
       "scope": "ゲームの緊急メンテナンス。",
-      "safe": "後続告知で終了予定を3時へ延長。予定より早く終わる場合もあるとの説明です。実際の終了報告は未確認。",
+      "safe": "終了予定を03:00へ延長していましたが、その後01:48 JSTの投稿で終了済みと報告。投稿の時刻を実際の終了時刻とは断定しません。ゲーム内補償などの受領・操作は確認していません。",
       "reason": "セキュリティ対策・PHP名未記載",
       "cat": "game",
-      "date": "2026/10/22 01:20 JST確認",
-      "tag": "予定と実績を区別",
-      "status": "公式が終了予定を延長",
-      "source": "所有確認済み公式Xの後続告知本文を確認",
+      "date": "10/22 03:18 JST確認",
+      "tag": "終了したとの後続報告",
+      "status": "公式の緊急メンテナンス終了報告",
+      "source": "所有確認済み公式Xの終了投稿本文と投稿UTCメタデータを確認",
       "ownershipEvidence": [
         {
           "url": "https://anothereidos-r.com/",
           "note": "公式サービスサイトのXリンクがAnotherEidos_R。年齢確認の送信・同意は行わず公開取得のリンクのみ確認。"
         }
       ],
-      "checkedAt": "2026-10-21T16:20:00Z",
+      "checkedAt": "2026-10-21T18:18:00Z",
       "icon": "https://anothereidos-r.com/favicon.ico",
       "sources": [
+        "https://x.com/AnotherEidos_R/status/2112887955329352054",
         "https://x.com/AnotherEidos_R/status/2112933871000211553",
         "https://anothereidos-r.info/news/20261021/"
-      ]
+      ],
+      "restored": true
     },
     {
       "id": "wacom-partial-sites",
@@ -4843,24 +4873,29 @@
     {
       "id": "palmu",
       "name": "Palmu",
-      "url": "https://x.com/palmu_jp/status/2112906328461160762",
+      "url": "https://x.com/palmu_jp/status/2112949506270695569",
       "start": "10/21 22:30",
-      "end": "未定",
+      "end": "引き続き未定・次回状況案内は明朝",
       "scope": "配信中断とアプリでのランク結果確認等。取得投稿では全機能の停止範囲までは列挙なし。",
-      "safe": "当日のランクは22:30締切、正式結果はメンテナンス後に確認。スキップカード設定予定を再開時刻に読み替えていません。",
+      "safe": "後続告知でも終了時刻は未定。『明朝に改めて案内』は次回の状況報告で、復旧の確定時刻ではありません。当日のランク締切22:30やスキップカード設定予定も、復旧時刻に読み替えません。",
       "reason": "安全確保・PHP名未記載",
       "cat": "entertainment",
-      "date": "10/21（投稿UTCメタデータ）",
-      "tag": "配信も中断",
-      "status": "公式は停止と案内",
-      "source": "公式X本文（保守日時は原文表記・TZ明記未確認）。公式所有の独立裏付けあり。",
+      "date": "10/22 03:18 JST確認",
+      "tag": "次の状況案内と復旧時刻は別",
+      "status": "公式はメンテ継続・終了未定と案内",
+      "source": "所有確認済み公式Xの継続告知原文を照合",
       "ownershipEvidence": [
         {
           "url": "https://palmu.jp/",
           "note": "公式トップが@palmu_jpへリンク"
         }
       ],
-      "icon": "https://palmu.jp/favicon.ico"
+      "icon": "https://palmu.jp/favicon.ico",
+      "sources": [
+        "https://x.com/palmu_jp/status/2112906328461160762"
+      ],
+      "restored": false,
+      "checkedAt": "2026-10-21T18:18:00Z"
     },
     {
       "id": "celtnofue",
@@ -9868,6 +9903,239 @@
         }
       ],
       "restored": true
+    },
+    {
+      "id": "bookwalker",
+      "name": "BOOK☆WALKER",
+      "url": "https://x.com/BOOK_WALKER/status/2112840618057597338",
+      "icon": "https://bookwalker.jp/favicon.ico",
+      "cat": "shopping",
+      "tag": "全サービス・再開は早朝予定",
+      "status": "公式はメンテナンス実施中と案内",
+      "start": "10/21 18:37 JSTの投稿時点で実施中（正確な開始時刻なし）",
+      "end": "10/22 早朝までの予定（変更の場合あり）",
+      "scope": "BOOK☆WALKERの全サービス。",
+      "safe": "『早朝』に確定時刻は示されていません。18:30開始という第三者資料の表記は採用せず、実施中の投稿時点と区別。実際の復旧完了は未確認。",
+      "reason": "利用ソフトウェアの重大な脆弱性への予防対応・PHP名未記載",
+      "date": "10/22 02:26 JST確認",
+      "checkedAt": "2026-10-21T17:26:00Z",
+      "source": "公式X原文とグループ公式サイトの正確なSNS所有表記を照合",
+      "ownershipEvidence": [
+        {
+          "url": "https://group.kadokawa.co.jp/information/promotional_topics/article-11440.html",
+          "note": "グループ公式サイトのBOOKWALKER発表が公式Twitterを@BOOK_WALKERと直接リンク。"
+        }
+      ],
+      "restored": false
+    },
+    {
+      "id": "skima",
+      "name": "SKIMA",
+      "url": "https://x.com/SKIMAjp/status/2112857238868255077",
+      "icon": "https://skima.jp/favicon.ico",
+      "cat": "shopping",
+      "tag": "終了後に再告知予定",
+      "status": "公式の緊急メンテナンス告知（完了未確認）",
+      "start": "10/21 19:43 JSTに告知（具体的開始時刻は未記載）",
+      "end": "時刻未定・終了後に再告知",
+      "scope": "メンテナンス中のSKIMA利用。具体的な機能別一覧は取得本文に未記載。",
+      "safe": "10/7からの別のクラウド障害と混同しません。今回の原文は安全性確保の緊急保守と説明し、PHPの名前・終了時刻は示していません。",
+      "reason": "サービスの安全性確保・PHP名未記載",
+      "date": "10/22 02:26 JST確認",
+      "checkedAt": "2026-10-21T17:26:00Z",
+      "source": "公式X原文と運営者公式ページの正確なSNS所有表記を照合",
+      "ownershipEvidence": [
+        {
+          "url": "https://skima.jp/landing/user/isekai",
+          "note": "公式サービスのキャンペーン説明がビジュアルワークス運営のSKIMA公式Twitterを@SKIMAjpと明記。通常公開の検索本文で確認。"
+        }
+      ],
+      "restored": false
+    },
+    {
+      "id": "cygames-webstore-events",
+      "name": "Cygames WebStore・Cygames Events",
+      "url": "https://cygames.com/news/p20261021a/",
+      "sources": [
+        "https://x.com/Cygamesid/status/2112956174014529641"
+      ],
+      "icon": "https://cygames.com/favicon.ico",
+      "cat": "shopping",
+      "tag": "連携ゲームの復旧とは別",
+      "status": "公式のメンテナンス終了報告",
+      "start": "10/21 22:00頃（公式の実施報告）",
+      "end": "10/22 02:10頃に終了（公式報告）",
+      "scope": "Cygames WebStoreとCygames Eventsの2サービス。",
+      "safe": "連携する各ゲームのメンテナンス状況は、各タイトルの別の告知で確認するよう公式が案内。全Cygamesゲームが再開したとの意味ではありません。",
+      "reason": "PHP脆弱性への予防対応",
+      "restored": true,
+      "ownershipEvidence": [
+        {
+          "url": "https://cygames.com/news/p20261021/",
+          "note": "Cygames ID公式サイトがhttps://x.com/cygamesidを直接リンク。停止原文自体も公式ドメイン。"
+        }
+      ],
+      "date": "10/22 03:10 JST確認",
+      "checkedAt": "2026-10-21T18:10:00Z",
+      "source": "公開の公式告知原文と運営者の正確なSNSリンクを照合"
+    },
+    {
+      "id": "atwiki-upload-board",
+      "name": "アットウィキのアップロード・掲示板投稿",
+      "url": "https://x.com/atwikijp/status/2112956570422440059",
+      "sources": [
+        "https://x.com/atwikijp/status/2112858648393466196"
+      ],
+      "icon": "https://atwiki.jp/assets/favicon-4c2d27e73335566c35052dc576773069ff5a50fcbd6803a3a6a804b6816a9886.ico",
+      "cat": "web",
+      "tag": "閲覧・編集は元から利用可",
+      "status": "一時停止していた該当機能の再開報告",
+      "start": "開始時刻は取得原文に未記載",
+      "end": "10/22 02:17 JSTの投稿時点で再開報告（正確な終了時刻なし）",
+      "scope": "ファイル/画像アップロード、掲示板投稿など、一時停止していた一部機能。",
+      "safe": "ページ閲覧・編集は当初から通常どおり可能との案内。一部機能の再開を、Wiki全体が止まっていたとの意味に広げません。",
+      "reason": "セキュリティ対策・PHP名未記載",
+      "restored": true,
+      "ownershipEvidence": [
+        {
+          "url": "https://atwiki.jp/",
+          "note": "運営トップが公式ヘルプデスクatwiki.zendesk.comへリンク。"
+        },
+        {
+          "url": "https://atwiki.zendesk.com/hc/ja",
+          "note": "同公式サポートがhttps://twitter.com/atwikijpを直接リンク。"
+        }
+      ],
+      "date": "10/22 03:10 JST確認",
+      "checkedAt": "2026-10-21T18:10:00Z",
+      "source": "公開の公式告知原文と運営者の正確なSNSリンクを照合"
+    },
+    {
+      "id": "jigokuraku-paradise-battle",
+      "name": "地獄楽 パラダイスバトル",
+      "url": "https://x.com/jigokuraku_PB/status/2112963081525735707",
+      "icon": "https://paradisebattle.com/dmg/assets/images/common/favicon.ico",
+      "cat": "game",
+      "tag": "終了時刻を公式が明記",
+      "status": "公式の臨時メンテナンス終了報告",
+      "start": "10/21 23:00（公式の実施報告）",
+      "end": "10/22 02:35頃に終了（公式報告）",
+      "scope": "同ゲームの臨時メンテナンス。機能・プラットフォーム別の対象一覧は終了投稿に未記載。",
+      "safe": "取得した終了投稿ではPHPへの言及はありません。DMMプラットフォーム全体など他のサービスの復旧に拡張しません。",
+      "reason": "臨時メンテナンス・理由の詳細未記載",
+      "restored": true,
+      "ownershipEvidence": [
+        {
+          "url": "https://paradisebattle.com/dmg/",
+          "note": "ゲーム公式サイトが公式Xとしてjigokuraku_PBへ直接リンク。"
+        }
+      ],
+      "date": "10/22 03:10 JST確認",
+      "checkedAt": "2026-10-21T18:10:00Z",
+      "source": "公開の公式告知原文と運営者の正確なSNSリンクを照合"
+    },
+    {
+      "id": "mangaone-app-browser",
+      "name": "マンガワン（アプリ再開・ブラウザ継続）",
+      "url": "https://x.com/MangaONE_jp/status/2112964448122208474",
+      "sources": [
+        "https://manga-one.com/"
+      ],
+      "icon": "https://manga-one.com/assets/meta/favicon.png",
+      "cat": "entertainment",
+      "tag": "一部のみ再開",
+      "status": "アプリ版は終了、ブラウザ版は継続と案内",
+      "start": "10/21 23:00（公式の実施報告）",
+      "end": "アプリ：10/22 02:45終了／ブラウザ：未定",
+      "scope": "アプリ版では作品閲覧・購入など全サービスを再開。ブラウザ版は引き続きメンテナンス。",
+      "safe": "アプリの終了をWeb版にも適用しません。当方のWebトップ通常読取でもメンテナンス表示でした。アプリの実操作・購入はしていません。",
+      "reason": "システムメンテナンス・PHP名未記載",
+      "restored": false,
+      "ownershipEvidence": [
+        {
+          "url": "https://manga-one.com/",
+          "note": "公式Webのメンテナンスページがhttps://x.com/MangaONE_jpを直接リンク。"
+        }
+      ],
+      "date": "10/22 03:10 JST確認",
+      "checkedAt": "2026-10-21T18:10:00Z",
+      "source": "公開の公式告知原文と運営者の正確なSNSリンクを照合"
+    },
+    {
+      "id": "docomo-partial-web",
+      "name": "NTTドコモの一部Webサイト",
+      "url": "https://smt.docomo.ne.jp/portal/src/info_01758670.html",
+      "sources": [
+        "https://x.com/docomo/status/2112948997036105763"
+      ],
+      "icon": "https://smt.docomo.ne.jp/portal/img/favicon.ico",
+      "cat": "web",
+      "tag": "対象Webから順次再開予定",
+      "status": "公式は一部Webを一時停止と案内",
+      "start": "具体的な開始時刻は取得本文に未記載",
+      "end": "安全性を確認したWebサイトから順次・時刻未定",
+      "scope": "コーポレート、My docomo、オンラインショップほか、ドコモの各種サービスサイト。",
+      "safe": "一部Webサイトの予防措置に関する告知です。携帯電話回線の障害や、すべてのドコモサービスの停止を示すものとして扱いません。",
+      "reason": "予防的なセキュリティ対応・PHP名未記載",
+      "restored": false,
+      "source": "NTTドコモの運営ドメインにある個別公式告知全文を確認",
+      "ownershipEvidence": [
+        {
+          "url": "https://smt.docomo.ne.jp/portal/src/info_01758670.html",
+          "note": "運営者の公式dメニュー内の個別告知。"
+        }
+      ],
+      "date": "10/22 03:10 JST確認",
+      "checkedAt": "2026-10-21T18:10:00Z"
+    },
+    {
+      "id": "tiff-news-pages",
+      "name": "東京国際映画祭の公式ニュースページ",
+      "url": "https://x.com/tiff_site/status/2112954400323019074",
+      "icon": "https://2026.tiff-jp.net/favicon.ico",
+      "cat": "entertainment",
+      "tag": "ニュースページに限定",
+      "status": "公式はニュースページ保守中と案内",
+      "start": "10/22 00:30",
+      "end": "未定・対応後に告知",
+      "scope": "TIFF公式サイトのニュースページ。",
+      "safe": "映画祭そのものの中止やチケット購入機能全体の停止とする告知ではありません。取得原文が示すニュースページの範囲に限定します。",
+      "reason": "緊急メンテナンス・理由の詳細未記載",
+      "restored": false,
+      "ownershipEvidence": [
+        {
+          "url": "https://2026.tiff-jp.net/ja/",
+          "note": "映画祭の公式トップがhttps://twitter.com/tiff_siteを直接リンク。"
+        }
+      ],
+      "date": "10/22 03:10 JST確認",
+      "checkedAt": "2026-10-21T18:10:00Z",
+      "source": "公開の公式告知原文と運営者の正確なSNSリンクを照合"
+    },
+    {
+      "id": "clipstudio-possible-maintenance",
+      "name": "CLIP STUDIO各種サービス（停止可能性の予告）",
+      "url": "https://x.com/clip_celsys/status/2112961482850013532",
+      "icon": "https://www.clipstudio.net/view/img/common/logo/icon/apple-touch-icon.png?0006",
+      "cat": "web",
+      "tag": "実施未定・停止したとの確定ではない",
+      "status": "近日、予告なしに停止する可能性の案内",
+      "start": "未定（実施自体が未定）",
+      "end": "未定",
+      "scope": "例：ASSETS素材DL/購入、クラウド同期/ダウンロード、アカウントログイン/新規登録、新規認証など。",
+      "safe": "認証済みライセンスのCLIP STUDIO PAINTはメンテナンス中も利用可能との案内。実施が未定の予告で、すでに全サービスや制作アプリが停止したとは扱いません。",
+      "reason": "Web技術の脆弱性への対応・PHP名未記載",
+      "restored": false,
+      "ownershipEvidence": [
+        {
+          "url": "https://www.clipstudio.net/ja/",
+          "note": "公式製品サイトがhttps://twitter.com/clip_celsysを直接リンク。"
+        }
+      ],
+      "date": "10/22 03:10 JST確認",
+      "checkedAt": "2026-10-21T18:10:00Z",
+      "source": "公開の公式告知原文と運営者の正確なSNSリンクを照合",
+      "noticeState": "possible_unstarted"
     }
   ],
   "pending": [
@@ -9956,13 +10224,12 @@
     {
       "names": [
         "カオナビ",
-        "BOOK☆WALKER",
         "ブックライブ",
         "Pokémon Champions",
         "宝塚市公式ホームページ"
       ],
       "url": "https://www.itmedia.co.jp/business/articles/2610/21/news078.html",
-      "note": "報道本文取得。カオナビ/BOOK☆WALKER/ブックライブ/Pokemon Champions/宝塚は個別一次原文未取得。ブックライブのみ公式元投稿 https://x.com/BookLive_PR/status/2112821482451866101 へのリンクあり。",
+      "note": "報道本文取得。カオナビ/BOOK☆WALKER/ブックライブ/Pokemon Champions/宝塚は個別一次原文未取得。ブックライブのみ公式元投稿 https://x.com/BookLive_PR/status/2112821482451866101 へのリンクあり。 BOOK☆WALKERは別途公式原文と所有を確認し、上のカードへ移動。残る名称の一次照合は継続。",
       "sourceClass": "報道のみ",
       "nextVerificationCondition": "対象サービス運営の個別公式原文が公開取得可能になった時点に対象・日時を照合。第三者本文だけでは昇格しない。",
       "sourceRead": "body_retrieved",
@@ -9976,17 +10243,6 @@
       "note": "第三者の不動産投資者が楽待の予防停止に言及。画像参照だが公式運営の一次告知は未取得。",
       "sourceClass": "第三者投稿のみ",
       "nextVerificationCondition": "対象サービス運営の個別公式原文が公開取得可能になった時点に対象・日時を照合。第三者本文だけでは昇格しない。",
-      "sourceRead": "body_retrieved",
-      "checkedAt": "2026-10-21T14:12:00Z"
-    },
-    {
-      "names": [
-        "skima"
-      ],
-      "url": "https://x.com/amyooo___n/status/2112886292224864430",
-      "note": "利用クリエイターがSKIMAでメッセージを確認できないと投稿。運営公式ではないため一次照合待ち。",
-      "sourceClass": "第三者投稿のみ",
-      "nextVerificationCondition": "公式サイト再開、または運営が公的な公式アカウントリンクを公開して所有を確認できた時点。日時/機能/現在状態の不足は理由欄に沿って照合。",
       "sourceRead": "body_retrieved",
       "checkedAt": "2026-10-21T14:12:00Z"
     },
@@ -11950,17 +12206,6 @@
     },
     {
       "names": [
-        "BOOK☆WALKER"
-      ],
-      "url": null,
-      "note": "元候補に原URLがなく今回の公式個別原文未取得。DMM包括保守との重複範囲も未照合のため保留。",
-      "sourceClass": "追加調査候補",
-      "nextVerificationCondition": "公式所有を示す資料・対象サイトの個別告知・最新の変更/復旧報告が公開または再取得可能になった時点で照合。時刻経過やHTTP200だけでは確定しない。",
-      "sourceRead": "original_url_missing",
-      "checkedAt": "2026-10-21T14:29:00Z"
-    },
-    {
-      "names": [
         "Pokémon Sleep公式サイト"
       ],
       "url": null,
@@ -13883,6 +14128,669 @@
       "nextVerificationCondition": "運営者の正確なアカウント逆リンク/公式リリース、または同対象の直接公式告知。時刻経過や単なるHTTP応答で確定/復旧にしない。",
       "sourceRead": "body_retrieved",
       "checkedAt": "2026-10-21T16:34:19.009Z"
+    },
+    {
+      "names": [
+        "小説家になろう(ヒナプロジェクト全サービス)"
+      ],
+      "url": "https://x.com/syosetu",
+      "sourceProfile": "https://x.com/syosetu",
+      "resolvedSourceUrl": "https://x.com/syosetu/status/2112940490236850473",
+      "note": "Xの初報・後続本文は取得しましたが、運営サイトから当該アカウントへの所有裏付けは今回未完了。公式ブログの一部接続制限と、全サービス停止/終了というXの範囲を混同しません。運営トップは通常readで403のため迂回しません。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z"
+    },
+    {
+      "names": [
+        "ALL.Net/Aime"
+      ],
+      "url": "https://x.com/allnet_info",
+      "sourceProfile": "https://x.com/allnet_info",
+      "resolvedSourceUrl": "https://x.com/allnet_info/status/2112898779590627729",
+      "note": "X原文は22:00への前倒しと翌11:30予定を案内。収集時の23:00表記は採用しません。当該アカウントの公式所有と対象全体の独立照合が不足し、既存の個別ゲーム5本のカードに全ALL.Net範囲を上書きしません。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z"
+    },
+    {
+      "names": [
+        "KaraGo"
+      ],
+      "url": "https://x.com/karago_jp/status/2112953387801366634",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "note": "投稿本文はPHP更新後の終了を報告。運営サイトの公開本文から当該Xの正確な公式リンクを確認できず、公式所有の照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z"
+    },
+    {
+      "names": [
+        "railog(レイログ)"
+      ],
+      "url": "https://x.com/railog_jp/status/2112954289236967445",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "note": "投稿本文に19:30〜翌02:00の実施・再開報告。ステータス正常表示だけでは原因・時刻を確定せず、サービス公式と当該Xの所有裏付けを継続確認。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z"
+    },
+    {
+      "names": [
+        "Livie(ライブハウス向け機能ほか)"
+      ],
+      "url": "https://x.com/Livie_app/status/2112958577782796389",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "note": "原文でライブハウス向け申込機能の再開を案内。他の機能は影響なしとの説明。運営サイトと正確な公式Xの所有リンク、および元の停止告知の照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z"
+    },
+    {
+      "names": [
+        "Aniborn(支援プラットフォーム)"
+      ],
+      "url": "https://x.com/aniborn_com/status/2112965271107567682",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "note": "X原文はPHP対応後の通常サービス再開を案内。運営ドメインの通常readは403で、稼働確認や所有確認を完了扱いせず制限を迂回しません。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z"
+    },
+    {
+      "names": [
+        "クロスサマナー:R(So-net Taiwan)"
+      ],
+      "url": "https://x.com/CSRbySonet/status/2112965672401817968",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "note": "投稿原文はメンテ終了・ログイン再開を案内。So-net側サイトの正確なアカウント所有リンクは未確認。投稿者名だけで公式認定しません。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z"
+    },
+    {
+      "names": [
+        "えろま!"
+      ],
+      "url": "https://x.com/azumi_s/status/2112965620241469900",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "note": "投稿原文に02:50終了との記述。個人投稿者と対象サイトの運営所有は未確認。成人向け本文・利用者限定の内容は取得/再配布しません。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z"
+    },
+    {
+      "names": [
+        "ニジエ"
+      ],
+      "url": "https://x.com/nijie_tan",
+      "sourceProfile": "https://x.com/nijie_tan",
+      "resolvedSourceUrl": "https://x.com/nijie_tan/status/2112921924024299711",
+      "note": "プロフィールと関連原文に終了報告・サーバー会社側作業による不安定の記述。正確な公式所有は未照合。終了したから全機能が安定とはしません。年齢確認の送信はしていません。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z"
+    },
+    {
+      "names": [
+        "私辞書(アプリ)"
+      ],
+      "url": "https://x.com/watashijishoapp/status/2112939182561865956",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "note": "投稿原文にPHP対応の停止案内。編集後の新しい投稿URLがあり、最新原文と公式所有の照合が未完了。編集前を最新事実として確定しません。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z"
+    },
+    {
+      "names": [
+        "ゲッサンWEB"
+      ],
+      "url": "https://x.com/gessanofficial/status/2112944257749410060",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "note": "原文はゲッサンWEBを22:30から安全確保のため停止と案内。運営の過去公式記事に当該Xの記載を検索本文で確認しましたが、現在の所有/対象への独立再照合は未完了。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z"
+    },
+    {
+      "names": [
+        "生田斗真 FCサイト"
+      ],
+      "url": "https://x.com/TOMA_IKUTA10/status/2112944310694109327",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "note": "投稿原文はFCサイトのPHP対応を案内。対象運営者の正確な公式アカウント所有リンクと、最新の対象機能/状態の照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z"
+    },
+    {
+      "names": [
+        "メタリア総合文化祭 公式サイト"
+      ],
+      "url": "https://x.com/metareafes/status/2112946975457116293",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "note": "投稿原文はイベント公式WebサイトのPHP対応を案内。イベントそのものの中止とは読み替えず、正確な運営所有と対象URLを照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z"
+    },
+    {
+      "names": [
+        "やかん亭 レンタルサービス(makeshop)"
+      ],
+      "url": "https://x.com/yakantei/status/2112948991411544287",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "note": "原文はショップ/レンタル関連のmakeshop停止を案内。店頭・レンタル業務の全体停止とは確定せず、対象ショップと公式アカウント所有を照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z"
+    },
+    {
+      "names": [
+        "グループSNE公式ショップ SNE-EC"
+      ],
+      "url": "https://x.com/ec_sne/status/2112949346690064392",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "note": "原文はショップのPHP対応を案内。既注文の受付/出荷予定と実出荷を分けます。公式ショップの通常readは403で、制限を迂回せず所有・最新状態は未確認。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z"
+    },
+    {
+      "names": [
+        "シネマリス オンライン予約"
+      ],
+      "url": "https://x.com/CineMalice2024/status/2112953175724703830",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "note": "原文はオンライン予約の23:00〜翌16:00予定と窓口の代替案内。映画館自体の全営業停止には広げず、運営者の公式所有/対象URL/終了実績の照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z"
+    },
+    {
+      "names": [
+        "レインブラントティー オンラインショップ"
+      ],
+      "url": "https://x.com/rainbrant_tea/status/2112954232961958320",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "note": "原文はオンラインショップの安全対応・終了未定を案内。当該Xとショップ運営者の正確な所有裏付けが不足。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z"
+    },
+    {
+      "names": [
+        "誰でもスマホ"
+      ],
+      "url": "https://x.com/daredemo_sumaho/status/2112954314234994899",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "note": "投稿本文にメンテ案内の運営URLへのリンク。引用部分のPHP説明を自社の原因とはせず、元の個別公式ページと運営所有の照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z"
+    },
+    {
+      "names": [
+        "C-HOUSE(フリマ)"
+      ],
+      "url": "https://x.com/cryptohousejp/status/2112955551026130951",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "note": "原文はセキュリティ対応によるサイト停止を案内。正確な運営所有・対象URL・最新状態の追加照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z"
+    },
+    {
+      "names": [
+        "リモデルクラブ(ホームページ制作・サーバー)"
+      ],
+      "url": "https://x.com/sskikaku_web/status/2112957651814609237",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "note": "原文は23:00〜翌09:00予定のサーバー保守、Webメール/データベース管理画面が不安定になる可能性。全Webサイトが連続停止すると拡張せず、対象運営者の公式所有を照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z"
+    },
+    {
+      "names": [
+        "いなり(FujimiInari)対象サービス"
+      ],
+      "url": "https://x.com/FujimiInari/status/2112958783685333243",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "note": "投稿には『おやすみ』等の表現がありますが、対象サービスのURL・具体的停止範囲が特定できません。実サイトの停止告知として確定せず、原典の具体化を待つ。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z"
+    },
+    {
+      "names": [
+        "サイバースターポータル 全サービス"
+      ],
+      "url": "https://x.com/CyberStarPortal/status/2112958841105322148",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "note": "原文は全サービスの安全対応・終了未定を案内。対象ショップ/ポータル運営者と当該Xの正確な所有裏付けは未確認。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z"
+    },
+    {
+      "names": [
+        "ULTREX"
+      ],
+      "url": "https://x.com/ULTREX_official/status/2112962895378337987",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "note": "原文に安全対策のサイトメンテ案内。対象サイトの通常readが取得できず、運営所有・対象の原典照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z"
+    },
+    {
+      "names": [
+        "TuneMATE イヤホン販売サイト"
+      ],
+      "url": "https://x.com/CS_TuneMATE/status/2112962940395798749",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "note": "原文はイヤホン販売サイトの停止を案内しサイバースターポータルの告知を引用。同一基盤との重なりは未確定で、別インシデントとして加算しません。公式所有も照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z"
+    },
+    {
+      "names": [
+        "サッカーキング"
+      ],
+      "url": "https://x.com/SoccerKingJP/status/2112964857226272905",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "note": "原文に安全対応のサイト停止案内。過去の運営記事に当該Xの表記を検索本文で見つけましたが、最新の所有裏付けと対象範囲の追加照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z"
+    },
+    {
+      "names": [
+        "センチュリー21加盟店(c21shige)サイト"
+      ],
+      "url": "https://x.com/c21shige/status/2112965594706596328",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "note": "原文は加盟店の関連サイトについて19:00〜翌09:00予定のPHP対応を案内。センチュリー21全体の停止とはせず、当該加盟店の運営所有/対象URLを照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z"
+    },
+    {
+      "names": [
+        "ランゲッポー"
+      ],
+      "url": "https://x.com/hiyoro/status/2112965642072809755",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "note": "原文にPHP対応の記述はありますが、対象サイトURLと投稿者の運営所有が未確認。サービスを特定するまで確定群にしません。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z"
+    },
+    {
+      "names": [
+        "ムームードメイン 一部サービス"
+      ],
+      "url": "https://x.com/muumuu_domain/status/2112965687027380538",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "note": "原文はムームーサーバー/WPホスティングの利用者Webサイトの停止に言及。既存の管理画面のみの公式告知と同じ範囲ではありません。Xの所有裏付けと運営の個別原典を追加照合するまで既存カードへ拡張しません。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z"
+    },
+    {
+      "names": [
+        "Pokémon HOME"
+      ],
+      "url": "https://x.com/Poke_Champ_jp",
+      "sourceProfile": "https://x.com/Poke_Champ_jp",
+      "resolvedSourceUrl": "https://x.com/Poke_Champ_jp/status/2112853911283396840",
+      "note": "プロフィールにHOMEとChampionsの別々の関連投稿を取得。HOMEの個別告知と運営所有の独立照合が未完了。2タイトルを一括りにして状態を上書きしません。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。",
+      "sourceRead": "profile_retrieved_individual_pending",
+      "checkedAt": "2026-10-21T18:18:00Z"
+    },
+    {
+      "names": [
+        "TOKYO FM Webサイト"
+      ],
+      "url": "https://x.com/sol_info",
+      "sourceProfile": "https://x.com/sol_info",
+      "resolvedSourceUrl": "https://x.com/sol_info/status/2112922108561092765",
+      "note": "プロフィール内のTOKYO FMサイト保守投稿を取得。放送全体の停止とはせず、個別原文と運営所有の照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。",
+      "sourceRead": "profile_retrieved_individual_pending",
+      "checkedAt": "2026-10-21T18:18:00Z"
+    },
+    {
+      "names": [
+        "NAOMI CITY"
+      ],
+      "url": "https://x.com/naomicity703",
+      "sourceProfile": "https://x.com/naomicity703",
+      "resolvedSourceUrl": "https://x.com/naomicity703/status/2112922136524574973",
+      "note": "プロフィール内のNAOMI CITYのPHP対応投稿を取得。対象サイトURL/正確な運営所有/個別原文の照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。",
+      "sourceRead": "profile_retrieved_individual_pending",
+      "checkedAt": "2026-10-21T18:18:00Z"
+    },
+    {
+      "names": [
+        "Fate/Grand Order 関連サイト"
+      ],
+      "url": "https://x.com/fgoproject",
+      "sourceProfile": "https://x.com/fgoproject",
+      "resolvedSourceUrl": "https://x.com/fgoproject/status/2112922281735573580",
+      "note": "個別原文を取得。FGO関連のイベント/朗読/ショートアニメ等のWebサイトの保守案内で、ゲーム本体全体の停止とはしません。正確な公式所有の裏付けが未完了。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z"
+    },
+    {
+      "names": [
+        "クリープハイプ オフィシャルサイト"
+      ],
+      "url": "https://x.com/creephyp",
+      "sourceProfile": "https://x.com/creephyp",
+      "resolvedSourceUrl": "https://x.com/creephyp/status/2112907590124618104",
+      "note": "プロフィール内の公式サイト保守案内を取得。22:30開始の表記があるが、個別原文と正確な運営所有を照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。",
+      "sourceRead": "profile_retrieved_individual_pending",
+      "checkedAt": "2026-10-21T18:18:00Z"
+    },
+    {
+      "names": [
+        "ストリートファイターV"
+      ],
+      "url": "https://x.com/StreetFighterJA",
+      "sourceProfile": "https://x.com/StreetFighterJA",
+      "resolvedSourceUrl": "https://x.com/StreetFighterJA/status/2112854699854762032",
+      "note": "プロフィール内のストリートファイターVの不具合修正保守を取得。PHP原因とは示されていません。個別原文・運営所有・対象日付の照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。",
+      "sourceRead": "profile_retrieved_individual_pending",
+      "checkedAt": "2026-10-21T18:18:00Z"
+    },
+    {
+      "names": [
+        "ツイステッドワンダーランド 公式サイト"
+      ],
+      "url": "https://x.com/twst_jp",
+      "sourceProfile": "https://x.com/twst_jp",
+      "resolvedSourceUrl": "https://x.com/twst_jp/status/2112910819164115407",
+      "note": "プロフィール内の公式Webサイトの保守案内を取得。ゲーム本体の停止へ拡張せず、個別原文と運営所有の照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。",
+      "sourceRead": "profile_retrieved_individual_pending",
+      "checkedAt": "2026-10-21T18:18:00Z"
+    },
+    {
+      "names": [
+        "ぷらいべったー/Privatter+"
+      ],
+      "url": "https://x.com/privatter",
+      "sourceProfile": "https://x.com/privatter",
+      "resolvedSourceUrl": "https://x.com/privatter/status/2112870935900684640",
+      "note": "プロフィールにぷらいべったー/Privatter+の停止案内を取得。個別原文と正確な公式所有・最新状態の照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。",
+      "sourceRead": "profile_retrieved_individual_pending",
+      "checkedAt": "2026-10-21T18:18:00Z"
+    },
+    {
+      "names": [
+        "sb_tomonokai(ファンクラブ系サイト)"
+      ],
+      "url": "https://x.com/sb_tomonokai",
+      "sourceProfile": "https://x.com/sb_tomonokai",
+      "resolvedSourceUrl": "https://x.com/sb_tomonokai/status/2112909341871550591",
+      "note": "プロフィール内のPHP対応案内を取得。対象範囲の詳細が添付にあるため、未取得の画像内容を推測せず、個別原文・公式所有・対象機能を照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。",
+      "sourceRead": "profile_retrieved_individual_pending",
+      "checkedAt": "2026-10-21T18:18:00Z"
+    },
+    {
+      "names": [
+        "うたの☆プリンスさまっ♪ LE(utapri_LE)"
+      ],
+      "url": "https://x.com/utapri_LE",
+      "sourceProfile": "https://x.com/utapri_LE",
+      "resolvedSourceUrl": "https://x.com/utapri_LE/status/2112903002743013817",
+      "note": "個別原文にアプリの22:50からのPHP対応案内。終了未定の予定を経過だけで終了とせず、正確な運営所有の裏付けを照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z"
+    },
+    {
+      "names": [
+        "Vaundy 関連サイト"
+      ],
+      "url": "https://x.com/Vaundy_AWS",
+      "sourceProfile": "https://x.com/Vaundy_AWS",
+      "resolvedSourceUrl": "https://x.com/Vaundy_AWS/status/2112913091809947976",
+      "note": "プロフィール内の関連サイトPHP対応案内を取得。全公演/配信の停止には広げず、個別原文と正確な運営所有の照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。",
+      "sourceRead": "profile_retrieved_individual_pending",
+      "checkedAt": "2026-10-21T18:18:00Z"
+    },
+    {
+      "names": [
+        "ドラゴンボール ザ ブレイカーズ"
+      ],
+      "url": "https://x.com/DB_THEBREAKERS",
+      "sourceProfile": "https://x.com/DB_THEBREAKERS",
+      "resolvedSourceUrl": "https://x.com/DB_THEBREAKERS/status/2112893823903010940",
+      "note": "プロフィール内に対象ゲームの保守告知を取得。個別原文と運営所有、対象機能/最新の状態の照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。",
+      "sourceRead": "profile_retrieved_individual_pending",
+      "checkedAt": "2026-10-21T18:18:00Z"
+    },
+    {
+      "names": [
+        "アナザーエデン"
+      ],
+      "url": "https://x.com/rpg_AE",
+      "sourceProfile": "https://x.com/rpg_AE",
+      "resolvedSourceUrl": "https://x.com/rpg_AE/status/2112862202625761447",
+      "note": "プロフィール内に22:30からのセキュリティ対応保守を取得。個別原文と運営所有の裏付けは未完了。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。",
+      "sourceRead": "profile_retrieved_individual_pending",
+      "checkedAt": "2026-10-21T18:18:00Z"
+    },
+    {
+      "names": [
+        "乃木坂的フラクタル/乃木恋(nogikoiofficial)"
+      ],
+      "url": "https://x.com/nogikoiofficial",
+      "sourceProfile": "https://x.com/nogikoiofficial",
+      "resolvedSourceUrl": "https://x.com/nogikoiofficial/status/2112873882235642142",
+      "note": "個別原文は『乃木恋』ゲームとWebショップの21:00からの保守。収集名に含まれた別ゲーム『乃木坂的フラクタル』の根拠にはせず、正確な運営所有を照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z"
+    },
+    {
+      "names": [
+        "SYNCROOM(Yamaha Music ID)"
+      ],
+      "url": "https://x.com/yamaha_SYNCROOM",
+      "sourceProfile": "https://x.com/yamaha_SYNCROOM",
+      "resolvedSourceUrl": "https://x.com/yamaha_SYNCROOM/status/2112854504471396683",
+      "note": "プロフィール内のYamaha Music ID認証に関する22:50〜26:30予定を取得。終了予定経過を完了とはせず、個別原文・公式所有と実際の終了報告を照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。",
+      "sourceRead": "profile_retrieved_individual_pending",
+      "checkedAt": "2026-10-21T18:18:00Z"
+    },
+    {
+      "names": [
+        "AT-X 公式サイト"
+      ],
+      "url": "https://x.com/ATX_PR",
+      "sourceProfile": "https://x.com/ATX_PR",
+      "resolvedSourceUrl": "https://x.com/ATX_PR/status/2112909578493116645",
+      "note": "プロフィール内の公式Webサイト保守案内を取得。AT-Xの放送そのものの停止とはせず、個別原文と運営所有を照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。",
+      "sourceRead": "profile_retrieved_individual_pending",
+      "checkedAt": "2026-10-21T18:18:00Z"
+    },
+    {
+      "names": [
+        "ドズル社/WONDER DIVE 公式サイト"
+      ],
+      "url": "https://x.com/dozle_official",
+      "sourceProfile": "https://x.com/dozle_official",
+      "resolvedSourceUrl": "https://x.com/dozle_official/status/2112855951464444070",
+      "note": "プロフィール内のドズル社/WONDER DIVEの2Webサイトに関する告知を取得。すべての動画配信の停止とせず、個別原文と運営所有を照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。",
+      "sourceRead": "profile_retrieved_individual_pending",
+      "checkedAt": "2026-10-21T18:18:00Z"
+    },
+    {
+      "names": [
+        "タイッツー/きがるがき/ツクセカ"
+      ],
+      "url": "https://x.com/hoku_unagi",
+      "sourceProfile": "https://x.com/hoku_unagi",
+      "resolvedSourceUrl": "https://x.com/hoku_unagi/status/2112863433930715574",
+      "note": "プロフィール内に3サービスの21:00予定のPHP対応案内を取得。個別原文と正確な運営所有の照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。",
+      "sourceRead": "profile_retrieved_individual_pending",
+      "checkedAt": "2026-10-21T18:18:00Z"
+    },
+    {
+      "names": [
+        "あすけん(アプリ/Web/あすけんmore)"
+      ],
+      "url": "https://x.com/askenjp",
+      "sourceProfile": "https://x.com/askenjp",
+      "resolvedSourceUrl": "https://x.com/askenjp/status/2112907393332097219",
+      "note": "プロフィール内にアプリ/Web/moreの22:50からの安全対応告知を取得。利用者の個人記録にはアクセスせず、個別原文・公式所有・最新の復旧報告を照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。",
+      "sourceRead": "profile_retrieved_individual_pending",
+      "checkedAt": "2026-10-21T18:18:00Z"
+    },
+    {
+      "names": [
+        "ガンダムVS.モバイル/公式サイト"
+      ],
+      "url": "https://x.com/gundamvs",
+      "sourceProfile": "https://x.com/gundamvs",
+      "resolvedSourceUrl": "https://x.com/gundamvs/status/2112876229233947089",
+      "note": "個別原文はガンダムVS.モバイル/関連公式サイトを翌12時予定まで保守。全アーケードゲームの停止とはしません。正確な公式所有の独立裏付けは未完了。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z"
+    },
+    {
+      "names": [
+        "神撃のバハムート系(bahamut_cygames)"
+      ],
+      "url": "https://x.com/bahamut_cygames",
+      "sourceProfile": "https://x.com/bahamut_cygames",
+      "resolvedSourceUrl": "https://x.com/bahamut_cygames/status/2112846929633956210",
+      "note": "プロフィール内にゲームのPHP対応案内を取得。個別原文と正確な運営所有・最新の状態の照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。",
+      "sourceRead": "profile_retrieved_individual_pending",
+      "checkedAt": "2026-10-21T18:18:00Z"
+    },
+    {
+      "names": [
+        "セガ製品情報サイト"
+      ],
+      "url": "https://x.com/SEGA_OFFICIAL",
+      "sourceProfile": "https://x.com/SEGA_OFFICIAL",
+      "resolvedSourceUrl": "https://x.com/SEGA_OFFICIAL/status/2112913702093832408",
+      "note": "個別原文はSEGA製品情報サイトsega.jpの22:55からのPHP対応。すべてのセガゲームの停止とせず、正確な公式所有の裏付けを照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z"
+    },
+    {
+      "names": [
+        "音楽ナタリーほかナタリー"
+      ],
+      "url": "https://x.com/natalie_mu",
+      "sourceProfile": "https://x.com/natalie_mu",
+      "resolvedSourceUrl": "https://x.com/natalie_mu/status/2112924506063032594",
+      "note": "プロフィール内のメンテナンス案内を取得。取得範囲でナタリー全分野の対象一覧を確定できず、個別原文と運営所有/範囲を照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。",
+      "sourceRead": "profile_retrieved_individual_pending",
+      "checkedAt": "2026-10-21T18:18:00Z"
     }
   ],
   "discovery": [
@@ -14177,11 +15085,11 @@
     {
       "name": "BOOK☆WALKER",
       "sourceUrl": "https://www.itmedia.co.jp/business/articles/2610/21/news078.html",
-      "verification": "pending",
-      "confirmedId": null,
-      "note": "報道本文取得。カオナビ/BOOK☆WALKER/ブックライブ/Pokemon Champions/宝塚は個別一次原文未取得。ブックライブのみ公式元投稿 https://x.com/BookLive_PR/status/2112821482451866101 へのリンクあり。",
+      "verification": "duplicate",
+      "confirmedId": "bookwalker",
+      "note": "対象は別途BOOK☆WALKER公式X原文とKADOKAWAグループのSNS所有表記で確認してカードへ統合。元の報道やURLなし候補を一次根拠に昇格したものではありません。",
       "sourceClass": "報道のみ",
-      "nextVerificationCondition": "対象サービス運営の個別公式原文が公開取得可能になった時点に対象・日時を照合。第三者本文だけでは昇格しない。"
+      "nextVerificationCondition": "対象の公式な変更・終了告知を照合。"
     },
     {
       "name": "ブックライブ",
@@ -14240,11 +15148,11 @@
     {
       "name": "skima",
       "sourceUrl": "https://x.com/amyooo___n/status/2112886292224864430",
-      "verification": "pending",
-      "confirmedId": null,
-      "note": "利用クリエイターがSKIMAでメッセージを確認できないと投稿。運営公式ではないため一次照合待ち。",
+      "verification": "duplicate",
+      "confirmedId": "skima",
+      "note": "元資料は利用者の投稿。別途SKIMA公式原文と運営者の公式SNS表記を照合したカードへ統合し、第三者の追加表現は採用しません。",
       "sourceClass": "第三者投稿のみ",
-      "nextVerificationCondition": "公式サイト再開、または運営が公的な公式アカウントリンクを公開して所有を確認できた時点。日時/機能/現在状態の不足は理由欄に沿って照合。"
+      "nextVerificationCondition": "対象の公式な変更・終了告知を照合。"
     },
     {
       "name": "ノベルゲームコレクション",
@@ -18198,11 +19106,11 @@
     {
       "name": "BOOK☆WALKER",
       "sourceUrl": null,
-      "verification": "pending",
-      "confirmedId": null,
-      "note": "元候補に原URLがなく今回の公式個別原文未取得。DMM包括保守との重複範囲も未照合のため保留。",
+      "verification": "confirmed",
+      "confirmedId": "bookwalker",
+      "note": "対象は別途BOOK☆WALKER公式X原文とKADOKAWAグループのSNS所有表記で確認してカードへ統合。元の報道やURLなし候補を一次根拠に昇格したものではありません。",
       "sourceClass": "追加調査候補",
-      "nextVerificationCondition": "公式所有を示す資料・対象サイトの個別告知・最新の変更/復旧報告が公開または再取得可能になった時点で照合。時刻経過やHTTP200だけでは確定しない。"
+      "nextVerificationCondition": "対象の公式な変更・終了告知を照合。"
     },
     {
       "name": "Pokémon Sleep公式サイト",
@@ -22046,6 +22954,968 @@
       "note": "製品の注意喚起・更新推奨。利用者サイトを一律に停止中とはしていません。",
       "sourceClass": "Piyolog掲載のリンク（一次照合は別）",
       "nextVerificationCondition": "公開の公式運営資料で所有・対象・最新状態を確認できた時点。取得拒否は迂回しない。"
+    },
+    {
+      "name": "小説家になろう(ヒナプロジェクト全サービス)",
+      "sourceUrl": null,
+      "sourceProfile": "https://x.com/syosetu",
+      "resolvedSourceUrl": "https://x.com/syosetu/status/2112940490236850473",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "Xの初報・後続本文は取得しましたが、運営サイトから当該アカウントへの所有裏付けは今回未完了。公式ブログの一部接続制限と、全サービス停止/終了というXの範囲を混同しません。運営トップは通常readで403のため迂回しません。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。"
+    },
+    {
+      "name": "龍脈のアナザーエイドスR",
+      "sourceUrl": "https://x.com/AnotherEidos_R/status/2112949046675693842",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "verification": "confirmed",
+      "confirmedId": "another-eidos-r",
+      "note": "公式終了投稿と既存の公式所有根拠を照合し、既存カードへ反映。01:48 JSTは投稿時点であり正確な終了時刻ではありません。",
+      "sourceClass": "公式原文・所有を照合した後続資料",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "同じ対象の公式な延長・終了・範囲変更を照合。"
+    },
+    {
+      "name": "VISH/れんらくアプリ(バスキャッチ)",
+      "sourceUrl": "https://x.com/buscatch/status/2112944429694861409",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "verification": "confirmed",
+      "confirmedId": "buscatch-status",
+      "note": "公式再開投稿は10/22 00:50頃の再開を明記。管理画面/保護者アプリを含む対象範囲と、先行する別の障害表示を分けて既存カードへ反映。",
+      "sourceClass": "公式原文・所有を照合した後続資料",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "同じ対象の公式な延長・終了・範囲変更を照合。"
+    },
+    {
+      "name": "クラッシュフィーバー",
+      "sourceUrl": "https://x.com/CrashFever_PR/status/2112959462013366344",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "verification": "confirmed",
+      "confirmedId": "crash-fever",
+      "note": "公式原文で10/22 02:25終了を確認。従前01:00は予定であり終了実績ではありません。",
+      "sourceClass": "公式原文・所有を照合した後続資料",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "同じ対象の公式な延長・終了・範囲変更を照合。"
+    },
+    {
+      "name": "Cygames WebStore・Cygames Events",
+      "sourceUrl": null,
+      "sourceProfile": "https://x.com/Cygamesid",
+      "resolvedSourceUrl": "https://x.com/Cygamesid/status/2112956174014529641",
+      "verification": "confirmed",
+      "confirmedId": "cygames-webstore-events",
+      "note": "公式サイト原文・公式SNS所有・後続終了投稿を照合。WebStore/Eventsの2サービスの22:00頃〜02:10頃の報告であり、各ゲーム全体の復旧とは別。",
+      "sourceClass": "公式原文・所有を照合した後続資料",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "同じ対象の公式な延長・終了・範囲変更を照合。"
+    },
+    {
+      "name": "Palmu",
+      "sourceUrl": "https://x.com/palmu_jp/status/2112949506270695569",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "verification": "confirmed",
+      "confirmedId": "palmu",
+      "note": "公式の後続本文でも終了は未定。『明朝に改めて案内』を復旧の確定時刻にはしません。",
+      "sourceClass": "公式原文・所有を照合した後続資料",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "同じ対象の公式な延長・終了・範囲変更を照合。"
+    },
+    {
+      "name": "ALL.Net/Aime",
+      "sourceUrl": null,
+      "sourceProfile": "https://x.com/allnet_info",
+      "resolvedSourceUrl": "https://x.com/allnet_info/status/2112898779590627729",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "X原文は22:00への前倒しと翌11:30予定を案内。収集時の23:00表記は採用しません。当該アカウントの公式所有と対象全体の独立照合が不足し、既存の個別ゲーム5本のカードに全ALL.Net範囲を上書きしません。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。"
+    },
+    {
+      "name": "KaraGo",
+      "sourceUrl": "https://x.com/karago_jp/status/2112953387801366634",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "投稿本文はPHP更新後の終了を報告。運営サイトの公開本文から当該Xの正確な公式リンクを確認できず、公式所有の照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。"
+    },
+    {
+      "name": "railog(レイログ)",
+      "sourceUrl": "https://x.com/railog_jp/status/2112954289236967445",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "投稿本文に19:30〜翌02:00の実施・再開報告。ステータス正常表示だけでは原因・時刻を確定せず、サービス公式と当該Xの所有裏付けを継続確認。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。"
+    },
+    {
+      "name": "アットウィキ アップロード/掲示板投稿",
+      "sourceUrl": "https://x.com/atwikijp/status/2112956570422440059",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "verification": "confirmed",
+      "confirmedId": "atwiki-upload-board",
+      "note": "運営トップ→公式サポート→正確なXリンクと原文を照合。アップロード/掲示板等のみの再開であり、閲覧・編集は元から利用可能。",
+      "sourceClass": "公式原文・所有を照合した後続資料",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "同じ対象の公式な延長・終了・範囲変更を照合。"
+    },
+    {
+      "name": "Livie(ライブハウス向け機能ほか)",
+      "sourceUrl": "https://x.com/Livie_app/status/2112958577782796389",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "原文でライブハウス向け申込機能の再開を案内。他の機能は影響なしとの説明。運営サイトと正確な公式Xの所有リンク、および元の停止告知の照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。"
+    },
+    {
+      "name": "地獄楽 パラダイスバトル",
+      "sourceUrl": "https://x.com/jigokuraku_PB/status/2112963081525735707",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "verification": "confirmed",
+      "confirmedId": "jigokuraku-paradise-battle",
+      "note": "ゲーム公式サイトの正確なXリンクと原文を照合。10/21 23:00〜翌02:35頃の終了報告であり、他のDMMサービス全体には広げない。",
+      "sourceClass": "公式原文・所有を照合した後続資料",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "同じ対象の公式な延長・終了・範囲変更を照合。"
+    },
+    {
+      "name": "マンガワン アプリ版(Web版は未記載)",
+      "sourceUrl": "https://x.com/MangaONE_jp/status/2112964448122208474",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "verification": "confirmed",
+      "confirmedId": "mangaone-app-browser",
+      "note": "公式WebのXリンクと原文を照合。アプリは02:45終了、ブラウザ版は継続/終了未定と明記。収集時の『Web版は未記載』という要約は訂正。",
+      "sourceClass": "公式原文・所有を照合した後続資料",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "同じ対象の公式な延長・終了・範囲変更を照合。"
+    },
+    {
+      "name": "Aniborn(支援プラットフォーム)",
+      "sourceUrl": "https://x.com/aniborn_com/status/2112965271107567682",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "X原文はPHP対応後の通常サービス再開を案内。運営ドメインの通常readは403で、稼働確認や所有確認を完了扱いせず制限を迂回しません。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。"
+    },
+    {
+      "name": "クロスサマナー:R(So-net Taiwan)",
+      "sourceUrl": "https://x.com/CSRbySonet/status/2112965672401817968",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "投稿原文はメンテ終了・ログイン再開を案内。So-net側サイトの正確なアカウント所有リンクは未確認。投稿者名だけで公式認定しません。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。"
+    },
+    {
+      "name": "えろま!",
+      "sourceUrl": "https://x.com/azumi_s/status/2112965620241469900",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "投稿原文に02:50終了との記述。個人投稿者と対象サイトの運営所有は未確認。成人向け本文・利用者限定の内容は取得/再配布しません。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。"
+    },
+    {
+      "name": "プリンセスコネクト!Re:Dive",
+      "sourceUrl": null,
+      "sourceProfile": "https://x.com/priconne_redive",
+      "resolvedSourceUrl": "https://x.com/priconne_redive/status/2112957789073240573",
+      "verification": "confirmed",
+      "confirmedId": "priconne",
+      "note": "ゲーム公式の開始変更/終了原文と所有表記を照合。22:00頃は後続の開始予定、ゲーム終了は02:10。WebStore等は別の公式報告で確認。",
+      "sourceClass": "公式原文・所有を照合した後続資料",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "同じ対象の公式な延長・終了・範囲変更を照合。"
+    },
+    {
+      "name": "ニジエ",
+      "sourceUrl": null,
+      "sourceProfile": "https://x.com/nijie_tan",
+      "resolvedSourceUrl": "https://x.com/nijie_tan/status/2112921924024299711",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "プロフィールと関連原文に終了報告・サーバー会社側作業による不安定の記述。正確な公式所有は未照合。終了したから全機能が安定とはしません。年齢確認の送信はしていません。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。"
+    },
+    {
+      "name": "私辞書(アプリ)",
+      "sourceUrl": "https://x.com/watashijishoapp/status/2112939182561865956",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "投稿原文にPHP対応の停止案内。編集後の新しい投稿URLがあり、最新原文と公式所有の照合が未完了。編集前を最新事実として確定しません。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。"
+    },
+    {
+      "name": "ゲッサンWEB",
+      "sourceUrl": "https://x.com/gessanofficial/status/2112944257749410060",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "原文はゲッサンWEBを22:30から安全確保のため停止と案内。運営の過去公式記事に当該Xの記載を検索本文で確認しましたが、現在の所有/対象への独立再照合は未完了。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。"
+    },
+    {
+      "name": "生田斗真 FCサイト",
+      "sourceUrl": "https://x.com/TOMA_IKUTA10/status/2112944310694109327",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "投稿原文はFCサイトのPHP対応を案内。対象運営者の正確な公式アカウント所有リンクと、最新の対象機能/状態の照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。"
+    },
+    {
+      "name": "メタリア総合文化祭 公式サイト",
+      "sourceUrl": "https://x.com/metareafes/status/2112946975457116293",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "投稿原文はイベント公式WebサイトのPHP対応を案内。イベントそのものの中止とは読み替えず、正確な運営所有と対象URLを照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。"
+    },
+    {
+      "name": "やかん亭 レンタルサービス(makeshop)",
+      "sourceUrl": "https://x.com/yakantei/status/2112948991411544287",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "原文はショップ/レンタル関連のmakeshop停止を案内。店頭・レンタル業務の全体停止とは確定せず、対象ショップと公式アカウント所有を照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。"
+    },
+    {
+      "name": "NTTドコモ 一部Webサイト",
+      "sourceUrl": "https://x.com/docomo/status/2112948997036105763",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "verification": "confirmed",
+      "confirmedId": "docomo-partial-web",
+      "note": "NTTドコモ公式ドメインの本文を独立照合。一部Webサイトを予防停止、安全確認後に順次再開。携帯電話回線停止やPHP原因は記載なし。",
+      "sourceClass": "公式原文・所有を照合した後続資料",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "同じ対象の公式な延長・終了・範囲変更を照合。"
+    },
+    {
+      "name": "グループSNE公式ショップ SNE-EC",
+      "sourceUrl": "https://x.com/ec_sne/status/2112949346690064392",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "原文はショップのPHP対応を案内。既注文の受付/出荷予定と実出荷を分けます。公式ショップの通常readは403で、制限を迂回せず所有・最新状態は未確認。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。"
+    },
+    {
+      "name": "シネマリス オンライン予約",
+      "sourceUrl": "https://x.com/CineMalice2024/status/2112953175724703830",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "原文はオンライン予約の23:00〜翌16:00予定と窓口の代替案内。映画館自体の全営業停止には広げず、運営者の公式所有/対象URL/終了実績の照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。"
+    },
+    {
+      "name": "レインブラントティー オンラインショップ",
+      "sourceUrl": "https://x.com/rainbrant_tea/status/2112954232961958320",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "原文はオンラインショップの安全対応・終了未定を案内。当該Xとショップ運営者の正確な所有裏付けが不足。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。"
+    },
+    {
+      "name": "誰でもスマホ",
+      "sourceUrl": "https://x.com/daredemo_sumaho/status/2112954314234994899",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "投稿本文にメンテ案内の運営URLへのリンク。引用部分のPHP説明を自社の原因とはせず、元の個別公式ページと運営所有の照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。"
+    },
+    {
+      "name": "東京国際映画祭 公式サイト ニュース",
+      "sourceUrl": "https://x.com/tiff_site/status/2112954400323019074",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "verification": "confirmed",
+      "confirmedId": "tiff-news-pages",
+      "note": "映画祭公式トップからの正確なXリンクと原文を照合。00:30開始、ニュースページのみ。映画祭中止や全チケット機能停止ではない。",
+      "sourceClass": "公式原文・所有を照合した後続資料",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "同じ対象の公式な延長・終了・範囲変更を照合。"
+    },
+    {
+      "name": "C-HOUSE(フリマ)",
+      "sourceUrl": "https://x.com/cryptohousejp/status/2112955551026130951",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "原文はセキュリティ対応によるサイト停止を案内。正確な運営所有・対象URL・最新状態の追加照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。"
+    },
+    {
+      "name": "リモデルクラブ(ホームページ制作・サーバー)",
+      "sourceUrl": "https://x.com/sskikaku_web/status/2112957651814609237",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "原文は23:00〜翌09:00予定のサーバー保守、Webメール/データベース管理画面が不安定になる可能性。全Webサイトが連続停止すると拡張せず、対象運営者の公式所有を照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。"
+    },
+    {
+      "name": "いなり(FujimiInari)対象サービス",
+      "sourceUrl": "https://x.com/FujimiInari/status/2112958783685333243",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "投稿には『おやすみ』等の表現がありますが、対象サービスのURL・具体的停止範囲が特定できません。実サイトの停止告知として確定せず、原典の具体化を待つ。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。"
+    },
+    {
+      "name": "サイバースターポータル 全サービス",
+      "sourceUrl": "https://x.com/CyberStarPortal/status/2112958841105322148",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "原文は全サービスの安全対応・終了未定を案内。対象ショップ/ポータル運営者と当該Xの正確な所有裏付けは未確認。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。"
+    },
+    {
+      "name": "CLIP STUDIO 各種サービス",
+      "sourceUrl": "https://x.com/clip_celsys/status/2112961482850013532",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "verification": "confirmed",
+      "confirmedId": "clipstudio-possible-maintenance",
+      "note": "製品公式サイトの正確なXリンクと原文を照合。実施自体が未定の停止可能性の予告であり、すでに停止中/復旧対象という集計に入れない。",
+      "sourceClass": "公式原文・所有を照合した後続資料",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "同じ対象の公式な延長・終了・範囲変更を照合。"
+    },
+    {
+      "name": "ULTREX",
+      "sourceUrl": "https://x.com/ULTREX_official/status/2112962895378337987",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "原文に安全対策のサイトメンテ案内。対象サイトの通常readが取得できず、運営所有・対象の原典照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。"
+    },
+    {
+      "name": "TuneMATE イヤホン販売サイト",
+      "sourceUrl": "https://x.com/CS_TuneMATE/status/2112962940395798749",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "原文はイヤホン販売サイトの停止を案内しサイバースターポータルの告知を引用。同一基盤との重なりは未確定で、別インシデントとして加算しません。公式所有も照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。"
+    },
+    {
+      "name": "サッカーキング",
+      "sourceUrl": "https://x.com/SoccerKingJP/status/2112964857226272905",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "原文に安全対応のサイト停止案内。過去の運営記事に当該Xの表記を検索本文で見つけましたが、最新の所有裏付けと対象範囲の追加照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。"
+    },
+    {
+      "name": "センチュリー21加盟店(c21shige)サイト",
+      "sourceUrl": "https://x.com/c21shige/status/2112965594706596328",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "原文は加盟店の関連サイトについて19:00〜翌09:00予定のPHP対応を案内。センチュリー21全体の停止とはせず、当該加盟店の運営所有/対象URLを照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。"
+    },
+    {
+      "name": "ランゲッポー",
+      "sourceUrl": "https://x.com/hiyoro/status/2112965642072809755",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "原文にPHP対応の記述はありますが、対象サイトURLと投稿者の運営所有が未確認。サービスを特定するまで確定群にしません。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。"
+    },
+    {
+      "name": "ムームードメイン 一部サービス",
+      "sourceUrl": "https://x.com/muumuu_domain/status/2112965687027380538",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "原文はムームーサーバー/WPホスティングの利用者Webサイトの停止に言及。既存の管理画面のみの公式告知と同じ範囲ではありません。Xの所有裏付けと運営の個別原典を追加照合するまで既存カードへ拡張しません。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。"
+    },
+    {
+      "name": "Pokémon HOME",
+      "sourceUrl": null,
+      "sourceProfile": "https://x.com/Poke_Champ_jp",
+      "resolvedSourceUrl": "https://x.com/Poke_Champ_jp/status/2112853911283396840",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "プロフィールにHOMEとChampionsの別々の関連投稿を取得。HOMEの個別告知と運営所有の独立照合が未完了。2タイトルを一括りにして状態を上書きしません。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "sourceRead": "profile_retrieved_individual_pending",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。"
+    },
+    {
+      "name": "TOKYO FM Webサイト",
+      "sourceUrl": null,
+      "sourceProfile": "https://x.com/sol_info",
+      "resolvedSourceUrl": "https://x.com/sol_info/status/2112922108561092765",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "プロフィール内のTOKYO FMサイト保守投稿を取得。放送全体の停止とはせず、個別原文と運営所有の照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "sourceRead": "profile_retrieved_individual_pending",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。"
+    },
+    {
+      "name": "NAOMI CITY",
+      "sourceUrl": null,
+      "sourceProfile": "https://x.com/naomicity703",
+      "resolvedSourceUrl": "https://x.com/naomicity703/status/2112922136524574973",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "プロフィール内のNAOMI CITYのPHP対応投稿を取得。対象サイトURL/正確な運営所有/個別原文の照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "sourceRead": "profile_retrieved_individual_pending",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。"
+    },
+    {
+      "name": "Fate/Grand Order 関連サイト",
+      "sourceUrl": null,
+      "sourceProfile": "https://x.com/fgoproject",
+      "resolvedSourceUrl": "https://x.com/fgoproject/status/2112922281735573580",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "個別原文を取得。FGO関連のイベント/朗読/ショートアニメ等のWebサイトの保守案内で、ゲーム本体全体の停止とはしません。正確な公式所有の裏付けが未完了。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。"
+    },
+    {
+      "name": "クリープハイプ オフィシャルサイト",
+      "sourceUrl": null,
+      "sourceProfile": "https://x.com/creephyp",
+      "resolvedSourceUrl": "https://x.com/creephyp/status/2112907590124618104",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "プロフィール内の公式サイト保守案内を取得。22:30開始の表記があるが、個別原文と正確な運営所有を照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "sourceRead": "profile_retrieved_individual_pending",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。"
+    },
+    {
+      "name": "ストリートファイターV",
+      "sourceUrl": null,
+      "sourceProfile": "https://x.com/StreetFighterJA",
+      "resolvedSourceUrl": "https://x.com/StreetFighterJA/status/2112854699854762032",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "プロフィール内のストリートファイターVの不具合修正保守を取得。PHP原因とは示されていません。個別原文・運営所有・対象日付の照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "sourceRead": "profile_retrieved_individual_pending",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。"
+    },
+    {
+      "name": "ツイステッドワンダーランド 公式サイト",
+      "sourceUrl": null,
+      "sourceProfile": "https://x.com/twst_jp",
+      "resolvedSourceUrl": "https://x.com/twst_jp/status/2112910819164115407",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "プロフィール内の公式Webサイトの保守案内を取得。ゲーム本体の停止へ拡張せず、個別原文と運営所有の照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "sourceRead": "profile_retrieved_individual_pending",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。"
+    },
+    {
+      "name": "ぷらいべったー/Privatter+",
+      "sourceUrl": null,
+      "sourceProfile": "https://x.com/privatter",
+      "resolvedSourceUrl": "https://x.com/privatter/status/2112870935900684640",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "プロフィールにぷらいべったー/Privatter+の停止案内を取得。個別原文と正確な公式所有・最新状態の照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "sourceRead": "profile_retrieved_individual_pending",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。"
+    },
+    {
+      "name": "sb_tomonokai(ファンクラブ系サイト)",
+      "sourceUrl": null,
+      "sourceProfile": "https://x.com/sb_tomonokai",
+      "resolvedSourceUrl": "https://x.com/sb_tomonokai/status/2112909341871550591",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "プロフィール内のPHP対応案内を取得。対象範囲の詳細が添付にあるため、未取得の画像内容を推測せず、個別原文・公式所有・対象機能を照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "sourceRead": "profile_retrieved_individual_pending",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。"
+    },
+    {
+      "name": "うたの☆プリンスさまっ♪ LE(utapri_LE)",
+      "sourceUrl": null,
+      "sourceProfile": "https://x.com/utapri_LE",
+      "resolvedSourceUrl": "https://x.com/utapri_LE/status/2112903002743013817",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "個別原文にアプリの22:50からのPHP対応案内。終了未定の予定を経過だけで終了とせず、正確な運営所有の裏付けを照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。"
+    },
+    {
+      "name": "Vaundy 関連サイト",
+      "sourceUrl": null,
+      "sourceProfile": "https://x.com/Vaundy_AWS",
+      "resolvedSourceUrl": "https://x.com/Vaundy_AWS/status/2112913091809947976",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "プロフィール内の関連サイトPHP対応案内を取得。全公演/配信の停止には広げず、個別原文と正確な運営所有の照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "sourceRead": "profile_retrieved_individual_pending",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。"
+    },
+    {
+      "name": "ドラゴンボール ザ ブレイカーズ",
+      "sourceUrl": null,
+      "sourceProfile": "https://x.com/DB_THEBREAKERS",
+      "resolvedSourceUrl": "https://x.com/DB_THEBREAKERS/status/2112893823903010940",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "プロフィール内に対象ゲームの保守告知を取得。個別原文と運営所有、対象機能/最新の状態の照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "sourceRead": "profile_retrieved_individual_pending",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。"
+    },
+    {
+      "name": "アナザーエデン",
+      "sourceUrl": null,
+      "sourceProfile": "https://x.com/rpg_AE",
+      "resolvedSourceUrl": "https://x.com/rpg_AE/status/2112862202625761447",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "プロフィール内に22:30からのセキュリティ対応保守を取得。個別原文と運営所有の裏付けは未完了。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "sourceRead": "profile_retrieved_individual_pending",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。"
+    },
+    {
+      "name": "乃木坂的フラクタル/乃木恋(nogikoiofficial)",
+      "sourceUrl": null,
+      "sourceProfile": "https://x.com/nogikoiofficial",
+      "resolvedSourceUrl": "https://x.com/nogikoiofficial/status/2112873882235642142",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "個別原文は『乃木恋』ゲームとWebショップの21:00からの保守。収集名に含まれた別ゲーム『乃木坂的フラクタル』の根拠にはせず、正確な運営所有を照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。"
+    },
+    {
+      "name": "SYNCROOM(Yamaha Music ID)",
+      "sourceUrl": null,
+      "sourceProfile": "https://x.com/yamaha_SYNCROOM",
+      "resolvedSourceUrl": "https://x.com/yamaha_SYNCROOM/status/2112854504471396683",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "プロフィール内のYamaha Music ID認証に関する22:50〜26:30予定を取得。終了予定経過を完了とはせず、個別原文・公式所有と実際の終了報告を照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "sourceRead": "profile_retrieved_individual_pending",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。"
+    },
+    {
+      "name": "AT-X 公式サイト",
+      "sourceUrl": null,
+      "sourceProfile": "https://x.com/ATX_PR",
+      "resolvedSourceUrl": "https://x.com/ATX_PR/status/2112909578493116645",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "プロフィール内の公式Webサイト保守案内を取得。AT-Xの放送そのものの停止とはせず、個別原文と運営所有を照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "sourceRead": "profile_retrieved_individual_pending",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。"
+    },
+    {
+      "name": "ドズル社/WONDER DIVE 公式サイト",
+      "sourceUrl": null,
+      "sourceProfile": "https://x.com/dozle_official",
+      "resolvedSourceUrl": "https://x.com/dozle_official/status/2112855951464444070",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "プロフィール内のドズル社/WONDER DIVEの2Webサイトに関する告知を取得。すべての動画配信の停止とせず、個別原文と運営所有を照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "sourceRead": "profile_retrieved_individual_pending",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。"
+    },
+    {
+      "name": "タイッツー/きがるがき/ツクセカ",
+      "sourceUrl": null,
+      "sourceProfile": "https://x.com/hoku_unagi",
+      "resolvedSourceUrl": "https://x.com/hoku_unagi/status/2112863433930715574",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "プロフィール内に3サービスの21:00予定のPHP対応案内を取得。個別原文と正確な運営所有の照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "sourceRead": "profile_retrieved_individual_pending",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。"
+    },
+    {
+      "name": "あすけん(アプリ/Web/あすけんmore)",
+      "sourceUrl": null,
+      "sourceProfile": "https://x.com/askenjp",
+      "resolvedSourceUrl": "https://x.com/askenjp/status/2112907393332097219",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "プロフィール内にアプリ/Web/moreの22:50からの安全対応告知を取得。利用者の個人記録にはアクセスせず、個別原文・公式所有・最新の復旧報告を照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "sourceRead": "profile_retrieved_individual_pending",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。"
+    },
+    {
+      "name": "ガンダムVS.モバイル/公式サイト",
+      "sourceUrl": null,
+      "sourceProfile": "https://x.com/gundamvs",
+      "resolvedSourceUrl": "https://x.com/gundamvs/status/2112876229233947089",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "個別原文はガンダムVS.モバイル/関連公式サイトを翌12時予定まで保守。全アーケードゲームの停止とはしません。正確な公式所有の独立裏付けは未完了。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。"
+    },
+    {
+      "name": "神撃のバハムート系(bahamut_cygames)",
+      "sourceUrl": null,
+      "sourceProfile": "https://x.com/bahamut_cygames",
+      "resolvedSourceUrl": "https://x.com/bahamut_cygames/status/2112846929633956210",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "プロフィール内にゲームのPHP対応案内を取得。個別原文と正確な運営所有・最新の状態の照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "sourceRead": "profile_retrieved_individual_pending",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。"
+    },
+    {
+      "name": "セガ製品情報サイト",
+      "sourceUrl": null,
+      "sourceProfile": "https://x.com/SEGA_OFFICIAL",
+      "resolvedSourceUrl": "https://x.com/SEGA_OFFICIAL/status/2112913702093832408",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "個別原文はSEGA製品情報サイトsega.jpの22:55からのPHP対応。すべてのセガゲームの停止とせず、正確な公式所有の裏付けを照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。"
+    },
+    {
+      "name": "音楽ナタリーほかナタリー",
+      "sourceUrl": null,
+      "sourceProfile": "https://x.com/natalie_mu",
+      "resolvedSourceUrl": "https://x.com/natalie_mu/status/2112924506063032594",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "プロフィール内のメンテナンス案内を取得。取得範囲でナタリー全分野の対象一覧を確定できず、個別原文と運営所有/範囲を照合待ち。",
+      "sourceClass": "公開X資料（運営公式性は別途照合）",
+      "sourceRead": "profile_retrieved_individual_pending",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "運営サイトの正確な公式アカウントリンク、最新の個別原文、対象範囲の不足を確認。明示的な取得制限は迂回せず、時刻経過だけで復旧にしない。"
+    },
+    {
+      "name": "DLsite",
+      "sourceUrl": "https://x.com/PJ_MINUS20000G/status/2112939371850776712",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "verification": "related",
+      "confirmedId": null,
+      "note": "第三者によるDLsiteの利用状況の投稿。運営者の個別公式告知と所有を未確認であり、停止・原因・復旧の確定根拠にしません。",
+      "sourceClass": "第三者投稿（公式とは未認定）",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "対象運営の個別一次告知が得られた時点に対象・範囲・日時を照合。第三者の要約や推測だけで確定しない。"
+    },
+    {
+      "name": "楽天(一部機能)",
+      "sourceUrl": "https://x.com/hakopopu/status/2112939295665533296",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "verification": "related",
+      "confirmedId": null,
+      "note": "第三者による楽天の一部機能の投稿。対象機能が特定できず、楽天チケット等の別の既存カードに名称だけで統合しません。",
+      "sourceClass": "第三者投稿（公式とは未認定）",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "対象運営の個別一次告知が得られた時点に対象・範囲・日時を照合。第三者の要約や推測だけで確定しない。"
+    },
+    {
+      "name": "森高千里 Webサイト",
+      "sourceUrl": "https://x.com/windy_toshi/status/2112939273175617647",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "verification": "related",
+      "confirmedId": null,
+      "note": "第三者の投稿に森高千里や別アーティストのサイトへの言及。各運営の個別一次告知が未照合で、全対象のPHP原因を確定しません。",
+      "sourceClass": "第三者投稿（公式とは未認定）",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "対象運営の個別一次告知が得られた時点に対象・範囲・日時を照合。第三者の要約や推測だけで確定しない。"
+    },
+    {
+      "name": "Ci-en",
+      "sourceUrl": "https://x.com/SSSS_Sei_Otaku/status/2112943642226909626",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "verification": "related",
+      "confirmedId": null,
+      "note": "利用者によるCi-enの関連投稿。運営者の個別原文と対象範囲を未確認のため、確定停止カードではなく関連資料として保持。",
+      "sourceClass": "第三者投稿（公式とは未認定）",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "対象運営の個別一次告知が得られた時点に対象・範囲・日時を照合。第三者の要約や推測だけで確定しない。"
+    },
+    {
+      "name": "梅田芸術劇場 HP",
+      "sourceUrl": "https://x.com/531_kane7sada7/status/2112948470097293487",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "verification": "related",
+      "confirmedId": null,
+      "note": "利用者による梅田芸術劇場HPへの言及。公演中止やチケット全体の停止とは断定せず、運営公式の個別告知の照合待ち。",
+      "sourceClass": "第三者投稿（公式とは未認定）",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "対象運営の個別一次告知が得られた時点に対象・範囲・日時を照合。第三者の要約や推測だけで確定しない。"
+    },
+    {
+      "name": "ANA Pocket",
+      "sourceUrl": "https://x.com/hskymjf/status/2112949149721309300",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "verification": "related",
+      "confirmedId": null,
+      "note": "利用者のANA Pocketに関する投稿。アプリ全体の停止・PHP原因・終了時刻をこの投稿だけで確定しません。",
+      "sourceClass": "第三者投稿（公式とは未認定）",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "対象運営の個別一次告知が得られた時点に対象・範囲・日時を照合。第三者の要約や推測だけで確定しない。"
+    },
+    {
+      "name": "J SPORTS(関連サイト)",
+      "sourceUrl": "https://x.com/kanapapi_sakura/status/2112953273661772103",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "verification": "related",
+      "confirmedId": null,
+      "note": "投稿はJ SPORTSの関連サイト名に言及。放送全体の停止や全サービスの影響を示す根拠ではなく、対象運営の原典照合待ち。",
+      "sourceClass": "第三者投稿（公式とは未認定）",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "対象運営の個別一次告知が得られた時点に対象・範囲・日時を照合。第三者の要約や推測だけで確定しない。"
+    },
+    {
+      "name": "デレステ(アイドルマスター シンデレラガールズ スターライトステージ)",
+      "sourceUrl": "https://x.com/_0_zz/status/2112964572340687118",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "verification": "related",
+      "confirmedId": null,
+      "note": "第三者の推測/複数サービスを含む投稿。既存のデレステ公式カードは独立の一次根拠のみを維持し、この投稿のFOD・金融等への追加推測は採用しません。",
+      "sourceClass": "第三者投稿（公式とは未認定）",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "対象運営の個別一次告知が得られた時点に対象・範囲・日時を照合。第三者の要約や推測だけで確定しない。"
+    },
+    {
+      "name": "大和証券 口座開設など",
+      "sourceUrl": "https://x.com/dfrb4f/status/2112958322009833742",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "verification": "related",
+      "confirmedId": null,
+      "note": "第三者が大和証券の口座開設に関する報道へ言及。会社の全サービス停止・侵害とは断定せず、個別運営告知の確認待ち。",
+      "sourceClass": "第三者投稿（公式とは未認定）",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "対象運営の個別一次告知が得られた時点に対象・範囲・日時を照合。第三者の要約や推測だけで確定しない。"
+    },
+    {
+      "name": "静岡銀行 ネットバンキング",
+      "sourceUrl": "https://x.com/tokonaka888/status/2112964951170244997",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "verification": "related",
+      "confirmedId": null,
+      "note": "第三者が静岡銀行のネットバンキングに関する報道へ言及。利用者の資産情報には触れず、公式運営の対象/状態の原典確認待ち。",
+      "sourceClass": "第三者投稿（公式とは未認定）",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "対象運営の個別一次告知が得られた時点に対象・範囲・日時を照合。第三者の要約や推測だけで確定しない。"
+    },
+    {
+      "name": "七十七銀行 一部サービス/阪神電鉄 HP",
+      "sourceUrl": "https://x.com/LunaLue/status/2112959434477785470",
+      "sourceProfile": null,
+      "resolvedSourceUrl": null,
+      "verification": "related",
+      "confirmedId": null,
+      "note": "第三者の見出し引用に七十七銀行・阪神/京阪関連の言及。各個別対象を同一原因・侵害・全停止とせず、既存の公式カードの根拠もこの投稿では変更しません。",
+      "sourceClass": "第三者投稿（公式とは未認定）",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "nextVerificationCondition": "対象運営の個別一次告知が得られた時点に対象・範囲・日時を照合。第三者の要約や推測だけで確定しない。"
     }
   ],
   "related": [
@@ -23065,6 +24935,83 @@
       "note": "利用者・導入店舗・第三者の関連報告。サービス提供元の公式所有の根拠にはしない。",
       "nextVerificationCondition": "運営者の正確なアカウント逆リンク/公式リリース、または同対象の直接公式告知。時刻経過や単なるHTTP応答で確定/復旧にしない。",
       "ownershipEvidence": [],
+      "confirmedId": null
+    },
+    {
+      "name": "DLsite",
+      "url": "https://x.com/PJ_MINUS20000G/status/2112939371850776712",
+      "note": "第三者によるDLsiteの利用状況の投稿。運営者の個別公式告知と所有を未確認であり、停止・原因・復旧の確定根拠にしません。",
+      "nextVerificationCondition": "対象運営の個別一次告知が得られた時点に対象・範囲・日時を照合。第三者の要約や推測だけで確定しない。",
+      "confirmedId": null
+    },
+    {
+      "name": "楽天(一部機能)",
+      "url": "https://x.com/hakopopu/status/2112939295665533296",
+      "note": "第三者による楽天の一部機能の投稿。対象機能が特定できず、楽天チケット等の別の既存カードに名称だけで統合しません。",
+      "nextVerificationCondition": "対象運営の個別一次告知が得られた時点に対象・範囲・日時を照合。第三者の要約や推測だけで確定しない。",
+      "confirmedId": null
+    },
+    {
+      "name": "森高千里 Webサイト",
+      "url": "https://x.com/windy_toshi/status/2112939273175617647",
+      "note": "第三者の投稿に森高千里や別アーティストのサイトへの言及。各運営の個別一次告知が未照合で、全対象のPHP原因を確定しません。",
+      "nextVerificationCondition": "対象運営の個別一次告知が得られた時点に対象・範囲・日時を照合。第三者の要約や推測だけで確定しない。",
+      "confirmedId": null
+    },
+    {
+      "name": "Ci-en",
+      "url": "https://x.com/SSSS_Sei_Otaku/status/2112943642226909626",
+      "note": "利用者によるCi-enの関連投稿。運営者の個別原文と対象範囲を未確認のため、確定停止カードではなく関連資料として保持。",
+      "nextVerificationCondition": "対象運営の個別一次告知が得られた時点に対象・範囲・日時を照合。第三者の要約や推測だけで確定しない。",
+      "confirmedId": null
+    },
+    {
+      "name": "梅田芸術劇場 HP",
+      "url": "https://x.com/531_kane7sada7/status/2112948470097293487",
+      "note": "利用者による梅田芸術劇場HPへの言及。公演中止やチケット全体の停止とは断定せず、運営公式の個別告知の照合待ち。",
+      "nextVerificationCondition": "対象運営の個別一次告知が得られた時点に対象・範囲・日時を照合。第三者の要約や推測だけで確定しない。",
+      "confirmedId": null
+    },
+    {
+      "name": "ANA Pocket",
+      "url": "https://x.com/hskymjf/status/2112949149721309300",
+      "note": "利用者のANA Pocketに関する投稿。アプリ全体の停止・PHP原因・終了時刻をこの投稿だけで確定しません。",
+      "nextVerificationCondition": "対象運営の個別一次告知が得られた時点に対象・範囲・日時を照合。第三者の要約や推測だけで確定しない。",
+      "confirmedId": null
+    },
+    {
+      "name": "J SPORTS(関連サイト)",
+      "url": "https://x.com/kanapapi_sakura/status/2112953273661772103",
+      "note": "投稿はJ SPORTSの関連サイト名に言及。放送全体の停止や全サービスの影響を示す根拠ではなく、対象運営の原典照合待ち。",
+      "nextVerificationCondition": "対象運営の個別一次告知が得られた時点に対象・範囲・日時を照合。第三者の要約や推測だけで確定しない。",
+      "confirmedId": null
+    },
+    {
+      "name": "デレステ(アイドルマスター シンデレラガールズ スターライトステージ)",
+      "url": "https://x.com/_0_zz/status/2112964572340687118",
+      "note": "第三者の推測/複数サービスを含む投稿。既存のデレステ公式カードは独立の一次根拠のみを維持し、この投稿のFOD・金融等への追加推測は採用しません。",
+      "nextVerificationCondition": "対象運営の個別一次告知が得られた時点に対象・範囲・日時を照合。第三者の要約や推測だけで確定しない。",
+      "confirmedId": null
+    },
+    {
+      "name": "大和証券 口座開設など",
+      "url": "https://x.com/dfrb4f/status/2112958322009833742",
+      "note": "第三者が大和証券の口座開設に関する報道へ言及。会社の全サービス停止・侵害とは断定せず、個別運営告知の確認待ち。",
+      "nextVerificationCondition": "対象運営の個別一次告知が得られた時点に対象・範囲・日時を照合。第三者の要約や推測だけで確定しない。",
+      "confirmedId": null
+    },
+    {
+      "name": "静岡銀行 ネットバンキング",
+      "url": "https://x.com/tokonaka888/status/2112964951170244997",
+      "note": "第三者が静岡銀行のネットバンキングに関する報道へ言及。利用者の資産情報には触れず、公式運営の対象/状態の原典確認待ち。",
+      "nextVerificationCondition": "対象運営の個別一次告知が得られた時点に対象・範囲・日時を照合。第三者の要約や推測だけで確定しない。",
+      "confirmedId": null
+    },
+    {
+      "name": "七十七銀行 一部サービス/阪神電鉄 HP",
+      "url": "https://x.com/LunaLue/status/2112959434477785470",
+      "note": "第三者の見出し引用に七十七銀行・阪神/京阪関連の言及。各個別対象を同一原因・侵害・全停止とせず、既存の公式カードの根拠もこの投稿では変更しません。",
+      "nextVerificationCondition": "対象運営の個別一次告知が得られた時点に対象・範囲・日時を照合。第三者の要約や推測だけで確定しない。",
       "confirmedId": null
     }
   ],
@@ -40388,6 +42335,746 @@
         }
       ],
       "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "小説家になろう(ヒナプロジェクト全サービス)",
+      "sourceUrl": "https://x.com/syosetu",
+      "resolvedSourceUrl": "https://x.com/syosetu/status/2112940490236850473",
+      "decision": "pending",
+      "confirmedId": null,
+      "reason": "Xの初報・後続本文は取得しましたが、運営サイトから当該アカウントへの所有裏付けは今回未完了。公式ブログの一部接続制限と、全サービス停止/終了というXの範囲を混同しません。運営トップは通常readで403のため迂回しません。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "龍脈のアナザーエイドスR",
+      "sourceUrl": "https://x.com/AnotherEidos_R/status/2112949046675693842",
+      "resolvedSourceUrl": null,
+      "decision": "confirmed",
+      "confirmedId": "another-eidos-r",
+      "reason": "公式終了投稿と既存の公式所有根拠を照合し、既存カードへ反映。01:48 JSTは投稿時点であり正確な終了時刻ではありません。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "VISH/れんらくアプリ(バスキャッチ)",
+      "sourceUrl": "https://x.com/buscatch/status/2112944429694861409",
+      "resolvedSourceUrl": null,
+      "decision": "confirmed",
+      "confirmedId": "buscatch-status",
+      "reason": "公式再開投稿は10/22 00:50頃の再開を明記。管理画面/保護者アプリを含む対象範囲と、先行する別の障害表示を分けて既存カードへ反映。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "クラッシュフィーバー",
+      "sourceUrl": "https://x.com/CrashFever_PR/status/2112959462013366344",
+      "resolvedSourceUrl": null,
+      "decision": "confirmed",
+      "confirmedId": "crash-fever",
+      "reason": "公式原文で10/22 02:25終了を確認。従前01:00は予定であり終了実績ではありません。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "Cygames WebStore・Cygames Events",
+      "sourceUrl": "https://x.com/Cygamesid",
+      "resolvedSourceUrl": "https://x.com/Cygamesid/status/2112956174014529641",
+      "decision": "confirmed",
+      "confirmedId": "cygames-webstore-events",
+      "reason": "公式サイト原文・公式SNS所有・後続終了投稿を照合。WebStore/Eventsの2サービスの22:00頃〜02:10頃の報告であり、各ゲーム全体の復旧とは別。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "Palmu",
+      "sourceUrl": "https://x.com/palmu_jp/status/2112949506270695569",
+      "resolvedSourceUrl": null,
+      "decision": "confirmed",
+      "confirmedId": "palmu",
+      "reason": "公式の後続本文でも終了は未定。『明朝に改めて案内』を復旧の確定時刻にはしません。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "ALL.Net/Aime",
+      "sourceUrl": "https://x.com/allnet_info",
+      "resolvedSourceUrl": "https://x.com/allnet_info/status/2112898779590627729",
+      "decision": "pending",
+      "confirmedId": null,
+      "reason": "X原文は22:00への前倒しと翌11:30予定を案内。収集時の23:00表記は採用しません。当該アカウントの公式所有と対象全体の独立照合が不足し、既存の個別ゲーム5本のカードに全ALL.Net範囲を上書きしません。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "KaraGo",
+      "sourceUrl": "https://x.com/karago_jp/status/2112953387801366634",
+      "resolvedSourceUrl": null,
+      "decision": "pending",
+      "confirmedId": null,
+      "reason": "投稿本文はPHP更新後の終了を報告。運営サイトの公開本文から当該Xの正確な公式リンクを確認できず、公式所有の照合待ち。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "railog(レイログ)",
+      "sourceUrl": "https://x.com/railog_jp/status/2112954289236967445",
+      "resolvedSourceUrl": null,
+      "decision": "pending",
+      "confirmedId": null,
+      "reason": "投稿本文に19:30〜翌02:00の実施・再開報告。ステータス正常表示だけでは原因・時刻を確定せず、サービス公式と当該Xの所有裏付けを継続確認。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "アットウィキ アップロード/掲示板投稿",
+      "sourceUrl": "https://x.com/atwikijp/status/2112956570422440059",
+      "resolvedSourceUrl": null,
+      "decision": "confirmed",
+      "confirmedId": "atwiki-upload-board",
+      "reason": "運営トップ→公式サポート→正確なXリンクと原文を照合。アップロード/掲示板等のみの再開であり、閲覧・編集は元から利用可能。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "Livie(ライブハウス向け機能ほか)",
+      "sourceUrl": "https://x.com/Livie_app/status/2112958577782796389",
+      "resolvedSourceUrl": null,
+      "decision": "pending",
+      "confirmedId": null,
+      "reason": "原文でライブハウス向け申込機能の再開を案内。他の機能は影響なしとの説明。運営サイトと正確な公式Xの所有リンク、および元の停止告知の照合待ち。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "地獄楽 パラダイスバトル",
+      "sourceUrl": "https://x.com/jigokuraku_PB/status/2112963081525735707",
+      "resolvedSourceUrl": null,
+      "decision": "confirmed",
+      "confirmedId": "jigokuraku-paradise-battle",
+      "reason": "ゲーム公式サイトの正確なXリンクと原文を照合。10/21 23:00〜翌02:35頃の終了報告であり、他のDMMサービス全体には広げない。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "マンガワン アプリ版(Web版は未記載)",
+      "sourceUrl": "https://x.com/MangaONE_jp/status/2112964448122208474",
+      "resolvedSourceUrl": null,
+      "decision": "confirmed",
+      "confirmedId": "mangaone-app-browser",
+      "reason": "公式WebのXリンクと原文を照合。アプリは02:45終了、ブラウザ版は継続/終了未定と明記。収集時の『Web版は未記載』という要約は訂正。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "Aniborn(支援プラットフォーム)",
+      "sourceUrl": "https://x.com/aniborn_com/status/2112965271107567682",
+      "resolvedSourceUrl": null,
+      "decision": "pending",
+      "confirmedId": null,
+      "reason": "X原文はPHP対応後の通常サービス再開を案内。運営ドメインの通常readは403で、稼働確認や所有確認を完了扱いせず制限を迂回しません。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "クロスサマナー:R(So-net Taiwan)",
+      "sourceUrl": "https://x.com/CSRbySonet/status/2112965672401817968",
+      "resolvedSourceUrl": null,
+      "decision": "pending",
+      "confirmedId": null,
+      "reason": "投稿原文はメンテ終了・ログイン再開を案内。So-net側サイトの正確なアカウント所有リンクは未確認。投稿者名だけで公式認定しません。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "えろま!",
+      "sourceUrl": "https://x.com/azumi_s/status/2112965620241469900",
+      "resolvedSourceUrl": null,
+      "decision": "pending",
+      "confirmedId": null,
+      "reason": "投稿原文に02:50終了との記述。個人投稿者と対象サイトの運営所有は未確認。成人向け本文・利用者限定の内容は取得/再配布しません。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "プリンセスコネクト!Re:Dive",
+      "sourceUrl": "https://x.com/priconne_redive",
+      "resolvedSourceUrl": "https://x.com/priconne_redive/status/2112957789073240573",
+      "decision": "confirmed",
+      "confirmedId": "priconne",
+      "reason": "ゲーム公式の開始変更/終了原文と所有表記を照合。22:00頃は後続の開始予定、ゲーム終了は02:10。WebStore等は別の公式報告で確認。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "ニジエ",
+      "sourceUrl": "https://x.com/nijie_tan",
+      "resolvedSourceUrl": "https://x.com/nijie_tan/status/2112921924024299711",
+      "decision": "pending",
+      "confirmedId": null,
+      "reason": "プロフィールと関連原文に終了報告・サーバー会社側作業による不安定の記述。正確な公式所有は未照合。終了したから全機能が安定とはしません。年齢確認の送信はしていません。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "私辞書(アプリ)",
+      "sourceUrl": "https://x.com/watashijishoapp/status/2112939182561865956",
+      "resolvedSourceUrl": null,
+      "decision": "pending",
+      "confirmedId": null,
+      "reason": "投稿原文にPHP対応の停止案内。編集後の新しい投稿URLがあり、最新原文と公式所有の照合が未完了。編集前を最新事実として確定しません。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "ゲッサンWEB",
+      "sourceUrl": "https://x.com/gessanofficial/status/2112944257749410060",
+      "resolvedSourceUrl": null,
+      "decision": "pending",
+      "confirmedId": null,
+      "reason": "原文はゲッサンWEBを22:30から安全確保のため停止と案内。運営の過去公式記事に当該Xの記載を検索本文で確認しましたが、現在の所有/対象への独立再照合は未完了。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "生田斗真 FCサイト",
+      "sourceUrl": "https://x.com/TOMA_IKUTA10/status/2112944310694109327",
+      "resolvedSourceUrl": null,
+      "decision": "pending",
+      "confirmedId": null,
+      "reason": "投稿原文はFCサイトのPHP対応を案内。対象運営者の正確な公式アカウント所有リンクと、最新の対象機能/状態の照合待ち。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "メタリア総合文化祭 公式サイト",
+      "sourceUrl": "https://x.com/metareafes/status/2112946975457116293",
+      "resolvedSourceUrl": null,
+      "decision": "pending",
+      "confirmedId": null,
+      "reason": "投稿原文はイベント公式WebサイトのPHP対応を案内。イベントそのものの中止とは読み替えず、正確な運営所有と対象URLを照合待ち。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "やかん亭 レンタルサービス(makeshop)",
+      "sourceUrl": "https://x.com/yakantei/status/2112948991411544287",
+      "resolvedSourceUrl": null,
+      "decision": "pending",
+      "confirmedId": null,
+      "reason": "原文はショップ/レンタル関連のmakeshop停止を案内。店頭・レンタル業務の全体停止とは確定せず、対象ショップと公式アカウント所有を照合待ち。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "NTTドコモ 一部Webサイト",
+      "sourceUrl": "https://x.com/docomo/status/2112948997036105763",
+      "resolvedSourceUrl": null,
+      "decision": "confirmed",
+      "confirmedId": "docomo-partial-web",
+      "reason": "NTTドコモ公式ドメインの本文を独立照合。一部Webサイトを予防停止、安全確認後に順次再開。携帯電話回線停止やPHP原因は記載なし。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "グループSNE公式ショップ SNE-EC",
+      "sourceUrl": "https://x.com/ec_sne/status/2112949346690064392",
+      "resolvedSourceUrl": null,
+      "decision": "pending",
+      "confirmedId": null,
+      "reason": "原文はショップのPHP対応を案内。既注文の受付/出荷予定と実出荷を分けます。公式ショップの通常readは403で、制限を迂回せず所有・最新状態は未確認。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "シネマリス オンライン予約",
+      "sourceUrl": "https://x.com/CineMalice2024/status/2112953175724703830",
+      "resolvedSourceUrl": null,
+      "decision": "pending",
+      "confirmedId": null,
+      "reason": "原文はオンライン予約の23:00〜翌16:00予定と窓口の代替案内。映画館自体の全営業停止には広げず、運営者の公式所有/対象URL/終了実績の照合待ち。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "レインブラントティー オンラインショップ",
+      "sourceUrl": "https://x.com/rainbrant_tea/status/2112954232961958320",
+      "resolvedSourceUrl": null,
+      "decision": "pending",
+      "confirmedId": null,
+      "reason": "原文はオンラインショップの安全対応・終了未定を案内。当該Xとショップ運営者の正確な所有裏付けが不足。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "誰でもスマホ",
+      "sourceUrl": "https://x.com/daredemo_sumaho/status/2112954314234994899",
+      "resolvedSourceUrl": null,
+      "decision": "pending",
+      "confirmedId": null,
+      "reason": "投稿本文にメンテ案内の運営URLへのリンク。引用部分のPHP説明を自社の原因とはせず、元の個別公式ページと運営所有の照合待ち。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "東京国際映画祭 公式サイト ニュース",
+      "sourceUrl": "https://x.com/tiff_site/status/2112954400323019074",
+      "resolvedSourceUrl": null,
+      "decision": "confirmed",
+      "confirmedId": "tiff-news-pages",
+      "reason": "映画祭公式トップからの正確なXリンクと原文を照合。00:30開始、ニュースページのみ。映画祭中止や全チケット機能停止ではない。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "C-HOUSE(フリマ)",
+      "sourceUrl": "https://x.com/cryptohousejp/status/2112955551026130951",
+      "resolvedSourceUrl": null,
+      "decision": "pending",
+      "confirmedId": null,
+      "reason": "原文はセキュリティ対応によるサイト停止を案内。正確な運営所有・対象URL・最新状態の追加照合待ち。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "リモデルクラブ(ホームページ制作・サーバー)",
+      "sourceUrl": "https://x.com/sskikaku_web/status/2112957651814609237",
+      "resolvedSourceUrl": null,
+      "decision": "pending",
+      "confirmedId": null,
+      "reason": "原文は23:00〜翌09:00予定のサーバー保守、Webメール/データベース管理画面が不安定になる可能性。全Webサイトが連続停止すると拡張せず、対象運営者の公式所有を照合待ち。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "いなり(FujimiInari)対象サービス",
+      "sourceUrl": "https://x.com/FujimiInari/status/2112958783685333243",
+      "resolvedSourceUrl": null,
+      "decision": "pending",
+      "confirmedId": null,
+      "reason": "投稿には『おやすみ』等の表現がありますが、対象サービスのURL・具体的停止範囲が特定できません。実サイトの停止告知として確定せず、原典の具体化を待つ。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "サイバースターポータル 全サービス",
+      "sourceUrl": "https://x.com/CyberStarPortal/status/2112958841105322148",
+      "resolvedSourceUrl": null,
+      "decision": "pending",
+      "confirmedId": null,
+      "reason": "原文は全サービスの安全対応・終了未定を案内。対象ショップ/ポータル運営者と当該Xの正確な所有裏付けは未確認。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "CLIP STUDIO 各種サービス",
+      "sourceUrl": "https://x.com/clip_celsys/status/2112961482850013532",
+      "resolvedSourceUrl": null,
+      "decision": "confirmed",
+      "confirmedId": "clipstudio-possible-maintenance",
+      "reason": "製品公式サイトの正確なXリンクと原文を照合。実施自体が未定の停止可能性の予告であり、すでに停止中/復旧対象という集計に入れない。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "ULTREX",
+      "sourceUrl": "https://x.com/ULTREX_official/status/2112962895378337987",
+      "resolvedSourceUrl": null,
+      "decision": "pending",
+      "confirmedId": null,
+      "reason": "原文に安全対策のサイトメンテ案内。対象サイトの通常readが取得できず、運営所有・対象の原典照合待ち。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "TuneMATE イヤホン販売サイト",
+      "sourceUrl": "https://x.com/CS_TuneMATE/status/2112962940395798749",
+      "resolvedSourceUrl": null,
+      "decision": "pending",
+      "confirmedId": null,
+      "reason": "原文はイヤホン販売サイトの停止を案内しサイバースターポータルの告知を引用。同一基盤との重なりは未確定で、別インシデントとして加算しません。公式所有も照合待ち。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "サッカーキング",
+      "sourceUrl": "https://x.com/SoccerKingJP/status/2112964857226272905",
+      "resolvedSourceUrl": null,
+      "decision": "pending",
+      "confirmedId": null,
+      "reason": "原文に安全対応のサイト停止案内。過去の運営記事に当該Xの表記を検索本文で見つけましたが、最新の所有裏付けと対象範囲の追加照合待ち。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "センチュリー21加盟店(c21shige)サイト",
+      "sourceUrl": "https://x.com/c21shige/status/2112965594706596328",
+      "resolvedSourceUrl": null,
+      "decision": "pending",
+      "confirmedId": null,
+      "reason": "原文は加盟店の関連サイトについて19:00〜翌09:00予定のPHP対応を案内。センチュリー21全体の停止とはせず、当該加盟店の運営所有/対象URLを照合待ち。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "ランゲッポー",
+      "sourceUrl": "https://x.com/hiyoro/status/2112965642072809755",
+      "resolvedSourceUrl": null,
+      "decision": "pending",
+      "confirmedId": null,
+      "reason": "原文にPHP対応の記述はありますが、対象サイトURLと投稿者の運営所有が未確認。サービスを特定するまで確定群にしません。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "ムームードメイン 一部サービス",
+      "sourceUrl": "https://x.com/muumuu_domain/status/2112965687027380538",
+      "resolvedSourceUrl": null,
+      "decision": "pending",
+      "confirmedId": null,
+      "reason": "原文はムームーサーバー/WPホスティングの利用者Webサイトの停止に言及。既存の管理画面のみの公式告知と同じ範囲ではありません。Xの所有裏付けと運営の個別原典を追加照合するまで既存カードへ拡張しません。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "Pokémon HOME",
+      "sourceUrl": "https://x.com/Poke_Champ_jp",
+      "resolvedSourceUrl": "https://x.com/Poke_Champ_jp/status/2112853911283396840",
+      "decision": "pending",
+      "confirmedId": null,
+      "reason": "プロフィールにHOMEとChampionsの別々の関連投稿を取得。HOMEの個別告知と運営所有の独立照合が未完了。2タイトルを一括りにして状態を上書きしません。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "profile_retrieved_individual_pending"
+    },
+    {
+      "name": "TOKYO FM Webサイト",
+      "sourceUrl": "https://x.com/sol_info",
+      "resolvedSourceUrl": "https://x.com/sol_info/status/2112922108561092765",
+      "decision": "pending",
+      "confirmedId": null,
+      "reason": "プロフィール内のTOKYO FMサイト保守投稿を取得。放送全体の停止とはせず、個別原文と運営所有の照合待ち。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "profile_retrieved_individual_pending"
+    },
+    {
+      "name": "NAOMI CITY",
+      "sourceUrl": "https://x.com/naomicity703",
+      "resolvedSourceUrl": "https://x.com/naomicity703/status/2112922136524574973",
+      "decision": "pending",
+      "confirmedId": null,
+      "reason": "プロフィール内のNAOMI CITYのPHP対応投稿を取得。対象サイトURL/正確な運営所有/個別原文の照合待ち。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "profile_retrieved_individual_pending"
+    },
+    {
+      "name": "Fate/Grand Order 関連サイト",
+      "sourceUrl": "https://x.com/fgoproject",
+      "resolvedSourceUrl": "https://x.com/fgoproject/status/2112922281735573580",
+      "decision": "pending",
+      "confirmedId": null,
+      "reason": "個別原文を取得。FGO関連のイベント/朗読/ショートアニメ等のWebサイトの保守案内で、ゲーム本体全体の停止とはしません。正確な公式所有の裏付けが未完了。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "クリープハイプ オフィシャルサイト",
+      "sourceUrl": "https://x.com/creephyp",
+      "resolvedSourceUrl": "https://x.com/creephyp/status/2112907590124618104",
+      "decision": "pending",
+      "confirmedId": null,
+      "reason": "プロフィール内の公式サイト保守案内を取得。22:30開始の表記があるが、個別原文と正確な運営所有を照合待ち。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "profile_retrieved_individual_pending"
+    },
+    {
+      "name": "ストリートファイターV",
+      "sourceUrl": "https://x.com/StreetFighterJA",
+      "resolvedSourceUrl": "https://x.com/StreetFighterJA/status/2112854699854762032",
+      "decision": "pending",
+      "confirmedId": null,
+      "reason": "プロフィール内のストリートファイターVの不具合修正保守を取得。PHP原因とは示されていません。個別原文・運営所有・対象日付の照合待ち。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "profile_retrieved_individual_pending"
+    },
+    {
+      "name": "ツイステッドワンダーランド 公式サイト",
+      "sourceUrl": "https://x.com/twst_jp",
+      "resolvedSourceUrl": "https://x.com/twst_jp/status/2112910819164115407",
+      "decision": "pending",
+      "confirmedId": null,
+      "reason": "プロフィール内の公式Webサイトの保守案内を取得。ゲーム本体の停止へ拡張せず、個別原文と運営所有の照合待ち。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "profile_retrieved_individual_pending"
+    },
+    {
+      "name": "ぷらいべったー/Privatter+",
+      "sourceUrl": "https://x.com/privatter",
+      "resolvedSourceUrl": "https://x.com/privatter/status/2112870935900684640",
+      "decision": "pending",
+      "confirmedId": null,
+      "reason": "プロフィールにぷらいべったー/Privatter+の停止案内を取得。個別原文と正確な公式所有・最新状態の照合待ち。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "profile_retrieved_individual_pending"
+    },
+    {
+      "name": "sb_tomonokai(ファンクラブ系サイト)",
+      "sourceUrl": "https://x.com/sb_tomonokai",
+      "resolvedSourceUrl": "https://x.com/sb_tomonokai/status/2112909341871550591",
+      "decision": "pending",
+      "confirmedId": null,
+      "reason": "プロフィール内のPHP対応案内を取得。対象範囲の詳細が添付にあるため、未取得の画像内容を推測せず、個別原文・公式所有・対象機能を照合待ち。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "profile_retrieved_individual_pending"
+    },
+    {
+      "name": "うたの☆プリンスさまっ♪ LE(utapri_LE)",
+      "sourceUrl": "https://x.com/utapri_LE",
+      "resolvedSourceUrl": "https://x.com/utapri_LE/status/2112903002743013817",
+      "decision": "pending",
+      "confirmedId": null,
+      "reason": "個別原文にアプリの22:50からのPHP対応案内。終了未定の予定を経過だけで終了とせず、正確な運営所有の裏付けを照合待ち。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "Vaundy 関連サイト",
+      "sourceUrl": "https://x.com/Vaundy_AWS",
+      "resolvedSourceUrl": "https://x.com/Vaundy_AWS/status/2112913091809947976",
+      "decision": "pending",
+      "confirmedId": null,
+      "reason": "プロフィール内の関連サイトPHP対応案内を取得。全公演/配信の停止には広げず、個別原文と正確な運営所有の照合待ち。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "profile_retrieved_individual_pending"
+    },
+    {
+      "name": "ドラゴンボール ザ ブレイカーズ",
+      "sourceUrl": "https://x.com/DB_THEBREAKERS",
+      "resolvedSourceUrl": "https://x.com/DB_THEBREAKERS/status/2112893823903010940",
+      "decision": "pending",
+      "confirmedId": null,
+      "reason": "プロフィール内に対象ゲームの保守告知を取得。個別原文と運営所有、対象機能/最新の状態の照合待ち。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "profile_retrieved_individual_pending"
+    },
+    {
+      "name": "アナザーエデン",
+      "sourceUrl": "https://x.com/rpg_AE",
+      "resolvedSourceUrl": "https://x.com/rpg_AE/status/2112862202625761447",
+      "decision": "pending",
+      "confirmedId": null,
+      "reason": "プロフィール内に22:30からのセキュリティ対応保守を取得。個別原文と運営所有の裏付けは未完了。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "profile_retrieved_individual_pending"
+    },
+    {
+      "name": "乃木坂的フラクタル/乃木恋(nogikoiofficial)",
+      "sourceUrl": "https://x.com/nogikoiofficial",
+      "resolvedSourceUrl": "https://x.com/nogikoiofficial/status/2112873882235642142",
+      "decision": "pending",
+      "confirmedId": null,
+      "reason": "個別原文は『乃木恋』ゲームとWebショップの21:00からの保守。収集名に含まれた別ゲーム『乃木坂的フラクタル』の根拠にはせず、正確な運営所有を照合待ち。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "SYNCROOM(Yamaha Music ID)",
+      "sourceUrl": "https://x.com/yamaha_SYNCROOM",
+      "resolvedSourceUrl": "https://x.com/yamaha_SYNCROOM/status/2112854504471396683",
+      "decision": "pending",
+      "confirmedId": null,
+      "reason": "プロフィール内のYamaha Music ID認証に関する22:50〜26:30予定を取得。終了予定経過を完了とはせず、個別原文・公式所有と実際の終了報告を照合待ち。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "profile_retrieved_individual_pending"
+    },
+    {
+      "name": "AT-X 公式サイト",
+      "sourceUrl": "https://x.com/ATX_PR",
+      "resolvedSourceUrl": "https://x.com/ATX_PR/status/2112909578493116645",
+      "decision": "pending",
+      "confirmedId": null,
+      "reason": "プロフィール内の公式Webサイト保守案内を取得。AT-Xの放送そのものの停止とはせず、個別原文と運営所有を照合待ち。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "profile_retrieved_individual_pending"
+    },
+    {
+      "name": "ドズル社/WONDER DIVE 公式サイト",
+      "sourceUrl": "https://x.com/dozle_official",
+      "resolvedSourceUrl": "https://x.com/dozle_official/status/2112855951464444070",
+      "decision": "pending",
+      "confirmedId": null,
+      "reason": "プロフィール内のドズル社/WONDER DIVEの2Webサイトに関する告知を取得。すべての動画配信の停止とせず、個別原文と運営所有を照合待ち。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "profile_retrieved_individual_pending"
+    },
+    {
+      "name": "タイッツー/きがるがき/ツクセカ",
+      "sourceUrl": "https://x.com/hoku_unagi",
+      "resolvedSourceUrl": "https://x.com/hoku_unagi/status/2112863433930715574",
+      "decision": "pending",
+      "confirmedId": null,
+      "reason": "プロフィール内に3サービスの21:00予定のPHP対応案内を取得。個別原文と正確な運営所有の照合待ち。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "profile_retrieved_individual_pending"
+    },
+    {
+      "name": "あすけん(アプリ/Web/あすけんmore)",
+      "sourceUrl": "https://x.com/askenjp",
+      "resolvedSourceUrl": "https://x.com/askenjp/status/2112907393332097219",
+      "decision": "pending",
+      "confirmedId": null,
+      "reason": "プロフィール内にアプリ/Web/moreの22:50からの安全対応告知を取得。利用者の個人記録にはアクセスせず、個別原文・公式所有・最新の復旧報告を照合待ち。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "profile_retrieved_individual_pending"
+    },
+    {
+      "name": "ガンダムVS.モバイル/公式サイト",
+      "sourceUrl": "https://x.com/gundamvs",
+      "resolvedSourceUrl": "https://x.com/gundamvs/status/2112876229233947089",
+      "decision": "pending",
+      "confirmedId": null,
+      "reason": "個別原文はガンダムVS.モバイル/関連公式サイトを翌12時予定まで保守。全アーケードゲームの停止とはしません。正確な公式所有の独立裏付けは未完了。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "神撃のバハムート系(bahamut_cygames)",
+      "sourceUrl": "https://x.com/bahamut_cygames",
+      "resolvedSourceUrl": "https://x.com/bahamut_cygames/status/2112846929633956210",
+      "decision": "pending",
+      "confirmedId": null,
+      "reason": "プロフィール内にゲームのPHP対応案内を取得。個別原文と正確な運営所有・最新の状態の照合待ち。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "profile_retrieved_individual_pending"
+    },
+    {
+      "name": "セガ製品情報サイト",
+      "sourceUrl": "https://x.com/SEGA_OFFICIAL",
+      "resolvedSourceUrl": "https://x.com/SEGA_OFFICIAL/status/2112913702093832408",
+      "decision": "pending",
+      "confirmedId": null,
+      "reason": "個別原文はSEGA製品情報サイトsega.jpの22:55からのPHP対応。すべてのセガゲームの停止とせず、正確な公式所有の裏付けを照合待ち。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "音楽ナタリーほかナタリー",
+      "sourceUrl": "https://x.com/natalie_mu",
+      "resolvedSourceUrl": "https://x.com/natalie_mu/status/2112924506063032594",
+      "decision": "pending",
+      "confirmedId": null,
+      "reason": "プロフィール内のメンテナンス案内を取得。取得範囲でナタリー全分野の対象一覧を確定できず、個別原文と運営所有/範囲を照合待ち。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "profile_retrieved_individual_pending"
+    },
+    {
+      "name": "DLsite",
+      "sourceUrl": "https://x.com/PJ_MINUS20000G/status/2112939371850776712",
+      "resolvedSourceUrl": null,
+      "decision": "related",
+      "confirmedId": null,
+      "reason": "第三者によるDLsiteの利用状況の投稿。運営者の個別公式告知と所有を未確認であり、停止・原因・復旧の確定根拠にしません。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "楽天(一部機能)",
+      "sourceUrl": "https://x.com/hakopopu/status/2112939295665533296",
+      "resolvedSourceUrl": null,
+      "decision": "related",
+      "confirmedId": null,
+      "reason": "第三者による楽天の一部機能の投稿。対象機能が特定できず、楽天チケット等の別の既存カードに名称だけで統合しません。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "森高千里 Webサイト",
+      "sourceUrl": "https://x.com/windy_toshi/status/2112939273175617647",
+      "resolvedSourceUrl": null,
+      "decision": "related",
+      "confirmedId": null,
+      "reason": "第三者の投稿に森高千里や別アーティストのサイトへの言及。各運営の個別一次告知が未照合で、全対象のPHP原因を確定しません。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "Ci-en",
+      "sourceUrl": "https://x.com/SSSS_Sei_Otaku/status/2112943642226909626",
+      "resolvedSourceUrl": null,
+      "decision": "related",
+      "confirmedId": null,
+      "reason": "利用者によるCi-enの関連投稿。運営者の個別原文と対象範囲を未確認のため、確定停止カードではなく関連資料として保持。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "梅田芸術劇場 HP",
+      "sourceUrl": "https://x.com/531_kane7sada7/status/2112948470097293487",
+      "resolvedSourceUrl": null,
+      "decision": "related",
+      "confirmedId": null,
+      "reason": "利用者による梅田芸術劇場HPへの言及。公演中止やチケット全体の停止とは断定せず、運営公式の個別告知の照合待ち。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "ANA Pocket",
+      "sourceUrl": "https://x.com/hskymjf/status/2112949149721309300",
+      "resolvedSourceUrl": null,
+      "decision": "related",
+      "confirmedId": null,
+      "reason": "利用者のANA Pocketに関する投稿。アプリ全体の停止・PHP原因・終了時刻をこの投稿だけで確定しません。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "J SPORTS(関連サイト)",
+      "sourceUrl": "https://x.com/kanapapi_sakura/status/2112953273661772103",
+      "resolvedSourceUrl": null,
+      "decision": "related",
+      "confirmedId": null,
+      "reason": "投稿はJ SPORTSの関連サイト名に言及。放送全体の停止や全サービスの影響を示す根拠ではなく、対象運営の原典照合待ち。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "デレステ(アイドルマスター シンデレラガールズ スターライトステージ)",
+      "sourceUrl": "https://x.com/_0_zz/status/2112964572340687118",
+      "resolvedSourceUrl": null,
+      "decision": "related",
+      "confirmedId": null,
+      "reason": "第三者の推測/複数サービスを含む投稿。既存のデレステ公式カードは独立の一次根拠のみを維持し、この投稿のFOD・金融等への追加推測は採用しません。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "大和証券 口座開設など",
+      "sourceUrl": "https://x.com/dfrb4f/status/2112958322009833742",
+      "resolvedSourceUrl": null,
+      "decision": "related",
+      "confirmedId": null,
+      "reason": "第三者が大和証券の口座開設に関する報道へ言及。会社の全サービス停止・侵害とは断定せず、個別運営告知の確認待ち。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "静岡銀行 ネットバンキング",
+      "sourceUrl": "https://x.com/tokonaka888/status/2112964951170244997",
+      "resolvedSourceUrl": null,
+      "decision": "related",
+      "confirmedId": null,
+      "reason": "第三者が静岡銀行のネットバンキングに関する報道へ言及。利用者の資産情報には触れず、公式運営の対象/状態の原典確認待ち。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "七十七銀行 一部サービス/阪神電鉄 HP",
+      "sourceUrl": "https://x.com/LunaLue/status/2112959434477785470",
+      "resolvedSourceUrl": null,
+      "decision": "related",
+      "confirmedId": null,
+      "reason": "第三者の見出し引用に七十七銀行・阪神/京阪関連の言及。各個別対象を同一原因・侵害・全停止とせず、既存の公式カードの根拠もこの投稿では変更しません。",
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "sourceRead": "body_retrieved"
     }
   ],
   "relationships": [
@@ -40541,25 +43228,26 @@
     "classifiedOriginalGroups": 457,
     "additionalDiscoveryRows": 107,
     "classifiedAdditionalRows": 107,
-    "allDiscoveryRows": 909,
+    "allDiscoveryRows": 983,
     "sourceRowsByDecision": {
-      "confirmed": 363,
-      "duplicate": 52,
-      "pending": 376,
-      "related": 109,
+      "confirmed": 376,
+      "duplicate": 54,
+      "pending": 424,
+      "related": 120,
       "excluded": 8,
       "pending-update": 1
     },
     "meaning": "収集行・元資料グループ・告知カードは別単位です。全候補を保持し、固有サイト数・停止数とはしません。",
-    "additionalGrokRows": 275,
+    "additionalGrokRows": 349,
     "piyologNewPrimaryUrls": 27,
-    "additionalOwnerVerifiedCards": 61,
+    "additionalOwnerVerifiedCards": 70,
     "followupReview": {
-      "checkedAt": "2026-10-21T17:17:00Z",
-      "scope": "既収集5対象の所有/元告知、予定と実績、サービスとサイトを分離",
-      "method": "一次資料の本文・要約欄・運営者リンクをカード表現と照合。投稿時点と実際の終了時刻を区別",
-      "result": "blockingなし。Fortnite後続は本文でなく公式投稿要約欄と明記"
-    }
+      "checkedAt": "2026-10-21T18:18:00Z",
+      "scope": "新規9カードと既存5カードの後続原文、74新収集行の原典/プロフィール、運営所有、予定/実績、対象機能を分離",
+      "method": "取得済み一次資料をカード表現と照合。原文の短句に対する別担当レビュー合格。別担当による全URLの再取得確認ではない。",
+      "result": "blockingなし。Anotherは終了投稿時点、MangaONEはアプリのみ復旧・Web継続、TIFFはニュースのみ、atwikiは一部機能のみ。CLIPは実施未定の停止可能性で実停止集計から除外。"
+    },
+    "followupDiscoveryRows": 74
   },
   "collectionBatches": [
     {
@@ -44979,6 +47667,532 @@
         }
       ],
       "note": "二次資料は収集の手掛かりのみ。個別一次告知と照合し、原表を転載しません。"
+    },
+    {
+      "id": "public-notice-followup-20261022-0300",
+      "collectedAt": "2026-10-21T18:00:00Z",
+      "rowCount": 74,
+      "members": [
+        {
+          "name": "小説家になろう(ヒナプロジェクト全サービス)",
+          "sourceUrl": null,
+          "sourceProfile": "https://x.com/syosetu",
+          "resolvedSourceUrl": "https://x.com/syosetu/status/2112940490236850473",
+          "verification": "pending"
+        },
+        {
+          "name": "龍脈のアナザーエイドスR",
+          "sourceUrl": "https://x.com/AnotherEidos_R/status/2112949046675693842",
+          "sourceProfile": null,
+          "resolvedSourceUrl": null,
+          "verification": "confirmed"
+        },
+        {
+          "name": "VISH/れんらくアプリ(バスキャッチ)",
+          "sourceUrl": "https://x.com/buscatch/status/2112944429694861409",
+          "sourceProfile": null,
+          "resolvedSourceUrl": null,
+          "verification": "confirmed"
+        },
+        {
+          "name": "クラッシュフィーバー",
+          "sourceUrl": "https://x.com/CrashFever_PR/status/2112959462013366344",
+          "sourceProfile": null,
+          "resolvedSourceUrl": null,
+          "verification": "confirmed"
+        },
+        {
+          "name": "Cygames WebStore・Cygames Events",
+          "sourceUrl": null,
+          "sourceProfile": "https://x.com/Cygamesid",
+          "resolvedSourceUrl": "https://x.com/Cygamesid/status/2112956174014529641",
+          "verification": "confirmed"
+        },
+        {
+          "name": "Palmu",
+          "sourceUrl": "https://x.com/palmu_jp/status/2112949506270695569",
+          "sourceProfile": null,
+          "resolvedSourceUrl": null,
+          "verification": "confirmed"
+        },
+        {
+          "name": "ALL.Net/Aime",
+          "sourceUrl": null,
+          "sourceProfile": "https://x.com/allnet_info",
+          "resolvedSourceUrl": "https://x.com/allnet_info/status/2112898779590627729",
+          "verification": "pending"
+        },
+        {
+          "name": "KaraGo",
+          "sourceUrl": "https://x.com/karago_jp/status/2112953387801366634",
+          "sourceProfile": null,
+          "resolvedSourceUrl": null,
+          "verification": "pending"
+        },
+        {
+          "name": "railog(レイログ)",
+          "sourceUrl": "https://x.com/railog_jp/status/2112954289236967445",
+          "sourceProfile": null,
+          "resolvedSourceUrl": null,
+          "verification": "pending"
+        },
+        {
+          "name": "アットウィキ アップロード/掲示板投稿",
+          "sourceUrl": "https://x.com/atwikijp/status/2112956570422440059",
+          "sourceProfile": null,
+          "resolvedSourceUrl": null,
+          "verification": "confirmed"
+        },
+        {
+          "name": "Livie(ライブハウス向け機能ほか)",
+          "sourceUrl": "https://x.com/Livie_app/status/2112958577782796389",
+          "sourceProfile": null,
+          "resolvedSourceUrl": null,
+          "verification": "pending"
+        },
+        {
+          "name": "地獄楽 パラダイスバトル",
+          "sourceUrl": "https://x.com/jigokuraku_PB/status/2112963081525735707",
+          "sourceProfile": null,
+          "resolvedSourceUrl": null,
+          "verification": "confirmed"
+        },
+        {
+          "name": "マンガワン アプリ版(Web版は未記載)",
+          "sourceUrl": "https://x.com/MangaONE_jp/status/2112964448122208474",
+          "sourceProfile": null,
+          "resolvedSourceUrl": null,
+          "verification": "confirmed"
+        },
+        {
+          "name": "Aniborn(支援プラットフォーム)",
+          "sourceUrl": "https://x.com/aniborn_com/status/2112965271107567682",
+          "sourceProfile": null,
+          "resolvedSourceUrl": null,
+          "verification": "pending"
+        },
+        {
+          "name": "クロスサマナー:R(So-net Taiwan)",
+          "sourceUrl": "https://x.com/CSRbySonet/status/2112965672401817968",
+          "sourceProfile": null,
+          "resolvedSourceUrl": null,
+          "verification": "pending"
+        },
+        {
+          "name": "えろま!",
+          "sourceUrl": "https://x.com/azumi_s/status/2112965620241469900",
+          "sourceProfile": null,
+          "resolvedSourceUrl": null,
+          "verification": "pending"
+        },
+        {
+          "name": "プリンセスコネクト!Re:Dive",
+          "sourceUrl": null,
+          "sourceProfile": "https://x.com/priconne_redive",
+          "resolvedSourceUrl": "https://x.com/priconne_redive/status/2112957789073240573",
+          "verification": "confirmed"
+        },
+        {
+          "name": "ニジエ",
+          "sourceUrl": null,
+          "sourceProfile": "https://x.com/nijie_tan",
+          "resolvedSourceUrl": "https://x.com/nijie_tan/status/2112921924024299711",
+          "verification": "pending"
+        },
+        {
+          "name": "私辞書(アプリ)",
+          "sourceUrl": "https://x.com/watashijishoapp/status/2112939182561865956",
+          "sourceProfile": null,
+          "resolvedSourceUrl": null,
+          "verification": "pending"
+        },
+        {
+          "name": "ゲッサンWEB",
+          "sourceUrl": "https://x.com/gessanofficial/status/2112944257749410060",
+          "sourceProfile": null,
+          "resolvedSourceUrl": null,
+          "verification": "pending"
+        },
+        {
+          "name": "生田斗真 FCサイト",
+          "sourceUrl": "https://x.com/TOMA_IKUTA10/status/2112944310694109327",
+          "sourceProfile": null,
+          "resolvedSourceUrl": null,
+          "verification": "pending"
+        },
+        {
+          "name": "メタリア総合文化祭 公式サイト",
+          "sourceUrl": "https://x.com/metareafes/status/2112946975457116293",
+          "sourceProfile": null,
+          "resolvedSourceUrl": null,
+          "verification": "pending"
+        },
+        {
+          "name": "やかん亭 レンタルサービス(makeshop)",
+          "sourceUrl": "https://x.com/yakantei/status/2112948991411544287",
+          "sourceProfile": null,
+          "resolvedSourceUrl": null,
+          "verification": "pending"
+        },
+        {
+          "name": "NTTドコモ 一部Webサイト",
+          "sourceUrl": "https://x.com/docomo/status/2112948997036105763",
+          "sourceProfile": null,
+          "resolvedSourceUrl": null,
+          "verification": "confirmed"
+        },
+        {
+          "name": "グループSNE公式ショップ SNE-EC",
+          "sourceUrl": "https://x.com/ec_sne/status/2112949346690064392",
+          "sourceProfile": null,
+          "resolvedSourceUrl": null,
+          "verification": "pending"
+        },
+        {
+          "name": "シネマリス オンライン予約",
+          "sourceUrl": "https://x.com/CineMalice2024/status/2112953175724703830",
+          "sourceProfile": null,
+          "resolvedSourceUrl": null,
+          "verification": "pending"
+        },
+        {
+          "name": "レインブラントティー オンラインショップ",
+          "sourceUrl": "https://x.com/rainbrant_tea/status/2112954232961958320",
+          "sourceProfile": null,
+          "resolvedSourceUrl": null,
+          "verification": "pending"
+        },
+        {
+          "name": "誰でもスマホ",
+          "sourceUrl": "https://x.com/daredemo_sumaho/status/2112954314234994899",
+          "sourceProfile": null,
+          "resolvedSourceUrl": null,
+          "verification": "pending"
+        },
+        {
+          "name": "東京国際映画祭 公式サイト ニュース",
+          "sourceUrl": "https://x.com/tiff_site/status/2112954400323019074",
+          "sourceProfile": null,
+          "resolvedSourceUrl": null,
+          "verification": "confirmed"
+        },
+        {
+          "name": "C-HOUSE(フリマ)",
+          "sourceUrl": "https://x.com/cryptohousejp/status/2112955551026130951",
+          "sourceProfile": null,
+          "resolvedSourceUrl": null,
+          "verification": "pending"
+        },
+        {
+          "name": "リモデルクラブ(ホームページ制作・サーバー)",
+          "sourceUrl": "https://x.com/sskikaku_web/status/2112957651814609237",
+          "sourceProfile": null,
+          "resolvedSourceUrl": null,
+          "verification": "pending"
+        },
+        {
+          "name": "いなり(FujimiInari)対象サービス",
+          "sourceUrl": "https://x.com/FujimiInari/status/2112958783685333243",
+          "sourceProfile": null,
+          "resolvedSourceUrl": null,
+          "verification": "pending"
+        },
+        {
+          "name": "サイバースターポータル 全サービス",
+          "sourceUrl": "https://x.com/CyberStarPortal/status/2112958841105322148",
+          "sourceProfile": null,
+          "resolvedSourceUrl": null,
+          "verification": "pending"
+        },
+        {
+          "name": "CLIP STUDIO 各種サービス",
+          "sourceUrl": "https://x.com/clip_celsys/status/2112961482850013532",
+          "sourceProfile": null,
+          "resolvedSourceUrl": null,
+          "verification": "confirmed"
+        },
+        {
+          "name": "ULTREX",
+          "sourceUrl": "https://x.com/ULTREX_official/status/2112962895378337987",
+          "sourceProfile": null,
+          "resolvedSourceUrl": null,
+          "verification": "pending"
+        },
+        {
+          "name": "TuneMATE イヤホン販売サイト",
+          "sourceUrl": "https://x.com/CS_TuneMATE/status/2112962940395798749",
+          "sourceProfile": null,
+          "resolvedSourceUrl": null,
+          "verification": "pending"
+        },
+        {
+          "name": "サッカーキング",
+          "sourceUrl": "https://x.com/SoccerKingJP/status/2112964857226272905",
+          "sourceProfile": null,
+          "resolvedSourceUrl": null,
+          "verification": "pending"
+        },
+        {
+          "name": "センチュリー21加盟店(c21shige)サイト",
+          "sourceUrl": "https://x.com/c21shige/status/2112965594706596328",
+          "sourceProfile": null,
+          "resolvedSourceUrl": null,
+          "verification": "pending"
+        },
+        {
+          "name": "ランゲッポー",
+          "sourceUrl": "https://x.com/hiyoro/status/2112965642072809755",
+          "sourceProfile": null,
+          "resolvedSourceUrl": null,
+          "verification": "pending"
+        },
+        {
+          "name": "ムームードメイン 一部サービス",
+          "sourceUrl": "https://x.com/muumuu_domain/status/2112965687027380538",
+          "sourceProfile": null,
+          "resolvedSourceUrl": null,
+          "verification": "pending"
+        },
+        {
+          "name": "Pokémon HOME",
+          "sourceUrl": null,
+          "sourceProfile": "https://x.com/Poke_Champ_jp",
+          "resolvedSourceUrl": "https://x.com/Poke_Champ_jp/status/2112853911283396840",
+          "verification": "pending"
+        },
+        {
+          "name": "TOKYO FM Webサイト",
+          "sourceUrl": null,
+          "sourceProfile": "https://x.com/sol_info",
+          "resolvedSourceUrl": "https://x.com/sol_info/status/2112922108561092765",
+          "verification": "pending"
+        },
+        {
+          "name": "NAOMI CITY",
+          "sourceUrl": null,
+          "sourceProfile": "https://x.com/naomicity703",
+          "resolvedSourceUrl": "https://x.com/naomicity703/status/2112922136524574973",
+          "verification": "pending"
+        },
+        {
+          "name": "Fate/Grand Order 関連サイト",
+          "sourceUrl": null,
+          "sourceProfile": "https://x.com/fgoproject",
+          "resolvedSourceUrl": "https://x.com/fgoproject/status/2112922281735573580",
+          "verification": "pending"
+        },
+        {
+          "name": "クリープハイプ オフィシャルサイト",
+          "sourceUrl": null,
+          "sourceProfile": "https://x.com/creephyp",
+          "resolvedSourceUrl": "https://x.com/creephyp/status/2112907590124618104",
+          "verification": "pending"
+        },
+        {
+          "name": "ストリートファイターV",
+          "sourceUrl": null,
+          "sourceProfile": "https://x.com/StreetFighterJA",
+          "resolvedSourceUrl": "https://x.com/StreetFighterJA/status/2112854699854762032",
+          "verification": "pending"
+        },
+        {
+          "name": "ツイステッドワンダーランド 公式サイト",
+          "sourceUrl": null,
+          "sourceProfile": "https://x.com/twst_jp",
+          "resolvedSourceUrl": "https://x.com/twst_jp/status/2112910819164115407",
+          "verification": "pending"
+        },
+        {
+          "name": "ぷらいべったー/Privatter+",
+          "sourceUrl": null,
+          "sourceProfile": "https://x.com/privatter",
+          "resolvedSourceUrl": "https://x.com/privatter/status/2112870935900684640",
+          "verification": "pending"
+        },
+        {
+          "name": "sb_tomonokai(ファンクラブ系サイト)",
+          "sourceUrl": null,
+          "sourceProfile": "https://x.com/sb_tomonokai",
+          "resolvedSourceUrl": "https://x.com/sb_tomonokai/status/2112909341871550591",
+          "verification": "pending"
+        },
+        {
+          "name": "うたの☆プリンスさまっ♪ LE(utapri_LE)",
+          "sourceUrl": null,
+          "sourceProfile": "https://x.com/utapri_LE",
+          "resolvedSourceUrl": "https://x.com/utapri_LE/status/2112903002743013817",
+          "verification": "pending"
+        },
+        {
+          "name": "Vaundy 関連サイト",
+          "sourceUrl": null,
+          "sourceProfile": "https://x.com/Vaundy_AWS",
+          "resolvedSourceUrl": "https://x.com/Vaundy_AWS/status/2112913091809947976",
+          "verification": "pending"
+        },
+        {
+          "name": "ドラゴンボール ザ ブレイカーズ",
+          "sourceUrl": null,
+          "sourceProfile": "https://x.com/DB_THEBREAKERS",
+          "resolvedSourceUrl": "https://x.com/DB_THEBREAKERS/status/2112893823903010940",
+          "verification": "pending"
+        },
+        {
+          "name": "アナザーエデン",
+          "sourceUrl": null,
+          "sourceProfile": "https://x.com/rpg_AE",
+          "resolvedSourceUrl": "https://x.com/rpg_AE/status/2112862202625761447",
+          "verification": "pending"
+        },
+        {
+          "name": "乃木坂的フラクタル/乃木恋(nogikoiofficial)",
+          "sourceUrl": null,
+          "sourceProfile": "https://x.com/nogikoiofficial",
+          "resolvedSourceUrl": "https://x.com/nogikoiofficial/status/2112873882235642142",
+          "verification": "pending"
+        },
+        {
+          "name": "SYNCROOM(Yamaha Music ID)",
+          "sourceUrl": null,
+          "sourceProfile": "https://x.com/yamaha_SYNCROOM",
+          "resolvedSourceUrl": "https://x.com/yamaha_SYNCROOM/status/2112854504471396683",
+          "verification": "pending"
+        },
+        {
+          "name": "AT-X 公式サイト",
+          "sourceUrl": null,
+          "sourceProfile": "https://x.com/ATX_PR",
+          "resolvedSourceUrl": "https://x.com/ATX_PR/status/2112909578493116645",
+          "verification": "pending"
+        },
+        {
+          "name": "ドズル社/WONDER DIVE 公式サイト",
+          "sourceUrl": null,
+          "sourceProfile": "https://x.com/dozle_official",
+          "resolvedSourceUrl": "https://x.com/dozle_official/status/2112855951464444070",
+          "verification": "pending"
+        },
+        {
+          "name": "タイッツー/きがるがき/ツクセカ",
+          "sourceUrl": null,
+          "sourceProfile": "https://x.com/hoku_unagi",
+          "resolvedSourceUrl": "https://x.com/hoku_unagi/status/2112863433930715574",
+          "verification": "pending"
+        },
+        {
+          "name": "あすけん(アプリ/Web/あすけんmore)",
+          "sourceUrl": null,
+          "sourceProfile": "https://x.com/askenjp",
+          "resolvedSourceUrl": "https://x.com/askenjp/status/2112907393332097219",
+          "verification": "pending"
+        },
+        {
+          "name": "ガンダムVS.モバイル/公式サイト",
+          "sourceUrl": null,
+          "sourceProfile": "https://x.com/gundamvs",
+          "resolvedSourceUrl": "https://x.com/gundamvs/status/2112876229233947089",
+          "verification": "pending"
+        },
+        {
+          "name": "神撃のバハムート系(bahamut_cygames)",
+          "sourceUrl": null,
+          "sourceProfile": "https://x.com/bahamut_cygames",
+          "resolvedSourceUrl": "https://x.com/bahamut_cygames/status/2112846929633956210",
+          "verification": "pending"
+        },
+        {
+          "name": "セガ製品情報サイト",
+          "sourceUrl": null,
+          "sourceProfile": "https://x.com/SEGA_OFFICIAL",
+          "resolvedSourceUrl": "https://x.com/SEGA_OFFICIAL/status/2112913702093832408",
+          "verification": "pending"
+        },
+        {
+          "name": "音楽ナタリーほかナタリー",
+          "sourceUrl": null,
+          "sourceProfile": "https://x.com/natalie_mu",
+          "resolvedSourceUrl": "https://x.com/natalie_mu/status/2112924506063032594",
+          "verification": "pending"
+        },
+        {
+          "name": "DLsite",
+          "sourceUrl": "https://x.com/PJ_MINUS20000G/status/2112939371850776712",
+          "sourceProfile": null,
+          "resolvedSourceUrl": null,
+          "verification": "related"
+        },
+        {
+          "name": "楽天(一部機能)",
+          "sourceUrl": "https://x.com/hakopopu/status/2112939295665533296",
+          "sourceProfile": null,
+          "resolvedSourceUrl": null,
+          "verification": "related"
+        },
+        {
+          "name": "森高千里 Webサイト",
+          "sourceUrl": "https://x.com/windy_toshi/status/2112939273175617647",
+          "sourceProfile": null,
+          "resolvedSourceUrl": null,
+          "verification": "related"
+        },
+        {
+          "name": "Ci-en",
+          "sourceUrl": "https://x.com/SSSS_Sei_Otaku/status/2112943642226909626",
+          "sourceProfile": null,
+          "resolvedSourceUrl": null,
+          "verification": "related"
+        },
+        {
+          "name": "梅田芸術劇場 HP",
+          "sourceUrl": "https://x.com/531_kane7sada7/status/2112948470097293487",
+          "sourceProfile": null,
+          "resolvedSourceUrl": null,
+          "verification": "related"
+        },
+        {
+          "name": "ANA Pocket",
+          "sourceUrl": "https://x.com/hskymjf/status/2112949149721309300",
+          "sourceProfile": null,
+          "resolvedSourceUrl": null,
+          "verification": "related"
+        },
+        {
+          "name": "J SPORTS(関連サイト)",
+          "sourceUrl": "https://x.com/kanapapi_sakura/status/2112953273661772103",
+          "sourceProfile": null,
+          "resolvedSourceUrl": null,
+          "verification": "related"
+        },
+        {
+          "name": "デレステ(アイドルマスター シンデレラガールズ スターライトステージ)",
+          "sourceUrl": "https://x.com/_0_zz/status/2112964572340687118",
+          "sourceProfile": null,
+          "resolvedSourceUrl": null,
+          "verification": "related"
+        },
+        {
+          "name": "大和証券 口座開設など",
+          "sourceUrl": "https://x.com/dfrb4f/status/2112958322009833742",
+          "sourceProfile": null,
+          "resolvedSourceUrl": null,
+          "verification": "related"
+        },
+        {
+          "name": "静岡銀行 ネットバンキング",
+          "sourceUrl": "https://x.com/tokonaka888/status/2112964951170244997",
+          "sourceProfile": null,
+          "resolvedSourceUrl": null,
+          "verification": "related"
+        },
+        {
+          "name": "七十七銀行 一部サービス/阪神電鉄 HP",
+          "sourceUrl": "https://x.com/LunaLue/status/2112959434477785470",
+          "sourceProfile": null,
+          "resolvedSourceUrl": null,
+          "verification": "related"
+        }
+      ],
+      "note": "公開情報の後続収集74行を全て保持。元の収集名は未確認の名称を含むため、本文の対象・運営所有を別途照合し、要約に誤りがあれば判定欄に訂正。収集行数は固有サイト数ではありません。"
     }
   ]
 }
