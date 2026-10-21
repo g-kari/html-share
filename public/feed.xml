@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Wed, 21 Oct 2026 10:03:01 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 21 Oct 2026 12:51:32 GMT</lastBuildDate>
+    <item>
+      <title>PHP緊急メンテナンス一覧｜止まる範囲と再開予定を整理</title>
+      <link>https://share.0g0.xyz/php-emergency-maintenance</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/php-emergency-maintenance</guid>
+      <description>2026年10月21日のPHP緊急対応で各サービスは何が止まる？公式告知で確認できた対象・開始・終了予定と、PHPとの関連が未確認の告知を分けて整理。</description>
+      <pubDate>Wed, 21 Oct 2026 12:51:32 GMT</pubDate>
+      <dcterms:created>2026-10-21T12:51:32.000Z</dcterms:created>
+      <dcterms:modified>2026-10-21T12:51:32.000Z</dcterms:modified>
+    </item>
     <item>
       <title>eMudhra事件を図解：HTTPSの「身分証を作るハンコ」が弱かった</title>
       <link>https://share.0g0.xyz/emudhra-ca</link>
