@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Wed, 21 Oct 2026 14:32:07 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 21 Oct 2026 14:53:30 GMT</lastBuildDate>
+    <item>
+      <title>緊急メンテナンス一覧｜2026年10月21日前後・公式告知と再開予定</title>
+      <link>https://share.0g0.xyz/php-emergency-maintenance</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/php-emergency-maintenance</guid>
+      <description>PHPに限らず、2026年10月21日前後の緊急メンテナンス・関連告知を整理。公式資料確認済み315カード（部分本文含む）と、収集した全候補の照合状況。影響範囲・終了予定・復旧報告を分けて確認。</description>
+      <pubDate>Wed, 21 Oct 2026 14:53:30 GMT</pubDate>
+      <dcterms:created>2026-10-21T12:51:32.000Z</dcterms:created>
+      <dcterms:modified>2026-10-21T14:53:30.000Z</dcterms:modified>
+    </item>
     <item>
       <title>PHP緊急更新：OS・Docker・ECR Publicの対応と暫定対策</title>
       <link>https://share.0g0.xyz/php-security-os-response</link>
@@ -16,15 +25,6 @@
       <pubDate>Wed, 21 Oct 2026 14:32:07 GMT</pubDate>
       <dcterms:created>2026-10-21T13:13:10.000Z</dcterms:created>
       <dcterms:modified>2026-10-21T14:32:07.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>緊急メンテナンス一覧｜2026年10月21日前後・公式告知と再開予定</title>
-      <link>https://share.0g0.xyz/php-emergency-maintenance</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/php-emergency-maintenance</guid>
-      <description>PHPに限らず、2026年10月21日前後の緊急メンテナンス・関連告知を整理。公式資料確認済み112カード（部分本文含む）と、収集した全候補の照合状況。影響範囲・終了予定・復旧報告を分けて確認。</description>
-      <pubDate>Wed, 21 Oct 2026 14:15:01 GMT</pubDate>
-      <dcterms:created>2026-10-21T12:51:32.000Z</dcterms:created>
-      <dcterms:modified>2026-10-21T14:15:01.000Z</dcterms:modified>
     </item>
     <item>
       <title>eMudhra事件、なぜGoやPHPまで更新？ 身分証チェックの図解</title>
