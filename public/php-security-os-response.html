@@ -8,7 +8,28 @@
 @media(max-width:700px){body{font-size:16px}main{padding:15px 13px 45px}section,.panel{padding:20px 16px;border-radius:13px}.grid{grid-template-columns:1fr}.steps{grid-template-columns:repeat(2,1fr)}.supportgrid{grid-template-columns:1fr}.lede{font-size:17px}}
 @media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
 @media print{body{background:#fff;font-size:12pt}main{max-width:none}.panel,section{box-shadow:none;break-inside:avoid}nav{display:none}.grid{display:block}.card{margin:10px 0}a{color:inherit}}
-</style></head><body><main>
+</style>  <!-- html-share: social metadata -->
+  <link rel="canonical" href="https://share.0g0.xyz/php-security-os-response">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="HTML Share">
+  <meta property="og:title" content="PHP緊急更新：OS別対応・古い環境・設定でできる対策">
+  <meta property="og:description" content="2026年10月21日のPHP緊急更新を一次資料で追跡。OSごとの修正版、古いPHP・OSのサポート、攻撃成立条件、設定やWAFでできる暫定対策と限界を図解。">
+  <meta property="og:url" content="https://share.0g0.xyz/php-security-os-response">
+  <meta property="og:image" content="https://share.0g0.xyz/assets/html-share-card-v1.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="HTML Shareのロゴと共有ページを表すカード">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PHP緊急更新：OS別対応・古い環境・設定でできる対策">
+  <meta name="twitter:description" content="2026年10月21日のPHP緊急更新を一次資料で追跡。OSごとの修正版、古いPHP・OSのサポート、攻撃成立条件、設定やWAFでできる暫定対策と限界を図解。">
+  <meta name="twitter:image" content="https://share.0g0.xyz/assets/html-share-card-v1.png">
+  <meta name="twitter:image:alt" content="HTML Shareのロゴと共有ページを表すカード">
+  <!-- /html-share: social metadata -->
+  <!-- html-share: rss discovery -->
+  <link rel="alternate" type="application/rss+xml" title="HTML Share RSS" href="https://share.0g0.xyz/feed.xml">
+  <!-- /html-share: rss discovery -->
+</head><body><main>
 <header><p class="eyebrow">PHP SECURITY · 2026.10.21</p><h1>PHPの緊急更新、<br>自分のOSはどうなる？</h1><p class="lede">「23時にパッチ」から「自分のサイトが直った」までは、いくつか段階があります。古い環境や設定だけで守れる範囲も、分けて整理します。</p><p class="time">情報確認：2026-10-21 22:17 JST（13:17 UTC）　｜　公開一次資料のスナップショット。自動で最新になる表示ではありません。</p>
 <nav aria-label="目次"><a href="#now">いま分かっていること</a><a href="#why">なぜ危険？</a><a href="#os">OS別の状況</a><a href="#mitigation">設定で防げる？</a><a href="#old">古いOS・PHP</a><a href="#check">確認の順番</a></nav></header>
 <section class="hero" id="now"><span class="badge pending">公開前の確認結果</span><h2>23時は「全OSの更新完了時刻」ではない</h2><p>PHP公式は<strong>2026年10月21日 23:00 JST（14:00 UTC）</strong>に、重大な脆弱性2件の緊急更新を予定しています。<strong>影響版・修正版・技術詳細は、そのリリースと同時公開予定</strong>。この時点では番号を推測しません。</p><p class="source"><a href="https://www.php.net/archive/2026.php#2026-10-20-1">PHP公式の予告</a>。CVE-2026-109618 / CVE-2026-109619は<a href="https://www.govcert.gov.hk/en/alerts_detail.php?id=2125">香港GovCERTの公式警告</a>で照合。PHP2Shellはここでは通称として扱います。</p>
