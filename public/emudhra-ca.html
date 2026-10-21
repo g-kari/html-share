@@ -3,131 +3,213 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>eMudhra事件を図解：HTTPSの「身分証を作るハンコ」が弱かった</title>
-<meta name="description" content="eMudhra中間CAの弱い秘密鍵問題を、証明書の仕組み・なりすましの条件・ブラウザと開発ツールの違いから図解。2026年10月21日確認。">
+<title>eMudhra事件、なぜGoやPHPまで更新？ 身分証チェックの図解</title>
+<meta name="description" content="CA事故とソフト更新がつながる理由を、正常・偽造・更新後の3コマと図形でやさしく説明。Goの再ビルド、PHPのCA一覧、Node・Python・ブラウザの更新先も分けて確認。">
 <style>
-:root{--ink:#16283f;--paper:#f5f9fc;--white:#fff;--blue:#176b9a;--pale:#dfedf6;--red:#a52e40;--rose:#fff0f1;--teal:#176757;--mint:#e4f2ee;--line:#bdcddd;--muted:#445b70;--gold:#fff1c8}
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:1.5rem}body{margin:0;background:var(--paper);color:var(--ink);font-family:"BIZ UDPGothic","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;font-size:20px;line-height:1.9;letter-spacing:.015em}a{color:var(--blue);text-underline-offset:.2em;overflow-wrap:anywhere}a:hover{color:var(--red)}a:focus-visible,summary:focus-visible{outline:3px solid var(--blue);outline-offset:5px}main{max-width:1100px;margin:auto;padding:0 30px 70px}.top{max-width:1100px;margin:auto;padding:22px 30px;font-size:16px;display:flex;gap:1rem;justify-content:space-between;flex-wrap:wrap}.intro{padding:42px 0 45px;border-bottom:4px solid var(--ink)}.date{color:var(--muted);font-size:16px;margin:0 0 18px}h1{font-size:clamp(32px,5.3vw,57px);line-height:1.5;letter-spacing:.025em;margin:0 0 26px;font-weight:800}h1 span{display:block}h2{font-size:clamp(27px,3.7vw,36px);line-height:1.55;margin:0 0 24px}h3{font-size:23px;line-height:1.6;margin:0 0 12px}p{margin:0 0 20px}strong{font-weight:800}small,.small{font-size:16px;line-height:1.8;color:var(--muted)}.lead{max-width:40em;font-size:23px;line-height:1.85}.brief{margin:26px 0 0;padding:20px 24px;background:var(--gold);border-left:6px solid #94740b}.brief p:last-child{margin:0}.contents{padding:24px 0;display:flex;gap:12px 26px;flex-wrap:wrap;font-size:17px}.contents a{padding:4px 0}section{padding:48px 0;border-bottom:1px solid var(--line)}.reading{max-width:44em}.source{font-size:15px;line-height:1.7;margin-top:14px;color:var(--muted)}.diagram{background:var(--white);padding:28px;border:2px solid var(--line);margin:26px 0}.chain{display:grid;grid-template-columns:1fr 50px 1fr 50px 1fr;align-items:stretch;gap:8px}.node{border:2px solid var(--blue);background:var(--pale);padding:18px 14px;line-height:1.65;text-align:center;min-width:0}.node strong{font-size:23px;display:block}.node span{font-size:16px;display:block;margin-top:8px}.node.weak{border:3px dashed var(--red);background:var(--rose)}.arrow{align-self:center;text-align:center;font-size:30px;color:var(--blue)}.caption{margin:18px 0 0;font-size:17px}.stamp{display:inline-block;color:var(--red);border:3px double var(--red);font-weight:800;padding:3px 14px;transform:rotate(-3deg);margin-bottom:12px;font-size:17px}.pair{display:grid;grid-template-columns:1fr 1fr;gap:24px}.panel{padding:24px;background:var(--white);border-top:5px solid var(--blue)}.panel.danger{border-color:var(--red)}.panel.safe{border-color:var(--teal)}.panel p:last-child{margin:0}.analogy{border-left:5px solid var(--blue);padding:6px 0 6px 24px;margin:25px 0}.analogy p:last-child{margin:0}.steps{padding:0;list-style:none;counter-reset:steps}.steps li{position:relative;padding:0 0 24px 55px;counter-increment:steps}.steps li:before{content:counter(steps);position:absolute;left:0;top:1px;width:35px;height:35px;line-height:35px;background:var(--ink);color:white;border-radius:50%;text-align:center;font-weight:bold}.steps li:last-child{padding-bottom:0}.route{display:flex;align-items:center;gap:15px;flex-wrap:wrap;margin:18px 0}.route b{padding:10px 18px;background:var(--pale);border:1px solid var(--line)}.route .intruder{background:var(--rose);border:2px dashed var(--red);color:var(--red)}.notice{background:var(--mint);border-left:6px solid var(--teal);padding:22px 25px;margin:24px 0}.warning{background:var(--rose);border-left:6px solid var(--red);padding:22px 25px;margin:24px 0}.notice p:last-child,.warning p:last-child{margin:0}.timeline{margin:0;padding-left:24px;border-left:3px solid var(--blue);list-style:none}.timeline li{padding:0 0 25px 10px}.timeline li:last-child{padding-bottom:0}.timeline time{display:block;font-size:18px;font-weight:800;color:var(--blue)}.tablewrap{overflow-x:auto}table{width:100%;border-collapse:collapse;min-width:640px;font-size:17px;background:white}th,td{border-bottom:1px solid var(--line);text-align:left;vertical-align:top;padding:17px 18px}th{background:var(--pale);font-size:16px}td:first-child{font-weight:800;width:24%}td p{margin:0}.checks{padding-left:25px}.checks li{margin:14px 0}details{background:var(--white);border:1px solid var(--line);padding:18px 22px;margin:16px 0}summary{font-weight:800;cursor:pointer;font-size:20px}details p{margin:16px 0 0}.sources{padding-left:25px;font-size:17px}.sources li{padding:0 0 16px 4px}.sources span{display:block;color:var(--muted);font-size:15px}.footer{padding:28px 0;font-size:16px;color:var(--muted)}code{font-family:ui-monospace,Consolas,monospace;font-size:.9em;overflow-wrap:anywhere}.keyset{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}.keyset b{padding:4px 12px;background:var(--rose);border:1px solid #d7a5ae;font-size:18px}
-@media(max-width:720px){body{font-size:18px;line-height:1.9}main{padding:0 19px 40px}.top{padding:18px 19px;font-size:14px}.intro{padding-top:24px}.lead{font-size:21px}.pair{grid-template-columns:1fr;gap:18px}.chain{grid-template-columns:1fr}.arrow{line-height:1;transform:rotate(90deg);font-size:27px;padding:3px}.diagram{padding:20px 16px}.node{padding:15px}.node strong{font-size:21px}section{padding:35px 0}.contents{font-size:16px;gap:6px 20px}.brief,.panel,.notice,.warning{padding:19px}.source{font-size:14px}.steps li{padding-left:46px}h3{font-size:21px}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}@media print{body{background:white;color:#111;font-size:12pt}.top,.contents{display:none}main{max-width:none;padding:0}section{break-inside:avoid;padding:20px 0}a{color:#111}.diagram,.panel,details{break-inside:avoid}h1{font-size:27pt}h2{font-size:20pt}}
+:root{--ink:#142d42;--paper:#f5f7f4;--white:#fff;--blue:#155e85;--pale:#e2f0f6;--teal:#17634e;--mint:#e7f4ec;--red:#a52c36;--rose:#fff0ed;--orange:#a94a14;--sand:#fff3cf;--line:#b9cbd2;--muted:#405b68}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:1rem}body{margin:0;background:var(--paper);color:var(--ink);font-family:"BIZ UDPGothic","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;font-size:20px;line-height:1.95;letter-spacing:.015em}a{color:var(--blue);text-underline-offset:.22em;overflow-wrap:anywhere}a:hover{color:var(--red)}a:focus-visible,summary:focus-visible{outline:3px solid var(--blue);outline-offset:5px}main,.top{max-width:1120px;margin:auto;padding-left:30px;padding-right:30px}.top{padding-top:22px;padding-bottom:18px;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:15px}.hero{padding:32px 0 38px}h1{font-size:clamp(34px,5.2vw,57px);line-height:1.5;margin:0 0 26px;letter-spacing:.015em}h1 span{display:block}h2{font-size:clamp(28px,3.5vw,39px);line-height:1.6;margin:0 0 24px}h3{font-size:25px;line-height:1.65;margin:0 0 12px}h4{font-size:21px;margin:20px 0 8px}p{margin:0 0 20px}strong{font-weight:800}.date,.small{font-size:16px;line-height:1.85;color:var(--muted)}.date{margin-bottom:18px}.lead{max-width:39em;font-size:24px;line-height:1.9}.answer{margin-top:28px;padding:24px 28px;background:var(--sand);border:2px solid #a88829;border-radius:8px}.answer p:last-child{margin:0}.answer .big{font-size:26px;line-height:1.8;font-weight:800}.toc{display:flex;flex-wrap:wrap;gap:8px 24px;padding:24px 0;border-top:2px solid var(--ink);border-bottom:1px solid var(--line);font-size:17px}.toc a{padding:5px 0}section{padding:48px 0;border-bottom:1px solid var(--line)}.reading{max-width:43em}.eyebrow{font-size:16px;font-weight:800;letter-spacing:.05em;color:var(--blue);margin-bottom:8px}.comic{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:28px 0 14px}.comic figure{margin:0;background:white;border:2px solid var(--line);border-radius:8px;overflow:hidden}.crop{aspect-ratio:4/5;overflow:hidden}.crop img{display:block;width:300%;height:100%;max-width:none;object-fit:fill}.crop.middle img{transform:translateX(-33.333333%)}.crop.last img{transform:translateX(-66.666667%)}.comic figcaption{padding:18px;font-size:18px;line-height:1.85}.comic figcaption strong{display:block;font-size:23px;margin-bottom:10px}.tag{display:inline-block;padding:3px 11px;margin:0 0 10px;background:var(--pale);font-size:15px;font-weight:800;border-radius:5px}.tag.bad{background:var(--rose);color:var(--red)}.tag.good{background:var(--mint);color:var(--teal)}.note{font-size:16px;line-height:1.8;color:var(--muted);margin:14px 0 0}.box{background:white;border:2px solid var(--line);border-radius:8px;padding:26px;margin:26px 0}.blue{background:var(--pale);border-color:#83b0c4}.danger{background:var(--rose);border-color:#d29a93}.safe{background:var(--mint);border-color:#8ab6a4}.keyline{border-left:6px solid var(--blue);padding:8px 0 8px 23px;margin:25px 0}.keyline p:last-child,.box p:last-child{margin-bottom:0}.duo{display:grid;grid-template-columns:1fr 1fr;gap:22px}.duo .box{margin:0}.chain{display:grid;grid-template-columns:1fr 42px 1fr 42px 1fr;gap:10px;align-items:center;margin:24px 0}.node{padding:20px 15px;background:var(--pale);border:2px solid var(--blue);border-radius:8px;text-align:center;min-width:0;line-height:1.8}.node b{display:block;font-size:24px}.node small{font-size:16px;display:block;margin-top:9px}.node.bad{background:var(--rose);border-color:var(--red);border-style:dashed}.node.good{background:var(--mint);border-color:var(--teal)}.arrow{text-align:center;font-size:30px;line-height:1;color:var(--blue)}.flow{display:grid;grid-template-columns:1fr 45px 1.3fr;gap:12px;align-items:center;margin:20px 0}.flow .node{text-align:left}.flow .node p{font-size:18px;margin:10px 0 0}.gate{background:white;padding:24px;border:2px solid var(--line);margin:25px 0;border-radius:8px}.gate h3{font-size:23px}.conditions{padding:0;list-style:none;counter-reset:condition}.conditions li{counter-increment:condition;position:relative;padding:0 0 19px 52px;line-height:1.85}.conditions li:before{content:counter(condition);position:absolute;left:0;top:3px;background:var(--ink);color:white;border-radius:50%;width:34px;height:34px;line-height:34px;text-align:center;font-size:20px;font-weight:bold}.conditions li:last-child{padding-bottom:0}.and{font-size:17px;font-weight:bold;color:var(--red);margin:15px 0}.toolbox{border:2px solid var(--line);background:white;border-radius:8px;overflow:hidden;margin:24px 0}.toolbox header{padding:20px 24px;background:var(--pale);display:flex;gap:12px;align-items:baseline;flex-wrap:wrap}.toolbox h3{margin:0}.toolbox header span{font-size:17px}.toolbody{padding:24px}.version{font-size:23px;font-weight:800;margin:0 0 14px}.reason{margin:16px 0 22px;padding:16px 18px;background:var(--sand);border-left:4px solid #a88829;font-size:19px}.checks{padding-left:24px;margin:16px 0}.checks li{margin:10px 0}.muted{color:var(--muted)}.source{font-size:15px;line-height:1.8;margin:18px 0 0}.build{display:grid;grid-template-columns:1fr 34px 1fr;gap:10px;align-items:center;margin:22px 0}.build .node b{font-size:21px}.build .node small{font-size:16px}.build .node{padding:18px 14px}.mini{font-size:18px;line-height:1.85}.checklist{list-style:none;padding:0;margin:24px 0}.checklist li{position:relative;padding:0 0 24px 42px}.checklist li:before{content:"□";position:absolute;left:0;top:-3px;font-size:28px;font-weight:bold;color:var(--blue)}.checklist strong{display:block}.checklist p{font-size:18px;margin:8px 0 0}.warning{padding:22px 24px;background:var(--rose);border-left:6px solid var(--red);margin:24px 0}.warning p:last-child{margin:0}details{padding:19px 23px;background:white;border:1px solid var(--line);border-radius:7px;margin:18px 0}summary{cursor:pointer;font-size:21px;font-weight:800}details p{margin:18px 0 0}details ul{margin-bottom:0}.sources{font-size:17px;line-height:1.85;padding-left:24px}.sources li{padding:0 0 16px 6px}.sources span{display:block;font-size:15px;color:var(--muted)}.history{font-size:17px;padding-left:24px}.history li{margin:12px 0}code{font-family:ui-monospace,Consolas,monospace;font-size:.9em;overflow-wrap:anywhere}.footer{font-size:16px;color:var(--muted);padding:28px 0 55px}
+@media(max-width:740px){body{font-size:19px;line-height:1.95}main,.top{padding-left:20px;padding-right:20px}.top{font-size:14px}.hero{padding-top:20px}.lead{font-size:22px}.answer{padding:20px}.answer .big{font-size:24px}.comic{grid-template-columns:1fr;gap:24px;max-width:420px;margin-left:auto;margin-right:auto}.crop{aspect-ratio:4/5}.comic figcaption{padding:20px;font-size:19px}.comic figcaption strong{font-size:24px}.duo{grid-template-columns:1fr;gap:18px}.chain{grid-template-columns:1fr}.chain .arrow{transform:rotate(90deg);padding:2px;font-size:28px}.flow{grid-template-columns:1fr}.flow>.arrow{transform:rotate(90deg);padding:3px}.box{padding:21px}.node{padding:18px}.node b{font-size:22px}.toolbox header,.toolbody{padding:20px}.version{font-size:22px}.reason{font-size:19px;padding:16px}.build{grid-template-columns:1fr}.build .arrow{transform:rotate(90deg);padding:3px}.toolbody h4{font-size:21px}section{padding:37px 0}.toc{font-size:16px;gap:6px 20px}h3{font-size:24px}.small,.note{font-size:16px}.source{font-size:15px}.warning{padding:20px}.checklist li{padding-left:36px}.checklist p{font-size:18px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}@media print{body{background:white;color:#111;font-size:12pt}.top,.toc{display:none}main{max-width:none;padding:0}.comic{grid-template-columns:repeat(3,1fr)}.duo{grid-template-columns:1fr 1fr}section{padding:20px 0}.box,.toolbox,.comic figure{break-inside:avoid}a{color:#111}h1{font-size:26pt}h2{font-size:20pt}.footer{padding-bottom:0}}
 </style>
-  <!-- html-share: social metadata -->
-  <link rel="canonical" href="https://share.0g0.xyz/emudhra-ca">
-  <meta property="og:type" content="article">
-  <meta property="og:site_name" content="HTML Share">
-  <meta property="og:title" content="eMudhra事件を図解：HTTPSの「身分証を作るハンコ」が弱かった">
-  <meta property="og:description" content="eMudhra中間CAの弱い秘密鍵問題を、証明書の仕組み・なりすましの条件・ブラウザと開発ツールの違いから図解。2026年10月21日確認。">
-  <meta property="og:url" content="https://share.0g0.xyz/emudhra-ca">
-  <meta property="og:image" content="https://share.0g0.xyz/assets/html-share-card-v1.png">
-  <meta property="og:image:type" content="image/png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="HTML Shareのロゴと共有ページを表すカード">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="eMudhra事件を図解：HTTPSの「身分証を作るハンコ」が弱かった">
-  <meta name="twitter:description" content="eMudhra中間CAの弱い秘密鍵問題を、証明書の仕組み・なりすましの条件・ブラウザと開発ツールの違いから図解。2026年10月21日確認。">
-  <meta name="twitter:image" content="https://share.0g0.xyz/assets/html-share-card-v1.png">
-  <meta name="twitter:image:alt" content="HTML Shareのロゴと共有ページを表すカード">
-  <!-- /html-share: social metadata -->
-  <!-- html-share: rss discovery -->
-  <link rel="alternate" type="application/rss+xml" title="HTML Share RSS" href="https://share.0g0.xyz/feed.xml">
-  <!-- /html-share: rss discovery -->
 </head>
 <body>
-<header class="top"><a href="/">共有メモ一覧</a><span>セキュリティを、仕組みから理解する</span></header>
+<header class="top"><a href="/">共有メモ一覧</a><span>eMudhra事件を、前提知識なしで</span></header>
 <main>
-<div class="intro">
-<p class="date">2026年10月21日確認 ／ 公表は10月20日 ／ 約7分で読む</p>
-<h1><span>HTTPSの「身分証を作るハンコ」が、</span><span>簡単に再現できる状態だった。</span></h1>
-<p class="lead">eMudhra（イームドラー）の中間認証局で、弱い秘密鍵が見つかった事件。ポイントは「通信の暗号が全部解けた」ではなく、<strong>接続先が本物だと保証する仕組みの一部が壊れていた</strong>こと。</p>
-<div class="brief"><p><strong>まず結論：</strong>ブラウザを使う人は、OS・ブラウザを更新して証明書の警告を無視しない。開発する人は、それに加えて<strong>CLI・言語ランタイム・CA証明書バンドル・配布済みアプリ</strong>も確認する。</p><p class="small">主要ブラウザ向けの遮断は進んでいるが、Firefox Androidでは問題の報告をMozillaが認識している。ブラウザ名だけで保護を一律に断定せず、開発ツールも別に確認する。</p></div>
+<div class="hero">
+<p class="date">2026年10月21日 21:40 JST 確認・説明を全面更新</p>
+<h1><span>なぜ認証局の事故で、</span><span>GoやPHPまで更新するの？</span></h1>
+<p class="lead">答えは、<strong>ネットにつなぐソフトの中にも、<br>「相手は本物か？」を確認する係がいるから。</strong></p>
+<div class="answer">
+<p class="big">今回の更新は、<br>「この発行係の身分証は、もう信じない」<br>と、その確認係に教えるため。</p>
+<p>自分のパスワードを変える話でも、世界中の通信の暗号が解けた話でもない。<strong>接続先を本物と認めるための判断</strong>を、使うソフトごとに直す話。</p>
 </div>
-<nav class="contents" aria-label="目次"><a href="#basics">証明書の仕組み</a><a href="#failure">何が壊れた？</a><a href="#risk">実際に何が危険？</a><a href="#status">対策状況</a><a href="#action">自分が確認すること</a><a href="#sources">出典</a></nav>
+</div>
+<nav class="toc" aria-label="目次"><a href="#basics">① まず3コマ</a><a href="#failure">② 何が壊れた？</a><a href="#risk">③ 何が危険？</a><a href="#why-update">④ なぜソフト更新？</a><a href="#status">⑤ 更新するもの</a><a href="#action">⑥ 自分の確認順</a><a href="#sources">出典</a></nav>
 
 <section id="basics">
-<h2>まず、HTTPSは「暗号化」だけではない</h2>
-<div class="reading"><p>たとえば銀行のサイトへつないだつもりでも、相手が偽物だったら、その偽物との通信を暗号化しても意味がない。だからHTTPSには、通信を隠すだけでなく<strong>「接続先がそのドメインの正しい相手か」を確かめる役割</strong>がある。<a href="#s1">[1]</a></p><p>その確認に使うのが、TLS証明書。ざっくり言えば「このドメインの鍵はこれです」と認証局（CA）が署名した電子的な身分証だ。</p></div>
-<div class="diagram" role="group" aria-label="通常の証明書チェーン">
-<div class="chain">
-<div class="node"><strong>ルートCA</strong><span>OSやブラウザが<br>信頼の起点として持つ</span></div>
-<div class="arrow" aria-hidden="true">→</div>
-<div class="node"><strong>中間CA</strong><span>ルートから認められた<br>証明書の発行係</span></div>
-<div class="arrow" aria-hidden="true">→</div>
-<div class="node"><strong>サイトの証明書</strong><span>ドメインと公開鍵を結ぶ<br>サイト側の身分証</span></div>
+<p class="eyebrow">まずは、身分証とハンコのたとえで</p>
+<h2>正常 → 偽物が作れる → 更新で拒否する</h2>
+<p class="reading">たとえば「銀行の本物のサイト」に接続したいとする。ソフトは、相手が出してきた<strong>電子的な身分証＝証明書</strong>を調べる。その身分証を発行する係が<strong>認証局（CA）</strong>。<a href="#s1">[1]</a></p>
+<div class="comic" aria-label="3コマの説明">
+<figure>
+<div class="crop"><img src="/assets/emudhra-checker-story-v2.png" width="1942" height="809" alt="正規の発行係が身分証を発行し、スマートフォンが確認するイメージ"></div>
+<figcaption><span class="tag">① ふだん</span><strong>信頼できる発行係の身分証を確認。</strong>「この名前のサイトの鍵はこれ」と、発行係が署名する。ソフトは署名や名前などを確かめる。</figcaption>
+</figure>
+<figure>
+<div class="crop middle"><img src="/assets/emudhra-checker-story-v2.png" width="1942" height="809" alt="攻撃者が発行係のハンコをまねて偽の身分証を作るイメージ" loading="lazy"></div>
+<figcaption><span class="tag bad">② 今回の事故</span><strong>発行係の署名用ハンコを、第三者も再現できた。</strong>だから、攻撃者が本物の発行係を装った偽証明書を作れる状態になった。</figcaption>
+</figure>
+<figure>
+<div class="crop last"><img src="/assets/emudhra-checker-story-v2.png" width="1942" height="809" alt="更新したスマートフォンが問題の発行係を拒否リストで確認し、偽の身分証を止めるイメージ" loading="lazy"></div>
+<figcaption><span class="tag good">③ 更新後</span><strong>「問題の発行係は信じない」と判断を変更。</strong>該当する証明書を拒否する。その判断をソフトや名簿へ届けるのが、今回の対策。</figcaption>
+</figure>
 </div>
-<p class="caption">ブラウザやアプリは、署名やドメイン名などを調べ、この「信頼のつながり」を検証する。実際には有効期限・用途・制約なども確認する。</p>
-</div>
-<div class="analogy"><p><strong>たとえるなら：</strong>ルートCAは発行元を認可する本部、中間CAは身分証を作る窓口、サイト証明書は身分証そのもの。秘密鍵は窓口が使う偽造困難なハンコに近い。</p><p class="small">理解のためのたとえ。秘密鍵は物理的なハンコではなく、電子署名に使う数値。</p></div>
-<p class="source">仕組みの参考：<a href="https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Transport_Layer_Security">MDN：TLSとサーバー認証</a></p>
+<p class="note">画像はAI生成の理解用イラスト。色で真偽を判定するわけではない。実際は電子署名・ドメイン名・信頼のつながりなどを計算で確かめる。対策方法も、問題の中間CAの直接拒否や、そこへつながるルートCAの除外など、製品によって違う。</p>
+<div class="keyline"><p><strong>覚えるのは1つだけ。</strong><br>壊れたのは「身分証を信用してよいか」の根拠。<br>更新するのは「その身分証を確認する側」。</p></div>
 </section>
 
 <section id="failure">
-<h2>今回、発行係のハンコが弱すぎた</h2>
-<div class="pair">
-<div class="panel"><h3>本来</h3><p>秘密鍵は、公開情報から現実的な時間では求められないよう、十分に大きな範囲から適切に選ぶ。</p></div>
-<div class="panel danger"><span class="stamp">今回の問題</span><h3>実際の値が256未満</h3><p>Mozillaの調査では、対象8鍵の数値がいずれも256未満だった。暗号方式の名前は<strong>P-384でも、鍵の選び方が極端に弱かった</strong>。<a href="#s2">[2]</a></p></div>
+<p class="eyebrow">ハンコとは、何のこと？</p>
+<h2>問題は「署名用の秘密鍵」が弱かったこと</h2>
+<div class="reading">
+<p>認証局が身分証へ押す「ハンコ」にあたるのが、<strong>証明書に電子署名をするための秘密鍵</strong>。本来は、公開情報から現実的な時間では求められないように選ぶ。</p>
+<p>ところがeMudhraの一部の発行係では、その秘密の数値が極端に小さかった。Mozillaは、対象8鍵がすべて<strong>256未満</strong>だったと確認した。十分に強い方式を使っていても、鍵の作り方がこれでは弱い。<a href="#s2">[2]</a></p>
 </div>
-<div class="reading"><div class="keyset" aria-label="弱い鍵の候補範囲を示す概念図"><b>1</b><b>2</b><b>3</b><b>…</b><b>255</b></div><p>つまり「高級な金庫なのに、設定した暗証番号の候補がごくわずか」という状態。秘密鍵ファイルを盗まなくても、公開されている証明書から対応する秘密鍵を復元できた。</p><p><strong>8つすべてがWeb用ではない。</strong>内訳はTLS用6つ、コード署名用2つ。生成日は2025年4月30日で、2026年10月17日に問題が報告された。<a href="#s2">[2]</a></p></div>
-<div class="diagram" role="group" aria-label="今回壊れた箇所">
-<div class="chain"><div class="node"><strong>ルートCA</strong><span>ルート鍵自体が盗まれた、<br>という話ではない</span></div><div class="arrow" aria-hidden="true">→</div><div class="node weak"><strong>問題の中間CA</strong><span>秘密鍵を第三者も復元可能<br>ここが信頼の弱点</span></div><div class="arrow" aria-hidden="true">→</div><div class="node weak"><strong>偽の身分証</strong><span>攻撃者による偽証明書を<br>受け入れる危険</span></div></div>
-<p class="caption">図はTLSの場合の概念図。「eMudhraの全証明書」「すべての認証局」「P-384という暗号そのもの」が破られた、と広げて理解しない。</p>
+<div class="box blue">
+<h3>実際の「信頼のつながり」</h3>
+<div class="chain" aria-label="ルートCAから中間CAを経てサイト証明書が検証される関係">
+<div class="node"><b>ルートCA</b><small>OSやソフトが持つ<br>信頼の出発点</small></div>
+<div class="arrow" aria-hidden="true">→</div>
+<div class="node bad"><b>中間CA</b><small>今回問題になった<br>証明書の発行係</small></div>
+<div class="arrow" aria-hidden="true">→</div>
+<div class="node"><b>サイト証明書</b><small>サイト名と公開鍵を結ぶ<br>電子的な身分証</small></div>
 </div>
-<p class="source">根拠：<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2083449#c5">Mozilla公式インシデント・Comment 5</a>。鍵生成の詳細原因は調査の対象であり、推測で特定の機器やAIを原因と決めつけない。</p>
+<p class="mini">「発行係」は、正確にはこの<strong>中間CA</strong>。ルートCAの秘密鍵そのものが盗まれた、という説明ではない。</p>
+</div>
+<div class="duo">
+<div class="box safe"><h3>今回の鍵</h3><p><strong>身分証を発行するための署名用の鍵。</strong>第三者がそれを使えると、偽証明書を作れる。</p></div>
+<div class="box danger"><h3>混同しない鍵</h3><p><strong>すべての通信内容を解読する「万能の鍵」ではない。</strong>過去の通信が一括で読めるようになった、とは言えない。</p></div>
+</div>
+<details><summary>詳しい事実はここだけにまとめる</summary>
+<ul class="checks"><li>対象は中間CAの8鍵。TLS通信用6つ、コード署名用2つで、用途は分ける。</li><li>生成は2025年4月30日。問題は2026年10月17日に報告・検証された。</li><li>P-384という暗号方式そのものが破られたのではなく、秘密の数値の選び方が極端に弱かった。</li><li>「eMudhraの全証明書」「全認証局」「全アプリが改ざん済み」に広げて考えない。</li></ul>
+<p class="source"><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2083449#c5">Mozilla公式インシデント記録</a></p>
+</details>
 </section>
 
 <section id="risk">
-<h2>何ができてしまう？ 何はまだ不明？</h2>
-<div class="reading"><p>危険なのは、<strong>偽物の接続先が「本物のサイト」として認証されてしまうこと</strong>。ただし、秘密鍵を知っただけで、世界中の通信が勝手に攻撃者へ流れるわけではない。</p></div>
-<div class="diagram">
-<h3>通信のなりすましが成立するイメージ</h3>
-<div class="route" aria-label="アプリから攻撃者を経由して本物のサービスへ接続する概念図"><b>アプリ・CLI</b><span aria-hidden="true">→</span><b class="intruder">偽サイト／攻撃者</b><span aria-hidden="true">→</span><b>本物のサービス</b></div>
-<ol class="steps"><li><strong>問題の鍵で署名された偽証明書を提示する。</strong></li><li><strong>接続先へ誘導する、通信経路へ介入するなど、偽物と通信させる条件がある。</strong></li><li><strong>クライアントが問題の中間CAを遮断せず、ほかの検証も通ってしまう。</strong></li></ol>
-<p class="caption">このような条件が重なると、APIの送受信内容などが読まれたり改ざんされたりする危険がある。これは成立条件の説明で、実際の被害を確認した図ではない。<a href="#s1">[1]</a><a href="#s3">[3]</a></p>
+<p class="eyebrow">だからといって、勝手に全部盗まれるわけではない</p>
+<h2>偽の相手と通信させられたときに危険</h2>
+<p class="reading">「銀行のサイトだ」と信じて、実は攻撃者の相手へ接続してしまうと、<strong>その偽物と暗号化して話しても、相手である攻撃者には中身が分かる</strong>。ここが問題。</p>
+<div class="box danger">
+<div class="chain" aria-label="攻撃者への誘導または経路介入があるときの接続">
+<div class="node"><b>自分のソフト</b><small>本物につないだ<br>つもり</small></div>
+<div class="arrow" aria-hidden="true">→</div>
+<div class="node bad"><b>攻撃者の相手</b><small>偽証明書を提示<br>ここへ誘導・介入</small></div>
+<div class="arrow" aria-hidden="true">↔</div>
+<div class="node"><b>本物のサービス</b><small>攻撃者が中継する<br>場合もある</small></div>
 </div>
-<div class="pair"><div class="panel safe"><h3>確認されていること</h3><p>研究者の鍵保有証明をMozillaが検証し、Mozilla自身も独立に鍵を復元した。ブラウザ側では遮断措置が進められた。<a href="#s2">[2]</a><a href="#s3">[3]</a></p></div><div class="panel danger"><h3>断定できないこと</h3><p>CTを強制しないクライアントが過去に攻撃されたかは不明。個別の利用者が被害に遭った、全通信が漏れた、過去のTLS通信が一括で解読された、とは確認されていない。<a href="#s4">[4]</a></p></div></div>
-<details><summary>CTって何？ ブラウザはなぜ守られたの？</summary><p>Certificate Transparencyは、証明書を公開ログへ記録させる仕組み。Chrome公式は、既定のCT検証と10月17日の遮断より前に、対象TLS中間CAに連なる証明書がCTへ記録されていなかったことから、既定のChromeでは不正な証明書を信頼できなかったと説明している。これは<strong>同じCT検証をしないCLIにも適用できる保証ではない</strong>。<a href="#s3">[3]</a></p></details>
-<details><summary>コード署名用の2鍵もあるなら、アプリが全部危ない？</summary><p>コード署名は「このソフトはこの発行者が署名した」と検証する別の用途。TLS用6鍵とコード署名用2鍵は分けて考える。署名があるから無条件に安全とは言えないが、この事件だけで「配布済みアプリすべてが改ざん済み」とは言えない。Chromeはコード署名専用の中間CAをTLSの証明書チェーンに使えないため、この2つについてTLS向け遮断は不要と説明している。<a href="#s3">[3]</a></p></details>
+<p class="mini">これは<strong>攻撃が成立する場合の概念図</strong>。全通信が常にこの経路を通る、という図ではない。</p>
+</div>
+<div class="gate">
+<h3>危険になるには、条件が重なる</h3>
+<ol class="conditions"><li>攻撃者が偽証明書を用意する。</li><li>攻撃者側へ接続を誘導したり、通信経路へ介入したりできる。</li><li>ソフトがまだ問題の発行係を信用し、名前など他の検証も通ってしまう。</li></ol>
+<p class="and">この条件が重なると → その接続の内容が読まれたり、改ざんされたりする危険。</p>
+<p class="small">偽証明書を作れるだけで、自動的に世界中の通信が攻撃者へ流れるわけではない。過去に被害があったかは、CTを強制しないクライアントについては不明。<a href="#s3">[3]</a></p>
+</div>
+<details><summary>「ブラウザは守られた」と聞いたけど？</summary>
+<p>主要ブラウザには緊急の拒否情報や、証明書を公開ログへ記録させるCTなどの仕組みがある。たとえばGoogleは、既定のChromeのCT検証と遮断までのログの状況を根拠に、不正な証明書が信頼されなかったと説明している。<a href="#s4">[4]</a></p>
+<p>ただし、<strong>ブラウザ以外のプログラムが、同じ仕組みを全部使うとは限らない</strong>。OSやアプリ、バージョン、設定で違う。だから「Chromeで大丈夫だった」だけでは他のソフトの確認を終えられない。</p>
+</details>
+</section>
+
+<section id="why-update">
+<p class="eyebrow">ここが、Go・PHPの更新につながるところ</p>
+<h2>プログラムも、ブラウザなしでネットにつなぐ</h2>
+<div class="reading"><p>たとえば自作のツールがAIのAPIを呼ぶ。PHPのアプリが決済APIへつなぐ。pipやComposerが部品をダウンロードする。<strong>どれも、そのプログラム自身が接続先の身分証を確認する。</strong></p>
+<p>「ブラウザでWebページを見るときだけの話」ではない。ソフトの中の確認係が、<strong>どの名簿とルールで確認しているか</strong>が重要になる。</p></div>
+<div class="box blue">
+<h3>同じパソコンでも、確認係は別々</h3>
+<div class="flow"><div class="node"><b>ブラウザ</b><p>Webページを見る</p></div><div class="arrow" aria-hidden="true">→</div><div class="node good"><b>ブラウザ側の確認</b><p>ブラウザ・OSの信頼情報や緊急拒否情報</p></div></div>
+<div class="flow"><div class="node"><b>Go / Node / Python</b><p>APIを呼ぶ・部品を取得する</p></div><div class="arrow" aria-hidden="true">→</div><div class="node"><b>各ソフト側の確認</b><p>ソフト内の検証プログラム・同梱CA一覧・OSのCA一覧など</p></div></div>
+<div class="flow"><div class="node"><b>PHP / Composer</b><p>外部サービスへつなぐ</p></div><div class="arrow" aria-hidden="true">→</div><div class="node"><b>実際に参照するCA一覧</b><p>OSの一覧か、設定した別ファイルか。使う通信機能でも違う</p></div></div>
+<p class="note">概念図。「必ず1種類だけを参照する」という意味ではない。複数の一覧を併用する製品もある。ランタイムは「プログラムを動かす土台」、CA一覧は「信用する発行元の名簿」、拒否情報は「例外的に信用しない対象の情報」と考えるとよい。</p>
+</div>
+<div class="keyline"><p><strong>更新で変える場所は、大きく2つ。</strong><br>① 確認するプログラム自体を直して、対象を拒否する。<br>② 信用する発行元の名簿・拒否情報を更新する。</p><p>その届き方が違うから、<strong>GoはGo、PHPはPHPが使うCA一覧、という確認が必要</strong>になる。</p></div>
 </section>
 
 <section id="status">
-<h2>ブラウザの対策と、開発環境の対策は別</h2>
-<p class="reading">ブラウザ向けの緊急対応は進んでいる。ただし、アプリが独自のCA一覧や証明書検証器を持つと、ブラウザと同じ遮断情報を使うとは限らない。</p>
-<div class="warning"><h3>追記：Firefox Androidは一律に「対策済み」としない</h3><p>Firefox Android 158.0.1で検査に失敗するという報告があり、Mozilla担当者もAndroidの問題を認識していると回答している。本記事の確認時点で、その報告が解消したとは確認できていない。<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2083449#c26">公式インシデントのComment 26〜28</a>を参照。更新を確認しつつ、利用OS・アプリごとの対応状況を確認する。</p></div><ul class="timeline"><li><time>2025年4月30日</time>問題の8鍵を生成。<a href="#s2">[2]</a></li><li><time>2026年10月17日</time>報告と検証。Firefox・Chromeで対象の遮断対応。<a href="#s2">[2]</a><a href="#s3">[3]</a></li><li><time>10月19〜20日</time>Apple・Microsoftを含む対策や開発用パッケージ更新が進む。<a href="#s4">[4]</a></li><li><time>10月21日・この記事の確認時点</time>言語や配布先ごとに更新状況が違う。下記は確認できた代表例で、完全な対応一覧ではない。</li></ul>
-<div class="tablewrap"><table><caption class="small" style="text-align:left;margin:24px 0 8px">開発する人向けの確認先</caption><thead><tr><th scope="col">対象</th><th scope="col">確認できた状態</th><th scope="col">実務上の注意</th></tr></thead><tbody>
-<tr><td>Go</td><td>1.27.3／1.26.10で対象中間証明書を遮断。CVE-2026-111943。<a href="#s5">[5]</a></td><td>開発PCだけでなく、対象Goでビルドした実行ファイルの再ビルド・配布も確認する。</td></tr>
-<tr><td>Python certifi</td><td>2026.10.19のリリースを確認。<a href="#s6">[6]</a></td><td>使う仮想環境ごとに、実際のパッケージ版と独自CA設定の有無を確認する。</td></tr>
-<tr><td>Node.js</td><td>遮断実装のPR #66871はmainへ取り込み済み。<a href="#s7">[7]</a></td><td>mainへのマージと安定版の配布は別。本記事では各リリース系列の修正版番号を確定していない。</td></tr>
-<tr><td>curlのCAバンドル</td><td>公式配布は2026-10-20版へ更新。<a href="#s8">[8]</a></td><td>すべてのcurlがこのファイルを使うとは限らない。OSの証明書ストアか、独自ファイルかを確認する。</td></tr>
-<tr><td>Linux・コンテナ</td><td>ディストリビューションとイメージごとに、CAパッケージの更新を確認。<a href="#s4">[4]</a></td><td>ホストOSを更新しただけで既存イメージ内のCA一覧まで更新されると考えない。</td></tr>
-</tbody></table></div>
-<p class="small" style="margin-top:16px">更新版番号は2026年10月21日時点の確認例。以後は公式の最新安定版と、利用系列への修正取り込みを確認する。</p>
-<div class="notice"><h3>「失効した」だけでは、全員には届かない</h3><p>発行元が「この証明書は無効」と宣言しても、クライアントがその情報を見なければ受け入れることがある。だからCA一覧の更新や、問題の公開鍵を拒否する実装が必要になる。Node.jsの修正説明も、この差を明記している。<a href="#s7">[7]</a></p></div>
+<p class="eyebrow">自分が使うものだけ確認すればよい</p>
+<h2>何を更新する？ なぜそれが必要？</h2>
+<p class="reading">以下は<strong>2026年10月21日 21:40 JSTに公式情報で確認できた目安</strong>。使っていないソフトを新たに入れる必要はない。自分の利用バージョンや本番の構成は、このページだけでは確認できない。</p>
+
+<article class="toolbox" id="go">
+<header><h3>Go</h3><span>確認するプログラム自体を更新</span></header>
+<div class="toolbody">
+<p class="version">対策版：1.27.3 / 1.26.10</p>
+<p class="reason"><strong>なぜ？</strong> Goの証明書確認機能に、問題の中間CAを通る証明書を拒否する修正が入ったため。</p>
+<p>Goで作ったアプリは、確認機能も実行ファイルの中へ組み込まれる。だから、<strong>開発用Goを入れ替えても、既に配った古い実行ファイルは勝手には新しくならない</strong>。</p>
+<div class="build" aria-label="Go更新後も既存実行ファイルは再ビルドが必要">
+<div class="node bad"><b>古いGoで作ったアプリ</b><small>古い確認機能が<br>中に残る</small></div><div class="arrow" aria-hidden="true">→</div><div class="node good"><b>修正版Goで作り直す</b><small>新しい実行ファイルを配布・配備<br>動作も確認する</small></div>
+</div>
+<p class="mini">標準の証明書検証を使って外部へHTTPS接続するGoアプリ・CLIなどが確認対象。<strong>「Goを更新」＋「対象アプリを再ビルド・再配布」</strong>まで考える。</p>
+<p class="source"><a href="https://go.dev/doc/devel/release#go1.27.3">公式リリース履歴</a> ／ <a href="https://github.com/golang/go/issues/82345">公式修正内容・CVE-2026-111943</a></p>
+</div></article>
+
+<article class="toolbox" id="php">
+<header><h3>PHP / Composer</h3><span>実際に使う「CAの名簿」を確認</span></header>
+<div class="toolbody">
+<p class="version">eMudhra対策は、PHPの版数だけで判定しない</p>
+<p class="reason"><strong>なぜ？</strong> PHPの通信は、OSのCA一覧や、設定で指定した別のCAファイルを使うことがあるため。</p>
+<p>PHP本体を新しくしても、<strong>参照先の古い名簿が残っていたら、その部分は更新されない</strong>。逆にOS側の一覧を使っていれば、その配布元の対策が重要になる。</p>
+<ul class="checks"><li><code>curl.cainfo</code>：PHPのcURLが使うCAファイルの指定。</li><li><code>openssl.cafile</code> / <code>openssl.capath</code>：OpenSSL系の通信で使うCAファイル・ディレクトリの指定。</li><li>Composerも、自分が見ているCA一覧を確認。公式は<code>composer diagnose -vvv</code>の冒頭のCAファイル・ディレクトリ表示を確認する方法を案内している。</li></ul>
+<p class="mini">まず「どのCA一覧を使っているか」を特定し、<strong>その配布元の対策済み一覧へ更新</strong>する。cURL公式のCAバンドルは2026-10-20版を確認済み。独自指定・同梱ファイルがあればそこも確認する。</p>
+<p class="small">CLIとWebサーバーのPHPでは設定が違う場合がある。診断の生ログを公開する必要はない。証明書検証をオフにして解決しない。</p>
+<p class="source"><a href="https://www.php.net/manual/en/curl.configuration.php">PHP cURL設定</a> ／ <a href="https://www.php.net/manual/en/openssl.configuration.php">PHP OpenSSL設定</a> ／ <a href="https://getcomposer.org/doc/articles/troubleshooting.md#ssl-certificate-problem-unable-to-get-local-issuer-certificate">Composer公式のCA確認方法</a> ／ <a href="https://curl.se/docs/caextract.html">cURL公式CAバンドル</a></p>
+<div class="warning"><h4>別の話：PHP本体の緊急更新予告もある</h4><p>PHP公式は<strong>2026年10月21日 23:00 JST（14:00 UTC）</strong>に、重大な脆弱性2件の修正版を出す予定と告知している。21:40 JST確認時点では、影響版・修正版・詳細は未公表。</p><p><strong>eMudhraと同じ原因とは確認できない。</strong>上のCA名簿の対策とは分けて、公開後に公式の対象版を確認する。<a href="https://www.php.net/archive/2026.php">PHP公式予告</a></p></div>
+</div></article>
+
+<article class="toolbox" id="node">
+<header><h3>Node.js</h3><span>Node本体に含まれる対策を受け取る</span></header>
+<div class="toolbody">
+<p class="version">22系：22.23.4<br>24系：24.22.1<br>26系：26.12.1</p>
+<p class="reason"><strong>なぜ？</strong> このセキュリティリリースに、eMudhra事故へのCA対策が含まれるため。</p>
+<p>本日、<strong>修正がソースへ入っただけではなく、修正版の配布を確認</strong>できた。使っている系列の対策版以降へ更新し、動いているプロセスや配布先にも反映する。</p>
+<p class="mini">コンテナやNodeを同梱するアプリでは、その中の古いNodeが残っていないかも確認。パソコンのNodeを変えても、別サーバーや同梱版は自動で変わらない。</p>
+<p class="source"><a href="https://nodejs.org/en/blog/vulnerability/october-2026-security-releases">Node公式セキュリティ告知</a> ／ <a href="https://nodejs.org/en/blog/release/v22.23.4">22.23.4</a> ／ <a href="https://nodejs.org/en/blog/release/v24.22.1">24.22.1</a> ／ <a href="https://nodejs.org/en/blog/release/v26.12.1">26.12.1</a></p>
+</div></article>
+
+<article class="toolbox" id="python">
+<header><h3>Python / pip / uv</h3><span>部品を入れる道具も、別の名簿を持つ</span></header>
+<div class="toolbody">
+<p class="version">推奨更新先：<br>certifi：2026.10.19 以降<br>pip：26.2.2 以降<br>uv：0.13.4 以降</p>
+<p class="reason"><strong>なぜ？</strong> certifiはCA一覧を配るパッケージ。pipの中には独自に同梱された一覧もあるため。</p>
+<p><strong>OSの名簿だけ直しても、古いpipが同梱する名簿は残る。</strong>Python公式の案内は、pip自体と、使用しているcertifi・uvの更新を求めている。<strong>OSや独自指定のCA一覧も、併せて確認する。</strong></p>
+<ul class="checks"><li>仮想環境は「プロジェクトごとの別の道具箱」。道具箱ごとに確認する。</li><li>コンテナを使っているなら、古い中身のまま再起動するだけではなく、対策を取り込んで作り直す。</li><li>sigstoreを使う場合は4.5.1以降も公式案内の対象。</li><li>certifi 2026.10.18にも対策はあるが、無関係な発行元への影響を絞った2026.10.19以降が推奨先。</li></ul>
+<p class="mini">古い道具で更新する通信そのものも確認が必要。安全な入手・検証方法は、リンク先の公式手順に従う。検証を切らない。</p>
+<p class="source"><a href="https://discuss.python.org/t/information-for-python-users-regarding-emudhra-emsign-ca-certificate-security-incident/109576">Python公式の更新対象・安全な更新手順</a></p>
+</div></article>
+
+<article class="toolbox" id="browser">
+<header><h3>ブラウザ / OS</h3><span>緊急の拒否情報が届いているか</span></header>
+<div class="toolbody">
+<p class="reason"><strong>なぜ？</strong> ブラウザやOSにも、信頼情報・拒否情報を届ける仕組みがあるため。</p>
+<ul class="checks"><li><strong>Chrome：</strong>Googleによると、対象の遮断は10月17日に配信され、この遮断自体のためのChrome更新・再起動は不要。ただし通常の更新も維持する。</li><li><strong>Google Play開発者サービスのあるAndroid：</strong>Googleは同等の対策を10月19日から配布。端末の再起動で即時更新を促せると案内している。すべてのAndroid構成への一律の保証ではない。</li><li><strong>Firefox Android：</strong>一部で拒否情報が起動時に適用されなかった問題を<strong>158.0.2</strong>で修正。旧版のまま「Firefoxだから大丈夫」と判断しない。</li><li><strong>WindowsなどのOS：</strong>公式のOS更新・信頼情報の配布を確認。OS側を更新しても、独自のCA一覧を持つアプリまで更新済みとは限らない。</li></ul>
+<p class="small">このページは、本人の端末に対策が届いたことを確認する検査結果ではない。Windowsの特定KB番号や、全Java製品共通の修正版番号はここでは確定していない。</p>
+<p class="source"><a href="https://blog.google/security/protecting-chrome-and-android-users-from-compromised-emudhra-intermediate-ca-certificates/">Google公式のChrome・Android対策</a> ／ <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2083449#c29">Mozilla公式・Android修正の説明</a> ／ <a href="https://www.firefox.com/en-US/firefox/android/158.0.2/releasenotes/">Firefox Android 158.0.2リリースノート</a></p>
+</div></article>
 </section>
 
 <section id="action">
-<h2>自分なら、ここを順番に見る</h2>
-<div class="pair"><div class="panel safe"><h3>普段のネット利用</h3><ul class="checks"><li>OSとブラウザを最新にする。</li><li>証明書エラーを「とりあえず続行」で通さない。</li><li>このニュースだけを理由に、全パスワード流出と決めつけない。</li></ul></div><div class="panel"><h3>個人開発・自作サービス</h3><ul class="checks"><li>外へHTTPS接続する実行環境を洗い出す。</li><li>ランタイム・CA一覧・同梱ライブラリの更新を確認。</li><li>必要な再ビルド・再配布後、実際の稼働版を確かめる。</li></ul></div></div>
-<div class="reading" style="margin-top:26px"><p><strong>例：</strong>ブラウザから見たサイトは問題なくても、その裏で動くPythonの取得処理、Node.jsのAPIクライアント、古いGoバイナリは、別の検証器を使っているかもしれない。まず「誰が外へ接続しているか」を見る。</p><p>Cloudflareなどマネージド基盤の入口TLS、サーバーから外部へ出る通信、手元の開発CLIは別の境界。<strong>ひとつ確認できたことを、全部の安全証明にしない</strong>。これは確認手順の提案で、特定サービスの影響を確認したものではない。</p></div>
-<div class="warning"><h3>やらないほうがいいこと</h3><p><code>curl -k</code>、<code>verify=False</code>、<code>NODE_TLS_REJECT_UNAUTHORIZED=0</code>などで、証明書検証を無効にして回避しない。正常なサイトまで巻き込む可能性があるため、ルート証明書の手動削除も一律には勧めない。</p></div>
-<details><summary>元サイトのテストで成功／失敗したら？</summary><p>元サイトは、問題の中間CAを信頼するかを調べるテストを案内している。ただし、通常の通信失敗・DNS失敗・プロキシの遮断と、証明書検証による拒否は別。接続できなかっただけで「対策済み」と即断しない。試した一つのクライアントの結果を、全アプリへ一般化しない。この記事のHTMLは、外部のテストホストへ自動接続しない。</p></details>
-<p><strong>要するに：</strong>「暗号化が全部ダメ」ではなく、<strong>「偽物を本物と認定しうる弱い発行係を、各クライアントで拒否する」</strong>話。ブラウザ更新で終わらせず、開発で使う通信経路も分けて確認するのが大事。</p>
+<p class="eyebrow">全部を闇雲に更新するのではなく</p>
+<h2>自分の確認は、この順番で</h2>
+<ol class="checklist"><li><strong>まず、使っている場所を分ける。</strong><p>自分のPC・スマホだけか。自作CLI、サーバー、CI、コンテナ、配布済みアプリもあるか。使っていない言語は追加不要。</p></li><li><strong>そのソフトが「相手をどう確認するか」を調べる。</strong><p>Goの検証機能か、Nodeの同梱対策か、Pythonパッケージか、OSや独自CAファイルか。PHPなら参照先の設定も見る。</p></li><li><strong>対策を、本当に動く場所へ届ける。</strong><p>Goなら対象バイナリを再ビルド・配布。Nodeなら実際の実行環境も更新。仮想環境やコンテナも、それぞれの中身へ反映。</p></li><li><strong>更新した事実と、動作を別々に確認する。</strong><p>実行中の版数・参照するCA一覧・通常のHTTPS通信を確認。必要なら公式の検証方法で対象の証明書を拒否するか確認する。ブラウザ1本の結果で全ソフトを合格にしない。</p></li></ol>
+<div class="answer"><p><strong>結局、何のための更新？</strong><br>自分がつなぐ相手を、古い判断のまま「本物です」と認めないため。<br><strong>「確認する係」へ、新しい拒否ルールを届けるため。</strong></p></div>
+<div class="warning"><p><strong>やってはいけない対処：</strong>警告を無視する、TLS・証明書検証をオフにする、根拠なくCAを大量削除する。つながらなくなったときは、正しい証明書や信頼設定を確認する。</p></div>
+<details><summary>自分のサイトの証明書も、全部交換する？</summary><p>全部ではない。今回の対策で拒否される証明書のつながりを使っている場合など、対象に該当するときに発行元の案内に従って交換する。GoogleはemSign ECC Root CA - G3へ連なるサイト証明書の運用者に、新しいチェーンの取得を求めている。<a href="#s4">[4]</a></p></details>
+<details><summary>パスワードやAPIキーを全部変える必要がある？</summary><p>この事故の公表だけで、本人の秘密が漏れたと確認されたわけではない。漏えいの兆候・対象接続・サービス側の案内などがあれば、その条件に応じて対処する。まず検証機能を直すことと、実被害の判断を混同しない。</p></details>
+<details><summary>このたとえで、省略したことは？</summary><p>現実には身分証を目で見るのではなく、公開鍵暗号で署名を計算して確かめる。ドメイン名・期限・用途・制約・証明書のつながりなども調べる。拒否情報の配信とCA一覧の変更も同じものではない。画像のハンコは、これらすべてを完全再現した模型ではなく、<strong>「信用の判断を更新する」という関係</strong>を理解するためのたとえ。</p></details>
 </section>
 
 <section id="sources">
-<h2>出典と、この記事の確認範囲</h2>
-<p class="small">確認日：2026年10月21日。原サイトの全文転載ではなく、一次資料を照合して説明を再構成した。個人端末・実際のプロジェクト・本番サーバーの検査、秘密鍵の復元、攻撃の再現はしていない。</p>
+<h2>一次資料と更新履歴</h2>
+<p class="small">本文の説明用の例は実被害の報告ではない。下記は公開の公式資料・当事者の報告。更新の有無は変わるため、実作業時はリンク先も再確認する。</p>
 <ol class="sources">
-<li id="s1"><a href="https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Transport_Layer_Security">MDN：Transport Layer Security</a><span>TLSの役割、サーバー認証、証明書と公開鍵の基本。</span></li>
-<li id="s2"><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2083449">Mozilla Bug 2083449：eMudhra中間証明書の秘密鍵問題</a><span>独立検証、生成日、8鍵の用途、P-384鍵の弱さ。原因調査中の事項やCA自身の説明も含むため、発言者と確認段階を区別。</span></li>
-<li id="s3"><a href="https://groups.google.com/a/mozilla.org/g/dev-security-policy/c/0R3XLJL6FuE">Chrome Root Programの公式説明を含むMozilla公開スレッド</a><span>ChromeのSPKI遮断、クロス証明書、CTの条件、コード署名用途の扱い。</span></li>
-<li id="s4"><a href="https://emudhra.we-have-a-problem.com/">元サイト：eMudhra Intermediate CA Compromise</a><span>全体像・クライアント別対策一覧・未確認の悪用範囲。Dennis Jackson公開。</span></li>
-<li id="s5"><a href="https://groups.google.com/g/golang-announce/c/66pojueaQek">Go公式：1.27.3／1.26.10のセキュリティリリース</a><span>crypto/x509での遮断とCVE-2026-111943。</span></li>
-<li id="s6"><a href="https://github.com/certifi/python-certifi/releases/tag/2026.10.19">certifi公式：2026.10.19</a><span>公開版を確認。OS側の更新とPython仮想環境の更新は別々に確認する。</span></li>
-<li id="s7"><a href="https://github.com/nodejs/node/pull/66871">Node.js公式：PR #66871</a><span>2026年10月20日16:43 UTCにマージ済み。既定の失効確認の限界とSPKI遮断を説明。安定版の公開済み番号は本記事では未確認。</span></li>
-<li id="s8"><a href="https://curl.se/docs/caextract.html">curl公式：CA Extract</a><span>2026-10-20版CAバンドル。curlのビルドや設定によって使う信頼ストアは異なる。</span></li>
+<li id="s1"><a href="https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Transport_Layer_Security">MDN：TLSとサーバー認証</a><span>暗号化だけでなく、接続相手の認証が必要になる仕組み。</span></li>
+<li id="s2"><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2083449">Mozilla公式インシデント記録</a><span>弱い鍵の確認、生成日、用途、対策とFirefox Androidの追記。</span></li>
+<li id="s3"><a href="https://emudhra.we-have-a-problem.com/">元の公開報告：eMudhra Intermediate CA Compromise</a><span>対象、下流クライアントの対策、過去の悪用について分かる範囲。</span></li>
+<li id="s4"><a href="https://blog.google/security/protecting-chrome-and-android-users-from-compromised-emudhra-intermediate-ca-certificates/">Google公式：ChromeとAndroidの保護</a><span>拒否情報の配信、CT、Android配信と端末再起動、証明書運用者の対応。</span></li>
+<li id="s5"><a href="https://go.dev/doc/devel/release#go1.27.3">Go公式リリース履歴</a> ／ <a href="https://github.com/golang/go/issues/82345">Go公式の修正内容</a><span>1.27.3・1.26.10のcrypto/x509対策。既存バイナリは配布物への反映も確認する。</span></li>
+<li id="s6"><a href="https://discuss.python.org/t/information-for-python-users-regarding-emudhra-emsign-ca-certificate-security-incident/109576">Python公式案内</a><span>certifi・pip・uv・sigstoreと、仮想環境・コンテナの確認。</span></li>
+<li id="s7"><a href="https://nodejs.org/en/blog/vulnerability/october-2026-security-releases">Node.js公式セキュリティリリース</a><span>eMudhra対策を含む22.23.4・24.22.1・26.12.1の配布。</span></li>
+<li id="s8"><a href="https://curl.se/docs/caextract.html">cURL公式CAバンドル</a><span>2026-10-20版。実際にこのファイルを参照するかは別途確認。</span></li>
+<li id="s9"><a href="https://www.php.net/manual/en/curl.configuration.php">PHP cURL設定</a> ／ <a href="https://www.php.net/manual/en/openssl.configuration.php">PHP OpenSSL設定</a> ／ <a href="https://getcomposer.org/doc/articles/troubleshooting.md">Composer公式トラブルシューティング</a><span>CAファイル・ディレクトリと、Composerの参照先の確認。</span></li>
+<li id="s10"><a href="https://www.php.net/archive/2026.php">PHP公式の緊急リリース予告</a><span>10月21日23:00 JST予定。eMudhraと同じ原因とは確認されていない。</span></li>
+<li id="s11"><a href="https://www.firefox.com/en-US/firefox/android/158.0.2/releasenotes/">Firefox Android 158.0.2</a><span>起動時の拒否情報の適用を修正。</span></li>
 </ol>
+<h3>この記事の変更</h3>
+<ul class="history"><li><strong>2026-10-21 初版：</strong>証明書の信頼とeMudhra事故の仕組みを公開。</li><li><strong>同日 21:40 JST確認の新版：</strong>「なぜソフトを更新するのか」を最初から書き直し、AI生成3コマと図形を追加。Goの再ビルド、PHP・ComposerのCA参照、Nodeの配布済み版、Pythonの道具ごとの更新、Firefox Android 158.0.2を反映。PHP本体の緊急更新予告は別の話として明記。</li></ul>
 </section>
-<footer class="footer">このページは学習・確認のための解説です。最新版への更新可否や影響は、実際の実行環境と公式の修正情報で判断してください。<br><a href="/">ほかの共有メモを見る</a></footer>
+<footer class="footer">このページは仕組みの理解を助ける説明で、本人の端末・プロジェクトの更新実行や被害調査を完了した報告ではない。画像はAI生成、説明ラベル・版数・条件はHTML本文で管理。</footer>
 </main>
 </body>
 </html>
