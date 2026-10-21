@@ -1,6 +1,6 @@
 {
   "title": "2026年10月21日前後 緊急メンテナンス・関連告知一覧",
-  "checkedAt": "2026-10-21T14:45:00Z",
+  "checkedAt": "2026-10-21T15:00:00Z",
   "scope": "PHPの因果不問。今回の緊急/予防メンテと同時期の関連告知・別インシデントを区分。件数による上限なし。",
   "counting": "confirmedは公式資料を確認した対象別の告知カード数（部分本文・同一基盤・包括/個別の重なりを含む）。固有サイト数・実停止数・独立インシデント数・被害数ではない。pendingは原典/公式所有/対象範囲等の追加照合待ち。関連・重複・除外理由も全収集行に保持し、件数で打ち切らない。",
   "confirmed": [
@@ -6218,6 +6218,133 @@
         }
       ],
       "icon": "https://infinitedayo.jp/favicon.ico"
+    },
+    {
+      "id": "inunekome",
+      "name": "いぬのきもち・ねこのきもち",
+      "cat": "web",
+      "reason": "PHP対策",
+      "tag": "複数サービスを順次停止",
+      "status": "公式は順次停止と案内",
+      "start": "10/21 18:00以降順次",
+      "end": "未定",
+      "scope": "WEBサイト（pet.benesse.ne.jp／dog.benesse.ne.jp／cat.benesse.ne.jp）、直販雑誌申し込み、アプリ、応募会員、ペットPASS。",
+      "safe": "サービスの安全を守るための予防的措置。告知時点で本件に起因する不正アクセス・情報漏えい等は確認されていないとの説明。",
+      "url": "https://x.com/inunekome/status/2112843248939229678",
+      "source": "公式X原文全文・ベネッセ公式ページでアカウント所有確認",
+      "date": "10/21・18:47投稿（投稿表示はJST換算）",
+      "ownershipEvidence": [
+        {
+          "url": "https://pet.benesse.ne.jp/event/dogfesta/",
+          "note": "ベネッセ公式ページが「いぬのきもち公式X（旧Twitter）」として https://x.com/inunekome を直接リンク。主催をいぬのきもち（株式会社ベネッセコーポレーション）と明記。"
+        }
+      ],
+      "icon": "https://pet.benesse.ne.jp/favicon.ico",
+      "checkedAt": "2026-10-21T14:59:40Z"
+    },
+    {
+      "id": "twitcasting",
+      "name": "ツイキャス",
+      "cat": "entertainment",
+      "reason": "外部ソフトウェアの脆弱性・PHP名未記載",
+      "tag": "サービス停止を伴う予防措置",
+      "status": "公式の実施予定",
+      "start": "10/21 22:30",
+      "end": "未定",
+      "scope": "ツイキャスのサービス停止。機能別の範囲は取得本文に未記載。",
+      "safe": "外部ソフトウェアの脆弱性公表を受けた予防的措置で、ツイキャスへの不正アクセス等に伴う対応ではないと明記。朝の定期メンテナンス終了告知とは別件。",
+      "url": "https://x.com/twitcasting_jp/status/2112847603255922894",
+      "source": "公式X原文全文・公式ホームページでアカウント所有確認。リンク先ヘルプ記事の直接取得は503",
+      "date": "10/21・19:04投稿（投稿表示はJST換算）",
+      "ownershipEvidence": [
+        {
+          "url": "https://twitcasting.tv/",
+          "note": "ツイキャス公式サービスのホームページが https://x.com/twitcasting_jp を直接リンク。"
+        }
+      ],
+      "icon": "https://twitcasting.tv/favicon.ico",
+      "checkedAt": "2026-10-21T14:59:40Z",
+      "sources": [
+        "https://twitcasting.tv/helpcenter.php?pid=ANNOUNCE_JA_20261021"
+      ]
+    },
+    {
+      "id": "reality-jp",
+      "name": "REALITY",
+      "cat": "entertainment",
+      "reason": "PHP対策",
+      "tag": "終了予定を延長",
+      "status": "公式は実施中と案内",
+      "start": "10/21 23:00予定／23:01に開始告知",
+      "end": "未定（24:00予定から延長）",
+      "scope": "REALITY（メンテナンス中は利用不可）。",
+      "safe": "PHPの脆弱性への安全確保対応。23:01に開始を告知し、23:55更新で24:00終了予定を延長。終了時刻は未定で、完了時に別途案内すると明記。",
+      "url": "https://x.com/REALITY_app/status/2112920678030815482",
+      "source": "公式Xの初報・開始告知・延長告知を全文取得。日本語公式ホームページでアカウント所有確認",
+      "date": "10/21・23:55更新（投稿表示はJST換算）",
+      "ownershipEvidence": [
+        {
+          "url": "https://reality.app/?lang=ja",
+          "note": "REALITY日本語公式ホームページの Follow @REALITY_app が https://twitter.com/REALITY_app?ref_src=twsrc%5Etfw に直接リンク。"
+        }
+      ],
+      "icon": "https://reality.app/favicon.ico",
+      "sources": [
+        "https://x.com/REALITY_app/status/2112907123239858342",
+        "https://x.com/REALITY_app/status/2112852139638952315"
+      ],
+      "checkedAt": "2026-10-21T14:59:40Z"
+    },
+    {
+      "id": "dotinstall-256times",
+      "name": "ドットインストール・256times",
+      "cat": "web",
+      "reason": "PHP対策",
+      "tag": "2サービスの予防的停止",
+      "status": "公式は停止中と案内",
+      "start": "10/21 18:00頃",
+      "end": "未定",
+      "scope": "ドットインストール及び256times。",
+      "safe": "サーバーで使用するPHPへの予防的措置。修正版を適用してから再開予定で、再開時刻は決まり次第案内。被害の有無は取得本文に未記載。",
+      "url": "https://x.com/dotinstall/status/2112852777143767393",
+      "source": "公式X原文全文・公式ヘルプでアカウント所有確認",
+      "date": "10/21・19:25投稿（投稿表示はJST換算）",
+      "ownershipEvidence": [
+        {
+          "url": "https://dotinstall.com/help",
+          "note": "ドットインストール公式ヘルプのフッター「ソーシャルメディア」が X (@dotinstall) として https://x.com/dotinstall に直接リンク。"
+        }
+      ],
+      "icon": "https://dotinstall.com/favicon.ico",
+      "checkedAt": "2026-10-21T14:59:40Z"
+    },
+    {
+      "id": "cycomi",
+      "name": "サイコミ",
+      "cat": "entertainment",
+      "reason": "PHP対策",
+      "tag": "開始が前倒し",
+      "status": "公式は実施中と案内",
+      "start": "10/21 22:00頃（23:00から変更）",
+      "end": "10/22 08:00予定（初報）／再開時に別途案内",
+      "scope": "サイコミ。機能別の停止範囲は取得本文に未記載。",
+      "safe": "初報の23:00開始を後続告知で22:00頃に変更。22:00の告知で実施中と再開時の別途案内を明記。被害やデータ流出等は未確認との説明。08:00は予定であり実復旧時刻ではありません。",
+      "url": "https://x.com/cycomi/status/2112891828785865123",
+      "sources": [
+        "https://x.com/cycomi/status/2112854672247804187",
+        "https://x.com/cycomi/status/2112888014347423882",
+        "https://cycomi.com/info/1410"
+      ],
+      "source": "公式Xの初報・開始変更・実施中の3告知を全文取得。Cygames公式発表でアカウント所有確認。公式詳細ページはメンテ画面のみ",
+      "date": "10/21・22:00更新（投稿表示はJST換算）",
+      "ownershipEvidence": [
+        {
+          "url": "https://www.cygames.co.jp/news/id-19632/",
+          "note": "Cygames公式発表が「開発・運営：株式会社Cygames」「ブラウザ版URL：https://cycomi.com」「公式Twitter：https://twitter.com/cycomi」を明記。"
+        }
+      ],
+      "icon": "https://cycomi.com/favicon.ico",
+      "checkedAt": "2026-10-21T14:59:40Z"
     }
   ],
   "pending": [
@@ -6474,17 +6601,6 @@
     },
     {
       "names": [
-        "いぬのきもち・ねこのきもち"
-      ],
-      "url": "https://x.com/inunekome/status/2112843248939229678",
-      "note": "元投稿の本文取得情報はありますが、公式所有・最新告知・対象範囲の独立照合は未完了です。",
-      "sourceClass": "公式X",
-      "nextVerificationCondition": "対象サービスの公式原文・アカウント所有根拠・最新状態を独立照合できた時点。",
-      "sourceRead": "verified_separate_primary_source",
-      "checkedAt": "2026-10-21T14:12:00Z"
-    },
-    {
-      "names": [
         "ブロネット運営事務局"
       ],
       "url": "https://x.com/blog_net0214/status/2112844206473650488",
@@ -6514,17 +6630,6 @@
       "sourceClass": "公式X",
       "nextVerificationCondition": "公式サイト再開、または運営が公的な公式アカウントリンクを公開して所有を確認できた時点。日時/機能/現在状態の不足は理由欄に沿って照合。",
       "sourceRead": "body_retrieved",
-      "checkedAt": "2026-10-21T14:14:45Z"
-    },
-    {
-      "names": [
-        "ツイキャス"
-      ],
-      "url": "https://x.com/twitcasting_jp/status/2112847603255922894",
-      "note": "元投稿の本文取得情報はありますが、公式所有・最新告知・対象範囲の独立照合は未完了です。",
-      "sourceClass": "公式X",
-      "nextVerificationCondition": "対象サービスの公式原文・アカウント所有根拠・最新状態を独立照合できた時点。",
-      "sourceRead": "verified_separate_primary_source",
       "checkedAt": "2026-10-21T14:14:45Z"
     },
     {
@@ -6562,17 +6667,6 @@
     },
     {
       "names": [
-        "REALITY"
-      ],
-      "url": "https://x.com/REALITY_app/status/2112852139638952315",
-      "note": "元投稿の本文取得情報はありますが、公式所有・最新告知・対象範囲の独立照合は未完了です。",
-      "sourceClass": "公式X",
-      "nextVerificationCondition": "対象サービスの公式原文・アカウント所有根拠・最新状態を独立照合できた時点。",
-      "sourceRead": "verified_separate_primary_source",
-      "checkedAt": "2026-10-21T14:14:45Z"
-    },
-    {
-      "names": [
         "喫煙具専門店kagaya"
       ],
       "url": "https://x.com/kagaya_smokeweb/status/2112852149231403459",
@@ -6580,17 +6674,6 @@
       "sourceClass": "公式X",
       "nextVerificationCondition": "公式サイト再開、または運営が公的な公式アカウントリンクを公開して所有を確認できた時点。日時/機能/現在状態の不足は理由欄に沿って照合。",
       "sourceRead": "body_retrieved",
-      "checkedAt": "2026-10-21T14:14:45Z"
-    },
-    {
-      "names": [
-        "ドットインストール"
-      ],
-      "url": "https://x.com/dotinstall/status/2112852777143767393",
-      "note": "元投稿の本文取得情報はありますが、公式所有・最新告知・対象範囲の独立照合は未完了です。",
-      "sourceClass": "公式X",
-      "nextVerificationCondition": "対象サービスの公式原文・アカウント所有根拠・最新状態を独立照合できた時点。",
-      "sourceRead": "verified_separate_primary_source",
       "checkedAt": "2026-10-21T14:14:45Z"
     },
     {
@@ -6646,17 +6729,6 @@
       "sourceClass": "公式X",
       "nextVerificationCondition": "公式サイト再開、または運営が公的な公式アカウントリンクを公開して所有を確認できた時点。日時/機能/現在状態の不足は理由欄に沿って照合。",
       "sourceRead": "body_retrieved",
-      "checkedAt": "2026-10-21T14:14:45Z"
-    },
-    {
-      "names": [
-        "サイコミ"
-      ],
-      "url": "https://x.com/cycomi/status/2112854672247804187",
-      "note": "元投稿の本文取得情報はありますが、公式所有・最新告知・対象範囲の独立照合は未完了です。",
-      "sourceClass": "公式X",
-      "nextVerificationCondition": "対象サービスの公式原文・アカウント所有根拠・最新状態を独立照合できた時点。",
-      "sourceRead": "verified_separate_primary_source",
       "checkedAt": "2026-10-21T14:14:45Z"
     },
     {
@@ -9469,11 +9541,11 @@
     {
       "name": "いぬのきもち・ねこのきもち",
       "sourceUrl": "https://x.com/inunekome/status/2112843248939229678",
-      "verification": "pending",
-      "confirmedId": null,
-      "note": "元投稿の本文取得情報はありますが、公式所有・最新告知・対象範囲の独立照合は未完了です。",
+      "verification": "confirmed",
+      "confirmedId": "inunekome",
+      "note": "サービスの安全を守るための予防的措置。告知時点で本件に起因する不正アクセス・情報漏えい等は確認されていないとの説明。",
       "sourceClass": "公式X",
-      "nextVerificationCondition": "対象サービスの公式原文・アカウント所有根拠・最新状態を独立照合できた時点。"
+      "nextVerificationCondition": null
     },
     {
       "name": "ブロネット運営事務局",
@@ -9505,11 +9577,11 @@
     {
       "name": "ツイキャス",
       "sourceUrl": "https://x.com/twitcasting_jp/status/2112847603255922894",
-      "verification": "pending",
-      "confirmedId": null,
-      "note": "元投稿の本文取得情報はありますが、公式所有・最新告知・対象範囲の独立照合は未完了です。",
+      "verification": "confirmed",
+      "confirmedId": "twitcasting",
+      "note": "外部ソフトウェアの脆弱性公表を受けた予防的措置で、ツイキャスへの不正アクセス等に伴う対応ではないと明記。朝の定期メンテナンス終了告知とは別件。",
       "sourceClass": "公式X",
-      "nextVerificationCondition": "対象サービスの公式原文・アカウント所有根拠・最新状態を独立照合できた時点。"
+      "nextVerificationCondition": null
     },
     {
       "name": "AUN（あうん）登録不要の修正依頼・指示ツール",
@@ -9567,11 +9639,11 @@
     {
       "name": "REALITY",
       "sourceUrl": "https://x.com/REALITY_app/status/2112852139638952315",
-      "verification": "pending",
-      "confirmedId": null,
-      "note": "元投稿の本文取得情報はありますが、公式所有・最新告知・対象範囲の独立照合は未完了です。",
+      "verification": "confirmed",
+      "confirmedId": "reality-jp",
+      "note": "PHPの脆弱性への安全確保対応。23:01に開始を告知し、23:55更新で24:00終了予定を延長。終了時刻は未定で、完了時に別途案内すると明記。",
       "sourceClass": "公式X",
-      "nextVerificationCondition": "対象サービスの公式原文・アカウント所有根拠・最新状態を独立照合できた時点。"
+      "nextVerificationCondition": null
     },
     {
       "name": "喫煙具専門店kagaya",
@@ -9594,11 +9666,11 @@
     {
       "name": "ドットインストール",
       "sourceUrl": "https://x.com/dotinstall/status/2112852777143767393",
-      "verification": "pending",
-      "confirmedId": null,
-      "note": "元投稿の本文取得情報はありますが、公式所有・最新告知・対象範囲の独立照合は未完了です。",
+      "verification": "confirmed",
+      "confirmedId": "dotinstall-256times",
+      "note": "サーバーで使用するPHPへの予防的措置。修正版を適用してから再開予定で、再開時刻は決まり次第案内。被害の有無は取得本文に未記載。",
       "sourceClass": "公式X",
-      "nextVerificationCondition": "対象サービスの公式原文・アカウント所有根拠・最新状態を独立照合できた時点。"
+      "nextVerificationCondition": null
     },
     {
       "name": "整備・車販ソフト",
@@ -9675,11 +9747,11 @@
     {
       "name": "サイコミ",
       "sourceUrl": "https://x.com/cycomi/status/2112854672247804187",
-      "verification": "pending",
-      "confirmedId": null,
-      "note": "元投稿の本文取得情報はありますが、公式所有・最新告知・対象範囲の独立照合は未完了です。",
+      "verification": "confirmed",
+      "confirmedId": "cycomi",
+      "note": "初報の23:00開始を後続告知で22:00頃に変更。22:00の告知で実施中と再開時の別途案内を明記。被害やデータ流出等は未確認との説明。08:00は予定であり実復旧時刻ではありません。",
       "sourceClass": "公式X",
-      "nextVerificationCondition": "対象サービスの公式原文・アカウント所有根拠・最新状態を独立照合できた時点。"
+      "nextVerificationCondition": null
     },
     {
       "name": "RIDEONIBARAKI / ライドオンイバラキ",
@@ -15697,13 +15769,18 @@
       "names": [
         "いぬのきもち・ねこのきもち"
       ],
-      "decision": "pending",
-      "reason": "元投稿の本文取得情報はありますが、公式所有・最新告知・対象範囲の独立照合は未完了です。",
-      "checkedAt": "2026-10-21T14:12:00Z",
-      "sourceRead": "verified_separate_primary_source",
-      "ownershipEvidence": [],
-      "sourcePublishedAt": null,
-      "nextVerificationCondition": "対象サービスの公式原文・アカウント所有根拠・最新状態を独立照合できた時点。"
+      "decision": "confirmed",
+      "confirmedId": "inunekome",
+      "reason": "サービスの安全を守るための予防的措置。告知時点で本件に起因する不正アクセス・情報漏えい等は確認されていないとの説明。",
+      "checkedAt": "2026-10-21T14:59:40Z",
+      "sourceRead": "公式X原文全文・ベネッセ公式ページでアカウント所有確認",
+      "ownershipEvidence": [
+        {
+          "url": "https://pet.benesse.ne.jp/event/dogfesta/",
+          "note": "ベネッセ公式ページが「いぬのきもち公式X（旧Twitter）」として https://x.com/inunekome を直接リンク。主催をいぬのきもち（株式会社ベネッセコーポレーション）と明記。"
+        }
+      ],
+      "nextVerificationCondition": "同じ公式発信元の新しい実施・時間変更・復旧告知が通常公開で取得できた時点。予定時刻だけで完了扱いしない。"
     },
     {
       "sourceUrl": "https://x.com/blog_net0214/status/2112844206473650488",
@@ -15749,13 +15826,18 @@
       "names": [
         "ツイキャス"
       ],
-      "decision": "pending",
-      "reason": "元投稿の本文取得情報はありますが、公式所有・最新告知・対象範囲の独立照合は未完了です。",
-      "checkedAt": "2026-10-21T14:14:45Z",
-      "sourceRead": "verified_separate_primary_source",
-      "ownershipEvidence": [],
-      "sourcePublishedAt": null,
-      "nextVerificationCondition": "対象サービスの公式原文・アカウント所有根拠・最新状態を独立照合できた時点。"
+      "decision": "confirmed",
+      "confirmedId": "twitcasting",
+      "reason": "外部ソフトウェアの脆弱性公表を受けた予防的措置で、ツイキャスへの不正アクセス等に伴う対応ではないと明記。朝の定期メンテナンス終了告知とは別件。",
+      "checkedAt": "2026-10-21T14:59:40Z",
+      "sourceRead": "公式X原文全文・公式ホームページでアカウント所有確認。リンク先ヘルプ記事の直接取得は503",
+      "ownershipEvidence": [
+        {
+          "url": "https://twitcasting.tv/",
+          "note": "ツイキャス公式サービスのホームページが https://x.com/twitcasting_jp を直接リンク。"
+        }
+      ],
+      "nextVerificationCondition": "同じ公式発信元の新しい実施・時間変更・復旧告知が通常公開で取得できた時点。予定時刻だけで完了扱いしない。"
     },
     {
       "sourceUrl": "https://x.com/AUN_PHONOGRAM/status/2112848129666273283",
@@ -15837,13 +15919,18 @@
       "names": [
         "REALITY"
       ],
-      "decision": "pending",
-      "reason": "元投稿の本文取得情報はありますが、公式所有・最新告知・対象範囲の独立照合は未完了です。",
-      "checkedAt": "2026-10-21T14:14:45Z",
-      "sourceRead": "verified_separate_primary_source",
-      "ownershipEvidence": [],
-      "sourcePublishedAt": null,
-      "nextVerificationCondition": "対象サービスの公式原文・アカウント所有根拠・最新状態を独立照合できた時点。"
+      "decision": "confirmed",
+      "confirmedId": "reality-jp",
+      "reason": "PHPの脆弱性への安全確保対応。23:01に開始を告知し、23:55更新で24:00終了予定を延長。終了時刻は未定で、完了時に別途案内すると明記。",
+      "checkedAt": "2026-10-21T14:59:40Z",
+      "sourceRead": "公式Xの初報・開始告知・延長告知を全文取得。日本語公式ホームページでアカウント所有確認",
+      "ownershipEvidence": [
+        {
+          "url": "https://reality.app/?lang=ja",
+          "note": "REALITY日本語公式ホームページの Follow @REALITY_app が https://twitter.com/REALITY_app?ref_src=twsrc%5Etfw に直接リンク。"
+        }
+      ],
+      "nextVerificationCondition": "同じ公式発信元の新しい実施・時間変更・復旧告知が通常公開で取得できた時点。予定時刻だけで完了扱いしない。"
     },
     {
       "sourceUrl": "https://x.com/kagaya_smokeweb/status/2112852149231403459",
@@ -15879,15 +15966,20 @@
     {
       "sourceUrl": "https://x.com/dotinstall/status/2112852777143767393",
       "names": [
-        "ドットインストール"
+        "ドットインストール・256times"
       ],
-      "decision": "pending",
-      "reason": "元投稿の本文取得情報はありますが、公式所有・最新告知・対象範囲の独立照合は未完了です。",
-      "checkedAt": "2026-10-21T14:14:45Z",
-      "sourceRead": "verified_separate_primary_source",
-      "ownershipEvidence": [],
-      "sourcePublishedAt": null,
-      "nextVerificationCondition": "対象サービスの公式原文・アカウント所有根拠・最新状態を独立照合できた時点。"
+      "decision": "confirmed",
+      "confirmedId": "dotinstall-256times",
+      "reason": "サーバーで使用するPHPへの予防的措置。修正版を適用してから再開予定で、再開時刻は決まり次第案内。被害の有無は取得本文に未記載。",
+      "checkedAt": "2026-10-21T14:59:40Z",
+      "sourceRead": "公式X原文全文・公式ヘルプでアカウント所有確認",
+      "ownershipEvidence": [
+        {
+          "url": "https://dotinstall.com/help",
+          "note": "ドットインストール公式ヘルプのフッター「ソーシャルメディア」が X (@dotinstall) として https://x.com/dotinstall に直接リンク。"
+        }
+      ],
+      "nextVerificationCondition": "同じ公式発信元の新しい実施・時間変更・復旧告知が通常公開で取得できた時点。予定時刻だけで完了扱いしない。"
     },
     {
       "sourceUrl": "https://x.com/SystemDownInfo/status/2112853116546842718",
@@ -15990,13 +16082,18 @@
       "names": [
         "サイコミ"
       ],
-      "decision": "pending",
-      "reason": "元投稿の本文取得情報はありますが、公式所有・最新告知・対象範囲の独立照合は未完了です。",
-      "checkedAt": "2026-10-21T14:14:45Z",
-      "sourceRead": "verified_separate_primary_source",
-      "ownershipEvidence": [],
-      "sourcePublishedAt": null,
-      "nextVerificationCondition": "対象サービスの公式原文・アカウント所有根拠・最新状態を独立照合できた時点。"
+      "decision": "confirmed",
+      "confirmedId": "cycomi",
+      "reason": "初報の23:00開始を後続告知で22:00頃に変更。22:00の告知で実施中と再開時の別途案内を明記。被害やデータ流出等は未確認との説明。08:00は予定であり実復旧時刻ではありません。",
+      "checkedAt": "2026-10-21T14:59:40Z",
+      "sourceRead": "公式Xの初報・開始変更・実施中の3告知を全文取得。Cygames公式発表でアカウント所有確認。公式詳細ページはメンテ画面のみ",
+      "ownershipEvidence": [
+        {
+          "url": "https://www.cygames.co.jp/news/id-19632/",
+          "note": "Cygames公式発表が「開発・運営：株式会社Cygames」「ブラウザ版URL：https://cycomi.com」「公式Twitter：https://twitter.com/cycomi」を明記。"
+        }
+      ],
+      "nextVerificationCondition": "同じ公式発信元の新しい実施・時間変更・復旧告知が通常公開で取得できた時点。予定時刻だけで完了扱いしない。"
     },
     {
       "sourceUrl": "https://x.com/rideonibaraki/status/2112854896705946007",
@@ -26415,6 +26512,78 @@
       "sourceRead": "ライブ公式ブログと、そこから案内された公式ステータス",
       "ownershipEvidence": [],
       "confirmedId": "denic-web"
+    },
+    {
+      "sourceUrl": "https://x.com/REALITY_app/status/2112920678030815482",
+      "names": [
+        "REALITY"
+      ],
+      "decision": "confirmed",
+      "confirmedId": "reality-jp",
+      "reason": "PHPの脆弱性への安全確保対応。23:01に開始を告知し、23:55更新で24:00終了予定を延長。終了時刻は未定で、完了時に別途案内すると明記。",
+      "checkedAt": "2026-10-21T14:59:40Z",
+      "sourceRead": "公式Xの初報・開始告知・延長告知を全文取得。日本語公式ホームページでアカウント所有確認",
+      "ownershipEvidence": [
+        {
+          "url": "https://reality.app/?lang=ja",
+          "note": "REALITY日本語公式ホームページの Follow @REALITY_app が https://twitter.com/REALITY_app?ref_src=twsrc%5Etfw に直接リンク。"
+        }
+      ],
+      "nextVerificationCondition": "同じ公式発信元の新しい実施・時間変更・復旧告知が通常公開で取得できた時点。予定時刻だけで完了扱いしない。"
+    },
+    {
+      "sourceUrl": "https://x.com/REALITY_app/status/2112907123239858342",
+      "names": [
+        "REALITY"
+      ],
+      "decision": "confirmed",
+      "confirmedId": "reality-jp",
+      "reason": "PHPの脆弱性への安全確保対応。23:01に開始を告知し、23:55更新で24:00終了予定を延長。終了時刻は未定で、完了時に別途案内すると明記。",
+      "checkedAt": "2026-10-21T14:59:40Z",
+      "sourceRead": "公式Xの初報・開始告知・延長告知を全文取得。日本語公式ホームページでアカウント所有確認",
+      "ownershipEvidence": [
+        {
+          "url": "https://reality.app/?lang=ja",
+          "note": "REALITY日本語公式ホームページの Follow @REALITY_app が https://twitter.com/REALITY_app?ref_src=twsrc%5Etfw に直接リンク。"
+        }
+      ],
+      "nextVerificationCondition": "同じ公式発信元の新しい実施・時間変更・復旧告知が通常公開で取得できた時点。予定時刻だけで完了扱いしない。"
+    },
+    {
+      "sourceUrl": "https://x.com/cycomi/status/2112891828785865123",
+      "names": [
+        "サイコミ"
+      ],
+      "decision": "confirmed",
+      "confirmedId": "cycomi",
+      "reason": "初報の23:00開始を後続告知で22:00頃に変更。22:00の告知で実施中と再開時の別途案内を明記。被害やデータ流出等は未確認との説明。08:00は予定であり実復旧時刻ではありません。",
+      "checkedAt": "2026-10-21T14:59:40Z",
+      "sourceRead": "公式Xの初報・開始変更・実施中の3告知を全文取得。Cygames公式発表でアカウント所有確認。公式詳細ページはメンテ画面のみ",
+      "ownershipEvidence": [
+        {
+          "url": "https://www.cygames.co.jp/news/id-19632/",
+          "note": "Cygames公式発表が「開発・運営：株式会社Cygames」「ブラウザ版URL：https://cycomi.com」「公式Twitter：https://twitter.com/cycomi」を明記。"
+        }
+      ],
+      "nextVerificationCondition": "同じ公式発信元の新しい実施・時間変更・復旧告知が通常公開で取得できた時点。予定時刻だけで完了扱いしない。"
+    },
+    {
+      "sourceUrl": "https://x.com/cycomi/status/2112888014347423882",
+      "names": [
+        "サイコミ"
+      ],
+      "decision": "confirmed",
+      "confirmedId": "cycomi",
+      "reason": "初報の23:00開始を後続告知で22:00頃に変更。22:00の告知で実施中と再開時の別途案内を明記。被害やデータ流出等は未確認との説明。08:00は予定であり実復旧時刻ではありません。",
+      "checkedAt": "2026-10-21T14:59:40Z",
+      "sourceRead": "公式Xの初報・開始変更・実施中の3告知を全文取得。Cygames公式発表でアカウント所有確認。公式詳細ページはメンテ画面のみ",
+      "ownershipEvidence": [
+        {
+          "url": "https://www.cygames.co.jp/news/id-19632/",
+          "note": "Cygames公式発表が「開発・運営：株式会社Cygames」「ブラウザ版URL：https://cycomi.com」「公式Twitter：https://twitter.com/cycomi」を明記。"
+        }
+      ],
+      "nextVerificationCondition": "同じ公式発信元の新しい実施・時間変更・復旧告知が通常公開で取得できた時点。予定時刻だけで完了扱いしない。"
     }
   ],
   "relationships": [
@@ -26468,9 +26637,9 @@
     "classifiedAdditionalRows": 107,
     "allDiscoveryRows": 607,
     "sourceRowsByDecision": {
-      "confirmed": 222,
+      "confirmed": 227,
       "duplicate": 50,
-      "pending": 259,
+      "pending": 254,
       "related": 70,
       "excluded": 6
     },
