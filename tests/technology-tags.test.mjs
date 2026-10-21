@@ -15,6 +15,15 @@ const keys = (record, kind) => automaticTags(record).filter((item) => item.kind 
 const record = (title, lead = "", category = "agent", extra = {}) => ({ title, lead, category, ...extra });
 
 const existingProducts = {
+  "vrct-360-ocr-vad-websocket": ["other"],
+  "cloudflare-mcp-step-up": ["other"],
+  "cloudflare-clairic-preview": ["other"],
+  "mcp-reference-servers-v2": ["other"],
+  "sglang-0522-python-apple": ["other"],
+  "comfyui-0421-moss-fix": ["other"],
+  "litellm-11060-stdio-default-off": ["other"],
+  "cloudflare-local-explorer-cron": ["other"],
+  "aws-lambda-durable-go-ga": ["other"],
   "vllm-0320-compatibility-asr": ["other"],
   "claude-code-21302-mcp-permission-defaults": ["claude-code"],
   "cloudflare-workers-builds-default-tooling": ["cloudflare-workers"],
@@ -87,6 +96,15 @@ test("all authored records have deterministic product/domain/change dimensions",
 
 test("current change tags distinguish pricing, fixes, public weights, GA, beta and correction", () => {
   const expected = {
+  "vrct-360-ocr-vad-websocket": ["feature","compatibility","security","deprecation"],
+  "cloudflare-mcp-step-up": ["feature"],
+  "cloudflare-clairic-preview": ["pricing","preview"],
+  "mcp-reference-servers-v2": ["release","compatibility"],
+  "sglang-0522-python-apple": ["release","compatibility"],
+  "comfyui-0421-moss-fix": ["fix"],
+  "litellm-11060-stdio-default-off": ["compatibility"],
+  "cloudflare-local-explorer-cron": ["update"],
+  "aws-lambda-durable-go-ga": ["release","ga"],
   "vllm-0320-compatibility-asr": ["compatibility"],
   "claude-code-21302-mcp-permission-defaults": ["fix"],
   "cloudflare-workers-builds-default-tooling": ["compatibility"],
