@@ -1,6 +1,6 @@
 {
   "title": "2026年10月21日前後 緊急メンテナンス・関連告知一覧",
-  "checkedAt": "2026-10-21T16:55:00Z",
+  "checkedAt": "2026-10-21T17:17:00Z",
   "scope": "PHPの因果不問。今回の緊急/予防メンテと同時期の関連告知・別インシデントを区分。件数による上限なし。",
   "counting": "confirmedは公式資料を確認した対象別の告知カード数（部分本文・同一基盤・包括/個別の重なりを含む）。固有サイト数・実停止数・独立インシデント数・被害数ではない。pendingは原典/公式所有/対象範囲等の追加照合待ち。関連・重複・除外理由も全収集行に保持し、件数で打ち切らない。",
   "confirmed": [
@@ -9741,6 +9741,133 @@
         }
       ],
       "inputIndex": 8
+    },
+    {
+      "id": "rallyx-mobile-recovery",
+      "name": "ラリーXモバイル",
+      "cat": "entertainment",
+      "tag": "ニュースサイト",
+      "icon": "https://rallyx.net/favicon.ico",
+      "url": "https://x.com/rallyx_m/status/2112929973401264419",
+      "start": "取得した終了投稿に未記載",
+      "end": "10/22 00:32の投稿時点で完了報告（正確な終了時刻なし）",
+      "scope": "ラリーXモバイルのメンテナンス完了とサイト更新再開。",
+      "reason": "理由の詳細・PHP名は終了投稿に未記載",
+      "status": "公式のメンテナンス完了・更新再開報告",
+      "restored": true,
+      "safe": "運営者の報告であり、個別会員機能を実操作して確認したものではありません。",
+      "date": "10/22 01:59 JST確認",
+      "source": "原文と公式サイトの正確なアカウント逆リンクを照合",
+      "checkedAt": "2026-10-21T16:59:00Z",
+      "ownershipEvidence": [
+        {
+          "url": "http://rallyx.net/",
+          "note": "Xプロフィールのリンク先wrc.rallyx.netが示すPC公式ページにhttps://twitter.com/rallyx_mへの直接リンク。"
+        }
+      ],
+      "inputIndex": 23
+    },
+    {
+      "id": "buyma",
+      "name": "BUYMA",
+      "url": "https://qa.buyma.com/information/maintenance/31825.html",
+      "icon": "https://qa.buyma.com/wp-content/uploads/2019/04/logo_icon-1-150x150.png",
+      "cat": "shopping",
+      "tag": "全サービス・開始前倒しの可能性",
+      "status": "公式の実施予定（完了未確認）",
+      "start": "10/21 22:00 日本時間予定（前倒しの場合あり）",
+      "end": "未定",
+      "scope": "サイト閲覧、商品購入、出品、問い合わせなどBUYMA全サービス。",
+      "safe": "開始予定は前倒しの可能性あり。実際の開始・復旧完了は確認していません。公式は関連する情報漏えいは確認されていないと案内していますが、当方が調査した結果ではありません。",
+      "reason": "システム脆弱性への予防措置・PHP名未記載",
+      "date": "10/22 02:13 JST確認",
+      "checkedAt": "2026-10-21T17:13:00Z",
+      "source": "運営ドメインの公式告知全文を通常公開readで確認",
+      "ownershipEvidence": [
+        {
+          "url": "https://qa.buyma.com/information/maintenance/31825.html",
+          "note": "BUYMA公式ヘルプの個別告知。運営者のサービスドメイン配下で本文にBUYMA事務局と明記。"
+        }
+      ],
+      "restored": false
+    },
+    {
+      "id": "urawa-reds-related-websites",
+      "name": "浦和レッズ関連サイト・REX TICKET",
+      "url": "https://x.com/REDSOFFICIAL/status/2112861326993477820",
+      "sources": [
+        "https://x.com/REDSOFFICIAL/status/2112868294814536180"
+      ],
+      "icon": "https://www.urawa-reds.co.jp/favicon.ico",
+      "cat": "entertainment",
+      "tag": "REX CLUBマイページは対象外",
+      "status": "公式の実施予定（完了未確認）",
+      "start": "10/21 20:30頃から順次",
+      "end": "未定",
+      "scope": "オフィシャル/レディースサイト、REX TICKET、オンラインショップ、レッズランド、その他関連サイト。",
+      "safe": "REX CLUBマイページは引き続き利用可との公式案内。チケット閲覧停止に伴う当日入場向け代替手順はありますが、試合の中止を示す告知ではありません。実際の開始・復旧完了は未確認。",
+      "reason": "セキュリティ対策・PHP名未記載",
+      "date": "10/22 02:13 JST確認",
+      "checkedAt": "2026-10-21T17:13:00Z",
+      "source": "公式X原文と運営サイトの正確なSNS所有表記を照合",
+      "ownershipEvidence": [
+        {
+          "url": "https://www.urawa-reds.co.jp/clubinfo/108058.html",
+          "note": "運営公式サイトの通常公開本文がREDSOFFICIALを公式Twitterとして正確なURLで明記。"
+        }
+      ],
+      "restored": false
+    },
+    {
+      "id": "novelgame-tyrano-sites",
+      "name": "ノベルゲームコレクション・ティラノ公式サイト",
+      "url": "https://x.com/novecoco/status/2112808619012211033",
+      "icon": "https://d145fhkdapgfg3.cloudfront.net/assets_v2/img/favicon.ico",
+      "cat": "game",
+      "tag": "長い実施枠のうち最大約1時間",
+      "status": "公式の実施予定（完了未確認）",
+      "start": "10/21 15:00〜10/22 18:00の実施枠",
+      "end": "上記実施枠中、最大1時間程度の接続難",
+      "scope": "ノベルゲームコレクション、ティラノスクリプト/ビルダー公式サイトなど。",
+      "safe": "27時間連続の全停止ではなく、実施枠のうち最大1時間程度つながりにくいとの案内。インストール済み制作ソフトや全ゲームの停止とは扱いません。",
+      "reason": "契約サーバーの緊急メンテナンス・PHP名未記載",
+      "date": "10/22 02:14 JST確認",
+      "checkedAt": "2026-10-21T17:14:00Z",
+      "source": "公開公式X原文と運営サイトからの正確なSNSリンクを照合",
+      "ownershipEvidence": [
+        {
+          "url": "https://novelgame.jp/headline/news_list/",
+          "note": "公式サービスサイトがhttps://twitter.com/novecocoを直接リンク。"
+        }
+      ],
+      "restored": false
+    },
+    {
+      "id": "fortnite-community-wiki",
+      "name": "Fortnite Wiki（コミュニティ運営Wiki）",
+      "url": "https://x.com/FnWiki/status/2112839696472486260",
+      "sources": [
+        "https://x.com/FnWiki/status/2112916127672144371"
+      ],
+      "icon": "https://fortnite.weirdgloop.org/images/Favicon.ico",
+      "cat": "game",
+      "tag": "Fortniteゲーム本体ではない",
+      "status": "運営投稿に再開報告",
+      "start": "10/21 18:33 JSTの投稿より数時間前（時刻未記載）",
+      "end": "10/21 23:37 JSTの投稿時点で再開報告（正確な終了時刻なし）",
+      "scope": "コミュニティ運営Fortnite Wikiのページ。初期告知では多数のページが利用不可。",
+      "safe": "EpicのFortniteゲーム自体の停止ではありません。後続公式投稿の要約欄に再開と明記、トップページ本文も通常公開readで取得できましたが、全ページ・編集機能の実操作は未検証。",
+      "reason": "PHP脆弱性への予防対応",
+      "date": "10/22 02:14 JST確認",
+      "checkedAt": "2026-10-21T17:14:00Z",
+      "source": "Wiki運営の原文・後続投稿要約欄と公式WikiのSNSリンクを照合",
+      "ownershipEvidence": [
+        {
+          "url": "https://fortnite.weirdgloop.org/",
+          "note": "Wiki本体がWiki Socialsにhttps://x.com/FnWikiを直接リンク。Epicの公式ゲーム告知ではなく、このWikiの運営者による告知。"
+        }
+      ],
+      "restored": true
     }
   ],
   "pending": [
@@ -9843,17 +9970,6 @@
     },
     {
       "names": [
-        "BUYMA"
-      ],
-      "url": "https://x.com/anne_mama_buyma/status/2112887700135326154",
-      "note": "BUYMA物販講師の第三者投稿。BUYMA運営公式ではなく、本文には時刻・範囲もない。",
-      "sourceClass": "第三者投稿のみ",
-      "nextVerificationCondition": "対象サービス運営の個別公式原文が公開取得可能になった時点に対象・日時を照合。第三者本文だけでは昇格しない。",
-      "sourceRead": "body_retrieved",
-      "checkedAt": "2026-10-21T14:09:00Z"
-    },
-    {
-      "names": [
         "楽待"
       ],
       "url": "https://x.com/inoinofudousan/status/2112887949482467771",
@@ -9876,34 +9992,12 @@
     },
     {
       "names": [
-        "ノベルゲームコレクション"
-      ],
-      "url": "https://x.com/tsujikikyo_i/status/2112885762840728014",
-      "note": "ゲーム制作者がノベルゲームコレクション/BOOTHの停止を伝聞で説明。BOOTHは既存boothと同対象、ノベルゲーム側の公式原文は未取得。",
-      "sourceClass": "第三者投稿のみ",
-      "nextVerificationCondition": "公式サイト再開、または運営が公的な公式アカウントリンクを公開して所有を確認できた時点。日時/機能/現在状態の不足は理由欄に沿って照合。",
-      "sourceRead": "body_retrieved",
-      "checkedAt": "2026-10-21T14:12:00Z"
-    },
-    {
-      "names": [
         "SBペイメントサービス（クレカ決済）"
       ],
       "url": "https://x.com/lisle_chocolat/status/2112887376687349774",
       "note": "加盟店L'isle Chocolatの自店クレジットカード決済停止告知を取得。10/21 18:00〜未定。SBPS全体または全クレカ決済の停止とは確認できない。加盟店アカウント所有の独立裏付け未了。",
       "sourceClass": "第三者投稿のみ（加盟店）",
       "nextVerificationCondition": "公式サイト再開、または運営が公的な公式アカウントリンクを公開して所有を確認できた時点。日時/機能/現在状態の不足は理由欄に沿って照合。",
-      "sourceRead": "body_retrieved",
-      "checkedAt": "2026-10-21T14:12:00Z"
-    },
-    {
-      "names": [
-        "REX TICKET（浦和レッズ）"
-      ],
-      "url": "https://x.com/Steelinho/status/2112881110002843921",
-      "note": "第三者の投稿だが引用された浦和レッズ公式元URLを取得。10/21 20:30ごろREX TICKET閲覧不可、QRをWalletへ事前追加する案内。元投稿の独立取得・公式所有の照合は未完了。PHP因果は第三者の推測。",
-      "sourceClass": "第三者投稿のみ",
-      "nextVerificationCondition": "対象サービス運営の個別公式原文が公開取得可能になった時点に対象・日時を照合。第三者本文だけでは昇格しない。",
       "sourceRead": "body_retrieved",
       "checkedAt": "2026-10-21T14:12:00Z"
     },
@@ -9935,17 +10029,6 @@
       ],
       "url": "https://x.com/matomedane/status/2112830031596601742",
       "note": "原文は自社まとめダネ！の保守告知。10/21 22:45ごろから全サービス停止〜未定。まとめニュースを引用しただけではない。公式サイトHTTP503で所有関係未照合。",
-      "sourceClass": "公式X",
-      "nextVerificationCondition": "公式サイト再開、または運営が公的な公式アカウントリンクを公開して所有を確認できた時点。日時/機能/現在状態の不足は理由欄に沿って照合。",
-      "sourceRead": "body_retrieved",
-      "checkedAt": "2026-10-21T14:12:00Z"
-    },
-    {
-      "names": [
-        "Fortnite Wiki"
-      ],
-      "url": "https://x.com/FnWiki/status/2112839696472486260",
-      "note": "Fortnite Wikiの運営者らしい原文。Wikiを数時間前に停止、PHP公開まで一部ページ利用不可、hostは@weirdgloop。Fortniteゲーム本体ではない。公式Wikiとアカウント所有の独立裏付け未完了。",
       "sourceClass": "公式X",
       "nextVerificationCondition": "公式サイト再開、または運営が公的な公式アカウントリンクを公開して所有を確認できた時点。日時/機能/現在状態の不足は理由欄に沿って照合。",
       "sourceRead": "body_retrieved",
@@ -11724,17 +11807,6 @@
     },
     {
       "names": [
-        "ラリーXモバイル"
-      ],
-      "url": "https://x.com/rallyx_m/status/2112888425192055108",
-      "note": "原文取得済み。サイトにつながりにくくなる場合。完全停止と断定せず原告知の範囲に限定。 公式側の所有/告知照合待ち。",
-      "sourceClass": "公式X",
-      "nextVerificationCondition": "公式所有を示す資料・対象サイトの個別告知・最新の変更/復旧報告が公開または再取得可能になった時点で照合。時刻経過やHTTP200だけでは確定しない。",
-      "sourceRead": "content_read",
-      "checkedAt": "2026-10-21T14:29:00Z"
-    },
-    {
-      "names": [
         "ひろまめ。"
       ],
       "url": "https://x.com/hiromame_sakura/status/2112888827509616990",
@@ -11973,17 +12045,6 @@
       "sourceClass": "追加調査候補",
       "nextVerificationCondition": "公式所有を示す資料・対象サイトの個別告知・最新の変更/復旧報告が公開または再取得可能になった時点で照合。時刻経過やHTTP200だけでは確定しない。",
       "sourceRead": "read_failed",
-      "checkedAt": "2026-10-21T14:29:00Z"
-    },
-    {
-      "names": [
-        "ティラノスクリプト/ティラノビルダー/ノベルゲームコレクション"
-      ],
-      "url": null,
-      "note": "元候補に原URLがなく今回の公式個別原文未取得。DMM包括保守との重複範囲も未照合のため保留。",
-      "sourceClass": "追加調査候補",
-      "nextVerificationCondition": "公式所有を示す資料・対象サイトの個別告知・最新の変更/復旧報告が公開または再取得可能になった時点で照合。時刻経過やHTTP200だけでは確定しない。",
-      "sourceRead": "original_url_missing",
       "checkedAt": "2026-10-21T14:29:00Z"
     },
     {
@@ -14161,11 +14222,11 @@
     {
       "name": "BUYMA",
       "sourceUrl": "https://x.com/anne_mama_buyma/status/2112887700135326154",
-      "verification": "pending",
-      "confirmedId": null,
-      "note": "BUYMA物販講師の第三者投稿。BUYMA運営公式ではなく、本文には時刻・範囲もない。",
+      "verification": "confirmed",
+      "confirmedId": "buyma",
+      "note": "別の運営者公式告知全文を独立照合。元第三者投稿の追加表現や所有を保証するものではない。22時は予定・前倒し可、PHP名なし。",
       "sourceClass": "第三者投稿のみ",
-      "nextVerificationCondition": "対象サービス運営の個別公式原文が公開取得可能になった時点に対象・日時を照合。第三者本文だけでは昇格しない。"
+      "nextVerificationCondition": "同じ対象の公式な変更・復旧完了報告を照合。"
     },
     {
       "name": "楽待",
@@ -14188,11 +14249,11 @@
     {
       "name": "ノベルゲームコレクション",
       "sourceUrl": "https://x.com/tsujikikyo_i/status/2112885762840728014",
-      "verification": "pending",
-      "confirmedId": null,
-      "note": "ゲーム制作者がノベルゲームコレクション/BOOTHの停止を伝聞で説明。BOOTHは既存boothと同対象、ノベルゲーム側の公式原文は未取得。",
+      "verification": "confirmed",
+      "confirmedId": "novelgame-tyrano-sites",
+      "note": "運営公式XとサイトのSNS逆リンクを独立照合。実施枠のうち最大1時間程度の接続難で、全期間停止ではない。",
       "sourceClass": "第三者投稿のみ",
-      "nextVerificationCondition": "公式サイト再開、または運営が公的な公式アカウントリンクを公開して所有を確認できた時点。日時/機能/現在状態の不足は理由欄に沿って照合。"
+      "nextVerificationCondition": "同じ対象の公式な変更・復旧完了報告を照合。"
     },
     {
       "name": "SBペイメントサービス（クレカ決済）",
@@ -14215,11 +14276,11 @@
     {
       "name": "REX TICKET（浦和レッズ）",
       "sourceUrl": "https://x.com/Steelinho/status/2112881110002843921",
-      "verification": "pending",
-      "confirmedId": null,
-      "note": "第三者の投稿だが引用された浦和レッズ公式元URLを取得。10/21 20:30ごろREX TICKET閲覧不可、QRをWalletへ事前追加する案内。元投稿の独立取得・公式所有の照合は未完了。PHP因果は第三者の推測。",
+      "verification": "confirmed",
+      "confirmedId": "urawa-reds-related-websites",
+      "note": "運営者公式サイトのSNS所有明記と公式元投稿を照合。REX CLUBマイページは対象外。第三者投稿によるPHP推測は採用しない。",
       "sourceClass": "第三者投稿のみ",
-      "nextVerificationCondition": "対象サービス運営の個別公式原文が公開取得可能になった時点に対象・日時を照合。第三者本文だけでは昇格しない。"
+      "nextVerificationCondition": "同じ対象の公式な変更・復旧完了報告を照合。"
     },
     {
       "name": "Bulbapedia",
@@ -14311,11 +14372,11 @@
     {
       "name": "Fortnite Wiki",
       "sourceUrl": "https://x.com/FnWiki/status/2112839696472486260",
-      "verification": "pending",
-      "confirmedId": null,
-      "note": "Fortnite Wikiの運営者らしい原文。Wikiを数時間前に停止、PHP公開まで一部ページ利用不可、hostは@weirdgloop。Fortniteゲーム本体ではない。公式Wikiとアカウント所有の独立裏付け未完了。",
+      "verification": "confirmed",
+      "confirmedId": "fortnite-community-wiki",
+      "note": "Wiki本体からのSNS逆リンクと原告知・後続投稿要約欄を照合。Wikiの再開報告であり、Fortniteゲーム本体の停止ではない。",
       "sourceClass": "公式X",
-      "nextVerificationCondition": "公式サイト再開、または運営が公的な公式アカウントリンクを公開して所有を確認できた時点。日時/機能/現在状態の不足は理由欄に沿って照合。"
+      "nextVerificationCondition": "新しい範囲変更・再停止などの公式報告があれば照合。"
     },
     {
       "name": "うぇぶさくらメンテナンス情報",
@@ -17868,11 +17929,11 @@
     {
       "name": "ラリーXモバイル",
       "sourceUrl": "https://x.com/rallyx_m/status/2112888425192055108",
-      "verification": "pending",
-      "confirmedId": null,
-      "note": "原文取得済み。サイトにつながりにくくなる場合。完全停止と断定せず原告知の範囲に限定。 公式側の所有/告知照合待ち。",
+      "verification": "confirmed",
+      "confirmedId": "rallyx-mobile-recovery",
+      "note": "運営公式PCサイトからのexactSNSリンクと終了投稿を照合。投稿時点の完了報告で、正確な終了時刻は未記載。",
       "sourceClass": "公式X",
-      "nextVerificationCondition": "公式所有を示す資料・対象サイトの個別告知・最新の変更/復旧報告が公開または再取得可能になった時点で照合。時刻経過やHTTP200だけでは確定しない。"
+      "nextVerificationCondition": "新しい範囲変更・再停止などの公式報告があれば照合。"
     },
     {
       "name": "ひろまめ。",
@@ -18236,11 +18297,11 @@
     {
       "name": "ティラノスクリプト/ティラノビルダー/ノベルゲームコレクション",
       "sourceUrl": null,
-      "verification": "pending",
-      "confirmedId": null,
-      "note": "元候補に原URLがなく今回の公式個別原文未取得。DMM包括保守との重複範囲も未照合のため保留。",
+      "verification": "duplicate",
+      "confirmedId": "novelgame-tyrano-sites",
+      "note": "運営公式XとサイトのSNS逆リンクを独立照合。実施枠のうち最大1時間程度の接続難で、全期間停止ではない。",
       "sourceClass": "追加調査候補",
-      "nextVerificationCondition": "公式所有を示す資料・対象サイトの個別告知・最新の変更/復旧報告が公開または再取得可能になった時点で照合。時刻経過やHTTP200だけでは確定しない。"
+      "nextVerificationCondition": "同じ対象の公式な変更・復旧完了報告を照合。"
     },
     {
       "name": "ガールズクリエイション/千年戦争アイギス",
@@ -23290,13 +23351,19 @@
       "names": [
         "BUYMA"
       ],
-      "decision": "pending",
-      "reason": "BUYMA物販講師の第三者投稿。BUYMA運営公式ではなく、本文には時刻・範囲もない。",
-      "checkedAt": "2026-10-21T14:09:00Z",
+      "decision": "confirmed",
+      "reason": "別の運営者公式告知全文を独立照合。元第三者投稿の追加表現や所有を保証するものではない。22時は予定・前倒し可、PHP名なし。",
+      "checkedAt": "2026-10-21T17:17:00Z",
       "sourceRead": "body_retrieved",
-      "ownershipEvidence": [],
+      "ownershipEvidence": [
+        {
+          "url": "https://qa.buyma.com/information/maintenance/31825.html",
+          "note": "BUYMA公式ヘルプの個別告知。運営者のサービスドメイン配下で本文にBUYMA事務局と明記。"
+        }
+      ],
       "sourcePublishedAt": "2026-10-21T12:44:17.000Z",
-      "nextVerificationCondition": "対象サービス運営の個別公式原文が公開取得可能になった時点に対象・日時を照合。第三者本文だけでは昇格しない。"
+      "nextVerificationCondition": "同じ対象の公式な変更・復旧完了報告を照合。",
+      "confirmedId": "buyma"
     },
     {
       "sourceUrl": "https://markenote.jp/article/5066",
@@ -23394,13 +23461,19 @@
       "names": [
         "ノベルゲームコレクション"
       ],
-      "decision": "pending",
-      "reason": "ゲーム制作者がノベルゲームコレクション/BOOTHの停止を伝聞で説明。BOOTHは既存boothと同対象、ノベルゲーム側の公式原文は未取得。",
-      "checkedAt": "2026-10-21T14:12:00Z",
+      "decision": "confirmed",
+      "reason": "運営公式XとサイトのSNS逆リンクを独立照合。実施枠のうち最大1時間程度の接続難で、全期間停止ではない。",
+      "checkedAt": "2026-10-21T17:17:00Z",
       "sourceRead": "body_retrieved",
-      "ownershipEvidence": [],
+      "ownershipEvidence": [
+        {
+          "url": "https://novelgame.jp/headline/news_list/",
+          "note": "公式サービスサイトがhttps://twitter.com/novecocoを直接リンク。"
+        }
+      ],
       "sourcePublishedAt": "2026-10-21T12:36:36.000Z",
-      "nextVerificationCondition": "公式サイト再開、または運営が公的な公式アカウントリンクを公開して所有を確認できた時点。日時/機能/現在状態の不足は理由欄に沿って照合。"
+      "nextVerificationCondition": "同じ対象の公式な変更・復旧完了報告を照合。",
+      "confirmedId": "novelgame-tyrano-sites"
     },
     {
       "sourceUrl": "https://x.com/lisle_chocolat/status/2112887376687349774",
@@ -23439,13 +23512,19 @@
       "names": [
         "REX TICKET（浦和レッズ）"
       ],
-      "decision": "pending",
-      "reason": "第三者の投稿だが引用された浦和レッズ公式元URLを取得。10/21 20:30ごろREX TICKET閲覧不可、QRをWalletへ事前追加する案内。元投稿の独立取得・公式所有の照合は未完了。PHP因果は第三者の推測。",
-      "checkedAt": "2026-10-21T14:12:00Z",
+      "decision": "confirmed",
+      "reason": "運営者公式サイトのSNS所有明記と公式元投稿を照合。REX CLUBマイページは対象外。第三者投稿によるPHP推測は採用しない。",
+      "checkedAt": "2026-10-21T17:17:00Z",
       "sourceRead": "body_retrieved",
-      "ownershipEvidence": [],
+      "ownershipEvidence": [
+        {
+          "url": "https://www.urawa-reds.co.jp/clubinfo/108058.html",
+          "note": "運営公式サイトの通常公開本文がREDSOFFICIALを公式Twitterとして正確なURLで明記。"
+        }
+      ],
       "sourcePublishedAt": "2026-10-21T12:18:06.000Z",
-      "nextVerificationCondition": "対象サービス運営の個別公式原文が公開取得可能になった時点に対象・日時を照合。第三者本文だけでは昇格しない。"
+      "nextVerificationCondition": "同じ対象の公式な変更・復旧完了報告を照合。",
+      "confirmedId": "urawa-reds-related-websites"
     },
     {
       "sourceUrl": "https://x.com/thelandfish7/status/2112866165370282397",
@@ -23553,13 +23632,19 @@
       "names": [
         "Fortnite Wiki"
       ],
-      "decision": "pending",
-      "reason": "Fortnite Wikiの運営者らしい原文。Wikiを数時間前に停止、PHP公開まで一部ページ利用不可、hostは@weirdgloop。Fortniteゲーム本体ではない。公式Wikiとアカウント所有の独立裏付け未完了。",
-      "checkedAt": "2026-10-21T14:12:00Z",
+      "decision": "confirmed",
+      "reason": "Wiki本体からのSNS逆リンクと原告知・後続投稿要約欄を照合。Wikiの再開報告であり、Fortniteゲーム本体の停止ではない。",
+      "checkedAt": "2026-10-21T17:17:00Z",
       "sourceRead": "body_retrieved",
-      "ownershipEvidence": [],
+      "ownershipEvidence": [
+        {
+          "url": "https://fortnite.weirdgloop.org/",
+          "note": "Wiki本体がWiki Socialsにhttps://x.com/FnWikiを直接リンク。Epicの公式ゲーム告知ではなく、このWikiの運営者による告知。"
+        }
+      ],
       "sourcePublishedAt": "2026-10-21T09:33:32.000Z",
-      "nextVerificationCondition": "公式サイト再開、または運営が公的な公式アカウントリンクを公開して所有を確認できた時点。日時/機能/現在状態の不足は理由欄に沿って照合。"
+      "nextVerificationCondition": "新しい範囲変更・再停止などの公式報告があれば照合。",
+      "confirmedId": "fortnite-community-wiki"
     },
     {
       "sourceUrl": "https://x.com/websakura_icts/status/2112841532147650866",
@@ -30204,24 +30289,25 @@
       "names": [
         "ラリーXモバイル"
       ],
-      "decision": "pending",
-      "reason": "原文取得済み。サイトにつながりにくくなる場合。完全停止と断定せず原告知の範囲に限定。 公式側の所有/告知照合待ち。",
-      "checkedAt": "2026-10-21T14:29:00Z",
+      "decision": "confirmed",
+      "reason": "運営公式PCサイトからのexactSNSリンクと終了投稿を照合。投稿時点の完了報告で、正確な終了時刻は未記載。",
+      "checkedAt": "2026-10-21T17:17:00Z",
       "sourceRead": "content_read",
-      "ownershipEvidence": {
-        "accountVerified": false,
-        "officialNoticeVerified": false,
-        "evidenceUrl": null,
-        "detail": null
-      },
+      "ownershipEvidence": [
+        {
+          "url": "http://rallyx.net/",
+          "note": "Xプロフィールのリンク先wrc.rallyx.netが示すPC公式ページにhttps://twitter.com/rallyx_mへの直接リンク。"
+        }
+      ],
       "sourcePublishedAt": null,
-      "nextVerificationCondition": "公式所有を示す資料・対象サイトの個別告知・最新の変更/復旧報告が公開または再取得可能になった時点で照合。時刻経過やHTTP200だけでは確定しない。",
+      "nextVerificationCondition": "新しい範囲変更・再停止などの公式報告があれば照合。",
       "ownershipVerification": {
         "accountVerified": false,
         "officialNoticeVerified": false,
         "evidenceUrl": null,
         "detail": null
-      }
+      },
+      "confirmedId": "rallyx-mobile-recovery"
     },
     {
       "sourceUrl": "https://x.com/hiromame_sakura/status/2112888827509616990",
@@ -40457,9 +40543,9 @@
     "classifiedAdditionalRows": 107,
     "allDiscoveryRows": 909,
     "sourceRowsByDecision": {
-      "confirmed": 358,
-      "duplicate": 51,
-      "pending": 382,
+      "confirmed": 363,
+      "duplicate": 52,
+      "pending": 376,
       "related": 109,
       "excluded": 8,
       "pending-update": 1
@@ -40467,7 +40553,13 @@
     "meaning": "収集行・元資料グループ・告知カードは別単位です。全候補を保持し、固有サイト数・停止数とはしません。",
     "additionalGrokRows": 275,
     "piyologNewPrimaryUrls": 27,
-    "additionalOwnerVerifiedCards": 56
+    "additionalOwnerVerifiedCards": 61,
+    "followupReview": {
+      "checkedAt": "2026-10-21T17:17:00Z",
+      "scope": "既収集5対象の所有/元告知、予定と実績、サービスとサイトを分離",
+      "method": "一次資料の本文・要約欄・運営者リンクをカード表現と照合。投稿時点と実際の終了時刻を区別",
+      "result": "blockingなし。Fortnite後続は本文でなく公式投稿要約欄と明記"
+    }
   },
   "collectionBatches": [
     {
