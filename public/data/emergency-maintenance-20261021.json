@@ -1,6 +1,6 @@
 {
   "title": "2026年10月21日前後 緊急メンテナンス・関連告知一覧",
-  "checkedAt": "2026-10-21T13:31:00Z",
+  "checkedAt": "2026-10-21T13:41:00Z",
   "scope": "PHPの因果不問。今回の緊急/予防メンテと同時期の関連告知・別インシデントを区分。件数による上限なし。",
   "counting": "confirmedは告知対象カード数で、サイト停止数・被害数ではない。pendingは元資料単位の照合待ち候補。",
   "confirmed": [
@@ -1400,6 +1400,51 @@
       "tag": "PHP対策を明記",
       "status": "公式の実施予定",
       "source": "ライブ公式本文"
+    },
+    {
+      "id": "optage",
+      "name": "OPTAGE 各サービスサイトの一部機能",
+      "url": "https://optage.co.jp/announce/announce_202645.html",
+      "start": "10/21 20:00から順次",
+      "end": "未定",
+      "scope": "eo、mineo、関電SOS、LaLa Call、OPTAGE for Business、BizPortal、オフィスeo光の各サイトの一部機能。",
+      "safe": "通信回線の停止を示す記載ではありません。ただし、通信に無影響だと公式が断定しているわけでもありません。機能の詳細は案内を優先。",
+      "reason": "ソフトウェア脆弱性・PHP名未記載",
+      "cat": "web",
+      "date": "10/21",
+      "tag": "複数サイトを集約",
+      "status": "公式は一時停止と案内",
+      "source": "ライブ公式本文（13:33 UTC取得）"
+    },
+    {
+      "id": "offerbox",
+      "name": "OfferBox（公式告知の部分本文）",
+      "url": "https://offerbox.jp/newsrelease/news-newsrelease/55901.html",
+      "start": "取得した部分本文では未確認",
+      "end": "未定",
+      "scope": "ログインを含むすべての機能。",
+      "safe": "公式検索で緊急告知の部分本文を取得。ライブ本文・正確な開始日時・理由は未確認のため補っていません。",
+      "reason": "理由の詳細未公表",
+      "cat": "business",
+      "date": "告知日時表示は未取得",
+      "tag": "公式部分本文まで確認",
+      "status": "実施段階の詳細は未確認",
+      "source": "公式検索の部分本文"
+    },
+    {
+      "id": "morisawa",
+      "name": "モリサワ（公式Xの緊急告知）",
+      "url": "https://x.com/morisawa_jp/status/2112853773748208098",
+      "start": "取得した部分本文では未確認",
+      "end": "未確認",
+      "scope": "対象サービス・機能の詳細は取得部分に未記載。",
+      "safe": "同日のMorisawa ID製品情報登録の保守告知もありますが、今回の緊急告知と同一事象とは確認していません。全フォントが利用不可とはしていません。",
+      "reason": "ソフトウェア脆弱性・PHP名未記載",
+      "cat": "business",
+      "date": "10/21投稿",
+      "tag": "対象機能の照合を継続",
+      "status": "実施段階の詳細は未確認",
+      "source": "公式Xの検索取得部分本文"
     }
   ],
   "pending": [
@@ -1472,14 +1517,6 @@
         "KuronekoServer"
       ],
       "url": "https://x.com/kuroneko_server/status/2112882607751151697",
-      "note": "Grok収集候補。元投稿・対象サイト・日時・実施状態はDots未照合。",
-      "sourceClass": "公式X"
-    },
-    {
-      "names": [
-        "OPTAGE/オプテージ"
-      ],
-      "url": "https://x.com/optage_jp/status/2112882975704772971",
       "note": "Grok収集候補。元投稿・対象サイト・日時・実施状態はDots未照合。",
       "sourceClass": "公式X"
     },
@@ -1858,14 +1895,6 @@
         "Eight提供のビジネスメディア"
       ],
       "url": "https://x.com/revent_sansan/status/2112853566553718967",
-      "note": "Grok収集候補。元投稿・対象サイト・日時・実施状態はDots未照合。",
-      "sourceClass": "公式X"
-    },
-    {
-      "names": [
-        "モリサワ"
-      ],
-      "url": "https://x.com/Morisawa_JP/status/2112853773748208098",
       "note": "Grok収集候補。元投稿・対象サイト・日時・実施状態はDots未照合。",
       "sourceClass": "公式X"
     },
@@ -2418,14 +2447,6 @@
         "FANZA通販"
       ],
       "url": "https://x.com/FANZA_mono/status/2112883932333228319",
-      "note": "Grok収集候補。元投稿・対象サイト・日時・実施状態はDots未照合。",
-      "sourceClass": "公式X"
-    },
-    {
-      "names": [
-        "OfferBox（学生向け・企業向け）"
-      ],
-      "url": "https://x.com/Start_OfferBox/status/2112884021101473808",
       "note": "Grok収集候補。元投稿・対象サイト・日時・実施状態はDots未照合。",
       "sourceClass": "公式X"
     },
@@ -5218,8 +5239,8 @@
     {
       "name": "OPTAGE/オプテージ",
       "sourceUrl": "https://x.com/optage_jp/status/2112882975704772971",
-      "verification": "pending",
-      "confirmedId": null,
+      "verification": "matched_confirmed_notice",
+      "confirmedId": "optage",
       "note": "Grok収集候補。元投稿・対象サイト・日時・実施状態はDots未照合。",
       "sourceClass": "公式X"
     },
@@ -5714,8 +5735,8 @@
     {
       "name": "モリサワ",
       "sourceUrl": "https://x.com/Morisawa_JP/status/2112853773748208098",
-      "verification": "pending",
-      "confirmedId": null,
+      "verification": "matched_confirmed_notice",
+      "confirmedId": "morisawa",
       "note": "Grok収集候補。元投稿・対象サイト・日時・実施状態はDots未照合。",
       "sourceClass": "公式X"
     },
@@ -6314,8 +6335,8 @@
     {
       "name": "OfferBox（学生向け・企業向け）",
       "sourceUrl": "https://x.com/Start_OfferBox/status/2112884021101473808",
-      "verification": "pending",
-      "confirmedId": null,
+      "verification": "matched_confirmed_notice",
+      "confirmedId": "offerbox",
       "note": "Grok収集候補。元投稿・対象サイト・日時・実施状態はDots未照合。",
       "sourceClass": "公式X"
     },
@@ -9119,5 +9140,17 @@
       "url": "https://www.city.kariya.lg.jp/chuotosyokan/info_toshokan/1019048.html",
       "reason": "10/21の定期保守と明記。緊急の告知として数えない。"
     }
-  ]
+  ],
+  "phpRelease": {
+    "status": "official_release_confirmed",
+    "observedAt": "2026-10-21T13:37:00Z",
+    "officialUrl": "https://www.php.net/archive/2026.php",
+    "versions": [
+      "8.5.12",
+      "8.4.27",
+      "8.3.36",
+      "8.2.35"
+    ],
+    "note": "正式な公開告知を確認。各サービスの修正完了・復旧とは別。正確な公開時刻は未照合。"
+  }
 }
