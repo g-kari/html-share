@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Wed, 21 Oct 2026 00:17:24 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 21 Oct 2026 01:55:38 GMT</lastBuildDate>
+    <item>
+      <title>OpenAI DevDay Exchange Tokyoで見えてきた、エージェント開発の現在地</title>
+      <link>https://share.0g0.xyz/openai-devday-tokyo-2026</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/openai-devday-tokyo-2026</guid>
+      <description>2026年10月20日のOpenAI DevDay Exchange Tokyoを、公式案内と当日の参加者報告から整理。Agents API、OpenAI Developersプラグイン、まだ確認できていない資料を区別して紹介します。</description>
+      <pubDate>Wed, 21 Oct 2026 01:55:38 GMT</pubDate>
+      <dcterms:created>2026-10-21T01:55:38.000Z</dcterms:created>
+      <dcterms:modified>2026-10-21T01:55:38.000Z</dcterms:modified>
+    </item>
     <item>
       <title>重要技術アップデート｜AI・開発ツール・MCP</title>
       <link>https://share.0g0.xyz/technology-updates</link>
