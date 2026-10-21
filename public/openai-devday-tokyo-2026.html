@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OpenAI DevDay Exchange Tokyoで見えてきた、エージェント開発の現在地</title>
+  <meta name="description" content="2026年10月20日のOpenAI DevDay Exchange Tokyoを、公式案内と当日の参加者報告から整理。Agents API、OpenAI Developersプラグイン、まだ確認できていない資料を区別して紹介します。">
+  <meta name="theme-color" content="#F6F8FA">
+  <style>
+    :root{color-scheme:light;--bg:#f6f8fa;--paper:#fff;--ink:#172b3a;--muted:#546775;--accent:#12736d;--border:#d8e2e7;--tint:#edf6f4;--space:1.5rem}
+    *{box-sizing:border-box}
+    html{scroll-padding-top:2rem}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:"Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans CJK JP",Meiryo,sans-serif;font-size:18px;line-height:1.95;letter-spacing:.015em;overflow-wrap:anywhere}
+    a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:.22em}
+    a:hover{text-decoration-thickness:2px}
+    a:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:5px;border-radius:2px}
+    .skip{position:absolute;top:-6rem;left:1rem;z-index:2;background:var(--paper);padding:.4rem .8rem}
+    .skip:focus{top:1rem}
+    .site-header{max-width:1160px;margin:auto;padding:1.15rem max(24px,env(safe-area-inset-right)) 1.15rem max(24px,env(safe-area-inset-left));display:flex;justify-content:space-between;gap:1rem;font-size:14px}
+    .site-header a{color:var(--muted)}
+    .layout{max-width:1160px;margin:0 auto 5rem;padding:0 24px;display:grid;grid-template-columns:minmax(0,820px) minmax(150px,1fr);gap:38px;align-items:start}
+    article{min-width:0;background:var(--paper);padding:48px 40px 40px;border-top:4px solid var(--accent)}
+    .article-header{margin-bottom:2rem}
+    .date{margin:0 0 .8rem;color:var(--muted);font-size:14px;line-height:1.6}
+    h1{margin:0;font-size:clamp(28px,3.2vw,38px);line-height:1.55;letter-spacing:.025em;font-weight:700;text-wrap:pretty}
+    .intro{font-size:19px;line-height:1.95;margin-top:1.5rem}
+    p{margin:1rem 0}
+    strong{font-weight:700}
+    h2{font-size:25px;line-height:1.65;margin:3rem 0 1rem;letter-spacing:.02em}
+    h3{font-size:19px;line-height:1.7;margin:1.5rem 0 .5rem}
+    .takeaways{padding:1rem 1.2rem 1rem 2.4rem;background:var(--tint);border-left:3px solid var(--accent);margin:1.5rem 0 2rem}
+    .takeaways li+li{margin-top:.55rem}
+    .takeaways li::marker{color:var(--accent)}
+    .note{font-size:15px;line-height:1.85;color:var(--muted)}
+    .source-link{font-size:14px;white-space:normal}
+    figure{margin:1.8rem 0 2rem}
+    .diagram{border:1px solid var(--border);padding:24px;background:var(--bg);font-size:16px;line-height:1.7}
+    .diagram-node{padding:14px 18px;border:1px solid var(--border);background:var(--paper);text-align:center}
+    .diagram-node strong{display:block;font-size:19px}
+    .diagram-node span{display:block;margin-top:.2rem;color:var(--muted);font-size:14px}
+    .harness{border:2px solid var(--accent)}
+    .connector{text-align:center;padding:7px 0;color:var(--accent);font-size:14px;line-height:1.5}
+    .connector b{font-size:20px;display:block;line-height:1.25;font-weight:400}
+    .environments{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:8px}
+    .environment{padding:10px 6px;background:var(--paper);border:1px solid var(--border);text-align:center;font-size:14px}
+    .environment-title{text-align:center;margin:0;font-weight:700}
+    figcaption{font-size:13px;color:var(--muted);line-height:1.8;margin-top:10px}
+    details{border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin:1.7rem 0;padding:1rem 0}
+    summary{cursor:pointer;color:var(--accent);font-weight:700;line-height:1.75;padding:.2rem 0}
+    details[open] summary{margin-bottom:1rem}
+    details p,details li{font-size:16px;line-height:1.9}
+    details ul{padding-left:1.4rem}
+    details li+li{margin-top:.6rem}
+    .confirmation{border-left:3px solid var(--border);padding-left:1.1rem}
+    .sources{border-top:1px solid var(--border);margin-top:3rem;padding-top:1.2rem}
+    .sources h2{font-size:20px;margin:0 0 .7rem}
+    .sources ol{font-size:14px;line-height:1.85;padding-left:1.5rem;margin-bottom:0}
+    .sources li+li{margin-top:.7rem}
+    .source-meta{display:block;color:var(--muted);font-size:13px}
+    .desktop-toc{position:sticky;top:32px;font-size:14px;line-height:1.8;padding-top:2rem;color:var(--muted)}
+    .desktop-toc p{margin:0 0 .8rem;font-weight:700;color:var(--ink)}
+    .desktop-toc ul{margin:0;padding:0;list-style:none;border-left:1px solid var(--border)}
+    .desktop-toc li{padding:.35rem 0 .35rem 1rem}
+    .desktop-toc a{color:var(--muted);text-decoration:none}
+    .desktop-toc a:hover{color:var(--accent);text-decoration:underline}
+    .mobile-toc{display:none}
+    .page-footer{max-width:1160px;margin:0 auto;padding:0 24px max(2rem,env(safe-area-inset-bottom));color:var(--muted);font-size:13px}
+    @media(max-width:1000px){.layout{display:block;max-width:868px}.desktop-toc{display:none}.mobile-toc{display:block;margin:1.4rem 0 2rem}.mobile-toc ul{font-size:15px;line-height:1.9;padding-left:1.3rem}.mobile-toc summary{font-size:15px}}
+    @media(max-width:600px){body{font-size:18px;line-height:1.95}.site-header{padding:1rem max(20px,env(safe-area-inset-right)) 1rem max(20px,env(safe-area-inset-left))}.layout{padding:0;margin-bottom:3rem}article{padding:29px max(22px,env(safe-area-inset-right)) 32px max(22px,env(safe-area-inset-left))}h1{font-size:28px;line-height:1.6}.intro{font-size:18px}h2{font-size:23px;margin-top:2.5rem}.takeaways{padding:.9rem .9rem .9rem 1.8rem;font-size:17px}.diagram{padding:16px 12px}.diagram-node{padding:12px}.diagram-node strong{font-size:17px}.environments{grid-template-columns:1fr;gap:6px}.environment{padding:8px}.page-footer{padding-left:22px;padding-right:22px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+    @media print{body{background:#fff;color:#000;font-size:11pt}.site-header,.desktop-toc,.mobile-toc,.page-footer,.skip{display:none}.layout{display:block;margin:0;padding:0;max-width:none}article{padding:0;border:0}h1{font-size:24pt}h2{font-size:17pt;break-after:avoid}figure,details{break-inside:avoid}.diagram{background:#fff}a{color:#000}details::details-content{display:block}.sources{font-size:10pt}}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">本文へ移動</a>
+  <header class="site-header"><a href="/">ホーム</a><a href="/feed.xml">RSS</a></header>
+  <main class="layout" id="main">
+    <article>
+      <header class="article-header">
+        <p class="date"><time datetime="2026-10-20">2026年10月20日</time> ／ 公開情報をもとに整理</p>
+        <h1>OpenAI DevDay Exchange Tokyoで見えてきた、エージェント開発の現在地</h1>
+        <p class="intro">東京回の公開情報を追うと、気になるのは「エージェントをどう作り、どう動かすか」という実践の部分。Agents APIと、開発を手伝うOpenAI Developersプラグインに、その手がかりがありました。</p>
+        <p class="note">この記事は会場レポートではなく、公式案内と参加者の公開投稿の整理です。確認時点は2026年10月20日20時頃（日本時間）。公式に確認できること、参加者の報告、まだ確認できていないことを分けて読み進めます。</p>
+      </header>
+
+      <ul class="takeaways" aria-label="この記事の要点">
+        <li><strong>公式案内は、開発の実践を重視。</strong>公式案内には技術セッション、Codexの実例やハンズオンが並びます。</li>
+        <li><strong>Agents APIとプラグインが当日報告に登場。</strong>ただし、参加者の試行と公式デモは別の話です。</li>
+        <li><strong>動画やスライドの一式は未確認。</strong>現時点で講演全体を再現できる材料はそろっていません。</li>
+      </ul>
+
+      <details class="mobile-toc">
+        <summary>この記事の目次</summary>
+        <ul><li><a href="#tokyo">東京回はどんなイベント？</a></li><li><a href="#agents">Agents APIを図でつかむ</a></li><li><a href="#reports">参加者の投稿から見えること</a></li><li><a href="#unconfirmed">これから確かめたいこと</a></li><li><a href="#sources">出典</a></li></ul>
+      </details>
+
+      <section aria-labelledby="tokyo">
+        <h2 id="tokyo">東京回はどんなイベント？</h2>
+        <p>OpenAI DevDay Exchange Tokyoは、10月20日14時開始の東京イベントです。公式案内では、技術セッションに加えてCodexのワークフローや実例、ハンズオン、参加者との対話が紹介されています。これは事前の開催案内であり、当日実施された全講演の一覧ではありません。<a class="source-link" href="https://events.openai.com/devdayexchange2026/12660628?lang=ja">［公式イベント案内］</a></p>
+        <p>9月29日のサンフランシスコ本大会とは別の回です。関連する技術を読むときも、「本大会での発表」「以前からある機能」「東京での紹介」を混ぜないほうが、話の輪郭がはっきりします。</p>
+      </section>
+
+      <section aria-labelledby="agents">
+        <h2 id="agents">Agents APIを図でつかむ</h2>
+        <p>話題の背景として押さえたいのが、9月10日に発表されたAgents APIです。東京での新発表という位置づけではありません。公式説明では、Codexで使われる「ハーネス」をOpenAIが管理し、開発者はAPIを通じてクラウドエージェントを作り、動かせます。<a class="source-link" href="https://openai.com/index/introducing-the-agents-api/">［Agents APIの公式発表］</a></p>
+        <figure>
+          <div class="diagram" role="img" aria-label="開発者のアプリがAPIを通じてOpenAI管理のハーネスを利用する。ハーネスはモデル、文脈、ツール、分担を管理し、エージェントの実行環境にはOpenAI sandbox、自分のインフラ、パートナー環境を選べる。">
+            <div class="diagram-node"><strong>開発者のアプリ</strong><span>エージェントに仕事を依頼する</span></div>
+            <div class="connector" aria-hidden="true">API経由で利用<b>↓</b></div>
+            <div class="diagram-node harness"><strong>OpenAI管理のハーネス</strong><span>モデル呼び出し・文脈・ツール・分担を管理</span></div>
+            <div class="connector" aria-hidden="true"><b>↓</b>エージェントを動かす</div>
+            <p class="environment-title">選べる実行環境</p>
+            <div class="environments"><div class="environment">OpenAI sandbox</div><div class="environment">自分のインフラ</div><div class="environment">パートナー環境</div></div>
+          </div>
+          <figcaption>公式発表をもとに関係を整理した概念図。当日の講演スライドを再現したものではありません。<a href="https://openai.com/index/introducing-the-agents-api/">図の出典</a></figcaption>
+        </figure>
+        <p>ポイントは、仕事の進め方を管理する基盤と、実際に処理を走らせる環境を分けて考えられること。開発者にとっては、エージェントの実行を支える仕組みをどこまで自前で持つか、という設計の話につながります。</p>
+        <details>
+          <summary>技術補足：ハーネスは何を引き受ける？</summary>
+          <p>ハーネスは、モデルを一度呼ぶだけでなく、ツールの使用や途中の情報を管理しながら仕事を進める実行基盤です。公式記事は、次のような機能を説明しています。</p>
+          <ul><li>長くなった文脈を圧縮し、作業を継続する。</li><li>必要なツールを探し、呼び出す。</li><li>サブエージェントへ仕事を分担する。</li></ul>
+          <p>アプリの目的や使わせるツール、実行環境まで自動で決まるという意味ではありません。まずは<a href="https://openai.com/index/introducing-the-agents-api/">公式記事</a>で、管理される範囲を確認するのがよさそうです。</p>
+        </details>
+      </section>
+
+      <section aria-labelledby="reports">
+        <h2 id="reports">参加者の投稿から見えること</h2>
+        <h3>開発の相談窓口としてのプラグイン</h3>
+        <p>参加者のnikkie（ftnext）さんは、会場でOpenAI Developersプラグインのデモと「DevDay」タブを見たと投稿しています。講演を聞きながら、関連情報へアクセスする入口として使われた様子がうかがえます。<a class="source-link" href="https://x.com/ftnext/status/2112444045008257053">［当日の参加者報告］</a></p>
+        <p>公式のプラグイン説明では、APIやAgents API、音声・画像を使う開発、プロンプト改善、APIエラーの診断、DevDayの公式情報やセッション案内などを扱います。この機能一覧すべてが東京で実演された、とまでは確認できません。<a class="source-link" href="https://openai.com/business/plugins/openai-developers/">［公式プラグイン説明］</a></p>
+        <h3>聞いたそばから、自分で試す</h3>
+        <p>同じ参加者は、「Harness-as-a-Service: Building with the Agents API」の話を聞きながら自分でAgents APIを使い、Web検索を含む約10分の調査からレポートを作れたとも報告しています。講演の内容をすぐ試せる、というイベントの面白さが伝わるエピソードです。ただし、これは<strong>参加者個人の試行</strong>であり、公式デモや一般的な処理時間の保証ではありません。<a class="source-link" href="https://x.com/ftnext/status/2112455905812091051">［本人の試行報告］</a></p>
+        <p>別の投稿には、まだアーカイブされていないDevDay講演を再演している、という受け止めもあります。ここから公式の再演方針や、資料が非公開であることまでは断定できません。<a class="source-link" href="https://x.com/ftnext/status/2112448548784783528/photo/1">［参加者の受け止め］</a></p>
+      </section>
+
+      <section aria-labelledby="unconfirmed">
+        <h2 id="unconfirmed">これから確かめたいこと</h2>
+        <div class="confirmation">
+          <p><strong>10月20日20時頃（日本時間）の確認では、東京回の公式フル動画、スライド一式、講演録へのリンクは確認できていません。</strong>未公開と確定したわけではなく、後から案内が出る可能性もあります。</p>
+        </div>
+        <p>今ある情報から読み取れるのは、新しい機能名の紹介に加え、それを開発の流れにどう組み込むかが話題になっていたこと。講演の細部は公式資料を待ちつつ、Agents APIの実行基盤とプラグインの役割を押さえておくと、続報を読みやすくなりそうです。</p>
+        <p class="note">本大会の情報を読みたい場合は、<a href="https://openai.com/index/devday-2026-recap/">9月29日サンフランシスコ本大会の公式まとめ</a>へ。東京回で当日発表された内容の一覧ではありません。</p>
+      </section>
+
+      <footer class="sources" aria-labelledby="sources">
+        <h2 id="sources">出典・あわせて読む</h2>
+        <ol>
+          <li><a href="https://events.openai.com/devdayexchange2026/12660628?lang=ja">OpenAI DevDay Exchange 2026 東京・公式案内</a><span class="source-meta">開催日時と、事前に案内された内容。</span></li>
+          <li><a href="https://openai.com/index/introducing-the-agents-api/">Introducing the Agents API</a><span class="source-meta">OpenAI公式。2026年9月10日発表。本文の技術背景と概念図の根拠。</span></li>
+          <li><a href="https://openai.com/business/plugins/openai-developers/">OpenAI Developersプラグイン</a><span class="source-meta">OpenAI公式。プラグインが扱う機能の説明。</span></li>
+          <li><a href="https://x.com/ftnext/status/2112444045008257053">nikkie（ftnext）さん：プラグインの会場デモ</a> ／ <a href="https://x.com/ftnext/status/2112455905812091051">Agents APIを使った本人の試行</a> ／ <a href="https://x.com/ftnext/status/2112448548784783528/photo/1">講演の再演についての受け止め</a><span class="source-meta">当日の参加者報告。公式発表とは区別して参照。</span></li>
+          <li><a href="https://openai.com/index/devday-2026-recap/">DevDay 2026の公式まとめ</a><span class="source-meta">関連資料。9月29日サンフランシスコ本大会。</span></li>
+        </ol>
+      </footer>
+    </article>
+    <nav class="desktop-toc" aria-label="記事の目次"><p>この記事の目次</p><ul><li><a href="#tokyo">東京回について</a></li><li><a href="#agents">Agents APIの概念図</a></li><li><a href="#reports">参加者の報告</a></li><li><a href="#unconfirmed">未確認のこと</a></li><li><a href="#sources">出典</a></li></ul></nav>
+  </main>
+  <footer class="page-footer">公開情報をもとに整理。内容の確認時点：2026年10月20日20時頃（日本時間）。</footer>
+</body>
+</html>
