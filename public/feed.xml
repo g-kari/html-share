@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Wed, 21 Oct 2026 12:51:32 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 21 Oct 2026 13:02:46 GMT</lastBuildDate>
+    <item>
+      <title>eMudhra事件、なぜGoやPHPまで更新？ 身分証チェックの図解</title>
+      <link>https://share.0g0.xyz/emudhra-ca</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/emudhra-ca</guid>
+      <description>CA事故とソフト更新がつながる理由を、正常・偽造・更新後の3コマと図形でやさしく説明。Goの再ビルド、PHPのCA一覧、Node・Python・ブラウザの更新先も分けて確認。</description>
+      <pubDate>Wed, 21 Oct 2026 13:02:46 GMT</pubDate>
+      <dcterms:created>2026-10-21T10:03:01.000Z</dcterms:created>
+      <dcterms:modified>2026-10-21T13:02:46.000Z</dcterms:modified>
+    </item>
     <item>
       <title>PHP緊急メンテナンス一覧｜止まる範囲と再開予定を整理</title>
       <link>https://share.0g0.xyz/php-emergency-maintenance</link>
@@ -16,15 +25,6 @@
       <pubDate>Wed, 21 Oct 2026 12:51:32 GMT</pubDate>
       <dcterms:created>2026-10-21T12:51:32.000Z</dcterms:created>
       <dcterms:modified>2026-10-21T12:51:32.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>eMudhra事件を図解：HTTPSの「身分証を作るハンコ」が弱かった</title>
-      <link>https://share.0g0.xyz/emudhra-ca</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/emudhra-ca</guid>
-      <description>eMudhra中間CAの弱い秘密鍵問題を、証明書の仕組み・なりすましの条件・ブラウザと開発ツールの違いから図解。2026年10月21日確認。</description>
-      <pubDate>Wed, 21 Oct 2026 10:03:01 GMT</pubDate>
-      <dcterms:created>2026-10-21T10:03:01.000Z</dcterms:created>
-      <dcterms:modified>2026-10-21T10:03:01.000Z</dcterms:modified>
     </item>
     <item>
       <title>OpenAI DevDay Exchange Tokyoで見えてきた、エージェント開発の現在地</title>
