@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="eMudhraの公開検証先12件へ、利用中のブラウザから接続を試すデモ。接続成立と原因不明の失敗を分け、対策済みとは断定しません。">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="x-dns-prefetch-control" content="off">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; connect-src https://share.0g0.xyz https://dv-g3b-emudhra.we-have-a-problem.com https://dv-g3c-emudhra.we-have-a-problem.com https://ov-g3b-emudhra.we-have-a-problem.com https://ov-g3c-emudhra.we-have-a-problem.com https://ev-g3b-emudhra.we-have-a-problem.com https://ev-g3c-emudhra.we-have-a-problem.com https://dv-g3b-aaa-emudhra.we-have-a-problem.com https://dv-g3c-aaa-emudhra.we-have-a-problem.com https://ov-g3b-aaa-emudhra.we-have-a-problem.com https://ov-g3c-aaa-emudhra.we-have-a-problem.com https://ev-g3b-aaa-emudhra.we-have-a-problem.com https://ev-g3c-aaa-emudhra.we-have-a-problem.com; img-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; frame-src 'none'">
+<title>eMudhra ブラウザ接続確認デモ | 応答と失敗を分けて確認</title>
+<style>:root{color-scheme:light;--ink:#152937;--muted:#536775;--line:#d0dbe1;--paper:#f4f7f8;--white:#fff;--blue:#165a85;--pale:#eaf3f9;--amber:#885015;--sand:#fff5df;--red:#a32f2b;--rose:#fff0ee}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.8 system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif}a{color:var(--blue);text-underline-offset:.2em;overflow-wrap:anywhere}button,input,summary{font:inherit}button{cursor:pointer;border:1px solid var(--blue);border-radius:7px;padding:10px 18px;background:var(--white);color:var(--blue);font-weight:700;min-height:44px}button.primary{background:var(--blue);color:var(--white)}button:disabled{cursor:not-allowed;opacity:.5}button:focus-visible,input:focus-visible,summary:focus-visible,a:focus-visible{outline:3px solid #0083a8;outline-offset:4px}.wrap{width:min(100% - 40px,1000px);margin:auto}.top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:24px 0;font-size:14px}.top span{color:var(--muted)}main{padding:25px 0 52px}.eyebrow{font-size:14px;font-weight:750;letter-spacing:.08em;color:var(--blue);margin:0 0 12px}h1{font-size:clamp(29px,4.5vw,45px);line-height:1.5;letter-spacing:-.025em;margin:0 0 20px;max-width:21em}h2{font-size:23px;line-height:1.5;margin:0 0 12px}h3{font-size:17px;margin:0}p{margin:0 0 16px}.lead{font-size:19px;max-width:43em}.callout{border-left:4px solid var(--amber);background:var(--sand);padding:16px 20px;margin:24px 0}.callout p:last-child{margin:0}.panel{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:24px;margin:24px 0}.small{font-size:14px;color:var(--muted)}.consent{display:flex;align-items:flex-start;gap:12px;padding:14px 0}.consent input{flex:none;width:21px;height:21px;margin:5px 0 0;accent-color:var(--blue)}.actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:8px 0}.actions .small{margin:0}.result{border:1px solid var(--line);border-left:4px solid var(--blue);background:var(--white);padding:22px 24px;border-radius:8px;margin:28px 0}.result.attention{border-left-color:var(--red);background:var(--rose)}.result h2{margin-bottom:8px}.result p:last-child{margin:0}.counts{display:flex;gap:8px 20px;flex-wrap:wrap;font-size:14px;color:var(--muted);margin-top:14px}.control{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;padding:16px 0 22px;border-bottom:1px solid var(--line);margin-bottom:24px}.control p{margin:0}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.check{background:var(--white);border:1px solid var(--line);border-radius:8px;padding:18px}.path{font-size:13px;color:var(--muted);margin:2px 0 14px}.badge{display:inline-block;border-radius:5px;padding:3px 10px;background:#eef1f3;color:var(--muted);font-size:14px;font-weight:700}.badge.response{background:var(--rose);color:var(--red)}.badge.unknown,.badge.timeout{background:var(--sand);color:var(--amber)}.badge.running{background:var(--pale);color:var(--blue)}.manual{display:block;font-size:13px;padding:4px 0;border:0;background:transparent;text-decoration:underline;text-underline-offset:.2em;min-height:40px;font-weight:500}.check .host{font-size:12px;line-height:1.6;color:var(--muted);overflow-wrap:anywhere;margin:8px 0}.checks-label{margin:28px 0 16px}.manual-note{margin:24px 0;font-size:14px;color:var(--muted)}details{margin:18px 0;padding:18px 20px;background:var(--white);border:1px solid var(--line);border-radius:8px}summary{cursor:pointer;font-weight:700}details p:first-of-type{margin-top:16px}details p:last-child,details ul:last-child{margin-bottom:0}li{margin:9px 0}ul{padding-left:1.4em}.sources{font-size:14px}.foot{border-top:1px solid var(--line);padding-top:20px;margin-top:32px;color:var(--muted);font-size:14px}[hidden]{display:none!important}@media(max-width:650px){.wrap{width:min(100% - 32px,1000px)}main{padding-top:12px}.panel{padding:18px}.grid{grid-template-columns:1fr}.result{padding:18px}.top{padding:18px 0}.lead{font-size:18px}button.primary{flex:1}h1{font-size:30px}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}@media print{body{background:white}.actions,.consent,.manual{display:none}.grid{grid-template-columns:1fr 1fr}details{break-inside:avoid}.check{break-inside:avoid}}</style>
+</head>
+<body>
+<header class="wrap top"><a href="/">共有メモ一覧</a><span>eMudhra・ブラウザ接続確認デモ</span></header>
+<main class="wrap">
+<p class="eyebrow">CERTIFICATE CONNECTION CHECK</p>
+<h1>このブラウザは、<br>問題の証明書を受け入れる？</h1>
+<p class="lead">eMudhraの問題ある証明書チェーンを使う公開検証先に接続し、現在のブラウザからHTTPS応答が届くか確かめます。</p>
+<div class="callout"><p><strong>接続できなかっただけでは、「対策済み」とは言えません。</strong><br>証明書の拒否以外に、DNS・ネットワーク・CORS・拡張機能などでも失敗します。</p></div>
+
+<section class="panel" aria-labelledby="before-heading">
+<h2 id="before-heading">実行前に確認すること</h2>
+<p>外部検証先12件と、このサイトの通常HTTPS対照1件へ接続します。対象はTLS用中間CA 6種類×2経路です。秘密鍵の生成・設定変更は行いません。</p>
+<p class="small">外部検証先はDennis Jackson氏らの公開サイト「we-have-a-problem.com」の固定12ホストです。実行するとIPアドレス、User-Agent、TLS接続情報などが先方へ届き、記録される可能性があります。公開元は成功したUser-AgentやJA4の件数を集計すると説明しています。Cookie等を付けない設定で実行し、このHTMLには結果を保存・送信する処理は含めていません。</p>
+<label class="consent"><input id="consent" type="checkbox"><span>検証先への通信と、通常の接続情報が記録される可能性を理解しました。</span></label>
+<div class="actions"><button id="start" type="button" class="primary" disabled>13件の接続確認を開始</button><button id="cancel" type="button" disabled>中止</button></div>
+<p class="small" id="run-note">最大同時2件・各8秒。完了または中止後30秒あけ、ページ内で3回まで実行できます。</p>
+<p id="environment" class="small" hidden></p>
+<noscript><p>自動確認にはJavaScriptが必要です。結果を推測せず、<a href="https://emudhra.we-have-a-problem.com/" rel="noreferrer noopener">公開元の検証ページ</a>と公式情報を確認してください。公開元では自動接続が始まる場合があります。</p></noscript>
+</section>
+
+<section id="result" class="result" aria-live="polite" aria-atomic="true" aria-labelledby="result-title">
+<h2 id="result-title">まだ確認していません</h2>
+<p id="result-detail">同意してボタンを押すまで検証先へ接続しません。</p>
+<p class="counts" id="counts">応答あり 0 / 原因不明 0 / 時間切れ 0 / 中止 0 / 未実施 12</p>
+</section>
+<div class="control"><div><strong>通常HTTPS対照</strong><p class="small">このサイトのトップ（https://share.0g0.xyz/）</p></div><strong id="control-state">未実施</strong></div>
+<p class="small">対照が成功しても、検証先固有のDNS障害・CORS設定・通信制限などは除外できません。対照は特定の正常証明書を固定した試験ではなく、このサイトへの通常HTTPS通信の確認です。</p>
+
+<h2 class="checks-label">固定12件の結果</h2>
+<div id="checks" class="grid" aria-busy="false"></div>
+<p class="manual-note">別タブで確認する場合も上の同意が必要です。証明書エラーが表示されたら、警告の種類を確認して閉じてください。警告を回避したり、「接続を続ける」を選んだりしないでください。別タブの結果はこの画面には自動反映されません。</p>
+
+<details>
+<summary>結果の読み方</summary>
+<ul>
+<li><strong>HTTP応答あり：</strong>その時点の通信経路で検証先へのHTTPS応答を観測しました。HTTP 404や500でも、応答があればこの分類です。問題のチェーンが受理された可能性を確認する材料ですが、攻撃や侵害が起きた証明ではありません。</li>
+<li><strong>失敗・原因不明：</strong>接続成立を観測できませんでした。TLS拒否・DNS・ネットワーク・CORS等をWebページから区別できないため、対策済みの合格表示にはしません。</li>
+<li><strong>タイムアウト：</strong>8秒以内に結論が出ませんでした。拒否された証拠にはなりません。</li>
+<li><strong>中止・未実施：</strong>確認が完了していません。全件を確認した結果として扱わないでください。</li>
+</ul>
+<p>応答を受け取った場合は、まずブラウザとOSの更新状況、組織の管理設定、下記の公式情報を確認してください。証明書検証を無効にして解決しないでください。</p>
+</details>
+
+<details>
+<summary>このデモで分かる範囲と限界</summary>
+<ul>
+<li>分かるのは、このブラウザと現在のネットワーク経路での接続結果です。OS全体、Go・PHP・Python・curlなど他のアプリの対策状況は判定できません。</li>
+<li>通常のWebページのJavaScriptは、ブラウザが検証した証明書チェーンそのものを読み取れません。公開元が説明するチェーンを使う検証先へのHTTP応答を観測する方法です。</li>
+<li>プロキシ、VPN、セキュリティ製品のTLS中継、拡張機能、Service Workerなどにより、観測される通信が変わる場合があります。これらを勝手に無効化・変更する必要はありません。管理端末は管理者へ相談してください。</li>
+<li>Cookie等を付けないGET、キャッシュ無効指定、毎回の照合用値、リダイレクト拒否を使います。ただし接続の再利用、ブラウザや中継装置の挙動まで完全に排除できません。リダイレクトやCORSの不成立は原因不明の失敗になります。</li>
+<li>検証先は第三者が運用しており、稼働状況・提示チェーン・記録方針は変わり得ます。任意のURL入力、利用者の秘密情報送信、新たな偽造証明書の作成は行いません。</li>
+<li>12件はTLS用中間CA 6種類の2経路です。問題となった8鍵すべてや、コード署名の検査ではありません。</li>
+</ul>
+</details>
+
+<details class="sources">
+<summary>一次資料・実装根拠</summary>
+<ul>
+<li><a href="https://emudhra.we-have-a-problem.com/" rel="noreferrer noopener">公開元：eMudhra Intermediate CA Compromise</a>（検証先・記録方針。開くと自動検証が始まる場合があります）</li>
+<li><a href="https://github.com/galadran/we-have-a-problem.com/blob/main/index.html" rel="noreferrer noopener">公開元の検証先一覧・CORS要件</a></li>
+<li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2083449" rel="noreferrer noopener">Mozilla：公式インシデント記録</a></li>
+<li><a href="https://blog.google/security/protecting-chrome-and-android-users-from-compromised-emudhra-intermediate-ca-certificates/" rel="noreferrer noopener">Google：Chrome・Androidの対策</a></li>
+<li><a href="https://blog.mozilla.org/security/2026/10/20/protecting-firefox-users-following-the-compromise-of-emudhra-intermediate-certificates/" rel="noreferrer noopener">Mozilla：Firefoxの対策</a></li>
+<li><a href="https://fetch.spec.whatwg.org/" rel="noreferrer noopener">WHATWG Fetch標準</a> ／ <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS/Errors" rel="noreferrer noopener">MDN：CORSエラーの制約</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/getSecurityInfo" rel="noreferrer noopener">MDN：証明書情報の取得は権限付き拡張API</a></li>
+</ul>
+<p>検証先一覧の根拠確認：2026年10月22日。ブラウザの版数だけで対策の到達を断定しません。</p>
+</details>
+<footer class="foot">仕組みの説明は<a href="/emudhra-ca">eMudhraとソフト更新の解説</a>へ。このデモは利用環境の安全証明書ではありません。</footer>
+</main>
+<script>(() => {
+'use strict';
+const ENTRIES = Object.freeze([
+  {
+    "id": "control",
+    "label": "このサイトへの通常HTTPS対照",
+    "path": "同一origin・share.0g0.xyz",
+    "kind": "control",
+    "url": "https://share.0g0.xyz/"
+  },
+  {
+    "id": "dv-g3b",
+    "label": "EM DV TLS CA - G3B",
+    "path": "emSign経路",
+    "kind": "test",
+    "url": "https://dv-g3b-emudhra.we-have-a-problem.com/"
+  },
+  {
+    "id": "dv-g3c",
+    "label": "EM DV TLS CA - G3C",
+    "path": "emSign経路",
+    "kind": "test",
+    "url": "https://dv-g3c-emudhra.we-have-a-problem.com/"
+  },
+  {
+    "id": "ov-g3b",
+    "label": "EM OV TLS CA - G3B",
+    "path": "emSign経路",
+    "kind": "test",
+    "url": "https://ov-g3b-emudhra.we-have-a-problem.com/"
+  },
+  {
+    "id": "ov-g3c",
+    "label": "EM OV TLS CA - G3C",
+    "path": "emSign経路",
+    "kind": "test",
+    "url": "https://ov-g3c-emudhra.we-have-a-problem.com/"
+  },
+  {
+    "id": "ev-g3b",
+    "label": "EM EV TLS CA - G3B",
+    "path": "emSign経路",
+    "kind": "test",
+    "url": "https://ev-g3b-emudhra.we-have-a-problem.com/"
+  },
+  {
+    "id": "ev-g3c",
+    "label": "EM EV TLS CA - G3C",
+    "path": "emSign経路",
+    "kind": "test",
+    "url": "https://ev-g3c-emudhra.we-have-a-problem.com/"
+  },
+  {
+    "id": "dv-g3b-aaa",
+    "label": "EM DV TLS CA - G3B",
+    "path": "AAA Certificate Services経路",
+    "kind": "test",
+    "url": "https://dv-g3b-aaa-emudhra.we-have-a-problem.com/"
+  },
+  {
+    "id": "dv-g3c-aaa",
+    "label": "EM DV TLS CA - G3C",
+    "path": "AAA Certificate Services経路",
+    "kind": "test",
+    "url": "https://dv-g3c-aaa-emudhra.we-have-a-problem.com/"
+  },
+  {
+    "id": "ov-g3b-aaa",
+    "label": "EM OV TLS CA - G3B",
+    "path": "AAA Certificate Services経路",
+    "kind": "test",
+    "url": "https://ov-g3b-aaa-emudhra.we-have-a-problem.com/"
+  },
+  {
+    "id": "ov-g3c-aaa",
+    "label": "EM OV TLS CA - G3C",
+    "path": "AAA Certificate Services経路",
+    "kind": "test",
+    "url": "https://ov-g3c-aaa-emudhra.we-have-a-problem.com/"
+  },
+  {
+    "id": "ev-g3b-aaa",
+    "label": "EM EV TLS CA - G3B",
+    "path": "AAA Certificate Services経路",
+    "kind": "test",
+    "url": "https://ev-g3b-aaa-emudhra.we-have-a-problem.com/"
+  },
+  {
+    "id": "ev-g3c-aaa",
+    "label": "EM EV TLS CA - G3C",
+    "path": "AAA Certificate Services経路",
+    "kind": "test",
+    "url": "https://ev-g3c-aaa-emudhra.we-have-a-problem.com/"
+  }
+].map(entry => Object.freeze(entry)));
+const ALLOWED_ORIGIN = 'https://share.0g0.xyz';
+function createProbeEngine(entries, deps) {
+  const rows = entries.map(entry => ({ ...entry, state: 'not-run', http: null }));
+  let active = null;
+  let lastFinished = -Infinity;
+  let runNumber = 0;
+  const snapshot = () => ({
+    running: Boolean(active),
+    runsRemaining: Math.max(0, deps.maxRuns - runNumber),
+    cancelled: Boolean(active && active.cancelled),
+    cooldownMs: active ? 0 : Math.max(0, deps.cooldownMs - (deps.now() - lastFinished)),
+    rows: rows.map(row => ({ ...row }))
+  });
+  const emit = () => deps.onChange(snapshot());
+  function start() {
+    if (active) return { started: false, reason: 'running' };
+    if (runNumber >= deps.maxRuns) return { started: false, reason: 'limit' };
+    if (snapshot().cooldownMs > 0) return { started: false, reason: 'cooldown' };
+    const job = { cancelled: false, next: 0, stops: new Set() };
+    active = job;
+    runNumber += 1;
+    const nonce = deps.nonce() + '-' + runNumber;
+    for (const row of rows) { row.state = 'not-run'; row.http = null; }
+    emit();
+    async function probe(row, index) {
+      const controller = new deps.AbortController();
+      let timer;
+      let stop;
+      const interrupted = new Promise(resolve => {
+        stop = state => {
+          controller.abort();
+          resolve({ state, http: null });
+        };
+        job.stops.add(stop);
+        timer = deps.setTimeout(() => stop('timeout'), deps.timeoutMs);
+      });
+      const requestUrl = new URL(row.url);
+      requestUrl.searchParams.set('_emudhra_check', nonce + '-' + index);
+      const request = Promise.resolve().then(() => {
+        if (job.cancelled) return { state: 'cancelled', http: null };
+        return deps.fetch(requestUrl.href, {
+          method: 'GET',
+          mode: row.kind === 'control' ? 'same-origin' : 'cors',
+          credentials: 'omit',
+          referrerPolicy: 'no-referrer',
+          cache: 'no-store',
+          redirect: 'error',
+          signal: controller.signal
+        }).then(response => {
+          if (response.body && response.body.cancel) {
+            try { Promise.resolve(response.body.cancel()).catch(() => {}); } catch (_) {}
+          }
+          if (response.redirected || !['basic', 'cors'].includes(response.type) ||
+              !Number.isInteger(response.status) || response.status < 100 || response.status > 599) {
+            return { state: 'unknown', http: null };
+          }
+          return { state: 'response', http: response.status };
+        });
+      }).catch(() => ({ state: job.cancelled ? 'cancelled' : 'unknown', http: null }));
+      try {
+        return await Promise.race([interrupted, request]);
+      } finally {
+        deps.clearTimeout(timer);
+        job.stops.delete(stop);
+      }
+    }
+    async function worker() {
+      while (!job.cancelled && job.next < rows.length) {
+        const index = job.next++;
+        rows[index].state = 'running';
+        emit();
+        const result = await probe(rows[index], index);
+        rows[index].state = result.state;
+        rows[index].http = result.http;
+        emit();
+      }
+    }
+    const completion = Promise.all([worker(), worker()]).then(() => {
+      active = null;
+      lastFinished = deps.now();
+      emit();
+      return snapshot();
+    });
+    return { started: true, completion };
+  }
+  function cancel() {
+    if (!active || active.cancelled) return false;
+    active.cancelled = true;
+    for (const stop of Array.from(active.stops)) stop('cancelled');
+    emit();
+    return true;
+  }
+  return { start, cancel, snapshot };
+}
+function summarize(snapshot) {
+  const tests = snapshot.rows.filter(row => row.kind === 'test');
+  const counts = {};
+  for (const state of ['response', 'unknown', 'timeout', 'cancelled', 'not-run', 'running']) {
+    counts[state] = tests.filter(row => row.state === state).length;
+  }
+  const control = snapshot.rows.find(row => row.kind === 'control');
+  const complete = tests.length - counts['not-run'] - counts.running;
+  let title;
+  let detail;
+  if (snapshot.running) {
+    title = '確認中 ' + complete + '/' + tests.length + '件';
+    detail = 'HTTP応答 ' + counts.response + '件。途中でも中止できます。';
+  } else if (counts.response > 0) {
+    title = counts.response + '/' + tests.length + '件でHTTP応答を観測';
+    detail = '検証先URLの取得でHTTP応答を観測しました。新しいTLS接続や証明書チェーンを直接検証した結果ではありません。ブラウザ・OSの更新状況と公式情報を確認してください。侵害された証拠ではありません。';
+  } else if (counts['not-run'] === tests.length) {
+    title = 'まだ確認していません';
+    detail = '同意してボタンを押すまで検証先へ接続しません。';
+  } else {
+    title = 'HTTP応答は観測されませんでした';
+    detail = '対策済みとは断定できません。TLS拒否・DNS・CORS・ネットワークなど、失敗の原因はこのページでは区別できません。';
+  }
+  const incomplete = counts.timeout + counts.cancelled + counts['not-run'];
+  if (!snapshot.running && complete > 0 && incomplete > 0) {
+    detail += ' タイムアウト・中止・未実施を含むため、結果は不完全です。';
+  }
+  if (!snapshot.running && control && !['response', 'not-run'].includes(control.state)) {
+    detail += ' 通常HTTPS対照も応答を確認できませんでした。通信環境や拡張機能も確認してください。';
+  }
+  return { title, detail, counts, control, complete, tone: counts.response > 0 ? 'attention' : 'neutral' };
+}
+const $ = id => document.getElementById(id);
+const startButton = $('start');
+const cancelButton = $('cancel');
+const consent = $('consent');
+const grid = $('checks');
+const stateNames = {
+  'not-run': '未実施', running: '確認中', response: 'HTTP応答あり',
+  unknown: '失敗・原因不明', timeout: 'タイムアウト', cancelled: '中止・判定不能'
+};
+const rowViews = new Map();
+for (const entry of ENTRIES.filter(entry => entry.kind === 'test')) {
+  const article = document.createElement('article');
+  article.className = 'check';
+  const title = document.createElement('h3');
+  title.textContent = entry.label;
+  const path = document.createElement('p');
+  path.className = 'path'; path.textContent = entry.path;
+  const badge = document.createElement('span');
+  badge.className = 'badge'; badge.textContent = '未実施';
+  const host = document.createElement('p');
+  host.className = 'host'; host.textContent = entry.url;
+  const manual = document.createElement('button');
+  manual.type = 'button'; manual.className = 'manual'; manual.disabled = true;
+  manual.textContent = '別タブで証明書警告を確認';
+  manual.setAttribute('aria-label', entry.label + '・' + entry.path + 'を別タブで確認');
+  manual.addEventListener('click', () => {
+    if (!consent.checked || location.origin !== ALLOWED_ORIGIN) return;
+    window.open(entry.url, '_blank', 'noopener,noreferrer');
+  });
+  article.append(title, path, badge, host, manual);
+  grid.append(article);
+  rowViews.set(entry.id, { badge, manual });
+}
+const supported = location.origin === ALLOWED_ORIGIN &&
+  location.protocol === 'https:' && typeof fetch === 'function' &&
+  typeof AbortController === 'function' && typeof URL === 'function';
+if (!supported) {
+  $('environment').hidden = false;
+  $('environment').textContent = 'この公開URL上のHTTPS対応ブラウザで開いてください。必要なAPIや公開元の条件を満たさないため、この画面からは検証を開始できません。';
+}
+const engine = createProbeEngine(ENTRIES, {
+  fetch: (url, options) => fetch(url, options),
+  AbortController: globalThis.AbortController,
+  setTimeout: (fn, ms) => setTimeout(fn, ms),
+  clearTimeout: id => clearTimeout(id),
+  now: () => typeof performance !== 'undefined' && typeof performance.now === 'function'
+    ? performance.now() : Date.now(),
+  nonce: () => {
+    if (globalThis.crypto && crypto.getRandomValues) {
+      return Array.from(crypto.getRandomValues(new Uint32Array(3)), n => n.toString(16)).join('-');
+    }
+    return Date.now().toString(36) + '-' + Math.random().toString(36).slice(2);
+  },
+  timeoutMs: 8000, cooldownMs: 30000, maxRuns: 3,
+  onChange: render
+});
+function updateControls(snapshot) {
+  startButton.disabled = !supported || !consent.checked || snapshot.running ||
+    snapshot.cooldownMs > 0 || snapshot.runsRemaining === 0;
+  cancelButton.disabled = !snapshot.running || snapshot.cancelled;
+  for (const { manual } of rowViews.values()) {
+    manual.disabled = !supported || !consent.checked || snapshot.running;
+  }
+  if (snapshot.running) $('run-note').textContent = '最大同時2件。各8秒で打ち切ります。';
+  else if (snapshot.runsRemaining === 0) $('run-note').textContent = 'このページ内の実行上限3回に達しました。公式情報と表示結果を確認してください。';
+  else if (snapshot.cooldownMs > 0) $('run-note').textContent = '再実行まであと' + Math.ceil(snapshot.cooldownMs / 1000) + '秒。';
+  else $('run-note').textContent = 'このページ内であと' + snapshot.runsRemaining + '回実行できます。';
+}
+function render(snapshot) {
+  const result = summarize(snapshot);
+  $('result-title').textContent = result.title;
+  $('result-detail').textContent = result.detail;
+  $('result').className = 'result ' + result.tone;
+  const c = result.counts;
+  $('counts').textContent = '応答あり ' + c.response + ' / 原因不明 ' + c.unknown +
+    ' / 時間切れ ' + c.timeout + ' / 中止 ' + c.cancelled +
+    ' / 未実施 ' + c['not-run'] + (snapshot.running ? ' / 確認中 ' + c.running : '');
+  if (result.control) {
+    $('control-state').textContent = result.control.state === 'response'
+      ? '通常HTTPS応答あり（HTTP ' + result.control.http + '）'
+      : stateNames[result.control.state];
+  }
+  for (const row of snapshot.rows) {
+    const view = rowViews.get(row.id);
+    if (!view) continue;
+    view.badge.className = 'badge ' + row.state;
+    view.badge.textContent = stateNames[row.state] +
+      (row.state === 'response' ? '（HTTP ' + row.http + '）' : '');
+  }
+  $('checks').setAttribute('aria-busy', String(snapshot.running));
+  updateControls(snapshot);
+}
+consent.addEventListener('change', () => {
+  if (!consent.checked) engine.cancel();
+  updateControls(engine.snapshot());
+});
+startButton.addEventListener('click', () => {
+  if (!supported || !consent.checked) return;
+  const run = engine.start();
+  if (run.started) {
+    startButton.textContent = 'もう一度確認する';
+    run.completion.then(() => updateControls(engine.snapshot()));
+  }
+});
+cancelButton.addEventListener('click', () => engine.cancel());
+window.addEventListener('pagehide', () => engine.cancel());
+setInterval(() => updateControls(engine.snapshot()), 500);
+render(engine.snapshot());
+})();</script>
+</body>
+</html>
