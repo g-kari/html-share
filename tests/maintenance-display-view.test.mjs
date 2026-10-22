@@ -49,7 +49,7 @@ test("same real notice articles, facts and official links work in card/list mode
       assert.equal(article.dataset.restored, String(record.restored === true));
       assert.equal(article.querySelector(".site-heading > span:last-child").textContent, record.name);
       assert.equal(article.querySelector(".service-details .detail").textContent, record.safe);
-      assert.equal(article.querySelector(".service-details footer > a").href, record.url);
+      assert.equal(article.querySelector(".service-details footer > a").getAttribute("href"), record.url);
       const toggle = article.querySelector(".service-detail-toggle"), panel = article.querySelector(".service-details");
       assert.equal(toggle.type, "button");
       assert.equal(toggle.getAttribute("aria-controls"), panel.id);
