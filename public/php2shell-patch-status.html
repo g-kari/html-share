@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PHP2Shell修正状況 — 既知2件の修正と追加不具合の切り分け</title>
+  <meta name="description" content="PHP2Shellの既知2CVEはPHP 8.2.35・8.3.36・8.4.27・8.5.12で修正済み。修正版のSimpleXML二重解放、OOM回帰、セッション破棄報告と、未確認のRCE再成立を分けて整理。2026年10月22日時点の公開一次資料。">
+  <link rel="canonical" href="https://share.0g0.xyz/php2shell-patch-status">
+  <link rel="alternate" type="application/rss+xml" title="公開ページのRSS" href="/feed.xml">
+  <meta name="theme-color" content="#46518f">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:title" content="PHP2Shell修正状況 — 既知2件の修正と追加不具合">
+  <meta property="og:description" content="既知2CVEは修正済み。追加のメモリ破損・回帰報告と、認証不要RCEの再成立を混同せず整理します。">
+  <meta property="og:url" content="https://share.0g0.xyz/php2shell-patch-status">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #14263b;
+      --muted: #526176;
+      --indigo: #46518f;
+      --paper: #ffffff;
+      --wash: #f1f4f8;
+      --line: #ccd5e0;
+      --teal: #12665e;
+      --teal-wash: #e9f5f2;
+      --amber: #80520a;
+      --amber-wash: #fff5df;
+      --grey: #536071;
+      --grey-wash: #edf0f4;
+    }
+    * { box-sizing: border-box; }
+    html { background: var(--wash); scroll-padding-block-start: 1.25rem; }
+    body { margin: 0; color: var(--ink); background: var(--paper); font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, system-ui, sans-serif; font-size: 1.125rem; line-height: 1.85; overflow-wrap: anywhere; }
+    a { color: #344881; text-decoration-thickness: .08em; text-underline-offset: .18em; }
+    a:hover { text-decoration-thickness: .15em; }
+    :where(a, summary, button):focus-visible { outline: .18rem solid var(--indigo); outline-offset: .25rem; border-radius: .1rem; }
+    :target { scroll-margin-block-start: 1.25rem; }
+    p { margin-block: .8rem 1.1rem; }
+    p, li { text-wrap: pretty; }
+    strong { font-weight: 700; }
+    h1, h2, h3 { line-height: 1.45; font-feature-settings: "palt"; }
+    h1 { margin: .55rem 0 1rem; font-size: clamp(1.9rem, 1.4rem + 2vw, 2.85rem); letter-spacing: -.025em; text-wrap: balance; }
+    h2 { font-size: 1.55rem; margin-block: 0 1.25rem; }
+    h3 { font-size: 1.2rem; margin-block: 1.7rem .6rem; }
+    ul, ol { padding-inline-start: 1.45rem; }
+    li { padding-inline-start: .15rem; margin-block: .5rem; }
+    code { font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; font-size: .9em; background: var(--wash); padding: .08em .22em; border-radius: .2rem; }
+    .shell { max-inline-size: 56rem; margin-inline: auto; padding-inline: clamp(1.1rem, 4vw, 3rem); }
+    .skip { position: fixed; z-index: 5; inset-block-start: .5rem; inset-inline-start: .5rem; padding: .6rem 1rem; background: var(--paper); border: 2px solid var(--indigo); transform: translateY(-180%); }
+    .skip:focus { transform: none; }
+    .site-header { background: var(--wash); border-block-end: 1px solid var(--line); }
+    .site-header .shell { padding-block: .7rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .3rem 1rem; font-size: .875rem; }
+    .site-header a { display: inline-flex; align-items: center; min-block-size: 2.75rem; font-weight: 700; }
+    .site-header span { color: var(--muted); }
+    .intro { padding-block: 2.8rem 1.7rem; border-block-end: 3px solid var(--indigo); }
+    .dateline { font-size: .875rem; color: var(--muted); margin: 0; }
+    .lead { font-size: 1.25rem; line-height: 1.8; margin-block: 1.25rem 1rem; }
+    .conclusion { padding: 1.1rem 1.25rem; background: var(--teal-wash); border-inline-start: .3rem solid var(--teal); }
+    .conclusion p { margin: 0; }
+    .caution { margin-block-start: .75rem; color: var(--muted); }
+    .caution strong { color: var(--ink); }
+    .footnote { display: inline-block; padding-inline: .2rem; font-size: .85em; white-space: nowrap; }
+    .toc { padding-block: 1.25rem; border-block-end: 1px solid var(--line); }
+    .toc ul { display: flex; flex-wrap: wrap; gap: .2rem 1.25rem; padding: 0; margin: 0; list-style: none; }
+    .toc li { margin: 0; padding: 0; }
+    .toc a { display: inline-flex; align-items: center; min-block-size: 2.75rem; font-size: .95rem; }
+    section { padding-block: 2.25rem; border-block-end: 1px solid var(--line); }
+    section:last-child { border-block-end: 0; }
+    .section-note, figcaption, caption, .small { color: var(--muted); font-size: .9375rem; }
+    .badge { display: inline-block; padding: .1rem .6rem; border-radius: .25rem; font-size: .8125rem; font-weight: 700; line-height: 1.8; border: 1px solid currentColor; vertical-align: middle; }
+    .confirmed { color: var(--teal); background: var(--teal-wash); }
+    .pending { color: var(--amber); background: var(--amber-wash); }
+    .unknown { color: var(--grey); background: var(--grey-wash); }
+    figure { margin: 1.5rem 0; }
+    .flow { background: var(--wash); padding: 1.25rem; border-radius: .4rem; }
+    .flow-root { margin: 0 auto 1rem; padding: .55rem 1rem; border: 1px solid var(--indigo); background: var(--paper); inline-size: fit-content; max-inline-size: 100%; font-weight: 700; }
+    .branches { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.4rem; }
+    .branch { position: relative; min-inline-size: 0; padding-block-start: 1.2rem; }
+    .branch::before { content: ""; position: absolute; inset-block-start: -.1rem; inset-inline-start: 50%; block-size: 1.05rem; border-inline-start: 2px solid var(--line); }
+    .branch-label { margin: 0; font-size: .9375rem; font-weight: 700; }
+    .flow-result { margin: .6rem 0 0; padding: .8rem 1rem; border: 1px solid currentColor; border-radius: .25rem; font-weight: 700; }
+    .flow-result span { display: block; font-weight: 400; font-size: .875rem; margin-block-start: .25rem; }
+    figcaption { margin-block-start: .75rem; }
+    table { inline-size: 100%; border-collapse: collapse; table-layout: fixed; margin-block: 1.25rem; }
+    caption { caption-side: top; text-align: start; padding-block-end: .65rem; }
+    th, td { text-align: start; vertical-align: top; border-block-end: 1px solid var(--line); padding: .65rem .75rem; }
+    thead { background: var(--wash); }
+    th { font-weight: 700; }
+    tbody th { inline-size: 38%; }
+    .versions { max-inline-size: 34rem; font-variant-numeric: tabular-nums; }
+    .versions th:first-child { inline-size: 42%; }
+    .report { margin-block: 1.6rem 2rem; padding-inline-start: 1.1rem; border-inline-start: .2rem solid var(--line); }
+    .report h3 { margin-block: 0 .6rem; }
+    .report .state { margin-block: .25rem .6rem; }
+    .report p:last-child { margin-block-end: 0; }
+    details { border-block-start: 1px solid var(--line); margin-block-start: 1.2rem; }
+    summary { padding-block: .85rem; min-block-size: 2.75rem; cursor: pointer; font-weight: 700; color: var(--indigo); }
+    summary::marker { color: var(--indigo); }
+    details[open] > summary { margin-block-end: .3rem; }
+    .detail-body { padding: 0 .25rem .35rem; }
+    .detail-body > :first-child { margin-block-start: .4rem; }
+    .reading-key { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: .75rem 1rem; margin-block: 1.25rem; }
+    .reading-key dt, .reading-key dd { margin: 0; }
+    .steps li { margin-block: 1rem; }
+    .note { background: var(--wash); padding: 1rem 1.25rem; border-inline-start: .25rem solid var(--indigo); }
+    .sources { font-size: .9375rem; }
+    .sources li { padding-block: .3rem; margin-block: .7rem; }
+    .sources a { display: inline-block; min-block-size: 2.75rem; padding-block: .35rem; }
+    .sources span { display: block; color: var(--muted); }
+    .related a { display: inline-block; min-block-size: 2.75rem; padding-block: .35rem; }
+    .site-footer { background: var(--wash); border-block-start: 1px solid var(--line); margin-block-start: 1.5rem; padding-block: 1.5rem 2rem; font-size: .875rem; color: var(--muted); }
+    .site-footer p { margin-block: .5rem; }
+    @media (max-width: 36rem) {
+      .intro { padding-block-start: 1.8rem; }
+      .lead { font-size: 1.15rem; }
+      h2 { font-size: 1.4rem; }
+      .branches { grid-template-columns: minmax(0, 1fr); gap: .8rem; }
+      .branch { padding-block-start: .65rem; }
+      .branch::before { display: none; }
+      .branch-label { border-block-start: 1px solid var(--line); padding-block-start: .75rem; }
+      .flow { padding: 1rem; }
+      .reading-key { grid-template-columns: minmax(0, 1fr); gap: .25rem; }
+      .reading-key dd { margin-block-end: .65rem; }
+      th, td { padding-inline: .5rem; }
+      .conclusion, .note { padding-inline: .9rem; }
+      .report { padding-inline-start: .8rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
+    }
+    @media print {
+      html, body { background: #fff; color: #000; }
+      body { font-size: 10.5pt; line-height: 1.7; }
+      .shell { max-inline-size: none; padding-inline: 0; }
+      .site-header, .toc, .skip, .related { display: none; }
+      .intro { padding-block-start: 0; }
+      h1 { font-size: 22pt; }
+      h2 { font-size: 15pt; break-after: avoid; }
+      h3, summary { break-after: avoid; }
+      section { padding-block: 1.2rem; }
+      details::details-content { display: block !important; content-visibility: visible !important; }
+      details > :not(summary) { display: block !important; }
+      summary { color: #000; padding-block: .5rem; }
+      .conclusion, .note, .flow, .badge, thead { background: #fff; }
+      .flow, .report, tr { break-inside: avoid; }
+      a { color: #000; }
+      .site-footer { background: #fff; }
+      @page { margin: 16mm; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">本文へ移動</a>
+  <header class="site-header">
+    <div class="shell"><a href="/">公開メモ</a><span>PHPセキュリティの調査整理</span></div>
+  </header>
+  <main id="main" class="shell" tabindex="-1">
+    <article>
+      <header class="intro">
+        <p class="dateline">公開資料の確認日：<time datetime="2026-10-22">2026年10月22日</time></p>
+        <h1>PHP2Shellの修正状況と<br>追加不具合の読み分け</h1>
+        <p class="lead">既知の2件は修正済み。修正版で報告された別の不具合は、影響と確度を分けて確認します。</p>
+        <div class="conclusion">
+          <p><strong>PHP2Shellの既知2CVEは、PHP 8.2.35・8.3.36・8.4.27・8.5.12で修正されています。</strong>一方、修正版にも別のメモリ破損や回帰の報告があります。<a class="footnote" href="#src-php">[1]</a><a class="footnote" href="#src-24488">[4]</a><a class="footnote" href="#src-24492">[6]</a><a class="footnote" href="#src-24493">[7]</a></p>
+        </div>
+        <p class="caution"><strong>この4修正版で、PHP2Shellによる認証不要のリモートコード実行（RCE）が再成立する公開実証は、今回の調査では確認できていません。</strong>これは「未知の脆弱性がない」「完全に安全」という保証ではありません。</p>
+      </header>
+
+      <nav class="toc" aria-label="記事内">
+        <ul role="list">
+          <li><a href="#overview">まず押さえる違い</a></li>
+          <li><a href="#fixed">公式の修正版</a></li>
+          <li><a href="#reports">追加報告3件</a></li>
+          <li><a href="#response">利用者の対応</a></li>
+          <li><a href="#evidence">出典と履歴</a></li>
+        </ul>
+      </nav>
+
+      <section id="overview">
+        <h2>同じ「問題がある」でも、状態が違う</h2>
+        <p>修正済みの攻撃経路と、新しく報告された不具合を一括りにすると、更新の判断を誤ります。まずは次の2系統に分けます。</p>
+        <figure>
+          <div class="flow">
+            <p class="flow-root">公開された問題</p>
+            <div class="branches">
+              <div class="branch">
+                <p class="branch-label">PHP2Shellの既知2件</p>
+                <p class="flow-result confirmed">公式修正版へ<span>CVE-2026-109618 / CVE-2026-109619</span></p>
+              </div>
+              <div class="branch">
+                <p class="branch-label">修正版への追加不具合報告</p>
+                <p class="flow-result pending">再現・調査・修正候補を確認<span>メモリ破損、OOM回帰、セッション破棄</span></p>
+              </div>
+            </div>
+          </div>
+          <figcaption>図：既知のRCE対策と、追加報告への追跡は並行して進めます。追加報告だけを理由に、既知の脆弱性を残す判断にはつなげません。</figcaption>
+        </figure>
+        <ul>
+          <li><strong>確認できたこと：</strong>既知2CVEの修正版が公開され、追加のSimpleXML二重解放には再現・検証の記録があります。</li>
+          <li><strong>判定が残ること：</strong>OOMやセッションの報告は、調査時点でトリアージ待ちです。報告の存在と、セキュリティ上の影響確定は別です。</li>
+          <li><strong>今回確認できなかったこと：</strong>4修正版で、外部から認証なしにPHP2ShellのRCEが再成立するという公開実証です。</li>
+        </ul>
+        <details>
+          <summary>「報告あり」「検証済み」「RCE実証」をどう読むか</summary>
+          <div class="detail-body">
+            <dl class="reading-key">
+              <dt><span class="badge confirmed">確認済み</span></dt>
+              <dd>公式の修正告知、または公開Issueで再現・検証が確認できる内容です。確認した対象と条件の範囲を超えて一般化しません。</dd>
+              <dt><span class="badge pending">判定待ち</span></dt>
+              <dd>報告や修正候補はあるものの、トリアージ・マージ・リリースなどが未完了の状態です。IssueのOpenは、そのまま未修正の認証不要RCEを意味しません。</dd>
+              <dt><span class="badge unknown">今回未確認</span></dt>
+              <dd>調査した公開資料では確認できなかった内容です。非公開の知見や、今後見つかる攻撃経路まで否定するものではありません。</dd>
+            </dl>
+            <p>メモリ破損やクラッシュは、調査すべき重要な兆候です。ただし、PHPコードでクラッシュが再現すること、外部HTTPリクエストから到達できること、認証なしに任意コードを実行できることは、それぞれ異なる段階です。本記事では、この段階を飛ばして「RCEが再発した」と扱いません。</p>
+          </div>
+        </details>
+      </section>
+
+      <section id="fixed">
+        <h2>既知2CVEを修正した最初の公式版</h2>
+        <p>PHP公式の告知に基づく最初の修正版は、次のとおりです。利用中の系列で、公式または配布ベンダーが修正済みとする版を確認します。<a class="footnote" href="#src-php">[1]</a></p>
+        <table class="versions">
+          <caption>PHP2Shellの既知2CVEに対する、系列別の最初の公式修正版</caption>
+          <thead><tr><th scope="col">PHPの系列</th><th scope="col">最初の修正版</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">PHP 8.2</th><td><strong>8.2.35</strong></td></tr>
+            <tr><th scope="row">PHP 8.3</th><td><strong>8.3.36</strong></td></tr>
+            <tr><th scope="row">PHP 8.4</th><td><strong>8.4.27</strong></td></tr>
+            <tr><th scope="row">PHP 8.5</th><td><strong>8.5.12</strong></td></tr>
+          </tbody>
+        </table>
+        <p class="section-note">この表は最初の修正版の記録です。以降のリリースやディストリビューション独自の修正状況は、導入元の告知で確認してください。</p>
+        <details>
+          <summary>2件の原因と、Webサーバー構成について</summary>
+          <div class="detail-body">
+            <p><strong>CVE-2026-109618</strong>は、メモリ不足（OOM）時に内部状態が壊れる問題です。<strong>CVE-2026-109619</strong>は、リクエストをまたいで残る古いグローバル状態により、解放済みメモリを使用する問題（Use-After-Free / UAF）です。詳細な成立条件はPHP公式のセキュリティアドバイザリを参照してください。<a class="footnote" href="#src-109618">[2]</a><a class="footnote" href="#src-109619">[3]</a></p>
+            <p>調査対象はWebリクエストを処理するPHPです。公開研究では、<code>mod_php</code>でアプリケーションの処理開始前にRCEへ到達する実証が示され、PHP-FPMについても条件付きの実証が説明されています。<strong>「nginxとPHP-FPMの組み合わせだから無関係」とは判断できません。</strong>構成名だけではなく、公式アドバイザリと実際に稼働するPHPを確認する必要があります。<a class="footnote" href="#src-wiz">[8]</a></p>
+            <p>ここでは攻撃コードや再現手順を転載せず、更新判断に必要な原因と状態を整理しています。</p>
+          </div>
+        </details>
+      </section>
+
+      <section id="reports">
+        <h2>今回確認した、修正版への追加報告3件</h2>
+        <p>以下は<strong><time datetime="2026-10-22T17:51:00+09:00">2026年10月22日17:51 JST</time>の確認時点</strong>の公開Issue・PRの状態です。後続のコメント、マージ、リリースで変わるため、判断時にはリンク先も確認してください。</p>
+
+        <div class="report">
+          <h3>SimpleXMLの二重解放</h3>
+          <p class="state"><span class="badge confirmed">再現・検証あり</span> <span class="small">#24488：Open / Verified</span></p>
+          <p>PHP 8.4.27・8.5.12で、SimpleXMLと循環参照のガベージコレクション（GC）に関わる二重解放が報告されています。<strong>同Issueの公開再現で示されているのはメモリ破損・クラッシュであり、外部HTTPからの認証不要RCEを示す公開実証は、今回の調査では確認できていません。</strong><a class="footnote" href="#src-24488">[4]</a></p>
+          <details>
+            <summary>条件・原因・修正候補の状況</summary>
+            <div class="detail-body">
+              <p>報告では、<code>get_object_vars</code>などでSimpleXMLオブジェクトのproperties表を実体化し、循環参照をGCが処理する条件が関わります。SimpleXMLを利用しているだけで、すべての処理に同じ影響が出るとまでは言えません。アプリケーションがこの条件へ到達するかを確認します。<a class="footnote" href="#src-24488">[4]</a></p>
+              <p>原因として関連付けられているのはGH-24050の修正です。既知のPHP2Shell 2CVEの修正が破られたという説明ではありません。修正候補PR <strong>#24494はレビュー承認済みですが、調査時点ではOpen・未マージ</strong>です。レビュー承認、マージ、修正版の公開、個別環境への適用は、それぞれ別の状態です。<a class="footnote" href="#src-24494">[5]</a></p>
+            </div>
+          </details>
+        </div>
+
+        <div class="report">
+          <h3>hard OOM時のプロセス終了</h3>
+          <p class="state"><span class="badge pending">トリアージ待ち</span> <span class="small">#24492：Open / Needs Triage</span></p>
+          <p>PHP 8.4.27・8.5.12で、<code>sprintf</code>・<code>pack</code>・<code>bin2hex</code>などのhard OOM時に、プロセスが終了する回帰が報告されています。<strong>これを「RCE修正を回避できる」という意味には読み替えません。</strong><a class="footnote" href="#src-24492">[6]</a></p>
+          <details>
+            <summary>回帰報告としての位置付け</summary>
+            <div class="detail-body">
+              <p>ここでの争点は、メモリ不足時の終了挙動が従来と変わるという報告です。稼働への影響を確認する価値はありますが、調査時点ではNeeds Triageであり、公式に認定済みの新たなセキュリティ脆弱性とは断定できません。公開Issueが存在することだけから、攻撃者による到達性やRCE成立までを推定しないようにします。<a class="footnote" href="#src-24492">[6]</a></p>
+            </div>
+          </details>
+        </div>
+
+        <div class="report">
+          <h3>upload-progress処理でのセッション破棄</h3>
+          <p class="state"><span class="badge pending">トリアージ待ち</span> <span class="small">#24493：Open / Needs Triage</span></p>
+          <p>PHP 8.5.12で、特定の予約済みプロパティ名を持つ保存オブジェクトとupload-progress handlerの組み合わせにより、セッション全体が破棄される報告があります。<strong>この報告も、調査時点では公式認定済みの新たなセキュリティ脆弱性とは断言できません。</strong><a class="footnote" href="#src-24493">[7]</a></p>
+          <details>
+            <summary>確認する処理と、一般化できない範囲</summary>
+            <div class="detail-body">
+              <p>確認対象は、報告にある保存オブジェクト、予約名、アップロード進捗処理が関わる条件です。通常のセッション処理すべてが必ず破棄されるという報告としては扱いません。アップロードとセッション継続を通常のアプリケーション操作で確認し、該当条件を使う場合はIssueの調査経過を追います。<a class="footnote" href="#src-24493">[7]</a></p>
+            </div>
+          </details>
+        </div>
+        <p class="note"><strong>追加の不具合は存在します。</strong>ただし、「メモリ破損の再現」「回帰の報告」「PHP2Shellの認証不要RCEの再成立」は同義ではありません。既知の修正を適用する判断と、追加報告の影響を調べる判断を分けて進めます。</p>
+      </section>
+
+      <section id="interpretation">
+        <h2>ほかの公開情報を読むときの注意</h2>
+        <p>「別のvariant」「ほかにも修正中」「5つのchain」といった言葉も、修正版に未修正RCEが5件残っているという根拠にはなりません。情報の対象と、修正状態を確認します。</p>
+        <details>
+          <summary>Wizの「ほかのvariant」は、根本修正と併せて読む</summary>
+          <div class="detail-body">
+            <p>Wizの解説はほかのvariantにも言及していますが、根本のパッチで解消されると説明しています。「variantがある」という部分だけを抜き出し、公式修正版でも同じ攻撃が成立するという意味にはしません。<a class="footnote" href="#src-wiz">[8]</a></p>
+          </div>
+        </details>
+        <details>
+          <summary>OpenAIの「ほかにも重大な脆弱性を修正中」は、PHPと特定されていない</summary>
+          <div class="detail-body">
+            <p>OpenAIの公開記事にある、ほかにも重大な脆弱性の修正を進めている旨の記述は、その対象をPHPと特定していません。この文章だけから「PHP2Shellの修正版に、別の重大なPHP脆弱性が残っている」と結論付けることはできません。<a class="footnote" href="#src-openai">[9]</a></p>
+          </div>
+        </details>
+        <details>
+          <summary>mbstringの修正欠落報告は、開発masterが対象</summary>
+          <div class="detail-body">
+            <p>Issue #24489のmbstringに関する報告は、開発用masterの修正欠落を対象としています。そのままPHP 8.2.35・8.3.36・8.4.27・8.5.12の安定版4つへ一般化する根拠にはできません。ブランチと対象コミットを分けて読む必要があります。<a class="footnote" href="#src-24489">[10]</a></p>
+          </div>
+        </details>
+        <details>
+          <summary>公開PoCの「5 chains」は、未修正RCEが5件という意味ではない</summary>
+          <div class="detail-body">
+            <p><code>ikow/php2shell-poc</code>のREADMEも、上記4修正版を対策済みと記載しています。攻撃chainの数と、独立した未修正脆弱性の数は一致するものではありません。「5 chains」を「5件の新しい未修正RCE」と読み替えないようにします。<a class="footnote" href="#src-ikow">[11]</a></p>
+          </div>
+        </details>
+      </section>
+
+      <section id="response">
+        <h2>利用者は更新と動作確認を進める</h2>
+        <p><strong>今回の追加報告は、更新を延期したり、旧脆弱版へ一律に戻したりする根拠にはしません。</strong>導入元の修正版を稼働プロセスへ反映し、利用する処理の動作を確認します。</p>
+        <ol class="steps">
+          <li><strong>導入元と修正状態を確認する。</strong><br>利用中のPHP系列、パッケージの提供元、ベンダーの告知を確認します。独自のバックポートを行う配布元では、上流の番号だけで修正の有無を決めません。</li>
+          <li><strong>動いているPHPへ反映する。</strong><br>FPMやApacheの既存workerが古い実体を使い続けていないか確認します。構成に応じて再起動やコンテナの再作成を行い、新しい実体でリクエストを処理させます。</li>
+          <li><strong>通常の利用経路をスモーク確認する。</strong><br>通常処理、アップロード、セッションの維持を確認します。該当するSimpleXMLの使い方がある場合は、その処理も重点的に確認します。</li>
+          <li><strong>追加Issueと後続リリースを追う。</strong><br>影響が疑われる場合は、報告の条件と自分のアプリケーションを照合し、修正PRのマージ・リリース・ベンダー提供を確認します。</li>
+        </ol>
+        <p class="note"><code>php -v</code>の結果やパッケージの導入完了だけでは、Webリクエストを処理しているPHPの実体確認にはなりません。設定による緩和やWAFも、それだけで完全に対処できたとは扱いません。</p>
+        <details>
+          <summary>Amazon Linux 2のPHP 8.2 Extraを使う場合</summary>
+          <div class="detail-body">
+            <p>AWS公式のALASには、両CVEの修正パッケージとして<strong><code>8.2.35-1.amzn2.0.1</code></strong>が掲載されています。対象アーキテクチャは<code>aarch64</code>と<code>x86_64</code>です。Amazon Linux 2のPHP 8.2 Extraを利用している場合の確認材料であり、ほかのOSやPHP提供元へそのまま当てはめる情報ではありません。<a class="footnote" href="#src-aws">[12]</a></p>
+            <p>実際の更新では、導入済みパッケージとAWSの最新告知を照合したうえで、稼働するFPM・Apache workerへの反映とアプリケーションの動作を確認してください。</p>
+          </div>
+        </details>
+        <aside class="related">
+          <h3>関連する公開メモ</h3>
+          <ul>
+            <li><a href="/php-emergency-maintenance">PHP緊急メンテナンスの状況</a></li>
+            <li><a href="/php-security-os-response">PHPセキュリティ更新とOS別の対応</a></li>
+          </ul>
+        </aside>
+      </section>
+
+      <section id="evidence">
+        <h2>一次出典・確認範囲・履歴</h2>
+        <p>公式告知、プロジェクトのIssue・PR、調査主体の公開説明を整理しました。Issueの状態は調査時点の記録です。本記事の判断と、リンク先で後から更新される情報は区別してください。</p>
+        <details id="sources">
+          <summary>一次出典の一覧（12件）</summary>
+          <div class="detail-body">
+            <ol class="sources">
+              <li id="src-php"><a href="https://www.php.net/archive/2026.php">PHP公式：2026年のリリース告知</a><span>既知2CVEへの対応と、系列ごとの公式修正版。</span></li>
+              <li id="src-109618"><a href="https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w">PHP公式アドバイザリ：GHSA-w8hw-w9fx-j79w</a><span>CVE-2026-109618。OOMに関係する内部状態の問題。</span></li>
+              <li id="src-109619"><a href="https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp">PHP公式アドバイザリ：GHSA-6wmf-4rv5-p3rp</a><span>CVE-2026-109619。リクエスト間の古いグローバル状態とUAF。</span></li>
+              <li id="src-24488"><a href="https://github.com/php/php-src/issues/24488">php-src Issue #24488：SimpleXMLのGC二重解放</a><span>PHP 8.4.27・8.5.12の公開再現とVerifiedの記録。</span></li>
+              <li id="src-24494"><a href="https://github.com/php/php-src/pull/24494">php-src PR #24494：SimpleXMLの修正候補</a><span>調査時点でレビュー承認済み、Open・未マージ。</span></li>
+              <li id="src-24492"><a href="https://github.com/php/php-src/issues/24492">php-src Issue #24492：hard OOM時の回帰報告</a><span>PHP 8.4.27・8.5.12。Open / Needs Triage。</span></li>
+              <li id="src-24493"><a href="https://github.com/php/php-src/issues/24493">php-src Issue #24493：セッション破棄の報告</a><span>PHP 8.5.12のupload-progress handler。Open / Needs Triage。</span></li>
+              <li id="src-wiz"><a href="https://www.wiz.io/blog/php2shell-php-rce">Wiz Research：PHP2Shellの技術解説</a><span>攻撃経路、構成ごとの実証、variantと根本修正の説明。</span></li>
+              <li id="src-openai"><a href="https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities/">OpenAI：重大な脆弱性の協調的開示について</a><span>ほかの修正中の脆弱性をPHPと特定していないことの確認。</span></li>
+              <li id="src-24489"><a href="https://github.com/php/php-src/issues/24489">php-src Issue #24489：mbstringの修正欠落報告</a><span>開発masterについての報告。安定版4つへは一般化しない。</span></li>
+              <li id="src-ikow"><a href="https://github.com/ikow/php2shell-poc">ikow/php2shell-poc：README</a><span>4修正版への記述とchainの位置付け。攻撃コードは本記事に転載しない。</span></li>
+              <li id="src-aws"><a href="https://alas.aws.amazon.com/AL2/ALAS2PHP8.2-2026-015.html">AWS：ALAS2PHP8.2-2026-015</a><span>Amazon Linux 2 PHP 8.2 Extraの修正パッケージと対象アーキテクチャ。</span></li>
+            </ol>
+          </div>
+        </details>
+        <details>
+          <summary>確認範囲と初版の履歴</summary>
+          <div class="detail-body">
+            <p>調査対象は公開された一次資料です。非公開の報告、将来の発見、あらゆる構成での安全性までを確認したものではありません。公開PoCやIssueの説明が示す範囲を超えて、攻撃の成立や不成立を断定していません。</p>
+            <p><time datetime="2026-10-22">2026年10月22日</time>：初版公開。既知2CVEの修正、追加報告3件、混同しやすい公開情報、利用者向けの確認事項を整理しました。</p>
+          </div>
+        </details>
+      </section>
+    </article>
+  </main>
+  <footer class="site-footer">
+    <div class="shell">
+      <p>初版：<time datetime="2026-10-22">2026年10月22日</time></p>
+      <p>公開一次資料の整理。個別サーバーでの再現・適用確認は含まない。</p>
+    </div>
+  </footer>
+  <script>
+    (() => {
+      function revealFragment() {
+        let fragment;
+        try { fragment = decodeURIComponent(window.location.hash.slice(1)); }
+        catch { return; }
+        if (!fragment) return;
+        const target = document.getElementById(fragment);
+        if (!target) return;
+        let ancestor = target;
+        while (ancestor) {
+          if (ancestor instanceof HTMLDetailsElement) ancestor.open = true;
+          ancestor = ancestor.parentElement;
+        }
+        target.scrollIntoView({ block: 'start', behavior: 'auto' });
+      }
+      window.addEventListener('hashchange', revealFragment);
+      revealFragment();
+      let printState = [];
+      window.addEventListener('beforeprint', () => {
+        printState = Array.from(document.querySelectorAll('details'), item => [item, item.open]);
+        printState.forEach(([item]) => { item.open = true; });
+      });
+      window.addEventListener('afterprint', () => {
+        printState.forEach(([item, wasOpen]) => { item.open = wasOpen; });
+        printState = [];
+      });
+    })();
+  </script>
+</body>
+</html>
