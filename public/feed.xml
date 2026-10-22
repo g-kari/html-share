@@ -18,6 +18,15 @@
       <dcterms:modified>2026-10-22T15:08:30.000Z</dcterms:modified>
     </item>
     <item>
+      <title>Go Lambda：ZIPからImageへ移行できる？ 変換と置換を分ける実務メモ</title>
+      <link>https://share.0g0.xyz/lambda-zip-to-image</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/lambda-zip-to-image</guid>
+      <description>AWS LambdaのZIPとコンテナイメージをGoの視点で整理。同一関数の形式変更、同名再作成、ZIP再包装、入口の維持を区別し、安全な移行と戻し方を示します。</description>
+      <pubDate>Thu, 22 Oct 2026 13:52:37 GMT</pubDate>
+      <dcterms:created>2026-10-22T13:52:37.000Z</dcterms:created>
+      <dcterms:modified>2026-10-22T13:52:37.000Z</dcterms:modified>
+    </item>
+    <item>
       <title>緊急メンテナンス一覧｜2026年10月21日前後・公式告知と再開予定</title>
       <link>https://share.0g0.xyz/php-emergency-maintenance</link>
       <guid isPermaLink="true">https://share.0g0.xyz/php-emergency-maintenance</guid>
