@@ -15,6 +15,13 @@ const keys = (record, kind) => automaticTags(record).filter((item) => item.kind 
 const record = (title, lead = "", category = "agent", extra = {}) => ({ title, lead, category, ...extra });
 
 const existingProducts = {
+  "cloudflare-mcp-sse-retired": ["other"],
+  "cloudflare-pi14-storage-migration": ["cloudflare-agents-sdk","piharness","pi-durable"],
+  "cloudflare-createai-provider-migration": ["other"],
+  "puripuly-heart-290-partial-translation": ["puripuly-heart"],
+  "claude-code-21307-mcp-retry": ["claude-code"],
+  "ollama-0408-flint-macos": ["ollama"],
+  "gemini-deep-research-legacy-shutdown": ["gemini"],
   "vrct-360-ocr-vad-websocket": ["other"],
   "cloudflare-mcp-step-up": ["other"],
   "cloudflare-clairic-preview": ["other"],
@@ -96,6 +103,13 @@ test("all authored records have deterministic product/domain/change dimensions",
 
 test("current change tags distinguish pricing, fixes, public weights, GA, beta and correction", () => {
   const expected = {
+  "cloudflare-mcp-sse-retired": ["compatibility","security","deprecation"],
+  "cloudflare-pi14-storage-migration": ["improvement","preview","compatibility"],
+  "cloudflare-createai-provider-migration": ["compatibility","deprecation"],
+  "puripuly-heart-290-partial-translation": ["fix","feature"],
+  "claude-code-21307-mcp-retry": ["fix"],
+  "ollama-0408-flint-macos": ["update"],
+  "gemini-deep-research-legacy-shutdown": ["preview"],
   "vrct-360-ocr-vad-websocket": ["feature","compatibility","security","deprecation"],
   "cloudflare-mcp-step-up": ["feature"],
   "cloudflare-clairic-preview": ["pricing","preview"],
