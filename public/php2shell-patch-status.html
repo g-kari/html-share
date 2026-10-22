@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PHP2Shell修正状況 — 既知2件の修正と追加不具合の切り分け</title>
-  <meta name="description" content="PHP2Shellの既知2CVEはPHP 8.2.35・8.3.36・8.4.27・8.5.12で修正済み。修正版のSimpleXML二重解放、OOM回帰、セッション破棄報告と、未確認のRCE再成立を分けて整理。2026年10月22日時点の公開一次資料。">
+  <meta name="description" content="PHP2Shellの既知2CVEは公式修正済み。修正版への追加RCE報告あり。報告の条件・検証範囲・公式確認の状況と、SimpleXML等の不具合を分けて整理。2026年10月22日訂正・追記。">
   <link rel="canonical" href="https://share.0g0.xyz/php2shell-patch-status">
   <link rel="alternate" type="application/rss+xml" title="公開ページのRSS" href="/feed.xml">
   <meta name="theme-color" content="#46518f">
   <meta property="og:type" content="article">
   <meta property="og:locale" content="ja_JP">
   <meta property="og:title" content="PHP2Shell修正状況 — 既知2件の修正と追加不具合">
-  <meta property="og:description" content="既知2CVEは修正済み。追加のメモリ破損・回帰報告と、認証不要RCEの再成立を混同せず整理します。">
+  <meta property="og:description" content="既知2CVEは公式修正済み。追加RCE報告あり。条件・検証範囲・公式確認を分けて整理します。">
   <meta property="og:url" content="https://share.0g0.xyz/php2shell-patch-status">
   <style>
     :root {
@@ -90,6 +90,7 @@
     tbody th { inline-size: 38%; }
     .versions { max-inline-size: 34rem; font-variant-numeric: tabular-nums; }
     .versions th:first-child { inline-size: 42%; }
+    .new-report-table thead th:first-child { inline-size: 5.5rem; }
     .report { margin-block: 1.6rem 2rem; padding-inline-start: 1.1rem; border-inline-start: .2rem solid var(--line); }
     .report h3 { margin-block: 0 .6rem; }
     .report .state { margin-block: .25rem .6rem; }
@@ -158,7 +159,7 @@
   <meta property="og:image:alt" content="HTML Shareのロゴと共有ページを表すカード">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="PHP2Shell修正状況 — 既知2件の修正と追加不具合">
-  <meta name="twitter:description" content="既知2CVEは修正済み。追加のメモリ破損・回帰報告と、認証不要RCEの再成立を混同せず整理します。">
+  <meta name="twitter:description" content="既知2CVEは公式修正済み。追加RCE報告あり。条件・検証範囲・公式確認を分けて整理します。">
   <meta name="twitter:image" content="https://share.0g0.xyz/assets/html-share-card-v1.png">
   <meta name="twitter:image:alt" content="HTML Shareのロゴと共有ページを表すカード">
   <!-- /html-share: social metadata -->
@@ -173,18 +174,20 @@
       <header class="intro">
         <p class="dateline">公開資料の確認日：<time datetime="2026-10-22">2026年10月22日</time></p>
         <h1>PHP2Shellの修正状況と<br>追加不具合の読み分け</h1>
-        <p class="lead">既知の2件は修正済み。修正版で報告された別の不具合は、影響と確度を分けて確認します。</p>
+        <p class="lead">既知2件は修正済み。追加のRCE報告と不具合は、条件・確度を分けて確認します。</p>
+        <p class="note"><strong>訂正・追記：</strong>初版は追加のRCE報告を取りこぼしていました。該当節を追加し、結論を訂正します。<a class="footnote" href="#src-jackalsyn">[13]</a></p>
         <div class="conclusion">
-          <p><strong>PHP2Shellの既知2CVEは、PHP 8.2.35・8.3.36・8.4.27・8.5.12で修正されています。</strong>一方、修正版にも別のメモリ破損や回帰の報告があります。<a class="footnote" href="#src-php">[1]</a><a class="footnote" href="#src-24488">[4]</a><a class="footnote" href="#src-24492">[6]</a><a class="footnote" href="#src-24493">[7]</a></p>
+          <p><strong>PHP2Shellの既知2CVEは、PHP 8.2.35・8.3.36・8.4.27・8.5.12で修正されています。</strong>一方、追加のRCE・不具合報告も確認しています。<a class="footnote" href="#src-jackalsyn">[13]</a><a class="footnote" href="#src-php">[1]</a><a class="footnote" href="#src-24488">[4]</a><a class="footnote" href="#src-24492">[6]</a><a class="footnote" href="#src-24493">[7]</a></p>
         </div>
-        <p class="caution"><strong>この4修正版で、PHP2Shellによる認証不要のリモートコード実行（RCE）が再成立する公開実証は、今回の調査では確認できていません。</strong>これは「未知の脆弱性がない」「完全に安全」という保証ではありません。</p>
+        <p class="caution"><strong>修正版を無条件に安全とは判断しません。</strong>追加報告の主張と、独立再現・公式確認の状況を分けて読みます。<a class="footnote" href="#new-report">追加レポートへ</a></p>
       </header>
 
       <nav class="toc" aria-label="記事内">
         <ul role="list">
           <li><a href="#overview">まず押さえる違い</a></li>
+          <li><a href="#new-report">追加RCEレポート</a></li>
           <li><a href="#fixed">公式の修正版</a></li>
-          <li><a href="#reports">追加報告3件</a></li>
+          <li><a href="#reports">公開Issue3件</a></li>
           <li><a href="#response">利用者の対応</a></li>
           <li><a href="#evidence">出典と履歴</a></li>
         </ul>
@@ -202,8 +205,8 @@
                 <p class="flow-result confirmed">公式修正版へ<span>CVE-2026-109618 / CVE-2026-109619</span></p>
               </div>
               <div class="branch">
-                <p class="branch-label">修正版への追加不具合報告</p>
-                <p class="flow-result pending">再現・調査・修正候補を確認<span>メモリ破損、OOM回帰、セッション破棄</span></p>
+                <p class="branch-label">追加のRCE・不具合報告</p>
+                <p class="flow-result pending">条件・検証範囲・対応を確認<span>著者の主張と独立・公式確認を区別</span></p>
               </div>
             </div>
           </div>
@@ -212,7 +215,7 @@
         <ul>
           <li><strong>確認できたこと：</strong>既知2CVEの修正版が公開され、追加のSimpleXML二重解放には再現・検証の記録があります。</li>
           <li><strong>判定が残ること：</strong>OOMやセッションの報告は、調査時点でトリアージ待ちです。報告の存在と、セキュリティ上の影響確定は別です。</li>
-          <li><strong>今回確認できなかったこと：</strong>4修正版で、外部から認証なしにPHP2ShellのRCEが再成立するという公開実証です。</li>
+          <li><strong>確認が残ること：</strong>追加記事に対応する独立した第三者再現、公式認定、追加CVE・追加リリースは今回未確認です。<a class="footnote" href="#src-advisories">[17]</a></li>
         </ul>
         <details>
           <summary>「報告あり」「検証済み」「RCE実証」をどう読むか</summary>
@@ -226,6 +229,30 @@
               <dd>調査した公開資料では確認できなかった内容です。非公開の知見や、今後見つかる攻撃経路まで否定するものではありません。</dd>
             </dl>
             <p>メモリ破損やクラッシュは、調査すべき重要な兆候です。ただし、PHPコードでクラッシュが再現すること、外部HTTPリクエストから到達できること、認証なしに任意コードを実行できることは、それぞれ異なる段階です。本記事では、この段階を飛ばして「RCEが再発した」と扱いません。</p>
+          </div>
+        </details>
+      </section>
+
+      <section id="new-report">
+        <h2>訂正・追記：修正版への追加レポート</h2>
+        <p>Jackalsyn記事の著者による自己検証の要約です。Zero 1の見出しは「UNFILED」と表記。添付ZIPの実行・内容検証はしていません。<a class="footnote" href="#src-jackalsyn">[13]</a></p>
+        <table class="new-report-table">
+          <caption>追加記事の主張と提示範囲（独立再現・公式認定ではありません）</caption>
+          <thead><tr><th scope="col">項目</th><th scope="col">主張と限界</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Zero 1</th><td>PHP 8.5.12で条件付き未認証RCEのHTTPログと、セッション破棄を報告。RCE経路はserializer不一致や悪用に使える既存コード（gadget）等の条件を含む。</td></tr>
+            <tr><th scope="row">Zero 2</th><td>既知の#24488を特定HTTP処理でクラッシュ・DoSに到達させたと主張。RCEは未提示。</td></tr>
+            <tr><th scope="row">Zero 4</th><td>ASANビルドでUAF。同形PoCは通常ビルドでは異常が表面化しないと記載。RCEは未提示。</td></tr>
+            <tr><th scope="row">Zero 3</th><td>分析のみ。</td></tr>
+          </tbody>
+        </table>
+        <p class="section-note">対象見出しは4版ですが、具体ログは8.5.12中心です。他3版で同条件の実証済みとは一般化しません。<a class="footnote" href="#src-jackalsyn">[13]</a></p>
+        <details>
+          <summary>公式資料から確認できる背景と、今回の判断</summary>
+          <div class="detail-body">
+            <p>PHP公式マニュアルでは、アップロード進捗機能はスクリプトの実行前にセッションへ情報を書き込むと説明されています。セッション設定では、<code>session.serialize_handler</code>の既定値は<code>php</code>、<code>session.upload_progress.enabled</code>は既定で有効です。<a class="footnote" href="#src-upload-progress">[15]</a><a class="footnote" href="#src-session-config">[16]</a></p>
+            <p>serializerの切り替えと既存セッションの問題は、2015年のPHP Bug #71101でも議論されています。同記録はDoc Bug / Analyzed、CVEはNoneです。この過去の記録は背景の説明に限り、2026年の個別のRCE主張を確認・否定する根拠には使いません。<a class="footnote" href="#src-71101">[14]</a></p>
+            <p><strong>本記事の判断：</strong>公式の既知2CVE修正と追加記事の評価は分けます。新しい公開主張がある以上、更新済みという理由だけで個別構成の安全を保証できません。一方、記事の自己検証だけで全構成・全版への影響やroot権限取得まで確定したとは扱いません。対応する公式告知・追加CVE・追加リリースは今回確認できていません。<a class="footnote" href="#src-advisories">[17]</a></p>
           </div>
         </details>
       </section>
@@ -255,13 +282,13 @@
       </section>
 
       <section id="reports">
-        <h2>今回確認した、修正版への追加報告3件</h2>
-        <p>以下は<strong><time datetime="2026-10-22T17:51:00+09:00">2026年10月22日17:51 JST</time>の確認時点</strong>の公開Issue・PRの状態です。後続のコメント、マージ、リリースで変わるため、判断時にはリンク先も確認してください。</p>
+        <h2>修正版について確認した公開Issue3件</h2>
+        <p>以下は<strong><time datetime="2026-10-22T18:41:00+09:00">2026年10月22日18:41 JST</time>の確認時点</strong>の公開Issue・PRの状態です。後続のコメント、マージ、リリースで変わるため、判断時にはリンク先も確認してください。</p>
 
         <div class="report">
           <h3>SimpleXMLの二重解放</h3>
           <p class="state"><span class="badge confirmed">再現・検証あり</span> <span class="small">#24488：Open / Verified</span></p>
-          <p>PHP 8.4.27・8.5.12で、SimpleXMLと循環参照のガベージコレクション（GC）に関わる二重解放が報告されています。<strong>同Issueの公開再現で示されているのはメモリ破損・クラッシュであり、外部HTTPからの認証不要RCEを示す公開実証は、今回の調査では確認できていません。</strong><a class="footnote" href="#src-24488">[4]</a></p>
+          <p>PHP 8.4.27・8.5.12で、SimpleXMLと循環参照のガベージコレクション（GC）に関わる二重解放が報告されています。<strong>当初Issueはメモリ破損・クラッシュを示します。追加記事のHTTP DoSに関する主張は、上の追加レポート節に分けました。</strong><a class="footnote" href="#src-24488">[4]</a></p>
           <details>
             <summary>条件・原因・修正候補の状況</summary>
             <div class="detail-body">
@@ -337,6 +364,13 @@
         </ol>
         <p class="note"><code>php -v</code>の結果やパッケージの導入完了だけでは、Webリクエストを処理しているPHPの実体確認にはなりません。設定による緩和やWAFも、それだけで完全に対処できたとは扱いません。</p>
         <details>
+          <summary>セッションとアップロード進捗の設定確認</summary>
+          <div class="detail-body">
+            <p>PHP公式の機能説明と設定項目を基に、読み書きでセッションのシリアライズ形式が食い違う設定がないか確認します。同じセッション保存先を共有するアプリケーションや処理系がある場合も、形式と設定を照合してください。これは構成確認の提案であり、個別環境の攻撃成立を判定するものではありません。<a class="footnote" href="#src-upload-progress">[15]</a><a class="footnote" href="#src-session-config">[16]</a></p>
+            <p>アップロード進捗機能が不要なら、依存する機能を確かめたうえで無効化を検討します。公式にも不要な場合の無効化に関する注意があります。files方式のセッション保存先はWebから公開しない場所に置き、アクセス権も確認します。これらを行っただけで、あらゆる問題への完全対処と判断しません。<a class="footnote" href="#src-upload-progress">[15]</a><a class="footnote" href="#src-session-config">[16]</a></p>
+          </div>
+        </details>
+        <details>
           <summary>Amazon Linux 2のPHP 8.2 Extraを使う場合</summary>
           <div class="detail-body">
             <p>AWS公式のALASには、両CVEの修正パッケージとして<strong><code>8.2.35-1.amzn2.0.1</code></strong>が掲載されています。対象アーキテクチャは<code>aarch64</code>と<code>x86_64</code>です。Amazon Linux 2のPHP 8.2 Extraを利用している場合の確認材料であり、ほかのOSやPHP提供元へそのまま当てはめる情報ではありません。<a class="footnote" href="#src-aws">[12]</a></p>
@@ -356,7 +390,7 @@
         <h2>一次出典・確認範囲・履歴</h2>
         <p>公式告知、プロジェクトのIssue・PR、調査主体の公開説明を整理しました。Issueの状態は調査時点の記録です。本記事の判断と、リンク先で後から更新される情報は区別してください。</p>
         <details id="sources">
-          <summary>一次出典の一覧（12件）</summary>
+          <summary>一次出典の一覧（17件）</summary>
           <div class="detail-body">
             <ol class="sources">
               <li id="src-php"><a href="https://www.php.net/archive/2026.php">PHP公式：2026年のリリース告知</a><span>既知2CVEへの対応と、系列ごとの公式修正版。</span></li>
@@ -371,14 +405,20 @@
               <li id="src-24489"><a href="https://github.com/php/php-src/issues/24489">php-src Issue #24489：mbstringの修正欠落報告</a><span>開発masterについての報告。安定版4つへは一般化しない。</span></li>
               <li id="src-ikow"><a href="https://github.com/ikow/php2shell-poc">ikow/php2shell-poc：README</a><span>4修正版への記述とchainの位置付け。攻撃コードは本記事に転載しない。</span></li>
               <li id="src-aws"><a href="https://alas.aws.amazon.com/AL2/ALAS2PHP8.2-2026-015.html">AWS：ALAS2PHP8.2-2026-015</a><span>Amazon Linux 2 PHP 8.2 Extraの修正パッケージと対象アーキテクチャ。</span></li>
+              <li id="src-jackalsyn"><a href="https://jackalsyn.com/posts/php2shell-zeros.html">Jackalsyn：PHP2Shell追加レポート</a><span>追加の公開主張。著者による検証記録。</span></li>
+              <li id="src-71101"><a href="https://bugs.php.net/bug.php?id=71101">PHP Bug #71101：セッションserializer切り替えの既存議論</a><span>2015年からの記録。Doc Bug / Analyzed / CVE None。</span></li>
+              <li id="src-upload-progress"><a href="https://www.php.net/manual/en/session.upload-progress.php">PHP公式マニュアル：Session Upload Progress</a><span>スクリプト実行前の進捗情報とセッションへの書き込み。</span></li>
+              <li id="src-session-config"><a href="https://www.php.net/manual/en/session.configuration.php">PHP公式マニュアル：Session Runtime Configuration</a><span>serialize_handler、upload_progress、files保存先などの設定。</span></li>
+              <li id="src-advisories"><a href="https://github.com/php/php-src/security/advisories">PHP公式：セキュリティアドバイザリ一覧</a><span>今回の追加記事に対応する公式告知・追加CVEは確認できず。リリース告知は出典[1]も参照。</span></li>
             </ol>
           </div>
         </details>
         <details>
-          <summary>確認範囲と初版の履歴</summary>
+          <summary>確認範囲と訂正の履歴</summary>
           <div class="detail-body">
             <p>調査対象は公開された一次資料です。非公開の報告、将来の発見、あらゆる構成での安全性までを確認したものではありません。公開PoCやIssueの説明が示す範囲を超えて、攻撃の成立や不成立を断定していません。</p>
             <p><time datetime="2026-10-22">2026年10月22日</time>：初版公開。既知2CVEの修正、追加報告3件、混同しやすい公開情報、利用者向けの確認事項を整理しました。</p>
+            <p><time datetime="2026-10-22">2026年10月22日</time>：訂正・追記。初版に追加のRCE報告の欠落があったため、「修正版で公開実証を確認できない」とする包括的な表現を撤回。追加レポート、公式資料に基づく設定確認、出典を追加しました。既存Issue・PRは18:41 JSTに再確認し、掲載状態に変更はありません。</p>
           </div>
         </details>
       </section>
