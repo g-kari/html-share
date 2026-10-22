@@ -1,6 +1,6 @@
 {
   "title": "2026年10月21日前後 緊急メンテナンス・関連告知一覧",
-  "checkedAt": "2026-10-22T10:22:24Z",
+  "checkedAt": "2026-10-22T11:15:00Z",
   "scope": "PHPの因果不問。今回の緊急/予防メンテと同時期の関連告知・別インシデントを区分。件数による上限なし。",
   "counting": "confirmedは公式資料を確認した対象別の告知カード数（部分本文・同一基盤・包括/個別の重なりを含む）。固有サイト数・実停止数・独立インシデント数・被害数ではない。pendingは原典/公式所有/対象範囲等の追加照合待ち。関連・重複・除外理由も全収集行に保持し、件数で打ち切らない。 実施自体が未定の停止可能性の予告も別状態（possible_unstarted）で保持し、実停止・復旧には数えません。",
   "confirmed": [
@@ -1424,15 +1424,15 @@
       "name": "DMM関連サービス（個別告知を集約）",
       "url": "https://support.dmm.com/announcements/833",
       "start": "10/21 22:00",
-      "end": "未定",
+      "end": "DMM GAMES / FANZA GAMESは10/22 19:00に作業完了・順次再開。その他は各サービスの対応完了まで（原文表記）",
       "scope": "対象のDMMサービス、DMM/FANZA GAMES基盤、オンラインサロン/SALON STUDIO、オンクレ、メール2段階認証ログイン等。",
-      "safe": "対象外のサービスもあります。DMM FX/CFD/株、バヌーシー、競輪等まで一律停止と扱いません。個別告知の対象範囲を確認してください。",
+      "safe": "DMM公式833は、メンテナンス終了したサービスから順次再開と案内。ゲーム基盤の公式障害情報は10/22 19:00をもって作業完了・順次提供再開と明記していますが、各ゲームは個別の公式案内で確認するよう留保しています。サロン・SALON STUDIO・オンクレ・メール2段階認証等まで一律の完了とはしません。原文の更新日は10/22、更新時刻・タイムゾーンの明記は未確認。利用者としてのログイン・ゲーム起動・購入等は実施していません。DMM FX/CFD/株、バヌーシー、競輪等へ対象を拡張しません。",
       "reason": "外部ソフトウェア脆弱性・PHP名未記載",
       "cat": "entertainment",
-      "date": "10/21",
-      "tag": "6告知を集約",
-      "status": "公式の実施告知・完了未確認",
-      "source": "ライブ公式本文",
+      "date": "10/22更新（ゲーム基盤の公式画面。更新時計は未記載）",
+      "tag": "ゲーム基盤19:00完了／全体は順次",
+      "status": "DMM GAMES基盤は順次再開、関連サービス全体の完了は未確認",
+      "source": "通常公開のDMM運営公式833とゲーム基盤の現在情報本文を実読。11:07には予定形だった基盤本文が11:09には作業完了・順次再開へ更新されたため、後者の現在本文で訂正。全体復旧や各ゲームの実機能確認とは区別。",
       "extraUrls": [
         "https://status.games.dmm.com/",
         "https://support.dmm.com/announcements/831",
@@ -1440,7 +1440,42 @@
         "https://support.dmm.com/announcements/839",
         "https://support.dmm.com/announcements/844"
       ],
-      "icon": "https://support.dmm.com/favicon.ico"
+      "icon": "https://support.dmm.com/favicon.ico",
+      "checkedAt": "2026-10-22T11:09:47Z",
+      "restored": false,
+      "sourceRead": "body_retrieved",
+      "previousNotices": [
+        {
+          "id": "dmm",
+          "name": "DMM関連サービス（個別告知を集約）",
+          "url": "https://support.dmm.com/announcements/833",
+          "start": "10/21 22:00",
+          "end": "未定",
+          "scope": "対象のDMMサービス、DMM/FANZA GAMES基盤、オンラインサロン/SALON STUDIO、オンクレ、メール2段階認証ログイン等。",
+          "safe": "対象外のサービスもあります。DMM FX/CFD/株、バヌーシー、競輪等まで一律停止と扱いません。個別告知の対象範囲を確認してください。",
+          "reason": "外部ソフトウェア脆弱性・PHP名未記載",
+          "cat": "entertainment",
+          "date": "10/21",
+          "tag": "6告知を集約",
+          "status": "公式の実施告知・完了未確認",
+          "source": "ライブ公式本文",
+          "extraUrls": [
+            "https://status.games.dmm.com/",
+            "https://support.dmm.com/announcements/831",
+            "https://support.dmm.com/announcements/832",
+            "https://support.dmm.com/announcements/839",
+            "https://support.dmm.com/announcements/844"
+          ],
+          "icon": "https://support.dmm.com/favicon.ico"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://status.games.dmm.com/",
+          "label": "ゲーム基盤の作業完了・順次再開を明記した公式現在情報"
+        }
+      ],
+      "reasonKey": "security"
     },
     {
       "id": "fanza",
@@ -12355,6 +12390,64 @@
           "label": "第2報を案内する公式X"
         }
       ]
+    },
+    {
+      "id": "mitaka-city-council-web",
+      "name": "三鷹市議会HP・三鷹市HP",
+      "cat": "public",
+      "reason": "PHPの脆弱性への対応",
+      "reasonKey": "php",
+      "tag": "市議会HP復旧／市HPは再開対応",
+      "status": "市議会HPだけ復旧報告、市全体の完了は未確認",
+      "start": "開始日時は取得した公式投稿に未記載",
+      "end": "10/22 18:48 JSTの投稿時点で市議会HP復旧。実復旧時計は未記載、市HPの完了・予定も未確認",
+      "scope": "三鷹市議会ホームページと三鷹市ホームページ。議会HPの再開と市HPの対応継続を分離。",
+      "safe": "公式投稿はPHP対応で停止した市議会HPの復旧を報告し、市HPは安全性を確認しながら再開に向け対応中と説明しています。18:48:58 JSTは投稿metadataをUTCから換算した時計で、実復旧時計ではありません。公式ページの一部を取得できることだけで、市HP全体や市の窓口業務の復旧としません。",
+      "url": "https://x.com/mitaka_tokyo/status/2113205967383126257",
+      "source": "通常公開の公式投稿本文・投稿metadataと、市運営の正確なアカウント所有紹介を実読。市HP全体へのログイン・申請等の動作検証はしていません。",
+      "date": "10/22 18:48:58 JSTの公式投稿（実復旧時計とは別）",
+      "ownershipEvidence": [
+        {
+          "url": "https://www.city.mitaka.lg.jp/c_service/026/026943.html",
+          "note": "三鷹市役所がmitaka_tokyoを運用すると明記し、正確なアカウントを直接リンク。"
+        }
+      ],
+      "icon": "https://www.city.mitaka.lg.jp/favicon.ico",
+      "checkedAt": "2026-10-22T11:12:55Z",
+      "restored": false,
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "id": "zeiken-web-services",
+      "name": "税務研究会・ZEIKEN LINKSほか",
+      "cat": "business",
+      "reason": "PHPの脆弱性への対応作業",
+      "reasonKey": "php",
+      "tag": "LINKS等は部分復旧／Web配信停止",
+      "status": "一部再開、Webセミナー等の完了は未定",
+      "start": "10/21 19:00以降、準備ができ次第。正確な実停止時計は未記載（原文表記）",
+      "end": "10/22 臨時問い合わせフォーム15:30頃・ZEIKEN LINKS17:00頃に復旧。その他は未定（原文表記）",
+      "scope": "税務研究会HPの一部機能、ZEIKEN LINKS/PRESS、税研オンラインストア・丸の内税研アカデミー、税研ウェブサービス。19:00追記はWebセミナー定額プラン・配信停止を別途案内。",
+      "safe": "18:00追記は臨時問い合わせフォームとLINKSだけの復旧を報告し、その他は復旧作業中としています。『頃』を確定時計に置き換えず、18:00/19:00は告知の追記時計と区別します。19:00追記はWebセミナー配信の停止継続・完了見込み未定。定期刊行誌の臨時電子Book提供は代替措置で、通常の税研ウェブサービス全復旧ではありません。PHP原因は9:30追記で明記。原文にタイムゾーン明記は未確認、会員ログイン・購入・配信視聴等は未実施です。",
+      "url": "https://www.zeiken.co.jp/news/29469970.php",
+      "source": "運営自身の通常公開個別告知を直接取得し、最新19:00追記と18:00/9:30の過去追記を区分。運営本文の正確なSNSリンクと公式投稿も照合。",
+      "date": "10/21 19:15公開表示、10/22 19:00まで追記（原文表記）",
+      "ownershipEvidence": [
+        {
+          "url": "https://www.zeiken.co.jp/news/29469970.php",
+          "note": "税務研究会自身のニュース。本文の公式リンク一覧にexact zeiken_infoとZEIKEN LINKSを直接掲載。"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://x.com/zeiken_info/status/2113198527933530289",
+          "label": "18:00追記・17:00頃LINKS復旧を案内した公式投稿"
+        }
+      ],
+      "icon": "https://www.zeiken.co.jp/favicon.ico",
+      "checkedAt": "2026-10-22T11:12:55Z",
+      "restored": false,
+      "sourceRead": "body_retrieved"
     }
   ],
   "pending": [
@@ -28094,12 +28187,30 @@
         "ブシナビ"
       ],
       "url": "https://x.com/bushi_cardinfo/status/2113198541460095449",
-      "note": "今回元URL本文は未読。収集側の時刻・理由・停止/再開・公式という分類を事実として採用していません。",
+      "note": "運営自身の公式SNS一覧で正確なアカウント所有を確認。候補投稿本文は403で未取得のため、対象・時計・理由・復旧の主張は採用しません。",
       "sourceClass": "公開候補収集（原文・公式性は別途照合）",
-      "sourceRead": "not_read_this_cycle",
-      "checkedAt": "2026-10-22T10:06:03Z",
+      "sourceRead": "access_denied",
+      "checkedAt": "2026-10-22T11:15:00Z",
       "collectionBatch": "grok-public-candidates-20261022-1900",
-      "nextVerificationCondition": "通常公開の原文、運営自身が示す正確なアカウント所有、対象範囲と日時を照合できた時点。時刻経過や表示名一致では確定せず、アクセス制限は迂回しません。"
+      "nextVerificationCondition": "通常公開の原文、運営自身が示す正確なアカウント所有、対象範囲と日時を照合できた時点。時刻経過や表示名一致では確定せず、アクセス制限は迂回しません。",
+      "ownershipEvidence": [
+        {
+          "url": "https://bushiroad.com/snscontents",
+          "note": "TCGの公式SNS一覧がexact bushi_cardinfoを直接リンク。"
+        }
+      ],
+      "previousReview": {
+        "names": [
+          "ブシナビ"
+        ],
+        "url": "https://x.com/bushi_cardinfo/status/2113198541460095449",
+        "note": "今回元URL本文は未読。収集側の時刻・理由・停止/再開・公式という分類を事実として採用していません。",
+        "sourceClass": "公開候補収集（原文・公式性は別途照合）",
+        "sourceRead": "not_read_this_cycle",
+        "checkedAt": "2026-10-22T10:06:03Z",
+        "collectionBatch": "grok-public-candidates-20261022-1900",
+        "nextVerificationCondition": "通常公開の原文、運営自身が示す正確なアカウント所有、対象範囲と日時を照合できた時点。時刻経過や表示名一致では確定せず、アクセス制限は迂回しません。"
+      }
     },
     {
       "names": [
@@ -29531,18 +29642,6 @@
     },
     {
       "names": [
-        "ZEIKEN LINKS ほか"
-      ],
-      "url": "https://x.com/zeiken_info/status/2113198527933530289",
-      "note": "今回元URL本文は未読。収集側の時刻・理由・停止/再開・公式という分類を事実として採用していません。",
-      "sourceClass": "公開候補収集（原文・公式性は別途照合）",
-      "sourceRead": "not_read_this_cycle",
-      "checkedAt": "2026-10-22T10:06:03Z",
-      "collectionBatch": "grok-public-candidates-20261022-1900",
-      "nextVerificationCondition": "通常公開の原文、運営自身が示す正確なアカウント所有、対象範囲と日時を照合できた時点。時刻経過や表示名一致では確定せず、アクセス制限は迂回しません。"
-    },
-    {
-      "names": [
         "福フェス チケット"
       ],
       "url": "https://x.com/fukuoka_mf/status/2113199645463851183",
@@ -29714,18 +29813,6 @@
         "TJ Hiroshima Webサイト"
       ],
       "url": "https://x.com/TJHiroshima/status/2113205724058878321",
-      "note": "今回元URL本文は未読。収集側の時刻・理由・停止/再開・公式という分類を事実として採用していません。",
-      "sourceClass": "公開候補収集（原文・公式性は別途照合）",
-      "sourceRead": "not_read_this_cycle",
-      "checkedAt": "2026-10-22T10:06:03Z",
-      "collectionBatch": "grok-public-candidates-20261022-1900",
-      "nextVerificationCondition": "通常公開の原文、運営自身が示す正確なアカウント所有、対象範囲と日時を照合できた時点。時刻経過や表示名一致では確定せず、アクセス制限は迂回しません。"
-    },
-    {
-      "names": [
-        "三鷹市議会HP / 三鷹市HP"
-      ],
-      "url": "https://x.com/mitaka_tokyo/status/2113205967383126257",
       "note": "今回元URL本文は未読。収集側の時刻・理由・停止/再開・公式という分類を事実として採用していません。",
       "sourceClass": "公開候補収集（原文・公式性は別途照合）",
       "sourceRead": "not_read_this_cycle",
@@ -59918,6 +60005,16 @@
       "sourceRead": "body_retrieved",
       "checkedAt": "2026-10-22T10:06:03Z",
       "collectionBatch": "public-notice-followup-20261022-1900"
+    },
+    {
+      "name": "税務研究会 緊急システムメンテナンスの運営原典",
+      "sourceUrl": "https://www.zeiken.co.jp/news/29469970.php",
+      "verification": "confirmed",
+      "confirmedId": "zeiken-web-services",
+      "note": "運営の19時追記を直接取得。LINKS等の一部復旧とWebセミナー配信停止を区分。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-22T11:15:00Z",
+      "collectionBatch": "public-notice-followup-20261022-2015"
     }
   ],
   "related": [
@@ -82956,6 +83053,48 @@
       "reason": "公式個別ニュース第2報を直接取得。18:00時点の部分再開・継続停止と10/22 12〜21時予定を、旧別期間と分離。",
       "sourceRead": "body_retrieved",
       "checkedAt": "2026-10-22T10:06:03Z"
+    },
+    {
+      "name": "三鷹市議会HP / 三鷹市HP",
+      "sourceUrl": "https://x.com/mitaka_tokyo/status/2113205967383126257",
+      "decision": "confirmed",
+      "confirmedId": "mitaka-city-council-web",
+      "reason": "公式の正確な所有・原文本文・投稿metadataを取得。議会HP復旧と市HPの再開対応を分離。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-22T11:15:00Z"
+    },
+    {
+      "name": "ZEIKEN LINKS ほか",
+      "sourceUrl": "https://x.com/zeiken_info/status/2113198527933530289",
+      "decision": "confirmed",
+      "confirmedId": "zeiken-web-services",
+      "reason": "正確な公式所有と原文投稿を取得し、運営の最新19時追記も直接照合。LINKS等の概時刻と停止中Webセミナーを分離。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-22T11:15:00Z"
+    },
+    {
+      "name": "税務研究会 緊急システムメンテナンスの運営原典",
+      "sourceUrl": "https://www.zeiken.co.jp/news/29469970.php",
+      "decision": "confirmed",
+      "confirmedId": "zeiken-web-services",
+      "reason": "運営の19時追記を直接取得。LINKS等の一部復旧とWebセミナー配信停止を区分。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-22T11:15:00Z"
+    },
+    {
+      "name": "ブシナビ",
+      "sourceUrl": "https://x.com/bushi_cardinfo/status/2113198541460095449",
+      "decision": "pending",
+      "confirmedId": null,
+      "reason": "運営SNS一覧でexact bushi_cardinfoの所有は確認。候補投稿本文403を迂回せず、時刻・対象・PHP分類は未確認のまま。",
+      "ownershipEvidence": [
+        {
+          "url": "https://bushiroad.com/snscontents",
+          "note": "TCGの公式SNS一覧がexact bushi_cardinfoを直接リンク。"
+        }
+      ],
+      "sourceRead": "access_denied",
+      "checkedAt": "2026-10-22T11:15:00Z"
     }
   ],
   "relationships": [
@@ -83115,9 +83254,9 @@
     "classifiedOriginalGroups": 457,
     "additionalDiscoveryRows": 107,
     "classifiedAdditionalRows": 107,
-    "allDiscoveryRows": 2221,
+    "allDiscoveryRows": 2222,
     "sourceRowsByDecision": {
-      "confirmed": 497,
+      "confirmed": 498,
       "duplicate": 62,
       "pending": 1525,
       "related": 126,
@@ -83129,30 +83268,33 @@
     "piyologNewPrimaryUrls": 27,
     "additionalOwnerVerifiedCards": 70,
     "followupReview": {
-      "checkedAt": "2026-10-22T10:22:24Z",
-      "scope": "18:12時点で照合した公共3件/既存6更新を保持し、保存済みの後続と独立レビュー後の公式本文2件再取得を反映。新収集157元URLは5実読/3対応確認に限定。既存全原文の同時取得ではありません。",
-      "method": "運営の直接本文、exactアカウントを示す運営metadata、既存の所有実読証拠を区分。内容確認と構造テスト・公開反映の検証は別工程。",
-      "result": "Studioの公開サイト影響の訂正と全機能再開、ウマ娘02:30終了、Zenlogicの最新作業完了を反映。CoDMON本体とカレッジ単独カードの再開範囲を同期し、アラートは継続停止。キャラスト/777mobile/ConoHaは一部機能や翌日見込みを全体完了にしない。",
-      "newCards": 1,
-      "updatedCards": 7,
-      "additionalSourceRows": 158,
-      "allPriorSourceIdentitiesRetained": 2063,
+      "checkedAt": "2026-10-22T11:15:00Z",
+      "scope": "既存DMMの重要公式続報とrun11の2未照合候補を確認。全カードや全候補を同時再取得した記録ではありません。",
+      "method": "運営の個別本文・現在情報、exactアカウント所有紹介、X本文と投稿metadataを照合。予定/実績/追記時計/機能の一部と全体を分離。403は迂回しない。",
+      "result": "DMM GAMES基盤は19時作業完了・順次再開を反映、DMM包括対象を全体復旧としない。三鷹市議会HPと市HP、税務研究会の一部再開と配信停止を別範囲で記録。BOOK/TwitCasting/ConoHaの予定経過を完了にしない。",
+      "newCards": 2,
+      "updatedCards": 1,
+      "additionalSourceRows": 1,
+      "allPriorSourceIdentitiesRetained": 2221,
       "candidateReadCoverage": {
         "rawRows": 157,
         "uniqueURLs": 157,
-        "bodyRetrieved": 5,
-        "notReadThisCycle": 152
+        "bodyRetrieved": 7,
+        "accessDenied": 1,
+        "notReadToDate": 149,
+        "additionalBodiesThisCycle": 2
       },
       "resolutionOfUniqueRun11Sources": {
-        "confirmedWithPrimaryOrExistingOwnerEvidence": 3,
+        "confirmedWithPrimaryOrExistingOwnerEvidence": 5,
         "ownershipPending": 2,
-        "unread": 152,
-        "unresolved": 154
+        "bodyDeniedAfterOwnershipConfirmed": 1,
+        "unread": 149,
+        "unresolved": 152
       },
-      "priorPendingResolved": 0,
-      "unresolvedPreviouslyCollectedGroups": 1516
+      "priorPendingResolved": 2,
+      "unresolvedPreviouslyCollectedGroups": 1514
     },
-    "followupDiscoveryRows": 1312,
+    "followupDiscoveryRows": 1313,
     "followupReviews": [
       {
         "checkedAt": "2026-10-22T08:10:31Z",
@@ -83193,8 +83335,33 @@
         },
         "priorPendingResolved": 3,
         "unresolvedPreviouslyCollectedGroups": 1362
+      },
+      {
+        "checkedAt": "2026-10-22T10:22:24Z",
+        "scope": "18:12時点で照合した公共3件/既存6更新を保持し、保存済みの後続と独立レビュー後の公式本文2件再取得を反映。新収集157元URLは5実読/3対応確認に限定。既存全原文の同時取得ではありません。",
+        "method": "運営の直接本文、exactアカウントを示す運営metadata、既存の所有実読証拠を区分。内容確認と構造テスト・公開反映の検証は別工程。",
+        "result": "Studioの公開サイト影響の訂正と全機能再開、ウマ娘02:30終了、Zenlogicの最新作業完了を反映。CoDMON本体とカレッジ単独カードの再開範囲を同期し、アラートは継続停止。キャラスト/777mobile/ConoHaは一部機能や翌日見込みを全体完了にしない。",
+        "newCards": 1,
+        "updatedCards": 7,
+        "additionalSourceRows": 158,
+        "allPriorSourceIdentitiesRetained": 2063,
+        "candidateReadCoverage": {
+          "rawRows": 157,
+          "uniqueURLs": 157,
+          "bodyRetrieved": 5,
+          "notReadThisCycle": 152
+        },
+        "resolutionOfUniqueRun11Sources": {
+          "confirmedWithPrimaryOrExistingOwnerEvidence": 3,
+          "ownershipPending": 2,
+          "unread": 152,
+          "unresolved": 154
+        },
+        "priorPendingResolved": 0,
+        "unresolvedPreviouslyCollectedGroups": 1516
       }
-    ]
+    ],
+    "sourceRowsDecisionBasis": "元収集行に保存した当時の判断内訳です。後続の公式照合結果はsourceReviews/最新followupReview、現在の未解決グループはpendingを参照してください。元の収集行は保持しています。"
   },
   "collectionBatches": [
     {
@@ -94917,8 +95084,8 @@
         {
           "name": "ZEIKEN LINKS ほか",
           "sourceUrl": "https://x.com/zeiken_info/status/2113198527933530289",
-          "verification": "pending",
-          "confirmedId": null
+          "verification": "confirmed",
+          "confirmedId": "zeiken-web-services"
         },
         {
           "name": "福フェス チケット",
@@ -95013,8 +95180,8 @@
         {
           "name": "三鷹市議会HP / 三鷹市HP",
           "sourceUrl": "https://x.com/mitaka_tokyo/status/2113205967383126257",
-          "verification": "pending",
-          "confirmedId": null
+          "verification": "confirmed",
+          "confirmedId": "mitaka-city-council-web"
         },
         {
           "name": "bearclinic HP",
@@ -95101,7 +95268,8 @@
           "confirmedId": null
         }
       ],
-      "note": "全157収集行を名前と公開元URL・個別判定で保持。元URL実読5、公式所有/運営本文との対応3、所有未確認2、元URL未読152。収集側の未検証累積・公式分類・停止/再開の主張を採用しない。"
+      "note": "全157収集行を保持。初回5原文実読/3対応確認の履歴を原本に残し、今回2原文を追加実読して対応確認。累計7本文取得/5対応確認、元URL本文403の1件は公式所有だけ確認し保留。149元URLは未読、所有未解決2を含め152件未解決。収集側の未検証累積や公式分類をそのまま採用しない。",
+      "lastReviewedAt": "2026-10-22T11:15:00Z"
     },
     {
       "id": "public-notice-followup-20261022-1900",
@@ -95116,6 +95284,20 @@
         }
       ],
       "note": "未収録の運営自身による公開原典だけ追加。既存URLの再取得は原本行を増やさず後続確認として記録。"
+    },
+    {
+      "id": "public-notice-followup-20261022-2015",
+      "checkedAt": "2026-10-22T11:15:00Z",
+      "rowCount": 1,
+      "members": [
+        {
+          "name": "税務研究会 緊急システムメンテナンスの運営原典",
+          "sourceUrl": "https://www.zeiken.co.jp/news/29469970.php",
+          "verification": "confirmed",
+          "confirmedId": "zeiken-web-services"
+        }
+      ],
+      "note": "未収録だった運営自身の個別原典だけ追加。既存URLの再読・既存原本の解決を新規収集行として重複計上しない。"
     }
   ],
   "officialFollowups": [
@@ -95181,6 +95363,69 @@
       "end": "10/22 09:32にサービス再開（公式続報の原文表記）",
       "restored": true,
       "note": "運営の最新続報がコドモンカレッジを名指しして09:32再開を案内。旧メンテ画面の終了未定を現在の状態にせず、旧原典と判断は履歴に保持しました。カレッジだけの再開であり、別の所在確認アラート機能の停止継続/10月23日予定を完了へ拡張しません。ログイン/受講等の機能操作は未実施。"
+    },
+    {
+      "confirmedId": "dmm",
+      "sourceUrl": "https://status.games.dmm.com/",
+      "checkedAt": "2026-10-22T11:09:47Z",
+      "scope": "対象のDMMサービス、DMM/FANZA GAMES基盤、オンラインサロン/SALON STUDIO、オンクレ、メール2段階認証ログイン等。",
+      "end": "DMM GAMES / FANZA GAMESは10/22 19:00に作業完了・順次再開。その他は各サービスの対応完了まで（原文表記）",
+      "restored": false,
+      "note": "DMM公式833は、メンテナンス終了したサービスから順次再開と案内。ゲーム基盤の公式障害情報は10/22 19:00をもって作業完了・順次提供再開と明記していますが、各ゲームは個別の公式案内で確認するよう留保しています。サロン・SALON STUDIO・オンクレ・メール2段階認証等まで一律の完了とはしません。原文の更新日は10/22、更新時刻・タイムゾーンの明記は未確認。利用者としてのログイン・ゲーム起動・購入等は実施していません。DMM FX/CFD/株、バヌーシー、競輪等へ対象を拡張しません。"
+    },
+    {
+      "confirmedId": "mitaka-city-council-web",
+      "sourceUrl": "https://x.com/mitaka_tokyo/status/2113205967383126257",
+      "checkedAt": "2026-10-22T11:12:55Z",
+      "scope": "三鷹市議会ホームページと三鷹市ホームページ。議会HPの再開と市HPの対応継続を分離。",
+      "end": "10/22 18:48 JSTの投稿時点で市議会HP復旧。実復旧時計は未記載、市HPの完了・予定も未確認",
+      "restored": false,
+      "note": "公式投稿はPHP対応で停止した市議会HPの復旧を報告し、市HPは安全性を確認しながら再開に向け対応中と説明しています。18:48:58 JSTは投稿metadataをUTCから換算した時計で、実復旧時計ではありません。公式ページの一部を取得できることだけで、市HP全体や市の窓口業務の復旧としません。"
+    },
+    {
+      "confirmedId": "zeiken-web-services",
+      "sourceUrl": "https://www.zeiken.co.jp/news/29469970.php",
+      "checkedAt": "2026-10-22T11:12:55Z",
+      "scope": "税務研究会HPの一部機能、ZEIKEN LINKS/PRESS、税研オンラインストア・丸の内税研アカデミー、税研ウェブサービス。19:00追記はWebセミナー定額プラン・配信停止を別途案内。",
+      "end": "10/22 臨時問い合わせフォーム15:30頃・ZEIKEN LINKS17:00頃に復旧。その他は未定（原文表記）",
+      "restored": false,
+      "note": "18:00追記は臨時問い合わせフォームとLINKSだけの復旧を報告し、その他は復旧作業中としています。『頃』を確定時計に置き換えず、18:00/19:00は告知の追記時計と区別します。19:00追記はWebセミナー配信の停止継続・完了見込み未定。定期刊行誌の臨時電子Book提供は代替措置で、通常の税研ウェブサービス全復旧ではありません。PHP原因は9:30追記で明記。原文にタイムゾーン明記は未確認、会員ログイン・購入・配信視聴等は未実施です。"
+    }
+  ],
+  "pendingResolutionHistory": [
+    {
+      "originalPendingGroup": {
+        "names": [
+          "ZEIKEN LINKS ほか"
+        ],
+        "url": "https://x.com/zeiken_info/status/2113198527933530289",
+        "note": "今回元URL本文は未読。収集側の時刻・理由・停止/再開・公式という分類を事実として採用していません。",
+        "sourceClass": "公開候補収集（原文・公式性は別途照合）",
+        "sourceRead": "not_read_this_cycle",
+        "checkedAt": "2026-10-22T10:06:03Z",
+        "collectionBatch": "grok-public-candidates-20261022-1900",
+        "nextVerificationCondition": "通常公開の原文、運営自身が示す正確なアカウント所有、対象範囲と日時を照合できた時点。時刻経過や表示名一致では確定せず、アクセス制限は迂回しません。"
+      },
+      "resolvedAt": "2026-10-22T11:15:00Z",
+      "confirmedId": "zeiken-web-services",
+      "reason": "正確な公式所有と原文投稿を取得し、運営の最新19時追記も直接照合。LINKS等の概時刻と停止中Webセミナーを分離。"
+    },
+    {
+      "originalPendingGroup": {
+        "names": [
+          "三鷹市議会HP / 三鷹市HP"
+        ],
+        "url": "https://x.com/mitaka_tokyo/status/2113205967383126257",
+        "note": "今回元URL本文は未読。収集側の時刻・理由・停止/再開・公式という分類を事実として採用していません。",
+        "sourceClass": "公開候補収集（原文・公式性は別途照合）",
+        "sourceRead": "not_read_this_cycle",
+        "checkedAt": "2026-10-22T10:06:03Z",
+        "collectionBatch": "grok-public-candidates-20261022-1900",
+        "nextVerificationCondition": "通常公開の原文、運営自身が示す正確なアカウント所有、対象範囲と日時を照合できた時点。時刻経過や表示名一致では確定せず、アクセス制限は迂回しません。"
+      },
+      "resolvedAt": "2026-10-22T11:15:00Z",
+      "confirmedId": "mitaka-city-council-web",
+      "reason": "公式の正確な所有・原文本文・投稿metadataを取得。議会HP復旧と市HPの再開対応を分離。"
     }
   ]
 }
