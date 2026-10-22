@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Go Lambda：ZIPからImageへ移行できる？ 変換と置換を分ける実務メモ</title>
+<meta name="description" content="AWS LambdaのZIPとコンテナイメージをGoの視点で整理。同一関数の形式変更、同名再作成、ZIP再包装、入口の維持を区別し、安全な移行と戻し方を示します。">
+<style>
+:root{--ink:#182a40;--muted:#465d72;--paper:#f5f8fc;--line:#c9d7e5;--blue:#115a9c;--teal:#136d64;--warn:#85460b;--red:#9c2834;--radius:14px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:1rem}body{margin:0;background:var(--paper);color:var(--ink);font:20px/1.85 "Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif}main{max-width:1080px;margin:auto;padding:36px 24px 70px}h1,h2,h3,p{margin-top:0}h1{font-size:clamp(2rem,4.8vw,3.2rem);line-height:1.4;letter-spacing:-.02em;max-width:850px}h2{font-size:1.65rem;line-height:1.5;margin-bottom:20px}h3{font-size:1.2rem;line-height:1.5;margin-bottom:12px}p{margin-bottom:16px}a{color:var(--blue);text-underline-offset:4px;overflow-wrap:anywhere}a:focus-visible,summary:focus-visible{outline:3px solid #bb6500;outline-offset:5px}header{border-bottom:3px solid var(--ink);padding:10px 0 30px}.meta{font-size:1rem;color:var(--muted)}.lead{font-size:1.18rem;max-width:840px}.pill{display:inline-block;background:#e2edf8;border-radius:30px;padding:4px 14px;font-size:1rem;margin-bottom:18px}nav{display:flex;gap:12px 25px;flex-wrap:wrap;padding:24px 0;border-bottom:1px solid var(--line)}nav a{font-weight:700;font-size:1rem}section{margin-top:48px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.card{padding:24px;background:white;border:1px solid var(--line);border-radius:var(--radius)}.card p:last-child{margin-bottom:0}.label{font-size:.85rem;font-weight:700;color:var(--muted);margin-bottom:8px}.yes{border-top:5px solid var(--teal)}.no{border-top:5px solid var(--red)}.caution{border-top:5px solid var(--warn)}.note{border-left:5px solid var(--blue);background:#e8f1fb;padding:20px 24px;margin:22px 0}.warning{border-left-color:var(--warn);background:#fff2dd}.danger{border-left-color:var(--red);background:#fff0f1}.flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;gap:14px;margin:24px 0}.node{padding:22px;background:white;border:2px solid var(--line);border-radius:var(--radius);text-align:center}.node strong{display:block}.arrow{font-size:1.8rem;color:var(--blue)}.small{font-size:1rem;color:var(--muted)}.twocol{display:grid;grid-template-columns:1fr 1fr;gap:20px}ul,ol{padding-left:1.4em}li{margin-bottom:10px}.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:white}table{width:100%;border-collapse:collapse;min-width:610px;text-align:left;font-size:1.05rem}th,td{padding:17px 18px;vertical-align:top;border-bottom:1px solid var(--line)}th{background:#e6eef6}tr:last-child td{border:0}code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.9em;overflow-wrap:anywhere}pre{background:#16283d;color:#edf5ff;padding:22px;border-radius:var(--radius);overflow-x:auto;line-height:1.65;white-space:pre;font-size:.9rem}pre code{overflow-wrap:normal}details{padding:18px 22px;background:white;border:1px solid var(--line);border-radius:var(--radius);margin:16px 0}summary{cursor:pointer;font-weight:700}details[open] summary{margin-bottom:18px}.refs li{font-size:1rem}footer{margin-top:48px;border-top:1px solid var(--line);padding-top:22px;font-size:.86rem;color:var(--muted)}@media(max-width:760px){main{padding:24px 18px 48px}.grid,.twocol{grid-template-columns:1fr}.flow{grid-template-columns:1fr}.arrow{transform:rotate(90deg);text-align:center;line-height:1}.card{padding:21px}section{margin-top:36px}body{font-size:18px}h2{font-size:1.45rem}}@media print{body{background:white;color:black;font-size:11pt}main{max-width:none;padding:0}nav{display:none}section{margin-top:22px}.card,details,.note{break-inside:avoid}pre{white-space:pre-wrap;color:black;background:#eee}a{color:inherit}}
+</style>
+</head>
+<body>
+<main>
+<header>
+<span class="pill">Go / AWS Lambda / 配布形式と移行</span>
+<h1>ZIPからImageへ移れる。<br>ただし「同じ関数の形式変更」ではない。</h1>
+<p class="lead">Goならどちらも選べる。大事なのは「コードを包み直すこと」と「Lambdaというリソースを入れ替えること」を分けること。無理に切り替える方法も含め、できる範囲と失うものを整理する。</p>
+<p class="meta">公式資料確認：2026年10月22日 JST ｜ 調査資料・未適用 ｜ AWS環境の変更、Dockerビルド、移行テストは実施していません。</p>
+</header>
+<nav aria-label="目次"><a href="#verdict">結論</a><a href="#go">Goならどう選ぶ</a><a href="#routes">回避策4つ</a><a href="#repack">ZIPの再包装</a><a href="#plan">移行と戻し方</a><a href="#sources">公式根拠</a></nav>
+<section id="verdict">
+<h2>まず、3種類の「変える」を区別する</h2>
+<div class="grid">
+<article class="card no"><p class="label">同じLambdaリソース</p><h3>ZIP → Imageの直接変更<br>できない</h3><p>既存関数のPackageTypeは変更不可。CLI/APIのImageUri指定もZIP関数には使えない。コンソールだけの制限ではない。<a href="#s1">[1]</a> <a href="#s2">[2]</a></p></article>
+<article class="card yes"><p class="label">別のLambdaリソース</p><h3>Image関数を作って移行<br>できる</h3><p>新しい関数にコード・設定を用意し、検証後に呼び出し先を切り替える。旧ZIP関数を残す方が戻しやすい。<a href="#s1">[1]</a></p></article>
+<article class="card yes"><p class="label">配布する成果物</p><h3>ZIPの中身をImage化<br>条件付きでできる</h3><p>Goバイナリと依存ファイルを展開してイメージへ入れる。ただしLinux・CPU・共有ライブラリ・Runtime APIの互換性確認が必要。<a href="#s6">[6]</a> <a href="#s7">[7]</a></p></article>
+</div>
+<div class="note"><strong>短い答え：</strong>「移行できる」は正しい。「今の関数へイメージを上書きして形式だけ変える」はAWSのサポート対象の方法ではできない。</div>
+<details open><summary>CLIでも無理？ はい、既存ZIP関数へのImageUri指定は不可</summary><p>AWS CLIのupdate-function-codeは、背後のUpdateFunctionCode APIを呼びます。ImageUriパラメーターはZIP定義の関数に使わないことが明記されています。コンソールを避けたりCLIを直接呼んでも、同じ関数のPackageTypeを変更する抜け道にはなりません。<a href="https://docs.aws.amazon.com/lambda/latest/api/API_UpdateFunctionCode.html">公式API仕様</a></p><p>CLIで「新しいImage関数を作る」ことはできます。それは既存関数の直接変更とは別の操作です。</p></details></section>
+<section id="go">
+<h2>Goなら、形式より運用理由で選ぶ</h2>
+<div class="twocol">
+<article class="card"><h3>ZIPのままで十分なケース</h3><ul><li>小さいGoバイナリと少数のファイルで完結する。</li><li>既存のデプロイが安定し、OS依存をまとめる必要が薄い。</li><li>ECR・イメージ更新の管理を増やすメリットがない。</li></ul><p class="small">GoのZIPは、例えばprovided.al2023とbootstrapを使う構成。CGOの有無と対象CPUを確認する。<a href="#s7">[7]</a></p></article>
+<article class="card"><h3>Imageを選ぶ理由があるケース</h3><ul><li>ネイティブライブラリやOS依存を一緒に管理したい。</li><li>他の実行環境とDockerのビルド手順を揃えたい。</li><li>ZIPのサイズ制約では足りない成果物を扱う。</li></ul><p class="small">Lambda用コンテナは、任意の常駐サーバーをそのまま動かす仕組みではない。Runtime API対応などの条件がある。<a href="#s1">[1]</a></p></article>
+</div>
+<p>ZIPは展開後250 MB（layers等を含む）、Imageは非圧縮10 GB。これは容量上限であり、速さの保証ではない。<a href="#s13">[13]</a> 「コンテナだから遅い／速い」と決めず、同じCPU・メモリ・依存関係・処理でコールド／ウォームを分けて測る。</p>
+<p class="small">選び方は運用上の判断です。この資料は性能測定や費用見積もりではありません。</p>
+</section>
+<section id="routes">
+<h2>「無理やり変える」なら、実際にはこの4パターン</h2>
+<div class="tablewrap"><table><thead><tr><th scope="col">方法</th><th scope="col">何が維持できるか</th><th scope="col">代償・注意</th></tr></thead><tbody>
+<tr><td><strong>別名のImage関数へ切替</strong><br>第一候補</td><td>既存API Gateway等の入口を残して、統合先を変更できる構成がある。</td><td>新関数の設定・権限・トリガー確認が必要。イベント種別ごとに二重処理、欠落、リトライを設計する。</td></tr>
+<tr><td><strong>旧関数を削除し同名で再作成</strong><br>破壊的な置換</td><td>関数名は再利用できる場合がある。同じpartition/account/region/nameなら非修飾ARNの文字列も同形になると考えられる。</td><td>同じリソースではない。全version・aliasは削除される。停止時間と復元不能な状態喪失がある。ARNの同形は命名規則からの推論で、連携の自動復旧を保証しない。<a href="#s5">[5]</a></td></tr>
+<tr><td><strong>旧ZIP関数を中継役にする</strong><br>入口を残す暫定策</td><td>旧関数／Function URLを削除せず、新Image関数をInvokeする設計。</td><td>直接変換ではない。追加の呼び出しコスト・遅延・権限・timeout・payload・エラー伝播が増える。通常は入口の統合先切替を優先。<a href="#s12">[12]</a></td></tr>
+<tr><td><strong>CloudFormation / SAMで形式変更</strong><br>IaCによる置換</td><td>コード上はPackageTypeを書き換えられる。</td><td>CloudFormationではReplacement。固定FunctionNameで置換が必要な更新は新しい名前が必要。SAMもこの属性をそのまま渡すため抜け道にならない。<a href="#s3">[3]</a> <a href="#s4">[4]</a></td></tr>
+</tbody></table></div>
+<div class="note danger"><strong>同名の削除再作成は、通常の更新より危険。</strong>コードのバックアップから作り直せても、元の関数・version・aliasを復元したことにはならない。外部トリガーやevent source mappingは一括清掃されるとは限らず、残存状態と権限を個別照合する。削除用コマンドはこの資料には載せていません。</div>
+<details><summary>Function URL・API Gateway・aliasの落とし穴</summary>
+<ul><li><strong>Function URL：</strong>削除後に同じURLは復元できない。新しい設定には別のURLが発行される。<a href="#s9">[9]</a></li><li><strong>API Gateway：</strong>同じAPI・stage・custom domainを維持して統合先だけ変えるなら、クライアントURLを維持できる構成。これは構成上の判断であり、無停止保証ではない。REST APIの統合変更は再デプロイが必要。<a href="#s11">[11]</a></li><li><strong>alias：</strong>同じ関数のversionを指すもの。旧関数のaliasを新しい別関数へ向け替える仕組みではない。中継を使う場合も旧関数側のコード／version／aliasの更新が必要。古い公開versionへ固定された呼び出しは、そのversionを書き換えられない。<a href="#s10">[10]</a></li></ul>
+</details>
+</section>
+<section id="repack">
+<h2>ZIPの中のGoバイナリを、Imageへ包み直す</h2>
+<div class="flow" aria-label="ZIPを展開し、互換性を確認して、Lambda対応イメージに再包装する">
+<div class="node"><strong>既存ZIP</strong><span class="small">bootstrap・設定・静的ファイル</span></div><span class="arrow" aria-hidden="true">→</span>
+<div class="node"><strong>展開・互換性確認</strong><span class="small">Linux / CPU / CGO / Runtime API</span></div><span class="arrow" aria-hidden="true">→</span>
+<div class="node"><strong>Lambda対応Image</strong><span class="small">新しい関数へ配布する成果物</span></div>
+</div>
+<ul><li>GoバイナリがLinux向けで、Image／LambdaのCPUアーキテクチャと一致していること。</li><li>aws-lambda-go/lambdaなどによるRuntime API対応が含まれること。古いgo1.x向けバイナリをそのまま動くと保証せず、可能なら現行ライブラリで再ビルドする。</li><li>CGOを使うならlibcや共有ライブラリの互換性を確かめる。単にbootstrapだけCOPYして終わりとは限らない。</li><li>実行権限があり、read-onlyなルートファイルシステムで動くこと。書き込み先は/tmpを使う。</li><li>Image関数にLambda layerを設定として追加することはできない。必要な内容を/optへ含め、extensionは/opt/extensionsを含む配置を確認する。<a href="#s8">[8]</a></li></ul>
+<div class="note warning"><strong>以下は説明用・未実行の例です。</strong>元ZIP・ビルド環境・依存ファイルは未確認です。安全な新規ディレクトリに展開したbootstrapを想定します。ビルド成功だけでLambda上の動作成功とは判定しません。</div>
+<h3>概念的なDockerfile</h3>
+<pre><code>FROM public.ecr.aws/lambda/provided:al2023
+COPY --chmod=755 unpacked/bootstrap /var/task/bootstrap
+ENTRYPOINT ["/var/task/bootstrap"]</code></pre>
+<p class="small">これは追加ファイル・共有ライブラリ・layersの不要な最小構成を想定した例です。必要なファイルがあれば別途含めます。既存GoバイナリがRuntime APIに対応していることが前提です。<a href="#s6">[6]</a></p>
+<h3>ローカルビルド例</h3>
+<pre><code>docker buildx build \
+  --platform linux/amd64 \
+  --provenance=false \
+  --load \
+  -t lambda-go-migration:test .</code></pre>
+<p>arm64ならlinux/arm64を選び、バイナリも合わせる。Lambda向けには単一アーキテクチャのImageを作る。ECRへのpushや関数作成・切替は、この例には含めていません。<a href="#s1">[1]</a> <a href="#s6">[6]</a></p>
+</section>
+<section id="plan">
+<h2>実際に移すなら「旧関数を残す」</h2>
+<ol><li><strong>現状を棚卸しする。</strong>runtime、CPU、memory、timeout、環境変数の設定元、VPC、実行role、resource policy、layers、URL、alias、version、トリガー、mapping、DLQ／destination、同時実行、監視を確認する。秘密値を資料へ転記しない。</li>
+<li><strong>Imageを作り、別名の新関数で検証する。</strong>初期化・正常系・失敗系・timeout・リトライ・依存先接続・ログ・権限を確かめる。Imageのベース更新も再ビルド／再配布計画に含める。</li>
+<li><strong>入口ごとに切替計画を立てる。</strong>HTTP、queue、stream、非同期イベントでは方法が違う。event source mappingは対象関数の更新APIがあるが、移行の整合性はイベント種別ごとに検証する。<a href="#s14">[14]</a></li>
+<li><strong>戻す条件を先に決める。</strong>エラー率・遅延・重複処理などの判断条件と、旧関数へ呼び出し先を戻す操作を準備する。新旧で共有データを書き換える場合は、コードを戻すだけではデータまで戻らない。</li>
+<li><strong>切替後を確認し、削除は最後に別判断。</strong>ログとメトリクス、業務結果、残存呼び出しを確認する。旧関数を残すだけで課金ゼロとは限らないため、Provisioned Concurrency等の設定も把握する。</li></ol>
+<div class="note"><strong>今回の判断：</strong>Goで今のZIP運用に困っていないなら、形式変更自体を目的にしなくてよい。Image化する明確な理由があれば、ZIPの再包装または再ビルド＋別関数への移行が現実的。同名削除再作成は「できるか」より「失ってよいものがあるか」で判断する。</div>
+</section>
+<section id="sources"><h2>公式根拠</h2><ol class="refs">
+<li id="s1"><a href="https://docs.aws.amazon.com/lambda/latest/dg/images-create.html">AWS Lambda：Create a Lambda function using a container image</a> — 既存関数のpackage type変更不可、Image要件。</li>
+<li id="s2"><a href="https://docs.aws.amazon.com/lambda/latest/api/API_UpdateFunctionCode.html">UpdateFunctionCode API</a> — ZIP関数へImageUriを使えない。</li>
+<li id="s3"><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-lambda-function.html#cfn-lambda-function-packagetype">CloudFormation：AWS::Lambda::Function</a> — PackageTypeのReplacement、固定FunctionNameの制約。</li>
+<li id="s4"><a href="https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-function.html#sam-function-packagetype">AWS SAM：Function / PackageType</a> — CloudFormation属性への受け渡し。</li>
+<li id="s5"><a href="https://docs.aws.amazon.com/lambda/latest/api/API_DeleteFunction.html">DeleteFunction API</a> — version・alias削除とevent source mappingの扱い。</li>
+<li id="s6"><a href="https://docs.aws.amazon.com/lambda/latest/dg/go-image.html">Deploy Go Lambda functions with container images</a> — Go用Image構築、CPU・ビルド条件。</li>
+<li id="s7"><a href="https://docs.aws.amazon.com/lambda/latest/dg/golang-package.html">Deploy Go Lambda functions with .zip file archives</a> — bootstrap、CPU、CGO。</li>
+<li id="s8"><a href="https://docs.aws.amazon.com/lambda/latest/dg/chapter-layers.html">Lambda layers</a> / <a href="https://aws.amazon.com/blogs/compute/working-with-lambda-layers-and-extensions-in-container-images/">Layers and extensions in container images</a> — Imageへの依存物同梱。</li>
+<li id="s9"><a href="https://docs.aws.amazon.com/lambda/latest/api/API_DeleteFunctionUrlConfig.html">DeleteFunctionUrlConfig API</a> — 削除したURLは復元不可。</li>
+<li id="s10"><a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html">Lambda aliases</a> — 関数versionへのポインタ。</li>
+<li id="s11"><a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/updating-api.html">Update a REST API</a> — 統合変更と再デプロイ。</li>
+<li id="s12"><a href="https://docs.aws.amazon.com/lambda/latest/api/API_Invoke.html">Invoke API</a> — 別関数への呼び出し、中継の制約確認。</li>
+<li id="s13"><a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a> — ZIP・Imageの容量制約。</li>
+<li id="s14"><a href="https://docs.aws.amazon.com/lambda/latest/api/API_UpdateEventSourceMapping.html">UpdateEventSourceMapping API</a> — 対象関数の更新。</li>
+</ol></section>
+<footer>この資料は公式仕様と、その仕様に基づく構成上の判断を区別してまとめたものです。実環境の棚卸し、移行、Docker実行、性能・費用測定は未実施です。破壊的な削除再作成や本番切替を実行する指示書ではありません。</footer>
+</main>
+</body>
+</html>
