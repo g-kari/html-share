@@ -1,6 +1,6 @@
 {
   "title": "2026年10月21日前後 緊急メンテナンス・関連告知一覧",
-  "checkedAt": "2026-10-22T16:14:34.705Z",
+  "checkedAt": "2026-10-22T17:05:01.663Z",
   "scope": "PHPの因果不問。今回の緊急/予防メンテと同時期の関連告知・別インシデントを区分。件数による上限なし。",
   "counting": "confirmedは公式資料を確認した対象別の告知カード数（部分本文・同一基盤・包括/個別の重なりを含む）。固有サイト数・実停止数・独立インシデント数・被害数ではない。pendingは原典/公式所有/対象範囲等の追加照合待ち。関連・重複・除外理由も全収集行に保持し、件数で打ち切らない。 実施自体が未定の停止可能性の予告も別状態（possible_unstarted）で保持し、実停止・復旧には数えません。",
   "confirmed": [
@@ -3738,25 +3738,59 @@
     {
       "id": "doax-vv",
       "name": "DEAD OR ALIVE Xtreme Venus Vacation",
-      "url": "https://x.com/doax_vv_staff/status/2112886550484971567",
-      "start": "10/21 22:00予定",
-      "end": "未定",
-      "scope": "ゲームプレイ不可。",
-      "safe": "緊急サーバーメンテナンスと案内。PHP因果や全プラットフォームの詳細は推測補完していません。 復旧実績は未確認。",
-      "reason": "理由の詳細未公表",
+      "url": "https://x.com/doax_vv_staff/status/2113282030821937661",
+      "start": "10/21 22:00予定（旧予告）。後続は実施中と説明、実開始時計は未記載",
+      "end": "DMM GAMES版の終了・再開時期は引き続き未定",
+      "scope": "DMM GAMES版。プラットフォーム側の変更後に想定外の挙動があり、調査・対応と各動作確認を継続。",
+      "safe": "10/22付の後続は、翌日も検証作業を続け、見通しが立ってから再開を案内すると説明。翌日の再開保証ではありません。23:51:13 JSTは投稿metadataの換算で、開始・終了時計ではありません。Steam版等やDMM全体へ影響を拡張せず、当該本文にPHP因果や侵害の断定はありません。ゲーム起動・ログイン・購入は未実施。",
+      "reason": "緊急サーバー保守。後続はプラットフォーム変更後の想定外挙動を説明（PHP因果は明記なし）",
       "cat": "game",
-      "date": "10/21",
-      "tag": "予定と実績を区別",
-      "status": "公式の実施予定（開始実績未確認）",
-      "source": "ライブX原文と公式所有根拠を確認",
+      "date": "10/22 23:51:13 JST投稿（UTC metadata換算）",
+      "tag": "DMM GAMES版は対応継続",
+      "status": "実施中・サービス再開時期は未定",
+      "source": "通常公開の元投稿本文・UTC投稿metadataと、運営サイトが直接示す正確なX所有リンクを照合。投稿時計・実時刻・対象範囲を分離。",
       "ownershipEvidence": [
         {
           "url": "https://doax-venusvacation.jp/",
           "note": "サービス公式サイトのTwitterリンクがdoax_vv_staff。"
         }
       ],
-      "checkedAt": "2026-10-21T14:25:00Z",
-      "icon": "https://doax-venusvacation.jp/favicon.ico"
+      "checkedAt": "2026-10-22T17:05:01.663Z",
+      "icon": "https://doax-venusvacation.jp/favicon.ico",
+      "reasonKey": "unknown",
+      "restored": false,
+      "sourcePublishedAt": "2026-10-22T14:51:13.000Z",
+      "sources": [
+        {
+          "url": "https://x.com/doax_vv_staff/status/2112886550484971567",
+          "label": "旧開始予定の告知"
+        }
+      ],
+      "previousNotices": [
+        {
+          "id": "doax-vv",
+          "name": "DEAD OR ALIVE Xtreme Venus Vacation",
+          "url": "https://x.com/doax_vv_staff/status/2112886550484971567",
+          "start": "10/21 22:00予定",
+          "end": "未定",
+          "scope": "ゲームプレイ不可。",
+          "safe": "緊急サーバーメンテナンスと案内。PHP因果や全プラットフォームの詳細は推測補完していません。 復旧実績は未確認。",
+          "reason": "理由の詳細未公表",
+          "cat": "game",
+          "date": "10/21",
+          "tag": "予定と実績を区別",
+          "status": "公式の実施予定（開始実績未確認）",
+          "source": "ライブX原文と公式所有根拠を確認",
+          "ownershipEvidence": [
+            {
+              "url": "https://doax-venusvacation.jp/",
+              "note": "サービス公式サイトのTwitterリンクがdoax_vv_staff。"
+            }
+          ],
+          "checkedAt": "2026-10-21T14:25:00Z",
+          "icon": "https://doax-venusvacation.jp/favicon.ico"
+        }
+      ]
     },
     {
       "id": "another-eidos-r",
@@ -11590,26 +11624,30 @@
       ]
     },
     {
-      "checkedAt": "2026-10-22T03:14:00Z",
-      "date": "10/22の公式後続",
+      "checkedAt": "2026-10-22T17:05:01.663Z",
+      "date": "10/22 22:58:42 JST投稿（UTC metadata換算）",
       "restored": false,
-      "source": "通常公開の公式投稿本文と、運営自身が示したSNS所有根拠を照合。実績・予定・掲載時点と対象範囲を分離。",
+      "source": "通常公開の元投稿本文・UTC投稿metadataと、運営サイトが直接示す正確なX所有リンクを照合。投稿時計・実時刻・対象範囲を分離。",
       "id": "tecrowd-service",
       "name": "TECROWD",
-      "url": "https://x.com/tecrowd/status/2113059862158717274",
+      "url": "https://x.com/tecrowd/status/2113268815685623862",
       "icon": null,
       "cat": "business",
-      "tag": "サービス停止・募集延期",
-      "status": "公式は一時停止と募集延期を案内、再開未定",
+      "tag": "サービス再開の見込みを延期",
+      "status": "当日中の見通しから延期、再開日時は未定",
       "start": "未記載（10/22の告知時点で停止と案内）",
-      "end": "サービス再開日時は未定",
+      "end": "10/22付の投稿は「明日以降」の見込み。具体的な再開日時は未公表",
       "scope": "TECROWDのサービスを安全性確認のため一時停止。細かな機能別の内訳は告知に記載なし。",
-      "safe": "10/22 18:00開始予定だったファンド募集は10/23以降へ延期。新しい募集開始日時は未定で、10/23の開始確定や復旧保証ではありません。投資の申込・推奨や取引は行っていません。",
+      "safe": "安全性確認に想定より時間が必要なため、当日中の再開見通しを延期したと説明。投稿の22:58:42 JSTはUTC metadata換算で、再開時計ではありません。以前の10/22 18:00予定のファンド募集が10/23以降へ延期された件と、今回のサービス再開見込みは別に保持し、募集開始・翌日の復旧を確約しません。投資申込・推奨や取引は行っていません。",
       "reason": "PHP脆弱性の公表を受けたシステム安全性確認",
       "sources": [
         {
           "url": "https://x.com/tecrowd/status/2112928763462005008",
           "label": "前の停止告知（収集記録）"
+        },
+        {
+          "url": "https://x.com/tecrowd/status/2113059862158717274",
+          "label": "前のサービス停止・募集延期告知"
         }
       ],
       "ownershipEvidence": [
@@ -11617,6 +11655,41 @@
           "url": "https://prtimes.jp/main/html/rd/p/000000267.000061009.html",
           "detail": "運営TECRA株式会社自身のリリースにある「公式Xはこちら」がx.com/tecrowdへリンク。",
           "readState": "body_retrieved"
+        }
+      ],
+      "reasonKey": "php",
+      "sourcePublishedAt": "2026-10-22T13:58:42.000Z",
+      "previousNotices": [
+        {
+          "checkedAt": "2026-10-22T03:14:00Z",
+          "date": "10/22の公式後続",
+          "restored": false,
+          "source": "通常公開の公式投稿本文と、運営自身が示したSNS所有根拠を照合。実績・予定・掲載時点と対象範囲を分離。",
+          "id": "tecrowd-service",
+          "name": "TECROWD",
+          "url": "https://x.com/tecrowd/status/2113059862158717274",
+          "icon": null,
+          "cat": "business",
+          "tag": "サービス停止・募集延期",
+          "status": "公式は一時停止と募集延期を案内、再開未定",
+          "start": "未記載（10/22の告知時点で停止と案内）",
+          "end": "サービス再開日時は未定",
+          "scope": "TECROWDのサービスを安全性確認のため一時停止。細かな機能別の内訳は告知に記載なし。",
+          "safe": "10/22 18:00開始予定だったファンド募集は10/23以降へ延期。新しい募集開始日時は未定で、10/23の開始確定や復旧保証ではありません。投資の申込・推奨や取引は行っていません。",
+          "reason": "PHP脆弱性の公表を受けたシステム安全性確認",
+          "sources": [
+            {
+              "url": "https://x.com/tecrowd/status/2112928763462005008",
+              "label": "前の停止告知（収集記録）"
+            }
+          ],
+          "ownershipEvidence": [
+            {
+              "url": "https://prtimes.jp/main/html/rd/p/000000267.000061009.html",
+              "detail": "運営TECRA株式会社自身のリリースにある「公式Xはこちら」がx.com/tecrowdへリンク。",
+              "readState": "body_retrieved"
+            }
+          ]
         }
       ]
     },
@@ -12906,6 +12979,80 @@
       "checkedAt": "2026-10-22T12:01:13Z",
       "restored": true,
       "sourceRead": "body_retrieved"
+    },
+    {
+      "id": "nexco-west-web",
+      "name": "NEXCO西日本のWebサイト",
+      "cat": "travel",
+      "tag": "2サイト再開・2サイト停止継続",
+      "status": "対象Webの一部再開、全体完了ではない",
+      "start": "今回取得した再開投稿に開始日時の記載なし",
+      "end": "10/22 23:42 JST投稿時点で一部再開を報告。実再開時計は未記載",
+      "scope": "「料金・交通情報」「企業・採用情報」のWebサイトは公開再開。「サービスエリア情報」「みち旅」のサイトは引き続き一時閉鎖。",
+      "safe": "必要なセキュリティ対応作業の完了を理由とするWeb公開状態の告知。PHP名は明記されていません。23:42:22 JSTはUTC投稿metadata換算で、正確な実復旧時刻ではありません。SA施設の休業や道路の通行止め・その解除を意味せず、NEXCO全サービスの復旧とも扱いません。道路交通情報の鮮度や各検索/予約機能は実操作で検証していません。",
+      "reason": "必要なセキュリティ対応（PHP名は当該本文に記載なし）",
+      "reasonKey": "security",
+      "url": "https://x.com/w_nexco_news/status/2113279801079550276",
+      "icon": "https://www.w-nexco.co.jp/favicon.ico",
+      "iconSource": "公式ドメインの標準faviconパス。取得可否未確認で、表示できない場合は文字へフォールバック。",
+      "restored": false,
+      "date": "10/22 23:42:22 JST投稿（UTC metadata換算）",
+      "sourcePublishedAt": "2026-10-22T14:42:22.000Z",
+      "ownershipEvidence": [
+        {
+          "url": "https://corp.w-nexco.co.jp/newly/release/2026/10/e9_ic_8_ic.html",
+          "detail": "西日本高速道路株式会社の公式記事が『X（エックス）【公式】NEXCO西日本』としてexact x.com/w_nexco_newsを直接リンク。この記事の道路工事はWeb保守の原因/期間として採用していません。",
+          "readState": "body_retrieved"
+        }
+      ],
+      "checkedAt": "2026-10-22T17:05:01.663Z",
+      "source": "通常公開の元投稿本文・UTC投稿metadataと、運営サイトが直接示す正確なX所有リンクを照合。投稿時計・実時刻・対象範囲を分離。"
+    },
+    {
+      "id": "working-heroes",
+      "name": "ワーキングヒーローズ",
+      "cat": "game",
+      "tag": "当該ゲームの保守終了を報告",
+      "status": "PHP対応の緊急保守終了・サービス再開の報告",
+      "start": "取得した継続/終了投稿に実開始日時の記載なし",
+      "end": "10/22 23:32 JST投稿時点で再開を報告。正確な実終了時計は未記載",
+      "scope": "ワーキングヒーローズの当該緊急メンテナンスとサービス再開。端末/版ごとの内訳は終了投稿に未記載。",
+      "safe": "運営はPHPのセキュリティ上の問題への対応としていた緊急保守が終わり、サービスを再開したと案内。23:32:07 JSTはUTC投稿metadataの換算であり、実終了時刻ではありません。22:39:03 JST投稿時点の継続案内は前の記録として保持し、別ゲームや全ゲーム基盤へ広げません。ゲーム起動・ログイン・配布物受取・購入は実施していません。",
+      "reason": "PHPのセキュリティ上の問題への対応",
+      "reasonKey": "php",
+      "url": "https://x.com/w_heroes_jp/status/2113277222077526303",
+      "icon": "https://w-heroes.com/img/app_icon.png",
+      "iconSource": "運営の公式サイトに掲載されているアプリアイコン。faviconそのものの実取得とは区別。",
+      "restored": true,
+      "date": "10/22 23:32:07 JST投稿（UTC metadata換算）",
+      "sourcePublishedAt": "2026-10-22T14:32:07.000Z",
+      "sources": [
+        {
+          "url": "https://x.com/w_heroes_jp/status/2113263867971465239",
+          "label": "前の保守継続投稿（今回本文取得）"
+        }
+      ],
+      "ownershipEvidence": [
+        {
+          "url": "https://w-heroes.com/",
+          "detail": "ゲーム公式サイトの公式Xリンクがexact x.com/w_heroes_jp。サイトタイトル・アプリ案内も同作品。",
+          "readState": "body_retrieved"
+        }
+      ],
+      "previousNotices": [
+        {
+          "name": "ワーキングヒーローズ",
+          "url": "https://x.com/w_heroes_jp/status/2113263867971465239",
+          "date": "10/22 22:39:03 JST投稿（UTC metadata換算）",
+          "status": "PHP対応の緊急保守を継続していると案内",
+          "start": "未記載",
+          "end": "この投稿に終了時計の記載なし",
+          "scope": "当該ゲームの緊急メンテナンス。",
+          "reason": "PHPのセキュリティ上の問題への対応"
+        }
+      ],
+      "checkedAt": "2026-10-22T17:05:01.663Z",
+      "source": "通常公開の元投稿本文・UTC投稿metadataと、運営サイトが直接示す正確なX所有リンクを照合。投稿時計・実時刻・対象範囲を分離。"
     }
   ],
   "pending": [
@@ -34008,20 +34155,6 @@
     },
     {
       "names": [
-        "ワーキングヒーローズ"
-      ],
-      "url": "https://x.com/w_heroes_jp/status/2113263867971465239",
-      "note": "今回この元URL本文は未読。収集名・時刻・理由・停止/再開・公式分類は事実として採用していません。",
-      "sourceClass": "公開候補収集（原文・公式性は別途照合）",
-      "sourceRead": "not_read_this_cycle",
-      "checkedAt": "2026-10-22T14:16:24Z",
-      "collectionBatch": "grok-public-candidates-20261022-2256",
-      "collectionPart": 4,
-      "collectionRow": 129,
-      "nextVerificationCondition": "通常公開の原文、運営自身による正確な所有、対象範囲と日時を照合できた時点。アクセス制限や年齢確認は迂回しません。"
-    },
-    {
-      "names": [
         "フォームズ(formzu)"
       ],
       "url": "https://x.com/toruemu/status/2113264977075425563",
@@ -35144,18 +35277,6 @@
     },
     {
       "names": [
-        "ワーキングヒーローズ"
-      ],
-      "url": "https://x.com/w_heroes_jp/status/2113277222077526303",
-      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
-      "sourceClass": "公開候補収集（原文・公式性は別途照合）",
-      "sourceRead": "not_read_this_cycle",
-      "checkedAt": "2026-10-22T16:14:34.705Z",
-      "collectionBatch": "grok-public-candidates-20261023-0108",
-      "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
-    },
-    {
-      "names": [
         "ゆるボイ"
       ],
       "url": "https://x.com/YuRu_Voi/status/2113277370279088205",
@@ -35231,18 +35352,6 @@
         "HDIC Viewer"
       ],
       "url": "https://x.com/toyjack/status/2113279733798785380",
-      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
-      "sourceClass": "公開候補収集（原文・公式性は別途照合）",
-      "sourceRead": "not_read_this_cycle",
-      "checkedAt": "2026-10-22T16:14:34.705Z",
-      "collectionBatch": "grok-public-candidates-20261023-0108",
-      "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
-    },
-    {
-      "names": [
-        "NEXCO西日本"
-      ],
-      "url": "https://x.com/w_nexco_news/status/2113279801079550276",
       "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
       "sourceClass": "公開候補収集（原文・公式性は別途照合）",
       "sourceRead": "not_read_this_cycle",
@@ -35888,18 +35997,6 @@
     },
     {
       "names": [
-        "TECROWD"
-      ],
-      "url": "https://x.com/tecrowd/status/2113268815685623862",
-      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
-      "sourceClass": "公開候補収集（原文・公式性は別途照合）",
-      "sourceRead": "not_read_this_cycle",
-      "checkedAt": "2026-10-22T16:14:34.705Z",
-      "collectionBatch": "grok-public-candidates-20261023-0108",
-      "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
-    },
-    {
-      "names": [
         "Vジャンプ"
       ],
       "url": "https://x.com/V_Jump/status/2113271118169793013",
@@ -36155,18 +36252,6 @@
         "CPI"
       ],
       "url": "https://x.com/cpiadjp/status/2113282201643364591",
-      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
-      "sourceClass": "公開候補収集（原文・公式性は別途照合）",
-      "sourceRead": "not_read_this_cycle",
-      "checkedAt": "2026-10-22T16:14:34.705Z",
-      "collectionBatch": "grok-public-candidates-20261023-0108",
-      "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
-    },
-    {
-      "names": [
-        "DOAXVV DMM"
-      ],
-      "url": "https://x.com/doax_vv_staff/status/2113282030821937661",
       "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
       "sourceClass": "公開候補収集（原文・公式性は別途照合）",
       "sourceRead": "not_read_this_cycle",
@@ -98930,6 +99015,100 @@
       "checkedAt": "2026-10-22T16:14:34.705Z",
       "collectionBatch": "public-notice-followup-20261023-sakura",
       "decision": "confirmed"
+    },
+    {
+      "sourceUrl": "https://x.com/doax_vv_staff/status/2113282030821937661",
+      "names": [
+        "DEAD OR ALIVE Xtreme Venus Vacation"
+      ],
+      "decision": "confirmed",
+      "reason": "通常公開の元投稿本文とexact公式所有を確認し、対象別カードと前の告知履歴へ対応。投稿時計を実開始/終了へ変換せず、raw原本の過去判断を上書きしません。",
+      "confirmedId": "doax-vv",
+      "checkedAt": "2026-10-22T17:05:01.663Z",
+      "sourcePublishedAt": "2026-10-22T14:51:13.000Z",
+      "sourceRead": "body_retrieved",
+      "ownershipEvidence": [
+        {
+          "url": "https://doax-venusvacation.jp/",
+          "note": "サービス公式サイトのTwitterリンクがdoax_vv_staff。"
+        }
+      ]
+    },
+    {
+      "sourceUrl": "https://x.com/tecrowd/status/2113268815685623862",
+      "names": [
+        "TECROWD"
+      ],
+      "decision": "confirmed",
+      "reason": "通常公開の元投稿本文とexact公式所有を確認し、対象別カードと前の告知履歴へ対応。投稿時計を実開始/終了へ変換せず、raw原本の過去判断を上書きしません。",
+      "confirmedId": "tecrowd-service",
+      "checkedAt": "2026-10-22T17:05:01.663Z",
+      "sourcePublishedAt": "2026-10-22T13:58:42.000Z",
+      "sourceRead": "body_retrieved",
+      "ownershipEvidence": [
+        {
+          "url": "https://prtimes.jp/main/html/rd/p/000000267.000061009.html",
+          "detail": "運営TECRA株式会社自身のリリースにある「公式Xはこちら」がx.com/tecrowdへリンク。",
+          "readState": "body_retrieved"
+        }
+      ]
+    },
+    {
+      "sourceUrl": "https://x.com/w_nexco_news/status/2113279801079550276",
+      "names": [
+        "NEXCO西日本のWebサイト"
+      ],
+      "decision": "confirmed",
+      "reason": "通常公開の元投稿本文とexact公式所有を確認し、対象別カードと前の告知履歴へ対応。投稿時計を実開始/終了へ変換せず、raw原本の過去判断を上書きしません。",
+      "confirmedId": "nexco-west-web",
+      "checkedAt": "2026-10-22T17:05:01.663Z",
+      "sourcePublishedAt": "2026-10-22T14:42:22.000Z",
+      "sourceRead": "body_retrieved",
+      "ownershipEvidence": [
+        {
+          "url": "https://corp.w-nexco.co.jp/newly/release/2026/10/e9_ic_8_ic.html",
+          "detail": "西日本高速道路株式会社の公式記事が『X（エックス）【公式】NEXCO西日本』としてexact x.com/w_nexco_newsを直接リンク。この記事の道路工事はWeb保守の原因/期間として採用していません。",
+          "readState": "body_retrieved"
+        }
+      ]
+    },
+    {
+      "sourceUrl": "https://x.com/w_heroes_jp/status/2113277222077526303",
+      "names": [
+        "ワーキングヒーローズ"
+      ],
+      "decision": "confirmed",
+      "reason": "通常公開の元投稿本文とexact公式所有を確認し、対象別カードと前の告知履歴へ対応。投稿時計を実開始/終了へ変換せず、raw原本の過去判断を上書きしません。",
+      "confirmedId": "working-heroes",
+      "checkedAt": "2026-10-22T17:05:01.663Z",
+      "sourcePublishedAt": "2026-10-22T14:32:07.000Z",
+      "sourceRead": "body_retrieved",
+      "ownershipEvidence": [
+        {
+          "url": "https://w-heroes.com/",
+          "detail": "ゲーム公式サイトの公式Xリンクがexact x.com/w_heroes_jp。サイトタイトル・アプリ案内も同作品。",
+          "readState": "body_retrieved"
+        }
+      ]
+    },
+    {
+      "sourceUrl": "https://x.com/w_heroes_jp/status/2113263867971465239",
+      "names": [
+        "ワーキングヒーローズ"
+      ],
+      "decision": "confirmed",
+      "reason": "通常公開の元投稿本文とexact公式所有を確認し、対象別カードと前の告知履歴へ対応。投稿時計を実開始/終了へ変換せず、raw原本の過去判断を上書きしません。",
+      "confirmedId": "working-heroes",
+      "checkedAt": "2026-10-22T17:05:01.663Z",
+      "sourcePublishedAt": "2026-10-22T13:39:03.000Z",
+      "sourceRead": "body_retrieved",
+      "ownershipEvidence": [
+        {
+          "url": "https://w-heroes.com/",
+          "detail": "ゲーム公式サイトの公式Xリンクがexact x.com/w_heroes_jp。サイトタイトル・アプリ案内も同作品。",
+          "readState": "body_retrieved"
+        }
+      ]
     }
   ],
   "relationships": [
@@ -99121,24 +99300,29 @@
     "piyologNewPrimaryUrls": 27,
     "additionalOwnerVerifiedCards": 70,
     "followupReview": {
-      "checkedAt": "2026-10-22T16:14:34.705Z",
-      "scope": "さくら既存3カードの重要後続と、運営のリンク先詳細2件を確認。新受領204候補は元URL本文未読のまま全保持し、全カード/全候補の同時再取得とはしません。",
-      "method": "運営自身の原典本文・対象ホスト/リージョン・機能別の完了/未記載・原文のTZ未明示を区分。取得時計を新たな再開時刻にしない。",
-      "result": "レンタル/マネージド/VPSの当該保守だけ終了を確認。別の管理機能はSnapup、会員関連はクラウドの対象機能の解除未記載を残し、全体falseを維持。DB管理UIの停止とは別。新受領の収集分類/累積値は不採用。",
-      "newCards": 0,
-      "updatedCards": 3,
-      "additionalSourceRows": 206,
-      "allPriorSourceIdentitiesRetained": 2535,
+      "checkedAt": "2026-10-22T17:05:01.663Z",
+      "scope": "新受領204候補のうち重要な4元投稿と、前受領のWorking Heroes継続投稿1件を限定照合。全候補・全カードの同時再取得ではありません。",
+      "method": "元投稿本文/UTC metadata、運営サイトのexact Xリンク、旧案内を直接照合。投資募集とサービス再開、ゲーム版と基盤、Web公開と施設/道路の運用を分離。",
+      "result": "DOAXVV DMM版は再開未定で翌日も検証。TECROWDは当日中の見通しから延期。NEXCO西日本は2Web再開/2Web停止継続で全体false、Working Heroesは当該PHP保守終了を報告。旧投稿と全原本を保持。",
+      "newCards": 2,
+      "updatedCards": 2,
+      "additionalSourceRows": 0,
+      "allPriorSourceIdentitiesRetained": 2741,
       "candidateReadCoverage": {
-        "rawRows": 204,
         "uniqueURLs": 204,
-        "bodyRetrieved": 0,
-        "notReadThisCycle": 204
+        "bodyRetrieved": 4,
+        "exactOwnershipConfirmed": 4,
+        "notReadToDate": 200,
+        "additionalPriorBatchBodies": 1,
+        "rawRows": 204
       },
-      "newPendingGroups": 204,
-      "previouslyRepresentedURLs": 0,
-      "priorPendingResolved": 0,
-      "unresolvedPreviouslyCollectedGroups": 2023
+      "resolutionOfUniqueRun14Sources": {
+        "confirmedWithExactOwnership": 4,
+        "unread": 200,
+        "unresolved": 200
+      },
+      "priorPendingResolved": 5,
+      "unresolvedPreviouslyCollectedGroups": 2018
     },
     "followupDiscoveryRows": 1832,
     "followupReviews": [
@@ -99311,6 +99495,26 @@
           "https://www.conoha.jp/wing/news/?ap=2015054909",
           "https://blog.nicovideo.jp/niconews/14785"
         ]
+      },
+      {
+        "checkedAt": "2026-10-22T16:14:34.705Z",
+        "scope": "さくら既存3カードの重要後続と、運営のリンク先詳細2件を確認。新受領204候補は元URL本文未読のまま全保持し、全カード/全候補の同時再取得とはしません。",
+        "method": "運営自身の原典本文・対象ホスト/リージョン・機能別の完了/未記載・原文のTZ未明示を区分。取得時計を新たな再開時刻にしない。",
+        "result": "レンタル/マネージド/VPSの当該保守だけ終了を確認。別の管理機能はSnapup、会員関連はクラウドの対象機能の解除未記載を残し、全体falseを維持。DB管理UIの停止とは別。新受領の収集分類/累積値は不採用。",
+        "newCards": 0,
+        "updatedCards": 3,
+        "additionalSourceRows": 206,
+        "allPriorSourceIdentitiesRetained": 2535,
+        "candidateReadCoverage": {
+          "rawRows": 204,
+          "uniqueURLs": 204,
+          "bodyRetrieved": 0,
+          "notReadThisCycle": 204
+        },
+        "newPendingGroups": 204,
+        "previouslyRepresentedURLs": 0,
+        "priorPendingResolved": 0,
+        "unresolvedPreviouslyCollectedGroups": 2023
       }
     ],
     "sourceRowsDecisionBasis": "元収集行に保存した当時の判断内訳です。後続の公式照合結果はsourceReviews/最新followupReview、現在の未解決グループはpendingを参照してください。元の収集行は保持しています。"
@@ -114630,6 +114834,46 @@
       "restored": false,
       "note": "当初の03:00予定の経過を全体完了とは扱いません。クラウドの緊急連絡先設定・ホスト保守予定確認・一部メール通知など、元の告知が列挙する対象機能の解除は取得本文に未記載です。クラウド全体が停止中とも、全機能が復旧したとも推定せず、合体カードはfalseを維持します。SMS/メール2FAは元々ログイン可能という案内と音声2FAの再開を区別。本文にPHP名やTZの明示はなく、各利用者の認証設定を変更・検証していません。",
       "sourceUpdateTime": "10/22の原文追記。各時計は原文表記でTZ未明示。"
+    },
+    {
+      "confirmedId": "doax-vv",
+      "sourceUrl": "https://x.com/doax_vv_staff/status/2113282030821937661",
+      "sourcePublishedAt": "2026-10-22T14:51:13.000Z",
+      "checkedAt": "2026-10-22T17:05:01.663Z",
+      "scope": "DMM GAMES版。プラットフォーム側の変更後に想定外の挙動があり、調査・対応と各動作確認を継続。",
+      "end": "DMM GAMES版の終了・再開時期は引き続き未定",
+      "restored": false,
+      "note": "10/22付の後続は、翌日も検証作業を続け、見通しが立ってから再開を案内すると説明。翌日の再開保証ではありません。23:51:13 JSTは投稿metadataの換算で、開始・終了時計ではありません。Steam版等やDMM全体へ影響を拡張せず、当該本文にPHP因果や侵害の断定はありません。ゲーム起動・ログイン・購入は未実施。"
+    },
+    {
+      "confirmedId": "tecrowd-service",
+      "sourceUrl": "https://x.com/tecrowd/status/2113268815685623862",
+      "sourcePublishedAt": "2026-10-22T13:58:42.000Z",
+      "checkedAt": "2026-10-22T17:05:01.663Z",
+      "scope": "TECROWDのサービスを安全性確認のため一時停止。細かな機能別の内訳は告知に記載なし。",
+      "end": "10/22付の投稿は「明日以降」の見込み。具体的な再開日時は未公表",
+      "restored": false,
+      "note": "安全性確認に想定より時間が必要なため、当日中の再開見通しを延期したと説明。投稿の22:58:42 JSTはUTC metadata換算で、再開時計ではありません。以前の10/22 18:00予定のファンド募集が10/23以降へ延期された件と、今回のサービス再開見込みは別に保持し、募集開始・翌日の復旧を確約しません。投資申込・推奨や取引は行っていません。"
+    },
+    {
+      "confirmedId": "nexco-west-web",
+      "sourceUrl": "https://x.com/w_nexco_news/status/2113279801079550276",
+      "sourcePublishedAt": "2026-10-22T14:42:22.000Z",
+      "checkedAt": "2026-10-22T17:05:01.663Z",
+      "scope": "「料金・交通情報」「企業・採用情報」のWebサイトは公開再開。「サービスエリア情報」「みち旅」のサイトは引き続き一時閉鎖。",
+      "end": "10/22 23:42 JST投稿時点で一部再開を報告。実再開時計は未記載",
+      "restored": false,
+      "note": "必要なセキュリティ対応作業の完了を理由とするWeb公開状態の告知。PHP名は明記されていません。23:42:22 JSTはUTC投稿metadata換算で、正確な実復旧時刻ではありません。SA施設の休業や道路の通行止め・その解除を意味せず、NEXCO全サービスの復旧とも扱いません。道路交通情報の鮮度や各検索/予約機能は実操作で検証していません。"
+    },
+    {
+      "confirmedId": "working-heroes",
+      "sourceUrl": "https://x.com/w_heroes_jp/status/2113277222077526303",
+      "sourcePublishedAt": "2026-10-22T14:32:07.000Z",
+      "checkedAt": "2026-10-22T17:05:01.663Z",
+      "scope": "ワーキングヒーローズの当該緊急メンテナンスとサービス再開。端末/版ごとの内訳は終了投稿に未記載。",
+      "end": "10/22 23:32 JST投稿時点で再開を報告。正確な実終了時計は未記載",
+      "restored": true,
+      "note": "運営はPHPのセキュリティ上の問題への対応としていた緊急保守が終わり、サービスを再開したと案内。23:32:07 JSTはUTC投稿metadataの換算であり、実終了時刻ではありません。22:39:03 JST投稿時点の継続案内は前の記録として保持し、別ゲームや全ゲーム基盤へ広げません。ゲーム起動・ログイン・配布物受取・購入は実施していません。"
     }
   ],
   "pendingResolutionHistory": [
@@ -114666,6 +114910,93 @@
       "resolvedAt": "2026-10-22T11:15:00Z",
       "confirmedId": "mitaka-city-council-web",
       "reason": "公式の正確な所有・原文本文・投稿metadataを取得。議会HP復旧と市HPの再開対応を分離。"
+    },
+    {
+      "originalPendingGroup": {
+        "names": [
+          "ワーキングヒーローズ"
+        ],
+        "url": "https://x.com/w_heroes_jp/status/2113263867971465239",
+        "note": "今回この元URL本文は未読。収集名・時刻・理由・停止/再開・公式分類は事実として採用していません。",
+        "sourceClass": "公開候補収集（原文・公式性は別途照合）",
+        "sourceRead": "not_read_this_cycle",
+        "checkedAt": "2026-10-22T14:16:24Z",
+        "collectionBatch": "grok-public-candidates-20261022-2256",
+        "collectionPart": 4,
+        "collectionRow": 129,
+        "nextVerificationCondition": "通常公開の原文、運営自身による正確な所有、対象範囲と日時を照合できた時点。アクセス制限や年齢確認は迂回しません。"
+      },
+      "resolvedAt": "2026-10-22T17:05:01.663Z",
+      "confirmedId": "working-heroes",
+      "reason": "元投稿の本文・投稿metadataと運営自身が示すexactアカウント所有を直接照合。継続/見込み/限定再開/終了、投稿時計と実時刻を分離。収集原本は削除せず保持。"
+    },
+    {
+      "originalPendingGroup": {
+        "names": [
+          "ワーキングヒーローズ"
+        ],
+        "url": "https://x.com/w_heroes_jp/status/2113277222077526303",
+        "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+        "sourceClass": "公開候補収集（原文・公式性は別途照合）",
+        "sourceRead": "not_read_this_cycle",
+        "checkedAt": "2026-10-22T16:14:34.705Z",
+        "collectionBatch": "grok-public-candidates-20261023-0108",
+        "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
+      },
+      "resolvedAt": "2026-10-22T17:05:01.663Z",
+      "confirmedId": "working-heroes",
+      "reason": "元投稿の本文・投稿metadataと運営自身が示すexactアカウント所有を直接照合。継続/見込み/限定再開/終了、投稿時計と実時刻を分離。収集原本は削除せず保持。"
+    },
+    {
+      "originalPendingGroup": {
+        "names": [
+          "NEXCO西日本"
+        ],
+        "url": "https://x.com/w_nexco_news/status/2113279801079550276",
+        "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+        "sourceClass": "公開候補収集（原文・公式性は別途照合）",
+        "sourceRead": "not_read_this_cycle",
+        "checkedAt": "2026-10-22T16:14:34.705Z",
+        "collectionBatch": "grok-public-candidates-20261023-0108",
+        "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
+      },
+      "resolvedAt": "2026-10-22T17:05:01.663Z",
+      "confirmedId": "nexco-west-web",
+      "reason": "元投稿の本文・投稿metadataと運営自身が示すexactアカウント所有を直接照合。継続/見込み/限定再開/終了、投稿時計と実時刻を分離。収集原本は削除せず保持。"
+    },
+    {
+      "originalPendingGroup": {
+        "names": [
+          "TECROWD"
+        ],
+        "url": "https://x.com/tecrowd/status/2113268815685623862",
+        "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+        "sourceClass": "公開候補収集（原文・公式性は別途照合）",
+        "sourceRead": "not_read_this_cycle",
+        "checkedAt": "2026-10-22T16:14:34.705Z",
+        "collectionBatch": "grok-public-candidates-20261023-0108",
+        "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
+      },
+      "resolvedAt": "2026-10-22T17:05:01.663Z",
+      "confirmedId": "tecrowd-service",
+      "reason": "元投稿の本文・投稿metadataと運営自身が示すexactアカウント所有を直接照合。継続/見込み/限定再開/終了、投稿時計と実時刻を分離。収集原本は削除せず保持。"
+    },
+    {
+      "originalPendingGroup": {
+        "names": [
+          "DOAXVV DMM"
+        ],
+        "url": "https://x.com/doax_vv_staff/status/2113282030821937661",
+        "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+        "sourceClass": "公開候補収集（原文・公式性は別途照合）",
+        "sourceRead": "not_read_this_cycle",
+        "checkedAt": "2026-10-22T16:14:34.705Z",
+        "collectionBatch": "grok-public-candidates-20261023-0108",
+        "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
+      },
+      "resolvedAt": "2026-10-22T17:05:01.663Z",
+      "confirmedId": "doax-vv",
+      "reason": "元投稿の本文・投稿metadataと運営自身が示すexactアカウント所有を直接照合。継続/見込み/限定再開/終了、投稿時計と実時刻を分離。収集原本は削除せず保持。"
     }
   ]
 }
