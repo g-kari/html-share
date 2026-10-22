@@ -1,6 +1,6 @@
 {
   "title": "2026年10月21日前後 緊急メンテナンス・関連告知一覧",
-  "checkedAt": "2026-10-22T17:05:01.663Z",
+  "checkedAt": "2026-10-22T18:10:32Z",
   "scope": "PHPの因果不問。今回の緊急/予防メンテと同時期の関連告知・別インシデントを区分。件数による上限なし。",
   "counting": "confirmedは公式資料を確認した対象別の告知カード数（部分本文・同一基盤・包括/個別の重なりを含む）。固有サイト数・実停止数・独立インシデント数・被害数ではない。pendingは原典/公式所有/対象範囲等の追加照合待ち。関連・重複・除外理由も全収集行に保持し、件数で打ち切らない。 実施自体が未定の停止可能性の予告も別状態（possible_unstarted）で保持し、実停止・復旧には数えません。",
   "confirmed": [
@@ -12350,14 +12350,14 @@
       "id": "nicotto-town",
       "name": "ニコッとタウン",
       "cat": "game",
-      "tag": "作業継続／黒ガチャ・ニコみせ延期",
-      "status": "サービス終了未定、予定イベントも延期",
+      "tag": "一部機能を除く再開方針を案内",
+      "status": "再開方針を検討・詳細案内予定。実再開は未確認",
       "start": "10/21 22:30開始予定（原文表記。前後する可能性あり）",
-      "end": "未定。今後の見通しは随時案内",
-      "scope": "サービス再開への対応継続。10/22予定の黒ガチャ入荷・ニコみせイベント開始を延期と公式が案内。メンテナンス案内ページの表示導線は調整済み。",
-      "safe": "PHP更新だけでなく関連システム改修に時間を要するという前報を保持。後続の『メンテナンスページが表示されるようになった』は案内導線の修正で、ゲームやサービスの再開ではありません。黒ガチャ/ニコみせの新しい開始日時は今回取得本文に未記載。公式所有確認とサービス復旧も区別します。",
+      "end": "再開日時は未定。10/22付投稿は翌日の詳細案内を予告したもので、翌日の再開保証ではありません",
+      "scope": "対応がすぐに難しい一部機能を除いた再開を慎重に進める方針。黒ガチャ・ニコみせ延期の前報や、案内ページの表示導線調整とは分けて記録。",
+      "safe": "10/22 21:14:25 JSTの投稿は、一部機能を除く再開へ向けた方針と『詳細は明日ご案内』を説明。原文の翌日10/23は詳細案内の予定であり、再開日時ではありません。除外される具体的な機能や再開時刻は本投稿に未記載。前のイベント延期・案内導線改善を保持し、メンテナンス画面の表示や方針の発表をゲーム再開とは扱いません。ログイン・ゲーム操作は未実施。",
       "reason": "PHP対策と関連システム改修",
-      "url": "https://x.com/sm_nicottotown/status/2113167642622407139",
+      "url": "https://x.com/sm_nicottotown/status/2113242569534832679",
       "sources": [
         {
           "url": "https://x.com/sm_nicottotown/status/2112864646814441848",
@@ -12383,14 +12383,16 @@
       "ownershipEvidence": [
         {
           "url": "https://www.nicotto.jp/",
-          "detail": "現在のメンテナンスページが『ニコッとタウン公式X』としてhttps://x.com/sm_nicottotownを直接リンク。"
+          "detail": "現在のメンテナンスページが『ニコッとタウン公式X』としてhttps://x.com/sm_nicottotownを直接リンク。",
+          "readState": "body_retrieved",
+          "checkedAt": "2026-10-22T18:10:32Z"
         }
       ],
-      "date": "10/22 10:17 JSTの延期案内・16:39 JSTの表示導線後続",
+      "date": "10/22 21:14:25 JST投稿（UTC metadata換算）。翌日の詳細案内は実再開とは別",
       "restored": false,
-      "checkedAt": "2026-10-22T09:12:20.579Z",
+      "checkedAt": "2026-10-22T18:10:32Z",
       "sourceRead": "body_retrieved",
-      "source": "通常公開の公式告知本文と運営自身が示す正確な公式所有根拠を照合。対象・原文時刻・予定と実績を分離。各サービスへのログインや購入等の実動作検証ではありません。",
+      "source": "通常公開の元投稿本文・UTC投稿metadataと、現在の公式トップが示すexact公式Xリンクを照合。方針・予定と実再開を分離。",
       "reasonKey": "php",
       "previousNotices": [
         {
@@ -12405,8 +12407,56 @@
           "url": "https://x.com/sm_nicottotown/status/2113167642622407139",
           "restored": false,
           "checkedAt": "2026-10-22T08:10:31Z"
+        },
+        {
+          "id": "nicotto-town",
+          "name": "ニコッとタウン",
+          "cat": "game",
+          "tag": "作業継続／黒ガチャ・ニコみせ延期",
+          "status": "サービス終了未定、予定イベントも延期",
+          "start": "10/21 22:30開始予定（原文表記。前後する可能性あり）",
+          "end": "未定。今後の見通しは随時案内",
+          "scope": "サービス再開への対応継続。10/22予定の黒ガチャ入荷・ニコみせイベント開始を延期と公式が案内。メンテナンス案内ページの表示導線は調整済み。",
+          "safe": "PHP更新だけでなく関連システム改修に時間を要するという前報を保持。後続の『メンテナンスページが表示されるようになった』は案内導線の修正で、ゲームやサービスの再開ではありません。黒ガチャ/ニコみせの新しい開始日時は今回取得本文に未記載。公式所有確認とサービス復旧も区別します。",
+          "reason": "PHP対策と関連システム改修",
+          "url": "https://x.com/sm_nicottotown/status/2113167642622407139",
+          "sources": [
+            {
+              "url": "https://x.com/sm_nicottotown/status/2112864646814441848",
+              "label": "当初のPHP緊急保守開始案内"
+            },
+            {
+              "url": "https://www.nicotto.jp/",
+              "label": "公式トップのメンテナンス案内"
+            },
+            {
+              "url": "https://x.com/sm_nicottotown/status/2113167642622407139",
+              "label": "前の公式告知・判断（履歴保持）"
+            },
+            {
+              "url": "https://x.com/sm_nicottotown/status/2113077327529971754",
+              "label": "黒ガチャ・ニコみせ延期"
+            },
+            {
+              "url": "https://x.com/sm_nicottotown/status/2113173315112284635",
+              "label": "メンテ案内表示導線の調整"
+            }
+          ],
+          "ownershipEvidence": [
+            {
+              "url": "https://www.nicotto.jp/",
+              "detail": "現在のメンテナンスページが『ニコッとタウン公式X』としてhttps://x.com/sm_nicottotownを直接リンク。"
+            }
+          ],
+          "date": "10/22 10:17 JSTの延期案内・16:39 JSTの表示導線後続",
+          "restored": false,
+          "checkedAt": "2026-10-22T09:12:20.579Z",
+          "sourceRead": "body_retrieved",
+          "source": "通常公開の公式告知本文と運営自身が示す正確な公式所有根拠を照合。対象・原文時刻・予定と実績を分離。各サービスへのログインや購入等の実動作検証ではありません。",
+          "reasonKey": "php"
         }
-      ]
+      ],
+      "sourcePublishedAt": "2026-10-22T12:14:25.000Z"
     },
     {
       "id": "utapri-live-emotion",
@@ -13053,6 +13103,133 @@
       ],
       "checkedAt": "2026-10-22T17:05:01.663Z",
       "source": "通常公開の元投稿本文・UTC投稿metadataと、運営サイトが直接示す正確なX所有リンクを照合。投稿時計・実時刻・対象範囲を分離。"
+    },
+    {
+      "restored": true,
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "sourceRead": "body_retrieved",
+      "source": "通常公開の元投稿本文・UTC投稿metadataと、運営サイトのexact公式Xリンクを照合。投稿時計・原文時計・対象範囲を分離。ゲームや購入等の実操作は未実施。",
+      "noticeState": "announced",
+      "id": "legeclo",
+      "name": "れじぇくろ！～レジェンド・クローバー～",
+      "cat": "game",
+      "tag": "当該PHP臨時保守の完了を報告",
+      "status": "れじぇくろ！の当該臨時メンテナンス完了",
+      "start": "10/21 21:30より実施と終了投稿が案内（原文のTZ明示なし）",
+      "end": "10/23 01:32 JST投稿時点で完了報告。実終了時計は未記載",
+      "scope": "れじぇくろ！のPHP脆弱性対応に伴う当該臨時メンテナンス。",
+      "safe": "最新本文は10/21 21:30より行っていたPHP脆弱性対応の完了を案内。01:32:11 JSTは投稿metadataの換算で、実終了時刻ではありません。旧予告のDMM/FANZAに関する本文22:00とゲーム予定欄21:30は、そのまま履歴に残します。個別ゲームの完了をDMM/FANZA基盤や他ゲームの全面復旧へ拡張せず、ゲーム内の詳細告知やログインは実操作していません。",
+      "reason": "PHPの脆弱性対応",
+      "reasonKey": "php",
+      "url": "https://x.com/legeclo/status/2113307440171340282",
+      "date": "10/23 01:32:11 JST投稿（UTC metadata換算）",
+      "sourcePublishedAt": "2026-10-22T16:32:11.000Z",
+      "icon": "https://www.legend-clover.net/wp-content/themes/legend_clover_v2.10/assets/images/common/favicon.ico",
+      "iconSource": "公式サイトのrel=icon/shortcut icon宣言を直接確認。描画・各画像HTTP状態は未検証で文字fallbackを併設。",
+      "sources": [
+        {
+          "url": "https://x.com/legeclo/status/2112884845219299816",
+          "label": "前の実施予告（本文を再取得・両時刻を保持）"
+        }
+      ],
+      "ownershipEvidence": [
+        {
+          "url": "https://www.legend-clover.net/",
+          "detail": "ゲーム公式サイトが正確なhttps://twitter.com/legecloを直接リンク。",
+          "readState": "body_retrieved"
+        }
+      ],
+      "previousNotices": [
+        {
+          "name": "れじぇくろ！～レジェンド・クローバー～",
+          "url": "https://x.com/legeclo/status/2112884845219299816",
+          "date": "10/21 21:32:57 JST投稿（UTC metadata換算）",
+          "status": "予防的な臨時保守の事前告知",
+          "start": "本文はDMM/FANZAの22:00、ゲーム予定欄は10/21 21:30と記載",
+          "end": "終了時間未定",
+          "scope": "当該ゲームのプレイ不可を予告。",
+          "reason": "DMM/FANZAのシステム安全性のための予防的措置。PHP名はこの旧本文に未記載",
+          "safe": "異なる2つの原文時刻を消さず保持。最新の終了投稿ではゲーム自身の開始21:30を明示。"
+        }
+      ]
+    },
+    {
+      "restored": true,
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "sourceRead": "body_retrieved",
+      "source": "通常公開の元投稿本文・UTC投稿metadataと、運営サイトのexact公式Xリンクを照合。投稿時計・原文時計・対象範囲を分離。ゲームや購入等の実操作は未実施。",
+      "noticeState": "announced",
+      "id": "betsuma-web",
+      "name": "別冊マーガレット公式HP",
+      "cat": "web",
+      "tag": "公式HPの終了報告・終了日の解釈は未確定",
+      "status": "公式ホームページは緊急メンテ終了・通常利用を報告",
+      "start": "原文は『昨晩より』。今回の取得だけで絶対開始日を確定しません",
+      "end": "原文『本日21:50頃』に終了。投稿metadataとの暦日の整合は未確定",
+      "scope": "別冊マーガレット公式ホームページ。出版社の他サイト・電子書店・作品の提供状況とは別。",
+      "safe": "本文はHPが現在通常利用できると報告。一方、投稿metadataのJST換算は10/23 01:14:28で、既に終わった『本日21:50頃』という本文とは暦日の整合が取れていません。10/23 21:50という未来時計にも、根拠なく10/22 21:50という確定日付にも補正せず、終了の報告と日付未確定を分けます。引用表示された先行告知は安全性確保の予防措置で、不正アクセス確認によるものではないと運営が説明。独自の侵害調査・電子書店の復旧確認ではありません。",
+      "reason": "安全性確保の予防的措置（PHP名は取得本文に未記載）",
+      "reasonKey": "security",
+      "url": "https://x.com/betsuma_info/status/2113302979696906253",
+      "date": "10/23 01:14:28 JST投稿（UTC metadata換算）。本文の相対終了日と整合は未確定",
+      "sourcePublishedAt": "2026-10-22T16:14:28.000Z",
+      "icon": "https://betsuma.shueisha.co.jp/common/img/favicon.ico",
+      "iconSource": "公式サイトのrel=icon/shortcut icon宣言を直接確認。相対URLを公式originから解決。描画は未検証。",
+      "ownershipEvidence": [
+        {
+          "url": "https://betsuma.shueisha.co.jp/",
+          "detail": "集英社の別冊マーガレット公式サイトが正確なhttps://twitter.com/betsuma_infoを直接リンク。",
+          "readState": "body_retrieved"
+        }
+      ]
+    },
+    {
+      "restored": true,
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "sourceRead": "body_retrieved",
+      "source": "通常公開の元投稿本文・UTC投稿metadataと、運営サイトのexact公式Xリンクを照合。投稿時計・原文時計・対象範囲を分離。ゲームや購入等の実操作は未実施。",
+      "noticeState": "announced",
+      "id": "summons-board",
+      "name": "サモンズボード",
+      "cat": "game",
+      "tag": "当該緊急メンテナンス終了を報告",
+      "status": "サモンズボードの当該緊急メンテナンス終了",
+      "start": "今回の継続・終了投稿に実開始日時の記載なし",
+      "end": "10/23 02:00 JST投稿時点で終了報告。実終了時計は未記載",
+      "scope": "サモンズボードの当該緊急メンテナンス。",
+      "safe": "02:00:34 JSTは投稿metadataの換算であり実終了時刻ではありません。前の00:52:23 JST投稿時点の実施中案内は履歴に保持。終了本文にプラットフォーム別の内訳や原因説明はなく、PHP因果や他のガンホーサービスの復旧は推定しません。返信内容を根拠にせず、ゲーム起動・ログインは未実施。",
+      "reason": "継続・終了投稿に原因・PHP名の明記なし",
+      "reasonKey": "unknown",
+      "url": "https://x.com/summons_board/status/2113314583675105337",
+      "date": "10/23 02:00:34 JST投稿（UTC metadata換算）",
+      "sourcePublishedAt": "2026-10-22T17:00:34.000Z",
+      "icon": "https://sb.gungho.jp/common/img/favicon.ico",
+      "iconSource": "運営公式ページのshortcut icon宣言を直接確認。root相対URLを公式originから解決。描画は未検証。",
+      "sources": [
+        {
+          "url": "https://x.com/summons_board/status/2113297421061267648",
+          "label": "前の保守実施中投稿（今回原文を取得）"
+        }
+      ],
+      "ownershipEvidence": [
+        {
+          "url": "https://sb.gungho.jp/member/",
+          "detail": "ゲーム運営サイトが正確なhttps://twitter.com/summons_boardを直接リンク。",
+          "readState": "body_retrieved"
+        }
+      ],
+      "previousNotices": [
+        {
+          "name": "サモンズボード",
+          "url": "https://x.com/summons_board/status/2113297421061267648",
+          "date": "10/23 00:52:23 JST投稿（UTC metadata換算）",
+          "status": "緊急メンテナンス実施中と案内",
+          "start": "未記載",
+          "end": "未記載",
+          "scope": "当該ゲームの緊急メンテナンス。",
+          "reason": "原因・PHP名はこの本文にも未記載"
+        }
+      ]
     }
   ],
   "pending": [
@@ -36489,18 +36666,6 @@
     },
     {
       "names": [
-        "サモンズボード"
-      ],
-      "url": "https://x.com/summons_board/status/2113297421061267648",
-      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
-      "sourceClass": "公開候補収集（原文・公式性は別途照合）",
-      "sourceRead": "not_read_this_cycle",
-      "checkedAt": "2026-10-22T16:14:34.705Z",
-      "collectionBatch": "grok-public-candidates-20261023-0108",
-      "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
-    },
-    {
-      "names": [
         "tarshi"
       ],
       "url": "https://x.com/tarshi_info/status/2113295591870755262",
@@ -37265,6 +37430,578 @@
       "sourceRead": "not_read_this_cycle",
       "checkedAt": "2026-10-22T16:14:34.705Z",
       "collectionBatch": "grok-public-candidates-20261023-0108",
+      "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
+    },
+    {
+      "names": [
+        "ERIKA IKUTA OFFICIAL SITE(生田絵梨花)"
+      ],
+      "url": "https://x.com/ImaizumTakaYUKI/status/2113300967349424357",
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceClass": "公開候補収集（原文・公式性は別途照合）",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "sourceRows": [
+        1
+      ],
+      "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
+    },
+    {
+      "names": [
+        "sc59_jp サイト"
+      ],
+      "url": "https://x.com/sc59_jp/status/2113320647824937317",
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceClass": "公開候補収集（原文・公式性は別途照合）",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "sourceRows": [
+        2
+      ],
+      "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
+    },
+    {
+      "names": [
+        "モナカード"
+      ],
+      "url": "https://x.com/_monacard/status/2113321920758493378",
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceClass": "公開候補収集（原文・公式性は別途照合）",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "sourceRows": [
+        3
+      ],
+      "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
+    },
+    {
+      "names": [
+        "ラクスパ ホームページ"
+      ],
+      "url": "https://x.com/rakuspa/status/2113324874207023437",
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceClass": "公開候補収集（原文・公式性は別途照合）",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "sourceRows": [
+        4
+      ],
+      "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
+    },
+    {
+      "names": [
+        "ycinc_official 公式サイト"
+      ],
+      "url": "https://x.com/ikura8989/status/2113325034588852511",
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceClass": "公開候補収集（原文・公式性は別途照合）",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "sourceRows": [
+        5
+      ],
+      "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
+    },
+    {
+      "names": [
+        "エトランゼBLOG"
+      ],
+      "url": "https://x.com/ETRANJER_uranai/status/2113325528925237481",
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceClass": "公開候補収集（原文・公式性は別途照合）",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "sourceRows": [
+        6
+      ],
+      "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
+    },
+    {
+      "names": [
+        "エロゲミー/エロゲソザイINDEX"
+      ],
+      "url": "https://x.com/ErogemyOfficial/status/2113326606131580970",
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceClass": "公開候補収集（原文・公式性は別途照合）",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "sourceRows": [
+        7
+      ],
+      "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
+    },
+    {
+      "names": [
+        "まごころケア食/ライフミール/こだわりシェフ/おてがるシェフ",
+        "わけありなおかず屋さん"
+      ],
+      "url": "https://x.com/tokumei_banzai_/status/2113327356027007454",
+      "note": "同じ元URLに異なるサービス名・異なる終了/継続分類が収集されているため、両方の収集行を保持。原文・対象別の状態は未照合です。",
+      "sourceClass": "公開候補収集（原文・公式性は別途照合）",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "sourceRows": [
+        8,
+        30
+      ],
+      "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
+    },
+    {
+      "names": [
+        "TWICE公式サイト・公式FCサイト"
+      ],
+      "url": "https://x.com/NFTwYuri/status/2113327687263568203",
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceClass": "公開候補収集（原文・公式性は別途照合）",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "sourceRows": [
+        9
+      ],
+      "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
+    },
+    {
+      "names": [
+        "PremUngarla サイト"
+      ],
+      "url": "https://x.com/PremUngarla/status/2113327870861066303",
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceClass": "公開候補収集（原文・公式性は別途照合）",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "sourceRows": [
+        10
+      ],
+      "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
+    },
+    {
+      "names": [
+        "PLiCy"
+      ],
+      "url": "https://x.com/DocSeventeenth/status/2113308598428389416",
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceClass": "公開候補収集（原文・公式性は別途照合）",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "sourceRows": [
+        11
+      ],
+      "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
+    },
+    {
+      "names": [
+        "ファンクラブ候補（運営主体の表記を未照合）"
+      ],
+      "url": "https://x.com/mukudoriwasora1/status/2113309632332714308",
+      "note": "収集側の所属・運営表記が一致せず対象を確認中。原文・正確な公式所有を未照合。",
+      "sourceClass": "公開候補収集（原文・公式性は別途照合）",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "sourceRows": [
+        12
+      ],
+      "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
+    },
+    {
+      "names": [
+        "e沼(沼津eスポーツ)公式サイト"
+      ],
+      "url": "https://x.com/numazu_esp/status/2113319055738405130",
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceClass": "公開候補収集（原文・公式性は別途照合）",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "sourceRows": [
+        16
+      ],
+      "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
+    },
+    {
+      "names": [
+        "penpe.net"
+      ],
+      "url": "https://x.com/penpe_net_/status/2113325503147020317",
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceClass": "公開候補収集（原文・公式性は別途照合）",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "sourceRows": [
+        17
+      ],
+      "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
+    },
+    {
+      "names": [
+        "Soma fan club \"space\""
+      ],
+      "url": "https://x.com/ri_06_i_/status/2113328167477780560",
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceClass": "公開候補収集（原文・公式性は別途照合）",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "sourceRows": [
+        19
+      ],
+      "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
+    },
+    {
+      "names": [
+        "愛知県 公式サイト「ネットあいち」"
+      ],
+      "url": "https://x.com/bakawind3_8/status/2113312117101298013",
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceClass": "公開候補収集（原文・公式性は別途照合）",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "sourceRows": [
+        20
+      ],
+      "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
+    },
+    {
+      "names": [
+        "訪問看護ステーションは～とふる多摩センター 公式HP"
+      ],
+      "url": "https://x.com/heartfultama/status/2113315677658607768",
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceClass": "公開候補収集（原文・公式性は別途照合）",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "sourceRows": [
+        21
+      ],
+      "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
+    },
+    {
+      "names": [
+        "まどドラ"
+      ],
+      "url": "https://x.com/kirstencooper7/status/2113313614518206787",
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceClass": "公開候補収集（原文・公式性は別途照合）",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "sourceRows": [
+        22
+      ],
+      "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
+    },
+    {
+      "names": [
+        "テンタメ"
+      ],
+      "url": "https://x.com/GPJAPANex3/status/2113316246401974759",
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceClass": "公開候補収集（原文・公式性は別途照合）",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "sourceRows": [
+        23
+      ],
+      "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
+    },
+    {
+      "names": [
+        "伊勢ヶ浜部屋 公式HP"
+      ],
+      "url": "https://x.com/gojinimuchu/status/2113324927789199561",
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceClass": "公開候補収集（原文・公式性は別途照合）",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "sourceRows": [
+        24
+      ],
+      "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
+    },
+    {
+      "names": [
+        "noah_ghc 公式サイト"
+      ],
+      "url": "https://x.com/stonecoldage/status/2113325057217089654",
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceClass": "公開候補収集（原文・公式性は別途照合）",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "sourceRows": [
+        25
+      ],
+      "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
+    },
+    {
+      "names": [
+        "DECA BEAT 公式サイト"
+      ],
+      "url": "https://x.com/yxmxgxn/status/2113325429549641777",
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceClass": "公開候補収集（原文・公式性は別途照合）",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "sourceRows": [
+        26
+      ],
+      "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
+    },
+    {
+      "names": [
+        "yokoyama_hide 関連サービス"
+      ],
+      "url": "https://x.com/HlTn67246/status/2113325659061899682",
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceClass": "公開候補収集（原文・公式性は別途照合）",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "sourceRows": [
+        27
+      ],
+      "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
+    },
+    {
+      "names": [
+        "めておら公式HP"
+      ],
+      "url": "https://x.com/Yomaridesu/status/2113325748677431737",
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceClass": "公開候補収集（原文・公式性は別途照合）",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "sourceRows": [
+        28
+      ],
+      "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
+    },
+    {
+      "names": [
+        "srilanka_jewels Webサイト"
+      ],
+      "url": "https://x.com/srilanka_jewels/status/2113325746961948894",
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceClass": "公開候補収集（原文・公式性は別途照合）",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "sourceRows": [
+        29
+      ],
+      "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
+    },
+    {
+      "names": [
+        "高知県内 少なくとも20市町村のHP"
+      ],
+      "url": "https://x.com/joe22113/status/2113322384665297046",
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceClass": "公開候補収集（原文・公式性は別途照合）",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "sourceRows": [
+        31
+      ],
+      "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
+    },
+    {
+      "names": [
+        "沖縄県 行政資料目録検索システム"
+      ],
+      "url": "https://x.com/MalwareBibleJP/status/2113305133807525921",
+      "note": "第三者由来の停止関連候補。公式原典・対象・日時・原因は未照合で、原因に関する未検証の主張は採用しません。",
+      "sourceClass": "公開候補収集（原文・公式性は別途照合）",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "sourceRows": [
+        32
+      ],
+      "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
+    },
+    {
+      "names": [
+        "mixi 日記"
+      ],
+      "url": "https://x.com/motomf/status/2113305176719478854",
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceClass": "公開候補収集（原文・公式性は別途照合）",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "sourceRows": [
+        33
+      ],
+      "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
+    },
+    {
+      "names": [
+        "ママスタセレクト"
+      ],
+      "url": "https://x.com/codyyyyyyy/status/2113306118168469839",
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceClass": "公開候補収集（原文・公式性は別途照合）",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "sourceRows": [
+        34
+      ],
+      "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
+    },
+    {
+      "names": [
+        "すき家 弁当予約アプリ"
+      ],
+      "url": "https://x.com/_ho_pe/status/2113313596797313366",
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceClass": "公開候補収集（原文・公式性は別途照合）",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "sourceRows": [
+        35
+      ],
+      "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
+    },
+    {
+      "names": [
+        "ゲソてん"
+      ],
+      "url": "https://x.com/masilite/status/2113313451473039779",
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceClass": "公開候補収集（原文・公式性は別途照合）",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "sourceRows": [
+        36
+      ],
+      "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
+    },
+    {
+      "names": [
+        "DLsite"
+      ],
+      "url": "https://x.com/IrmeliPja/status/2113319088802148547",
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceClass": "公開候補収集（原文・公式性は別途照合）",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "sourceRows": [
+        37
+      ],
+      "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
+    },
+    {
+      "names": [
+        "sumika FC『ATTiC ROOM』"
+      ],
+      "url": "https://x.com/LuminusK77058/status/2113325502647701621",
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceClass": "公開候補収集（原文・公式性は別途照合）",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "sourceRows": [
+        38
+      ],
+      "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
+    },
+    {
+      "names": [
+        "KAIBA CORPORATION STORE"
+      ],
+      "url": "https://x.com/Regenshinnameko/status/2113325674060800430",
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceClass": "公開候補収集（原文・公式性は別途照合）",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "sourceRows": [
+        39
+      ],
+      "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
+    },
+    {
+      "names": [
+        "神撃のバハムート"
+      ],
+      "url": "https://x.com/nangi_siraha/status/2113324750651232589",
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceClass": "公開候補収集（原文・公式性は別途照合）",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "sourceRows": [
+        40
+      ],
+      "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
+    },
+    {
+      "names": [
+        "ダーツライブ"
+      ],
+      "url": "https://x.com/ringo_darts26/status/2113326677241823629",
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceClass": "公開候補収集（原文・公式性は別途照合）",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "sourceRows": [
+        41
+      ],
+      "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
+    },
+    {
+      "names": [
+        "JAL Wellness & Travel"
+      ],
+      "url": "https://x.com/John_doe_SERU/status/2113328282825642358",
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceClass": "公開候補収集（原文・公式性は別途照合）",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "sourceRows": [
+        42
+      ],
+      "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
+    },
+    {
+      "names": [
+        "静岡銀行 HP・しずぎんアプリ"
+      ],
+      "url": "https://x.com/ZhuniRi/status/2113327757920993498",
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceClass": "公開候補収集（原文・公式性は別途照合）",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "sourceRows": [
+        43
+      ],
       "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
     }
   ],
@@ -74243,6 +74980,499 @@
       "sourceRead": "body_retrieved",
       "checkedAt": "2026-10-22T16:14:34.705Z",
       "collectionBatch": "public-notice-followup-20261023-sakura"
+    },
+    {
+      "name": "ERIKA IKUTA OFFICIAL SITE(生田絵梨花)",
+      "sourceUrl": "https://x.com/ImaizumTakaYUKI/status/2113300967349424357",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "collectionRow": 1
+    },
+    {
+      "name": "sc59_jp サイト",
+      "sourceUrl": "https://x.com/sc59_jp/status/2113320647824937317",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "collectionRow": 2
+    },
+    {
+      "name": "モナカード",
+      "sourceUrl": "https://x.com/_monacard/status/2113321920758493378",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "collectionRow": 3
+    },
+    {
+      "name": "ラクスパ ホームページ",
+      "sourceUrl": "https://x.com/rakuspa/status/2113324874207023437",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "collectionRow": 4
+    },
+    {
+      "name": "ycinc_official 公式サイト",
+      "sourceUrl": "https://x.com/ikura8989/status/2113325034588852511",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "collectionRow": 5
+    },
+    {
+      "name": "エトランゼBLOG",
+      "sourceUrl": "https://x.com/ETRANJER_uranai/status/2113325528925237481",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "collectionRow": 6
+    },
+    {
+      "name": "エロゲミー/エロゲソザイINDEX",
+      "sourceUrl": "https://x.com/ErogemyOfficial/status/2113326606131580970",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "collectionRow": 7
+    },
+    {
+      "name": "まごころケア食/ライフミール/こだわりシェフ/おてがるシェフ",
+      "sourceUrl": "https://x.com/tokumei_banzai_/status/2113327356027007454",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "collectionRow": 8
+    },
+    {
+      "name": "TWICE公式サイト・公式FCサイト",
+      "sourceUrl": "https://x.com/NFTwYuri/status/2113327687263568203",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "collectionRow": 9
+    },
+    {
+      "name": "PremUngarla サイト",
+      "sourceUrl": "https://x.com/PremUngarla/status/2113327870861066303",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "collectionRow": 10
+    },
+    {
+      "name": "PLiCy",
+      "sourceUrl": "https://x.com/DocSeventeenth/status/2113308598428389416",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "collectionRow": 11
+    },
+    {
+      "name": "ファンクラブ候補（運営主体の表記を未照合）",
+      "sourceUrl": "https://x.com/mukudoriwasora1/status/2113309632332714308",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "収集側の所属・運営表記が一致せず対象を確認中。原文・正確な公式所有を未照合。",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "collectionRow": 12
+    },
+    {
+      "name": "別冊マーガレット HP",
+      "sourceUrl": "https://x.com/betsuma_info/status/2113302979696906253",
+      "verification": "confirmed",
+      "confirmedId": "betsuma-web",
+      "note": "元投稿本文・metadataとexact公式所有を照合。対象別カードへ対応し、収集側の分類や集計を根拠にしません。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "collectionRow": 13
+    },
+    {
+      "name": "れじぇくろ！",
+      "sourceUrl": "https://x.com/legeclo/status/2113307440171340282",
+      "verification": "confirmed",
+      "confirmedId": "legeclo",
+      "note": "元投稿本文・metadataとexact公式所有を照合。対象別カードへ対応し、収集側の分類や集計を根拠にしません。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "collectionRow": 14
+    },
+    {
+      "name": "サモンズボード",
+      "sourceUrl": "https://x.com/summons_board/status/2113314583675105337",
+      "verification": "confirmed",
+      "confirmedId": "summons-board",
+      "note": "元投稿本文・metadataとexact公式所有を照合。対象別カードへ対応し、収集側の分類や集計を根拠にしません。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "collectionRow": 15
+    },
+    {
+      "name": "e沼(沼津eスポーツ)公式サイト",
+      "sourceUrl": "https://x.com/numazu_esp/status/2113319055738405130",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "collectionRow": 16
+    },
+    {
+      "name": "penpe.net",
+      "sourceUrl": "https://x.com/penpe_net_/status/2113325503147020317",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "collectionRow": 17
+    },
+    {
+      "name": "ブルーロック PWC",
+      "sourceUrl": "https://x.com/BLUELOCK_PWC/status/2113327950443745782",
+      "verification": "related",
+      "confirmedId": null,
+      "note": "終了本文と事前予告のバージョン更新を確認。緊急/PHP対応との関係は未確認の関連枠とし、緊急カード/復旧件数には加えません。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "collectionRow": 18
+    },
+    {
+      "name": "Soma fan club \"space\"",
+      "sourceUrl": "https://x.com/ri_06_i_/status/2113328167477780560",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "collectionRow": 19
+    },
+    {
+      "name": "愛知県 公式サイト「ネットあいち」",
+      "sourceUrl": "https://x.com/bakawind3_8/status/2113312117101298013",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "collectionRow": 20
+    },
+    {
+      "name": "訪問看護ステーションは～とふる多摩センター 公式HP",
+      "sourceUrl": "https://x.com/heartfultama/status/2113315677658607768",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "collectionRow": 21
+    },
+    {
+      "name": "まどドラ",
+      "sourceUrl": "https://x.com/kirstencooper7/status/2113313614518206787",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "collectionRow": 22
+    },
+    {
+      "name": "テンタメ",
+      "sourceUrl": "https://x.com/GPJAPANex3/status/2113316246401974759",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "collectionRow": 23
+    },
+    {
+      "name": "伊勢ヶ浜部屋 公式HP",
+      "sourceUrl": "https://x.com/gojinimuchu/status/2113324927789199561",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "collectionRow": 24
+    },
+    {
+      "name": "noah_ghc 公式サイト",
+      "sourceUrl": "https://x.com/stonecoldage/status/2113325057217089654",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "collectionRow": 25
+    },
+    {
+      "name": "DECA BEAT 公式サイト",
+      "sourceUrl": "https://x.com/yxmxgxn/status/2113325429549641777",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "collectionRow": 26
+    },
+    {
+      "name": "yokoyama_hide 関連サービス",
+      "sourceUrl": "https://x.com/HlTn67246/status/2113325659061899682",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "collectionRow": 27
+    },
+    {
+      "name": "めておら公式HP",
+      "sourceUrl": "https://x.com/Yomaridesu/status/2113325748677431737",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "collectionRow": 28
+    },
+    {
+      "name": "srilanka_jewels Webサイト",
+      "sourceUrl": "https://x.com/srilanka_jewels/status/2113325746961948894",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "collectionRow": 29
+    },
+    {
+      "name": "わけありなおかず屋さん",
+      "sourceUrl": "https://x.com/tokumei_banzai_/status/2113327356027007454",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "collectionRow": 30
+    },
+    {
+      "name": "高知県内 少なくとも20市町村のHP",
+      "sourceUrl": "https://x.com/joe22113/status/2113322384665297046",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "collectionRow": 31
+    },
+    {
+      "name": "沖縄県 行政資料目録検索システム",
+      "sourceUrl": "https://x.com/MalwareBibleJP/status/2113305133807525921",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "第三者由来の停止関連候補。公式原典・対象・日時・原因は未照合で、原因に関する未検証の主張は採用しません。",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "collectionRow": 32
+    },
+    {
+      "name": "mixi 日記",
+      "sourceUrl": "https://x.com/motomf/status/2113305176719478854",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "collectionRow": 33
+    },
+    {
+      "name": "ママスタセレクト",
+      "sourceUrl": "https://x.com/codyyyyyyy/status/2113306118168469839",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "collectionRow": 34
+    },
+    {
+      "name": "すき家 弁当予約アプリ",
+      "sourceUrl": "https://x.com/_ho_pe/status/2113313596797313366",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "collectionRow": 35
+    },
+    {
+      "name": "ゲソてん",
+      "sourceUrl": "https://x.com/masilite/status/2113313451473039779",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "collectionRow": 36
+    },
+    {
+      "name": "DLsite",
+      "sourceUrl": "https://x.com/IrmeliPja/status/2113319088802148547",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "collectionRow": 37
+    },
+    {
+      "name": "sumika FC『ATTiC ROOM』",
+      "sourceUrl": "https://x.com/LuminusK77058/status/2113325502647701621",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "collectionRow": 38
+    },
+    {
+      "name": "KAIBA CORPORATION STORE",
+      "sourceUrl": "https://x.com/Regenshinnameko/status/2113325674060800430",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "collectionRow": 39
+    },
+    {
+      "name": "神撃のバハムート",
+      "sourceUrl": "https://x.com/nangi_siraha/status/2113324750651232589",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "collectionRow": 40
+    },
+    {
+      "name": "ダーツライブ",
+      "sourceUrl": "https://x.com/ringo_darts26/status/2113326677241823629",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "collectionRow": 41
+    },
+    {
+      "name": "JAL Wellness & Travel",
+      "sourceUrl": "https://x.com/John_doe_SERU/status/2113328282825642358",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "collectionRow": 42
+    },
+    {
+      "name": "静岡銀行 HP・しずぎんアプリ",
+      "sourceUrl": "https://x.com/ZhuniRi/status/2113327757920993498",
+      "verification": "pending",
+      "confirmedId": null,
+      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+      "sourceRead": "not_read_this_cycle",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "grok-public-candidates-20261023-0300",
+      "collectionRow": 43
+    },
+    {
+      "name": "ニコッとタウン：一部機能を除く再開方針",
+      "sourceUrl": "https://x.com/sm_nicottotown/status/2113242569534832679",
+      "verification": "confirmed",
+      "confirmedId": "nicotto-town",
+      "note": "詳細案内の予定と実再開を分離した公式後続。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "public-notice-followup-20261023-0310"
+    },
+    {
+      "name": "ブルーロックPWC：Ver.5.9.0更新の事前予告",
+      "sourceUrl": "https://x.com/BLUELOCK_PWC/status/2112921860572631115",
+      "verification": "related",
+      "confirmedId": null,
+      "note": "事前予告のバージョン更新。PHP/緊急保守への因果は推定しない。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "collectionBatch": "public-notice-followup-20261023-0310"
     }
   ],
   "related": [
@@ -74500,10 +75730,29 @@
     {
       "name": "れじぇくろ！🌕",
       "url": "https://x.com/legeclo/status/2112884845219299816",
-      "note": "れじぇくろ！はDMM関連保守。本文本日22:00と予定欄21:30が不一致のため開始時刻に注意。 DMM/FANZA基盤の同一保守または連動告知として既存集約へ関連付ける。個別投稿の公式所有は未照合のため新規確定件数へ加えない。",
+      "note": "当初はDMM関連の予告として保持した資料。今回は旧本文と最新のPHP臨時保守終了本文、運営自身のexact公式所有を照合し、れじぇくろ個別カードへ対応。旧本文のDMM/FANZA 22:00とゲーム予定欄21:30の両表記は履歴に保持し、DMM基盤全体の復旧にはしません。",
       "confirmedId": "dmm",
-      "ownershipEvidence": [],
-      "nextVerificationCondition": "公式所有を示す資料・対象サイトの個別告知・最新の変更/復旧報告が公開または再取得可能になった時点で照合。時刻経過やHTTP200だけでは確定しない。"
+      "ownershipEvidence": [
+        {
+          "url": "https://www.legend-clover.net/",
+          "detail": "ゲーム公式サイトが正確なhttps://twitter.com/legecloを直接リンク。",
+          "readState": "body_retrieved"
+        }
+      ],
+      "nextVerificationCondition": "公式所有を示す資料・対象サイトの個別告知・最新の変更/復旧報告が公開または再取得可能になった時点で照合。時刻経過やHTTP200だけでは確定しない。",
+      "linkedConfirmedId": "legeclo",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "previousStates": [
+        {
+          "name": "れじぇくろ！🌕",
+          "url": "https://x.com/legeclo/status/2112884845219299816",
+          "note": "れじぇくろ！はDMM関連保守。本文本日22:00と予定欄21:30が不一致のため開始時刻に注意。 DMM/FANZA基盤の同一保守または連動告知として既存集約へ関連付ける。個別投稿の公式所有は未照合のため新規確定件数へ加えない。",
+          "confirmedId": "dmm",
+          "ownershipEvidence": [],
+          "nextVerificationCondition": "公式所有を示す資料・対象サイトの個別告知・最新の変更/復旧報告が公開または再取得可能になった時点で照合。時刻経過やHTTP200だけでは確定しない。"
+        }
+      ]
     },
     {
       "name": "超昂大戦 エスカレーションヒロインズ",
@@ -75393,6 +76642,29 @@
       "sourceRead": "body_retrieved",
       "checkedAt": "2026-10-22T11:59:24Z",
       "icon": "https://support.dmm.com/favicon.ico"
+    },
+    {
+      "name": "ブルーロックPWC：事前予告のVer.5.9.0更新保守",
+      "url": "https://x.com/BLUELOCK_PWC/status/2113327950443745782",
+      "note": "公式の終了本文は10/23 2:51頃終了・プレイにアプリ更新が必要と案内（本文TZ明示なし）。別の公式原典は10/23のVer.5.9.0更新を事前予告しており、PHP/緊急対応との因果は確認できません。更新予告の予定時計を実績や現在の予定として読み替えず、緊急カードや復旧件数には追加しません。02:53:41 JSTは投稿metadataの換算で、2:51頃という実績表記と区別。ゲーム操作は未実施。",
+      "sourceRead": "body_retrieved",
+      "sourcePublishedAt": "2026-10-22T17:53:41.000Z",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "kind": "planned_version_update_relation_to_emergency_unconfirmed",
+      "sources": [
+        {
+          "url": "https://x.com/BLUELOCK_PWC/status/2112921860572631115",
+          "label": "Ver.5.9.0アップデートの事前予告（原文取得）"
+        }
+      ],
+      "ownershipEvidence": [
+        {
+          "url": "https://bluelock-pwc.com/",
+          "detail": "ゲーム公式サイトが正確なhttps://twitter.com/BLUELOCK_PWCを直接リンク。",
+          "readState": "body_retrieved"
+        }
+      ],
+      "icon": "https://bluelock-pwc.com/favicon.ico"
     }
   ],
   "excluded": [
@@ -99109,6 +100381,134 @@
           "readState": "body_retrieved"
         }
       ]
+    },
+    {
+      "sourceUrl": "https://x.com/sm_nicottotown/status/2113242569534832679",
+      "names": [
+        "ニコッとタウン"
+      ],
+      "decision": "confirmed",
+      "reason": "元投稿本文・投稿metadata・運営のexact公式所有を照合。日付未確定や対象限定をそのまま記録。",
+      "confirmedId": "nicotto-town",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "sourcePublishedAt": "2026-10-22T12:14:25.000Z",
+      "sourceRead": "body_retrieved",
+      "ownershipEvidence": [
+        {
+          "url": "https://www.nicotto.jp/",
+          "detail": "現在のメンテナンスページが『ニコッとタウン公式X』としてhttps://x.com/sm_nicottotownを直接リンク。",
+          "readState": "body_retrieved",
+          "checkedAt": "2026-10-22T18:10:32Z"
+        }
+      ]
+    },
+    {
+      "sourceUrl": "https://x.com/legeclo/status/2113307440171340282",
+      "names": [
+        "れじぇくろ！～レジェンド・クローバー～"
+      ],
+      "decision": "confirmed",
+      "reason": "元投稿本文・投稿metadata・運営のexact公式所有を照合。日付未確定や対象限定をそのまま記録。",
+      "confirmedId": "legeclo",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "sourcePublishedAt": "2026-10-22T16:32:11.000Z",
+      "sourceRead": "body_retrieved",
+      "ownershipEvidence": [
+        {
+          "url": "https://www.legend-clover.net/",
+          "detail": "ゲーム公式サイトが正確なhttps://twitter.com/legecloを直接リンク。",
+          "readState": "body_retrieved"
+        }
+      ]
+    },
+    {
+      "sourceUrl": "https://x.com/betsuma_info/status/2113302979696906253",
+      "names": [
+        "別冊マーガレット公式HP"
+      ],
+      "decision": "confirmed",
+      "reason": "元投稿本文・投稿metadata・運営のexact公式所有を照合。日付未確定や対象限定をそのまま記録。",
+      "confirmedId": "betsuma-web",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "sourcePublishedAt": "2026-10-22T16:14:28.000Z",
+      "sourceRead": "body_retrieved",
+      "ownershipEvidence": [
+        {
+          "url": "https://betsuma.shueisha.co.jp/",
+          "detail": "集英社の別冊マーガレット公式サイトが正確なhttps://twitter.com/betsuma_infoを直接リンク。",
+          "readState": "body_retrieved"
+        }
+      ]
+    },
+    {
+      "sourceUrl": "https://x.com/summons_board/status/2113314583675105337",
+      "names": [
+        "サモンズボード"
+      ],
+      "decision": "confirmed",
+      "reason": "元投稿本文・投稿metadata・運営のexact公式所有を照合。日付未確定や対象限定をそのまま記録。",
+      "confirmedId": "summons-board",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "sourcePublishedAt": "2026-10-22T17:00:34.000Z",
+      "sourceRead": "body_retrieved",
+      "ownershipEvidence": [
+        {
+          "url": "https://sb.gungho.jp/member/",
+          "detail": "ゲーム運営サイトが正確なhttps://twitter.com/summons_boardを直接リンク。",
+          "readState": "body_retrieved"
+        }
+      ]
+    },
+    {
+      "sourceUrl": "https://x.com/summons_board/status/2113297421061267648",
+      "names": [
+        "サモンズボード"
+      ],
+      "decision": "confirmed",
+      "confirmedId": "summons-board",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "sourcePublishedAt": "2026-10-22T15:52:23.000Z",
+      "sourceRead": "body_retrieved",
+      "reason": "前の実施/予告本文を読み、現在カードと履歴へ対応。旧原本の当時判断を上書きしない。"
+    },
+    {
+      "sourceUrl": "https://x.com/legeclo/status/2112884845219299816",
+      "names": [
+        "れじぇくろ！"
+      ],
+      "decision": "confirmed",
+      "confirmedId": "legeclo",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "sourcePublishedAt": "2026-10-21T12:32:57.000Z",
+      "sourceRead": "body_retrieved",
+      "reason": "前の実施/予告本文を読み、現在カードと履歴へ対応。旧原本の当時判断を上書きしない。"
+    },
+    {
+      "sourceUrl": "https://x.com/BLUELOCK_PWC/status/2113327950443745782",
+      "names": [
+        "ブルーロックPWC：事前予告のVer.5.9.0更新保守"
+      ],
+      "decision": "related",
+      "reason": "公式の終了本文は10/23 2:51頃終了・プレイにアプリ更新が必要と案内（本文TZ明示なし）。別の公式原典は10/23のVer.5.9.0更新を事前予告しており、PHP/緊急対応との因果は確認できません。予定時間の訂正後続も表示されるため旧予定を現在予定として再掲せず、緊急カードや復旧件数には追加しません。02:53:41 JSTは投稿metadataの換算で、2:51頃という実績表記と区別。ゲーム操作は未実施。",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "sourceRead": "body_retrieved",
+      "ownershipEvidence": [
+        {
+          "url": "https://bluelock-pwc.com/",
+          "detail": "ゲーム公式サイトが正確なhttps://twitter.com/BLUELOCK_PWCを直接リンク。",
+          "readState": "body_retrieved"
+        }
+      ]
+    },
+    {
+      "sourceUrl": "https://x.com/BLUELOCK_PWC/status/2112921860572631115",
+      "names": [
+        "ブルーロックPWC：事前予告のVer.5.9.0更新保守"
+      ],
+      "decision": "related",
+      "reason": "事前予告のVer.5.9.0更新原典。PHP緊急対応との同一性は確認できず関連へ。",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "sourceRead": "body_retrieved"
     }
   ],
   "relationships": [
@@ -99279,6 +100679,18 @@
       "childId": "mist-train-girls",
       "type": "older_unread_multi_game_group_remains_unresolved",
       "reason": "旧収集の複数ゲーム名が付いた元URL本文は未確認。新しいミストレ単独終了だけで旧元URLや併記された他ゲームを検証済みにしない。"
+    },
+    {
+      "parentId": "dmm",
+      "childId": "legeclo",
+      "type": "game_specific_completion_not_platform_wide",
+      "reason": "個別PHP臨時保守の完了と、DMM包括対象の状態は別。旧予告を履歴に保持して相互の全面復旧を推定しない。"
+    },
+    {
+      "parentPendingSourceUrl": "https://x.com/betsuma_info/status/2113126446097162560",
+      "childId": "betsuma-web",
+      "type": "different_scope_ebookshop_group_remains_unresolved",
+      "reason": "旧シーモア/Renta等の資料と出版社HPは別対象。HP終了だけで旧電子書店資料を確認済みにしない。"
     }
   ],
   "reviewCoverage": {
@@ -99286,7 +100698,7 @@
     "classifiedOriginalGroups": 457,
     "additionalDiscoveryRows": 107,
     "classifiedAdditionalRows": 107,
-    "allDiscoveryRows": 2741,
+    "allDiscoveryRows": 2786,
     "sourceRowsByDecision": {
       "confirmed": 506,
       "duplicate": 62,
@@ -99300,29 +100712,45 @@
     "piyologNewPrimaryUrls": 27,
     "additionalOwnerVerifiedCards": 70,
     "followupReview": {
-      "checkedAt": "2026-10-22T17:05:01.663Z",
-      "scope": "新受領204候補のうち重要な4元投稿と、前受領のWorking Heroes継続投稿1件を限定照合。全候補・全カードの同時再取得ではありません。",
-      "method": "元投稿本文/UTC metadata、運営サイトのexact Xリンク、旧案内を直接照合。投資募集とサービス再開、ゲーム版と基盤、Web公開と施設/道路の運用を分離。",
-      "result": "DOAXVV DMM版は再開未定で翌日も検証。TECROWDは当日中の見通しから延期。NEXCO西日本は2Web再開/2Web停止継続で全体false、Working Heroesは当該PHP保守終了を報告。旧投稿と全原本を保持。",
-      "newCards": 2,
-      "updatedCards": 2,
-      "additionalSourceRows": 0,
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "scope": "新受領43収集行を全保持し、重要な4元投稿・前の2原文・追加公式原典2件を限定照合。全カード/全候補の同時再取得ではありません。",
+      "method": "元投稿本文/UTC metadata、運営のexact公式所有とfavicon宣言、過去資料を区分。BLUELOCKの事前予告を追加照合して緊急カードへの誤追加を防止。",
+      "result": "ニコッとは部分再開方針のみでfalse。れじぇくろ/別マHP/サモンズの限定終了3カードを追加。別マの相対終了日とmetadataの不整合を未確定のまま保存。BLUELOCKは事前予告のVer.5.9.0更新関連として別枠、緊急カード/復旧数へ加えない。",
+      "newCards": 3,
+      "updatedCards": 1,
+      "additionalSourceRows": 45,
       "allPriorSourceIdentitiesRetained": 2741,
       "candidateReadCoverage": {
-        "uniqueURLs": 204,
+        "rawRows": 43,
+        "uniqueURLs": 42,
         "bodyRetrieved": 4,
         "exactOwnershipConfirmed": 4,
-        "notReadToDate": 200,
-        "additionalPriorBatchBodies": 1,
-        "rawRows": 204
+        "notReadThisCycle": 38,
+        "unreadRawRows": 39
       },
-      "resolutionOfUniqueRun14Sources": {
-        "confirmedWithExactOwnership": 4,
-        "unread": 200,
-        "unresolved": 200
+      "resolutionOfUniqueRun15Sources": {
+        "confirmedWithExactOwnership": 3,
+        "relatedPlannedVersionUpdate": 1,
+        "unread": 38,
+        "unresolved": 38
       },
-      "priorPendingResolved": 5,
-      "unresolvedPreviouslyCollectedGroups": 2018
+      "additionalOfficialSourceURLs": 2,
+      "additionalPriorBatchBodies": 2,
+      "newPendingGroups": 38,
+      "priorPendingResolved": 1,
+      "unresolvedPreviouslyCollectedGroups": 2055,
+      "previousRun14Coverage": {
+        "uniqueURLs": 204,
+        "previouslyVerified": 4,
+        "additionalOriginalBodyRead": 1,
+        "verifiedToDate": 5,
+        "notReadToDate": 199
+      },
+      "unchangedOfficialSources": [
+        "https://qa.buyma.com/information/maintenance/31825.html",
+        "https://www.xserver.ne.jp/news_detail.php?view_id=19734"
+      ],
+      "limits": "原文TZ未明示はJSTと補わず、投稿時計を実終了にしない。通常予定更新や未検証の対外原因主張は緊急事実に採用しない。"
     },
     "followupDiscoveryRows": 1832,
     "followupReviews": [
@@ -99515,9 +100943,42 @@
         "previouslyRepresentedURLs": 0,
         "priorPendingResolved": 0,
         "unresolvedPreviouslyCollectedGroups": 2023
+      },
+      {
+        "checkedAt": "2026-10-22T17:05:01.663Z",
+        "scope": "新受領204候補のうち重要な4元投稿と、前受領のWorking Heroes継続投稿1件を限定照合。全候補・全カードの同時再取得ではありません。",
+        "method": "元投稿本文/UTC metadata、運営サイトのexact Xリンク、旧案内を直接照合。投資募集とサービス再開、ゲーム版と基盤、Web公開と施設/道路の運用を分離。",
+        "result": "DOAXVV DMM版は再開未定で翌日も検証。TECROWDは当日中の見通しから延期。NEXCO西日本は2Web再開/2Web停止継続で全体false、Working Heroesは当該PHP保守終了を報告。旧投稿と全原本を保持。",
+        "newCards": 2,
+        "updatedCards": 2,
+        "additionalSourceRows": 0,
+        "allPriorSourceIdentitiesRetained": 2741,
+        "candidateReadCoverage": {
+          "uniqueURLs": 204,
+          "bodyRetrieved": 4,
+          "exactOwnershipConfirmed": 4,
+          "notReadToDate": 200,
+          "additionalPriorBatchBodies": 1,
+          "rawRows": 204
+        },
+        "resolutionOfUniqueRun14Sources": {
+          "confirmedWithExactOwnership": 4,
+          "unread": 200,
+          "unresolved": 200
+        },
+        "priorPendingResolved": 5,
+        "unresolvedPreviouslyCollectedGroups": 2018
       }
     ],
-    "sourceRowsDecisionBasis": "元収集行に保存した当時の判断内訳です。後続の公式照合結果はsourceReviews/最新followupReview、現在の未解決グループはpendingを参照してください。元の収集行は保持しています。"
+    "sourceRowsDecisionBasis": "元収集行に保存した当時の判断内訳です。後続の公式照合結果はsourceReviews/最新followupReview、現在の未解決グループはpendingを参照してください。元の収集行は保持しています。",
+    "latestReconciliation": {
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "confirmedCards": 526,
+      "scopedCompletionReports": 86,
+      "pendingGroups": 2055,
+      "allDiscoveryRows": 2786,
+      "relatedRecords": 126
+    }
   },
   "collectionBatches": [
     {
@@ -114624,6 +116085,516 @@
         }
       ],
       "note": "n-2697から辿った追加の運営個別原典2URL。既存3カードの同一原典再取得は新原本行へ重複計上しない。"
+    },
+    {
+      "id": "grok-public-candidates-20261023-0300",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "rowCount": 43,
+      "uniqueSourceUrls": 42,
+      "members": [
+        {
+          "name": "ERIKA IKUTA OFFICIAL SITE(生田絵梨花)",
+          "sourceUrl": "https://x.com/ImaizumTakaYUKI/status/2113300967349424357",
+          "verification": "pending",
+          "confirmedId": null,
+          "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-10-22T18:10:32Z",
+          "collectionBatch": "grok-public-candidates-20261023-0300",
+          "collectionRow": 1
+        },
+        {
+          "name": "sc59_jp サイト",
+          "sourceUrl": "https://x.com/sc59_jp/status/2113320647824937317",
+          "verification": "pending",
+          "confirmedId": null,
+          "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-10-22T18:10:32Z",
+          "collectionBatch": "grok-public-candidates-20261023-0300",
+          "collectionRow": 2
+        },
+        {
+          "name": "モナカード",
+          "sourceUrl": "https://x.com/_monacard/status/2113321920758493378",
+          "verification": "pending",
+          "confirmedId": null,
+          "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-10-22T18:10:32Z",
+          "collectionBatch": "grok-public-candidates-20261023-0300",
+          "collectionRow": 3
+        },
+        {
+          "name": "ラクスパ ホームページ",
+          "sourceUrl": "https://x.com/rakuspa/status/2113324874207023437",
+          "verification": "pending",
+          "confirmedId": null,
+          "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-10-22T18:10:32Z",
+          "collectionBatch": "grok-public-candidates-20261023-0300",
+          "collectionRow": 4
+        },
+        {
+          "name": "ycinc_official 公式サイト",
+          "sourceUrl": "https://x.com/ikura8989/status/2113325034588852511",
+          "verification": "pending",
+          "confirmedId": null,
+          "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-10-22T18:10:32Z",
+          "collectionBatch": "grok-public-candidates-20261023-0300",
+          "collectionRow": 5
+        },
+        {
+          "name": "エトランゼBLOG",
+          "sourceUrl": "https://x.com/ETRANJER_uranai/status/2113325528925237481",
+          "verification": "pending",
+          "confirmedId": null,
+          "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-10-22T18:10:32Z",
+          "collectionBatch": "grok-public-candidates-20261023-0300",
+          "collectionRow": 6
+        },
+        {
+          "name": "エロゲミー/エロゲソザイINDEX",
+          "sourceUrl": "https://x.com/ErogemyOfficial/status/2113326606131580970",
+          "verification": "pending",
+          "confirmedId": null,
+          "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-10-22T18:10:32Z",
+          "collectionBatch": "grok-public-candidates-20261023-0300",
+          "collectionRow": 7
+        },
+        {
+          "name": "まごころケア食/ライフミール/こだわりシェフ/おてがるシェフ",
+          "sourceUrl": "https://x.com/tokumei_banzai_/status/2113327356027007454",
+          "verification": "pending",
+          "confirmedId": null,
+          "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-10-22T18:10:32Z",
+          "collectionBatch": "grok-public-candidates-20261023-0300",
+          "collectionRow": 8
+        },
+        {
+          "name": "TWICE公式サイト・公式FCサイト",
+          "sourceUrl": "https://x.com/NFTwYuri/status/2113327687263568203",
+          "verification": "pending",
+          "confirmedId": null,
+          "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-10-22T18:10:32Z",
+          "collectionBatch": "grok-public-candidates-20261023-0300",
+          "collectionRow": 9
+        },
+        {
+          "name": "PremUngarla サイト",
+          "sourceUrl": "https://x.com/PremUngarla/status/2113327870861066303",
+          "verification": "pending",
+          "confirmedId": null,
+          "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-10-22T18:10:32Z",
+          "collectionBatch": "grok-public-candidates-20261023-0300",
+          "collectionRow": 10
+        },
+        {
+          "name": "PLiCy",
+          "sourceUrl": "https://x.com/DocSeventeenth/status/2113308598428389416",
+          "verification": "pending",
+          "confirmedId": null,
+          "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-10-22T18:10:32Z",
+          "collectionBatch": "grok-public-candidates-20261023-0300",
+          "collectionRow": 11
+        },
+        {
+          "name": "ファンクラブ候補（運営主体の表記を未照合）",
+          "sourceUrl": "https://x.com/mukudoriwasora1/status/2113309632332714308",
+          "verification": "pending",
+          "confirmedId": null,
+          "note": "収集側の所属・運営表記が一致せず対象を確認中。原文・正確な公式所有を未照合。",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-10-22T18:10:32Z",
+          "collectionBatch": "grok-public-candidates-20261023-0300",
+          "collectionRow": 12
+        },
+        {
+          "name": "別冊マーガレット HP",
+          "sourceUrl": "https://x.com/betsuma_info/status/2113302979696906253",
+          "verification": "confirmed",
+          "confirmedId": "betsuma-web",
+          "note": "元投稿本文・metadataとexact公式所有を照合。対象別カードへ対応し、収集側の分類や集計を根拠にしません。",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-10-22T18:10:32Z",
+          "collectionBatch": "grok-public-candidates-20261023-0300",
+          "collectionRow": 13
+        },
+        {
+          "name": "れじぇくろ！",
+          "sourceUrl": "https://x.com/legeclo/status/2113307440171340282",
+          "verification": "confirmed",
+          "confirmedId": "legeclo",
+          "note": "元投稿本文・metadataとexact公式所有を照合。対象別カードへ対応し、収集側の分類や集計を根拠にしません。",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-10-22T18:10:32Z",
+          "collectionBatch": "grok-public-candidates-20261023-0300",
+          "collectionRow": 14
+        },
+        {
+          "name": "サモンズボード",
+          "sourceUrl": "https://x.com/summons_board/status/2113314583675105337",
+          "verification": "confirmed",
+          "confirmedId": "summons-board",
+          "note": "元投稿本文・metadataとexact公式所有を照合。対象別カードへ対応し、収集側の分類や集計を根拠にしません。",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-10-22T18:10:32Z",
+          "collectionBatch": "grok-public-candidates-20261023-0300",
+          "collectionRow": 15
+        },
+        {
+          "name": "e沼(沼津eスポーツ)公式サイト",
+          "sourceUrl": "https://x.com/numazu_esp/status/2113319055738405130",
+          "verification": "pending",
+          "confirmedId": null,
+          "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-10-22T18:10:32Z",
+          "collectionBatch": "grok-public-candidates-20261023-0300",
+          "collectionRow": 16
+        },
+        {
+          "name": "penpe.net",
+          "sourceUrl": "https://x.com/penpe_net_/status/2113325503147020317",
+          "verification": "pending",
+          "confirmedId": null,
+          "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-10-22T18:10:32Z",
+          "collectionBatch": "grok-public-candidates-20261023-0300",
+          "collectionRow": 17
+        },
+        {
+          "name": "ブルーロック PWC",
+          "sourceUrl": "https://x.com/BLUELOCK_PWC/status/2113327950443745782",
+          "verification": "related",
+          "confirmedId": null,
+          "note": "終了本文と事前予告のバージョン更新を確認。緊急/PHP対応との関係は未確認の関連枠とし、緊急カード/復旧件数には加えません。",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-10-22T18:10:32Z",
+          "collectionBatch": "grok-public-candidates-20261023-0300",
+          "collectionRow": 18
+        },
+        {
+          "name": "Soma fan club \"space\"",
+          "sourceUrl": "https://x.com/ri_06_i_/status/2113328167477780560",
+          "verification": "pending",
+          "confirmedId": null,
+          "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-10-22T18:10:32Z",
+          "collectionBatch": "grok-public-candidates-20261023-0300",
+          "collectionRow": 19
+        },
+        {
+          "name": "愛知県 公式サイト「ネットあいち」",
+          "sourceUrl": "https://x.com/bakawind3_8/status/2113312117101298013",
+          "verification": "pending",
+          "confirmedId": null,
+          "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-10-22T18:10:32Z",
+          "collectionBatch": "grok-public-candidates-20261023-0300",
+          "collectionRow": 20
+        },
+        {
+          "name": "訪問看護ステーションは～とふる多摩センター 公式HP",
+          "sourceUrl": "https://x.com/heartfultama/status/2113315677658607768",
+          "verification": "pending",
+          "confirmedId": null,
+          "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-10-22T18:10:32Z",
+          "collectionBatch": "grok-public-candidates-20261023-0300",
+          "collectionRow": 21
+        },
+        {
+          "name": "まどドラ",
+          "sourceUrl": "https://x.com/kirstencooper7/status/2113313614518206787",
+          "verification": "pending",
+          "confirmedId": null,
+          "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-10-22T18:10:32Z",
+          "collectionBatch": "grok-public-candidates-20261023-0300",
+          "collectionRow": 22
+        },
+        {
+          "name": "テンタメ",
+          "sourceUrl": "https://x.com/GPJAPANex3/status/2113316246401974759",
+          "verification": "pending",
+          "confirmedId": null,
+          "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-10-22T18:10:32Z",
+          "collectionBatch": "grok-public-candidates-20261023-0300",
+          "collectionRow": 23
+        },
+        {
+          "name": "伊勢ヶ浜部屋 公式HP",
+          "sourceUrl": "https://x.com/gojinimuchu/status/2113324927789199561",
+          "verification": "pending",
+          "confirmedId": null,
+          "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-10-22T18:10:32Z",
+          "collectionBatch": "grok-public-candidates-20261023-0300",
+          "collectionRow": 24
+        },
+        {
+          "name": "noah_ghc 公式サイト",
+          "sourceUrl": "https://x.com/stonecoldage/status/2113325057217089654",
+          "verification": "pending",
+          "confirmedId": null,
+          "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-10-22T18:10:32Z",
+          "collectionBatch": "grok-public-candidates-20261023-0300",
+          "collectionRow": 25
+        },
+        {
+          "name": "DECA BEAT 公式サイト",
+          "sourceUrl": "https://x.com/yxmxgxn/status/2113325429549641777",
+          "verification": "pending",
+          "confirmedId": null,
+          "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-10-22T18:10:32Z",
+          "collectionBatch": "grok-public-candidates-20261023-0300",
+          "collectionRow": 26
+        },
+        {
+          "name": "yokoyama_hide 関連サービス",
+          "sourceUrl": "https://x.com/HlTn67246/status/2113325659061899682",
+          "verification": "pending",
+          "confirmedId": null,
+          "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-10-22T18:10:32Z",
+          "collectionBatch": "grok-public-candidates-20261023-0300",
+          "collectionRow": 27
+        },
+        {
+          "name": "めておら公式HP",
+          "sourceUrl": "https://x.com/Yomaridesu/status/2113325748677431737",
+          "verification": "pending",
+          "confirmedId": null,
+          "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-10-22T18:10:32Z",
+          "collectionBatch": "grok-public-candidates-20261023-0300",
+          "collectionRow": 28
+        },
+        {
+          "name": "srilanka_jewels Webサイト",
+          "sourceUrl": "https://x.com/srilanka_jewels/status/2113325746961948894",
+          "verification": "pending",
+          "confirmedId": null,
+          "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-10-22T18:10:32Z",
+          "collectionBatch": "grok-public-candidates-20261023-0300",
+          "collectionRow": 29
+        },
+        {
+          "name": "わけありなおかず屋さん",
+          "sourceUrl": "https://x.com/tokumei_banzai_/status/2113327356027007454",
+          "verification": "pending",
+          "confirmedId": null,
+          "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-10-22T18:10:32Z",
+          "collectionBatch": "grok-public-candidates-20261023-0300",
+          "collectionRow": 30
+        },
+        {
+          "name": "高知県内 少なくとも20市町村のHP",
+          "sourceUrl": "https://x.com/joe22113/status/2113322384665297046",
+          "verification": "pending",
+          "confirmedId": null,
+          "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-10-22T18:10:32Z",
+          "collectionBatch": "grok-public-candidates-20261023-0300",
+          "collectionRow": 31
+        },
+        {
+          "name": "沖縄県 行政資料目録検索システム",
+          "sourceUrl": "https://x.com/MalwareBibleJP/status/2113305133807525921",
+          "verification": "pending",
+          "confirmedId": null,
+          "note": "第三者由来の停止関連候補。公式原典・対象・日時・原因は未照合で、原因に関する未検証の主張は採用しません。",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-10-22T18:10:32Z",
+          "collectionBatch": "grok-public-candidates-20261023-0300",
+          "collectionRow": 32
+        },
+        {
+          "name": "mixi 日記",
+          "sourceUrl": "https://x.com/motomf/status/2113305176719478854",
+          "verification": "pending",
+          "confirmedId": null,
+          "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-10-22T18:10:32Z",
+          "collectionBatch": "grok-public-candidates-20261023-0300",
+          "collectionRow": 33
+        },
+        {
+          "name": "ママスタセレクト",
+          "sourceUrl": "https://x.com/codyyyyyyy/status/2113306118168469839",
+          "verification": "pending",
+          "confirmedId": null,
+          "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-10-22T18:10:32Z",
+          "collectionBatch": "grok-public-candidates-20261023-0300",
+          "collectionRow": 34
+        },
+        {
+          "name": "すき家 弁当予約アプリ",
+          "sourceUrl": "https://x.com/_ho_pe/status/2113313596797313366",
+          "verification": "pending",
+          "confirmedId": null,
+          "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-10-22T18:10:32Z",
+          "collectionBatch": "grok-public-candidates-20261023-0300",
+          "collectionRow": 35
+        },
+        {
+          "name": "ゲソてん",
+          "sourceUrl": "https://x.com/masilite/status/2113313451473039779",
+          "verification": "pending",
+          "confirmedId": null,
+          "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-10-22T18:10:32Z",
+          "collectionBatch": "grok-public-candidates-20261023-0300",
+          "collectionRow": 36
+        },
+        {
+          "name": "DLsite",
+          "sourceUrl": "https://x.com/IrmeliPja/status/2113319088802148547",
+          "verification": "pending",
+          "confirmedId": null,
+          "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-10-22T18:10:32Z",
+          "collectionBatch": "grok-public-candidates-20261023-0300",
+          "collectionRow": 37
+        },
+        {
+          "name": "sumika FC『ATTiC ROOM』",
+          "sourceUrl": "https://x.com/LuminusK77058/status/2113325502647701621",
+          "verification": "pending",
+          "confirmedId": null,
+          "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-10-22T18:10:32Z",
+          "collectionBatch": "grok-public-candidates-20261023-0300",
+          "collectionRow": 38
+        },
+        {
+          "name": "KAIBA CORPORATION STORE",
+          "sourceUrl": "https://x.com/Regenshinnameko/status/2113325674060800430",
+          "verification": "pending",
+          "confirmedId": null,
+          "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-10-22T18:10:32Z",
+          "collectionBatch": "grok-public-candidates-20261023-0300",
+          "collectionRow": 39
+        },
+        {
+          "name": "神撃のバハムート",
+          "sourceUrl": "https://x.com/nangi_siraha/status/2113324750651232589",
+          "verification": "pending",
+          "confirmedId": null,
+          "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-10-22T18:10:32Z",
+          "collectionBatch": "grok-public-candidates-20261023-0300",
+          "collectionRow": 40
+        },
+        {
+          "name": "ダーツライブ",
+          "sourceUrl": "https://x.com/ringo_darts26/status/2113326677241823629",
+          "verification": "pending",
+          "confirmedId": null,
+          "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-10-22T18:10:32Z",
+          "collectionBatch": "grok-public-candidates-20261023-0300",
+          "collectionRow": 41
+        },
+        {
+          "name": "JAL Wellness & Travel",
+          "sourceUrl": "https://x.com/John_doe_SERU/status/2113328282825642358",
+          "verification": "pending",
+          "confirmedId": null,
+          "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-10-22T18:10:32Z",
+          "collectionBatch": "grok-public-candidates-20261023-0300",
+          "collectionRow": 42
+        },
+        {
+          "name": "静岡銀行 HP・しずぎんアプリ",
+          "sourceUrl": "https://x.com/ZhuniRi/status/2113327757920993498",
+          "verification": "pending",
+          "confirmedId": null,
+          "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-10-22T18:10:32Z",
+          "collectionBatch": "grok-public-candidates-20261023-0300",
+          "collectionRow": 43
+        }
+      ],
+      "note": "43収集行/42URLを全保持。同じ元URLに別対象・異なる状態の2収集行がある。先方の新規/更新/累積/完了分類は公式確認数に採用せず、未検証の原因主張・運営名の不整合は公開上中立化。完全な収集原文は私的に保存。"
+    },
+    {
+      "id": "public-notice-followup-20261023-0310",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "rowCount": 2,
+      "members": [
+        {
+          "name": "ニコッとタウン：一部機能を除く再開方針",
+          "sourceUrl": "https://x.com/sm_nicottotown/status/2113242569534832679",
+          "verification": "confirmed",
+          "confirmedId": "nicotto-town",
+          "note": "詳細案内の予定と実再開を分離した公式後続。",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-10-22T18:10:32Z",
+          "collectionBatch": "public-notice-followup-20261023-0310"
+        },
+        {
+          "name": "ブルーロックPWC：Ver.5.9.0更新の事前予告",
+          "sourceUrl": "https://x.com/BLUELOCK_PWC/status/2112921860572631115",
+          "verification": "related",
+          "confirmedId": null,
+          "note": "事前予告のバージョン更新。PHP/緊急保守への因果は推定しない。",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-10-22T18:10:32Z",
+          "collectionBatch": "public-notice-followup-20261023-0310"
+        }
+      ],
+      "note": "新たに本文を照合した運営原典2URL。収集43行とは別由来として明示。"
     }
   ],
   "officialFollowups": [
@@ -114874,6 +116845,46 @@
       "end": "10/22 23:32 JST投稿時点で再開を報告。正確な実終了時計は未記載",
       "restored": true,
       "note": "運営はPHPのセキュリティ上の問題への対応としていた緊急保守が終わり、サービスを再開したと案内。23:32:07 JSTはUTC投稿metadataの換算であり、実終了時刻ではありません。22:39:03 JST投稿時点の継続案内は前の記録として保持し、別ゲームや全ゲーム基盤へ広げません。ゲーム起動・ログイン・配布物受取・購入は実施していません。"
+    },
+    {
+      "confirmedId": "nicotto-town",
+      "sourceUrl": "https://x.com/sm_nicottotown/status/2113242569534832679",
+      "sourcePublishedAt": "2026-10-22T12:14:25.000Z",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "scope": "対応がすぐに難しい一部機能を除いた再開を慎重に進める方針。黒ガチャ・ニコみせ延期の前報や、案内ページの表示導線調整とは分けて記録。",
+      "end": "再開日時は未定。10/22付投稿は翌日の詳細案内を予告したもので、翌日の再開保証ではありません",
+      "restored": false,
+      "note": "10/22 21:14:25 JSTの投稿は、一部機能を除く再開へ向けた方針と『詳細は明日ご案内』を説明。原文の翌日10/23は詳細案内の予定であり、再開日時ではありません。除外される具体的な機能や再開時刻は本投稿に未記載。前のイベント延期・案内導線改善を保持し、メンテナンス画面の表示や方針の発表をゲーム再開とは扱いません。ログイン・ゲーム操作は未実施。"
+    },
+    {
+      "confirmedId": "legeclo",
+      "sourceUrl": "https://x.com/legeclo/status/2113307440171340282",
+      "sourcePublishedAt": "2026-10-22T16:32:11.000Z",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "scope": "れじぇくろ！のPHP脆弱性対応に伴う当該臨時メンテナンス。",
+      "end": "10/23 01:32 JST投稿時点で完了報告。実終了時計は未記載",
+      "restored": true,
+      "note": "最新本文は10/21 21:30より行っていたPHP脆弱性対応の完了を案内。01:32:11 JSTは投稿metadataの換算で、実終了時刻ではありません。旧予告のDMM/FANZAに関する本文22:00とゲーム予定欄21:30は、そのまま履歴に残します。個別ゲームの完了をDMM/FANZA基盤や他ゲームの全面復旧へ拡張せず、ゲーム内の詳細告知やログインは実操作していません。"
+    },
+    {
+      "confirmedId": "betsuma-web",
+      "sourceUrl": "https://x.com/betsuma_info/status/2113302979696906253",
+      "sourcePublishedAt": "2026-10-22T16:14:28.000Z",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "scope": "別冊マーガレット公式ホームページ。出版社の他サイト・電子書店・作品の提供状況とは別。",
+      "end": "原文『本日21:50頃』に終了。投稿metadataとの暦日の整合は未確定",
+      "restored": true,
+      "note": "本文はHPが現在通常利用できると報告。一方、投稿metadataのJST換算は10/23 01:14:28で、既に終わった『本日21:50頃』という本文とは暦日の整合が取れていません。10/23 21:50という未来時計にも、根拠なく10/22 21:50という確定日付にも補正せず、終了の報告と日付未確定を分けます。引用表示された先行告知は安全性確保の予防措置で、不正アクセス確認によるものではないと運営が説明。独自の侵害調査・電子書店の復旧確認ではありません。"
+    },
+    {
+      "confirmedId": "summons-board",
+      "sourceUrl": "https://x.com/summons_board/status/2113314583675105337",
+      "sourcePublishedAt": "2026-10-22T17:00:34.000Z",
+      "checkedAt": "2026-10-22T18:10:32Z",
+      "scope": "サモンズボードの当該緊急メンテナンス。",
+      "end": "10/23 02:00 JST投稿時点で終了報告。実終了時計は未記載",
+      "restored": true,
+      "note": "02:00:34 JSTは投稿metadataの換算であり実終了時刻ではありません。前の00:52:23 JST投稿時点の実施中案内は履歴に保持。終了本文にプラットフォーム別の内訳や原因説明はなく、PHP因果や他のガンホーサービスの復旧は推定しません。返信内容を根拠にせず、ゲーム起動・ログインは未実施。"
     }
   ],
   "pendingResolutionHistory": [
@@ -114997,6 +117008,23 @@
       "resolvedAt": "2026-10-22T17:05:01.663Z",
       "confirmedId": "doax-vv",
       "reason": "元投稿の本文・投稿metadataと運営自身が示すexactアカウント所有を直接照合。継続/見込み/限定再開/終了、投稿時計と実時刻を分離。収集原本は削除せず保持。"
+    },
+    {
+      "originalPendingGroup": {
+        "names": [
+          "サモンズボード"
+        ],
+        "url": "https://x.com/summons_board/status/2113297421061267648",
+        "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+        "sourceClass": "公開候補収集（原文・公式性は別途照合）",
+        "sourceRead": "not_read_this_cycle",
+        "checkedAt": "2026-10-22T16:14:34.705Z",
+        "collectionBatch": "grok-public-candidates-20261023-0108",
+        "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
+      },
+      "resolvedAt": "2026-10-22T18:10:32Z",
+      "confirmedId": "summons-board",
+      "reason": "元の実施中投稿と新しい終了投稿の本文・metadata、運営自身のexact公式所有を照合。実開始/終了時計やPHP原因は補完せず、旧原本の当時判断も保持。"
     }
   ]
 }
