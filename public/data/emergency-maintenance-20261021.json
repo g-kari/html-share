@@ -1,6 +1,6 @@
 {
   "title": "2026年10月21日前後 緊急メンテナンス・関連告知一覧",
-  "checkedAt": "2026-10-22T12:06:30Z",
+  "checkedAt": "2026-10-22T13:00:21Z",
   "scope": "PHPの因果不問。今回の緊急/予防メンテと同時期の関連告知・別インシデントを区分。件数による上限なし。",
   "counting": "confirmedは公式資料を確認した対象別の告知カード数（部分本文・同一基盤・包括/個別の重なりを含む）。固有サイト数・実停止数・独立インシデント数・被害数ではない。pendingは原典/公式所有/対象範囲等の追加照合待ち。関連・重複・除外理由も全収集行に保持し、件数で打ち切らない。 実施自体が未定の停止可能性の予告も別状態（possible_unstarted）で保持し、実停止・復旧には数えません。",
   "confirmed": [
@@ -6800,16 +6800,16 @@
       "id": "twitcasting",
       "name": "ツイキャス",
       "cat": "entertainment",
-      "reason": "外部ソフトウェアのセキュリティ問題の検証と、別の外部サービス障害への回避対応",
-      "tag": "一部を除き22時頃予定／別外部障害",
-      "status": "一部機能を除く再開予定、実完了は未確認",
+      "reason": "前報の外部ソフトウェアのセキュリティ検証・別外部サービス障害の回避対応。本再開投稿に追加の原因詳細・PHP名は未記載",
+      "tag": "一部再開・機能制限あり",
+      "status": "一部機能を除くサービス再開を報告",
       "start": "10/21 22:30",
-      "end": "10/22 22時頃に一部機能を除き再開予定。正式な実再開・全機能完了は未確認（原文表記）",
-      "scope": "ツイキャス。一部機能を除くサービス再開の予定で、除外される機能名は取得本文に未記載。",
-      "safe": "公式はセキュリティ問題の検証は概ね完了した一方、別の外部サービス障害の影響回避に想定以上の時間を要していると説明しています。PHP名や別サービス名・障害原因はこの本文に未記載で、同一の脆弱性や攻撃と推測しません。22時頃は見込みで一部機能を除く予定であり、検証の概ね完了を実復旧や全機能完了としません。20:16:35 JSTは投稿時計（UTC metadataから換算）。旧20時頃見込みと前の16時頃状況案内は履歴に残します。",
-      "url": "https://x.com/twitcasting_jp/status/2113228017682251939",
-      "source": "公式プロフィールがリンクする最新個別投稿の本文・投稿metadataを直接取得。既存の正確な所有根拠を保持し、セキュリティ検証/別外部障害/一部再開予定/実完了を分離。",
-      "date": "10/22 20:16:35 JSTの公式投稿（実再開時計とは別）",
+      "end": "10/22 21:50:21 JSTの投稿時点で一部を除き再開。正確な実再開時計は未記載、残る機能は対応中",
+      "scope": "ツイキャスは一部機能を除きサービス再開。メンバーシップSTARのメディア再生・クリップ再生・Public API等は復旧対応が継続。",
+      "safe": "公式の新しい再開報告を取得したため、前報の22時頃という予定から実際の限定再開へ更新しました。21:50:21 JSTは投稿metadataをUTCから換算した時計で、実際の再開時計とは断定しません。STARメディア・クリップ・Public API『等』は継続対応中で、停止機能がこの3種類だけとも全体復旧とも扱いません。各残存機能の再開見込みや個別原因は本投稿に未記載です。ユーザーのログイン・再生・API利用や安全性を実操作検証したわけではありません。",
+      "url": "https://x.com/twitcasting_jp/status/2113251611229237374",
+      "source": "公式プロフィールの新しい現リンクから、通常公開の個別原文と投稿metadataを直接取得。予定の経過やHTTP応答だけで判定せず、限定再開と継続対応機能を分離。既存の正確な所有根拠を保持。",
+      "date": "10/22 21:50:21 JSTの公式再開投稿（実再開時計とは別）",
       "ownershipEvidence": [
         {
           "url": "https://twitcasting.tv/",
@@ -6817,7 +6817,7 @@
         }
       ],
       "icon": "https://twitcasting.tv/favicon.ico",
-      "checkedAt": "2026-10-22T11:59:49Z",
+      "checkedAt": "2026-10-22T13:00:21Z",
       "sources": [
         "https://x.com/twitcasting_jp/status/2112934647722319966",
         {
@@ -6831,6 +6831,10 @@
         {
           "url": "https://x.com/twitcasting_jp/status/2113170536763367440",
           "label": "前の20時頃見込み（現在予定とは別）"
+        },
+        {
+          "url": "https://x.com/twitcasting_jp/status/2113228017682251939",
+          "label": "前報の22時頃・一部を除く再開予定（現在の実績とは別）"
         }
       ],
       "restored": false,
@@ -6885,7 +6889,59 @@
             "note": "後続の公式原文で更新。旧案内は出典/履歴に保持。"
           },
           "reasonKey": "security"
+        },
+        {
+          "id": "twitcasting",
+          "name": "ツイキャス",
+          "cat": "entertainment",
+          "reason": "外部ソフトウェアのセキュリティ問題の検証と、別の外部サービス障害への回避対応",
+          "tag": "一部を除き22時頃予定／別外部障害",
+          "status": "一部機能を除く再開予定、実完了は未確認",
+          "start": "10/21 22:30",
+          "end": "10/22 22時頃に一部機能を除き再開予定。正式な実再開・全機能完了は未確認（原文表記）",
+          "scope": "ツイキャス。一部機能を除くサービス再開の予定で、除外される機能名は取得本文に未記載。",
+          "safe": "公式はセキュリティ問題の検証は概ね完了した一方、別の外部サービス障害の影響回避に想定以上の時間を要していると説明しています。PHP名や別サービス名・障害原因はこの本文に未記載で、同一の脆弱性や攻撃と推測しません。22時頃は見込みで一部機能を除く予定であり、検証の概ね完了を実復旧や全機能完了としません。20:16:35 JSTは投稿時計（UTC metadataから換算）。旧20時頃見込みと前の16時頃状況案内は履歴に残します。",
+          "url": "https://x.com/twitcasting_jp/status/2113228017682251939",
+          "source": "公式プロフィールがリンクする最新個別投稿の本文・投稿metadataを直接取得。既存の正確な所有根拠を保持し、セキュリティ検証/別外部障害/一部再開予定/実完了を分離。",
+          "date": "10/22 20:16:35 JSTの公式投稿（実再開時計とは別）",
+          "ownershipEvidence": [
+            {
+              "url": "https://twitcasting.tv/",
+              "note": "ツイキャス公式サービスのホームページが https://x.com/twitcasting_jp を直接リンク。"
+            }
+          ],
+          "icon": "https://twitcasting.tv/favicon.ico",
+          "checkedAt": "2026-10-22T11:59:49Z",
+          "sources": [
+            "https://x.com/twitcasting_jp/status/2112934647722319966",
+            {
+              "url": "https://x.com/twitcasting_jp/status/2112847603255922894",
+              "label": "前の公式告知"
+            },
+            {
+              "url": "https://x.com/twitcasting_jp/status/2113107693376610548",
+              "label": "本日中見込み・次回16時頃案内の前報"
+            },
+            {
+              "url": "https://x.com/twitcasting_jp/status/2113170536763367440",
+              "label": "前の20時頃見込み（現在予定とは別）"
+            }
+          ],
+          "restored": false,
+          "sourceRead": "body_retrieved",
+          "previousTiming": {
+            "start": "10/21 22:30",
+            "end": "10/22中の復旧を見込む。16時頃は次回の状況案内の目安で、完了時刻ではない（原文表記）",
+            "sourceUrl": "https://x.com/twitcasting_jp/status/2113107693376610548",
+            "note": "後続の公式原文で更新。旧案内は出典/履歴に保持。"
+          },
+          "reasonKey": "security"
         }
+      ],
+      "ongoingFeatures": [
+        "メンバーシップSTARのメディア再生",
+        "クリップ再生",
+        "Public API等"
       ]
     },
     {
@@ -63659,6 +63715,17 @@
       "sourceRead": "body_retrieved",
       "checkedAt": "2026-10-22T12:06:30Z",
       "collectionBatch": "public-notice-followup-20261022-2106"
+    },
+    {
+      "name": "ツイキャス 一部を除くサービス再開の公式原文",
+      "sourceUrl": "https://x.com/twitcasting_jp/status/2113251611229237374",
+      "verification": "confirmed",
+      "confirmedId": "twitcasting",
+      "note": "新たな公式実報告による限定再開。投稿21:50:21JSTは実再開時計ではなく、STARメディア/クリップ/Public API等の復旧対応を継続、全体を復旧済みとは扱わない。",
+      "sourceClass": "公式プロフィールがリンクする運営個別原文",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-22T13:00:21Z",
+      "collectionBatch": "public-notice-followup-20261022-2200"
     }
   ],
   "related": [
@@ -88319,6 +88386,15 @@
       "reason": "10/22再開追記と旧10/21未定本文を分離。実終了時計未記載、PHP明記、開始19:40頃。",
       "sourceRead": "body_retrieved",
       "checkedAt": "2026-10-22T12:06:30Z"
+    },
+    {
+      "name": "ツイキャス 一部を除くサービス再開の公式原文",
+      "sourceUrl": "https://x.com/twitcasting_jp/status/2113251611229237374",
+      "decision": "confirmed",
+      "confirmedId": "twitcasting",
+      "reason": "新たな公式実報告による限定再開。投稿21:50:21JSTは実再開時計ではなく、STARメディア/クリップ/Public API等の復旧対応を継続、全体を復旧済みとは扱わない。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-22T13:00:21Z"
     }
   ],
   "relationships": [
@@ -88496,9 +88572,9 @@
     "classifiedOriginalGroups": 457,
     "additionalDiscoveryRows": 107,
     "classifiedAdditionalRows": 107,
-    "allDiscoveryRows": 2352,
+    "allDiscoveryRows": 2353,
     "sourceRowsByDecision": {
-      "confirmed": 501,
+      "confirmed": 502,
       "duplicate": 62,
       "pending": 1652,
       "related": 126,
@@ -88510,31 +88586,18 @@
     "piyologNewPrimaryUrls": 27,
     "additionalOwnerVerifiedCards": 70,
     "followupReview": {
-      "checkedAt": "2026-10-22T12:06:30Z",
-      "scope": "run12で実受領した全128候補を保持し、重要な終了/延期原文と別運営原典を限定照合。全521カード/全候補の同時再取得ではありません。",
-      "method": "運営の個別原文・投稿metadata・正確な所有リリースを照合。キャッシュ検索の旧本文と新鮮な運営本文を区分。403/年齢確認を迂回しない。",
-      "result": "ツイキャス一部機能を除く22時頃予定、チケラグのサイト再開追記、ミストレのゲーム単独20:30終了を分離。DMMコミュ障害は原因未確認の別件関連枠とし、基盤19時完了を変更しない。",
-      "newCards": 1,
-      "updatedCards": 3,
-      "additionalSourceRows": 130,
-      "allPriorSourceIdentitiesRetained": 2222,
-      "candidateReadCoverage": {
-        "rawRows": 128,
-        "uniqueURLs": 128,
-        "bodyRetrieved": 1,
-        "bodyNotRetrievedWithProfileAccessDenied": 4,
-        "notReadThisCycle": 123
-      },
-      "resolutionOfUniqueRun12Sources": {
-        "confirmedWithExactOwnership": 1,
-        "pendingWithOriginalBodyUnavailable": 4,
-        "unread": 123,
-        "unresolved": 127
-      },
+      "checkedAt": "2026-10-22T13:00:21Z",
+      "scope": "13時の後続確認：ツイキャスの新しい限定再開原文を照合。今回取得したDMM/ConoHaの個別現在情報本文は前回案から差分がなく再時刻付けしない。全カード/全候補の同時再取得ではありません。",
+      "method": "正確な公式プロフィールに現れた新リンク先の本文とUTC投稿metadataを実取得。既存の運営所有根拠を保持。",
+      "result": "一部機能を除く実再開とSTARメディア/クリップ/Public API等の継続対応を分離。22時予定の経過を実績としない。カード全体の復旧済み扱いには変更せず、PHP名や正確な実再開時計は補わない。",
+      "updatedCards": 1,
+      "newCards": 0,
+      "additionalSourceRows": 1,
+      "allPriorSourceIdentitiesRetained": 2352,
       "priorPendingResolved": 0,
       "unresolvedPreviouslyCollectedGroups": 1641
     },
-    "followupDiscoveryRows": 1443,
+    "followupDiscoveryRows": 1444,
     "followupReviews": [
       {
         "checkedAt": "2026-10-22T08:10:31Z",
@@ -88626,6 +88689,31 @@
         },
         "priorPendingResolved": 2,
         "unresolvedPreviouslyCollectedGroups": 1514
+      },
+      {
+        "checkedAt": "2026-10-22T12:06:30Z",
+        "scope": "run12で実受領した全128候補を保持し、重要な終了/延期原文と別運営原典を限定照合。全521カード/全候補の同時再取得ではありません。",
+        "method": "運営の個別原文・投稿metadata・正確な所有リリースを照合。キャッシュ検索の旧本文と新鮮な運営本文を区分。403/年齢確認を迂回しない。",
+        "result": "ツイキャス一部機能を除く22時頃予定、チケラグのサイト再開追記、ミストレのゲーム単独20:30終了を分離。DMMコミュ障害は原因未確認の別件関連枠とし、基盤19時完了を変更しない。",
+        "newCards": 1,
+        "updatedCards": 3,
+        "additionalSourceRows": 130,
+        "allPriorSourceIdentitiesRetained": 2222,
+        "candidateReadCoverage": {
+          "rawRows": 128,
+          "uniqueURLs": 128,
+          "bodyRetrieved": 1,
+          "bodyNotRetrievedWithProfileAccessDenied": 4,
+          "notReadThisCycle": 123
+        },
+        "resolutionOfUniqueRun12Sources": {
+          "confirmedWithExactOwnership": 1,
+          "pendingWithOriginalBodyUnavailable": 4,
+          "unread": 123,
+          "unresolved": 127
+        },
+        "priorPendingResolved": 0,
+        "unresolvedPreviouslyCollectedGroups": 1641
       }
     ],
     "sourceRowsDecisionBasis": "元収集行に保存した当時の判断内訳です。後続の公式照合結果はsourceReviews/最新followupReview、現在の未解決グループはpendingを参照してください。元の収集行は保持しています。"
@@ -101361,6 +101449,20 @@
         }
       ],
       "note": "未収録だった運営の新しい別原典だけ追加。既存DMM現在情報の再取得や別件追記を新規原本行へ重複計上しない。"
+    },
+    {
+      "id": "public-notice-followup-20261022-2200",
+      "checkedAt": "2026-10-22T13:00:21Z",
+      "rowCount": 1,
+      "members": [
+        {
+          "name": "ツイキャス 一部を除くサービス再開の公式原文",
+          "sourceUrl": "https://x.com/twitcasting_jp/status/2113251611229237374",
+          "verification": "confirmed",
+          "confirmedId": "twitcasting"
+        }
+      ],
+      "note": "新しく公開された運営自身の限定再開原文1URLだけを追加。新規サイト/独立事故数の追加ではなく、従来の予定を実報告へ更新する資料。"
     }
   ],
   "officialFollowups": [
@@ -101489,6 +101591,21 @@
       "end": "終了未定・調査対応中（保守の完了とは別）",
       "restored": false,
       "note": "公式現在情報は10/22 19:30からブラウザ（PC/スマートフォン）でコミュニティ作成・編集・コメント投稿ができない事象を確認し、調査対応中と案内。原因・終了見込み・PHP保守との因果は未記載。別欄にある基盤保守19:00作業完了・順次再開を撤回したり、19:30を基盤復旧時計に置き換えたりしません。別件の関連障害として保持し、緊急保守カードや復旧件数へ追加しません。"
+    },
+    {
+      "confirmedId": "twitcasting",
+      "sourceUrl": "https://x.com/twitcasting_jp/status/2113251611229237374",
+      "checkedAt": "2026-10-22T13:00:21Z",
+      "scope": "ツイキャスは一部機能を除きサービス再開。メンバーシップSTARのメディア再生・クリップ再生・Public API等は復旧対応が継続。",
+      "end": "10/22 21:50:21 JSTの投稿時点で一部を除き再開。正確な実再開時計は未記載、残る機能は対応中",
+      "restored": false,
+      "partialResumptionReported": true,
+      "ongoingFeatures": [
+        "メンバーシップSTARのメディア再生",
+        "クリップ再生",
+        "Public API等"
+      ],
+      "note": "公式の新しい再開報告を取得したため、前報の22時頃という予定から実際の限定再開へ更新しました。21:50:21 JSTは投稿metadataをUTCから換算した時計で、実際の再開時計とは断定しません。STARメディア・クリップ・Public API『等』は継続対応中で、停止機能がこの3種類だけとも全体復旧とも扱いません。各残存機能の再開見込みや個別原因は本投稿に未記載です。ユーザーのログイン・再生・API利用や安全性を実操作検証したわけではありません。"
     }
   ],
   "pendingResolutionHistory": [
