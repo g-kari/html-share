@@ -1,6 +1,6 @@
 {
   "title": "2026年10月21日前後 緊急メンテナンス・関連告知一覧",
-  "checkedAt": "2026-10-22T14:16:24Z",
+  "checkedAt": "2026-10-22T15:05:43.313Z",
   "scope": "PHPの因果不問。今回の緊急/予防メンテと同時期の関連告知・別インシデントを区分。件数による上限なし。",
   "counting": "confirmedは公式資料を確認した対象別の告知カード数（部分本文・同一基盤・包括/個別の重なりを含む）。固有サイト数・実停止数・独立インシデント数・被害数ではない。pendingは原典/公式所有/対象範囲等の追加照合待ち。関連・重複・除外理由も全収集行に保持し、件数で打ち切らない。 実施自体が未定の停止可能性の予告も別状態（possible_unstarted）で保持し、実停止・復旧には数えません。",
   "confirmed": [
@@ -2033,15 +2033,15 @@
       ],
       "icon": "https://www.xserver.ne.jp/favicon.ico",
       "start": "10/21 16:00にサービスサイト・管理画面等を停止（後続の運営本文で確認）",
-      "end": "10/22 20:10時点で管理系を順次再開。一部機能・決済手段は保守継続",
-      "scope": "各種サービスサイト、アカウント管理、パネル、Webメール、ファイルマネージャー、API/MCP、申込・支払い・問い合わせ等。パネルの一部機能と一部決済手段は継続。顧客サーバー・顧客Web表示・メールソフト送受信は元々稼働継続。",
-      "safe": "運営本文の20:10時点の表と、公式投稿の20:10から順次再開という記述を区分。21:14:45 JSTは投稿時刻で実際の全面完了ではありません。対象サーバーのPHP5.6〜8.5は修正適用完了と公式が報告する一方、PHP5.5以下は作成・検証中です。管理サイトやAPI/MCP再開を顧客サイト全停止からの復旧と表現せず、一部機能と旧PHP対応が続くためカード全体を完了にはしません。運営は今回の対応を不正アクセス発生に伴うものではないと説明しており、侵害有無を独自調査した意味ではありません。sv13268のDB事象とも別件です。",
+      "end": "10/22 20:10時点表で管理系再開。一部サポート・旧WEBメール・一部パネル/決済は保守継続の記載",
+      "scope": "各種サービスサイト、アカウント管理、パネル、Webメール、ファイルマネージャー、API/MCP、申込・支払い・問い合わせ等。取得した20:10時点表では、サポートサイトの一部、旧WEBメール、パネルの一部機能と一部決済手段に保守継続の記載。顧客サーバー・顧客Web表示・メールソフト送受信は元々稼働継続。",
+      "safe": "運営本文の20:10時点の表と、公式投稿の20:10から順次再開という記述を区分。21:14:45 JSTは投稿時刻で実際の全面完了ではありません。対象サーバーのPHP5.6〜8.5は修正適用完了と公式が報告する一方、PHP5.5以下は作成・検証中です。管理サイトやAPI/MCP再開を顧客サイト全停止からの復旧と表現せず、一部機能と旧PHP対応が続くためカード全体を完了にはしません。運営は今回の対応を不正アクセス発生に伴うものではないと説明しており、侵害有無を独自調査した意味ではありません。sv13268のDB事象とも別件です。 前回取得版から表の備考2セルにサポートサイト一部と旧WEBメールの継続が追加されています。表の基準時計20:10は変わらず、補足の公表時計は未記載です。今回の取得・照合時計を新たな停止/再開時刻にはしません。メールソフトの送受信継続と、旧WEBメールの停止記載は別です。",
       "reason": "予防的な脆弱性対策。後続の運営本文がPHP各版への修正対応を明記",
       "cat": "web",
-      "date": "10/22の公式告知・20:10時点の機能別状況",
-      "tag": "管理系は順次再開・一部は継続",
-      "status": "20:10の機能別再開表と継続対象を確認",
-      "source": "提供元の個別告知本文と機能/PHP版別の表を直接取得。正確な公式Xリンクを示す運営本文を照合し、開始・投稿・再開表の時刻を分離。顧客サーバーの検査や設定変更は未実施。",
+      "date": "10/22の運営個別告知。20:10時点表の備考に補足（補足の公表時刻は未記載）",
+      "tag": "管理系一部再開／旧WEBメール等は継続記載",
+      "status": "20:10時点表の継続対象にサポート・旧WEBメールも明記",
+      "source": "提供元の同じ個別原文を再取得し、前回取得版との表2セルの差を確認。旧WEBメールとメールソフト、原文の表時計と再取得時計を分離。各機能・利用者環境の実操作は未実施。",
       "previousNotices": [
         {
           "id": "xserver-management",
@@ -2061,11 +2061,48 @@
           "tag": "顧客サーバーとサイトは継続",
           "status": "公式は停止中と案内",
           "source": "公式X原文全文・公式ドメインからアカウント所有確認"
+        },
+        {
+          "id": "xserver-management",
+          "name": "XServer アカウント管理画面等",
+          "url": "https://www.xserver.ne.jp/news_detail.php?view_id=19734",
+          "sources": [
+            "https://x.com/xserverjp/status/2112894951650709996",
+            {
+              "url": "https://x.com/xserverjp/status/2112817155804664098",
+              "label": "旧停止告知・当時の未確認範囲"
+            },
+            {
+              "url": "https://x.com/xserverjp/status/2113242655861940274",
+              "label": "20:10より順次再開を案内する公式投稿（投稿21:14:45 JST）"
+            }
+          ],
+          "icon": "https://www.xserver.ne.jp/favicon.ico",
+          "start": "10/21 16:00にサービスサイト・管理画面等を停止（後続の運営本文で確認）",
+          "end": "10/22 20:10時点で管理系を順次再開。一部機能・決済手段は保守継続",
+          "scope": "各種サービスサイト、アカウント管理、パネル、Webメール、ファイルマネージャー、API/MCP、申込・支払い・問い合わせ等。パネルの一部機能と一部決済手段は継続。顧客サーバー・顧客Web表示・メールソフト送受信は元々稼働継続。",
+          "safe": "運営本文の20:10時点の表と、公式投稿の20:10から順次再開という記述を区分。21:14:45 JSTは投稿時刻で実際の全面完了ではありません。対象サーバーのPHP5.6〜8.5は修正適用完了と公式が報告する一方、PHP5.5以下は作成・検証中です。管理サイトやAPI/MCP再開を顧客サイト全停止からの復旧と表現せず、一部機能と旧PHP対応が続くためカード全体を完了にはしません。運営は今回の対応を不正アクセス発生に伴うものではないと説明しており、侵害有無を独自調査した意味ではありません。sv13268のDB事象とも別件です。",
+          "reason": "予防的な脆弱性対策。後続の運営本文がPHP各版への修正対応を明記",
+          "cat": "web",
+          "date": "10/22の公式告知・20:10時点の機能別状況",
+          "tag": "管理系は順次再開・一部は継続",
+          "status": "20:10の機能別再開表と継続対象を確認",
+          "source": "提供元の個別告知本文と機能/PHP版別の表を直接取得。正確な公式Xリンクを示す運営本文を照合し、開始・投稿・再開表の時刻を分離。顧客サーバーの検査や設定変更は未実施。",
+          "reasonKey": "php",
+          "restored": false,
+          "checkedAt": "2026-10-22T14:10:22Z",
+          "sourceRead": "body_retrieved",
+          "ownershipEvidence": [
+            {
+              "url": "https://www.xserver.ne.jp/news_detail.php?view_id=19734",
+              "detail": "運営自身の本文が公式Xアカウント（@xserverjp）を明示して同アカウントにリンク。管理機能とPHP版別対応の表も取得。"
+            }
+          ]
         }
       ],
       "reasonKey": "php",
       "restored": false,
-      "checkedAt": "2026-10-22T14:10:22Z",
+      "checkedAt": "2026-10-22T15:05:43.313Z",
       "sourceRead": "body_retrieved",
       "ownershipEvidence": [
         {
@@ -93419,6 +93456,15 @@
       "reason": "新しい運営個別本文を実取得。時刻と部分機能の留保はカード本文に記載。",
       "sourceRead": "body_retrieved",
       "checkedAt": "2026-10-22T14:16:24Z"
+    },
+    {
+      "name": "XServer アカウント管理画面等 機能別表の継続対象の補足",
+      "sourceUrl": "https://www.xserver.ne.jp/news_detail.php?view_id=19734",
+      "decision": "confirmed",
+      "confirmedId": "xserver-management",
+      "reason": "前回取得版から表の備考2セルが増え、サポートサイト一部・旧WEBメールの保守記載を追加確認。新たな復旧や更新公表時計を補わない。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-22T15:05:43.313Z"
     }
   ],
   "relationships": [
@@ -93610,30 +93656,20 @@
     "piyologNewPrimaryUrls": 27,
     "additionalOwnerVerifiedCards": 70,
     "followupReview": {
-      "checkedAt": "2026-10-22T14:16:24Z",
-      "scope": "実受領した全180候補を保持し、ConoHa/XServer/ニコニコの重要な運営後続を限定照合。全カード・全候補の同時再取得ではありません。",
-      "method": "元投稿本文、正確な運営所有根拠、別運営原典の本文/機能別表、投稿metadataを区分。未取得の所有資料・元投稿未読を推測で埋めない。",
-      "result": "ConoHaは当該緊急保守の20:45終了、ニコニコは21:30追記で当該PHP保守全完了を確認。ニュースオリジナルの別移行事情は個別未確認。XServerは管理系限定再開と旧PHP/一部機能の継続を分離し全体false。",
+      "checkedAt": "2026-10-22T15:05:43.313Z",
+      "scope": "既存の運営原典3件を再取得。XServer表の新しい継続対象の補足だけを更新し、本文同一のConoHa/Nicoカードは再時刻付けしない。全521カード・全候補の同時再照合ではありません。",
+      "method": "同一運営URLの前回取得本文と行単位比較。表の基準時計、追記公表時計の未記載、再取得/照合時計、機能の範囲を分離。",
+      "result": "XServerは一部サポートサイト・旧WEBメールも保守継続と原文の表に補足。顧客mail client継続と別で、全体falseと全件数を維持。",
       "newCards": 0,
-      "updatedCards": 3,
-      "additionalSourceRows": 182,
-      "allPriorSourceIdentitiesRetained": 2353,
-      "candidateReadCoverage": {
-        "rawRows": 180,
-        "uniqueURLs": 180,
-        "bodyRetrieved": 3,
-        "exactOwnershipConfirmed": 2,
-        "ownershipPendingAfterBodyRead": 1,
-        "notReadThisCycle": 177
-      },
-      "resolutionOfUniqueRun13Sources": {
-        "confirmedWithExactOwnership": 2,
-        "ownershipPending": 1,
-        "unread": 177,
-        "unresolved": 178
-      },
+      "updatedCards": 1,
+      "additionalSourceRows": 0,
+      "allPriorSourceIdentitiesRetained": 2535,
       "priorPendingResolved": 0,
-      "unresolvedPreviouslyCollectedGroups": 1819
+      "unresolvedPreviouslyCollectedGroups": 1819,
+      "unchangedOperatorURLs": [
+        "https://www.conoha.jp/wing/news/?ap=2015054909",
+        "https://blog.nicovideo.jp/niconews/14785"
+      ]
     },
     "followupDiscoveryRows": 1626,
     "followupReviews": [
@@ -93764,6 +93800,32 @@
         "allPriorSourceIdentitiesRetained": 2352,
         "priorPendingResolved": 0,
         "unresolvedPreviouslyCollectedGroups": 1641
+      },
+      {
+        "checkedAt": "2026-10-22T14:16:24Z",
+        "scope": "実受領した全180候補を保持し、ConoHa/XServer/ニコニコの重要な運営後続を限定照合。全カード・全候補の同時再取得ではありません。",
+        "method": "元投稿本文、正確な運営所有根拠、別運営原典の本文/機能別表、投稿metadataを区分。未取得の所有資料・元投稿未読を推測で埋めない。",
+        "result": "ConoHaは当該緊急保守の20:45終了、ニコニコは21:30追記で当該PHP保守全完了を確認。ニュースオリジナルの別移行事情は個別未確認。XServerは管理系限定再開と旧PHP/一部機能の継続を分離し全体false。",
+        "newCards": 0,
+        "updatedCards": 3,
+        "additionalSourceRows": 182,
+        "allPriorSourceIdentitiesRetained": 2353,
+        "candidateReadCoverage": {
+          "rawRows": 180,
+          "uniqueURLs": 180,
+          "bodyRetrieved": 3,
+          "exactOwnershipConfirmed": 2,
+          "ownershipPendingAfterBodyRead": 1,
+          "notReadThisCycle": 177
+        },
+        "resolutionOfUniqueRun13Sources": {
+          "confirmedWithExactOwnership": 2,
+          "ownershipPending": 1,
+          "unread": 177,
+          "unresolved": 178
+        },
+        "priorPendingResolved": 0,
+        "unresolvedPreviouslyCollectedGroups": 1819
       }
     ],
     "sourceRowsDecisionBasis": "元収集行に保存した当時の判断内訳です。後続の公式照合結果はsourceReviews/最新followupReview、現在の未解決グループはpendingを参照してください。元の収集行は保持しています。"
@@ -107791,6 +107853,16 @@
       "end": "10/22 20:10時点で管理系を順次再開。一部機能・決済手段は保守継続",
       "restored": false,
       "note": "運営本文の20:10時点の表と、公式投稿の20:10から順次再開という記述を区分。21:14:45 JSTは投稿時刻で実際の全面完了ではありません。対象サーバーのPHP5.6〜8.5は修正適用完了と公式が報告する一方、PHP5.5以下は作成・検証中です。管理サイトやAPI/MCP再開を顧客サイト全停止からの復旧と表現せず、一部機能と旧PHP対応が続くためカード全体を完了にはしません。運営は今回の対応を不正アクセス発生に伴うものではないと説明しており、侵害有無を独自調査した意味ではありません。sv13268のDB事象とも別件です。"
+    },
+    {
+      "confirmedId": "xserver-management",
+      "sourceUrl": "https://www.xserver.ne.jp/news_detail.php?view_id=19734",
+      "checkedAt": "2026-10-22T15:05:43.313Z",
+      "scope": "各種サービスサイト、アカウント管理、パネル、Webメール、ファイルマネージャー、API/MCP、申込・支払い・問い合わせ等。取得した20:10時点表では、サポートサイトの一部、旧WEBメール、パネルの一部機能と一部決済手段に保守継続の記載。顧客サーバー・顧客Web表示・メールソフト送受信は元々稼働継続。",
+      "end": "10/22 20:10時点表で管理系再開。一部サポート・旧WEBメール・一部パネル/決済は保守継続の記載",
+      "restored": false,
+      "note": "運営本文の20:10時点の表と、公式投稿の20:10から順次再開という記述を区分。21:14:45 JSTは投稿時刻で実際の全面完了ではありません。対象サーバーのPHP5.6〜8.5は修正適用完了と公式が報告する一方、PHP5.5以下は作成・検証中です。管理サイトやAPI/MCP再開を顧客サイト全停止からの復旧と表現せず、一部機能と旧PHP対応が続くためカード全体を完了にはしません。運営は今回の対応を不正アクセス発生に伴うものではないと説明しており、侵害有無を独自調査した意味ではありません。sv13268のDB事象とも別件です。 前回取得版から表の備考2セルにサポートサイト一部と旧WEBメールの継続が追加されています。表の基準時計20:10は変わらず、補足の公表時計は未記載です。今回の取得・照合時計を新たな停止/再開時刻にはしません。メールソフトの送受信継続と、旧WEBメールの停止記載は別です。",
+      "sourceUpdateTime": "未記載。原文の表基準時計は10/22 20:10のまま。"
     }
   ],
   "pendingResolutionHistory": [
