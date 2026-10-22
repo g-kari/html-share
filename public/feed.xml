@@ -7,15 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Thu, 22 Oct 2026 09:26:00 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 22 Oct 2026 10:18:31 GMT</lastBuildDate>
     <item>
       <title>PHP2Shell修正状況 — 既知2件の修正と追加不具合の切り分け</title>
       <link>https://share.0g0.xyz/php2shell-patch-status</link>
       <guid isPermaLink="true">https://share.0g0.xyz/php2shell-patch-status</guid>
-      <description>PHP2Shellの既知2CVEはPHP 8.2.35・8.3.36・8.4.27・8.5.12で修正済み。修正版のSimpleXML二重解放、OOM回帰、セッション破棄報告と、未確認のRCE再成立を分けて整理。2026年10月22日時点の公開一次資料。</description>
-      <pubDate>Thu, 22 Oct 2026 09:26:00 GMT</pubDate>
+      <description>PHP2Shellの既知2CVEは公式修正済み。修正版への追加RCE報告あり。報告の条件・検証範囲・公式確認の状況と、SimpleXML等の不具合を分けて整理。2026年10月22日訂正・追記。</description>
+      <pubDate>Thu, 22 Oct 2026 10:18:31 GMT</pubDate>
       <dcterms:created>2026-10-22T09:26:00.000Z</dcterms:created>
-      <dcterms:modified>2026-10-22T09:26:00.000Z</dcterms:modified>
+      <dcterms:modified>2026-10-22T10:18:31.000Z</dcterms:modified>
     </item>
     <item>
       <title>PHP緊急更新：OS・Docker・ECR Publicの対応と暫定対策</title>
