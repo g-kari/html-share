@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Thu, 22 Oct 2026 07:32:21 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 22 Oct 2026 07:45:50 GMT</lastBuildDate>
+    <item>
+      <title>eMudhra ブラウザ接続確認デモ | 応答と失敗を分けて確認</title>
+      <link>https://share.0g0.xyz/emudhra-browser-check</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/emudhra-browser-check</guid>
+      <description>eMudhraの公開検証先12件へ、利用中のブラウザから接続を試すデモ。接続成立と原因不明の失敗を分け、対策済みとは断定しません。</description>
+      <pubDate>Thu, 22 Oct 2026 07:45:50 GMT</pubDate>
+      <dcterms:created>2026-10-22T07:45:50.000Z</dcterms:created>
+      <dcterms:modified>2026-10-22T07:45:50.000Z</dcterms:modified>
+    </item>
     <item>
       <title>緊急メンテナンス一覧｜2026年10月21日前後・公式告知と再開予定</title>
       <link>https://share.0g0.xyz/php-emergency-maintenance</link>
