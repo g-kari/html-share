@@ -1,6 +1,6 @@
 {
   "title": "2026年10月21日前後 緊急メンテナンス・関連告知一覧",
-  "checkedAt": "2026-10-22T06:52:00Z",
+  "checkedAt": "2026-10-22T07:04:00Z",
   "scope": "PHPの因果不問。今回の緊急/予防メンテと同時期の関連告知・別インシデントを区分。件数による上限なし。",
   "counting": "confirmedは公式資料を確認した対象別の告知カード数（部分本文・同一基盤・包括/個別の重なりを含む）。固有サイト数・実停止数・独立インシデント数・被害数ではない。pendingは原典/公式所有/対象範囲等の追加照合待ち。関連・重複・除外理由も全収集行に保持し、件数で打ち切らない。 実施自体が未定の停止可能性の予告も別状態（possible_unstarted）で保持し、実停止・復旧には数えません。",
   "confirmed": [
@@ -2508,38 +2508,46 @@
     },
     {
       "id": "last-cloudia",
-      "name": "ラストクラウディア",
-      "url": "https://x.com/lastcloudia/status/2113153628722843648",
+      "name": "ラストクラウディア（PHP緊急対応）",
+      "url": "https://x.com/lastcloudia/status/2113050593778622895",
       "start": "10/21 22:00予定",
-      "end": "未定。取得した15:21 JST投稿では15:50頃に再度状況報告と案内（終了時刻ではない）",
-      "scope": "ゲームの緊急メンテナンス。",
-      "safe": "最終チェックで問題が見つかり延長した公式投稿と、その後の「引き続き対応」を照合。15:20頃から15:50頃への変更は次回報告の予定で、復旧予定ではありません。06:21 UTCの後続を取得しましたが、その予定時刻の到来だけで新しい報告や完了があったとはしていません。",
+      "end": "10/22 8:30に緊急メンテナンス終了（原文表記）",
+      "scope": "10/21 22:00予定で告知されたPHP対応の緊急メンテナンス。朝08:30の終了報告を対応付け。",
+      "safe": "午後の延長と16:00終了の告知もありますが、朝のPHP対応と同じ連続保守・同原因とは確認できないため、別の関連期間として分離しました。従前の午後延長との連結を訂正。イベント延長/補填は検討・今後案内であり、実施完了ではありません。本文の08:30と08:31 JSTの投稿時刻を分け、TZを原文以上に確定しません。",
       "reason": "PHP対策",
       "cat": "game",
-      "date": "10/22 15:21 JSTの取得済み公式後続",
-      "tag": "延長・対応継続",
-      "status": "最終チェックの問題で延長、その後も対応継続と案内",
-      "source": "通常公開の公式原文・運営自身の所有根拠を照合。前回確認済みの所有資料の保持と、今回の原文実読を区別。",
+      "date": "10/22 08:31 JSTの公式投稿（終了は本文08:30）",
+      "tag": "朝の緊急保守終了／午後と分離",
+      "status": "PHP緊急メンテは08:30終了、午後の別期間とは分離",
+      "source": "通常公開の朝の緊急終了原文と午後の延長/終了原文をそれぞれ取得。既存の公式所有根拠を保持し、別期間・因果未確認を限定レビュー。",
       "ownershipEvidence": [
         {
           "url": "https://www.lastcloudia.com/",
           "note": "公式サイトにlastcloudiaの埋め込み・公式Xリンクを確認。"
         }
       ],
-      "checkedAt": "2026-10-22T06:52:00Z",
+      "checkedAt": "2026-10-22T07:04:00Z",
       "timeZone": "本文にTZ明記がある場合のみ表記",
       "icon": "https://www.lastcloudia.com/favicon.ico",
       "sources": [
         {
-          "url": "https://x.com/lastcloudia/status/2113145334868422831",
-          "label": "最終チェックの問題・延長告知"
+          "url": "https://x.com/lastcloudia/status/2112854086144119058",
+          "label": "PHP緊急保守の開始予定"
         },
         {
-          "url": "https://x.com/lastcloudia/status/2112854086144119058",
-          "label": "前の公式告知"
+          "url": "https://x.com/lastcloudia/status/2113145334868422831",
+          "label": "午後の別期間の延長（同原因未確認）"
+        },
+        {
+          "url": "https://x.com/lastcloudia/status/2113153628722843648",
+          "label": "午後の対応継続（同原因未確認）"
+        },
+        {
+          "url": "https://x.com/lastcloudia/status/2113163659170210220",
+          "label": "午後16:00終了（朝のPHP保守とは分離）"
         }
       ],
-      "restored": false,
+      "restored": true,
       "sourceRead": "body_retrieved"
     },
     {
@@ -44851,9 +44859,8 @@
     {
       "name": "ラストクラウディア",
       "sourceUrl": "https://x.com/lastcloudia/status/2113145334868422831",
-      "verification": "confirmed",
-      "confirmedId": "last-cloudia",
-      "note": "ゲームの緊急メンテナンス。 最終チェックで問題が見つかり延長した公式投稿と、その後の「引き続き対応」を照合。15:20頃から15:50頃への変更は次回報告の予定で、復旧予定ではありません。06:21 UTCの後続を取得しましたが、その予定時刻の到来だけで新しい報告や完了があったとはしていません。",
+      "verification": "related",
+      "note": "公式原文の午後の延長・対応継続として本文取得済み。ただし朝08:30に終了したPHP緊急対応と同じ連続保守・同原因とは確認できず、別期間の関連資料へ分類を訂正。午後側も後続で16:00終了を確認。",
       "sourceClass": "原文と運営自身の正確な所有資料を照合",
       "sourceRead": "body_retrieved",
       "checkedAt": "2026-10-22T06:52:00Z",
@@ -44866,7 +44873,12 @@
         "sourceType": "公式X",
         "verification": "unverified"
       },
-      "nextVerificationCondition": "同じ対象の公式な延長・範囲変更・終了報告が出た時点。"
+      "nextVerificationCondition": "同じ対象の公式な延長・範囲変更・終了報告が出た時点。",
+      "previousVerification": "confirmed",
+      "correction": {
+        "checkedAt": "2026-10-22T07:04:00Z",
+        "reason": "朝の緊急保守終了を追加取得し、同一連続期間という従前の対応付けを訂正。"
+      }
     },
     {
       "name": "DMM GAMES(とのフラ/ミストトレインガールズ/艦これ/プリコネ等)",
@@ -49767,14 +49779,18 @@
     {
       "name": "ラストクラウディア 公式後続",
       "sourceUrl": "https://x.com/lastcloudia/status/2113153628722843648",
-      "verification": "confirmed",
-      "confirmedId": "last-cloudia",
-      "note": "ゲームの緊急メンテナンス。 最終チェックで問題が見つかり延長した公式投稿と、その後の「引き続き対応」を照合。15:20頃から15:50頃への変更は次回報告の予定で、復旧予定ではありません。06:21 UTCの後続を取得しましたが、その予定時刻の到来だけで新しい報告や完了があったとはしていません。",
+      "verification": "related",
+      "note": "公式原文の午後の延長・対応継続として本文取得済み。ただし朝08:30に終了したPHP緊急対応と同じ連続保守・同原因とは確認できず、別期間の関連資料へ分類を訂正。午後側も後続で16:00終了を確認。",
       "sourceClass": "運営の通常公開本文を照合",
       "sourceRead": "body_retrieved",
       "checkedAt": "2026-10-22T06:52:00Z",
       "collectionBatch": "public-notice-followup-20261022-1552",
-      "nextVerificationCondition": "同じ対象の公式な延長・範囲変更・終了報告が出た時点。"
+      "nextVerificationCondition": "同じ対象の公式な延長・範囲変更・終了報告が出た時点。",
+      "previousVerification": "confirmed",
+      "correction": {
+        "checkedAt": "2026-10-22T07:04:00Z",
+        "reason": "朝の緊急保守終了を追加取得し、同一連続期間という従前の対応付けを訂正。"
+      }
     },
     {
       "name": "ニコニコ 対象サービス 公式後続",
@@ -49833,6 +49849,29 @@
       "checkedAt": "2026-10-22T06:52:00Z",
       "collectionBatch": "public-notice-followup-20261022-1552",
       "nextVerificationCondition": "通常の公開原文と、運営自身が示す正確なアカウント所有・今回の対象範囲/日付を照合できた時点。第三者の報告だけで公式昇格せず、アクセス制限は迂回しません。"
+    },
+    {
+      "name": "ラストクラウディア 朝のPHP緊急終了",
+      "sourceUrl": "https://x.com/lastcloudia/status/2113050593778622895",
+      "verification": "confirmed",
+      "confirmedId": "last-cloudia",
+      "note": "10/21 22:00予定で告知されたPHP対応の緊急メンテナンス。朝08:30の終了報告を対応付け。 午後の延長と16:00終了の告知もありますが、朝のPHP対応と同じ連続保守・同原因とは確認できないため、別の関連期間として分離しました。従前の午後延長との連結を訂正。イベント延長/補填は検討・今後案内であり、実施完了ではありません。本文の08:30と08:31 JSTの投稿時刻を分け、TZを原文以上に確定しません。",
+      "sourceClass": "所有確認済み公式原文・期間分離の訂正",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-22T07:04:00Z",
+      "collectionBatch": "public-notice-correction-20261022-lastcloudia-periods",
+      "nextVerificationCondition": "両期間の関係や原因を運営自身が明示した場合のみ対応付けを見直す。"
+    },
+    {
+      "name": "ラストクラウディア 午後の保守終了",
+      "sourceUrl": "https://x.com/lastcloudia/status/2113163659170210220",
+      "verification": "related",
+      "note": "午後の保守16:00終了。朝のPHP緊急対応08:30終了と同期間/同原因とは連結しない。",
+      "sourceClass": "所有確認済み公式原文・期間分離の訂正",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-22T07:04:00Z",
+      "collectionBatch": "public-notice-correction-20261022-lastcloudia-periods",
+      "nextVerificationCondition": "両期間の関係や原因を運営自身が明示した場合のみ対応付けを見直す。"
     }
   ],
   "related": [
@@ -50949,6 +50988,23 @@
       ],
       "sourceRead": "body_retrieved",
       "checkedAt": "2026-10-22T06:52:00Z"
+    },
+    {
+      "name": "ラストクラウディア 午後の保守（朝のPHP対応と分離）",
+      "url": "https://x.com/lastcloudia/status/2113163659170210220",
+      "note": "午後の最終チェック問題による延長・対応継続の後、10/22 16:00に終了（原文表記）。朝08:30に終了したPHP緊急保守と同じ連続期間/同原因とは未確認。確定した追加の緊急インシデントとしては加算しない。",
+      "sources": [
+        {
+          "url": "https://x.com/lastcloudia/status/2113145334868422831",
+          "label": "午後の延長・継続原文"
+        },
+        {
+          "url": "https://x.com/lastcloudia/status/2113153628722843648",
+          "label": "午後の延長・継続原文"
+        }
+      ],
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-22T07:04:00Z"
     }
   ],
   "excluded": [
@@ -70892,6 +70948,23 @@
       "reason": "ガンダムVS.モバイル公開と、バンダイナムコID側の保守に影響する機能の停止継続。 全機能復旧、ID基盤全体の完了、アーケードゲーム全体の停止・再開へ広げません。詳細275は403で取得を止めたため、停止機能の内訳を補完していません。",
       "checkedAt": "2026-10-22T06:52:00Z",
       "sourceRead": "body_retrieved"
+    },
+    {
+      "name": "ラストクラウディア（PHP緊急対応）",
+      "sourceUrl": "https://x.com/lastcloudia/status/2113050593778622895",
+      "decision": "confirmed",
+      "confirmedId": "last-cloudia",
+      "reason": "PHP緊急対応は朝08:30終了。午後は関係未確認の別期間として関連枠へ訂正。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-22T07:04:00Z"
+    },
+    {
+      "name": "ラストクラウディア 午後の保守",
+      "sourceUrl": "https://x.com/lastcloudia/status/2113163659170210220",
+      "decision": "related",
+      "reason": "午後16:00終了。朝PHP対応との連続性/同原因は未確認。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-22T07:04:00Z"
     }
   ],
   "relationships": [
@@ -71045,12 +71118,12 @@
     "classifiedOriginalGroups": 457,
     "additionalDiscoveryRows": 107,
     "classifiedAdditionalRows": 107,
-    "allDiscoveryRows": 1870,
+    "allDiscoveryRows": 1872,
     "sourceRowsByDecision": {
-      "confirmed": 456,
+      "confirmed": 455,
       "duplicate": 60,
       "pending": 1221,
-      "related": 122,
+      "related": 125,
       "excluded": 8,
       "pending-update": 3
     },
@@ -71059,7 +71132,7 @@
     "piyologNewPrimaryUrls": 27,
     "additionalOwnerVerifiedCards": 70,
     "followupReview": {
-      "checkedAt": "2026-10-22T06:52:00Z",
+      "checkedAt": "2026-10-22T07:04:00Z",
       "scope": "保存済みrun9の全269候補を保持し、266固有原文の取得可否と、重要な再開/延長/部分停止を照合。既存全カードを同時刻に再取得した意味ではありません。",
       "method": "原文261取得/5page_not_found。公式所有資料・運営PDF・公式ストア掲載と照合し、別担当の限定内容リスクレビューを実施。本文取得だけで公式認定しない。",
       "result": "限定レビューPASS。ニコニコ合体・ぷりんと楽譜・ガンダムVSは継続対象を分離、nizimaはdocsのみ、通常保守TASOKAREは関連枠。三国/キングダム/EPARKは所有確認不足を保留。構造/CI/配信は別検証。",
@@ -71079,9 +71152,16 @@
         "related": 1,
         "independentOfficialSourceDuplicate": 1,
         "pending": 250
+      },
+      "supplementalCorrection": {
+        "checkedAt": "2026-10-22T07:04:00Z",
+        "scope": "ラスクラのみの期間分離訂正。朝08:30のPHP緊急終了と午後16:00の別保守終了を連結しない。",
+        "sourceRowsAdded": 2,
+        "priorRowDecisionsCorrected": 2,
+        "ownerContentReview": "PASS"
       }
     },
-    "followupDiscoveryRows": 961
+    "followupDiscoveryRows": 963
   },
   "collectionBatches": [
     {
@@ -81004,6 +81084,25 @@
         }
       ],
       "note": "既存カードに対応する未収録の公式原典と、今回辿った予定/編集後続URLのみを追加。原本URL数の増加は新しい独立サイト数ではない。"
+    },
+    {
+      "id": "public-notice-correction-20261022-lastcloudia-periods",
+      "checkedAt": "2026-10-22T07:04:00Z",
+      "rowCount": 2,
+      "members": [
+        {
+          "name": "ラストクラウディア 朝のPHP緊急終了",
+          "sourceUrl": "https://x.com/lastcloudia/status/2113050593778622895",
+          "verification": "confirmed",
+          "confirmedId": "last-cloudia"
+        },
+        {
+          "name": "ラストクラウディア 午後の保守終了",
+          "sourceUrl": "https://x.com/lastcloudia/status/2113163659170210220",
+          "verification": "related"
+        }
+      ],
+      "note": "朝の終了と午後の終了の公式2原典を追加し、従前の午後延長との連結を訂正。旧判断と原本を消さず履歴として保持。"
     }
   ]
 }
