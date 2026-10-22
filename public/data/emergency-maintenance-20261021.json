@@ -1,6 +1,6 @@
 {
   "title": "2026年10月21日前後 緊急メンテナンス・関連告知一覧",
-  "checkedAt": "2026-10-22T18:10:32Z",
+  "checkedAt": "2026-10-22T19:03:30Z",
   "scope": "PHPの因果不問。今回の緊急/予防メンテと同時期の関連告知・別インシデントを区分。件数による上限なし。",
   "counting": "confirmedは公式資料を確認した対象別の告知カード数（部分本文・同一基盤・包括/個別の重なりを含む）。固有サイト数・実停止数・独立インシデント数・被害数ではない。pendingは原典/公式所有/対象範囲等の追加照合待ち。関連・重複・除外理由も全収集行に保持し、件数で打ち切らない。 実施自体が未定の停止可能性の予告も別状態（possible_unstarted）で保持し、実停止・復旧には数えません。",
   "confirmed": [
@@ -10071,16 +10071,16 @@
       "id": "enum-website",
       "name": "e沼 公式サイト",
       "cat": "entertainment",
-      "tag": "緊急メンテ",
-      "status": "公式は停止/停止予定と案内",
-      "start": "告知時点で実施中",
-      "end": "未定",
-      "scope": "e沼公式サイトの緊急メンテナンス。イベント自体の中止としない。",
-      "safe": "復旧報告なし。予定終了やページが読めることを完了と扱わない。 原文の明示がないタイムゾーンは独立確認していません。予定終了の経過だけでは復旧済みにしません。",
-      "url": "https://x.com/numazu_esp/status/2112926984930316461",
-      "source": "公式本文・所有資料を照合",
-      "date": "10/21",
-      "reason": "緊急メンテナンス（詳細理由未記載）",
+      "tag": "当該公式サイトの再公開を報告",
+      "status": "e沼公式サイトの緊急メンテ完了・再公開",
+      "start": "旧告知時点で実施中。実開始時計は新たに確定していません",
+      "end": "10/23 02:18 JST投稿時点で再公開報告。実終了時計は未記載",
+      "scope": "e沼公式サイトの当該緊急メンテナンスと再公開。イベント自体の開催・中止や他のコミュニティサービスとは別です。",
+      "safe": "最新本文は『緊急メンテナンスが完了し、e沼公式サイトを再公開』と案内。02:18:21 JSTは投稿metadataの換算で、実終了時計ではありません。PHP名や原因の詳細はこの終了本文に記載されておらず、PHP起因やイベントの実施状況へ拡張しません。公式所有は既に照合した運営公式イベントページのexact埋込証跡を再利用しています。過去に403だった公式トップは今回再取得せず、現在のsite本文・実機能の検証まで済んだとはしません。",
+      "url": "https://x.com/numazu_esp/status/2113319055738405130",
+      "source": "新しい元投稿本文・UTC投稿metadataを取得。exact公式所有は既存の運営公式イベントページ埋込証跡を再利用し、その現在の再取得や動作確認とは区別。",
+      "date": "10/23 02:18:21 JST投稿（UTC metadata換算）",
+      "reason": "緊急メンテナンス（PHP名・詳細原因は終了本文に未記載）",
       "icon": "https://numazu-e-sports.com/favicon.ico",
       "index": 173,
       "ownershipEvidence": [
@@ -10090,7 +10090,38 @@
           "readState": "indexed_official_page_read"
         }
       ],
-      "checkedAt": "2026-10-21T16:46:47.305Z"
+      "checkedAt": "2026-10-22T19:03:30Z",
+      "sourcePublishedAt": "2026-10-22T17:18:21.000Z",
+      "reasonKey": "unknown",
+      "restored": true,
+      "sourceRead": "body_retrieved",
+      "previousNotices": [
+        {
+          "id": "enum-website",
+          "name": "e沼 公式サイト",
+          "cat": "entertainment",
+          "tag": "緊急メンテ",
+          "status": "公式は停止/停止予定と案内",
+          "start": "告知時点で実施中",
+          "end": "未定",
+          "scope": "e沼公式サイトの緊急メンテナンス。イベント自体の中止としない。",
+          "safe": "復旧報告なし。予定終了やページが読めることを完了と扱わない。 原文の明示がないタイムゾーンは独立確認していません。予定終了の経過だけでは復旧済みにしません。",
+          "url": "https://x.com/numazu_esp/status/2112926984930316461",
+          "source": "公式本文・所有資料を照合",
+          "date": "10/21",
+          "reason": "緊急メンテナンス（詳細理由未記載）",
+          "icon": "https://numazu-e-sports.com/favicon.ico",
+          "index": 173,
+          "ownershipEvidence": [
+            {
+              "url": "https://numazu-e-sports.com/2024",
+              "detail": "主催コミュニティ自身の過去公式イベントページがTweets by numazu_espを埋込み。Web取得本文で照合済み。後の公式トップライブ取得403は尊重し再取得停止。",
+              "readState": "indexed_official_page_read"
+            }
+          ],
+          "checkedAt": "2026-10-21T16:46:47.305Z"
+        }
+      ]
     },
     {
       "id": "bassmagazine-website",
@@ -13230,6 +13261,54 @@
           "reason": "原因・PHP名はこの本文にも未記載"
         }
       ]
+    },
+    {
+      "id": "monacard-website",
+      "name": "Monacard（card.mona.jp）",
+      "cat": "web",
+      "tag": "当該Web公開の再開を報告",
+      "status": "運営が脆弱性対応完了・Web公開再開を報告",
+      "start": "10/22 02:54 JST投稿時点で公開停止を報告。実開始時計は未記載",
+      "end": "10/23 02:29 JST投稿時点で再開報告。実再開時計は未記載",
+      "scope": "card.mona.jpの当該Web公開停止と再開。ブロックチェーン全体・ウォレット・第三者アプリ・取引機能の安全や稼働状況とは別です。",
+      "safe": "運営の終了本文は脆弱性への対応完了と再開を説明。前の停止原文はcard.mona.jpの公開停止とサーバー管理会社の保守後の確認予定で、PHP名・CVE番号は両本文に未記載です。02:29:44 JSTは投稿metadataの換算で、実再開時計ではありません。サイト自身のexact公式Xリンクを照合しましたが、フォーム・ログイン・ウォレット接続・売買・送受信等の実操作はしていません。運営の対応完了報告を、独自に確認したシステム全体の安全性や資産価値と読み替えません。",
+      "reason": "脆弱性公開への対応（PHP名・CVE番号は取得本文に未記載）",
+      "reasonKey": "security",
+      "restored": true,
+      "url": "https://x.com/_monacard/status/2113321920758493378",
+      "date": "10/23 02:29:44 JST投稿（UTC metadata換算）",
+      "sourcePublishedAt": "2026-10-22T17:29:44.000Z",
+      "icon": "https://card.mona.jp/favicon.ico",
+      "iconSource": "公式originの標準faviconパス。今回favicon宣言・画像の取得/描画は未確認で、失敗時はMの文字fallbackを表示。",
+      "sources": [
+        {
+          "url": "https://x.com/_monacard/status/2112965696959430925",
+          "label": "前のWeb公開停止原典（今回本文取得）"
+        }
+      ],
+      "ownershipEvidence": [
+        {
+          "url": "https://card.mona.jp/",
+          "detail": "サービス自身の公開サイトが正確なhttps://twitter.com/_monacardを直接リンク。今回通常公開readで照合。",
+          "readState": "body_retrieved"
+        }
+      ],
+      "previousNotices": [
+        {
+          "name": "Monacard（card.mona.jp）",
+          "url": "https://x.com/_monacard/status/2112965696959430925",
+          "date": "10/22 02:54:13 JST投稿（UTC metadata換算）",
+          "status": "脆弱性公開を受けWeb公開停止を報告",
+          "start": "この投稿時点で停止。実開始時計は未記載",
+          "end": "サーバー管理会社の保守完了後に確認して再開予定",
+          "scope": "card.mona.jpのWeb公開。",
+          "reason": "脆弱性公開への予防的対応。PHP名はこの本文に未記載"
+        }
+      ],
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-22T19:03:30Z",
+      "source": "通常公開の元投稿本文・UTC投稿metadataと、サービス自身のexact公式Xリンクを照合。前の停止原文も別URLで取得し、投稿時計・実時計・機能範囲を区分。",
+      "noticeState": "announced"
     }
   ],
   "pending": [
@@ -37464,33 +37543,36 @@
     },
     {
       "names": [
-        "モナカード"
-      ],
-      "url": "https://x.com/_monacard/status/2113321920758493378",
-      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
-      "sourceClass": "公開候補収集（原文・公式性は別途照合）",
-      "sourceRead": "not_read_this_cycle",
-      "checkedAt": "2026-10-22T18:10:32Z",
-      "collectionBatch": "grok-public-candidates-20261023-0300",
-      "sourceRows": [
-        3
-      ],
-      "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
-    },
-    {
-      "names": [
-        "ラクスパ ホームページ"
+        "天然温泉 楽天地スパのHP（投稿名義・所有は未照合）"
       ],
       "url": "https://x.com/rakuspa/status/2113324874207023437",
-      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
-      "sourceClass": "公開候補収集（原文・公式性は別途照合）",
-      "sourceRead": "not_read_this_cycle",
-      "checkedAt": "2026-10-22T18:10:32Z",
+      "note": "取得した本文と投稿者名義は『天然温泉 楽天地スパ』で、錦糸町のHPについて脆弱性対応の緊急保守後に通常利用と説明。収集時の『ラクスパ』から別チェーンのRAKU SPAと同定しません。試みた運営サイトwww.rakutenchi-oasis.comの取得は403で、運営自身のexact公式X逆リンクを未照合のため確定群には含めません。投稿時計は10/23 02:41:28 JST（UTC metadata換算）で実終了時計とは別。",
+      "sourceClass": "原文取得・公式所有は未照合",
+      "sourceRead": "body_retrieved_ownership_unresolved",
+      "checkedAt": "2026-10-22T19:03:30Z",
       "collectionBatch": "grok-public-candidates-20261023-0300",
       "sourceRows": [
         4
       ],
-      "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
+      "nextVerificationCondition": "既存のアクセス制限を迂回せず、運営自身が示すexact公式X所有と対象範囲を照合できた時点。施設の営業状況や別チェーンに拡張しない。",
+      "sourcePublishedAt": "2026-10-22T17:41:28.000Z",
+      "previousStates": [
+        {
+          "names": [
+            "ラクスパ ホームページ"
+          ],
+          "url": "https://x.com/rakuspa/status/2113324874207023437",
+          "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+          "sourceClass": "公開候補収集（原文・公式性は別途照合）",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-10-22T18:10:32Z",
+          "collectionBatch": "grok-public-candidates-20261023-0300",
+          "sourceRows": [
+            4
+          ],
+          "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
+        }
+      ]
     },
     {
       "names": [
@@ -37616,21 +37698,6 @@
     },
     {
       "names": [
-        "e沼(沼津eスポーツ)公式サイト"
-      ],
-      "url": "https://x.com/numazu_esp/status/2113319055738405130",
-      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
-      "sourceClass": "公開候補収集（原文・公式性は別途照合）",
-      "sourceRead": "not_read_this_cycle",
-      "checkedAt": "2026-10-22T18:10:32Z",
-      "collectionBatch": "grok-public-candidates-20261023-0300",
-      "sourceRows": [
-        16
-      ],
-      "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
-    },
-    {
-      "names": [
         "penpe.net"
       ],
       "url": "https://x.com/penpe_net_/status/2113325503147020317",
@@ -37679,15 +37746,33 @@
         "訪問看護ステーションは～とふる多摩センター 公式HP"
       ],
       "url": "https://x.com/heartfultama/status/2113315677658607768",
-      "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
-      "sourceClass": "公開候補収集（原文・公式性は別途照合）",
-      "sourceRead": "not_read_this_cycle",
-      "checkedAt": "2026-10-22T18:10:32Z",
+      "note": "元本文は『公式HPメンテナンス中』とし、HPの一時アクセス不可と採用特設サイトは利用できる旨を説明。PHP名・原因・緊急性・終了時計は未記載で、訪問看護の業務休止とは読み替えません。投稿者の自称だけで公式認定せず、プロフィールの運営リンク短縮先はempty_contentで未取得、正確な所有確認を保留。投稿時計は10/23 02:04:55 JST（UTC metadata換算）で実停止開始とは別。",
+      "sourceClass": "原文取得・公式所有/緊急性は未照合",
+      "sourceRead": "body_retrieved_ownership_unresolved",
+      "checkedAt": "2026-10-22T19:03:30Z",
       "collectionBatch": "grok-public-candidates-20261023-0300",
       "sourceRows": [
         21
       ],
-      "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
+      "nextVerificationCondition": "通常公開の運営自身のexact所有、対象サイト、今回の関連期間・緊急性を照合できた時点。HPと採用特設サイト、診療/訪問看護業務を混同しない。",
+      "sourcePublishedAt": "2026-10-22T17:04:55.000Z",
+      "previousStates": [
+        {
+          "names": [
+            "訪問看護ステーションは～とふる多摩センター 公式HP"
+          ],
+          "url": "https://x.com/heartfultama/status/2113315677658607768",
+          "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+          "sourceClass": "公開候補収集（原文・公式性は別途照合）",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-10-22T18:10:32Z",
+          "collectionBatch": "grok-public-candidates-20261023-0300",
+          "sourceRows": [
+            21
+          ],
+          "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
+        }
+      ]
     },
     {
       "names": [
@@ -75473,6 +75558,17 @@
       "sourceRead": "body_retrieved",
       "checkedAt": "2026-10-22T18:10:32Z",
       "collectionBatch": "public-notice-followup-20261023-0310"
+    },
+    {
+      "name": "Monacard：Web公開停止の先行原典",
+      "sourceUrl": "https://x.com/_monacard/status/2112965696959430925",
+      "verification": "confirmed",
+      "confirmedId": "monacard-website",
+      "note": "元本文・UTCmetadataと同一運営のexact公式所有を照合した先行停止原典。今回新たに取得し、既受領43候補行とは別由来で1行追加。",
+      "sourceRead": "body_retrieved",
+      "sourcePublishedAt": "2026-10-21T17:54:13.000Z",
+      "checkedAt": "2026-10-22T19:03:30Z",
+      "collectionBatch": "public-notice-followup-20261023-0403"
     }
   ],
   "related": [
@@ -100509,6 +100605,85 @@
       "reason": "事前予告のVer.5.9.0更新原典。PHP緊急対応との同一性は確認できず関連へ。",
       "checkedAt": "2026-10-22T18:10:32Z",
       "sourceRead": "body_retrieved"
+    },
+    {
+      "sourceUrl": "https://x.com/_monacard/status/2113321920758493378",
+      "names": [
+        "Monacard（card.mona.jp）"
+      ],
+      "decision": "confirmed",
+      "reason": "通常公開の元投稿本文・UTC投稿metadataと、サービス自身のexact公式Xリンクを照合。前の停止原文も別URLで取得し、投稿時計・実時計・機能範囲を区分。",
+      "confirmedId": "monacard-website",
+      "checkedAt": "2026-10-22T19:03:30Z",
+      "sourcePublishedAt": "2026-10-22T17:29:44.000Z",
+      "sourceRead": "body_retrieved",
+      "ownershipEvidence": [
+        {
+          "url": "https://card.mona.jp/",
+          "detail": "サービス自身の公開サイトが正確なhttps://twitter.com/_monacardを直接リンク。今回通常公開readで照合。",
+          "readState": "body_retrieved"
+        }
+      ]
+    },
+    {
+      "sourceUrl": "https://x.com/numazu_esp/status/2113319055738405130",
+      "names": [
+        "e沼 公式サイト"
+      ],
+      "decision": "confirmed",
+      "reason": "新しい元投稿本文・UTC投稿metadataを取得。exact公式所有は既存の運営公式イベントページ埋込証跡を再利用し、その現在の再取得や動作確認とは区別。",
+      "confirmedId": "enum-website",
+      "checkedAt": "2026-10-22T19:03:30Z",
+      "sourcePublishedAt": "2026-10-22T17:18:21.000Z",
+      "sourceRead": "body_retrieved",
+      "ownershipEvidence": [
+        {
+          "url": "https://numazu-e-sports.com/2024",
+          "detail": "主催コミュニティ自身の過去公式イベントページがTweets by numazu_espを埋込み。Web取得本文で照合済み。後の公式トップライブ取得403は尊重し再取得停止。",
+          "readState": "indexed_official_page_read"
+        }
+      ]
+    },
+    {
+      "sourceUrl": "https://x.com/_monacard/status/2112965696959430925",
+      "names": [
+        "Monacard（card.mona.jp）"
+      ],
+      "decision": "confirmed",
+      "confirmedId": "monacard-website",
+      "checkedAt": "2026-10-22T19:03:30Z",
+      "sourceRead": "body_retrieved",
+      "sourcePublishedAt": "2026-10-21T17:54:13.000Z",
+      "reason": "元本文・UTCmetadataと同一運営のexact公式所有を照合した先行停止原典。今回新たに取得し、既受領43候補行とは別由来で1行追加。",
+      "ownershipEvidence": [
+        {
+          "url": "https://card.mona.jp/",
+          "detail": "サービス自身の公開サイトが正確なhttps://twitter.com/_monacardを直接リンク。今回通常公開readで照合。",
+          "readState": "body_retrieved"
+        }
+      ]
+    },
+    {
+      "sourceUrl": "https://x.com/rakuspa/status/2113324874207023437",
+      "names": [
+        "天然温泉 楽天地スパのHP（投稿名義・所有は未照合）"
+      ],
+      "decision": "pending",
+      "reason": "取得した本文と投稿者名義は『天然温泉 楽天地スパ』で、錦糸町のHPについて脆弱性対応の緊急保守後に通常利用と説明。収集時の『ラクスパ』から別チェーンのRAKU SPAと同定しません。試みた運営サイトwww.rakutenchi-oasis.comの取得は403で、運営自身のexact公式X逆リンクを未照合のため確定群には含めません。投稿時計は10/23 02:41:28 JST（UTC metadata換算）で実終了時計とは別。",
+      "checkedAt": "2026-10-22T19:03:30Z",
+      "sourceRead": "body_retrieved_ownership_unresolved",
+      "sourcePublishedAt": "2026-10-22T17:41:28.000Z"
+    },
+    {
+      "sourceUrl": "https://x.com/heartfultama/status/2113315677658607768",
+      "names": [
+        "訪問看護ステーションは～とふる多摩センター 公式HP"
+      ],
+      "decision": "pending",
+      "reason": "元本文は『公式HPメンテナンス中』とし、HPの一時アクセス不可と採用特設サイトは利用できる旨を説明。PHP名・原因・緊急性・終了時計は未記載で、訪問看護の業務休止とは読み替えません。投稿者の自称だけで公式認定せず、プロフィールの運営リンク短縮先はempty_contentで未取得、正確な所有確認を保留。投稿時計は10/23 02:04:55 JST（UTC metadata換算）で実停止開始とは別。",
+      "checkedAt": "2026-10-22T19:03:30Z",
+      "sourceRead": "body_retrieved_ownership_unresolved",
+      "sourcePublishedAt": "2026-10-22T17:04:55.000Z"
     }
   ],
   "relationships": [
@@ -100698,7 +100873,7 @@
     "classifiedOriginalGroups": 457,
     "additionalDiscoveryRows": 107,
     "classifiedAdditionalRows": 107,
-    "allDiscoveryRows": 2786,
+    "allDiscoveryRows": 2787,
     "sourceRowsByDecision": {
       "confirmed": 506,
       "duplicate": 62,
@@ -100712,45 +100887,35 @@
     "piyologNewPrimaryUrls": 27,
     "additionalOwnerVerifiedCards": 70,
     "followupReview": {
-      "checkedAt": "2026-10-22T18:10:32Z",
-      "scope": "新受領43収集行を全保持し、重要な4元投稿・前の2原文・追加公式原典2件を限定照合。全カード/全候補の同時再取得ではありません。",
-      "method": "元投稿本文/UTC metadata、運営のexact公式所有とfavicon宣言、過去資料を区分。BLUELOCKの事前予告を追加照合して緊急カードへの誤追加を防止。",
-      "result": "ニコッとは部分再開方針のみでfalse。れじぇくろ/別マHP/サモンズの限定終了3カードを追加。別マの相対終了日とmetadataの不整合を未確定のまま保存。BLUELOCKは事前予告のVer.5.9.0更新関連として別枠、緊急カード/復旧数へ加えない。",
-      "newCards": 3,
+      "checkedAt": "2026-10-22T19:03:30Z",
+      "scope": "既受領run15の重要な4元本文を限定照合、Monacard先行停止原典1件も取得。既存主要運営の続報・OSの限定読取も行い、全候補/全カードの同時再取得ではありません。",
+      "result": "MonacardのWeb公開再開を新1カード、e沼のHP再公開を既存1更新として採用。楽天地スパの名称混同を訂正し所有403保留、は～とふるはHP/採用特設/業務を区分して所有・緊急性保留。PHP未明記を推定しない。",
+      "newCards": 1,
       "updatedCards": 1,
-      "additionalSourceRows": 45,
-      "allPriorSourceIdentitiesRetained": 2741,
-      "candidateReadCoverage": {
+      "updatedUnresolvedGroups": 2,
+      "priorPendingResolved": 2,
+      "additionalSourceRows": 1,
+      "allPriorSourceIdentitiesRetained": 2786,
+      "thisCycleRun15Originals": {
+        "bodyRetrieved": 4,
+        "exactOwnershipConfirmed": 2,
+        "ownershipUnresolved": 2
+      },
+      "run15ToDate": {
         "rawRows": 43,
         "uniqueURLs": 42,
-        "bodyRetrieved": 4,
-        "exactOwnershipConfirmed": 4,
-        "notReadThisCycle": 38,
-        "unreadRawRows": 39
+        "bodyRetrieved": 8,
+        "exactOwnershipConfirmed": 6,
+        "confirmedCardSources": 5,
+        "relatedPlannedUpdate": 1,
+        "ownershipUnresolved": 2,
+        "notRead": 34,
+        "unreadRawRows": 35,
+        "unresolved": 36
       },
-      "resolutionOfUniqueRun15Sources": {
-        "confirmedWithExactOwnership": 3,
-        "relatedPlannedVersionUpdate": 1,
-        "unread": 38,
-        "unresolved": 38
-      },
-      "additionalOfficialSourceURLs": 2,
-      "additionalPriorBatchBodies": 2,
-      "newPendingGroups": 38,
-      "priorPendingResolved": 1,
-      "unresolvedPreviouslyCollectedGroups": 2055,
-      "previousRun14Coverage": {
-        "uniqueURLs": 204,
-        "previouslyVerified": 4,
-        "additionalOriginalBodyRead": 1,
-        "verifiedToDate": 5,
-        "notReadToDate": 199
-      },
-      "unchangedOfficialSources": [
-        "https://qa.buyma.com/information/maintenance/31825.html",
-        "https://www.xserver.ne.jp/news_detail.php?view_id=19734"
-      ],
-      "limits": "原文TZ未明示はJSTと補わず、投稿時計を実終了にしない。通常予定更新や未検証の対外原因主張は緊急事実に採用しない。"
+      "unresolvedPreviouslyCollectedGroups": 2053,
+      "OSRead": "Fedora表・CloudLinux14:31・RHEL本文とDebian両CVEのsource package表は既存記載と一致。最初のDebian取得結果には表欠落があり、別の通常公開readで両表を別途照合。OSの時刻のみ更新はしない。",
+      "limits": "実ブラウザの操作・画像描画は今回も未検証。取得不能・403・未読を正常確認にせず、運営自身のexact公式所有を照合できない候補は未確定のまま保持。"
     },
     "followupDiscoveryRows": 1832,
     "followupReviews": [
@@ -100968,15 +101133,56 @@
         },
         "priorPendingResolved": 5,
         "unresolvedPreviouslyCollectedGroups": 2018
+      },
+      {
+        "checkedAt": "2026-10-22T18:10:32Z",
+        "scope": "新受領43収集行を全保持し、重要な4元投稿・前の2原文・追加公式原典2件を限定照合。全カード/全候補の同時再取得ではありません。",
+        "method": "元投稿本文/UTC metadata、運営のexact公式所有とfavicon宣言、過去資料を区分。BLUELOCKの事前予告を追加照合して緊急カードへの誤追加を防止。",
+        "result": "ニコッとは部分再開方針のみでfalse。れじぇくろ/別マHP/サモンズの限定終了3カードを追加。別マの相対終了日とmetadataの不整合を未確定のまま保存。BLUELOCKは事前予告のVer.5.9.0更新関連として別枠、緊急カード/復旧数へ加えない。",
+        "newCards": 3,
+        "updatedCards": 1,
+        "additionalSourceRows": 45,
+        "allPriorSourceIdentitiesRetained": 2741,
+        "candidateReadCoverage": {
+          "rawRows": 43,
+          "uniqueURLs": 42,
+          "bodyRetrieved": 4,
+          "exactOwnershipConfirmed": 4,
+          "notReadThisCycle": 38,
+          "unreadRawRows": 39
+        },
+        "resolutionOfUniqueRun15Sources": {
+          "confirmedWithExactOwnership": 3,
+          "relatedPlannedVersionUpdate": 1,
+          "unread": 38,
+          "unresolved": 38
+        },
+        "additionalOfficialSourceURLs": 2,
+        "additionalPriorBatchBodies": 2,
+        "newPendingGroups": 38,
+        "priorPendingResolved": 1,
+        "unresolvedPreviouslyCollectedGroups": 2055,
+        "previousRun14Coverage": {
+          "uniqueURLs": 204,
+          "previouslyVerified": 4,
+          "additionalOriginalBodyRead": 1,
+          "verifiedToDate": 5,
+          "notReadToDate": 199
+        },
+        "unchangedOfficialSources": [
+          "https://qa.buyma.com/information/maintenance/31825.html",
+          "https://www.xserver.ne.jp/news_detail.php?view_id=19734"
+        ],
+        "limits": "原文TZ未明示はJSTと補わず、投稿時計を実終了にしない。通常予定更新や未検証の対外原因主張は緊急事実に採用しない。"
       }
     ],
     "sourceRowsDecisionBasis": "元収集行に保存した当時の判断内訳です。後続の公式照合結果はsourceReviews/最新followupReview、現在の未解決グループはpendingを参照してください。元の収集行は保持しています。",
     "latestReconciliation": {
-      "checkedAt": "2026-10-22T18:10:32Z",
-      "confirmedCards": 526,
-      "scopedCompletionReports": 86,
-      "pendingGroups": 2055,
-      "allDiscoveryRows": 2786,
+      "checkedAt": "2026-10-22T19:03:30Z",
+      "confirmedCards": 527,
+      "scopedCompletionReports": 88,
+      "pendingGroups": 2053,
+      "allDiscoveryRows": 2787,
       "relatedRecords": 126
     }
   },
@@ -116595,6 +116801,25 @@
         }
       ],
       "note": "新たに本文を照合した運営原典2URL。収集43行とは別由来として明示。"
+    },
+    {
+      "id": "public-notice-followup-20261023-0403",
+      "checkedAt": "2026-10-22T19:03:30Z",
+      "rowCount": 1,
+      "members": [
+        {
+          "name": "Monacard：Web公開停止の先行原典",
+          "sourceUrl": "https://x.com/_monacard/status/2112965696959430925",
+          "verification": "confirmed",
+          "confirmedId": "monacard-website",
+          "note": "元本文・UTCmetadataと同一運営のexact公式所有を照合した先行停止原典。今回新たに取得し、既受領43候補行とは別由来で1行追加。",
+          "sourceRead": "body_retrieved",
+          "sourcePublishedAt": "2026-10-21T17:54:13.000Z",
+          "checkedAt": "2026-10-22T19:03:30Z",
+          "collectionBatch": "public-notice-followup-20261023-0403"
+        }
+      ],
+      "note": "既受領43行/42URLを上書きせず、別の先行公式停止原典1URLだけ追加。新Grok batchではありません。"
     }
   ],
   "officialFollowups": [
@@ -116885,6 +117110,26 @@
       "end": "10/23 02:00 JST投稿時点で終了報告。実終了時計は未記載",
       "restored": true,
       "note": "02:00:34 JSTは投稿metadataの換算であり実終了時刻ではありません。前の00:52:23 JST投稿時点の実施中案内は履歴に保持。終了本文にプラットフォーム別の内訳や原因説明はなく、PHP因果や他のガンホーサービスの復旧は推定しません。返信内容を根拠にせず、ゲーム起動・ログインは未実施。"
+    },
+    {
+      "confirmedId": "monacard-website",
+      "sourceUrl": "https://x.com/_monacard/status/2113321920758493378",
+      "sourcePublishedAt": "2026-10-22T17:29:44.000Z",
+      "checkedAt": "2026-10-22T19:03:30Z",
+      "scope": "card.mona.jpの当該Web公開停止と再開。ブロックチェーン全体・ウォレット・第三者アプリ・取引機能の安全や稼働状況とは別です。",
+      "end": "10/23 02:29 JST投稿時点で再開報告。実再開時計は未記載",
+      "restored": true,
+      "note": "運営の終了本文は脆弱性への対応完了と再開を説明。前の停止原文はcard.mona.jpの公開停止とサーバー管理会社の保守後の確認予定で、PHP名・CVE番号は両本文に未記載です。02:29:44 JSTは投稿metadataの換算で、実再開時計ではありません。サイト自身のexact公式Xリンクを照合しましたが、フォーム・ログイン・ウォレット接続・売買・送受信等の実操作はしていません。運営の対応完了報告を、独自に確認したシステム全体の安全性や資産価値と読み替えません。"
+    },
+    {
+      "confirmedId": "enum-website",
+      "sourceUrl": "https://x.com/numazu_esp/status/2113319055738405130",
+      "sourcePublishedAt": "2026-10-22T17:18:21.000Z",
+      "checkedAt": "2026-10-22T19:03:30Z",
+      "scope": "e沼公式サイトの当該緊急メンテナンスと再公開。イベント自体の開催・中止や他のコミュニティサービスとは別です。",
+      "end": "10/23 02:18 JST投稿時点で再公開報告。実終了時計は未記載",
+      "restored": true,
+      "note": "最新本文は『緊急メンテナンスが完了し、e沼公式サイトを再公開』と案内。02:18:21 JSTは投稿metadataの換算で、実終了時計ではありません。PHP名や原因の詳細はこの終了本文に記載されておらず、PHP起因やイベントの実施状況へ拡張しません。公式所有は既に照合した運営公式イベントページのexact埋込証跡を再利用しています。過去に403だった公式トップは今回再取得せず、現在のsite本文・実機能の検証まで済んだとはしません。"
     }
   ],
   "pendingResolutionHistory": [
@@ -117025,6 +117270,46 @@
       "resolvedAt": "2026-10-22T18:10:32Z",
       "confirmedId": "summons-board",
       "reason": "元の実施中投稿と新しい終了投稿の本文・metadata、運営自身のexact公式所有を照合。実開始/終了時計やPHP原因は補完せず、旧原本の当時判断も保持。"
+    },
+    {
+      "originalPendingGroup": {
+        "names": [
+          "モナカード"
+        ],
+        "url": "https://x.com/_monacard/status/2113321920758493378",
+        "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+        "sourceClass": "公開候補収集（原文・公式性は別途照合）",
+        "sourceRead": "not_read_this_cycle",
+        "checkedAt": "2026-10-22T18:10:32Z",
+        "collectionBatch": "grok-public-candidates-20261023-0300",
+        "sourceRows": [
+          3
+        ],
+        "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
+      },
+      "resolvedAt": "2026-10-22T19:03:30Z",
+      "confirmedId": "monacard-website",
+      "reason": "元の終了本文・前の停止原文・UTCmetadataと、サービス自身のexact公式Xリンクを照合。Web公開の当該範囲だけを確認。"
+    },
+    {
+      "originalPendingGroup": {
+        "names": [
+          "e沼(沼津eスポーツ)公式サイト"
+        ],
+        "url": "https://x.com/numazu_esp/status/2113319055738405130",
+        "note": "今回この元URL本文は未読。収集側の名称・時刻・原因・終了/継続・公式という分類は事実として採用していません。",
+        "sourceClass": "公開候補収集（原文・公式性は別途照合）",
+        "sourceRead": "not_read_this_cycle",
+        "checkedAt": "2026-10-22T18:10:32Z",
+        "collectionBatch": "grok-public-candidates-20261023-0300",
+        "sourceRows": [
+          16
+        ],
+        "nextVerificationCondition": "通常公開の原文と、運営自身が示す正確な所有、対象・日付・部分範囲を照合できた時点。収集側や第三者の分類を公式確認とせず、アクセス制限を迂回しません。"
+      },
+      "resolvedAt": "2026-10-22T19:03:30Z",
+      "confirmedId": "enum-website",
+      "reason": "新しいサイト再公開の元本文・UTCmetadataを取得し既存e沼カードへ対応。所有は既取得の運営公式イベントページ埋込証跡を再利用、現在の403のトップは再取得していない。"
     }
   ]
 }
