@@ -7,15 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Thu, 22 Oct 2026 08:35:31 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 22 Oct 2026 08:40:41 GMT</lastBuildDate>
     <item>
       <title>PHP緊急更新：OS・Docker・ECR Publicの対応と暫定対策</title>
       <link>https://share.0g0.xyz/php-security-os-response</link>
       <guid isPermaLink="true">https://share.0g0.xyz/php-security-os-response</guid>
       <description>PHP緊急更新を一次資料で追跡。OS別修正版、Docker HubとAWS ECR Publicのイメージ、旧OSサポート、攻撃成立条件、設定でできる部分対策と限界を図解。</description>
-      <pubDate>Thu, 22 Oct 2026 08:35:31 GMT</pubDate>
+      <pubDate>Thu, 22 Oct 2026 08:40:41 GMT</pubDate>
       <dcterms:created>2026-10-21T13:13:10.000Z</dcterms:created>
-      <dcterms:modified>2026-10-22T08:35:31.000Z</dcterms:modified>
+      <dcterms:modified>2026-10-22T08:40:41.000Z</dcterms:modified>
     </item>
     <item>
       <title>緊急メンテナンス一覧｜2026年10月21日前後・公式告知と再開予定</title>
