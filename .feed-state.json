@@ -101,6 +101,11 @@
       "published": "2026-10-21T13:13:10.000Z",
       "updated": "2026-10-22T09:07:50.000Z"
     },
+    "php2shell-patch-status.html": {
+      "fingerprint": "fe043097a1976c9b80a9f9edca0ed543cd1332c65906c192ca3cedd0009ef375",
+      "published": "2026-10-22T09:26:00.000Z",
+      "updated": "2026-10-22T09:26:00.000Z"
+    },
     "pi-durable.html": {
       "fingerprint": "039565db8c00577d70b2fc4f4be5efb31ffe8c0a1ecf6ca4a04075c5b8abe32c",
       "published": "2026-10-06T03:28:19.000Z",
