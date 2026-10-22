@@ -1,6 +1,6 @@
 {
   "title": "2026年10月21日前後 緊急メンテナンス・関連告知一覧",
-  "checkedAt": "2026-10-22T02:12:00Z",
+  "checkedAt": "2026-10-22T03:14:00Z",
   "scope": "PHPの因果不問。今回の緊急/予防メンテと同時期の関連告知・別インシデントを区分。件数による上限なし。",
   "counting": "confirmedは公式資料を確認した対象別の告知カード数（部分本文・同一基盤・包括/個別の重なりを含む）。固有サイト数・実停止数・独立インシデント数・被害数ではない。pendingは原典/公式所有/対象範囲等の追加照合待ち。関連・重複・除外理由も全収集行に保持し、件数で打ち切らない。 実施自体が未定の停止可能性の予告も別状態（possible_unstarted）で保持し、実停止・復旧には数えません。",
   "confirmed": [
@@ -4915,17 +4915,17 @@
     {
       "id": "palmu",
       "name": "Palmu",
-      "url": "https://x.com/palmu_jp/status/2112949506270695569",
+      "url": "https://x.com/palmu_jp/status/2113061283146969439",
       "start": "10/21 22:30",
-      "end": "引き続き未定・次回状況案内は明朝",
-      "scope": "配信中断とアプリでのランク結果確認等。取得投稿では全機能の停止範囲までは列挙なし。",
-      "safe": "後続告知でも終了時刻は未定。『明朝に改めて案内』は次回の状況報告で、復旧の確定時刻ではありません。当日のランク締切22:30やスキップカード設定予定も、復旧時刻に読み替えません。",
+      "end": "間もなく完了と案内（実再開時刻は未確認）",
+      "scope": "10/21 22:30からの緊急メンテナンス。取得できた本文では、アプリ再開後のスキップカード配布も案内。",
+      "safe": "見出しは完了のお知らせですが、公開metadata本文は「間もなく完了いたします」「アプリの再開後」と記載。本文画面はエラーで全文を取得できていません。見出しや掲載時刻だけで実再開・補償作業の完了と判定せず、復旧済みには数えません。",
       "reason": "安全確保・PHP名未記載",
       "cat": "entertainment",
-      "date": "10/22 03:18 JST確認",
-      "tag": "次の状況案内と復旧時刻は別",
-      "status": "公式はメンテ継続・終了未定と案内",
-      "source": "所有確認済み公式Xの継続告知原文を照合",
+      "date": "10/22 09:14 JST相当の新投稿metadata",
+      "tag": "まもなく完了の案内・実再開未確認",
+      "status": "見出しは完了、取得本文はまもなく完了の案内",
+      "source": "所有確認済み公式Xの公開metadata部分本文を取得。本文画面はエラーのため全文取得とはせず、前回の公式継続告知・所有資料と対象を対応付け。",
       "ownershipEvidence": [
         {
           "url": "https://palmu.jp/",
@@ -4934,10 +4934,15 @@
       ],
       "icon": "https://palmu.jp/favicon.ico",
       "sources": [
-        "https://x.com/palmu_jp/status/2112906328461160762"
+        "https://x.com/palmu_jp/status/2112906328461160762",
+        {
+          "url": "https://x.com/palmu_jp/status/2112949506270695569",
+          "label": "前のメンテ継続告知"
+        }
       ],
       "restored": false,
-      "checkedAt": "2026-10-21T18:18:00Z"
+      "checkedAt": "2026-10-22T03:14:00Z",
+      "sourceRead": "metadata_excerpt_only"
     },
     {
       "id": "celtnofue",
@@ -10610,6 +10615,164 @@
       "date": "10/22の公式再開告知",
       "checkedAt": "2026-10-22T02:12:00Z",
       "source": "運営の公開本文・公式SNS所有資料を照合。対象範囲と、投稿時刻/実際の終了時刻を区別。"
+    },
+    {
+      "checkedAt": "2026-10-22T03:14:00Z",
+      "date": "10/22の公式後続",
+      "restored": true,
+      "source": "通常公開の公式投稿本文と、運営自身が示したSNS所有根拠を照合。実績・予定・掲載時点と対象範囲を分離。",
+      "id": "junon-tv-web",
+      "name": "JUNON TV（Webサービス）",
+      "url": "https://x.com/JUNON_jp/status/2113071298175967575",
+      "icon": "https://www.junon-tv.jp/favicon.ico",
+      "cat": "entertainment",
+      "tag": "Webサービス再開",
+      "status": "公式は対象Webサービスの終了・再開を案内",
+      "start": "10/21の告知時点で停止（開始時刻未記載）",
+      "end": "終了（10/22 09:53 JST相当の掲載時点。実際の終了時刻は未記載）",
+      "scope": "WEB「JUNON TV」の閲覧・利用。前の停止告知が示したWebサービス全体の範囲。",
+      "safe": "雑誌JUNON本体や同社の全事業の停止・再開ではありません。独立したアプリの全動作まで検証したという意味にも広げません。",
+      "reason": "システム上の緊急脆弱性対応・PHP名未記載",
+      "sources": [
+        {
+          "url": "https://x.com/JUNON_jp/status/2112885072315711647",
+          "label": "前のWeb停止告知"
+        }
+      ],
+      "ownershipEvidence": [
+        {
+          "url": "https://www.junon-tv.jp/articles/260",
+          "detail": "JUNON TV自身の公開記事にtwitter:site=@JUNON_jpが設定されていることを今回取得。",
+          "readState": "public_metadata_retrieved"
+        }
+      ]
+    },
+    {
+      "checkedAt": "2026-10-22T03:14:00Z",
+      "date": "10/22の公式後続",
+      "restored": false,
+      "source": "通常公開の公式投稿本文と、運営自身が示したSNS所有根拠を照合。実績・予定・掲載時点と対象範囲を分離。",
+      "id": "tecrowd-service",
+      "name": "TECROWD",
+      "url": "https://x.com/tecrowd/status/2113059862158717274",
+      "icon": null,
+      "cat": "business",
+      "tag": "サービス停止・募集延期",
+      "status": "公式は一時停止と募集延期を案内、再開未定",
+      "start": "未記載（10/22の告知時点で停止と案内）",
+      "end": "サービス再開日時は未定",
+      "scope": "TECROWDのサービスを安全性確認のため一時停止。細かな機能別の内訳は告知に記載なし。",
+      "safe": "10/22 18:00開始予定だったファンド募集は10/23以降へ延期。新しい募集開始日時は未定で、10/23の開始確定や復旧保証ではありません。投資の申込・推奨や取引は行っていません。",
+      "reason": "PHP脆弱性の公表を受けたシステム安全性確認",
+      "sources": [
+        {
+          "url": "https://x.com/tecrowd/status/2112928763462005008",
+          "label": "前の停止告知（収集記録）"
+        }
+      ],
+      "ownershipEvidence": [
+        {
+          "url": "https://prtimes.jp/main/html/rd/p/000000267.000061009.html",
+          "detail": "運営TECRA株式会社自身のリリースにある「公式Xはこちら」がx.com/tecrowdへリンク。",
+          "readState": "body_retrieved"
+        }
+      ]
+    },
+    {
+      "checkedAt": "2026-10-22T03:14:00Z",
+      "date": "10/22の公式後続",
+      "restored": false,
+      "source": "通常公開の公式投稿本文と、運営自身が示したSNS所有根拠を照合。実績・予定・掲載時点と対象範囲を分離。",
+      "id": "reapa-service",
+      "name": "ReaPa! / Free / SHOP",
+      "url": "https://x.com/ReaPa_Official/status/2113060146318639483",
+      "icon": "https://reapa.jp/wp-content/uploads/2025/10/cropped-favicon-32x32.png",
+      "cat": "entertainment",
+      "tag": "本体/Free再開案内・SHOP継続",
+      "status": "10/22から本体/Free再開の案内、SHOPは継続",
+      "start": "10/21の緊急対応（全機能の正確な停止期間は未記載）",
+      "end": "本体/Freeは10/22より再開すると案内。SHOPは再開未定",
+      "scope": "ReaPa!とReaPa! Freeは安全性確認後の再開案内。ReaPa! SHOPは調査・改修のためメンテナンスを継続。",
+      "safe": "原文は10/22から再開する旨の案内で、具体的な実再開時刻は未記載。SHOPが継続中のため、サービス群全体を復旧済みには数えません。ログインや利用・取引による独自検査も実施していません。",
+      "reason": "PHPの重大な脆弱性に対する更新・安全性確認",
+      "sources": [
+        {
+          "url": "https://x.com/ReaPa_Official/status/2112842872244556118",
+          "label": "前の緊急更新告知"
+        }
+      ],
+      "ownershipEvidence": [
+        {
+          "url": "https://reapa.jp/renovation/",
+          "detail": "サービス自身の紹介ページが「リアパ公式Xへ」とx.com/ReaPa_Officialへ直接リンク。",
+          "readState": "body_retrieved"
+        }
+      ]
+    },
+    {
+      "checkedAt": "2026-10-22T03:14:00Z",
+      "date": "10/22の公式後続",
+      "restored": false,
+      "source": "公式投稿本文は今回取得。SNS所有は前回の公式サイト読取資料と照合。今回は公式サイト自体を再取得できていないことを区別。",
+      "id": "bleague-club-websites",
+      "name": "B.LEAGUE / クラブWeb（滋賀レイクスの告知）",
+      "url": "https://x.com/ShigaLakes_pr/status/2113064926973702155",
+      "icon": null,
+      "cat": "entertainment",
+      "tag": "Webコンテンツ停止・チケット利用可",
+      "status": "クラブ公式はWeb緊急保守を案内、終了未定",
+      "start": "10/21 深夜（原文表記、時刻未記載）",
+      "end": "未定。終了後は公式SNSで案内すると告知",
+      "scope": "滋賀レイクスがBリーグ/クラブの公式Webサイトのコンテンツを閲覧できないと案内。各クラブすべてを個別に検査した記録ではありません。",
+      "safe": "同じ告知は観戦券を扱うBリーグチケットを利用可能と明記。チケット購入停止や試合中止とは扱いません。サイトの一時的な表示不可だけを根拠にしていません。",
+      "reason": "セキュリティ対応・PHP名未記載",
+      "ownershipEvidence": [
+        {
+          "url": "https://shigalakes.com/",
+          "detail": "10/22 02:26 UTCの公開サイト読取ではx.com/ShigaLakes_prへの直接リンクを確認済み。今回03時台の2回の通常再取得はunreachableであり、今回の独立再取得成功とはしていません。",
+          "readState": "verified_prior_read_current_unreachable",
+          "lastVerifiedAt": "2026-10-22T02:26:00Z"
+        }
+      ]
+    },
+    {
+      "checkedAt": "2026-10-22T03:14:00Z",
+      "date": "10/22の公式後続",
+      "restored": false,
+      "source": "運営本人の公式リリースにある正確なX所有と、停止/更新予定/日付訂正の各公開原文を照合。情報ページの503は停止・復旧の根拠に採用せず。",
+      "id": "lolipop-php-emergency",
+      "name": "ロリポップ！10/21緊急PHP対応",
+      "url": "https://x.com/lolipopjp/status/2113056565720998386",
+      "icon": "https://lolipop.jp/favicon.ico",
+      "cat": "web",
+      "tag": "段階停止・昼頃の再開予定",
+      "status": "公式の停止範囲と再開予定を記録、完了未確認",
+      "start": "10/21の告知で順次停止（機能/サーバー別の正確な時刻は未記載）",
+      "end": "10/22 昼頃を予定（8:55時点の原文）。実完了は未確認",
+      "scope": "サービスサイト、ユーザー専用ページ、おさいぽ！自動更新、MCP/API、ロリポップ！FTP、旧Webメーラーの停止案内と、一部サーバー上のサイトの一時停止。全Web・全メール機能が一斉に停止したとは案内していない。",
+      "safe": "8:55時点の原文の日付は後続で10/22へ訂正されています。「昼頃」を12:00や完了時刻に決めつけません。既存の10/19開始の管理機能告知とは別カードにし、同じ原因と断定しません。ヘテムルの状況をこのロリポップ側の投稿だけから確定しません。",
+      "reason": "PHPの重大な脆弱性に対する予防措置・修正版適用",
+      "sources": [
+        {
+          "url": "https://x.com/lolipopjp/status/2112887601158115463",
+          "label": "10/21の機能停止告知"
+        },
+        {
+          "url": "https://x.com/lolipopjp/status/2112968606409699390",
+          "label": "一部サーバー上のサイト停止告知"
+        },
+        {
+          "url": "https://x.com/lolipopjp/status/2113066073516134827",
+          "label": "8:55時点の日付を10/22へ訂正"
+        }
+      ],
+      "ownershipEvidence": [
+        {
+          "url": "https://pepabo.com/news/press/202607021300/",
+          "detail": "運営GMOペパボ自身の2026年7月の公式リリースが「ロリポップ公式アカウント（@lolipopjp）」と明記し、同Xへリンク。",
+          "readState": "body_retrieved"
+        }
+      ]
     }
   ],
   "pending": [
@@ -10757,17 +10920,6 @@
       ],
       "url": "https://x.com/matomedane/status/2112830031596601742",
       "note": "原文は自社まとめダネ！の保守告知。10/21 22:45ごろから全サービス停止〜未定。まとめニュースを引用しただけではない。公式サイトHTTP503で所有関係未照合。",
-      "sourceClass": "公式X",
-      "nextVerificationCondition": "公式サイト再開、または運営が公的な公式アカウントリンクを公開して所有を確認できた時点。日時/機能/現在状態の不足は理由欄に沿って照合。",
-      "sourceRead": "body_retrieved",
-      "checkedAt": "2026-10-21T14:12:00Z"
-    },
-    {
-      "names": [
-        "ReaPa!"
-      ],
-      "url": "https://x.com/ReaPa_Official/status/2112842872244556118",
-      "note": "原文取得。ReaPa!は10/21 23:00以降の緊急更新で、一時アクセス不可/一部機能利用不可の可能性。全時間停止とは案内していない。公式紹介サイトは確認、アカウント逆リンクはなし。",
       "sourceClass": "公式X",
       "nextVerificationCondition": "公式サイト再開、または運営が公的な公式アカウントリンクを公開して所有を確認できた時点。日時/機能/現在状態の不足は理由欄に沿って照合。",
       "sourceRead": "body_retrieved",
@@ -11516,17 +11668,6 @@
       ],
       "url": "https://x.com/uf_contents/status/2112884683956744389",
       "note": "原文取得。e-LineUP!Mallを10/21 22時ごろ〜未定、閲覧/購入不可。緊急保守だがPHP名はなし。正確な公式サイトと@uf_contents所有の独立裏付け未了。",
-      "sourceClass": "公式X",
-      "nextVerificationCondition": "公式サイト再開、または運営が公的な公式アカウントリンクを公開して所有を確認できた時点。日時/機能/現在状態の不足は理由欄に沿って照合。",
-      "sourceRead": "body_retrieved",
-      "checkedAt": "2026-10-21T14:22:15Z"
-    },
-    {
-      "names": [
-        "JUNON TV"
-      ],
-      "url": "https://x.com/JUNON_jp/status/2112885072315711647",
-      "note": "原文取得。WEB『JUNON TV』を緊急脆弱性対応で停止中、終了未定。雑誌/全JUNON事業の停止ではない。公式サイト500でアカウント所有の独立裏付け未了。",
       "sourceClass": "公式X",
       "nextVerificationCondition": "公式サイト再開、または運営が公的な公式アカウントリンクを公開して所有を確認できた時点。日時/機能/現在状態の不足は理由欄に沿って照合。",
       "sourceRead": "body_retrieved",
@@ -12714,11 +12855,11 @@
         "B.LEAGUEチケット"
       ],
       "url": null,
-      "note": "元候補に原URLがなく今回の公式個別原文未取得。DMM包括保守との重複範囲も未照合のため保留。",
+      "note": "今回取得した滋賀レイクスの公式告知はBリーグチケットを利用可能と明記。元候補の停止原典・対象期間は不明で、チケット停止を確認した対象には含めません。",
       "sourceClass": "追加調査候補",
-      "nextVerificationCondition": "公式所有を示す資料・対象サイトの個別告知・最新の変更/復旧報告が公開または再取得可能になった時点で照合。時刻経過やHTTP200だけでは確定しない。",
+      "nextVerificationCondition": "元候補の対象日時と公式の停止原典が確認できた時点。クラブWeb停止をチケット停止へ拡張しません。",
       "sourceRead": "original_url_missing",
-      "checkedAt": "2026-10-21T14:29:00Z"
+      "checkedAt": "2026-10-22T03:14:00Z"
     },
     {
       "names": [
@@ -14284,17 +14425,6 @@
     },
     {
       "names": [
-        "TECROWD"
-      ],
-      "url": "https://x.com/tecrowd/status/2112928763462005008",
-      "note": "元投稿はサイト停止・翌日の募集開始変更は後報。TECROWD公式候補は503で正確なtecrowdアカウントの逆リンク未確認。募集時刻変更が確定したとはしない。",
-      "sourceClass": "元投稿・所有照合待ち",
-      "nextVerificationCondition": "運営者の正確なアカウント逆リンク/公式リリース、または同対象の直接公式告知。時刻経過や単なるHTTP応答で確定/復旧にしない。",
-      "sourceRead": "body_retrieved",
-      "checkedAt": "2026-10-21T16:34:18.993Z"
-    },
-    {
-      "names": [
         "PCサポート屋 保守サイト"
       ],
       "url": "https://x.com/PCsupportYa/status/2112932287738511700",
@@ -15317,24 +15447,13 @@
     },
     {
       "names": [
-        "ロリポップ"
-      ],
-      "url": "https://x.com/lolipopjp/status/2113056565720998386",
-      "note": "原文は全サーバー適用完了・再開を昼頃の予定とし、完了は未確認。元投稿の10/26誤記を公式後続が10/22へ訂正。10/19開始の既存カードと同一告知には統合せず、運営所有の本文による裏付けは照合中。",
-      "sourceClass": "公開X原文（運営所有等の照合待ち）",
-      "sourceRead": "body_retrieved",
-      "checkedAt": "2026-10-22T01:18:00Z",
-      "nextVerificationCondition": "原文・運営サイトの正確なSNS所有表示・対象/日時を通常公開範囲で照合できた時点。"
-    },
-    {
-      "names": [
         "ヘテムル"
       ],
       "url": "https://x.com/heteml/status/2113056731035287966",
-      "note": "原文は全サーバー適用完了・再開を昼頃の予定とし、完了は未確認。元投稿の10/26誤記を後続が10/22へ訂正。運営サイトの所有資料は現在本文を取得できず照合待ち。",
+      "note": "元の公開X候補は再開を昼頃の予定としており、実完了は未確認。今回の公式情報ページ通常readは403で原因は未特定、同じ拒否本文は別経路で取得しません。公式所有/対象範囲の照合待ちを維持します。",
       "sourceClass": "公開X原文（運営所有等の照合待ち）",
-      "sourceRead": "body_retrieved",
-      "checkedAt": "2026-10-22T01:18:00Z",
+      "sourceRead": "official_page_access_denied",
+      "checkedAt": "2026-10-22T03:14:00Z",
       "nextVerificationCondition": "原文・運営サイトの正確なSNS所有表示・対象/日時を通常公開範囲で照合できた時点。"
     },
     {
@@ -17023,17 +17142,6 @@
     },
     {
       "names": [
-        "B.LEAGUE/クラブ公式サイト"
-      ],
-      "url": "https://x.com/ShigaLakes_pr/status/2113064926973702155",
-      "note": "公開原文は取得。運営主体/アカウント所有、対象範囲、日時等の独立照合は未完了のため、確認済みカードには含めません。",
-      "sourceClass": "公開X原文（運営所有等の照合待ち）",
-      "sourceRead": "body_retrieved",
-      "checkedAt": "2026-10-22T02:12:00Z",
-      "nextVerificationCondition": "通常公開の運営資料・正確な公式SNS所有根拠・当該原文と対象/日時が照合できた時点。制限を迂回せず、予定経過やHTTP200だけで確定しません。"
-    },
-    {
-      "names": [
         "ALL.Net/Aime(店舗告知)"
       ],
       "url": "https://x.com/GiGO_Hirosaki/status/2113075056012374133",
@@ -17045,42 +17153,9 @@
     },
     {
       "names": [
-        "TECROWD"
-      ],
-      "url": "https://x.com/tecrowd/status/2113059862158717274",
-      "note": "公開原文は取得。運営主体/アカウント所有、対象範囲、日時等の独立照合は未完了のため、確認済みカードには含めません。",
-      "sourceClass": "公開X原文（運営所有等の照合待ち）",
-      "sourceRead": "body_retrieved",
-      "checkedAt": "2026-10-22T02:12:00Z",
-      "nextVerificationCondition": "通常公開の運営資料・正確な公式SNS所有根拠・当該原文と対象/日時が照合できた時点。制限を迂回せず、予定経過やHTTP200だけで確定しません。"
-    },
-    {
-      "names": [
-        "ReaPa!"
-      ],
-      "url": "https://x.com/ReaPa_Official/status/2113060146318639483",
-      "note": "公開原文は取得。運営主体/アカウント所有、対象範囲、日時等の独立照合は未完了のため、確認済みカードには含めません。",
-      "sourceClass": "公開X原文（運営所有等の照合待ち）",
-      "sourceRead": "body_retrieved",
-      "checkedAt": "2026-10-22T02:12:00Z",
-      "nextVerificationCondition": "通常公開の運営資料・正確な公式SNS所有根拠・当該原文と対象/日時が照合できた時点。制限を迂回せず、予定経過やHTTP200だけで確定しません。"
-    },
-    {
-      "names": [
         "AsoVIVA JOKer 店舗サイト"
       ],
       "url": "https://x.com/AsoVIVA_JOKer/status/2113071081372479763",
-      "note": "公開原文は取得。運営主体/アカウント所有、対象範囲、日時等の独立照合は未完了のため、確認済みカードには含めません。",
-      "sourceClass": "公開X原文（運営所有等の照合待ち）",
-      "sourceRead": "body_retrieved",
-      "checkedAt": "2026-10-22T02:12:00Z",
-      "nextVerificationCondition": "通常公開の運営資料・正確な公式SNS所有根拠・当該原文と対象/日時が照合できた時点。制限を迂回せず、予定経過やHTTP200だけで確定しません。"
-    },
-    {
-      "names": [
-        "JUNON TV"
-      ],
-      "url": "https://x.com/JUNON_jp/status/2113071298175967575",
       "note": "公開原文は取得。運営主体/アカウント所有、対象範囲、日時等の独立照合は未完了のため、確認済みカードには含めません。",
       "sourceClass": "公開X原文（運営所有等の照合待ち）",
       "sourceRead": "body_retrieved",
@@ -17147,11 +17222,11 @@
         "ロリポップ/ヘテムル"
       ],
       "url": "https://x.com/lolipopjp/status/2113066073516134827",
-      "note": "公開原文は取得。運営主体/アカウント所有、対象範囲、日時等の独立照合は未完了のため、確認済みカードには含めません。",
+      "note": "収集時の複合名称を保持。ロリポップ側の公式原文・所有と日付訂正は上のカードへ反映。ヘテムル側の同じ再開予定や完了は未照合で、今回の公式情報ページreadは403。原因を本人の拒否と断定せず、この拒否本文の別経路取得は行いません。",
       "sourceClass": "公開X原文（運営所有等の照合待ち）",
       "sourceRead": "body_retrieved",
-      "checkedAt": "2026-10-22T02:12:00Z",
-      "nextVerificationCondition": "通常公開の運営資料・正確な公式SNS所有根拠・当該原文と対象/日時が照合できた時点。制限を迂回せず、予定経過やHTTP200だけで確定しません。"
+      "checkedAt": "2026-10-22T03:14:00Z",
+      "nextVerificationCondition": "同じ拒否本文を迂回せず、通常公開範囲でヘテムル自身の正確な公式所有・新しい独立告知が確認できた時点。"
     },
     {
       "names": [
@@ -19718,11 +19793,13 @@
     {
       "name": "ReaPa!",
       "sourceUrl": "https://x.com/ReaPa_Official/status/2112842872244556118",
-      "verification": "pending",
-      "confirmedId": null,
-      "note": "原文取得。ReaPa!は10/21 23:00以降の緊急更新で、一時アクセス不可/一部機能利用不可の可能性。全時間停止とは案内していない。公式紹介サイトは確認、アカウント逆リンクはなし。",
+      "verification": "confirmed",
+      "confirmedId": "reapa-service",
+      "note": "原文取得。ReaPa!は10/21 23:00以降の緊急更新で、一時アクセス不可/一部機能利用不可の可能性。全時間停止とは案内していない。公式紹介サイトは確認、アカウント逆リンクはなし。 今回は運営の公開原文と公式SNS所有根拠を照合し、該当カードへ統合。収集元のすべての記述を採用したという意味ではありません。",
       "sourceClass": "公式X",
-      "nextVerificationCondition": "公式サイト再開、または運営が公的な公式アカウントリンクを公開して所有を確認できた時点。日時/機能/現在状態の不足は理由欄に沿って照合。"
+      "nextVerificationCondition": "公式サイト再開、または運営が公的な公式アカウントリンクを公開して所有を確認できた時点。日時/機能/現在状態の不足は理由欄に沿って照合。",
+      "checkedAt": "2026-10-22T03:14:00Z",
+      "resolvedSourceUrl": "https://x.com/ReaPa_Official/status/2113060146318639483"
     },
     {
       "name": "ママスタ",
@@ -20710,11 +20787,13 @@
     {
       "name": "JUNON TV",
       "sourceUrl": "https://x.com/JUNON_jp/status/2112885072315711647",
-      "verification": "pending",
-      "confirmedId": null,
-      "note": "原文取得。WEB『JUNON TV』を緊急脆弱性対応で停止中、終了未定。雑誌/全JUNON事業の停止ではない。公式サイト500でアカウント所有の独立裏付け未了。",
+      "verification": "confirmed",
+      "confirmedId": "junon-tv-web",
+      "note": "原文取得。WEB『JUNON TV』を緊急脆弱性対応で停止中、終了未定。雑誌/全JUNON事業の停止ではない。公式サイト500でアカウント所有の独立裏付け未了。 今回は運営の公開原文と公式SNS所有根拠を照合し、該当カードへ統合。収集元のすべての記述を採用したという意味ではありません。",
       "sourceClass": "公式X",
-      "nextVerificationCondition": "公式サイト再開、または運営が公的な公式アカウントリンクを公開して所有を確認できた時点。日時/機能/現在状態の不足は理由欄に沿って照合。"
+      "nextVerificationCondition": "公式サイト再開、または運営が公的な公式アカウントリンクを公開して所有を確認できた時点。日時/機能/現在状態の不足は理由欄に沿って照合。",
+      "checkedAt": "2026-10-22T03:14:00Z",
+      "resolvedSourceUrl": "https://x.com/JUNON_jp/status/2113071298175967575"
     },
     {
       "name": "浦和レッズ オンラインショップ",
@@ -23594,9 +23673,11 @@
       "sourceUrl": null,
       "verification": "pending",
       "confirmedId": null,
-      "note": "元候補に原URLがなく今回の公式個別原文未取得。DMM包括保守との重複範囲も未照合のため保留。",
+      "note": "今回の滋賀レイクス公式告知はBリーグチケットを利用可能と明記。元候補の停止原典・対象期間が不明なため、チケット停止を確認した対象には含めません。",
       "sourceClass": "追加調査候補",
-      "nextVerificationCondition": "公式所有を示す資料・対象サイトの個別告知・最新の変更/復旧報告が公開または再取得可能になった時点で照合。時刻経過やHTTP200だけでは確定しない。"
+      "nextVerificationCondition": "公式所有を示す資料・対象サイトの個別告知・最新の変更/復旧報告が公開または再取得可能になった時点で照合。時刻経過やHTTP200だけでは確定しない。",
+      "resolvedSourceUrl": "https://x.com/ShigaLakes_pr/status/2113064926973702155",
+      "checkedAt": "2026-10-22T03:14:00Z"
     },
     {
       "name": "川崎フロンターレ公式サイト",
@@ -26409,11 +26490,13 @@
     {
       "name": "TECROWD",
       "sourceUrl": "https://x.com/tecrowd/status/2112928763462005008",
-      "verification": "pending",
-      "confirmedId": null,
-      "note": "元投稿はサイト停止・翌日の募集開始変更は後報。TECROWD公式候補は503で正確なtecrowdアカウントの逆リンク未確認。募集時刻変更が確定したとはしない。",
+      "verification": "confirmed",
+      "confirmedId": "tecrowd-service",
+      "note": "元投稿はサイト停止・翌日の募集開始変更は後報。TECROWD公式候補は503で正確なtecrowdアカウントの逆リンク未確認。募集時刻変更が確定したとはしない。 今回は運営の公開原文と公式SNS所有根拠を照合し、該当カードへ統合。収集元のすべての記述を採用したという意味ではありません。",
       "sourceClass": "公式X",
-      "nextVerificationCondition": "対象運営者の公式サイトの逆リンク、または同じ対象の直接公式告知が確認できた時点。単なる時刻経過やHTTP応答から推定しない。"
+      "nextVerificationCondition": "対象運営者の公式サイトの逆リンク、または同じ対象の直接公式告知が確認できた時点。単なる時刻経過やHTTP応答から推定しない。",
+      "checkedAt": "2026-10-22T03:14:00Z",
+      "resolvedSourceUrl": "https://x.com/tecrowd/status/2113059862158717274"
     },
     {
       "name": "衛星劇場公式サイト",
@@ -28463,14 +28546,15 @@
     {
       "name": "ロリポップ",
       "sourceUrl": "https://x.com/lolipopjp/status/2113056565720998386",
-      "verification": "pending",
-      "confirmedId": null,
-      "note": "原文は全サーバー適用完了・再開を昼頃の予定とし、完了は未確認。元投稿の10/26誤記を公式後続が10/22へ訂正。10/19開始の既存カードと同一告知には統合せず、運営所有の本文による裏付けは照合中。",
+      "verification": "confirmed",
+      "confirmedId": "lolipop-php-emergency",
+      "note": "原文は全サーバー適用完了・再開を昼頃の予定とし、完了は未確認。元投稿の10/26誤記を公式後続が10/22へ訂正。10/19開始の既存カードと同一告知には統合せず、運営所有の本文による裏付けは照合中。 今回は運営の公開原文と公式SNS所有根拠を照合し、該当カードへ統合。収集元のすべての記述を採用したという意味ではありません。",
       "sourceClass": "公開X原文（運営所有等の照合待ち）",
       "sourceRead": "body_retrieved",
-      "checkedAt": "2026-10-22T01:18:00Z",
+      "checkedAt": "2026-10-22T03:14:00Z",
       "nextVerificationCondition": "原文・運営サイトの正確なSNS所有表示・対象/日時を通常公開範囲で照合できた時点。",
-      "collectionBatch": "public-notice-followup-20261022-morning"
+      "collectionBatch": "public-notice-followup-20261022-morning",
+      "resolvedSourceUrl": "https://x.com/lolipopjp/status/2113056565720998386"
     },
     {
       "name": "ヘテムル",
@@ -30483,12 +30567,12 @@
     {
       "name": "B.LEAGUE/クラブ公式サイト",
       "sourceUrl": "https://x.com/ShigaLakes_pr/status/2113064926973702155",
-      "verification": "pending",
-      "confirmedId": null,
-      "note": "公開原文は取得。運営主体/アカウント所有、対象範囲、日時等の独立照合は未完了のため、確認済みカードには含めません。",
+      "verification": "confirmed",
+      "confirmedId": "bleague-club-websites",
+      "note": "公開原文は取得。運営主体/アカウント所有、対象範囲、日時等の独立照合は未完了のため、確認済みカードには含めません。 今回は運営の公開原文と公式SNS所有根拠を照合し、該当カードへ統合。収集元のすべての記述を採用したという意味ではありません。",
       "sourceClass": "公開X原文（運営所有等の照合待ち）",
       "sourceRead": "body_retrieved",
-      "checkedAt": "2026-10-22T02:12:00Z",
+      "checkedAt": "2026-10-22T03:14:00Z",
       "nextVerificationCondition": "通常公開の運営資料・正確な公式SNS所有根拠・当該原文と対象/日時が照合できた時点。制限を迂回せず、予定経過やHTTP200だけで確定しません。",
       "collectionBatch": "public-notice-followup-20261022-late-morning",
       "collectorReported": {
@@ -30497,7 +30581,8 @@
         "status": "実施中",
         "sourceType": "公式X(クラブ)",
         "verification": "収集側の未検証主張。一次確認済みの事実・時刻・公式性とは区別。"
-      }
+      },
+      "resolvedSourceUrl": "https://x.com/ShigaLakes_pr/status/2113064926973702155"
     },
     {
       "name": "ALL.Net/Aime(店舗告知)",
@@ -30521,12 +30606,12 @@
     {
       "name": "TECROWD",
       "sourceUrl": "https://x.com/tecrowd/status/2113059862158717274",
-      "verification": "pending",
-      "confirmedId": null,
-      "note": "公開原文は取得。運営主体/アカウント所有、対象範囲、日時等の独立照合は未完了のため、確認済みカードには含めません。",
+      "verification": "confirmed",
+      "confirmedId": "tecrowd-service",
+      "note": "公開原文は取得。運営主体/アカウント所有、対象範囲、日時等の独立照合は未完了のため、確認済みカードには含めません。 今回は運営の公開原文と公式SNS所有根拠を照合し、該当カードへ統合。収集元のすべての記述を採用したという意味ではありません。",
       "sourceClass": "公開X原文（運営所有等の照合待ち）",
       "sourceRead": "body_retrieved",
-      "checkedAt": "2026-10-22T02:12:00Z",
+      "checkedAt": "2026-10-22T03:14:00Z",
       "nextVerificationCondition": "通常公開の運営資料・正確な公式SNS所有根拠・当該原文と対象/日時が照合できた時点。制限を迂回せず、予定経過やHTTP200だけで確定しません。",
       "collectionBatch": "public-notice-followup-20261022-late-morning",
       "collectorReported": {
@@ -30535,17 +30620,18 @@
         "status": "実施中",
         "sourceType": "公式X",
         "verification": "収集側の未検証主張。一次確認済みの事実・時刻・公式性とは区別。"
-      }
+      },
+      "resolvedSourceUrl": "https://x.com/tecrowd/status/2113059862158717274"
     },
     {
       "name": "ReaPa!",
       "sourceUrl": "https://x.com/ReaPa_Official/status/2113060146318639483",
-      "verification": "pending",
-      "confirmedId": null,
-      "note": "公開原文は取得。運営主体/アカウント所有、対象範囲、日時等の独立照合は未完了のため、確認済みカードには含めません。",
+      "verification": "confirmed",
+      "confirmedId": "reapa-service",
+      "note": "公開原文は取得。運営主体/アカウント所有、対象範囲、日時等の独立照合は未完了のため、確認済みカードには含めません。 今回は運営の公開原文と公式SNS所有根拠を照合し、該当カードへ統合。収集元のすべての記述を採用したという意味ではありません。",
       "sourceClass": "公開X原文（運営所有等の照合待ち）",
       "sourceRead": "body_retrieved",
-      "checkedAt": "2026-10-22T02:12:00Z",
+      "checkedAt": "2026-10-22T03:14:00Z",
       "nextVerificationCondition": "通常公開の運営資料・正確な公式SNS所有根拠・当該原文と対象/日時が照合できた時点。制限を迂回せず、予定経過やHTTP200だけで確定しません。",
       "collectionBatch": "public-notice-followup-20261022-late-morning",
       "collectorReported": {
@@ -30554,7 +30640,8 @@
         "status": "完了",
         "sourceType": "公式X",
         "verification": "収集側の未検証主張。一次確認済みの事実・時刻・公式性とは区別。"
-      }
+      },
+      "resolvedSourceUrl": "https://x.com/ReaPa_Official/status/2113060146318639483"
     },
     {
       "name": "カオナビ ほか複数サービス",
@@ -30616,12 +30703,12 @@
     {
       "name": "JUNON TV",
       "sourceUrl": "https://x.com/JUNON_jp/status/2113071298175967575",
-      "verification": "pending",
-      "confirmedId": null,
-      "note": "公開原文は取得。運営主体/アカウント所有、対象範囲、日時等の独立照合は未完了のため、確認済みカードには含めません。",
+      "verification": "confirmed",
+      "confirmedId": "junon-tv-web",
+      "note": "公開原文は取得。運営主体/アカウント所有、対象範囲、日時等の独立照合は未完了のため、確認済みカードには含めません。 今回は運営の公開原文と公式SNS所有根拠を照合し、該当カードへ統合。収集元のすべての記述を採用したという意味ではありません。",
       "sourceClass": "公開X原文（運営所有等の照合待ち）",
       "sourceRead": "body_retrieved",
-      "checkedAt": "2026-10-22T02:12:00Z",
+      "checkedAt": "2026-10-22T03:14:00Z",
       "nextVerificationCondition": "通常公開の運営資料・正確な公式SNS所有根拠・当該原文と対象/日時が照合できた時点。制限を迂回せず、予定経過やHTTP200だけで確定しません。",
       "collectionBatch": "public-notice-followup-20261022-late-morning",
       "collectorReported": {
@@ -30630,7 +30717,8 @@
         "status": "完了",
         "sourceType": "公式X",
         "verification": "収集側の未検証主張。一次確認済みの事実・時刻・公式性とは区別。"
-      }
+      },
+      "resolvedSourceUrl": "https://x.com/JUNON_jp/status/2113071298175967575"
     },
     {
       "name": "TechTrain/DirecTrain",
@@ -30806,12 +30894,12 @@
     {
       "name": "ロリポップ/ヘテムル",
       "sourceUrl": "https://x.com/lolipopjp/status/2113066073516134827",
-      "verification": "pending",
-      "confirmedId": null,
-      "note": "公開原文は取得。運営主体/アカウント所有、対象範囲、日時等の独立照合は未完了のため、確認済みカードには含めません。",
+      "verification": "pending-update",
+      "confirmedId": "lolipop-php-emergency",
+      "note": "収集時の複合名称を保持。ロリポップ側の原文・日付訂正・所有を照合し別カードへ反映。元投稿だけからヘテムルの同じ予定や完了を確定せず、ヘテムル側は未照合です。",
       "sourceClass": "公開X原文（運営所有等の照合待ち）",
       "sourceRead": "body_retrieved",
-      "checkedAt": "2026-10-22T02:12:00Z",
+      "checkedAt": "2026-10-22T03:14:00Z",
       "nextVerificationCondition": "通常公開の運営資料・正確な公式SNS所有根拠・当該原文と対象/日時が照合できた時点。制限を迂回せず、予定経過やHTTP200だけで確定しません。",
       "collectionBatch": "public-notice-followup-20261022-late-morning",
       "collectorReported": {
@@ -34431,6 +34519,42 @@
         "sourceType": "公式X",
         "verification": "収集側の未検証主張。一次確認済みの事実・時刻・公式性とは区別。"
       }
+    },
+    {
+      "name": "Palmu まもなく完了の公式案内",
+      "sourceUrl": "https://x.com/palmu_jp/status/2113061283146969439",
+      "verification": "confirmed",
+      "confirmedId": "palmu",
+      "note": "所有確認済み公式投稿のmetadata部分本文。見出しは完了でも本文は間もなく完了で、実再開時刻は確定せず復旧済みにしない。",
+      "sourceClass": "所有確認済み公式投稿のmetadata部分本文",
+      "sourceRead": "metadata_excerpt_only",
+      "checkedAt": "2026-10-22T03:14:00Z",
+      "nextVerificationCondition": "同じ対象の公式な実完了・変更/延長の後続原文を取得できた時点。予定経過やHTTP200だけでは確定しません。",
+      "collectionBatch": "public-notice-followup-20261022-noon"
+    },
+    {
+      "name": "ロリポップ 10/21 PHP対策の機能停止",
+      "sourceUrl": "https://x.com/lolipopjp/status/2112887601158115463",
+      "verification": "confirmed",
+      "confirmedId": "lolipop-php-emergency",
+      "note": "運営本人が示したSNS所有と公開原文の機能別/一部サーバーの停止を照合。昼頃の予定と日付訂正は別の後続で照合し、10/19開始の別告知と分離。",
+      "sourceClass": "運営資料との照合済み",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-22T03:14:00Z",
+      "nextVerificationCondition": "同じ対象の公式な実完了・変更/延長の後続原文を取得できた時点。予定経過やHTTP200だけでは確定しません。",
+      "collectionBatch": "public-notice-followup-20261022-noon"
+    },
+    {
+      "name": "ロリポップ 一部サーバーのサイト停止",
+      "sourceUrl": "https://x.com/lolipopjp/status/2112968606409699390",
+      "verification": "confirmed",
+      "confirmedId": "lolipop-php-emergency",
+      "note": "運営本人が示したSNS所有と公開原文の機能別/一部サーバーの停止を照合。昼頃の予定と日付訂正は別の後続で照合し、10/19開始の別告知と分離。",
+      "sourceClass": "運営資料との照合済み",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-22T03:14:00Z",
+      "nextVerificationCondition": "同じ対象の公式な実完了・変更/延長の後続原文を取得できた時点。予定経過やHTTP200だけでは確定しません。",
+      "collectionBatch": "public-notice-followup-20261022-noon"
     }
   ],
   "related": [
@@ -55291,41 +55415,30 @@
     "classifiedOriginalGroups": 457,
     "additionalDiscoveryRows": 107,
     "classifiedAdditionalRows": 107,
-    "allDiscoveryRows": 1367,
+    "allDiscoveryRows": 1370,
     "sourceRowsByDecision": {
-      "confirmed": 402,
+      "confirmed": 413,
       "duplicate": 54,
-      "pending": 782,
+      "pending": 773,
       "related": 120,
       "excluded": 8,
-      "pending-update": 1
+      "pending-update": 2
     },
     "meaning": "収集行・元資料グループ・告知カードは別単位です。全候補を保持し、固有サイト数・停止数とはしません。",
     "additionalGrokRows": 521,
     "piyologNewPrimaryUrls": 27,
     "additionalOwnerVerifiedCards": 70,
     "followupReview": {
-      "checkedAt": "2026-10-22T02:12:00Z",
-      "scope": "10/22午前の新収集212行を全保持。既存3カードの公式後続と、新6カードの原文・運営所有/自社ニュースを照合。既存全カードを同時刻に再取得した意味ではありません。",
-      "method": "公開原文と運営自身の通常公開資料による所有・対象範囲・時刻照合。別担当による予定表現の限定レビュー合格。別担当が全URLを独立に再取得したという意味ではありません。",
-      "result": "限定レビューでblockingなし。部分再開を全体復旧に拡張せず、予定経過・第三者のみの再開報告は確定群に含めない。構造・既存保持・CI・配信確認は別途検証。",
-      "newCandidates": 212,
-      "originalsRead": 197,
-      "notFound": 3,
-      "timeouts": 0,
-      "notReadThirdParty": 12,
-      "newCards": 6,
-      "updatedCards": 3,
-      "retry": {
-        "initialRead": 190,
-        "initialNotFound": 2,
-        "initialTimeouts": 8,
-        "spacedSameReadRetries": 8,
-        "retrySuccess": 7,
-        "retryNotFound": 1
-      }
+      "checkedAt": "2026-10-22T03:14:00Z",
+      "scope": "03UTCの通常公開一次照合。既収集の新5カードとPalmuの不確定な公式後続を反映。既存全カードを同時刻に再取得した意味ではありません。",
+      "method": "公開原文・metadata部分本文・運営が明記する正確な公式SNS所有を照合し、別担当が対象範囲/予定対実績/見出し対本文の限定内容をレビュー。滋賀の所有根拠は前回の実読で、今回の再取得成功とは扱いません。",
+      "result": "限定内容レビューでblockingなし。Palmu/ReaPa!/昼頃の予定を実完了へ強めず、JUNONはWeb範囲のみ終了。ヘテムル403を迂回せず、マンガワンbrowser/CLIP可能性状態を維持。構造・既存保持・CIと実配信は別途検証。",
+      "newCards": 5,
+      "updatedCards": 1,
+      "additionalSourceRows": 3,
+      "allPriorRowsRetained": 1367
     },
-    "followupDiscoveryRows": 458
+    "followupDiscoveryRows": 461
   },
   "collectionBatches": [
     {
@@ -62593,6 +62706,32 @@
         }
       ],
       "note": "新収集212候補行を全て保持。初回は原文190件・404が2件・timeout8件。間隔を空けた同一readの上限1回再試行で7件取得、1件404となり、最終197件取得・404が3件・今回は未読の第三者等12件。取得だけでは公式所有・範囲等の照合済みではなく、確認済み212件とはしません。収集側の『25更新/187新規/累積1451』は未検証で確定数や固有サイト数に採用しません。"
+    },
+    {
+      "id": "public-notice-followup-20261022-noon",
+      "checkedAt": "2026-10-22T03:14:00Z",
+      "rowCount": 3,
+      "members": [
+        {
+          "name": "Palmu まもなく完了の公式案内",
+          "sourceUrl": "https://x.com/palmu_jp/status/2113061283146969439",
+          "verification": "confirmed",
+          "confirmedId": "palmu"
+        },
+        {
+          "name": "ロリポップ 10/21 PHP対策の機能停止",
+          "sourceUrl": "https://x.com/lolipopjp/status/2112887601158115463",
+          "verification": "confirmed",
+          "confirmedId": "lolipop-php-emergency"
+        },
+        {
+          "name": "ロリポップ 一部サーバーのサイト停止",
+          "sourceUrl": "https://x.com/lolipopjp/status/2112968606409699390",
+          "verification": "confirmed",
+          "confirmedId": "lolipop-php-emergency"
+        }
+      ],
+      "note": "既収集全1367行を保持したまま、新しく取得した公式後続3URLを追加。既収集4候補とロリポップの公式所有/対象範囲を照合し、Palmuは公開metadataのまもなく完了案内のみで実再開未確認。Grok由来の新着行数ではなく、Dotsの公開一次資料照合で得た後続URLです。"
     }
   ]
 }
