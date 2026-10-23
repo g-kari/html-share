@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="description" content="文章や図に指摘を付ける公開デモ。保存はこのタブのメモリだけ、サーバー送信・AI実行・公開本文の変更はありません。"><meta name="referrer" content="no-referrer"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; connect-src 'none'; img-src 'none'; base-uri 'none'; form-action 'none'"><title>文章・図へのコメントを試す | 公開デモ</title><link rel="stylesheet" href="/assets/comment-prototype/review.css">  <!-- html-share: social metadata -->
+  <link rel="canonical" href="https://share.0g0.xyz/comment-prototype">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="HTML Share">
+  <meta property="og:title" content="文章・図へのコメントを試す | 公開デモ">
+  <meta property="og:description" content="文章や図に指摘を付ける公開デモ。保存はこのタブのメモリだけ、サーバー送信・AI実行・公開本文の変更はありません。">
+  <meta property="og:url" content="https://share.0g0.xyz/comment-prototype">
+  <meta property="og:image" content="https://share.0g0.xyz/assets/html-share-card-v1.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="HTML Shareのロゴと共有ページを表すカード">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="文章・図へのコメントを試す | 公開デモ">
+  <meta name="twitter:description" content="文章や図に指摘を付ける公開デモ。保存はこのタブのメモリだけ、サーバー送信・AI実行・公開本文の変更はありません。">
+  <meta name="twitter:image" content="https://share.0g0.xyz/assets/html-share-card-v1.png">
+  <meta name="twitter:image:alt" content="HTML Shareのロゴと共有ページを表すカード">
+  <!-- /html-share: social metadata -->
+  <!-- html-share: rss discovery -->
+  <link rel="alternate" type="application/rss+xml" title="HTML Share RSS" href="https://share.0g0.xyz/feed.xml">
+  <!-- /html-share: rss discovery -->
+</head><body>
+<header><a href="/">公開ページ一覧へ</a><h1>文章・図へのコメントを試す</h1><p>公開デモです。誰でも操作できますが、入力はサーバーへ送られず、このタブのメモリだけに残ります。再読込・タブを閉じると消えます。</p><p><strong>個人情報・秘密情報は入力しないでください。</strong>AIは接続していません。実際の記事への投稿や修正はできません。</p></header>
+<div class="howto"><h2>使い方</h2><ol><li>下のサンプル文章を選択するか、「この段落」「この図」を押す。</li><li>指摘を入力して保存。保存状況は一覧に表示されます。</li><li>保存した指摘を選び、JSONを書き出す。ダウンロードだけで、AIへ送信しません。</li></ol><details><summary>失敗や版ずれも試せます</summary><p>「模擬の保存動作」で失敗を選ぶと、同じ内容での再送や保存後の結果確認を試せます。「本文の版ずれ」を押すと古い対象の保存・書き出しを停止します。最初に戻すにはページを再読込してください。すべての入力は消えます。</p></details></div>
+<main><section aria-labelledby="article-title"><h2 id="article-title">コメント対象のサンプル</h2><p>この文章と図の説明は試作用の合成データです。公開記事や非公開資料を読み込んでいません。図は位置ではなく説明文を対象にします。</p><div id="article"></div><button id="selection" type="button">選択した文章にコメント</button><p id="target" role="status">対象を選んでください</p><noscript><p>コメントを試すにはJavaScriptが必要です。このページは説明だけでも読めます。</p></noscript></section>
+<aside aria-labelledby="comments-title"><h2 id="comments-title">このタブの指摘</h2><form id="form"><label for="body">コメント（4000文字まで）</label><textarea id="body" maxlength="4000" rows="5" required placeholder="例：この説明をもう少し短くしたい"></textarea><p id="draft-state" role="status">未保存</p><button id="save" type="submit">コメントを保存</button></form><label for="failure">模擬の保存動作</label><select id="failure"><option value="ok">通常</option><option value="before">保存前に通信失敗を模擬</option><option value="after">保存後に応答消失を模擬</option></select><button id="version" type="button">本文の版ずれを模擬</button><div id="messages" role="status" aria-live="polite"></div><ol id="comments"></ol><button id="export" type="button" disabled>選択した指摘をJSON書き出し（20件まで）</button><p>ダウンロードしたJSONは指摘と対象の引用を含みます。共有先は自分で確認してください。書き出してもAIは動かず、公開本文も変わりません。</p></aside></main>
+<footer class="howto"><p>これは操作の試作です。永続保存・本人認証・実記事との連携・AI修正依頼は未実装です。既存の記事すべてにコメント機能を追加したものではありません。</p></footer><script type="module" src="/assets/comment-prototype/review.mjs"></script></body></html>
