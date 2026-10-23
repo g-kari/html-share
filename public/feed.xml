@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Fri, 23 Oct 2026 11:04:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 23 Oct 2026 13:43:39 GMT</lastBuildDate>
+    <item>
+      <title>AWS Continuumを図解：発見から検証、修正PRまで</title>
+      <link>https://share.0g0.xyz/aws-continuum</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/aws-continuum</guid>
+      <description>AWS Continuum for code vulnerabilitiesの一般提供を日本語で整理。悪用可能性の検証、人間承認、料金、リージョンと個人開発での使いどころを解説。</description>
+      <pubDate>Fri, 23 Oct 2026 13:43:39 GMT</pubDate>
+      <dcterms:created>2026-10-23T13:43:39.000Z</dcterms:created>
+      <dcterms:modified>2026-10-23T13:43:39.000Z</dcterms:modified>
+    </item>
     <item>
       <title>VRChatアバター改変を、検証できるスキルにする</title>
       <link>https://share.0g0.xyz/vrchat-avatar-skills</link>
