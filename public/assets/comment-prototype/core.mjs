@@ -43,6 +43,13 @@ export class MockStore {
     const thread={id:`thread-${s.threads.length+1}`,revision:1,status:'open',body:request.body,anchor:copy(request.anchor),version:request.version,publication:'not_requested'};
     s.threads.push(thread);s.events.push({action:'comment_saved',id:thread.id});return thread;
   });}
+  changeThread(request,key){return this.#mutate(key,request,s=>{
+    const thread=s.threads.find(t=>t.id===request.id);
+    if(!thread||thread.revision!==request.expectedRevision)throw new Conflict('指摘が更新されました。選び直してください');
+    if(thread.version!==this.model.version||resolveAnchor(thread.anchor,this.model)!=='exact')throw new Conflict('版ずれした指摘は変更できません');
+    if(typeof request.body!=='string'||!request.body.trim()||request.body.length>4000||!['open','resolved'].includes(request.status))throw new Conflict('変更内容が無効です');
+    thread.body=request.body;thread.status=request.status;thread.revision++;s.events.push({action:'comment_changed',id:thread.id});return thread;
+  });}
   exportRequest(ids){
     if(!ids.length||ids.length>20||new Set(ids).size!==ids.length)throw new Conflict('1〜20件を選択してください');
     const threads=ids.map(id=>this.#state.threads.find(t=>t.id===id));
