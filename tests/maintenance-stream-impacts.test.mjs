@@ -20,9 +20,11 @@ test("stream impacts have separate native headings, facts and public source link
   assert.equal(region.querySelector("h2").id, region.getAttribute("aria-labelledby"));
   assert.equal(region.querySelectorAll("h1,h4,h5,h6").length, 0);
   const articles = [...region.querySelectorAll(".facts > article.fact")];
-  assert.equal(notices.length, 2);
+  const displayedCount = Number(region.querySelector(".intro").textContent.match(/整理した(\d+)件/)[1]);
+  assert.equal(displayedCount, notices.length);
+  assert.ok(region.textContent.includes(`この${notices.length}件は上の`));
   assert.deepEqual(articles.map(x => x.id), notices.map(x => x.id));
-  assert.match(html.slice(0, sectionStart), /<nav[^>]*>[\s\S]*?<a href="#stream-impacts">配信先の変更・延期<\/a>[\s\S]*?<\/nav>/);
+  assert.match(html.slice(0, sectionStart), /<nav[^>]*>[\s\S]*?<a href="#stream-impacts">配信の変更・延期・中止／後続記録<\/a>[\s\S]*?<\/nav>/);
   const ids = [...html.matchAll(/\bid="([^"\s]+)"/g)].map(x => x[1]);
   assert.equal(new Set(ids).size, ids.length, "new IDs must not collide with any existing anchor");
   notices.forEach((record, index) => {
@@ -37,6 +39,7 @@ test("stream impacts have separate native headings, facts and public source link
     assert.equal(article.querySelectorAll("dl > div").length, 6);
     article.querySelectorAll("dl > div").forEach(group => {
       assert.equal(group.querySelectorAll(":scope > dt").length, 1);
+      assert.ok(group.querySelector("dt").textContent.length <= 3, "labels fit the existing narrow dt column");
       assert.equal(group.querySelectorAll(":scope > dd").length, 1);
     });
     const links = [...article.querySelectorAll("a[href]")];
@@ -50,11 +53,31 @@ test("stream impacts have separate native headings, facts and public source link
       assert.ok(!link.hasAttribute("tabindex") && !link.hasAttribute("aria-hidden"));
       assert.equal(link.closest("[hidden],[inert],[aria-hidden=true]"), null);
     });
-    assert.equal(record.actual.startAt, null);
-    assert.equal(record.actual.outcome, null);
-    assert.equal(record.followup.replacementDate, null);
-    assert.equal(record.followup.returnToOriginalPlatform, null);
-    assert.equal(record.announcement.updatedAt, null);
+    const sourceUrls = new Set(record.sources.map(source => source.url));
+    // New evidence is allowed, but it must identify its source and limitations.
+    if (record.actual.startAt !== null || record.actual.outcome !== null) {
+      assert.ok(sourceUrls.has(record.actual.sourceUrl));
+      assert.ok(record.actual.qualifier);
+      assert.ok(record.evidence?.level);
+    }
+    if (record.followup.replacementDate !== null || record.followup.returnToOriginalPlatform !== null) {
+      assert.ok(sourceUrls.has(record.followup.sourceUrl));
+      assert.ok(record.followup.qualifier);
+    }
+    if (record.evidence) {
+      assert.ok(record.evidence.level && record.evidence.qualifier);
+      assert.equal(typeof record.evidence.playbackVerified, "boolean");
+    }
+    for (const observation of record.observations || []) {
+      assert.ok(["public_archive_metadata", "creator_completion_report", "creator_followup_plan"].includes(observation.type));
+      assert.ok(sourceUrls.has(observation.sourceUrl));
+      assert.ok(observation.summary && observation.qualifier);
+      assert.equal(observation.playbackVerified, false, "metadata or an attributed report is not playback verification");
+      const clock = observation.recordedStartAt || observation.publishedAt;
+      assert.ok(Number.isFinite(Date.parse(clock)));
+      assert.ok(article.querySelector(`[datetime="${clock}"]`), "observation clocks are labelled in HTML separately");
+      assert.ok(article.textContent.includes(observation.qualifier));
+    }
     assert.ok(record.sources.every(source => Number.isFinite(Date.parse(source.checkedAt))));
   });
   assert.equal(region.querySelectorAll("iframe,script,style,link,img,video,audio,object,embed,form").length, 0,
@@ -63,7 +86,7 @@ test("stream impacts have separate native headings, facts and public source link
 });
 
 test("weekly-shimo keeps the relative week, unspecified date/TZ and unverified execution", () => {
-  const record = notices.find(x => x.kind === "destination_change_notice");
+  const record = notices.find(x => x.id === "twitcasting-weeklyshimo-youtube-only-20261022");
   const article = fragment().getElementById(record.id);
   assert.equal(record.from.platform, "TwitCasting");
   assert.equal(record.to.platform, "YouTube");
@@ -75,6 +98,11 @@ test("weekly-shimo keeps the relative week, unspecified date/TZ and unverified e
   assert.equal(record.scheduled.originalEnd, null);
   assert.equal(record.scheduled.timezone, null);
   assert.equal(record.actual.verification, "実施未確認");
+  assert.equal(record.actual.startAt, null);
+  assert.equal(record.actual.outcome, null);
+  assert.equal(record.followup.replacementDate, null);
+  assert.equal(record.followup.returnToOriginalPlatform, null);
+  assert.equal(record.announcement.updatedAt, null);
   assert.equal(record.status, "変更の告知を確認／実施未確認");
   assert.equal(record.announcement.publishedAt, "2026-10-22T12:04:47Z");
   assert.match(field(article, "scheduled").textContent, /「今週」21:30予定/);
@@ -93,7 +121,7 @@ test("weekly-shimo keeps the relative week, unspecified date/TZ and unverified e
 });
 
 test("Nenez keeps the explicit 2026 schedule and only the broadcast postponement", () => {
-  const record = notices.find(x => x.kind === "postponement_notice");
+  const record = notices.find(x => x.id === "twitcasting-nenez-postponed-20261022");
   const article = fragment().getElementById(record.id);
   assert.equal(record.from.platform, "TwitCasting Premier");
   assert.deepEqual(record.to, { platform: null, url: null });
@@ -105,6 +133,11 @@ test("Nenez keeps the explicit 2026 schedule and only the broadcast postponement
   assert.equal(record.announcement.publishedAt, null);
   assert.equal(record.status, "延期告知／振替日未確認");
   assert.equal(record.actual.verification, "振替実施未確認");
+  assert.equal(record.actual.startAt, null);
+  assert.equal(record.actual.outcome, null);
+  assert.equal(record.followup.replacementDate, null);
+  assert.equal(record.followup.returnToOriginalPlatform, null);
+  assert.equal(record.announcement.updatedAt, null);
   assert.equal(field(article, "scheduled").querySelector("time").dateTime, record.scheduled.date);
   assert.match(field(article, "scheduled").textContent, /2026年10月22日 19:00〜22:00予定.*タイムゾーン未記載/);
   assert.equal(field(article, "announcement").querySelectorAll("time").length, 0);
@@ -149,4 +182,135 @@ test("impact records do not become service cards or affect existing counts and f
     assert.equal(doc.getElementById("stream-impacts").hidden, false);
     assert.match(doc.getElementById("count").textContent, /^0 \/ 1件/);
   } finally { dom.window.close(); }
+});
+
+const byId = id => {
+  const record = notices.find(x => x.id === id);
+  assert.ok(record, `the verified notice ${id} remains present`);
+  return { record, article: fragment().getElementById(id) };
+};
+const unknownTarget = record => {
+  assert.equal(record.scheduled.date, null);
+  assert.equal(record.scheduled.timezone, null);
+  assert.equal(record.actual.startAt, null);
+  assert.equal(record.actual.outcome, null);
+  assert.equal(record.announcement.updatedAt, null);
+};
+
+test("Konoha's Mirrativ detour stays an attributed live claim with denied destination read", () => {
+  const { record, article } = byId("twitcasting-konoha-kaede-mirrativ-detour-20261021");
+  unknownTarget(record);
+  assert.equal(record.kind, "detour_self_report");
+  assert.equal(record.scheduled.dateText, "今夜");
+  assert.equal(record.scheduled.announcedStart, null);
+  assert.equal(record.evidence.level, "creator_self_report");
+  assert.equal(record.selfReportedActivity.sourceUrl, record.announcement.url);
+  assert.equal(record.selfReportedActivity.state, "broadcasting_at_alternative_destination");
+  assert.equal(record.selfReportedActivity.actualStartAt, null);
+  assert.equal(record.to.platform, "Mirrativ");
+  assert.equal(record.to.url, "https://www.mirrativ.com/web/renewal/live/_Yl5gUJZoC9KG7Ms2CvOBg");
+  assert.equal(record.destinationAccess.state, "403_access_restriction");
+  assert.equal(record.destinationAccess.continued, false);
+  assert.equal(record.announcement.publishedAt, "2026-10-21T13:58:47Z");
+  assert.match(article.textContent, /本人申告.*独立確認なし/);
+  assert.match(field(article, "scope").textContent, /403で停止/);
+  assert.doesNotMatch(field(article, "scheduled").textContent, /2026|10月21日|10\/21|JST/);
+});
+
+test("Rei's maintenance-triggered Twitch activity is not presented as a confirmed relocation", () => {
+  const { record, article } = byId("twitcasting-gyokuya-rei-twitch-self-report-20261021");
+  unknownTarget(record);
+  assert.equal(record.kind, "alternative_platform_activity_self_report");
+  assert.equal(record.scheduled.dateText, null);
+  assert.equal(record.scheduled.announcedStart, null);
+  assert.equal(record.evidence.level, "creator_self_report");
+  assert.equal(record.selfReportedActivity.state, "started_alternative_platform_stream");
+  assert.equal(record.selfReportedActivity.sourceUrl, record.announcement.url);
+  assert.equal(record.selfReportedActivity.actualStartAt, null);
+  assert.equal(record.to.urlRole, "creator_linked_channel");
+  assert.equal(record.announcement.publishedAt, "2026-10-21T13:58:43Z");
+  assert.match(field(article, "scope").textContent, /移動か通常の併用・同時配信かは未確認/);
+  assert.match(field(article, "scope").textContent, /確定した移動事例にはしません/);
+});
+
+test("Plum's YouTube preparation remains a plan and the linked channel is not an exact stream", () => {
+  const { record, article } = byId("twitcasting-plum-youtube-plan-20261021");
+  unknownTarget(record);
+  assert.equal(record.kind, "destination_change_plan");
+  assert.equal(record.evidence.level, "creator_plan");
+  assert.equal(record.scheduled.announcedStart, null);
+  assert.equal(record.to.platform, "YouTube");
+  assert.equal(record.to.url, null);
+  assert.equal(record.to.ownedChannelUrl, "https://www.youtube.com/channel/UC3t1gPnZ3oAv1ak-Dvdh4Bg");
+  assert.equal(record.selfReportedActivity, undefined, "a plan is not a claim that streaming started");
+  assert.match(article.querySelector(`a[href="${record.to.ownedChannelUrl}"]`).textContent, /チャンネル（個別配信枠ではありません）/);
+  assert.match(record.summary, /開始したという申告ではありません/);
+  assert.equal(record.announcement.publishedAt, "2026-10-21T15:04:14Z");
+});
+
+test("Sanji's Nico notice separates relative target date from later TwitCasting metadata", () => {
+  const { record, article } = byId("twitcasting-sanji-nicolive-notice-20261021");
+  unknownTarget(record);
+  assert.equal(record.scheduled.dateText, "本日");
+  assert.equal(record.scheduled.announcedStart, null);
+  assert.equal(record.to.url, "https://live.nicovideo.jp/watch/lv351644019");
+  assert.equal(record.announcement.publishedAt, "2026-10-21T17:07:07.000Z");
+  const observation = record.observations[0];
+  assert.equal(observation.type, "public_archive_metadata");
+  assert.equal(observation.sourceUrl, "https://twitcasting.tv/sanji252525/movie/842589989");
+  assert.equal(observation.recordedStartAt, "2026-10-23T02:00:05+09:00");
+  assert.equal(observation.recordedStartAtUTC, "2026-10-22T17:00:05Z");
+  assert.equal(observation.playbackVerified, false);
+  assert.equal(record.followup.returnToOriginalPlatform, null);
+  assert.match(article.textContent, /最初の復帰・ニコ生の実施・プラットフォーム全体の復旧は証明しません/);
+  assert.match(field(article, "scheduled").textContent, /抽出日付に投稿との不整合/);
+  assert.doesNotMatch(article.textContent + JSON.stringify(record), /2026-12|12月|December/,
+    "the conflicting December extraction is not published as an event time");
+});
+
+test("Furendo's separately dated follow-up is tentative and episode numbering remains qualified", () => {
+  const { record, article } = byId("twitcasting-friend-o-radio-postponement-20261022");
+  unknownTarget(record);
+  assert.equal(record.title, "風蓮堂Radio");
+  assert.equal(record.scheduled.dateText, "本日");
+  assert.equal(record.scheduled.originalStart, "21:30");
+  assert.equal(record.announcement.publishedAt, "2026-10-22T11:42:15.000Z");
+  assert.equal(record.followup.replacementDate, null);
+  const observation = record.observations[0];
+  assert.equal(observation.type, "creator_followup_plan");
+  assert.equal(observation.sourceUrl, "https://x.com/friend_o_info/status/2113854195623502058");
+  assert.equal(observation.publishedAt, "2026-10-24T04:44:48.000Z");
+  assert.notEqual(observation.sourceUrl, record.announcement.url);
+  assert.match(article.textContent, /別投稿の掲載時計であり原投稿の更新時計ではありません/);
+  assert.match(article.textContent, /来週.*検討/);
+  assert.match(field(article, "scope").textContent, /原投稿は第322回.*不整合.*古い第322回の記録と同一視しません/);
+  assert.equal(field(article, "scheduled").querySelectorAll("time").length, 0);
+});
+
+test("Hanarokusho separates cancellation, conditional replacement, archive record and creator report", () => {
+  const { record, article } = byId("twitcasting-hana69syou-cancellation-followup-20261021");
+  unknownTarget(record);
+  assert.equal(record.scheduled.dateText, "本日");
+  assert.equal(record.kind, "cancellation_with_conditional_replacement");
+  assert.equal(record.announcement.publishedAt, "2026-10-21T10:56:41.000Z");
+  assert.deepEqual(record.conditionalReplacement, {
+    date: null, dateText: "明日／10/22(木)", start: "22:30", timezone: null,
+    condition: "メンテナンスが終了している場合", confirmed: false
+  });
+  assert.equal(record.evidence.level, "public_archive_metadata_and_creator_report");
+  assert.equal(record.evidence.playbackVerified, false);
+  const [archive, report] = record.observations;
+  assert.equal(archive.type, "public_archive_metadata");
+  assert.equal(archive.sourceUrl, "https://twitcasting.tv/hana69syou/movie/842580338");
+  assert.equal(archive.recordedStartAt, "2026-10-22T22:30:04+09:00");
+  assert.equal(archive.recordedStartAtUTC, "2026-10-22T13:30:04Z");
+  assert.equal(report.type, "creator_completion_report");
+  assert.equal(report.sourceUrl, "https://twitcasting.tv/hana69syou/communityshow/30729138");
+  assert.equal(report.publishedAt, "2026-10-22T23:57:57+09:00");
+  assert.equal(report.publishedAtUTC, "2026-10-22T14:57:57Z");
+  assert.match(article.textContent, /元の中止枠の振替と明記した報告ではなく/);
+  assert.match(article.textContent, /再生・内容は未確認/);
+  assert.match(article.textContent, /全プラットフォームの復旧確認ではありません/);
+  assert.equal(field(article, "scheduled").querySelectorAll("time").length, 0,
+    "the archive timezone must not retroactively supply the initial plan's timezone");
 });
