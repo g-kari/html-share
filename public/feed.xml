@@ -7,7 +7,25 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Sat, 24 Oct 2026 05:30:44 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 24 Oct 2026 05:37:32 GMT</lastBuildDate>
+    <item>
+      <title>緊急メンテナンス一覧｜2026年10月21日前後・公式告知と再開予定</title>
+      <link>https://share.0g0.xyz/php-emergency-maintenance</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/php-emergency-maintenance</guid>
+      <description>PHPに限らず、2026年10月21日前後の緊急メンテナンス・関連告知を整理。公式資料確認済み555カード（部分本文含む）と、収集した全候補の照合状況。影響範囲・終了予定・復旧報告を分けて確認。</description>
+      <pubDate>Sat, 24 Oct 2026 05:37:32 GMT</pubDate>
+      <dcterms:created>2026-10-21T12:51:32.000Z</dcterms:created>
+      <dcterms:modified>2026-10-24T05:37:32.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>PHP緊急更新：OS・Docker・ECR Publicの対応と暫定対策</title>
+      <link>https://share.0g0.xyz/php-security-os-response</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/php-security-os-response</guid>
+      <description>PHP緊急更新を一次資料で追跡。OS別修正版、Docker HubとAWS ECR Publicのイメージ、旧OSサポート、攻撃成立条件、設定でできる部分対策と限界を図解。</description>
+      <pubDate>Sat, 24 Oct 2026 05:37:32 GMT</pubDate>
+      <dcterms:created>2026-10-21T13:13:10.000Z</dcterms:created>
+      <dcterms:modified>2026-10-24T05:37:32.000Z</dcterms:modified>
+    </item>
     <item>
       <title>Brotliの脆弱性、何を確認すればいい？ 図でわかる仕組みと対処</title>
       <link>https://share.0g0.xyz/brotli-security-explained</link>
@@ -52,24 +70,6 @@
       <pubDate>Thu, 22 Oct 2026 23:06:21 GMT</pubDate>
       <dcterms:created>2026-10-08T23:59:03.000Z</dcterms:created>
       <dcterms:modified>2026-10-22T23:06:21.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>緊急メンテナンス一覧｜2026年10月21日前後・公式告知と再開予定</title>
-      <link>https://share.0g0.xyz/php-emergency-maintenance</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/php-emergency-maintenance</guid>
-      <description>PHPに限らず、2026年10月21日前後の緊急メンテナンス・関連告知を整理。公式資料確認済み527カード（部分本文含む）と、収集した全候補の照合状況。影響範囲・終了予定・復旧報告を分けて確認。</description>
-      <pubDate>Thu, 22 Oct 2026 19:09:42 GMT</pubDate>
-      <dcterms:created>2026-10-21T12:51:32.000Z</dcterms:created>
-      <dcterms:modified>2026-10-22T19:09:42.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>PHP緊急更新：OS・Docker・ECR Publicの対応と暫定対策</title>
-      <link>https://share.0g0.xyz/php-security-os-response</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/php-security-os-response</guid>
-      <description>PHP緊急更新を一次資料で追跡。OS別修正版、Docker HubとAWS ECR Publicのイメージ、旧OSサポート、攻撃成立条件、設定でできる部分対策と限界を図解。</description>
-      <pubDate>Thu, 22 Oct 2026 18:20:35 GMT</pubDate>
-      <dcterms:created>2026-10-21T13:13:10.000Z</dcterms:created>
-      <dcterms:modified>2026-10-22T18:20:35.000Z</dcterms:modified>
     </item>
     <item>
       <title>Go Lambda：ZIPからImageへ移行できる？ 変換と置換を分ける実務メモ</title>

@@ -112,14 +112,14 @@
       "updated": "2026-10-08T16:08:38.000Z"
     },
     "php-emergency-maintenance.html": {
-      "fingerprint": "8e0044e324b77051ead7dacdf400922053978703a12d9028abf8cfdfe7ff2c60",
+      "fingerprint": "6faa11e164ea2d4dc86d05a5c33f80fdbb9c378dd282c16688e5734c7cb4cd89",
       "published": "2026-10-21T12:51:32.000Z",
-      "updated": "2026-10-22T19:09:42.000Z"
+      "updated": "2026-10-24T05:37:32.000Z"
     },
     "php-security-os-response.html": {
-      "fingerprint": "b951891ab0ce5e6ed3efa27cf129348b08ee2cf19e668e352fabe9478ebe3bc7",
+      "fingerprint": "80b6a0fb5a1ac5bbcf4d5da5da3812b15e46f809818f779de52acd456af822b3",
       "published": "2026-10-21T13:13:10.000Z",
-      "updated": "2026-10-22T18:20:35.000Z"
+      "updated": "2026-10-24T05:37:32.000Z"
     },
     "php2shell-patch-status.html": {
       "fingerprint": "abd9f40dcd8c55bd9834e790552aedcbb37cd879fbc34bccbf5e20aecadd56b8",
