@@ -125787,6 +125787,638 @@
           "basis": "本人の変更告知が移動先を直接指定。YouTube側での実施確認とは別です。"
         }
       ]
+    },
+    {
+      "id": "twitcasting-konoha-kaede-mirrativ-detour-20261021",
+      "kind": "detour_self_report",
+      "actor": "木ノ葉楓",
+      "title": "木ノ葉楓",
+      "status": "迂回・配信中との本人申告／実施の独立確認なし",
+      "summary": "本人はツイキャスのメンテナンスを理由に、「今夜」はMirrativへ迂回し配信中と投稿しています。",
+      "scope": "本人が述べた迂回と配信中の申告。移動先へのアクセスは403で停止し、配信の実施・内容は独立確認していません。",
+      "from": {
+        "platform": "TwitCasting"
+      },
+      "to": {
+        "platform": "Mirrativ",
+        "url": "https://www.mirrativ.com/web/renewal/live/_Yl5gUJZoC9KG7Ms2CvOBg",
+        "urlRole": "creator_specified_destination"
+      },
+      "scheduled": {
+        "date": null,
+        "dateText": "今夜",
+        "originalStart": null,
+        "originalEnd": null,
+        "announcedStart": null,
+        "timezone": null
+      },
+      "actual": {
+        "startAt": null,
+        "outcome": null,
+        "verification": "配信再生・内容による実施確認は未実施"
+      },
+      "announcement": {
+        "url": "https://x.com/KKaede1208/status/2112906446027493658",
+        "publishedAt": "2026-10-21T13:58:47Z",
+        "updatedAt": null,
+        "clockNote": "公開投稿のUTC掲載時計。対象日・実開始時計ではなく、更新時計は未確認です。"
+      },
+      "followup": {
+        "replacementDate": null,
+        "returnToOriginalPlatform": null,
+        "condition": "許可された通常公開資料で当該Mirrativ配信の日時・実施が確認できるか、本人の訂正・後続報告が出た場合に更新。現在のアクセス制限は迂回しません。"
+      },
+      "sources": [
+        {
+          "url": "https://x.com/KKaede1208/status/2112906446027493658",
+          "label": "木ノ葉楓の公開投稿（迂回・配信中との申告）",
+          "role": "announcement",
+          "checkedAt": "2026-10-24T06:29:38Z"
+        },
+        {
+          "url": "https://www.mirrativ.com/web/renewal/live/_Yl5gUJZoC9KG7Ms2CvOBg",
+          "label": "本人指定のMirrativ配信先（403・実施未確認）",
+          "role": "destination",
+          "checkedAt": "2026-10-24T06:30:06Z"
+        },
+        {
+          "url": "https://x.com/KKaede1208",
+          "label": "木ノ葉楓のXプロフィール",
+          "role": "ownership",
+          "checkedAt": "2026-10-24",
+          "checkedAtPrecision": "date"
+        },
+        {
+          "url": "https://twitcasting.tv/c:konoha_kaede1208/movie/842645529",
+          "label": "木ノ葉楓のTwitCasting公開プロフィール参照",
+          "role": "ownership",
+          "checkedAt": "2026-10-24",
+          "checkedAtPrecision": "date"
+        }
+      ],
+      "ownership": [
+        {
+          "from": "https://x.com/KKaede1208",
+          "to": "https://twitcasting.tv/c:konoha_kaede1208/movie/842645529",
+          "basis": "X public profile's current post links to creator TwitCasting item"
+        },
+        {
+          "from": "https://twitcasting.tv/c:konoha_kaede1208/movie/842645529",
+          "to": "https://twitter.com/kkaede1208",
+          "basis": "TwitCasting public profile link back to X author"
+        },
+        {
+          "from": "https://x.com/KKaede1208/status/2112906446027493658",
+          "to": "https://www.mirrativ.com/web/renewal/live/_Yl5gUJZoC9KG7Ms2CvOBg",
+          "basis": "Creator announcement directly links destination; destination identity not independently readable"
+        }
+      ],
+      "evidence": {
+        "level": "creator_self_report",
+        "playbackVerified": false,
+        "qualifier": "本人申告であり、移動先の実施を独立確認したものではありません。"
+      },
+      "selfReportedActivity": {
+        "state": "broadcasting_at_alternative_destination",
+        "reportedAt": "2026-10-21T13:58:47Z",
+        "sourceUrl": "https://x.com/KKaede1208/status/2112906446027493658",
+        "actualStartAt": null,
+        "qualifier": "配信中という本人の発言であり、実開始時計・再生確認ではありません。"
+      },
+      "destinationAccess": {
+        "state": "403_access_restriction",
+        "continued": false,
+        "qualifier": "移動先本文の取得は拒否されたため停止。本人が指定したURLの確認と配信実施確認を分けます。"
+      }
+    },
+    {
+      "id": "twitcasting-gyokuya-rei-twitch-self-report-20261021",
+      "kind": "alternative_platform_activity_self_report",
+      "actor": "極夜レイ",
+      "title": "極夜レイ",
+      "status": "Twitch開始との本人申告／移動・実施の独立確認なし",
+      "summary": "本人はツイキャスのメンテナンスを理由にTwitchで配信を始めたと投稿しています。",
+      "scope": "メンテナンスを契機にした別プラットフォーム活動の本人申告。移動か通常の併用・同時配信かは未確認で、確定した移動事例にはしません。",
+      "from": {
+        "platform": "TwitCasting"
+      },
+      "to": {
+        "platform": "Twitch",
+        "url": "https://m.twitch.tv/ray_shuumatsu",
+        "urlRole": "creator_linked_channel"
+      },
+      "scheduled": {
+        "date": null,
+        "dateText": null,
+        "originalStart": null,
+        "originalEnd": null,
+        "announcedStart": null,
+        "timezone": null
+      },
+      "actual": {
+        "startAt": null,
+        "outcome": null,
+        "verification": "配信再生・内容による実施確認は未実施"
+      },
+      "announcement": {
+        "url": "https://x.com/shuumaaaatsu0/status/2112906429325832355",
+        "publishedAt": "2026-10-21T13:58:43Z",
+        "updatedAt": null,
+        "clockNote": "公開投稿のUTC掲載時計。対象日・実開始時計ではなく、更新時計は未確認です。"
+      },
+      "followup": {
+        "replacementDate": null,
+        "returnToOriginalPlatform": null,
+        "condition": "日時の分かる当該Twitch公開記録、または本人による置換配信と通常併用の明確な説明が得られた場合に更新。チャンネル名だけで実施済みにしません。"
+      },
+      "sources": [
+        {
+          "url": "https://x.com/shuumaaaatsu0/status/2112906429325832355",
+          "label": "極夜レイの公開投稿（Twitch開始との申告）",
+          "role": "announcement",
+          "checkedAt": "2026-10-24T06:29:38Z"
+        },
+        {
+          "url": "https://m.twitch.tv/ray_shuumatsu",
+          "label": "本人が案内したTwitchチャンネル（実施未確認）",
+          "role": "destination",
+          "checkedAt": "2026-10-24",
+          "checkedAtPrecision": "date"
+        },
+        {
+          "url": "https://x.com/shuumaaaatsu0",
+          "label": "極夜レイのXプロフィール",
+          "role": "ownership",
+          "checkedAt": "2026-10-24",
+          "checkedAtPrecision": "date"
+        },
+        {
+          "url": "https://twitcasting.tv/shuumaaaatsu0",
+          "label": "極夜レイのTwitCastingプロフィール",
+          "role": "ownership",
+          "checkedAt": "2026-10-24",
+          "checkedAtPrecision": "date"
+        }
+      ],
+      "ownership": [
+        {
+          "from": "https://x.com/shuumaaaatsu0",
+          "to": "https://twitcasting.tv/shuumaaaatsu0",
+          "basis": "X public profile links source platform"
+        },
+        {
+          "from": "https://twitcasting.tv/shuumaaaatsu0",
+          "to": "https://twitter.com/shuumaaaatsu0",
+          "basis": "TwitCasting public profile links back to X author"
+        },
+        {
+          "from": "https://x.com/shuumaaaatsu0/status/2112906429325832355",
+          "to": "https://m.twitch.tv/ray_shuumatsu",
+          "basis": "Creator announcement links destination; Twitch public title is 極夜レイ"
+        }
+      ],
+      "evidence": {
+        "level": "creator_self_report",
+        "playbackVerified": false,
+        "qualifier": "開始という本人申告。移動の断定も実施の独立確認もしていません。"
+      },
+      "selfReportedActivity": {
+        "state": "started_alternative_platform_stream",
+        "reportedAt": "2026-10-21T13:58:43Z",
+        "sourceUrl": "https://x.com/shuumaaaatsu0/status/2112906429325832355",
+        "actualStartAt": null,
+        "qualifier": "開始したとの発言であり、実開始時計や置換・同時配信の区別は未確認です。"
+      }
+    },
+    {
+      "id": "twitcasting-plum-youtube-plan-20261021",
+      "kind": "destination_change_plan",
+      "actor": "ぷらむ",
+      "title": "ぷらむ",
+      "status": "YouTube配信枠を作る予告／開始・実施未確認",
+      "summary": "本人はツイキャスが緊急メンテナンスらしいとして、急遽YouTubeで配信枠を作ると予告しています。開始したという申告ではありません。",
+      "scope": "YouTubeでの配信準備の予告。本人チャンネルの対応は確認しましたが、個別の代替配信URL・開始・実施は未確認です。",
+      "from": {
+        "platform": "TwitCasting"
+      },
+      "to": {
+        "platform": "YouTube",
+        "url": null,
+        "ownedChannelUrl": "https://www.youtube.com/channel/UC3t1gPnZ3oAv1ak-Dvdh4Bg"
+      },
+      "scheduled": {
+        "date": null,
+        "dateText": null,
+        "originalStart": null,
+        "originalEnd": null,
+        "announcedStart": null,
+        "timezone": null
+      },
+      "actual": {
+        "startAt": null,
+        "outcome": null,
+        "verification": "配信再生・内容による実施確認は未実施"
+      },
+      "announcement": {
+        "url": "https://x.com/pplum_oO/status/2112922918175010923",
+        "publishedAt": "2026-10-21T15:04:14Z",
+        "updatedAt": null,
+        "clockNote": "公開投稿のUTC掲載時計。対象日・実開始時計ではなく、更新時計は未確認です。"
+      },
+      "followup": {
+        "replacementDate": null,
+        "returnToOriginalPlatform": null,
+        "condition": "本人が個別のYouTube配信URLを示すか、日付付き公開記録・後続報告で実施または中止を確認できた場合に更新。本人チャンネルを当該配信枠と同一視しません。"
+      },
+      "sources": [
+        {
+          "url": "https://x.com/pplum_oO/status/2112922918175010923",
+          "label": "ぷらむの公開投稿（YouTube配信枠の予告）",
+          "role": "announcement",
+          "checkedAt": "2026-10-24T06:29:38Z"
+        },
+        {
+          "url": "https://www.youtube.com/channel/UC3t1gPnZ3oAv1ak-Dvdh4Bg",
+          "label": "ぷらむ本人のYouTubeチャンネル（個別配信枠ではありません）",
+          "role": "owned_channel",
+          "checkedAt": "2026-10-24",
+          "checkedAtPrecision": "date"
+        },
+        {
+          "url": "https://twitcasting.tv/pplum_oO",
+          "label": "ぷらむのTwitCastingプロフィール",
+          "role": "ownership",
+          "checkedAt": "2026-10-24",
+          "checkedAtPrecision": "date"
+        },
+        {
+          "url": "https://www.youtube.com/channel/UC3t1gPnZ3oAv1ak-Dvdh4Bg/streams",
+          "label": "YouTubeチャンネルの公開説明（本人アカウントへの参照）",
+          "role": "ownership",
+          "checkedAt": "2026-10-24",
+          "checkedAtPrecision": "date"
+        }
+      ],
+      "ownership": [
+        {
+          "from": "https://x.com/pplum_oO",
+          "to": "https://twitcasting.tv/pplum_oO",
+          "basis": "X public profile links source platform"
+        },
+        {
+          "from": "https://twitcasting.tv/pplum_oO",
+          "to": "https://twitter.com/pplum_oo",
+          "basis": "TwitCasting public profile links back to X author; capitalization normalizes"
+        },
+        {
+          "from": "https://twitcasting.tv/pplum_oO",
+          "to": "https://www.youtube.com/channel/UC3t1gPnZ3oAv1ak-Dvdh4Bg",
+          "basis": "Source-platform public profile links creator YouTube channel"
+        },
+        {
+          "from": "https://www.youtube.com/channel/UC3t1gPnZ3oAv1ak-Dvdh4Bg/streams",
+          "to": "https://twitter.com/pplum_oO",
+          "basis": "YouTube public description links back to X author"
+        }
+      ],
+      "evidence": {
+        "level": "creator_plan",
+        "playbackVerified": false,
+        "qualifier": "配信枠を作る予告であり、開始の申告や実施確認ではありません。"
+      }
+    },
+    {
+      "id": "twitcasting-sanji-nicolive-notice-20261021",
+      "kind": "destination_change_notice",
+      "actor": "3時",
+      "title": "3時",
+      "status": "ニコ生への変更告知／実施未確認・後日の公開記録あり",
+      "summary": "本人はツイキャスのメンテナンスを理由に、「本日」の配信をニコ生で行うと告知し、番組への直接リンクを案内しています。",
+      "scope": "ニコ生への変更告知。リンク先の番組は確認しましたが実施日時は未検証です。後日のTwitCasting公開記録は別観測で、ニコ生実施・最初の復帰・全体復旧の証拠にはしません。",
+      "from": {
+        "platform": "TwitCasting"
+      },
+      "to": {
+        "platform": "NicoLive",
+        "url": "https://live.nicovideo.jp/watch/lv351644019",
+        "urlRole": "exact_linked_program"
+      },
+      "scheduled": {
+        "date": null,
+        "dateText": "本日",
+        "originalStart": null,
+        "originalEnd": null,
+        "announcedStart": null,
+        "timezone": null
+      },
+      "actual": {
+        "startAt": null,
+        "outcome": null,
+        "verification": "配信再生・内容による実施確認は未実施"
+      },
+      "announcement": {
+        "url": "https://x.com/sanji252525/status/2112953842921087199",
+        "publishedAt": "2026-10-21T17:07:07.000Z",
+        "updatedAt": null,
+        "clockNote": "公開投稿のUTC掲載時計。対象日・実開始時計ではなく、更新時計は未確認です。"
+      },
+      "followup": {
+        "replacementDate": null,
+        "returnToOriginalPlatform": null,
+        "condition": "当該ニコ生番組の信頼できる公開開始・終了記録または本人の終了報告で実施と日時を確認できた場合に更新。後日のTwitCasting記録から代替配信の実施を推定しません。"
+      },
+      "sources": [
+        {
+          "url": "https://x.com/sanji252525/status/2112953842921087199",
+          "label": "3時の公開投稿（ニコ生への変更告知）",
+          "role": "announcement",
+          "checkedAt": "2026-10-24",
+          "checkedAtPrecision": "date"
+        },
+        {
+          "url": "https://live.nicovideo.jp/watch/lv351644019",
+          "label": "本人が指定したニコ生番組（実施日時未検証）",
+          "role": "destination",
+          "checkedAt": "2026-10-24",
+          "checkedAtPrecision": "date"
+        },
+        {
+          "url": "https://twitcasting.tv/sanji252525",
+          "label": "3時のTwitCastingプロフィール",
+          "role": "ownership",
+          "checkedAt": "2026-10-24",
+          "checkedAtPrecision": "date"
+        },
+        {
+          "url": "https://twitcasting.tv/sanji252525/movie/842589989",
+          "label": "3時の後日のTwitCasting公開アーカイブ記録（再生未確認）",
+          "role": "observation",
+          "checkedAt": "2026-10-24",
+          "checkedAtPrecision": "date"
+        }
+      ],
+      "ownership": [
+        {
+          "from": "https://x.com/sanji252525/status/2112953842921087199",
+          "to": "https://live.nicovideo.jp/watch/lv351644019",
+          "basis": "Original announcement links this exact program."
+        },
+        {
+          "from": "https://live.nicovideo.jp/watch/lv351644019",
+          "to": "https://twitter.com/sanji252525",
+          "basis": "Program public page links back to the same X handle."
+        },
+        {
+          "from": "https://live.nicovideo.jp/watch/lv351644019",
+          "to": "https://twitcasting.tv/sanji252525",
+          "basis": "Program public page links the TwitCasting creator account."
+        },
+        {
+          "from": "https://twitcasting.tv/sanji252525",
+          "to": "https://twitter.com/sanji252525",
+          "basis": "TwitCasting public profile links the same X handle."
+        }
+      ],
+      "evidence": {
+        "level": "announcement_with_later_archive_metadata",
+        "playbackVerified": false,
+        "qualifier": "ニコ生は変更告知まで。後日のTwitCasting公開記録は当該ニコ生の実施確認ではありません。"
+      },
+      "observations": [
+        {
+          "type": "public_archive_metadata",
+          "sourceUrl": "https://twitcasting.tv/sanji252525/movie/842589989",
+          "recordedStartAt": "2026-10-23T02:00:05+09:00",
+          "recordedStartAtUTC": "2026-10-22T17:00:05Z",
+          "summary": "後日のTwitCasting公開アーカイブに開始記録があります。",
+          "qualifier": "公開見出しの記録のみで再生未確認。最初の復帰・ニコ生の実施・プラットフォーム全体の復旧は証明しません。",
+          "playbackVerified": false
+        }
+      ]
+    },
+    {
+      "id": "twitcasting-friend-o-radio-postponement-20261022",
+      "kind": "postponement_notice",
+      "actor": "風蓮堂Radio",
+      "title": "風蓮堂Radio",
+      "status": "延期の告知・振替を検討／日時未定・実施未確認",
+      "summary": "運営はツイキャスのメンテナンスを理由に「本日21:30」の風蓮堂Radioを延期と告知。別の引用続報でも、前倒し配信も流れ、振替は来週のどこかで検討中としています。",
+      "scope": "当該Radioの延期と未確定の振替検討。原投稿は第322回と記載しますが、他の公開アーカイブの回数表記と不整合があるため、古い第322回の記録と同一視しません。",
+      "from": {
+        "platform": "TwitCasting"
+      },
+      "to": {
+        "platform": null,
+        "url": null
+      },
+      "scheduled": {
+        "date": null,
+        "dateText": "本日",
+        "originalStart": "21:30",
+        "originalEnd": null,
+        "announcedStart": null,
+        "timezone": null
+      },
+      "actual": {
+        "startAt": null,
+        "outcome": null,
+        "verification": "配信再生・内容による実施確認は未実施"
+      },
+      "announcement": {
+        "url": "https://x.com/friend_o_info/status/2113234475249455322",
+        "publishedAt": "2026-10-22T11:42:15.000Z",
+        "updatedAt": null,
+        "clockNote": "公開投稿のUTC掲載時計。対象日・実開始時計ではなく、更新時計は未確認です。"
+      },
+      "followup": {
+        "replacementDate": null,
+        "returnToOriginalPlatform": null,
+        "condition": "運営が当該延期分と明示して振替日時を発表した場合に更新し、実施確認は別途行います。「来週」の検討を確定日程へ変えず、回数の不整合も推測で訂正しません。"
+      },
+      "sources": [
+        {
+          "url": "https://x.com/friend_o_info/status/2113234475249455322",
+          "label": "風蓮堂の公開投稿（Radio延期告知）",
+          "role": "announcement",
+          "checkedAt": "2026-10-24",
+          "checkedAtPrecision": "date"
+        },
+        {
+          "url": "https://x.com/friend_o_info/status/2113854195623502058",
+          "label": "風蓮堂の別の引用続報（振替検討・日時未定）",
+          "role": "observation",
+          "checkedAt": "2026-10-24",
+          "checkedAtPrecision": "date"
+        },
+        {
+          "url": "https://x.com/friend_o_info",
+          "label": "風蓮堂のXプロフィール",
+          "role": "ownership",
+          "checkedAt": "2026-10-24",
+          "checkedAtPrecision": "date"
+        },
+        {
+          "url": "https://twitcasting.tv/friend_o_info/",
+          "label": "風蓮堂のTwitCastingプロフィール・公開回数表記",
+          "role": "ownership",
+          "checkedAt": "2026-10-24",
+          "checkedAtPrecision": "date"
+        }
+      ],
+      "ownership": [
+        {
+          "from": "https://x.com/friend_o_info",
+          "to": "https://twitcasting.tv/friend_o_info/",
+          "basis": "Xプロフィールのリンク先を公開リダイレクトで確認。"
+        },
+        {
+          "from": "https://twitcasting.tv/friend_o_info/",
+          "to": "https://twitter.com/friend_o_info",
+          "basis": "TwitCastingプロフィールが同じXへリンク。"
+        }
+      ],
+      "evidence": {
+        "level": "postponement_with_tentative_followup",
+        "playbackVerified": false,
+        "qualifier": "別投稿の引用続報も検討段階で、振替日程の確定・実施確認ではありません。"
+      },
+      "observations": [
+        {
+          "type": "creator_followup_plan",
+          "sourceUrl": "https://x.com/friend_o_info/status/2113854195623502058",
+          "publishedAt": "2026-10-24T04:44:48.000Z",
+          "summary": "原投稿を引用し、前倒し配信も流れたため、来週のどこかで振替を検討し日時は後日案内と説明。",
+          "qualifier": "別投稿の掲載時計であり原投稿の更新時計ではありません。検討段階で確定した振替予約・日時ではありません。",
+          "playbackVerified": false
+        }
+      ]
+    },
+    {
+      "id": "twitcasting-hana69syou-cancellation-followup-20261021",
+      "kind": "cancellation_with_conditional_replacement",
+      "actor": "ハナロクショウ",
+      "title": "ハナロクショウ",
+      "status": "中止告知／後続の公開記録・本人報告あり（再生未確認）",
+      "summary": "本人はツイキャス緊急メンテナンスにより「本日」の配信を中止と告知。翌日10/22(木)22:30は、メンテナンスが終了していればという条件付きの振替案でした。",
+      "scope": "中止告知と条件付きの振替案、後続の公開記録・本人報告を区分。後続は当該本人の配信再開を支える資料ですが、元の中止枠の振替と明記した報告ではなく、動画内容・最初の復帰・プラットフォーム全体の復旧は確認していません。",
+      "from": {
+        "platform": "TwitCasting"
+      },
+      "to": {
+        "platform": null,
+        "url": null
+      },
+      "scheduled": {
+        "date": null,
+        "dateText": "本日",
+        "originalStart": null,
+        "originalEnd": null,
+        "announcedStart": null,
+        "timezone": null
+      },
+      "actual": {
+        "startAt": null,
+        "outcome": null,
+        "verification": "配信再生・内容による実施確認は未実施"
+      },
+      "announcement": {
+        "url": "https://x.com/hana69syou/status/2112860620894978386",
+        "publishedAt": "2026-10-21T10:56:41.000Z",
+        "updatedAt": null,
+        "clockNote": "公開投稿のUTC掲載時計。対象日・実開始時計ではなく、更新時計は未確認です。"
+      },
+      "followup": {
+        "replacementDate": null,
+        "returnToOriginalPlatform": null,
+        "condition": "当該中止枠の振替だったと本人が明示する資料が得られた場合に関係を更新。アーカイブの開始記録を再生確認済みの実開始へ置き換えず、全体復旧も推定しません。"
+      },
+      "sources": [
+        {
+          "url": "https://x.com/hana69syou/status/2112860620894978386",
+          "label": "ハナロクショウの公開投稿（中止・条件付き振替案）",
+          "role": "announcement",
+          "checkedAt": "2026-10-24",
+          "checkedAtPrecision": "date"
+        },
+        {
+          "url": "https://twitcasting.tv/hana69syou/movie/842580338",
+          "label": "ハナロクショウの公開アーカイブ開始記録（再生未確認）",
+          "role": "observation",
+          "checkedAt": "2026-10-24",
+          "checkedAtPrecision": "date"
+        },
+        {
+          "url": "https://twitcasting.tv/hana69syou/communityshow/30729138",
+          "label": "ハナロクショウの同夜の本人報告",
+          "role": "observation",
+          "checkedAt": "2026-10-24",
+          "checkedAtPrecision": "date"
+        },
+        {
+          "url": "https://hana69syou.jimdofree.com/",
+          "label": "ハナロクショウ公式サイト（本人Xへの参照）",
+          "role": "ownership",
+          "checkedAt": "2026-10-24",
+          "checkedAtPrecision": "date"
+        },
+        {
+          "url": "https://twitcasting.tv/hana69syou",
+          "label": "ハナロクショウのTwitCastingプロフィール（公式サイト・Xへの参照）",
+          "role": "ownership",
+          "checkedAt": "2026-10-24",
+          "checkedAtPrecision": "date"
+        }
+      ],
+      "ownership": [
+        {
+          "from": "https://hana69syou.jimdofree.com/",
+          "to": "https://x.com/hana69syou",
+          "basis": "Official site links this X account."
+        },
+        {
+          "from": "https://twitcasting.tv/hana69syou",
+          "to": "https://hana69syou.jimdofree.com/",
+          "basis": "Public profile links back to official site."
+        },
+        {
+          "from": "https://twitcasting.tv/hana69syou",
+          "to": "https://twitter.com/hana69syou",
+          "basis": "Public profile links same X account."
+        }
+      ],
+      "conditionalReplacement": {
+        "date": null,
+        "dateText": "明日／10/22(木)",
+        "start": "22:30",
+        "timezone": null,
+        "condition": "メンテナンスが終了している場合",
+        "confirmed": false
+      },
+      "evidence": {
+        "level": "public_archive_metadata_and_creator_report",
+        "playbackVerified": false,
+        "qualifier": "公開アーカイブの開始記録と同夜の本人報告。再生・内容検証ではなく、中止枠の振替との関係は留保します。"
+      },
+      "observations": [
+        {
+          "type": "public_archive_metadata",
+          "sourceUrl": "https://twitcasting.tv/hana69syou/movie/842580338",
+          "recordedStartAt": "2026-10-22T22:30:04+09:00",
+          "recordedStartAtUTC": "2026-10-22T13:30:04Z",
+          "summary": "後続のTwitCasting公開アーカイブは開始を記録しています。",
+          "qualifier": "公開記録のみで再生・内容は未確認。同日同時刻の記録ですが、当初の中止枠の振替と明示されたものではありません。",
+          "playbackVerified": false
+        },
+        {
+          "type": "creator_completion_report",
+          "sourceUrl": "https://twitcasting.tv/hana69syou/communityshow/30729138",
+          "publishedAt": "2026-10-22T23:57:57+09:00",
+          "publishedAtUTC": "2026-10-22T14:57:57Z",
+          "summary": "同夜の本人投稿は、メンテナンス後に視聴者と交流できたと報告しています。",
+          "qualifier": "本人の報告であり再生・内容検証や全プラットフォームの復旧確認ではありません。元の中止枠の振替との明記もありません。",
+          "playbackVerified": false
+        }
+      ]
     }
   ]
 }
