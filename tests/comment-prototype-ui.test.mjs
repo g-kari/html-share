@@ -39,6 +39,7 @@ test('contextual requests: selection action, figure parts, explicit retarget, Es
   globalThis.document=win.document;globalThis.window=win;globalThis.getSelection=()=>win.getSelection();await import('../public/assets/comment-prototype/review.mjs?context-test');
   const p=$('article').querySelector('[data-block=intro]');
   select(p,0,4);assert.equal($('selection-tools').hidden,false);assert.match($('selection-preview').textContent,/公開本文/);assert.notEqual(win.document.activeElement,$('body'));
+  const changes=new win.MutationObserver(()=>{});changes.observe($('article'),{childList:true,subtree:true,attributes:true});fire(win.document,'selectionchange');assert.equal(changes.takeRecords().length,0,'unchanged selection must not move or rewrite the action between pointerdown and click');changes.disconnect();
   $('request-selection').click();assert.match($('target').textContent,/入力対象: 公開本文/);assert.equal(win.document.activeElement,$('body'));assert.equal($('selection-tools').hidden,true);
   $('body').value='ここを短く';fire($('body'),'input');
   const figure=win.document.querySelector('[data-figure-part="JSON書き出し"]');figure.click();
