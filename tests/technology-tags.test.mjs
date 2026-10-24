@@ -15,6 +15,14 @@ const keys = (record, kind) => automaticTags(record).filter((item) => item.kind 
 const record = (title, lead = "", category = "agent", extra = {}) => ({ title, lead, category, ...extra });
 
 const existingProducts = {
+  "litellm-11063-signing-key-rotation": ["other"],
+  "ollama-04010-nemotron-bolt-e4b": ["ollama"],
+  "cloudflare-d1-undelete-seven-days": ["other"],
+  "claude-code-21309-sandbox-boundaries": ["claude-code"],
+  "mcp-typescript-240-output-compatibility": ["other"],
+  "diffusers-0420-python-latent-migration": ["other"],
+  "openai-sdk-decisions-structured-instructions": ["other"],
+  "aws-agentcore-gateway-fallback": ["other"],
   "cloudflare-mcp-sse-retired": ["other"],
   "cloudflare-pi14-storage-migration": ["cloudflare-agents-sdk","piharness","pi-durable"],
   "cloudflare-createai-provider-migration": ["other"],
@@ -103,6 +111,14 @@ test("all authored records have deterministic product/domain/change dimensions",
 
 test("current change tags distinguish pricing, fixes, public weights, GA, beta and correction", () => {
   const expected = {
+  "litellm-11063-signing-key-rotation": ["release","compatibility"],
+  "ollama-04010-nemotron-bolt-e4b": ["feature"],
+  "cloudflare-d1-undelete-seven-days": ["update"],
+  "claude-code-21309-sandbox-boundaries": ["fix","security"],
+  "mcp-typescript-240-output-compatibility": ["feature","preview","compatibility"],
+  "diffusers-0420-python-latent-migration": ["compatibility"],
+  "openai-sdk-decisions-structured-instructions": ["compatibility"],
+  "aws-agentcore-gateway-fallback": ["update"],
   "cloudflare-mcp-sse-retired": ["compatibility","security","deprecation"],
   "cloudflare-pi14-storage-migration": ["improvement","preview","compatibility"],
   "cloudflare-createai-provider-migration": ["compatibility","deprecation"],
@@ -326,5 +342,6 @@ test("mutation of returned tags cannot alter later outputs or the input record",
   assert.deepEqual(input, before);
   assert.deepEqual(automaticTags(input), expected);
 });
+
 
 
