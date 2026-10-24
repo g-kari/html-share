@@ -52,8 +52,10 @@ function readSelection(){
 }
 function offerSelection(){
  const next=readSelection();if(!next){closeSelection();return;}
+ // Rewriting or moving the focused toolbar on selectionchange can cancel its click.
+ if(sameTarget(selectionAnchor,next)&&!$('selection-tools').hidden)return;
  selectionAnchor=next;$('selection-preview').textContent=`選択中: ${next.exact}`;
- const row=document.querySelector(`[data-block="${next.stableId}"]`).closest('.sample-block');row.after($('selection-tools'));$('selection-tools').hidden=false;
+ const row=document.querySelector(`[data-block="${next.stableId}"]`).closest('.sample-block');if(row.nextElementSibling!==$('selection-tools'))row.after($('selection-tools'));$('selection-tools').hidden=false;
 }
 // Native selection remains untouched until the user asks to compose. No focus stealing.
 document.addEventListener('selectionchange',offerSelection);
