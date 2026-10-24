@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Sat, 24 Oct 2026 06:46:21 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 24 Oct 2026 07:04:23 GMT</lastBuildDate>
+    <item>
+      <title>文章・図へのコメントを試す | 公開デモ</title>
+      <link>https://share.0g0.xyz/comment-prototype</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/comment-prototype</guid>
+      <description>文章や図に指摘を付ける公開デモ。保存はこのタブのメモリだけ、サーバー送信・AI実行・公開本文の変更はありません。</description>
+      <pubDate>Sat, 24 Oct 2026 07:04:23 GMT</pubDate>
+      <dcterms:created>2026-10-23T14:20:15.000Z</dcterms:created>
+      <dcterms:modified>2026-10-24T07:04:23.000Z</dcterms:modified>
+    </item>
     <item>
       <title>緊急メンテナンス一覧｜2026年10月21日前後・公式告知と再開予定</title>
       <link>https://share.0g0.xyz/php-emergency-maintenance</link>
@@ -34,15 +43,6 @@
       <pubDate>Sat, 24 Oct 2026 05:30:44 GMT</pubDate>
       <dcterms:created>2026-10-24T05:30:44.000Z</dcterms:created>
       <dcterms:modified>2026-10-24T05:30:44.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>文章・図へのコメントを試す | 公開デモ</title>
-      <link>https://share.0g0.xyz/comment-prototype</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/comment-prototype</guid>
-      <description>文章や図に指摘を付ける公開デモ。保存はこのタブのメモリだけ、サーバー送信・AI実行・公開本文の変更はありません。</description>
-      <pubDate>Fri, 23 Oct 2026 16:01:10 GMT</pubDate>
-      <dcterms:created>2026-10-23T14:20:15.000Z</dcterms:created>
-      <dcterms:modified>2026-10-23T16:01:10.000Z</dcterms:modified>
     </item>
     <item>
       <title>AWS Continuumを図解：発見から検証、修正PRまで</title>
