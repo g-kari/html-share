@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Fri, 23 Oct 2026 16:01:10 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 24 Oct 2026 05:30:44 GMT</lastBuildDate>
+    <item>
+      <title>Brotliの脆弱性、何を確認すればいい？ 図でわかる仕組みと対処</title>
+      <link>https://share.0g0.xyz/brotli-security-explained</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/brotli-security-explained</guid>
+      <description>CVE-2026-111497を日本語で図解。Brotliの圧縮と展開の違い、影響を判断する条件、Node.js・Brotli・Bunの公式修正情報、更新後の確認までを解説。</description>
+      <pubDate>Sat, 24 Oct 2026 05:30:44 GMT</pubDate>
+      <dcterms:created>2026-10-24T05:30:44.000Z</dcterms:created>
+      <dcterms:modified>2026-10-24T05:30:44.000Z</dcterms:modified>
+    </item>
     <item>
       <title>文章・図へのコメントを試す | 公開デモ</title>
       <link>https://share.0g0.xyz/comment-prototype</link>
