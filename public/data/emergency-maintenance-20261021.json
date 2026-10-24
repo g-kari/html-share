@@ -125645,5 +125645,148 @@
       "confirmedId": "ezblox-scheduled-maintenance",
       "reason": "初期JCS元候補の過去本文と、今回直接取得したサービス公式個別告知の対象/予定期間が対応。運営exact所有も独立参照で照合。過去Xを今回再取得した意味ではなく、後日別X群は保留を維持。"
     }
+  ],
+  "streamImpacts": [
+    {
+      "id": "twitcasting-nenez-postponed-20261022",
+      "kind": "postponement_notice",
+      "actor": "ネーネーズ（公式運営）",
+      "title": "ネーネーズ【島唄】生中継",
+      "status": "延期告知／振替日未確認",
+      "summary": "公式LIVE SCHEDULEは、ツイキャス緊急メンテナンスを理由に、2026年10月22日予定のオンライン配信を延期すると案内しています。",
+      "scope": "配信部分。会場公演の中止を示す情報ではありません。",
+      "from": {
+        "platform": "TwitCasting Premier"
+      },
+      "to": {
+        "platform": null,
+        "url": null
+      },
+      "scheduled": {
+        "date": "2026-10-22",
+        "dateText": "2026年10月22日",
+        "originalStart": "19:00",
+        "originalEnd": "22:00",
+        "announcedStart": null,
+        "timezone": null
+      },
+      "actual": {
+        "startAt": null,
+        "outcome": null,
+        "verification": "振替実施未確認"
+      },
+      "announcement": {
+        "url": "https://nenez.bitfan.id/schedules/128354?r=tnazs1",
+        "publishedAt": null,
+        "updatedAt": null,
+        "clockNote": "告知の掲載・更新時計は未確認。公演予定の日時と混同しません。"
+      },
+      "followup": {
+        "replacementDate": null,
+        "returnToOriginalPlatform": null,
+        "condition": "同じ公式日程または公式運営が当該配信の振替日程・中止・返金案内を明示した場合に更新。プラットフォームの復旧や別日公演から振替済みと推定しません。"
+      },
+      "sources": [
+        {
+          "url": "https://nenez.bitfan.id/schedules/128354?r=tnazs1",
+          "label": "ネーネーズ公式LIVE SCHEDULE（延期告知）",
+          "role": "announcement",
+          "checkedAt": "2026-10-24T05:59:15Z"
+        },
+        {
+          "url": "https://nenez.bitfan.id/",
+          "label": "ネーネーズ公式サイト（配信アカウントへの参照）",
+          "role": "ownership",
+          "checkedAt": "2026-10-24T05:57:29Z"
+        },
+        {
+          "url": "https://twitcasting.tv/c:nenez",
+          "label": "ネーネーズのTwitCastingプロフィール",
+          "role": "ownership",
+          "checkedAt": "2026-10-24T05:57:33Z"
+        }
+      ],
+      "ownership": [
+        {
+          "from": "https://nenez.bitfan.id/",
+          "to": "https://twitcasting.tv/c:nenez",
+          "basis": "公式サイトが当該配信アカウントへ直接リンク。"
+        }
+      ]
+    },
+    {
+      "id": "twitcasting-weeklyshimo-youtube-only-20261022",
+      "kind": "destination_change_notice",
+      "actor": "下島章寛（週刊シモ）",
+      "title": "下島章寛「ちょびっと週刊シモ」",
+      "status": "変更の告知を確認／実施未確認",
+      "summary": "本人の公開投稿は、ツイキャスのメンテナンスを受け、「今週」はYouTubeのみで21:30から配信すると案内しています。",
+      "scope": "当該番組の配信先変更の告知。実際のYouTube配信とツイキャスへの復帰は未確認です。",
+      "from": {
+        "platform": "TwitCasting"
+      },
+      "to": {
+        "platform": "YouTube",
+        "url": "https://www.youtube.com/live/cwtCURntlb0"
+      },
+      "scheduled": {
+        "date": null,
+        "dateText": "今週",
+        "originalStart": null,
+        "originalEnd": null,
+        "announcedStart": "21:30",
+        "timezone": null,
+        "dateNote": "投稿時計を対象配信日へ読み替えません。本文は配信対象日の絶対日付とタイムゾーンを明示していません。"
+      },
+      "actual": {
+        "startAt": null,
+        "outcome": null,
+        "verification": "実施未確認"
+      },
+      "announcement": {
+        "url": "https://x.com/weeklyshimo/status/2113240143826133172",
+        "publishedAt": "2026-10-22T12:04:47Z",
+        "updatedAt": null,
+        "clockNote": "公開投稿のUTC掲載時計。対象配信日・実開始時計ではなく、更新時計は未確認です。"
+      },
+      "followup": {
+        "replacementDate": null,
+        "returnToOriginalPlatform": null,
+        "condition": "本人の後続公開告知または当該YouTube公開アーカイブで実施日・開始時刻を確認できた場合に更新。移動先URLの存在だけでは実施済みにしません。"
+      },
+      "sources": [
+        {
+          "url": "https://x.com/weeklyshimo/status/2113240143826133172",
+          "label": "下島章寛の公開投稿（配信先変更の告知）",
+          "role": "announcement",
+          "checkedAt": "2026-10-24T06:01:18Z"
+        },
+        {
+          "url": "https://www.youtube.com/live/cwtCURntlb0",
+          "label": "本人が指定したYouTube配信先（実施未確認）",
+          "role": "destination",
+          "checkedAt": "2026-10-24T06:01:18Z",
+          "verification": "本人投稿からの直接リンクを確認。配信先の公開本文から実施日・実開始・アーカイブは確認できていません。"
+        },
+        {
+          "url": "https://twitcasting.tv/weeklyshimo",
+          "label": "週刊シモのTwitCastingプロフィール（本人Xへの参照）",
+          "role": "ownership",
+          "checkedAt": "2026-10-24T06:01:06Z"
+        }
+      ],
+      "ownership": [
+        {
+          "from": "https://twitcasting.tv/weeklyshimo",
+          "to": "https://twitter.com/weeklyshimo",
+          "basis": "TwitCastingプロフィールが同じ本人Xへ直接リンク。"
+        },
+        {
+          "from": "https://x.com/weeklyshimo/status/2113240143826133172",
+          "to": "https://www.youtube.com/live/cwtCURntlb0",
+          "basis": "本人の変更告知が移動先を直接指定。YouTube側での実施確認とは別です。"
+        }
+      ]
+    }
   ]
 }
