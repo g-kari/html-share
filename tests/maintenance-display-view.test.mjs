@@ -43,13 +43,18 @@ test("same real notice articles, facts and official links work in card/list mode
     assert.equal(all.length, data.confirmed.length);
     assert.deepEqual(all.map(x => x.id), data.confirmed.map(x => x.id));
     assert.equal(new Set([...d.querySelectorAll("[id]")].map(x => x.id)).size, d.querySelectorAll("[id]").length);
+    const selectableCategories = new Set([...d.getElementById("category").options].map(x => x.value));
     data.confirmed.forEach((record, i) => {
       const article = all[i];
       assert.equal(article.dataset.category, record.cat);
+      assert.ok(record.cat !== "all" && selectableCategories.has(record.cat),
+        `${record.id} must use a selectable category so its matching filter can reach it`);
       assert.equal(article.dataset.restored, String(record.restored === true));
       assert.equal(article.querySelector(".site-heading > span:last-child").textContent, record.name);
       assert.equal(article.querySelector(".service-details .detail").textContent, record.safe);
       assert.equal(article.querySelector(".service-details footer > a").getAttribute("href"), record.url);
+      if (record.restorationNote) assert.ok(article.querySelector(".service-details footer").textContent.includes(record.restorationNote),
+        "a scoped resumption footer must match its current record");
       const toggle = article.querySelector(".service-detail-toggle"), panel = article.querySelector(".service-details");
       assert.equal(toggle.type, "button");
       assert.equal(toggle.getAttribute("aria-controls"), panel.id);
@@ -146,6 +151,15 @@ test("without JS all facts are visible; print and responsive safeguards remain",
   const dom = make({ sample: true, boot: false });
   try {
     const d = dom.window.document;
+    assert.equal(Number.parseInt(d.getElementById("count").textContent, 10), data.confirmed.length,
+      "the initial no-JavaScript announcement must match the current notice dataset");
+    const reviewedCount = html.match(/<p id="reviewed-count"[^>]*>(\d+)/)?.[1];
+    assert.equal(Number(reviewedCount), (html.match(/class="reviewed-source"/g) || []).length,
+      "the static related/source count must include every displayed source");
+    const checkedJST = new Date(Date.parse(data.checkedAt) + 9 * 60 * 60 * 1000);
+    const pad = value => String(value).padStart(2, "0");
+    const stamp = `${checkedJST.getUTCFullYear()}/${pad(checkedJST.getUTCMonth() + 1)}/${pad(checkedJST.getUTCDate())} ${pad(checkedJST.getUTCHours())}:${pad(checkedJST.getUTCMinutes())} JST`;
+    assert.ok(html.includes(`今回の限定照合：${stamp}。`), "the footer must not retain an older snapshot clock");
     assert.equal(d.getElementById("controls").hidden, true);
     assert.equal(d.getElementById("view-toolbar").hidden, true);
     assert.ok(cards(d).every(x => !x.querySelector(".service-details").hidden));
