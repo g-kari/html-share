@@ -7,24 +7,24 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Tue, 27 Oct 2026 07:50:00 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 27 Oct 2026 08:15:18 GMT</lastBuildDate>
     <item>
       <title>Brotliの脆弱性、何を確認すればいい？ 図でわかる仕組みと対処</title>
       <link>https://share.0g0.xyz/brotli-security-explained</link>
       <guid isPermaLink="true">https://share.0g0.xyz/brotli-security-explained</guid>
       <description>CVE-2026-111497を日本語で図解。Brotliの圧縮と展開の違い、影響を判断する条件、Linux・Node.js・Pythonなどの公式修正情報と、バックエンド／インフラ担当の棚卸し・更新・再配備・完了条件を解説。</description>
-      <pubDate>Tue, 27 Oct 2026 07:50:00 GMT</pubDate>
+      <pubDate>Tue, 27 Oct 2026 08:15:18 GMT</pubDate>
       <dcterms:created>2026-10-24T05:30:44.000Z</dcterms:created>
-      <dcterms:modified>2026-10-27T07:50:00.000Z</dcterms:modified>
+      <dcterms:modified>2026-10-27T08:15:18.000Z</dcterms:modified>
     </item>
     <item>
       <title>eMudhra事件、なぜGoやPHPまで更新？ 身分証チェックの図解</title>
       <link>https://share.0g0.xyz/emudhra-ca</link>
       <guid isPermaLink="true">https://share.0g0.xyz/emudhra-ca</guid>
       <description>CA事故とソフト更新がつながる理由を、正常・偽造・更新後の3コマと図形でやさしく説明。Goの再ビルド、PHPのCA一覧、Node・Python・ブラウザの更新先も分けて確認。</description>
-      <pubDate>Tue, 27 Oct 2026 07:41:42 GMT</pubDate>
+      <pubDate>Tue, 27 Oct 2026 08:15:18 GMT</pubDate>
       <dcterms:created>2026-10-21T10:03:01.000Z</dcterms:created>
-      <dcterms:modified>2026-10-27T07:41:42.000Z</dcterms:modified>
+      <dcterms:modified>2026-10-27T08:15:18.000Z</dcterms:modified>
     </item>
     <item>
       <title>文章・図へのコメントを試す | 公開デモ</title>
