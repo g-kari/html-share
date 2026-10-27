@@ -37,7 +37,7 @@
 <header class="top"><a href="/">共有メモ一覧</a><span>eMudhra事件を、前提知識なしで</span></header>
 <main>
 <div class="hero">
-<p class="date">2026年10月21日 21:40 JST 確認・説明を全面更新</p>
+<p class="date">2026年10月27日 16:34 JST 更新確認（初版：10月21日）</p>
 <h1><span>なぜ認証局の事故で、</span><span>GoやPHPまで更新するの？</span></h1>
 <p class="lead">答えは、<strong>ネットにつなぐソフトの中にも、<br>「相手は本物か？」を確認する係がいるから。</strong></p>
 <div class="answer">
@@ -166,7 +166,7 @@
 <p class="mini">まず「どのCA一覧を使っているか」を特定し、<strong>その配布元の対策済み一覧へ更新</strong>する。cURL公式のCAバンドルは2026-10-20版を確認済み。独自指定・同梱ファイルがあればそこも確認する。</p>
 <p class="small">CLIとWebサーバーのPHPでは設定が違う場合がある。診断の生ログを公開する必要はない。証明書検証をオフにして解決しない。</p>
 <p class="source"><a href="https://www.php.net/manual/en/curl.configuration.php">PHP cURL設定</a> ／ <a href="https://www.php.net/manual/en/openssl.configuration.php">PHP OpenSSL設定</a> ／ <a href="https://getcomposer.org/doc/articles/troubleshooting.md#ssl-certificate-problem-unable-to-get-local-issuer-certificate">Composer公式のCA確認方法</a> ／ <a href="https://curl.se/docs/caextract.html">cURL公式CAバンドル</a></p>
-<div class="warning"><h4>別の話：PHP本体の緊急更新予告もある</h4><p>PHP公式は<strong>2026年10月21日 23:00 JST（14:00 UTC）</strong>に、重大な脆弱性2件の修正版を出す予定と告知している。21:40 JST確認時点では、影響版・修正版・詳細は未公表。</p><p><strong>eMudhraと同じ原因とは確認できない。</strong>上のCA名簿の対策とは分けて、公開後に公式の対象版を確認する。<a href="https://www.php.net/archive/2026.php">PHP公式予告</a></p></div>
+<div class="warning"><h4>別の話：PHP本体の緊急修正版は公開済み</h4><p>10月21日の予告は既に正式リリースへ進んでいる。PHP公式は<strong>8.5.12／8.4.27／8.3.36／8.2.35</strong>を公開し、Webリクエスト処理に関わるCVE-2026-109618／CVE-2026-109619への更新を案内している。<strong>eMudhraのCA名簿の対策とは別に管理する。</strong></p><p>さらに10月26日のWindows版<code>-1</code>再ビルドは、同じPHPソース版へBrotli修正を取り込む依存更新。PHP本体の版表示は変わらないため、<a href="/brotli-security-explained#action">Brotliの記事の確認手順</a>と配布パッケージも照合する。<a href="https://www.php.net/archive/2026.php">PHP公式の正式告知</a></p></div>
 </div></article>
 
 <article class="toolbox" id="node">
@@ -174,7 +174,7 @@
 <div class="toolbody">
 <p class="version">22系：22.23.4<br>24系：24.22.1<br>26系：26.12.1</p>
 <p class="reason"><strong>なぜ？</strong> このセキュリティリリースに、eMudhra事故へのCA対策が含まれるため。</p>
-<p>本日、<strong>修正がソースへ入っただけではなく、修正版の配布を確認</strong>できた。使っている系列の対策版以降へ更新し、動いているプロセスや配布先にも反映する。</p>
+<p>10月21日の告知で、<strong>修正がソースへ入っただけではなく、修正版の配布を確認</strong>できた。使っている系列の対策版以降へ更新し、動いているプロセスや配布先にも反映する。</p>
 <p class="mini">コンテナやNodeを同梱するアプリでは、その中の古いNodeが残っていないかも確認。パソコンのNodeを変えても、別サーバーや同梱版は自動で変わらない。</p>
 <p class="source"><a href="https://nodejs.org/en/blog/vulnerability/october-2026-security-releases">Node公式セキュリティ告知</a> ／ <a href="https://nodejs.org/en/blog/release/v22.23.4">22.23.4</a> ／ <a href="https://nodejs.org/en/blog/release/v24.22.1">24.22.1</a> ／ <a href="https://nodejs.org/en/blog/release/v26.12.1">26.12.1</a></p>
 </div></article>
@@ -203,6 +203,8 @@
 <section id="action">
 <p class="eyebrow">全部を闇雲に更新するのではなく</p>
 <h2>自分の確認は、この順番で</h2>
+<div class="warning" id="site-operators"><h3>サイト証明書を運用している人は、G3の移行も確認</h3><p>Googleは<strong>emSign ECC Root CA - G3</strong>をChrome Root Storeから除外し、同ストアに依存する端末へ<strong>2026年10月27日午前（PDT）に配信予定</strong>と案内している。正確な配信時刻と全端末への反映完了は、本確認では確定していない。<a href="#s4">[4]</a></p><p>10月17日の問題の中間CAに対する直接遮断とは別の措置。<strong>正常に発行された証明書でもG3に連鎖していれば、接続できなくなることがある。</strong>対象の運営者は、Chrome Root Storeで信頼される別のPKI階層からのTLS証明書を取得・設置し、配信する証明書チェーンと実接続を確認する。全証明書の一律交換や、証明書検証の無効化を勧める話ではない。</p></div>
+<div class="box"><h3>発行元の最新案内（10月26日）</h3><p>eMudhraは10月22日にSectigo発行の代替証明書を全顧客向けに案内。10月26日の声明では、G3の影響顧客とその他のTLS顧客を、費用なしで代替証明書へ移行中と説明している。<strong>移行完了の発表ではない。</strong>根本原因の正式報告と独立専門家レビューも今後の予定としている。発行元の説明と、各ブラウザーの信頼判断は区別する。<a href="#s12">[12]</a></p></div>
 <ol class="checklist"><li><strong>まず、使っている場所を分ける。</strong><p>自分のPC・スマホだけか。自作CLI、サーバー、CI、コンテナ、配布済みアプリもあるか。使っていない言語は追加不要。</p></li><li><strong>そのソフトが「相手をどう確認するか」を調べる。</strong><p>Goの検証機能か、Nodeの同梱対策か、Pythonパッケージか、OSや独自CAファイルか。PHPなら参照先の設定も見る。</p></li><li><strong>対策を、本当に動く場所へ届ける。</strong><p>Goなら対象バイナリを再ビルド・配布。Nodeなら実際の実行環境も更新。仮想環境やコンテナも、それぞれの中身へ反映。</p></li><li><strong>更新した事実と、動作を別々に確認する。</strong><p>実行中の版数・参照するCA一覧・通常のHTTPS通信を確認。必要なら公式の検証方法で対象の証明書を拒否するか確認する。ブラウザ1本の結果で全ソフトを合格にしない。</p></li></ol>
 <div class="answer"><p><strong>結局、何のための更新？</strong><br>自分がつなぐ相手を、古い判断のまま「本物です」と認めないため。<br><strong>「確認する係」へ、新しい拒否ルールを届けるため。</strong></p></div>
 <div class="warning"><p><strong>やってはいけない対処：</strong>警告を無視する、TLS・証明書検証をオフにする、根拠なくCAを大量削除する。つながらなくなったときは、正しい証明書や信頼設定を確認する。</p></div>
@@ -218,19 +220,21 @@
 <li id="s1"><a href="https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Transport_Layer_Security">MDN：TLSとサーバー認証</a><span>暗号化だけでなく、接続相手の認証が必要になる仕組み。</span></li>
 <li id="s2"><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2083449">Mozilla公式インシデント記録</a><span>弱い鍵の確認、生成日、用途、対策とFirefox Androidの追記。</span></li>
 <li id="s3"><a href="https://emudhra.we-have-a-problem.com/">元の公開報告：eMudhra Intermediate CA Compromise</a><span>対象、下流クライアントの対策、過去の悪用について分かる範囲。</span></li>
-<li id="s4"><a href="https://blog.google/security/protecting-chrome-and-android-users-from-compromised-emudhra-intermediate-ca-certificates/">Google公式：ChromeとAndroidの保護</a><span>拒否情報の配信、CT、Android配信と端末再起動、証明書運用者の対応。</span></li>
+<li id="s4"><a href="https://blog.google/security/protecting-chrome-and-android-users-from-compromised-emudhra-intermediate-ca-certificates/">Google公式：ChromeとAndroidの保護</a><span>10月17日のSPKI遮断とは別に、G3ルート除外を10月27日午前PDTに配信予定。対象証明書の運営者は別の信頼されるPKI階層へ移行。正確な配信時刻・全端末反映完了は未確認。<a href="#site-operators">今回の更新と対応へ</a></span></li>
 <li id="s5"><a href="https://go.dev/doc/devel/release#go1.27.3">Go公式リリース履歴</a> ／ <a href="https://github.com/golang/go/issues/82345">Go公式の修正内容</a><span>1.27.3・1.26.10のcrypto/x509対策。既存バイナリは配布物への反映も確認する。</span></li>
 <li id="s6"><a href="https://discuss.python.org/t/information-for-python-users-regarding-emudhra-emsign-ca-certificate-security-incident/109576">Python公式案内</a><span>certifi・pip・uv・sigstoreと、仮想環境・コンテナの確認。</span></li>
 <li id="s7"><a href="https://nodejs.org/en/blog/vulnerability/october-2026-security-releases">Node.js公式セキュリティリリース</a><span>eMudhra対策を含む22.23.4・24.22.1・26.12.1の配布。</span></li>
 <li id="s8"><a href="https://curl.se/docs/caextract.html">cURL公式CAバンドル</a><span>2026-10-20版。実際にこのファイルを参照するかは別途確認。</span></li>
 <li id="s9"><a href="https://www.php.net/manual/en/curl.configuration.php">PHP cURL設定</a> ／ <a href="https://www.php.net/manual/en/openssl.configuration.php">PHP OpenSSL設定</a> ／ <a href="https://getcomposer.org/doc/articles/troubleshooting.md">Composer公式トラブルシューティング</a><span>CAファイル・ディレクトリと、Composerの参照先の確認。</span></li>
-<li id="s10"><a href="https://www.php.net/archive/2026.php">PHP公式の緊急リリース予告</a><span>10月21日23:00 JST予定。eMudhraと同じ原因とは確認されていない。</span></li>
+<li id="s10"><a href="https://www.php.net/archive/2026.php">PHP公式の正式リリース告知</a><span>10月21日のPHP本体修正版と10月26日のWindows Brotli依存再ビルド。CAの信頼対策とは別管理。</span></li>
 <li id="s11"><a href="https://www.firefox.com/en-US/firefox/android/158.0.2/releasenotes/">Firefox Android 158.0.2</a><span>起動時の拒否情報の適用を修正。</span></li>
+<li id="s12"><a href="https://emudhra.com/en/post/certificate-security-incident/">eMudhra公式声明（10月22日・26日更新）</a><span>代替証明書への移行中との説明。正式原因報告と独立レビューは今後の予定。</span></li>
 </ol>
 <h3>この記事の変更</h3>
-<ul class="history"><li><strong>2026-10-21 初版：</strong>証明書の信頼とeMudhra事故の仕組みを公開。</li><li><strong>同日 21:40 JST確認の新版：</strong>「なぜソフトを更新するのか」を最初から書き直し、AI生成3コマと図形を追加。Goの再ビルド、PHP・ComposerのCA参照、Nodeの配布済み版、Pythonの道具ごとの更新、Firefox Android 158.0.2を反映。PHP本体の緊急更新予告は別の話として明記。</li></ul>
+<ul class="history"><li><strong>2026-10-27 16:34 JST：</strong>GoogleのG3除外配信予定と運営者の移行手順、eMudhraの10月22日・26日声明を追加。PHPの古い予告を正式リリースへ更新し、Brotli依存再ビルドと区別。過去の説明・画像・リンク先IDを保持。</li><li><strong>2026-10-21 初版：</strong>証明書の信頼とeMudhra事故の仕組みを公開。</li><li><strong>同日 21:40 JST確認の新版：</strong>「なぜソフトを更新するのか」を最初から書き直し、AI生成3コマと図形を追加。Goの再ビルド、PHP・ComposerのCA参照、Nodeの配布済み版、Pythonの道具ごとの更新、Firefox Android 158.0.2を反映。PHP本体の緊急更新予告は別の話として明記。</li></ul>
 </section>
 <footer class="footer">このページは仕組みの理解を助ける説明で、本人の端末・プロジェクトの更新実行や被害調査を完了した報告ではない。画像はAI生成、説明ラベル・版数・条件はHTML本文で管理。</footer>
 </main>
 </body>
 </html>
+
