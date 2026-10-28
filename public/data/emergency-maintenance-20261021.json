@@ -1,6 +1,6 @@
 {
   "title": "2026年10月21日前後 緊急メンテナンス・関連告知一覧",
-  "checkedAt": "2026-10-24T04:12:47.372726+00:00",
+  "checkedAt": "2026-10-24T23:30:00Z",
   "scope": "PHPの因果不問。今回の緊急/予防メンテと同時期の関連告知・別インシデントを区分。件数による上限なし。",
   "counting": "confirmedは公式資料を確認した対象別の告知カード数（部分本文・同一基盤・包括/個別の重なりを含む）。固有サイト数・実停止数・独立インシデント数・被害数ではない。pendingは原典/公式所有/対象範囲等の追加照合待ち。関連・重複・除外理由も全収集行に保持し、件数で打ち切らない。 実施自体が未定の停止可能性の予告も別状態（possible_unstarted）で保持し、実停止・復旧には数えません。",
   "confirmed": [
@@ -961,17 +961,40 @@
       "id": "team26",
       "name": "千葉ロッテ TEAM26マイページ",
       "url": "https://www.marines.co.jp/news/detail/202600946327.html",
-      "start": "10/21 20:00ごろ",
-      "end": "未定",
-      "scope": "ログイン・関連手続き、2027自動継続入会/解約、FAN FEST有料会員抽選申込等。",
-      "safe": "10/22正午ごろは続報予定であり、再開予定時刻ではありません。",
+      "start": "2026/10/21 20:00頃（原文表記・TZ未記載）",
+      "end": "10/23 13:00頃より順次復旧。一部有料継続入会は同日19:00頃再開予定（実再開未確認）",
+      "scope": "会員情報の確認・変更・申込、MARINES FAN FEST 2026等イベント申込、その他マイページ各種機能は10/23 13:00頃再開と案内。2027年度有料継続入会（自動継続対象外）は19:00頃再開予定。",
+      "safe": "10/23更新の公式本文で機能別の再開を確認。19:00頃は予定のままで、時刻経過や公開ログイン画面を実再開の根拠にしません。2027年度自動継続入会のコース・特典変更・解約等は受付終了と案内し、登録内容はマイページ、疑問点はマリーンズ・インフォメーションセンターへ案内しています。全機能再開・個人情報安全性の独立保証とはせず、ログイン・申込等の実操作は行っていません。",
       "reason": "セキュリティ対策・PHP名未記載",
       "cat": "entertainment",
-      "source": "公式検索本文",
-      "date": "10/21",
-      "tag": "影響範囲を確認",
-      "status": "公式の実施告知・完了未確認",
-      "icon": "https://www.marines.co.jp/favicon.ico"
+      "source": "通常公開の球団公式個別本文を実読。予定・再開報告・機能範囲を分離。",
+      "date": "2026/10/23更新。掲載時計・TZ未記載。",
+      "tag": "機能別の順次再開",
+      "status": "10/23 13時頃の再開と19時頃の予定を区分",
+      "icon": "https://www.marines.co.jp/favicon.ico",
+      "history": [
+        {
+          "id": "team26",
+          "name": "千葉ロッテ TEAM26マイページ",
+          "url": "https://www.marines.co.jp/news/detail/202600946327.html",
+          "start": "10/21 20:00ごろ",
+          "end": "未定",
+          "scope": "ログイン・関連手続き、2027自動継続入会/解約、FAN FEST有料会員抽選申込等。",
+          "safe": "10/22正午ごろは続報予定であり、再開予定時刻ではありません。",
+          "reason": "セキュリティ対策・PHP名未記載",
+          "cat": "entertainment",
+          "source": "公式検索本文",
+          "date": "10/21",
+          "tag": "影響範囲を確認",
+          "status": "公式の実施告知・完了未確認",
+          "icon": "https://www.marines.co.jp/favicon.ico",
+          "historyNote": "10/23後続告知取得前の旧案内。現在状態ではありません。"
+        }
+      ],
+      "restored": false,
+      "checkedAt": "2026-10-24T23:29:00Z",
+      "noticeState": "announced",
+      "sourceRead": "body_retrieved"
     },
     {
       "id": "baseball-online",
@@ -14543,6 +14566,62 @@
         {
           "url": "https://ezblox.jp/",
           "detail": "公式サービス自身のトップからexact個別help/告知ドメインへのリンクと運営表記を照合。",
+          "readState": "body_retrieved"
+        }
+      ]
+    },
+    {
+      "id": "muumuu-new-signups-20261024",
+      "name": "ムームードメイン 新規申込受付",
+      "cat": "business",
+      "tag": "新規受付のみ予防停止",
+      "status": "契約中サービスは継続と案内、受付再開未定",
+      "reason": "サイバー攻撃状況を踏まえた予防措置・PHP名未記載",
+      "start": "2026/10/24 14:09～、サービスごとに順次停止（TZ未記載）",
+      "end": "再開時期は決まり次第案内、実再開未確認",
+      "scope": "新規ユーザー登録、Google Workspaceカードからの新規申込、一部TLD新規取得、ムームーメール/サーバー申込、ロリポップ/ヘテムル簡単申込",
+      "safe": "10/24付の直接公式本文で新規受付の限定停止を確認。契約中のサイト表示・コントロールパネル利用は継続と案内しています。全サービス停止やPHP原因、当方の安全性保証にはしません。申込・ログイン等は未実施。",
+      "reasonKey": "security",
+      "url": "https://muumuu-domain.com/information/news/5944",
+      "date": "2026-10-24掲載。公開時計/TZ未記載。",
+      "source": "通常公開の運営自身の個別本文と公式一覧からの正確なリンクを直接取得。実機能は未検証。",
+      "checkedAt": "2026-10-24T23:29:00Z",
+      "restored": false,
+      "noticeState": "announced",
+      "sourceRead": "body_retrieved",
+      "icon": null,
+      "ownershipEvidence": [
+        {
+          "url": "https://muumuu-domain.com/",
+          "detail": "運営自身の公式トップ/NEWS一覧が当該exact個別告知へ直接リンク。",
+          "readState": "body_retrieved"
+        }
+      ]
+    },
+    {
+      "id": "kawamura-home56-streaming-extension",
+      "name": "河村隆一 Home #56 with 松岡充 アーカイブ延長",
+      "cat": "entertainment",
+      "tag": "当該アーカイブの視聴期限延長",
+      "status": "10/25 23:59まで延長案内、再販売は同日21:00まで",
+      "reason": "Streaming+のPHP脆弱性対応保守と公演運営が説明",
+      "start": "10/21 22:40頃より視聴不可との公式報告（原文TZ未記載）",
+      "end": "延長配信：10/24 12:00～10/25 23:59。再販売：10/25 21:00まで（原文TZ未記載）",
+      "scope": "河村隆一 Home #56 with 松岡充のアーカイブ延長と再販売。元の視聴終了は2026/10/21 23:59。Streaming+全配信の状態ではありません。",
+      "safe": "10/23付の公演公式本文はイープラスから保守終了の連絡を受けたとして、当該作品の延長枠を案内。既存チケットの視聴ページはそのまま利用可と説明し、再販売はクレジットカード・キャリア決済に限定。延長枠の予定と実視聴、保守の実終了時計や全基盤復旧は別です。購入・ログイン・再生は未実施。",
+      "reasonKey": "php",
+      "url": "https://www.kawamura-fc.com/NEWS?no=p56ESnVUSCfTCC3Q3DsRcdsus",
+      "date": "2026-10-23掲載。公開時計/TZ未記載。",
+      "source": "通常公開の運営自身の個別本文と公式一覧からの正確なリンクを直接取得。実機能は未検証。",
+      "checkedAt": "2026-10-24T23:29:00Z",
+      "restored": false,
+      "noticeState": "announced",
+      "sourceRead": "body_retrieved",
+      "icon": null,
+      "ownershipEvidence": [
+        {
+          "url": "https://www.kawamura-fc.com/NEWS",
+          "detail": "運営自身の公式トップ/NEWS一覧が当該exact個別告知へ直接リンク。",
           "readState": "body_retrieved"
         }
       ]
@@ -77242,6 +77321,24 @@
       "confirmedId": null,
       "collectionBatch": "official-source-acquisitions-20261024-0400",
       "checkedAt": "2026-10-24T04:12:47.372726+00:00"
+    },
+    {
+      "name": "ムームードメイン 新規申込受付",
+      "sourceUrl": "https://muumuu-domain.com/information/news/5944",
+      "verification": "confirmed",
+      "confirmedId": "muumuu-new-signups-20261024",
+      "note": "新しい直接公式原典。過去の第三者元候補は解決扱いにせず保持。",
+      "sourceClass": "公式",
+      "nextVerificationCondition": null
+    },
+    {
+      "name": "河村隆一 Home #56 with 松岡充 アーカイブ延長",
+      "sourceUrl": "https://www.kawamura-fc.com/NEWS?no=p56ESnVUSCfTCC3Q3DsRcdsus",
+      "verification": "confirmed",
+      "confirmedId": "kawamura-home56-streaming-extension",
+      "note": "新しい直接公式原典。過去の第三者元候補は解決扱いにせず保持。",
+      "sourceClass": "公式",
+      "nextVerificationCondition": null
     }
   ],
   "related": [
@@ -104331,6 +104428,42 @@
       },
       "sourceRead": "operator_list_and_partial_detail_title_retrieved",
       "reason": "元の公式公開一覧を取得し、2026.10.21付の「2026/10/21(水)22:30～緊急メンテナンス実施」という予定タイトルとexact個別URLを確認。原文TZは未記載。個別詳細は日付/同タイトルまでの部分取得後、tool inaccessibleで本文を取得できず、対象機能・理由/PHP因果・終了予定・実停止/実復旧を確認していません。予定の経過や一覧が読めることを再開実績にせず、EXILE/LDHの他サービス全体へ拡大しません。これは取得可否不明のツールエラーであり、HTTP403や本人取消を確認したものではありません。"
+    },
+    {
+      "sourceUrl": "https://muumuu-domain.com/information/news/5944",
+      "names": [
+        "ムームードメイン 新規申込受付"
+      ],
+      "decision": "confirmed",
+      "reason": "10/24付の直接公式本文で新規受付の限定停止を確認。契約中のサイト表示・コントロールパネル利用は継続と案内しています。全サービス停止やPHP原因、当方の安全性保証にはしません。申込・ログイン等は未実施。",
+      "checkedAt": "2026-10-24T23:29:00Z",
+      "sourceRead": "body_retrieved",
+      "confirmedId": "muumuu-new-signups-20261024",
+      "ownershipEvidence": [
+        {
+          "url": "https://muumuu-domain.com/",
+          "detail": "運営自身の公式トップ/NEWS一覧が当該exact個別告知へ直接リンク。",
+          "readState": "body_retrieved"
+        }
+      ]
+    },
+    {
+      "sourceUrl": "https://www.kawamura-fc.com/NEWS?no=p56ESnVUSCfTCC3Q3DsRcdsus",
+      "names": [
+        "河村隆一 Home #56 with 松岡充 アーカイブ延長"
+      ],
+      "decision": "confirmed",
+      "reason": "10/23付の公演公式本文はイープラスから保守終了の連絡を受けたとして、当該作品の延長枠を案内。既存チケットの視聴ページはそのまま利用可と説明し、再販売はクレジットカード・キャリア決済に限定。延長枠の予定と実視聴、保守の実終了時計や全基盤復旧は別です。購入・ログイン・再生は未実施。",
+      "checkedAt": "2026-10-24T23:29:00Z",
+      "sourceRead": "body_retrieved",
+      "confirmedId": "kawamura-home56-streaming-extension",
+      "ownershipEvidence": [
+        {
+          "url": "https://www.kawamura-fc.com/NEWS",
+          "detail": "運営自身の公式トップ/NEWS一覧が当該exact個別告知へ直接リンク。",
+          "readState": "body_retrieved"
+        }
+      ]
     }
   ],
   "relationships": [
@@ -104562,9 +104695,9 @@
     "classifiedOriginalGroups": 457,
     "additionalDiscoveryRows": 107,
     "classifiedAdditionalRows": 107,
-    "allDiscoveryRows": 2830,
+    "allDiscoveryRows": 2832,
     "sourceRowsByDecision": {
-      "confirmed": 506,
+      "confirmed": 508,
       "duplicate": 62,
       "pending": 1830,
       "related": 126,
@@ -104576,852 +104709,16 @@
     "piyologNewPrimaryUrls": 27,
     "additionalOwnerVerifiedCards": 70,
     "followupReview": {
-      "checkedAt": "2026-10-24T04:12:47.372726+00:00",
-      "scope": "既存未照合の滋賀大学/EXILE ID元一覧を限定取得。OBSは公式一般トップ/ブログを調べたが事象告知なしで公開変更なし。全候補/全カードの現況再確認ではない。",
-      "result": "確認済みカード/復旧集計の増加0。旧2群の取得状況と不足を具体化し、別原典2URLを未照合のまま追加。",
-      "newCards": 0,
-      "updatedCards": 0,
+      "checkedAt": "2026-10-24T23:30:00Z",
+      "scope": "TEAM26公式の機能別再開と、ムームー新規受付停止・河村隆一個別アーカイブ延長の直接公式原典のみ。全候補の現況再確認ではない。",
+      "newCards": 2,
+      "updatedCards": 1,
       "priorPendingResolved": 0,
-      "existingPendingUpdated": 2,
       "newPendingGroups": 0,
       "additionalSourceRows": 2,
-      "additionalSourceRowsSincePublished": 43,
-      "allPriorSourceIdentitiesRetained": 2828,
+      "allPriorSourceIdentitiesRetained": 2830,
       "unresolvedPreviouslyCollectedGroups": 2043,
-      "run15ToDate": {
-        "rawRows": 43,
-        "uniqueURLs": 42,
-        "bodyRetrieved": 8,
-        "exactOwnershipConfirmed": 15,
-        "confirmedCardSources": 13,
-        "relatedPlannedUpdate": 1,
-        "ownershipUnresolved": 5,
-        "notRead": 8,
-        "unreadRawRows": 8,
-        "unresolved": 28,
-        "notYetAttemptedOriginalURLs": 0,
-        "priorAttemptedButUnreadURLs": 8,
-        "publicPostTextRetrievedFromTitle": 3,
-        "originalTextAvailable": 34,
-        "contextUnresolved": 2,
-        "bodyRetrievalDefinition": "従来bodyRetrieved8は履歴値を保持。titleテキスト3と公開HTML主投稿テキスト23（自己投稿形式14/RT9）を分離して累計34。自己投稿形式は公式所有を意味せず、RTは直接公式元の取得/全スレッド取得ではない。全42元URLを初回試行したが未読8を残し、全候補/公式確認の完了ではない。",
-        "originalOwnerSourcePending": 1,
-        "publicOriginalDOMPostTextRetrieved": 23,
-        "publicOriginalRTPageTextRetrieved": 9,
-        "publicOriginalOwnPostTextRetrieved": 14,
-        "thirdPartyContextUnresolved": 4,
-        "exactOwnershipCountingLimit": "新3はSomaStaff/sumika_inc/yugioh_animeの参照先exact運営アカウントを所有導線で確認できた元グループ数。元RT作者を所有者と認定した数は0。大阪市の独立公式サイトだけの確認はここへ加算しない。",
-        "originalAcquisitionAttempts": 42
-      },
-      "unreadOriginalsAfter": [
-        {
-          "url": "https://x.com/sc59_jp/status/2113320647824937317",
-          "rows": [
-            2
-          ],
-          "names": [
-            "sc59_jp サイト"
-          ],
-          "previouslyAttempted": true,
-          "previousSourceRead": "body_not_retrieved_generic_transport_failure",
-          "previousCheckedAt": "2026-10-23T22:03:38.716815+00:00",
-          "newThisCycle": false,
-          "newStatus": null,
-          "originalTextAvailableAfter": false,
-          "unreadReasonAfter": "今回の元URLはWeb Cache miss/通常公開GET502でテキスト未取得。通信失敗を停止/復旧/原因や本人取消の根拠にせず、対象サイト・所有・日時を未確認のまま保持します。"
-        },
-        {
-          "url": "https://x.com/bakawind3_8/status/2113312117101298013",
-          "rows": [
-            20
-          ],
-          "names": [
-            "愛知県 公式サイト「ネットあいち」"
-          ],
-          "previouslyAttempted": false,
-          "previousSourceRead": null,
-          "previousCheckedAt": null,
-          "newThisCycle": true,
-          "newStatus": 200,
-          "originalTextAvailableAfter": false,
-          "unreadReasonAfter": "HTTP200だがSensitive Content / This post is only available in the X app。本文未取得。アプリ切替・ログイン・別経路で迂回せず停止。"
-        },
-        {
-          "url": "https://x.com/kirstencooper7/status/2113313614518206787",
-          "rows": [
-            22
-          ],
-          "names": [
-            "まどドラ"
-          ],
-          "previouslyAttempted": true,
-          "previousSourceRead": "original_unavailable_official_account_owner_known",
-          "previousCheckedAt": "2026-10-22T20:10:30Z",
-          "newThisCycle": false,
-          "newStatus": null,
-          "originalTextAvailableAfter": false,
-          "unreadReasonAfter": "元X本文は取得できず未読。運営サイトからexact公式Xリンクは確認できましたが、当該X本文はアクセス制限で未取得。公式ニュース/FAQにも今回の緊急停止や延長の本文は確認できず、所有確認と障害確認を分離しています。"
-        },
-        {
-          "url": "https://x.com/yxmxgxn/status/2113325429549641777",
-          "rows": [
-            26
-          ],
-          "names": [
-            "DECA BEAT 公式サイト"
-          ],
-          "previouslyAttempted": false,
-          "previousSourceRead": null,
-          "previousCheckedAt": null,
-          "newThisCycle": true,
-          "newStatus": 404,
-          "originalTextAvailableAfter": false,
-          "unreadReasonAfter": "generic Cache miss後、同exact元URLの通常公開GETは404。本文未取得。別host/認証/転載へ回らず保存。"
-        },
-        {
-          "url": "https://x.com/MalwareBibleJP/status/2113305133807525921",
-          "rows": [
-            32
-          ],
-          "names": [
-            "沖縄県 行政資料目録検索システム"
-          ],
-          "previouslyAttempted": true,
-          "previousSourceRead": "body_not_retrieved_access_denied",
-          "previousCheckedAt": "2026-10-24T00:04:54.161660+00:00",
-          "newThisCycle": false,
-          "newStatus": null,
-          "originalTextAvailableAfter": false,
-          "unreadReasonAfter": "元URLの通常web読取は403で停止し、GET再試行・別host・認証・転載/別経路で迂回していません。本文/原因/日付/対象範囲を取得しておらず、収集要約を新しい事実として採用しません。"
-        },
-        {
-          "url": "https://x.com/IrmeliPja/status/2113319088802148547",
-          "rows": [
-            37
-          ],
-          "names": [
-            "DLsite"
-          ],
-          "previouslyAttempted": true,
-          "previousSourceRead": "original_unavailable_official_related_notice_found",
-          "previousCheckedAt": "2026-10-22T20:10:30Z",
-          "newThisCycle": false,
-          "newStatus": null,
-          "originalTextAvailableAfter": false,
-          "unreadReasonAfter": "この元X本文は通常公開readで取得できず未読のまま。別にEISYSの公式DLsite通知を関連枠へ掲載しましたが、この投稿自体の対象・期間との対応は未確定で、公式本文取得として数えていません。"
-        },
-        {
-          "url": "https://x.com/nangi_siraha/status/2113324750651232589",
-          "rows": [
-            40
-          ],
-          "names": [
-            "神撃のバハムート"
-          ],
-          "previouslyAttempted": true,
-          "previousSourceRead": "original_unavailable_official_source_restricted",
-          "previousCheckedAt": "2026-10-22T20:10:30Z",
-          "newThisCycle": false,
-          "newStatus": null,
-          "originalTextAvailableAfter": false,
-          "unreadReasonAfter": "元X本文は取得できず未読。神撃のバハムート公式Xはアクセス制限で取得せず、公開公式サイトからも今回の対象・日時・終了本文を確認できていません。別ゲームや第三者報告を公式化しません。"
-        },
-        {
-          "url": "https://x.com/ringo_darts26/status/2113326677241823629",
-          "rows": [
-            41
-          ],
-          "names": [
-            "ダーツライブ"
-          ],
-          "previouslyAttempted": true,
-          "previousSourceRead": "original_unavailable_official_current_notice_unverified",
-          "previousCheckedAt": "2026-10-22T20:10:30Z",
-          "newThisCycle": false,
-          "newStatus": null,
-          "originalTextAvailableAfter": false,
-          "unreadReasonAfter": "元X本文は取得できず未読。取得できたDARTSLIVEの公式一覧は過去の情報で今回の通知を確認できず、公式ニュース取得の制限は尊重。PHOENIXDARTSの別運営保守をダーツライブへ転用しません。"
-        }
-      ],
-      "exactOriginalAcquisitionCoverage": [
-        {
-          "url": "https://x.com/ImaizumTakaYUKI/status/2113300967349424357",
-          "rows": [
-            1
-          ],
-          "names": [
-            "ERIKA IKUTA OFFICIAL SITE(生田絵梨花)"
-          ],
-          "previouslyAttempted": false,
-          "previousSourceRead": null,
-          "previousCheckedAt": null,
-          "newThisCycle": true,
-          "newStatus": 200,
-          "originalTextAvailableAfter": true,
-          "unreadReasonAfter": null
-        },
-        {
-          "url": "https://x.com/sc59_jp/status/2113320647824937317",
-          "rows": [
-            2
-          ],
-          "names": [
-            "sc59_jp サイト"
-          ],
-          "previouslyAttempted": true,
-          "previousSourceRead": "body_not_retrieved_generic_transport_failure",
-          "previousCheckedAt": "2026-10-23T22:03:38.716815+00:00",
-          "newThisCycle": false,
-          "newStatus": null,
-          "originalTextAvailableAfter": false,
-          "unreadReasonAfter": "今回の元URLはWeb Cache miss/通常公開GET502でテキスト未取得。通信失敗を停止/復旧/原因や本人取消の根拠にせず、対象サイト・所有・日時を未確認のまま保持します。"
-        },
-        {
-          "url": "https://x.com/_monacard/status/2113321920758493378",
-          "rows": [
-            3
-          ],
-          "names": [
-            "モナカード"
-          ],
-          "previouslyAttempted": true,
-          "previousSourceRead": "body_retrieved",
-          "previousCheckedAt": "2026-10-22T19:03:30Z",
-          "newThisCycle": false,
-          "newStatus": null,
-          "originalTextAvailableAfter": true,
-          "unreadReasonAfter": null
-        },
-        {
-          "url": "https://x.com/rakuspa/status/2113324874207023437",
-          "rows": [
-            4
-          ],
-          "names": [
-            "ラクスパ ホームページ"
-          ],
-          "previouslyAttempted": true,
-          "previousSourceRead": "body_retrieved_ownership_unresolved",
-          "previousCheckedAt": "2026-10-22T19:03:30Z",
-          "newThisCycle": false,
-          "newStatus": null,
-          "originalTextAvailableAfter": true,
-          "unreadReasonAfter": null
-        },
-        {
-          "url": "https://x.com/ikura8989/status/2113325034588852511",
-          "rows": [
-            5
-          ],
-          "names": [
-            "ycinc_official 公式サイト"
-          ],
-          "previouslyAttempted": true,
-          "previousSourceRead": "public_rt_page_text_retrieved",
-          "previousCheckedAt": "2026-10-23T23:07:15.027161+00:00",
-          "newThisCycle": false,
-          "newStatus": null,
-          "originalTextAvailableAfter": true,
-          "unreadReasonAfter": null
-        },
-        {
-          "url": "https://x.com/ETRANJER_uranai/status/2113325528925237481",
-          "rows": [
-            6
-          ],
-          "names": [
-            "エトランゼBLOG"
-          ],
-          "previouslyAttempted": true,
-          "previousSourceRead": "public_post_text_retrieved_from_title",
-          "previousCheckedAt": "2026-10-23T22:03:38.716815+00:00",
-          "newThisCycle": false,
-          "newStatus": null,
-          "originalTextAvailableAfter": true,
-          "unreadReasonAfter": null
-        },
-        {
-          "url": "https://x.com/ErogemyOfficial/status/2113326606131580970",
-          "rows": [
-            7
-          ],
-          "names": [
-            "エロゲミー/エロゲソザイINDEX"
-          ],
-          "previouslyAttempted": true,
-          "previousSourceRead": "public_main_post_text_retrieved",
-          "previousCheckedAt": "2026-10-23T23:07:15.027161+00:00",
-          "newThisCycle": false,
-          "newStatus": null,
-          "originalTextAvailableAfter": true,
-          "unreadReasonAfter": null
-        },
-        {
-          "url": "https://x.com/tokumei_banzai_/status/2113327356027007454",
-          "rows": [
-            8,
-            30
-          ],
-          "names": [
-            "まごころケア食/ライフミール/こだわりシェフ/おてがるシェフ",
-            "わけありなおかず屋さん"
-          ],
-          "previouslyAttempted": true,
-          "previousSourceRead": "public_main_post_text_retrieved",
-          "previousCheckedAt": "2026-10-23T23:07:15.027161+00:00",
-          "newThisCycle": false,
-          "newStatus": null,
-          "originalTextAvailableAfter": true,
-          "unreadReasonAfter": null
-        },
-        {
-          "url": "https://x.com/NFTwYuri/status/2113327687263568203",
-          "rows": [
-            9
-          ],
-          "names": [
-            "TWICE公式サイト・公式FCサイト"
-          ],
-          "previouslyAttempted": false,
-          "previousSourceRead": null,
-          "previousCheckedAt": null,
-          "newThisCycle": true,
-          "newStatus": 200,
-          "originalTextAvailableAfter": true,
-          "unreadReasonAfter": null
-        },
-        {
-          "url": "https://x.com/PremUngarla/status/2113327870861066303",
-          "rows": [
-            10
-          ],
-          "names": [
-            "PremUngarla サイト"
-          ],
-          "previouslyAttempted": true,
-          "previousSourceRead": "public_main_post_text_retrieved",
-          "previousCheckedAt": "2026-10-23T23:07:15.027161+00:00",
-          "newThisCycle": false,
-          "newStatus": null,
-          "originalTextAvailableAfter": true,
-          "unreadReasonAfter": null
-        },
-        {
-          "url": "https://x.com/DocSeventeenth/status/2113308598428389416",
-          "rows": [
-            11
-          ],
-          "names": [
-            "PLiCy"
-          ],
-          "previouslyAttempted": false,
-          "previousSourceRead": null,
-          "previousCheckedAt": null,
-          "newThisCycle": true,
-          "newStatus": 200,
-          "originalTextAvailableAfter": true,
-          "unreadReasonAfter": null
-        },
-        {
-          "url": "https://x.com/mukudoriwasora1/status/2113309632332714308",
-          "rows": [
-            12
-          ],
-          "names": [
-            "ファンクラブ候補（運営主体の表記を未照合）"
-          ],
-          "previouslyAttempted": false,
-          "previousSourceRead": null,
-          "previousCheckedAt": null,
-          "newThisCycle": true,
-          "newStatus": 200,
-          "originalTextAvailableAfter": true,
-          "unreadReasonAfter": null
-        },
-        {
-          "url": "https://x.com/betsuma_info/status/2113302979696906253",
-          "rows": [
-            13
-          ],
-          "names": [
-            "別冊マーガレット HP"
-          ],
-          "previouslyAttempted": true,
-          "previousSourceRead": "body_retrieved",
-          "previousCheckedAt": "2026-10-22T18:10:32Z",
-          "newThisCycle": false,
-          "newStatus": null,
-          "originalTextAvailableAfter": true,
-          "unreadReasonAfter": null
-        },
-        {
-          "url": "https://x.com/legeclo/status/2113307440171340282",
-          "rows": [
-            14
-          ],
-          "names": [
-            "れじぇくろ！"
-          ],
-          "previouslyAttempted": true,
-          "previousSourceRead": "body_retrieved",
-          "previousCheckedAt": "2026-10-22T18:10:32Z",
-          "newThisCycle": false,
-          "newStatus": null,
-          "originalTextAvailableAfter": true,
-          "unreadReasonAfter": null
-        },
-        {
-          "url": "https://x.com/summons_board/status/2113314583675105337",
-          "rows": [
-            15
-          ],
-          "names": [
-            "サモンズボード"
-          ],
-          "previouslyAttempted": true,
-          "previousSourceRead": "body_retrieved",
-          "previousCheckedAt": "2026-10-22T18:10:32Z",
-          "newThisCycle": false,
-          "newStatus": null,
-          "originalTextAvailableAfter": true,
-          "unreadReasonAfter": null
-        },
-        {
-          "url": "https://x.com/numazu_esp/status/2113319055738405130",
-          "rows": [
-            16
-          ],
-          "names": [
-            "e沼(沼津eスポーツ)公式サイト"
-          ],
-          "previouslyAttempted": true,
-          "previousSourceRead": "body_retrieved",
-          "previousCheckedAt": "2026-10-22T19:03:30Z",
-          "newThisCycle": false,
-          "newStatus": null,
-          "originalTextAvailableAfter": true,
-          "unreadReasonAfter": null
-        },
-        {
-          "url": "https://x.com/penpe_net_/status/2113325503147020317",
-          "rows": [
-            17
-          ],
-          "names": [
-            "penpe.net"
-          ],
-          "previouslyAttempted": true,
-          "previousSourceRead": "public_post_text_retrieved_from_title",
-          "previousCheckedAt": "2026-10-23T22:03:38.716815+00:00",
-          "newThisCycle": false,
-          "newStatus": null,
-          "originalTextAvailableAfter": true,
-          "unreadReasonAfter": null
-        },
-        {
-          "url": "https://x.com/BLUELOCK_PWC/status/2113327950443745782",
-          "rows": [
-            18
-          ],
-          "names": [
-            "ブルーロック PWC"
-          ],
-          "previouslyAttempted": true,
-          "previousSourceRead": "body_retrieved",
-          "previousCheckedAt": "2026-10-22T18:10:32Z",
-          "newThisCycle": false,
-          "newStatus": null,
-          "originalTextAvailableAfter": true,
-          "unreadReasonAfter": null
-        },
-        {
-          "url": "https://x.com/ri_06_i_/status/2113328167477780560",
-          "rows": [
-            19
-          ],
-          "names": [
-            "Soma fan club \"space\""
-          ],
-          "previouslyAttempted": false,
-          "previousSourceRead": null,
-          "previousCheckedAt": null,
-          "newThisCycle": true,
-          "newStatus": 200,
-          "originalTextAvailableAfter": true,
-          "unreadReasonAfter": null
-        },
-        {
-          "url": "https://x.com/bakawind3_8/status/2113312117101298013",
-          "rows": [
-            20
-          ],
-          "names": [
-            "愛知県 公式サイト「ネットあいち」"
-          ],
-          "previouslyAttempted": false,
-          "previousSourceRead": null,
-          "previousCheckedAt": null,
-          "newThisCycle": true,
-          "newStatus": 200,
-          "originalTextAvailableAfter": false,
-          "unreadReasonAfter": "HTTP200だがSensitive Content / This post is only available in the X app。本文未取得。アプリ切替・ログイン・別経路で迂回せず停止。"
-        },
-        {
-          "url": "https://x.com/heartfultama/status/2113315677658607768",
-          "rows": [
-            21
-          ],
-          "names": [
-            "訪問看護ステーションは～とふる多摩センター 公式HP"
-          ],
-          "previouslyAttempted": true,
-          "previousSourceRead": "body_retrieved_ownership_unresolved",
-          "previousCheckedAt": "2026-10-22T19:03:30Z",
-          "newThisCycle": false,
-          "newStatus": null,
-          "originalTextAvailableAfter": true,
-          "unreadReasonAfter": null
-        },
-        {
-          "url": "https://x.com/kirstencooper7/status/2113313614518206787",
-          "rows": [
-            22
-          ],
-          "names": [
-            "まどドラ"
-          ],
-          "previouslyAttempted": true,
-          "previousSourceRead": "original_unavailable_official_account_owner_known",
-          "previousCheckedAt": "2026-10-22T20:10:30Z",
-          "newThisCycle": false,
-          "newStatus": null,
-          "originalTextAvailableAfter": false,
-          "unreadReasonAfter": "元X本文は取得できず未読。運営サイトからexact公式Xリンクは確認できましたが、当該X本文はアクセス制限で未取得。公式ニュース/FAQにも今回の緊急停止や延長の本文は確認できず、所有確認と障害確認を分離しています。"
-        },
-        {
-          "url": "https://x.com/GPJAPANex3/status/2113316246401974759",
-          "rows": [
-            23
-          ],
-          "names": [
-            "テンタメ"
-          ],
-          "previouslyAttempted": true,
-          "previousSourceRead": "public_third_party_main_post_text_retrieved",
-          "previousCheckedAt": "2026-10-24T00:04:54.161660+00:00",
-          "newThisCycle": false,
-          "newStatus": null,
-          "originalTextAvailableAfter": true,
-          "unreadReasonAfter": null
-        },
-        {
-          "url": "https://x.com/gojinimuchu/status/2113324927789199561",
-          "rows": [
-            24
-          ],
-          "names": [
-            "伊勢ヶ浜部屋 公式HP"
-          ],
-          "previouslyAttempted": false,
-          "previousSourceRead": null,
-          "previousCheckedAt": null,
-          "newThisCycle": true,
-          "newStatus": 200,
-          "originalTextAvailableAfter": true,
-          "unreadReasonAfter": null
-        },
-        {
-          "url": "https://x.com/stonecoldage/status/2113325057217089654",
-          "rows": [
-            25
-          ],
-          "names": [
-            "noah_ghc 公式サイト"
-          ],
-          "previouslyAttempted": true,
-          "previousSourceRead": "public_rt_page_text_retrieved",
-          "previousCheckedAt": "2026-10-23T23:07:15.027161+00:00",
-          "newThisCycle": false,
-          "newStatus": null,
-          "originalTextAvailableAfter": true,
-          "unreadReasonAfter": null
-        },
-        {
-          "url": "https://x.com/yxmxgxn/status/2113325429549641777",
-          "rows": [
-            26
-          ],
-          "names": [
-            "DECA BEAT 公式サイト"
-          ],
-          "previouslyAttempted": false,
-          "previousSourceRead": null,
-          "previousCheckedAt": null,
-          "newThisCycle": true,
-          "newStatus": 404,
-          "originalTextAvailableAfter": false,
-          "unreadReasonAfter": "generic Cache miss後、同exact元URLの通常公開GETは404。本文未取得。別host/認証/転載へ回らず保存。"
-        },
-        {
-          "url": "https://x.com/HlTn67246/status/2113325659061899682",
-          "rows": [
-            27
-          ],
-          "names": [
-            "yokoyama_hide 関連サービス"
-          ],
-          "previouslyAttempted": false,
-          "previousSourceRead": null,
-          "previousCheckedAt": null,
-          "newThisCycle": true,
-          "newStatus": 200,
-          "originalTextAvailableAfter": true,
-          "unreadReasonAfter": null
-        },
-        {
-          "url": "https://x.com/Yomaridesu/status/2113325748677431737",
-          "rows": [
-            28
-          ],
-          "names": [
-            "めておら公式HP"
-          ],
-          "previouslyAttempted": true,
-          "previousSourceRead": "public_rt_page_text_retrieved",
-          "previousCheckedAt": "2026-10-23T23:07:15.027161+00:00",
-          "newThisCycle": false,
-          "newStatus": null,
-          "originalTextAvailableAfter": true,
-          "unreadReasonAfter": null
-        },
-        {
-          "url": "https://x.com/srilanka_jewels/status/2113325746961948894",
-          "rows": [
-            29
-          ],
-          "names": [
-            "srilanka_jewels Webサイト"
-          ],
-          "previouslyAttempted": true,
-          "previousSourceRead": "public_post_text_retrieved_from_title",
-          "previousCheckedAt": "2026-10-23T22:03:38.716815+00:00",
-          "newThisCycle": false,
-          "newStatus": null,
-          "originalTextAvailableAfter": true,
-          "unreadReasonAfter": null
-        },
-        {
-          "url": "https://x.com/joe22113/status/2113322384665297046",
-          "rows": [
-            31
-          ],
-          "names": [
-            "高知県内 少なくとも20市町村のHP"
-          ],
-          "previouslyAttempted": true,
-          "previousSourceRead": "public_third_party_main_post_text_retrieved",
-          "previousCheckedAt": "2026-10-24T00:04:54.161660+00:00",
-          "newThisCycle": false,
-          "newStatus": null,
-          "originalTextAvailableAfter": true,
-          "unreadReasonAfter": null
-        },
-        {
-          "url": "https://x.com/MalwareBibleJP/status/2113305133807525921",
-          "rows": [
-            32
-          ],
-          "names": [
-            "沖縄県 行政資料目録検索システム"
-          ],
-          "previouslyAttempted": true,
-          "previousSourceRead": "body_not_retrieved_access_denied",
-          "previousCheckedAt": "2026-10-24T00:04:54.161660+00:00",
-          "newThisCycle": false,
-          "newStatus": null,
-          "originalTextAvailableAfter": false,
-          "unreadReasonAfter": "元URLの通常web読取は403で停止し、GET再試行・別host・認証・転載/別経路で迂回していません。本文/原因/日付/対象範囲を取得しておらず、収集要約を新しい事実として採用しません。"
-        },
-        {
-          "url": "https://x.com/motomf/status/2113305176719478854",
-          "rows": [
-            33
-          ],
-          "names": [
-            "mixi 日記"
-          ],
-          "previouslyAttempted": true,
-          "previousSourceRead": "public_third_party_main_post_text_retrieved",
-          "previousCheckedAt": "2026-10-24T00:04:54.161660+00:00",
-          "newThisCycle": false,
-          "newStatus": null,
-          "originalTextAvailableAfter": true,
-          "unreadReasonAfter": null
-        },
-        {
-          "url": "https://x.com/codyyyyyyy/status/2113306118168469839",
-          "rows": [
-            34
-          ],
-          "names": [
-            "ママスタセレクト"
-          ],
-          "previouslyAttempted": true,
-          "previousSourceRead": "public_third_party_main_post_text_retrieved",
-          "previousCheckedAt": "2026-10-24T00:04:54.161660+00:00",
-          "newThisCycle": false,
-          "newStatus": null,
-          "originalTextAvailableAfter": true,
-          "unreadReasonAfter": null
-        },
-        {
-          "url": "https://x.com/_ho_pe/status/2113313596797313366",
-          "rows": [
-            35
-          ],
-          "names": [
-            "すき家 弁当予約アプリ"
-          ],
-          "previouslyAttempted": false,
-          "previousSourceRead": null,
-          "previousCheckedAt": null,
-          "newThisCycle": true,
-          "newStatus": 200,
-          "originalTextAvailableAfter": true,
-          "unreadReasonAfter": null
-        },
-        {
-          "url": "https://x.com/masilite/status/2113313451473039779",
-          "rows": [
-            36
-          ],
-          "names": [
-            "ゲソてん"
-          ],
-          "previouslyAttempted": false,
-          "previousSourceRead": null,
-          "previousCheckedAt": null,
-          "newThisCycle": true,
-          "newStatus": 200,
-          "originalTextAvailableAfter": true,
-          "unreadReasonAfter": null
-        },
-        {
-          "url": "https://x.com/IrmeliPja/status/2113319088802148547",
-          "rows": [
-            37
-          ],
-          "names": [
-            "DLsite"
-          ],
-          "previouslyAttempted": true,
-          "previousSourceRead": "original_unavailable_official_related_notice_found",
-          "previousCheckedAt": "2026-10-22T20:10:30Z",
-          "newThisCycle": false,
-          "newStatus": null,
-          "originalTextAvailableAfter": false,
-          "unreadReasonAfter": "この元X本文は通常公開readで取得できず未読のまま。別にEISYSの公式DLsite通知を関連枠へ掲載しましたが、この投稿自体の対象・期間との対応は未確定で、公式本文取得として数えていません。"
-        },
-        {
-          "url": "https://x.com/LuminusK77058/status/2113325502647701621",
-          "rows": [
-            38
-          ],
-          "names": [
-            "sumika FC『ATTiC ROOM』"
-          ],
-          "previouslyAttempted": false,
-          "previousSourceRead": null,
-          "previousCheckedAt": null,
-          "newThisCycle": true,
-          "newStatus": 200,
-          "originalTextAvailableAfter": true,
-          "unreadReasonAfter": null
-        },
-        {
-          "url": "https://x.com/Regenshinnameko/status/2113325674060800430",
-          "rows": [
-            39
-          ],
-          "names": [
-            "KAIBA CORPORATION STORE"
-          ],
-          "previouslyAttempted": false,
-          "previousSourceRead": null,
-          "previousCheckedAt": null,
-          "newThisCycle": true,
-          "newStatus": 200,
-          "originalTextAvailableAfter": true,
-          "unreadReasonAfter": null
-        },
-        {
-          "url": "https://x.com/nangi_siraha/status/2113324750651232589",
-          "rows": [
-            40
-          ],
-          "names": [
-            "神撃のバハムート"
-          ],
-          "previouslyAttempted": true,
-          "previousSourceRead": "original_unavailable_official_source_restricted",
-          "previousCheckedAt": "2026-10-22T20:10:30Z",
-          "newThisCycle": false,
-          "newStatus": null,
-          "originalTextAvailableAfter": false,
-          "unreadReasonAfter": "元X本文は取得できず未読。神撃のバハムート公式Xはアクセス制限で取得せず、公開公式サイトからも今回の対象・日時・終了本文を確認できていません。別ゲームや第三者報告を公式化しません。"
-        },
-        {
-          "url": "https://x.com/ringo_darts26/status/2113326677241823629",
-          "rows": [
-            41
-          ],
-          "names": [
-            "ダーツライブ"
-          ],
-          "previouslyAttempted": true,
-          "previousSourceRead": "original_unavailable_official_current_notice_unverified",
-          "previousCheckedAt": "2026-10-22T20:10:30Z",
-          "newThisCycle": false,
-          "newStatus": null,
-          "originalTextAvailableAfter": false,
-          "unreadReasonAfter": "元X本文は取得できず未読。取得できたDARTSLIVEの公式一覧は過去の情報で今回の通知を確認できず、公式ニュース取得の制限は尊重。PHOENIXDARTSの別運営保守をダーツライブへ転用しません。"
-        },
-        {
-          "url": "https://x.com/John_doe_SERU/status/2113328282825642358",
-          "rows": [
-            42
-          ],
-          "names": [
-            "JAL Wellness & Travel"
-          ],
-          "previouslyAttempted": false,
-          "previousSourceRead": null,
-          "previousCheckedAt": null,
-          "newThisCycle": true,
-          "newStatus": 200,
-          "originalTextAvailableAfter": true,
-          "unreadReasonAfter": null
-        },
-        {
-          "url": "https://x.com/ZhuniRi/status/2113327757920993498",
-          "rows": [
-            43
-          ],
-          "names": [
-            "静岡銀行 HP・しずぎんアプリ"
-          ],
-          "previouslyAttempted": true,
-          "previousSourceRead": "public_third_party_main_post_text_retrieved",
-          "previousCheckedAt": "2026-10-24T00:04:54.161660+00:00",
-          "newThisCycle": false,
-          "newStatus": null,
-          "originalTextAvailableAfter": true,
-          "unreadReasonAfter": null
-        }
-      ],
-      "run15CoverageCarriedForward": "既存42試行/本文34/未読8をそのまま保持、今回元URLの新規再試行なし。",
-      "OSRead": "04:05–04:06UTCにPHP/CloudLinux4原典とAWS/Debian両CVE4表を取得、新実質差分なしでOSsource不変。AL2失敗advisory/AL2023拒否本文を再取得済みにせず、source表とCPU/binary/取得/稼働を分離。",
-      "limits": "滋賀再開項目の年を別学部/隣接記事から補完しない。EXILE予定タイトルは実開始/終了や原因の確認ではない。検索抜粋/題の部分取得と全文取得を区分し、全候補/全体復旧の確認済み扱いにしない。"
+      "result": "557カード/範囲内終了101/未照合2043、元2830行全保持＋直接公式2URLで2832行。時刻経過を実再開にしない。"
     },
     "followupDiscoveryRows": 1832,
     "followupReviews": [
@@ -108839,6 +108136,866 @@
         "run15CoverageCarriedForward": "前回の42試行/本文34/未読8を保持、今回run15元URLの新規再試行なし。",
         "OSRead": "03:06UTCにPHP/CloudLinux選択4公式URLを読取、新実質差分なしでOSsource不変。AL2直接advisoryや制限済vendor原典は今回確認していない。",
         "limits": "東京当該項目は年未記載のため保留、周辺令和8年度を転用しない。DTI/ezbloxの掲載期間/予定末尾を完了にせず、PHP名無しや原文TZ不明を補完しない。exact所有は現告知本文/実動作と別、403/Cachemissタイトルを確定にしない。"
+      },
+      {
+        "checkedAt": "2026-10-24T04:12:47.372726+00:00",
+        "scope": "既存未照合の滋賀大学/EXILE ID元一覧を限定取得。OBSは公式一般トップ/ブログを調べたが事象告知なしで公開変更なし。全候補/全カードの現況再確認ではない。",
+        "result": "確認済みカード/復旧集計の増加0。旧2群の取得状況と不足を具体化し、別原典2URLを未照合のまま追加。",
+        "newCards": 0,
+        "updatedCards": 0,
+        "priorPendingResolved": 0,
+        "existingPendingUpdated": 2,
+        "newPendingGroups": 0,
+        "additionalSourceRows": 2,
+        "additionalSourceRowsSincePublished": 43,
+        "allPriorSourceIdentitiesRetained": 2828,
+        "unresolvedPreviouslyCollectedGroups": 2043,
+        "run15ToDate": {
+          "rawRows": 43,
+          "uniqueURLs": 42,
+          "bodyRetrieved": 8,
+          "exactOwnershipConfirmed": 15,
+          "confirmedCardSources": 13,
+          "relatedPlannedUpdate": 1,
+          "ownershipUnresolved": 5,
+          "notRead": 8,
+          "unreadRawRows": 8,
+          "unresolved": 28,
+          "notYetAttemptedOriginalURLs": 0,
+          "priorAttemptedButUnreadURLs": 8,
+          "publicPostTextRetrievedFromTitle": 3,
+          "originalTextAvailable": 34,
+          "contextUnresolved": 2,
+          "bodyRetrievalDefinition": "従来bodyRetrieved8は履歴値を保持。titleテキスト3と公開HTML主投稿テキスト23（自己投稿形式14/RT9）を分離して累計34。自己投稿形式は公式所有を意味せず、RTは直接公式元の取得/全スレッド取得ではない。全42元URLを初回試行したが未読8を残し、全候補/公式確認の完了ではない。",
+          "originalOwnerSourcePending": 1,
+          "publicOriginalDOMPostTextRetrieved": 23,
+          "publicOriginalRTPageTextRetrieved": 9,
+          "publicOriginalOwnPostTextRetrieved": 14,
+          "thirdPartyContextUnresolved": 4,
+          "exactOwnershipCountingLimit": "新3はSomaStaff/sumika_inc/yugioh_animeの参照先exact運営アカウントを所有導線で確認できた元グループ数。元RT作者を所有者と認定した数は0。大阪市の独立公式サイトだけの確認はここへ加算しない。",
+          "originalAcquisitionAttempts": 42
+        },
+        "unreadOriginalsAfter": [
+          {
+            "url": "https://x.com/sc59_jp/status/2113320647824937317",
+            "rows": [
+              2
+            ],
+            "names": [
+              "sc59_jp サイト"
+            ],
+            "previouslyAttempted": true,
+            "previousSourceRead": "body_not_retrieved_generic_transport_failure",
+            "previousCheckedAt": "2026-10-23T22:03:38.716815+00:00",
+            "newThisCycle": false,
+            "newStatus": null,
+            "originalTextAvailableAfter": false,
+            "unreadReasonAfter": "今回の元URLはWeb Cache miss/通常公開GET502でテキスト未取得。通信失敗を停止/復旧/原因や本人取消の根拠にせず、対象サイト・所有・日時を未確認のまま保持します。"
+          },
+          {
+            "url": "https://x.com/bakawind3_8/status/2113312117101298013",
+            "rows": [
+              20
+            ],
+            "names": [
+              "愛知県 公式サイト「ネットあいち」"
+            ],
+            "previouslyAttempted": false,
+            "previousSourceRead": null,
+            "previousCheckedAt": null,
+            "newThisCycle": true,
+            "newStatus": 200,
+            "originalTextAvailableAfter": false,
+            "unreadReasonAfter": "HTTP200だがSensitive Content / This post is only available in the X app。本文未取得。アプリ切替・ログイン・別経路で迂回せず停止。"
+          },
+          {
+            "url": "https://x.com/kirstencooper7/status/2113313614518206787",
+            "rows": [
+              22
+            ],
+            "names": [
+              "まどドラ"
+            ],
+            "previouslyAttempted": true,
+            "previousSourceRead": "original_unavailable_official_account_owner_known",
+            "previousCheckedAt": "2026-10-22T20:10:30Z",
+            "newThisCycle": false,
+            "newStatus": null,
+            "originalTextAvailableAfter": false,
+            "unreadReasonAfter": "元X本文は取得できず未読。運営サイトからexact公式Xリンクは確認できましたが、当該X本文はアクセス制限で未取得。公式ニュース/FAQにも今回の緊急停止や延長の本文は確認できず、所有確認と障害確認を分離しています。"
+          },
+          {
+            "url": "https://x.com/yxmxgxn/status/2113325429549641777",
+            "rows": [
+              26
+            ],
+            "names": [
+              "DECA BEAT 公式サイト"
+            ],
+            "previouslyAttempted": false,
+            "previousSourceRead": null,
+            "previousCheckedAt": null,
+            "newThisCycle": true,
+            "newStatus": 404,
+            "originalTextAvailableAfter": false,
+            "unreadReasonAfter": "generic Cache miss後、同exact元URLの通常公開GETは404。本文未取得。別host/認証/転載へ回らず保存。"
+          },
+          {
+            "url": "https://x.com/MalwareBibleJP/status/2113305133807525921",
+            "rows": [
+              32
+            ],
+            "names": [
+              "沖縄県 行政資料目録検索システム"
+            ],
+            "previouslyAttempted": true,
+            "previousSourceRead": "body_not_retrieved_access_denied",
+            "previousCheckedAt": "2026-10-24T00:04:54.161660+00:00",
+            "newThisCycle": false,
+            "newStatus": null,
+            "originalTextAvailableAfter": false,
+            "unreadReasonAfter": "元URLの通常web読取は403で停止し、GET再試行・別host・認証・転載/別経路で迂回していません。本文/原因/日付/対象範囲を取得しておらず、収集要約を新しい事実として採用しません。"
+          },
+          {
+            "url": "https://x.com/IrmeliPja/status/2113319088802148547",
+            "rows": [
+              37
+            ],
+            "names": [
+              "DLsite"
+            ],
+            "previouslyAttempted": true,
+            "previousSourceRead": "original_unavailable_official_related_notice_found",
+            "previousCheckedAt": "2026-10-22T20:10:30Z",
+            "newThisCycle": false,
+            "newStatus": null,
+            "originalTextAvailableAfter": false,
+            "unreadReasonAfter": "この元X本文は通常公開readで取得できず未読のまま。別にEISYSの公式DLsite通知を関連枠へ掲載しましたが、この投稿自体の対象・期間との対応は未確定で、公式本文取得として数えていません。"
+          },
+          {
+            "url": "https://x.com/nangi_siraha/status/2113324750651232589",
+            "rows": [
+              40
+            ],
+            "names": [
+              "神撃のバハムート"
+            ],
+            "previouslyAttempted": true,
+            "previousSourceRead": "original_unavailable_official_source_restricted",
+            "previousCheckedAt": "2026-10-22T20:10:30Z",
+            "newThisCycle": false,
+            "newStatus": null,
+            "originalTextAvailableAfter": false,
+            "unreadReasonAfter": "元X本文は取得できず未読。神撃のバハムート公式Xはアクセス制限で取得せず、公開公式サイトからも今回の対象・日時・終了本文を確認できていません。別ゲームや第三者報告を公式化しません。"
+          },
+          {
+            "url": "https://x.com/ringo_darts26/status/2113326677241823629",
+            "rows": [
+              41
+            ],
+            "names": [
+              "ダーツライブ"
+            ],
+            "previouslyAttempted": true,
+            "previousSourceRead": "original_unavailable_official_current_notice_unverified",
+            "previousCheckedAt": "2026-10-22T20:10:30Z",
+            "newThisCycle": false,
+            "newStatus": null,
+            "originalTextAvailableAfter": false,
+            "unreadReasonAfter": "元X本文は取得できず未読。取得できたDARTSLIVEの公式一覧は過去の情報で今回の通知を確認できず、公式ニュース取得の制限は尊重。PHOENIXDARTSの別運営保守をダーツライブへ転用しません。"
+          }
+        ],
+        "exactOriginalAcquisitionCoverage": [
+          {
+            "url": "https://x.com/ImaizumTakaYUKI/status/2113300967349424357",
+            "rows": [
+              1
+            ],
+            "names": [
+              "ERIKA IKUTA OFFICIAL SITE(生田絵梨花)"
+            ],
+            "previouslyAttempted": false,
+            "previousSourceRead": null,
+            "previousCheckedAt": null,
+            "newThisCycle": true,
+            "newStatus": 200,
+            "originalTextAvailableAfter": true,
+            "unreadReasonAfter": null
+          },
+          {
+            "url": "https://x.com/sc59_jp/status/2113320647824937317",
+            "rows": [
+              2
+            ],
+            "names": [
+              "sc59_jp サイト"
+            ],
+            "previouslyAttempted": true,
+            "previousSourceRead": "body_not_retrieved_generic_transport_failure",
+            "previousCheckedAt": "2026-10-23T22:03:38.716815+00:00",
+            "newThisCycle": false,
+            "newStatus": null,
+            "originalTextAvailableAfter": false,
+            "unreadReasonAfter": "今回の元URLはWeb Cache miss/通常公開GET502でテキスト未取得。通信失敗を停止/復旧/原因や本人取消の根拠にせず、対象サイト・所有・日時を未確認のまま保持します。"
+          },
+          {
+            "url": "https://x.com/_monacard/status/2113321920758493378",
+            "rows": [
+              3
+            ],
+            "names": [
+              "モナカード"
+            ],
+            "previouslyAttempted": true,
+            "previousSourceRead": "body_retrieved",
+            "previousCheckedAt": "2026-10-22T19:03:30Z",
+            "newThisCycle": false,
+            "newStatus": null,
+            "originalTextAvailableAfter": true,
+            "unreadReasonAfter": null
+          },
+          {
+            "url": "https://x.com/rakuspa/status/2113324874207023437",
+            "rows": [
+              4
+            ],
+            "names": [
+              "ラクスパ ホームページ"
+            ],
+            "previouslyAttempted": true,
+            "previousSourceRead": "body_retrieved_ownership_unresolved",
+            "previousCheckedAt": "2026-10-22T19:03:30Z",
+            "newThisCycle": false,
+            "newStatus": null,
+            "originalTextAvailableAfter": true,
+            "unreadReasonAfter": null
+          },
+          {
+            "url": "https://x.com/ikura8989/status/2113325034588852511",
+            "rows": [
+              5
+            ],
+            "names": [
+              "ycinc_official 公式サイト"
+            ],
+            "previouslyAttempted": true,
+            "previousSourceRead": "public_rt_page_text_retrieved",
+            "previousCheckedAt": "2026-10-23T23:07:15.027161+00:00",
+            "newThisCycle": false,
+            "newStatus": null,
+            "originalTextAvailableAfter": true,
+            "unreadReasonAfter": null
+          },
+          {
+            "url": "https://x.com/ETRANJER_uranai/status/2113325528925237481",
+            "rows": [
+              6
+            ],
+            "names": [
+              "エトランゼBLOG"
+            ],
+            "previouslyAttempted": true,
+            "previousSourceRead": "public_post_text_retrieved_from_title",
+            "previousCheckedAt": "2026-10-23T22:03:38.716815+00:00",
+            "newThisCycle": false,
+            "newStatus": null,
+            "originalTextAvailableAfter": true,
+            "unreadReasonAfter": null
+          },
+          {
+            "url": "https://x.com/ErogemyOfficial/status/2113326606131580970",
+            "rows": [
+              7
+            ],
+            "names": [
+              "エロゲミー/エロゲソザイINDEX"
+            ],
+            "previouslyAttempted": true,
+            "previousSourceRead": "public_main_post_text_retrieved",
+            "previousCheckedAt": "2026-10-23T23:07:15.027161+00:00",
+            "newThisCycle": false,
+            "newStatus": null,
+            "originalTextAvailableAfter": true,
+            "unreadReasonAfter": null
+          },
+          {
+            "url": "https://x.com/tokumei_banzai_/status/2113327356027007454",
+            "rows": [
+              8,
+              30
+            ],
+            "names": [
+              "まごころケア食/ライフミール/こだわりシェフ/おてがるシェフ",
+              "わけありなおかず屋さん"
+            ],
+            "previouslyAttempted": true,
+            "previousSourceRead": "public_main_post_text_retrieved",
+            "previousCheckedAt": "2026-10-23T23:07:15.027161+00:00",
+            "newThisCycle": false,
+            "newStatus": null,
+            "originalTextAvailableAfter": true,
+            "unreadReasonAfter": null
+          },
+          {
+            "url": "https://x.com/NFTwYuri/status/2113327687263568203",
+            "rows": [
+              9
+            ],
+            "names": [
+              "TWICE公式サイト・公式FCサイト"
+            ],
+            "previouslyAttempted": false,
+            "previousSourceRead": null,
+            "previousCheckedAt": null,
+            "newThisCycle": true,
+            "newStatus": 200,
+            "originalTextAvailableAfter": true,
+            "unreadReasonAfter": null
+          },
+          {
+            "url": "https://x.com/PremUngarla/status/2113327870861066303",
+            "rows": [
+              10
+            ],
+            "names": [
+              "PremUngarla サイト"
+            ],
+            "previouslyAttempted": true,
+            "previousSourceRead": "public_main_post_text_retrieved",
+            "previousCheckedAt": "2026-10-23T23:07:15.027161+00:00",
+            "newThisCycle": false,
+            "newStatus": null,
+            "originalTextAvailableAfter": true,
+            "unreadReasonAfter": null
+          },
+          {
+            "url": "https://x.com/DocSeventeenth/status/2113308598428389416",
+            "rows": [
+              11
+            ],
+            "names": [
+              "PLiCy"
+            ],
+            "previouslyAttempted": false,
+            "previousSourceRead": null,
+            "previousCheckedAt": null,
+            "newThisCycle": true,
+            "newStatus": 200,
+            "originalTextAvailableAfter": true,
+            "unreadReasonAfter": null
+          },
+          {
+            "url": "https://x.com/mukudoriwasora1/status/2113309632332714308",
+            "rows": [
+              12
+            ],
+            "names": [
+              "ファンクラブ候補（運営主体の表記を未照合）"
+            ],
+            "previouslyAttempted": false,
+            "previousSourceRead": null,
+            "previousCheckedAt": null,
+            "newThisCycle": true,
+            "newStatus": 200,
+            "originalTextAvailableAfter": true,
+            "unreadReasonAfter": null
+          },
+          {
+            "url": "https://x.com/betsuma_info/status/2113302979696906253",
+            "rows": [
+              13
+            ],
+            "names": [
+              "別冊マーガレット HP"
+            ],
+            "previouslyAttempted": true,
+            "previousSourceRead": "body_retrieved",
+            "previousCheckedAt": "2026-10-22T18:10:32Z",
+            "newThisCycle": false,
+            "newStatus": null,
+            "originalTextAvailableAfter": true,
+            "unreadReasonAfter": null
+          },
+          {
+            "url": "https://x.com/legeclo/status/2113307440171340282",
+            "rows": [
+              14
+            ],
+            "names": [
+              "れじぇくろ！"
+            ],
+            "previouslyAttempted": true,
+            "previousSourceRead": "body_retrieved",
+            "previousCheckedAt": "2026-10-22T18:10:32Z",
+            "newThisCycle": false,
+            "newStatus": null,
+            "originalTextAvailableAfter": true,
+            "unreadReasonAfter": null
+          },
+          {
+            "url": "https://x.com/summons_board/status/2113314583675105337",
+            "rows": [
+              15
+            ],
+            "names": [
+              "サモンズボード"
+            ],
+            "previouslyAttempted": true,
+            "previousSourceRead": "body_retrieved",
+            "previousCheckedAt": "2026-10-22T18:10:32Z",
+            "newThisCycle": false,
+            "newStatus": null,
+            "originalTextAvailableAfter": true,
+            "unreadReasonAfter": null
+          },
+          {
+            "url": "https://x.com/numazu_esp/status/2113319055738405130",
+            "rows": [
+              16
+            ],
+            "names": [
+              "e沼(沼津eスポーツ)公式サイト"
+            ],
+            "previouslyAttempted": true,
+            "previousSourceRead": "body_retrieved",
+            "previousCheckedAt": "2026-10-22T19:03:30Z",
+            "newThisCycle": false,
+            "newStatus": null,
+            "originalTextAvailableAfter": true,
+            "unreadReasonAfter": null
+          },
+          {
+            "url": "https://x.com/penpe_net_/status/2113325503147020317",
+            "rows": [
+              17
+            ],
+            "names": [
+              "penpe.net"
+            ],
+            "previouslyAttempted": true,
+            "previousSourceRead": "public_post_text_retrieved_from_title",
+            "previousCheckedAt": "2026-10-23T22:03:38.716815+00:00",
+            "newThisCycle": false,
+            "newStatus": null,
+            "originalTextAvailableAfter": true,
+            "unreadReasonAfter": null
+          },
+          {
+            "url": "https://x.com/BLUELOCK_PWC/status/2113327950443745782",
+            "rows": [
+              18
+            ],
+            "names": [
+              "ブルーロック PWC"
+            ],
+            "previouslyAttempted": true,
+            "previousSourceRead": "body_retrieved",
+            "previousCheckedAt": "2026-10-22T18:10:32Z",
+            "newThisCycle": false,
+            "newStatus": null,
+            "originalTextAvailableAfter": true,
+            "unreadReasonAfter": null
+          },
+          {
+            "url": "https://x.com/ri_06_i_/status/2113328167477780560",
+            "rows": [
+              19
+            ],
+            "names": [
+              "Soma fan club \"space\""
+            ],
+            "previouslyAttempted": false,
+            "previousSourceRead": null,
+            "previousCheckedAt": null,
+            "newThisCycle": true,
+            "newStatus": 200,
+            "originalTextAvailableAfter": true,
+            "unreadReasonAfter": null
+          },
+          {
+            "url": "https://x.com/bakawind3_8/status/2113312117101298013",
+            "rows": [
+              20
+            ],
+            "names": [
+              "愛知県 公式サイト「ネットあいち」"
+            ],
+            "previouslyAttempted": false,
+            "previousSourceRead": null,
+            "previousCheckedAt": null,
+            "newThisCycle": true,
+            "newStatus": 200,
+            "originalTextAvailableAfter": false,
+            "unreadReasonAfter": "HTTP200だがSensitive Content / This post is only available in the X app。本文未取得。アプリ切替・ログイン・別経路で迂回せず停止。"
+          },
+          {
+            "url": "https://x.com/heartfultama/status/2113315677658607768",
+            "rows": [
+              21
+            ],
+            "names": [
+              "訪問看護ステーションは～とふる多摩センター 公式HP"
+            ],
+            "previouslyAttempted": true,
+            "previousSourceRead": "body_retrieved_ownership_unresolved",
+            "previousCheckedAt": "2026-10-22T19:03:30Z",
+            "newThisCycle": false,
+            "newStatus": null,
+            "originalTextAvailableAfter": true,
+            "unreadReasonAfter": null
+          },
+          {
+            "url": "https://x.com/kirstencooper7/status/2113313614518206787",
+            "rows": [
+              22
+            ],
+            "names": [
+              "まどドラ"
+            ],
+            "previouslyAttempted": true,
+            "previousSourceRead": "original_unavailable_official_account_owner_known",
+            "previousCheckedAt": "2026-10-22T20:10:30Z",
+            "newThisCycle": false,
+            "newStatus": null,
+            "originalTextAvailableAfter": false,
+            "unreadReasonAfter": "元X本文は取得できず未読。運営サイトからexact公式Xリンクは確認できましたが、当該X本文はアクセス制限で未取得。公式ニュース/FAQにも今回の緊急停止や延長の本文は確認できず、所有確認と障害確認を分離しています。"
+          },
+          {
+            "url": "https://x.com/GPJAPANex3/status/2113316246401974759",
+            "rows": [
+              23
+            ],
+            "names": [
+              "テンタメ"
+            ],
+            "previouslyAttempted": true,
+            "previousSourceRead": "public_third_party_main_post_text_retrieved",
+            "previousCheckedAt": "2026-10-24T00:04:54.161660+00:00",
+            "newThisCycle": false,
+            "newStatus": null,
+            "originalTextAvailableAfter": true,
+            "unreadReasonAfter": null
+          },
+          {
+            "url": "https://x.com/gojinimuchu/status/2113324927789199561",
+            "rows": [
+              24
+            ],
+            "names": [
+              "伊勢ヶ浜部屋 公式HP"
+            ],
+            "previouslyAttempted": false,
+            "previousSourceRead": null,
+            "previousCheckedAt": null,
+            "newThisCycle": true,
+            "newStatus": 200,
+            "originalTextAvailableAfter": true,
+            "unreadReasonAfter": null
+          },
+          {
+            "url": "https://x.com/stonecoldage/status/2113325057217089654",
+            "rows": [
+              25
+            ],
+            "names": [
+              "noah_ghc 公式サイト"
+            ],
+            "previouslyAttempted": true,
+            "previousSourceRead": "public_rt_page_text_retrieved",
+            "previousCheckedAt": "2026-10-23T23:07:15.027161+00:00",
+            "newThisCycle": false,
+            "newStatus": null,
+            "originalTextAvailableAfter": true,
+            "unreadReasonAfter": null
+          },
+          {
+            "url": "https://x.com/yxmxgxn/status/2113325429549641777",
+            "rows": [
+              26
+            ],
+            "names": [
+              "DECA BEAT 公式サイト"
+            ],
+            "previouslyAttempted": false,
+            "previousSourceRead": null,
+            "previousCheckedAt": null,
+            "newThisCycle": true,
+            "newStatus": 404,
+            "originalTextAvailableAfter": false,
+            "unreadReasonAfter": "generic Cache miss後、同exact元URLの通常公開GETは404。本文未取得。別host/認証/転載へ回らず保存。"
+          },
+          {
+            "url": "https://x.com/HlTn67246/status/2113325659061899682",
+            "rows": [
+              27
+            ],
+            "names": [
+              "yokoyama_hide 関連サービス"
+            ],
+            "previouslyAttempted": false,
+            "previousSourceRead": null,
+            "previousCheckedAt": null,
+            "newThisCycle": true,
+            "newStatus": 200,
+            "originalTextAvailableAfter": true,
+            "unreadReasonAfter": null
+          },
+          {
+            "url": "https://x.com/Yomaridesu/status/2113325748677431737",
+            "rows": [
+              28
+            ],
+            "names": [
+              "めておら公式HP"
+            ],
+            "previouslyAttempted": true,
+            "previousSourceRead": "public_rt_page_text_retrieved",
+            "previousCheckedAt": "2026-10-23T23:07:15.027161+00:00",
+            "newThisCycle": false,
+            "newStatus": null,
+            "originalTextAvailableAfter": true,
+            "unreadReasonAfter": null
+          },
+          {
+            "url": "https://x.com/srilanka_jewels/status/2113325746961948894",
+            "rows": [
+              29
+            ],
+            "names": [
+              "srilanka_jewels Webサイト"
+            ],
+            "previouslyAttempted": true,
+            "previousSourceRead": "public_post_text_retrieved_from_title",
+            "previousCheckedAt": "2026-10-23T22:03:38.716815+00:00",
+            "newThisCycle": false,
+            "newStatus": null,
+            "originalTextAvailableAfter": true,
+            "unreadReasonAfter": null
+          },
+          {
+            "url": "https://x.com/joe22113/status/2113322384665297046",
+            "rows": [
+              31
+            ],
+            "names": [
+              "高知県内 少なくとも20市町村のHP"
+            ],
+            "previouslyAttempted": true,
+            "previousSourceRead": "public_third_party_main_post_text_retrieved",
+            "previousCheckedAt": "2026-10-24T00:04:54.161660+00:00",
+            "newThisCycle": false,
+            "newStatus": null,
+            "originalTextAvailableAfter": true,
+            "unreadReasonAfter": null
+          },
+          {
+            "url": "https://x.com/MalwareBibleJP/status/2113305133807525921",
+            "rows": [
+              32
+            ],
+            "names": [
+              "沖縄県 行政資料目録検索システム"
+            ],
+            "previouslyAttempted": true,
+            "previousSourceRead": "body_not_retrieved_access_denied",
+            "previousCheckedAt": "2026-10-24T00:04:54.161660+00:00",
+            "newThisCycle": false,
+            "newStatus": null,
+            "originalTextAvailableAfter": false,
+            "unreadReasonAfter": "元URLの通常web読取は403で停止し、GET再試行・別host・認証・転載/別経路で迂回していません。本文/原因/日付/対象範囲を取得しておらず、収集要約を新しい事実として採用しません。"
+          },
+          {
+            "url": "https://x.com/motomf/status/2113305176719478854",
+            "rows": [
+              33
+            ],
+            "names": [
+              "mixi 日記"
+            ],
+            "previouslyAttempted": true,
+            "previousSourceRead": "public_third_party_main_post_text_retrieved",
+            "previousCheckedAt": "2026-10-24T00:04:54.161660+00:00",
+            "newThisCycle": false,
+            "newStatus": null,
+            "originalTextAvailableAfter": true,
+            "unreadReasonAfter": null
+          },
+          {
+            "url": "https://x.com/codyyyyyyy/status/2113306118168469839",
+            "rows": [
+              34
+            ],
+            "names": [
+              "ママスタセレクト"
+            ],
+            "previouslyAttempted": true,
+            "previousSourceRead": "public_third_party_main_post_text_retrieved",
+            "previousCheckedAt": "2026-10-24T00:04:54.161660+00:00",
+            "newThisCycle": false,
+            "newStatus": null,
+            "originalTextAvailableAfter": true,
+            "unreadReasonAfter": null
+          },
+          {
+            "url": "https://x.com/_ho_pe/status/2113313596797313366",
+            "rows": [
+              35
+            ],
+            "names": [
+              "すき家 弁当予約アプリ"
+            ],
+            "previouslyAttempted": false,
+            "previousSourceRead": null,
+            "previousCheckedAt": null,
+            "newThisCycle": true,
+            "newStatus": 200,
+            "originalTextAvailableAfter": true,
+            "unreadReasonAfter": null
+          },
+          {
+            "url": "https://x.com/masilite/status/2113313451473039779",
+            "rows": [
+              36
+            ],
+            "names": [
+              "ゲソてん"
+            ],
+            "previouslyAttempted": false,
+            "previousSourceRead": null,
+            "previousCheckedAt": null,
+            "newThisCycle": true,
+            "newStatus": 200,
+            "originalTextAvailableAfter": true,
+            "unreadReasonAfter": null
+          },
+          {
+            "url": "https://x.com/IrmeliPja/status/2113319088802148547",
+            "rows": [
+              37
+            ],
+            "names": [
+              "DLsite"
+            ],
+            "previouslyAttempted": true,
+            "previousSourceRead": "original_unavailable_official_related_notice_found",
+            "previousCheckedAt": "2026-10-22T20:10:30Z",
+            "newThisCycle": false,
+            "newStatus": null,
+            "originalTextAvailableAfter": false,
+            "unreadReasonAfter": "この元X本文は通常公開readで取得できず未読のまま。別にEISYSの公式DLsite通知を関連枠へ掲載しましたが、この投稿自体の対象・期間との対応は未確定で、公式本文取得として数えていません。"
+          },
+          {
+            "url": "https://x.com/LuminusK77058/status/2113325502647701621",
+            "rows": [
+              38
+            ],
+            "names": [
+              "sumika FC『ATTiC ROOM』"
+            ],
+            "previouslyAttempted": false,
+            "previousSourceRead": null,
+            "previousCheckedAt": null,
+            "newThisCycle": true,
+            "newStatus": 200,
+            "originalTextAvailableAfter": true,
+            "unreadReasonAfter": null
+          },
+          {
+            "url": "https://x.com/Regenshinnameko/status/2113325674060800430",
+            "rows": [
+              39
+            ],
+            "names": [
+              "KAIBA CORPORATION STORE"
+            ],
+            "previouslyAttempted": false,
+            "previousSourceRead": null,
+            "previousCheckedAt": null,
+            "newThisCycle": true,
+            "newStatus": 200,
+            "originalTextAvailableAfter": true,
+            "unreadReasonAfter": null
+          },
+          {
+            "url": "https://x.com/nangi_siraha/status/2113324750651232589",
+            "rows": [
+              40
+            ],
+            "names": [
+              "神撃のバハムート"
+            ],
+            "previouslyAttempted": true,
+            "previousSourceRead": "original_unavailable_official_source_restricted",
+            "previousCheckedAt": "2026-10-22T20:10:30Z",
+            "newThisCycle": false,
+            "newStatus": null,
+            "originalTextAvailableAfter": false,
+            "unreadReasonAfter": "元X本文は取得できず未読。神撃のバハムート公式Xはアクセス制限で取得せず、公開公式サイトからも今回の対象・日時・終了本文を確認できていません。別ゲームや第三者報告を公式化しません。"
+          },
+          {
+            "url": "https://x.com/ringo_darts26/status/2113326677241823629",
+            "rows": [
+              41
+            ],
+            "names": [
+              "ダーツライブ"
+            ],
+            "previouslyAttempted": true,
+            "previousSourceRead": "original_unavailable_official_current_notice_unverified",
+            "previousCheckedAt": "2026-10-22T20:10:30Z",
+            "newThisCycle": false,
+            "newStatus": null,
+            "originalTextAvailableAfter": false,
+            "unreadReasonAfter": "元X本文は取得できず未読。取得できたDARTSLIVEの公式一覧は過去の情報で今回の通知を確認できず、公式ニュース取得の制限は尊重。PHOENIXDARTSの別運営保守をダーツライブへ転用しません。"
+          },
+          {
+            "url": "https://x.com/John_doe_SERU/status/2113328282825642358",
+            "rows": [
+              42
+            ],
+            "names": [
+              "JAL Wellness & Travel"
+            ],
+            "previouslyAttempted": false,
+            "previousSourceRead": null,
+            "previousCheckedAt": null,
+            "newThisCycle": true,
+            "newStatus": 200,
+            "originalTextAvailableAfter": true,
+            "unreadReasonAfter": null
+          },
+          {
+            "url": "https://x.com/ZhuniRi/status/2113327757920993498",
+            "rows": [
+              43
+            ],
+            "names": [
+              "静岡銀行 HP・しずぎんアプリ"
+            ],
+            "previouslyAttempted": true,
+            "previousSourceRead": "public_third_party_main_post_text_retrieved",
+            "previousCheckedAt": "2026-10-24T00:04:54.161660+00:00",
+            "newThisCycle": false,
+            "newStatus": null,
+            "originalTextAvailableAfter": true,
+            "unreadReasonAfter": null
+          }
+        ],
+        "run15CoverageCarriedForward": "既存42試行/本文34/未読8をそのまま保持、今回元URLの新規再試行なし。",
+        "OSRead": "04:05–04:06UTCにPHP/CloudLinux4原典とAWS/Debian両CVE4表を取得、新実質差分なしでOSsource不変。AL2失敗advisory/AL2023拒否本文を再取得済みにせず、source表とCPU/binary/取得/稼働を分離。",
+        "limits": "滋賀再開項目の年を別学部/隣接記事から補完しない。EXILE予定タイトルは実開始/終了や原因の確認ではない。検索抜粋/題の部分取得と全文取得を区分し、全候補/全体復旧の確認済み扱いにしない。"
+      },
+      {
+        "checkedAt": "2026-10-24T23:30:00Z",
+        "scope": "TEAM26公式の機能別再開と、ムームー新規受付停止・河村隆一個別アーカイブ延長の直接公式原典のみ。全候補の現況再確認ではない。",
+        "newCards": 2,
+        "updatedCards": 1,
+        "priorPendingResolved": 0,
+        "newPendingGroups": 0,
+        "additionalSourceRows": 2,
+        "allPriorSourceIdentitiesRetained": 2830,
+        "unresolvedPreviouslyCollectedGroups": 2043,
+        "result": "557カード/範囲内終了101/未照合2043、元2830行全保持＋直接公式2URLで2832行。時刻経過を実再開にしない。"
       }
     ],
     "sourceRowsDecisionBasis": "元収集行に保存した当時の判断内訳です。後続の公式照合結果はsourceReviews/最新followupReview、現在の未解決グループはpendingを参照してください。元の収集行は保持しています。",
@@ -125220,6 +125377,15 @@
       "end": "予定2026年10月22日09:00、作業状況で前後する場合あり。実終了は取得本文に未記載（TZ未記載）",
       "restored": false,
       "note": "サービス自身のhelp個別告知から、PHPの予防更新/検証と年を含む予定期間、期間中のezbloxへのアクセス/各種機能利用不可を確認しました。公式サービスがhelp/運営サイトへ直接リンクし、個別告知もexact jcs_dxアカウントへリンクする所有根拠を今回別取得。初期JCS元候補の過去取得本文と対象/予定が対応しますが、後日の別X候補まで一括解決せず、過去のX本文を今回再取得したとも扱いません。予定経過を実終了や現在も停止の証拠にせず、実アカウント/機能/安全性は未検証。"
+    },
+    {
+      "confirmedId": "team26",
+      "sourceUrl": "https://www.marines.co.jp/news/detail/202600946327.html",
+      "checkedAt": "2026-10-24T23:29:00Z",
+      "scope": "会員情報の確認・変更・申込、MARINES FAN FEST 2026等イベント申込、その他マイページ各種機能は10/23 13:00頃再開と案内。2027年度有料継続入会（自動継続対象外）は19:00頃再開予定。",
+      "end": "10/23 13:00頃より順次復旧。一部有料継続入会は同日19:00頃再開予定（実再開未確認）",
+      "restored": false,
+      "note": "10/23更新の公式本文で機能別の再開を確認。19:00頃は予定のままで、時刻経過や公開ログイン画面を実再開の根拠にしません。2027年度自動継続入会のコース・特典変更・解約等は受付終了と案内し、登録内容はマイページ、疑問点はマリーンズ・インフォメーションセンターへ案内しています。全機能再開・個人情報安全性の独立保証とはせず、ログイン・申込等の実操作は行っていません。"
     }
   ],
   "pendingResolutionHistory": [
