@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Tue, 27 Oct 2026 08:59:28 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 28 Oct 2026 07:27:07 GMT</lastBuildDate>
+    <item>
+      <title>CVE-2026-97631：UEFIのネットワーク起動で起きる脆弱性</title>
+      <link>https://share.0g0.xyz/cve-2026-97631</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/cve-2026-97631</guid>
+      <description>EDK IIのPXE起動処理にある脆弱性を一次資料で確認。攻撃条件、上流修正と製品更新の違い、確認・対処の順序を整理します。</description>
+      <pubDate>Wed, 28 Oct 2026 07:27:07 GMT</pubDate>
+      <dcterms:created>2026-10-28T07:27:07.000Z</dcterms:created>
+      <dcterms:modified>2026-10-28T07:27:07.000Z</dcterms:modified>
+    </item>
     <item>
       <title>Brotliの脆弱性、何を確認すればいい？ 図でわかる仕組みと対処</title>
       <link>https://share.0g0.xyz/brotli-security-explained</link>
