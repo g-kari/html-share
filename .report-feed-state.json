@@ -1694,7 +1694,7 @@
         "synnovis-cyber-202406": "67020ec420f09e223a206a2319f1ebf7490a033d7d6feb7fc406d28d985d36b5",
         "temairazu-202609": "86b662cdba269ee234cb7e1c7c3bd148eb729927682b8b26cb145890d471565f",
         "thinca-web-20260824": "aacaf2422340a1553ea29abfd02d694c8df53784192faacbbcf37fdb2510bb54",
-        "timescar-20260925": "49b3ce060402c1c7f10049c5b7c8d3c216af695ef2e0d801764e258f97d7befa",
+        "timescar-20260925": "02296a332bac151da31bdd4bba6460484ef058444aef0158b007f5e1d410322e",
         "toda-payment-employee-20261001": "7b4e7cd110fd480dc1d3c1b7a7ea87d141b47251e638af0f24d77012706e506f",
         "tohoku-university-2026": "73f66a849f10184a80554f921118119140001b660af722950402e788362250c8",
         "tokai-oneoffice-2026-update": "1110bc60debcdf0d376e568f738d88cfa008555baf65ae841046139423163fa1",
@@ -2626,6 +2626,14 @@
             "connectwise-cloud-backup-20261016"
           ],
           "date": "2026-10-18"
+        },
+        {
+          "signature": "a6a842dc4b8e951e2e6aae005c16d8b42949757a0256ac13ed4c2bbab455d1dc",
+          "summary": "タイムズカー10月23日第5報を反映。脆弱性悪用・調査終了、暗号化画像の送信痕跡1,464,800件とアクセス確認・外部送信痕跡未確認891,602件、タイムズクラブ影響と連携ID訂正、画像保有見直し・見舞金方針を区別。削除と支払は完了扱いしない。",
+          "ids": [
+            "timescar-20260925"
+          ],
+          "date": "2026-10-25"
         }
       ],
       "items": [
@@ -3803,9 +3811,25 @@
           ],
           "published": "2026-10-18T06:04:48.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "31aa37097cec2e4258ae039b503b7a588a858e90ddb21512451bc410c30d63da",
+          "summary": "タイムズカー10月23日第5報を反映。脆弱性悪用・調査終了、暗号化画像の送信痕跡1,464,800件とアクセス確認・外部送信痕跡未確認891,602件、タイムズクラブ影響と連携ID訂正、画像保有見直し・見舞金方針を区別。削除と支払は完了扱いしない。",
+          "journal": [
+            {
+              "signature": "a6a842dc4b8e951e2e6aae005c16d8b42949757a0256ac13ed4c2bbab455d1dc",
+              "summary": "タイムズカー10月23日第5報を反映。脆弱性悪用・調査終了、暗号化画像の送信痕跡1,464,800件とアクセス確認・外部送信痕跡未確認891,602件、タイムズクラブ影響と連携ID訂正、画像保有見直し・見舞金方針を区別。削除と支払は完了扱いしない。",
+              "ids": [
+                "timescar-20260925"
+              ],
+              "date": "2026-10-25"
+            }
+          ],
+          "published": "2026-10-25T02:06:01.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "ed8776ee210001c3bbc3a324b112ebf9ec6cb2cb"
+      "cursor": "e05768798356f56919ff02c102cebce9c0f99a8f"
     }
   }
 }

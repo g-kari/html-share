@@ -117,14 +117,14 @@
       "updated": "2026-10-08T16:08:38.000Z"
     },
     "php-emergency-maintenance.html": {
-      "fingerprint": "f7b27d4f1b98f04fb723aa54ca2e0d94c0b0ef489ca574e2d146e476ce55e565",
+      "fingerprint": "050615f0b855900cf23411e018b5c921dfbfd08d374417dd0b67e7f523d9e6e1",
       "published": "2026-10-21T12:51:32.000Z",
-      "updated": "2026-10-24T06:46:21.000Z"
+      "updated": "2026-10-25T01:33:22.000Z"
     },
     "php-security-os-response.html": {
-      "fingerprint": "80b6a0fb5a1ac5bbcf4d5da5da3812b15e46f809818f779de52acd456af822b3",
+      "fingerprint": "bb9258bd0da67f488a14602d7d3b90f63ae3b2ec89f6a169852bd50284598712",
       "published": "2026-10-21T13:13:10.000Z",
-      "updated": "2026-10-24T05:37:32.000Z"
+      "updated": "2026-10-24T23:35:24.000Z"
     },
     "php2shell-patch-status.html": {
       "fingerprint": "abd9f40dcd8c55bd9834e790552aedcbb37cd879fbc34bccbf5e20aecadd56b8",
@@ -152,9 +152,9 @@
       "updated": "2026-10-03T06:21:28.000Z"
     },
     "security-incidents.html": {
-      "fingerprint": "6071e1009dab0026b3c1de350f96dfea334be9b5af7025b92b7d59bc695a4671",
+      "fingerprint": "0fbb1f9be609e24310f6a5a051442f80e610cd5fd627be20fa8032cc3c88c383",
       "published": "2026-10-02T06:08:44.000Z",
-      "updated": "2026-10-18T06:04:48.000Z"
+      "updated": "2026-10-25T02:06:01.000Z"
     },
     "security-lessons.html": {
       "fingerprint": "3999cbaad7e85c2ca13671c6899ee220783415e2acf49558a1a46ff579febb25",
@@ -162,9 +162,9 @@
       "updated": "2026-10-06T07:33:54.000Z"
     },
     "technology-updates.html": {
-      "fingerprint": "e036e4a6bcd8f026827969dee1813db7cb12167eef62823d33915aa786bc811a",
+      "fingerprint": "162129eb48a3bbf4d6841bfcb16458fb3eb1018a26e8c75a233034e0feb2f044",
       "published": "2026-10-08T23:59:03.000Z",
-      "updated": "2026-10-22T23:06:21.000Z"
+      "updated": "2026-10-24T23:12:05.000Z"
     },
     "test.html": {
       "fingerprint": "b6bb2885a5f424938319c4aa6ba0365eb7426845eb4d9a731315b4a29964aad0",

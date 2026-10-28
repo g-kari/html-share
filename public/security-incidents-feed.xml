@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Sun, 18 Oct 2026 06:04:48 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 25 Oct 2026 02:06:01 GMT</lastBuildDate>
+    <item>
+      <title>タイムズカー10月23日第5報を反映</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#31aa37097cec2e4258ae039b503b7a588a858e90ddb21512451bc410c30d63da</guid>
+      <description>タイムズカー10月23日第5報を反映。脆弱性悪用・調査終了、暗号化画像の送信痕跡1,464,800件とアクセス確認・外部送信痕跡未確認891,602件、タイムズクラブ影響と連携ID訂正、画像保有見直し・見舞金方針を区別。削除と支払は完了扱いしない。</description>
+      <pubDate>Sun, 25 Oct 2026 02:06:01 GMT</pubDate>
+      <dcterms:created>2026-10-25T02:06:01.000Z</dcterms:created>
+    </item>
     <item>
       <title>ConnectWiseの10月18日続報を反映</title>
       <link>https://share.0g0.xyz/security-incidents</link>
