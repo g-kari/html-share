@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Wed, 28 Oct 2026 09:32:08 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 28 Oct 2026 16:12:54 GMT</lastBuildDate>
+    <item>
+      <title>Rivet Actors詳解 | 状態を持つAIアプリの実行基盤</title>
+      <link>https://share.0g0.xyz/rivet-actors-guide</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/rivet-actors-guide</guid>
+      <description>Rivet Actorsの仕組み、Cloudflare Durable Objectsとの違い、導入例、費用、制限を公式資料で整理。バージョン差と性能数字の条件も確認。</description>
+      <pubDate>Wed, 28 Oct 2026 16:12:54 GMT</pubDate>
+      <dcterms:created>2026-10-28T16:12:54.000Z</dcterms:created>
+      <dcterms:modified>2026-10-28T16:12:54.000Z</dcterms:modified>
+    </item>
     <item>
       <title>Brotliの脆弱性、何を確認すればいい？ 図でわかる仕組みと対処</title>
       <link>https://share.0g0.xyz/brotli-security-explained</link>
