@@ -56,6 +56,11 @@
       "published": "2026-10-28T07:27:07.000Z",
       "updated": "2026-10-28T07:27:07.000Z"
     },
+    "cve-2026-98432.html": {
+      "fingerprint": "439a6a34ec0dc6fe779620cb988cba95316a9a0f1e70316bbffc9ad7ac7e35a2",
+      "published": "2026-10-29T14:53:02.000Z",
+      "updated": "2026-10-29T14:53:02.000Z"
+    },
     "dsh-ollama-cloud.html": {
       "fingerprint": "3983f85f4dcd9c0003b95314b5cf3f61cb575448be472d6acd3c4db40f4351ae",
       "published": "2026-10-06T06:15:49.000Z",
