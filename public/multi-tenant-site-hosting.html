@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="複数企業が静的・動的な特設サイトをセルフサービス公開するAWS基盤。CloudFront、S3、Lambda、API Gateway、CloudFront SaaS Managerの設計と同一オリジン問題、運用・費用・セキュリティを図解。">
+  <meta name="theme-color" content="#0b1730">
+  <title>企業向け特設サイト公開基盤の設計｜CloudFront・S3・Lambdaの使い分け</title>
+  <style>
+    :root{color-scheme:light;--bg:#f5f7fc;--ink:#122340;--mute:#516078;--line:#dbe3ef;--navy:#0c1a33;--blue:#2467cf;--aqua:#0e887b;--aqua-bg:#e5f7f2;--amber:#8b5b12;--amber-bg:#fff4dc;--red:#a63748;--red-bg:#fff0f2;--paper:#fff}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:30px}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.82 system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif}a{color:#1359ae;text-underline-offset:.23em}a:hover{text-decoration-thickness:2px}a:focus-visible,summary:focus-visible{outline:3px solid #447dd2;outline-offset:4px}h1,h2,h3,p,figure{margin-top:0}h1{font-size:clamp(2.1rem,4.8vw,3.65rem);line-height:1.3;letter-spacing:-.045em;margin:20px 0}h2{font-size:clamp(1.5rem,2.6vw,2rem);line-height:1.45;letter-spacing:-.025em;margin-bottom:16px}h3{font-size:1.1rem;line-height:1.55;margin-bottom:9px}p{margin-bottom:15px}small{font-size:.82rem}code{padding:.13em .33em;border-radius:4px;background:#edf1f8;font-size:.9em;overflow-wrap:anywhere}pre{background:#101f39;color:#e4f4ff;border-radius:12px;padding:19px 22px;overflow:auto;font-size:.87rem;line-height:1.7}pre code{background:transparent;color:inherit;padding:0}ul,ol{padding-left:1.45em}li+li{margin-top:7px}.wrap{max-width:1190px;margin:auto;padding:0 30px 80px}.eyebrow{font-size:.76rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:#98f0e1}.hero{background:radial-gradient(ellipse at 83% 0,rgba(41,177,179,.35),transparent 42%),linear-gradient(120deg,#101c37,#18315d 75%);color:#fff;padding:50px 0 55px}.hero .wrap{padding-bottom:0}.hero h1{max-width:950px}.lede{font-size:clamp(1.06rem,2vw,1.23rem);max-width:850px;color:#e5edf9}.stamps{display:flex;flex-wrap:wrap;gap:9px;margin:24px 0 0}.pill{display:inline-flex;align-items:center;gap:7px;border:1px solid rgba(255,255,255,.3);border-radius:999px;font-weight:650;font-size:.8rem;padding:4px 12px;background:rgba(255,255,255,.09)}.hero-brief{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:32px}.brief{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.19);padding:18px 20px;border-radius:12px}.brief span{display:block;color:#bfe2fa;font-size:.78rem}.brief strong{display:block;margin-top:4px;font-size:1.03rem;line-height:1.5}.nav{display:flex;flex-wrap:wrap;gap:8px 15px;padding:22px 0;margin-bottom:8px;border-bottom:1px solid var(--line)}.nav a{display:inline-block;font-weight:650;font-size:.83rem;text-decoration:none}.nav a:hover{text-decoration:underline}.section{background:var(--paper);border:1px solid var(--line);border-radius:17px;padding:34px 39px;margin-top:22px;box-shadow:0 8px 26px rgba(19,44,83,.035)}.section>p{max-width:900px}.section-title{display:flex;align-items:center;gap:10px}.section-title:before{content:"";width:6px;height:28px;flex:none;background:linear-gradient(var(--aqua),var(--blue));border-radius:4px}.lead{font-size:1.12rem}.verdict{display:grid;grid-template-columns:1.2fr 1fr;gap:18px;margin-top:18px}.good{background:var(--aqua-bg);border:1px solid #98cec4;border-radius:12px;padding:19px 21px}.caution{background:var(--red-bg);border:1px solid #e9b0bc;border-radius:12px;padding:19px 21px}.good h3{color:#075d53}.caution h3{color:#8d2b3c}.good p,.caution p{margin:0;font-size:.94rem}.chips{display:flex;gap:8px;flex-wrap:wrap;margin:17px 0}.chip{font-size:.8rem;font-weight:750;border-radius:999px;padding:4px 11px;background:#e7edf9;color:#174a86}.chip.safe{background:#daf4eb;color:#116a5d}.chip.risk{background:#ffedef;color:#9a3544}.architecture{background:#f6f9fe;border:1px solid var(--line);padding:22px;border-radius:14px;margin:22px 0 12px}.arch-top{display:grid;grid-template-columns:1fr 1fr;gap:14px}.arch-box{background:#fff;border:1.5px solid #b9cee4;border-radius:11px;padding:16px 17px;text-align:center}.arch-box strong{display:block;font-size:1.03rem}.arch-box span{display:block;font-size:.78rem;color:var(--mute);margin-top:3px}.arch-box.control{border-color:#72afaa;background:#effbf8}.arch-box.edge{border-color:#7ea3d6;background:#eef5ff}.arch-arrow{text-align:center;color:#5376a6;font-size:1.45rem;line-height:1.3;margin:8px 0}.arch-lanes{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}.lane{border-radius:12px;border:1px solid var(--line);background:#fff;padding:15px;text-align:center}.lane b{display:block;font-size:.96rem}.lane small{display:block;color:var(--mute);line-height:1.5;margin-top:5px}.flow-caption{color:var(--mute);font-size:.82rem;margin:12px 0 0}.split{display:grid;grid-template-columns:1fr 1fr;gap:18px}.path-card{border-radius:13px;border:2px solid #efc4cc;background:#fff9fa;padding:22px}.sub-card{border-radius:13px;border:2px solid #a3d8cb;background:#f8fefc;padding:22px}.path-card h3{color:#923a49}.sub-card h3{color:#087b6b}.address{font:700 .94rem/1.8 ui-monospace,SFMono-Regular,Consolas,monospace;overflow-wrap:anywhere}.reason{font-size:.88rem;color:var(--mute);margin-bottom:0}.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:10px;margin:19px 0}table{border-collapse:collapse;width:100%;font-size:.89rem;min-width:700px}th,td{text-align:left;padding:13px 15px;border-bottom:1px solid var(--line);vertical-align:top}thead{background:#182b4c;color:white}tbody tr:nth-child(even){background:#f7f9fd}tbody tr:last-child td{border-bottom:none}.num{font-variant-numeric:tabular-nums}.mini{font-size:.83rem;color:var(--mute)}.note{padding:15px 18px;border-radius:10px;border-left:5px solid #d99a3a;background:var(--amber-bg);color:#654315;font-size:.91rem;margin:18px 0}.note.red{background:var(--red-bg);border-left-color:var(--red);color:#77303d}.steps{counter-reset:step;list-style:none;margin:20px 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.steps li{counter-increment:step;position:relative;padding:17px 17px 17px 59px;margin:0;border:1px solid var(--line);border-radius:12px;background:#fafcff}.steps li:before{content:counter(step);position:absolute;left:16px;top:16px;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#dfeaf9;color:#1b548e;font-weight:800}.steps strong{display:block;font-size:.92rem}.steps span{display:block;font-size:.84rem;color:var(--mute);margin-top:3px}.twin{display:grid;grid-template-columns:1fr 1fr;gap:14px}.panel{border:1px solid var(--line);border-radius:12px;padding:18px 21px}.panel p:last-child{margin-bottom:0}.panel ul{font-size:.87rem;margin-bottom:0}.panel.goodpanel{border-color:#8ccebd;background:#f2fbf8}.panel.warnpanel{border-color:#efb5be;background:#fff7f8}details{border:1px solid var(--line);border-radius:11px;margin:11px 0;background:#fff;overflow:hidden}summary{padding:14px 18px;font-weight:750;cursor:pointer;min-height:54px}details[open] summary{background:#eef4fc}details .inner{padding:15px 20px;border-top:1px solid var(--line);font-size:.91rem}.inner p:last-child{margin-bottom:0}.sources{font-size:.84rem}.sources li{margin-bottom:8px;overflow-wrap:anywhere}.source-tag{font-weight:700;font-size:.73rem;color:var(--mute);vertical-align:super}.footer{margin:26px 0 0;padding:22px 4px;border-top:1px solid var(--line);color:var(--mute);font-size:.81rem}.mono{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}.check-list{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.check-list li{margin:0;padding:12px 16px 12px 37px;border-radius:10px;background:#f5f8fd;position:relative;font-size:.9rem}.check-list li:before{content:"✓";position:absolute;left:15px;color:#078573;font-weight:900}.choice-tag{display:inline-block;border-radius:6px;padding:2px 8px;background:#e5f7f2;color:#08786a;font-size:.75rem;font-weight:800}.choice-tag.no{background:#ffeff2;color:#9b3949}.muted{color:var(--mute)}
+    @media(max-width:850px){.wrap{padding-left:18px;padding-right:18px}.section{padding:26px 23px}.hero-brief,.arch-lanes{grid-template-columns:1fr 1fr}.arch-lanes .lane:last-child{grid-column:1/-1}.verdict,.split,.twin{grid-template-columns:1fr}.steps{grid-template-columns:1fr}}
+    @media(max-width:570px){body{font-size:16px}.wrap{padding-left:13px;padding-right:13px}.hero{padding:31px 0 38px}.hero h1{font-size:2rem}.hero-brief,.arch-top,.arch-lanes,.check-list{grid-template-columns:1fr}.arch-lanes .lane:last-child{grid-column:auto}.section{padding:23px 18px;border-radius:12px}.architecture{padding:14px}.nav{gap:8px 13px}.nav a{font-size:.78rem}.brief{padding:13px 15px}.steps li{padding-left:55px}table{font-size:.84rem}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}@media print{body{background:#fff;color:#000;font-size:11pt}.hero{background:#fff;color:#000;padding:10px 0}.hero .lede,.eyebrow,.brief span{color:#333}.hero-brief{display:none}.nav{display:none}.section{box-shadow:none;border:0;border-top:1px solid #aaa;break-inside:avoid;padding:24px 0}.wrap{max-width:none;padding:0 18px}.architecture{break-inside:avoid}details:not([open]) .inner{display:block}.footer{border-color:#999}a{color:#111}}
+  </style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Architecture / AWS / Multi-tenant publishing</div>
+    <h1>企業が自分の特設サイトを公開できる基盤を、どう設計する？</h1>
+    <p class="lede">CloudFront + S3 はよい出発点。ただし「自分が複数サイトを置く」と「複数企業が任意のHTML・JavaScript・サーバーコードを持ち込む」は、セキュリティ要件がまったく違う。</p>
+    <div class="stamps"><span class="pill">2026年10月30日時点の調査</span><span class="pill">AWS公式資料 + ブラウザー仕様</span><span class="pill">設計案・未構築</span></div>
+    <div class="hero-brief">
+      <div class="brief"><span>共通入口</span><strong>CloudFront を基盤に</strong></div>
+      <div class="brief"><span>静的コンテンツ</span><strong>S3 のテナント別領域</strong></div>
+      <div class="brief"><span>動的処理</span><strong>Lambda / API / 分離実行環境</strong></div>
+    </div>
+  </div>
+</header>
+<main class="wrap">
+  <nav class="nav" aria-label="目次">
+    <a href="#conclusion">結論</a><a href="#architecture">全体像</a><a href="#domains">パス vs サブドメイン</a><a href="#choices">構成比較</a><a href="#dynamic">動的サイト</a><a href="#operations">公開フロー</a><a href="#security">安全対策</a><a href="#roadmap">段階的構築</a><a href="#sources">出典</a>
+  </nav>
+
+  <section class="section" id="conclusion">
+    <h2 class="section-title">結論：実現可能。ただし「パスだけで企業を分離」は避けたい</h2>
+    <p class="lead"><strong>企業自身が好きなサイトをアップロードするサービス</strong>を目指すなら、共通の管理画面と配信基盤を持ちつつ、公開サイトのブラウザーオリジンと、動的コードの実行権限を企業ごとに分ける設計を推奨する。</p>
+    <div class="verdict">
+      <div class="good"><h3>推奨：企業別サブドメイン</h3><p><code>company-a.sites.example.com</code>、<code>company-b.sites.example.com</code>。CloudFront/S3の共通運用は維持し、企業ごとに独立した公開オリジンを持たせる。</p></div>
+      <div class="caution"><h3>注意：同じホストのパス分割</h3><p><code>example.com/a/</code>、<code>example.com/b/</code>はブラウザー上で同一オリジン。企業が任意のJSを配置できるなら、localStorageや同一オリジンAPIの安全な分離にならない。<a href="#sources" class="source-tag">[1][2]</a></p></div>
+    </div>
+    <div class="chips"><span class="chip safe">共通ドメインの「配下」はサブドメインで実現</span><span class="chip risk">パス分割だけでは企業間のセキュリティ境界にならない</span></div>
+    <p class="mini">※ 公開先ドメインは例示。特定のAWSアカウントや既存環境への適用・料金試算・構築はまだ行っていない。</p>
+  </section>
+
+  <section class="section" id="architecture">
+    <h2 class="section-title">全体構成：管理系と配信系を分離する</h2>
+    <p>企業が操作する<strong>コントロールプレーン</strong>と、訪問者にコンテンツを届ける<strong>データプレーン</strong>を分けると、静的サイトから動的サイトへ機能を増やしやすい。</p>
+    <figure class="architecture" aria-label="企業向けWebサイト公開基盤のアーキテクチャ">
+      <div class="arch-top">
+        <div class="arch-box control"><strong>管理ポータル</strong><span>企業ログイン / サイト作成 / ドメイン設定 / デプロイ履歴</span></div>
+        <div class="arch-box control"><strong>公開パイプライン</strong><span>アップロード → ビルド・検査 → プレビュー → 承認・切替</span></div>
+      </div>
+      <div class="arch-arrow" aria-hidden="true">↓　構成・成果物の登録　↓</div>
+      <div class="arch-box edge"><strong>CloudFront（公開サイトの入口）</strong><span>ドメイン・TLS / WAF / キャッシュ / オリジン振り分け</span></div>
+      <div class="arch-arrow" aria-hidden="true">↓　コンテンツに応じて振り分け　↓</div>
+      <div class="arch-lanes">
+        <div class="lane"><b>静的サイト</b><small>S3 / tenants/{企業ID}/{サイトID}/…</small><small>HTML・CSS・JS・画像</small></div>
+        <div class="lane"><b>動的API</b><small>API Gateway → Lambda</small><small>応募・投票・フォーム・データ更新</small></div>
+        <div class="lane"><b>SSR・独自アプリ</b><small>Lambda Web Functions / ECS等</small><small>企業ごとに実行権限・資源を分離</small></div>
+      </div>
+      <figcaption class="flow-caption">概念図。実際の企業ドメインとオリジンの対応付けは、CloudFront SaaS Manager、標準ディストリビューション、ルーティング層のいずれかを要件で選択する。SaaS Manager自体がアップロードやコード実行を提供するわけではない。<a href="#sources">[3][4]</a></figcaption>
+    </figure>
+    <p>例：<code>a.sites.example.com/</code> で静的LPを表示し、同じホストの <code>/api/entry</code> だけバックエンドに送る。フルSSRが必要なサイトは、該当サイトのWebアプリへ振り分ける。</p>
+  </section>
+
+  <section class="section" id="domains">
+    <h2 class="section-title">最初に決めたいこと：1ホストか、1つの親ドメインか</h2>
+    <div class="split">
+      <div class="path-card">
+        <h3>案A：1ホストにパスを並べる</h3>
+        <div class="address">example.com/company-a/<br>example.com/company-b/</div>
+        <div class="chips"><span class="choice-tag no">任意JSを持ち込む外部企業には非推奨</span></div>
+        <p class="reason">初期費用やCDN設定は小さくできるが、両サイトはブラウザー上で同じオリジン。パスやCookieのPathだけを企業境界と考えてはいけない。</p>
+      </div>
+      <div class="sub-card">
+        <h3>案B：1つの親ドメインにサブドメインを作る</h3>
+        <div class="address">company-a.sites.example.com<br>company-b.sites.example.com</div>
+        <div class="chips"><span class="choice-tag">複数企業の自由なサイト公開に推奨</span></div>
+        <p class="reason">会社ごとに異なるオリジンを持てる。ワイルドカードDNS/TLSやCloudFront SaaS Managerを使って共通設定を運用できる。サーバー側の認可・Cookie設計は別途必要。</p>
+      </div>
+    </div>
+    <div class="note red"><strong>ここが最重要：</strong> <code>/company-a</code> のJSは、同じオリジンの <code>/company-b</code> とlocalStorageを共有する。独立企業の任意HTML/JSを同一ホストに載せると、別企業のブラウザー側状態や同一オリジンAPIへのアクセスを前提とした攻撃が成立しやすくなる。サブドメイン化した場合も、ワイルドカードCookie・認証・CORS・CSRFを適切に制御する。<a href="#sources">[1][2][5]</a></div>
+    <p class="mini">厳密に <code>example.com/企業名/</code> を要求するなら、運営側が検証済みテンプレートだけを配信する、または独立したオリジンのsandbox iframeで表示するなど、掲載できるコードと権限に制約を設ける必要がある。</p>
+  </section>
+
+  <section class="section" id="choices">
+    <h2 class="section-title">候補を費用対効果・運用面で比較</h2>
+    <div class="scroll" role="region" tabindex="0" aria-label="構成比較表">
+      <table>
+        <thead><tr><th>構成</th><th>初期・運用コスト</th><th>企業の自由度</th><th>評価</th></tr></thead>
+        <tbody>
+          <tr><td><strong>CloudFront → S3 1バケット（プレフィックス分割）</strong></td><td>低い / 設定が少ない</td><td>信頼できる静的サイト向け</td><td>自社運営の特設サイト群なら最適。複数企業の任意JS公開には単独では不十分。</td></tr>
+          <tr><td><strong>CloudFront → S3 複数バケット</strong></td><td>低〜中 / 管理対象増</td><td>バケット単位の権限や保持設定を分離</td><td>企業別にポリシー・課金区分が異なる場合に選択。</td></tr>
+          <tr><td><strong>CloudFront → Amplify → S3</strong></td><td>中 / 配信層・デプロイ層が重複しやすい</td><td>Git連携やフレームワーク運用に便利</td><td>主配信がCloudFrontなら一律にAmplifyを挟む必要はない。</td></tr>
+          <tr><td><strong>企業別ドメイン + CloudFront 共通設定 + S3/API/実行環境</strong></td><td>中 / 自動化の設計が必要</td><td>静的・API・SSRを段階的に提供</td><td><strong>複数企業向けサービスの本命。</strong>オリジン・実行環境・認可も分離する。</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="mini">上記のコストは相対評価。正確な月額は転送量、リクエスト数、保存量、ビルド回数、動的実行時間、企業数、WAFなどで変化する。CloudFrontの従量制と定額制で使える機能も異なるため、プランを前提に別途試算が必要。<a href="https://aws.amazon.com/cloudfront/pricing/" target="_blank" rel="noopener noreferrer">CloudFront料金</a> / <a href="https://aws.amazon.com/amplify/pricing/" target="_blank" rel="noopener noreferrer">Amplify料金</a></p>
+  </section>
+
+  <section class="section" id="dynamic">
+    <h2 class="section-title">動的サイトは「何を動かすか」で提供方法を分ける</h2>
+    <div class="scroll" role="region" tabindex="0" aria-label="動的機能の方式比較">
+      <table>
+        <thead><tr><th>用途</th><th>候補</th><th>提供時の注意</th></tr></thead>
+        <tbody>
+          <tr><td>URL変換・リダイレクト</td><td>CloudFront Functions</td><td>高速・小規模。外部ネットワークアクセスやリクエスト本文の参照には使えない。<a href="#sources">[6]</a></td></tr>
+          <tr><td>応募・投票・Webhook・データ操作</td><td>API Gateway HTTP API + Lambda</td><td>認証・入力検証・レート制御・DBの企業境界を実装。企業を呼び出しURLだけで判定しない。</td></tr>
+          <tr><td>軽いAPIを低構成で</td><td>Lambda Function URL</td><td>エンドポイント料金は追加されないが機能は限定的。OAC経由のPOSTは本文ハッシュ要件に注意。<a href="#sources">[7]</a></td></tr>
+          <tr><td>Node.jsのSSR・Webアプリ</td><td>Lambda Web Functions</td><td>SSR・APIルート・ストリーミングに対応。実行コードと権限のテナント分離が必要。<a href="#sources">[8]</a></td></tr>
+          <tr><td>独自サーバー・重いワーカー</td><td>ECS Fargate等</td><td>企業別のコンテナ・ロール・資源制限・ログ・課金を設計。運用負荷は増える。</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note"><strong>CloudFrontのパス振り分けだけでは完成しない：</strong> <code>/api/*</code> は動的オリジンへ、静的ファイルはS3へ。API側は <code>CachingDisabled</code>、必要なHTTPメソッドとCookie・ヘッダー・クエリの転送を適切に設定する。CloudFrontのBehaviorはプレフィックスを自動削除せず、URIだけ書き換えてもBehaviorを再評価しない。<a href="#sources">[9]</a></div>
+    <details>
+      <summary>もっと詳しく：企業が任意のNode.jsコードをアップロードする場合</summary>
+      <div class="inner"><p>「HTMLを保管して配信」と「第三者のサーバーコードを実行」は別サービスとして考える。アップロードされたコードを、運営ポータルと同じLambdaや、秘密情報にアクセスできる共有プロセスでそのまま実行しない。ビルドも隔離し、公開時は企業別の実行ロール・CPU/メモリ・同時実行・ネットワーク・ログ・シークレット・データアクセスを制御する。</p>
+      <p>AWS Lambdaにはテナント別の実行環境を作る「Tenant isolation mode」がある。ただしこれは実行環境の分離を助ける機能で、企業単位のデータ認可やアプリの脆弱性対策を自動で保証するものではない。実際の対応ランタイム・リージョン・制限・料金を確認して採用する。<a href="#sources">[10]</a></p></div>
+    </details>
+  </section>
+
+  <section class="section" id="operations">
+    <h2 class="section-title">企業自身が「アップロード→公開」できる運用の流れ</h2>
+    <ol class="steps">
+      <li><strong>企業を登録・認証する</strong><span>組織ID・役割・サイト所有者・公開権限を確定。権限はサーバーで検証。</span></li>
+      <li><strong>サイト種別を選択する</strong><span>静的ZIP、管理済みテンプレート、API付き、SSR/独自コードの提供範囲を分ける。</span></li>
+      <li><strong>アップロードを隔離する</strong><span>一時領域へ保存し、拡張子・サイズ・展開パス・ファイル数・依存関係を検証。</span></li>
+      <li><strong>ビルドとレビューを実施</strong><span>隔離ビルド、悪性コード・依存脆弱性チェック、プレビュー、必要な承認。</span></li>
+      <li><strong>企業別の公開先へ切替</strong><span>S3成果物または動的実行先を、サイトIDに対応する公開URLへ紐付ける。</span></li>
+      <li><strong>監視・ロールバック</strong><span>公開世代を保存し、404/5xx・コスト・使用量・WAF・ログをテナント単位で確認。</span></li>
+    </ol>
+    <div class="twin">
+      <div class="panel goodpanel"><h3>静的サイトの配置例</h3><pre><code>s3://tenant-sites/
+  tenants/
+    company-a/
+      launch/
+        index.html
+        assets/...
+    company-b/
+      event/
+        index.html
+        assets/...</code></pre><p class="mini">1バケットでもプレフィックス単位のIAM権限は設定できる。企業によってバージョニングやデータ保管方針が違う場合は、バケット分割を検討。<a href="#sources">[11]</a></p></div>
+      <div class="panel"><h3>サイト別公開URLの例</h3><pre><code>console.example.com
+  → 企業用の管理画面
+
+company-a.sites.example.com
+  → 静的LP + /api/ で動的処理
+
+company-b.sites.example.com
+  → SSRアプリ
+
+custom-domain.example
+  → 所有権を確認した企業独自ドメイン</code></pre><p class="mini">CloudFront SaaS Managerは企業ごとのドメイン、証明書、共通配信設定の管理に向く。サイトの生成・認可・実行環境は別途必要。<a href="#sources">[3]</a></p></div>
+    </div>
+  </section>
+
+  <section class="section" id="security">
+    <h2 class="section-title">公開サービスにするなら外せない安全条件</h2>
+    <ul class="check-list">
+      <li>公開サイトは企業ごとに別オリジン（推奨：サブドメイン）</li>
+      <li>管理画面は配信サイトと別オリジンにする</li>
+      <li>アップロード権限を会社・サイトの範囲へ限定する</li>
+      <li>直接AWSの恒久的な認証情報を利用者に配布しない</li>
+      <li>任意コードのビルド・実行は隔離する</li>
+      <li>API/DBは認証済みの企業IDで必ず認可する</li>
+      <li>企業間でCookie・秘密情報・実行ロールを共有しない</li>
+      <li>容量・リクエスト・実行時間・予算に上限を設ける</li>
+      <li>公開ドメインの所有権を検証する</li>
+      <li>WAF、監査ログ、通報・公開停止、ロールバックを用意する</li>
+    </ul>
+    <details><summary>もっと詳しく：S3のOAC・キャッシュ・認可</summary><div class="inner"><p>S3オリジンは通常のS3エンドポイントとCloudFront OACを利用し、S3公開アクセスを遮断する。公開コンテンツの読み取り権限と、企業のアップロード権限は分ける。署名付きアップロードURLや短命の限定権限を使い、アップロード先のキーが会社の領域から逸脱しないようサーバーで固定する。</p><p>動的・個人化された応答は安易にキャッシュせず、認証情報やCookieの転送・キャッシュキーを確認する。企業IDをクエリ文字列や任意ヘッダーだけから信用しない。<a href="#sources">[9][12]</a></p></div></details>
+    <details><summary>もっと詳しく：同一親ドメインでも認証は別途設計</summary><div class="inner"><p><code>a.sites.example.com</code> と <code>b.sites.example.com</code> は別オリジンだが、ブラウザーCookieのDomainやSameSiteの設定次第で企業間の影響が生じる。ホスト限定Cookie、適切なCSRF対策、CORS制限、CSP、認証サーバーの分離が必要。アプリのSSOと企業サイトの任意JavaScriptを同じ信頼領域に置かない。</p></div></details>
+  </section>
+
+  <section class="section" id="roadmap">
+    <h2 class="section-title">最小構成から育てるなら、この順番</h2>
+    <div class="twin">
+      <div class="panel goodpanel"><h3>Phase 1｜運営が公開する特設サイト</h3><p><strong>CloudFront × 1 + S3 × 1 + URL補正用CFFn</strong>。プレフィックスごとに静的ファイルを置く。内部運営で権限が共通なら、今までの案で十分。</p><span class="choice-tag">低コストで先行可能</span></div>
+      <div class="panel"><h3>Phase 2｜企業セルフサービス</h3><p>企業アカウント、アップロード・検証、プレビュー、企業別サブドメイン、サイト管理・ロールバックを追加。ここで「ホスト名と企業ID」の結び付けを確実にする。</p></div>
+      <div class="panel"><h3>Phase 3｜動的API・管理済みSSR</h3><p>共通API入口を増設し、認可済みテンプレートや管理された実行環境から動的処理を提供する。全企業に任意のサーバーコードを許可する必要はない。</p></div>
+      <div class="panel warnpanel"><h3>Phase 4｜企業独自のコード実行</h3><p>ビルド・実行サンドボックス、企業別ロール、資源制限、課金、悪用対応まで設計。これは単なる「S3ホスティング」ではなく、PaaS/ホスティングサービスの構築になる。</p></div>
+    </div>
+    <div class="note"><strong>最終判断：</strong> 会社が違っても運営側が制作・審査する特設サイトなら「1 S3 + 1 CloudFront」が運用最小。会社が任意のHTML/JS/SSRを自己公開するなら「共通管理 + 企業別サブドメイン + 静的/動的の分離実行」を最初から前提にする。</div>
+  </section>
+
+  <section class="section sources" id="sources">
+    <h2 class="section-title">出典（一次資料・公式ドキュメント）</h2>
+    <p class="muted">仕様・価格は変更され得る。以下は2026年10月30日時点に参照した資料。サービスへの実装・セキュリティ検証・見積もりは未実施。</p>
+    <ol>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Same-origin_policy" target="_blank" rel="noopener noreferrer">MDN — Same-origin policy</a>：オリジンはスキーム・ホスト・ポートで判定され、パス差異は分離にならない。</li>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API" target="_blank" rel="noopener noreferrer">MDN — Web Storage API</a>：localStorageは同一オリジンの文書間で共有される。</li>
+      <li><a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html" target="_blank" rel="noopener noreferrer">AWS — CloudFront multi-tenant distributions</a>：共通の配信設定・企業別ドメインの仕組み。</li>
+      <li><a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesCacheBehavior.html" target="_blank" rel="noopener noreferrer">AWS — CloudFront Cache Behavior</a>：パス別オリジンとキャッシュ設定。</li>
+      <li><a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/alternate-domain-names-wildcard.html" target="_blank" rel="noopener noreferrer">AWS — Wildcard alternate domain names</a>：サブドメインと証明書の範囲。</li>
+      <li><a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-function-restrictions.html" target="_blank" rel="noopener noreferrer">AWS — CloudFront Functions restrictions</a>：ネットワーク・リクエスト本文などの制約。</li>
+      <li><a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-lambda.html" target="_blank" rel="noopener noreferrer">AWS — OAC for Lambda function URLs</a>：IAM・POSTハッシュ要件。</li>
+      <li><a href="https://docs.aws.amazon.com/lambda/latest/dg/web-functions.html" target="_blank" rel="noopener noreferrer">AWS — Lambda Web Functions</a>：Node.js Webアプリ・SSR。</li>
+      <li><a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/functions-event-structure.html" target="_blank" rel="noopener noreferrer">AWS — CloudFront Functions event structure</a>：URI変更時のBehavior不変。</li>
+      <li><a href="https://docs.aws.amazon.com/lambda/latest/dg/tenant-isolation.html" target="_blank" rel="noopener noreferrer">AWS — Lambda Tenant isolation</a>：企業別実行環境の隔離機能。</li>
+      <li><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/common-bucket-patterns.html" target="_blank" rel="noopener noreferrer">AWS — S3 bucket-per-use / multi-tenant patterns</a>：プレフィックス共有とバケット分割の判断。</li>
+      <li><a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html" target="_blank" rel="noopener noreferrer">AWS — CloudFront OAC for S3</a>：非公開S3オリジンの設定。</li>
+    </ol>
+  </section>
+  <footer class="footer">CloudFront・S3・Lambdaを用いた複数企業向けサイト公開基盤の設計メモ。事実は出典へ、推奨構成・段階分け・相対的な運用評価は本記事の設計判断。</footer>
+</main>
+</body>
+</html>
