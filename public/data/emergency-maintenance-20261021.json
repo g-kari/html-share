@@ -1,6 +1,6 @@
 {
   "title": "2026年10月21日前後 緊急メンテナンス・関連告知一覧",
-  "checkedAt": "2026-10-24T23:30:00Z",
+  "checkedAt": "2026-10-29T23:58:00Z",
   "scope": "PHPの因果不問。今回の緊急/予防メンテと同時期の関連告知・別インシデントを区分。件数による上限なし。",
   "counting": "confirmedは公式資料を確認した対象別の告知カード数（部分本文・同一基盤・包括/個別の重なりを含む）。固有サイト数・実停止数・独立インシデント数・被害数ではない。pendingは原典/公式所有/対象範囲等の追加照合待ち。関連・重複・除外理由も全収集行に保持し、件数で打ち切らない。 実施自体が未定の停止可能性の予告も別状態（possible_unstarted）で保持し、実停止・復旧には数えません。",
   "confirmed": [
@@ -14052,26 +14052,66 @@
       "icon": null,
       "iconSource": "公式favicon画像を今回取得していないため文字fallback。既存カードの公式画像は変更せず、第三者favicon集約サービスは使いません。",
       "cat": "web",
-      "tag": "警報配信の停止・完了予定",
-      "status": "対象3ブランドへの緊急速報メール配信を停止と案内",
-      "start": "2026/10/23 06:47から（原文表示、TZ未記載）",
-      "end": "10/26にメンテナンス完了予定。日付だけの予定で、実復旧・確約時刻ではありません。",
-      "scope": "SoftBank・ワイモバイル・LINEMOの利用者宛て緊急速報メール。緊急地震速報、津波警報、災害・避難情報が対象です。通常メール・通話・全通信が停止したという本文ではなく、それらへ影響を拡大しません。",
-      "safe": "運営の10/23付公式告知はPHP脆弱性対応の緊急保守で対象3ブランドへの緊急速報メール配信を停止と明示し、同日06:47開始・10/26完了予定を案内。終了予定の経過だけで復旧とせず、PHP原因もこの原文の明記に限定します。公式は代替の受信手段としてYahoo!防災速報アプリなどのサービスを案内していますが、本確認ではアプリ導入・通知設定・契約変更や本人の携帯会社の確認は行っていません。本人が対象キャリアを使っていると推定せず、実際の警報送信/受信試験、発災状況や全通信の安全性も検証していません。My SoftBankやあんしんフィルターなど別サービスの告知と混同しません。",
+      "tag": "対象の全種配信を再開と報告",
+      "status": "緊急速報メールの対象全種再開を公式確認",
+      "start": "10/23 午前6:47（運営記載、原文TZ未確認）",
+      "end": "10/26 午後11:17に災害・避難情報の配信を再開（午後11:45更新本文、原文TZ未確認）",
+      "scope": "SoftBank / Y!mobile / LINEMOの緊急速報メール全種。通常通話・メールや全通信の復旧を意味しません。",
+      "safe": "PHP対応保守が完了し、先に10/25午前9:25に再開した地震・津波に加え、国/地方公共団体の災害・避難情報も10/26午後11:17に再開と運営明記。旧予定・全種停止・部分再開と当時のYahoo!防災速報代替案内を履歴に保持し、現在も停止中とはしません。端末実配信/受信の独立検証は未実施。",
       "reason": "PHP脆弱性への対応のための緊急メンテナンス（公式タイトル/本文にPHP明記）",
       "reasonKey": "php",
-      "date": "2026/10/23掲載。掲載時計・TZ・実復旧時計は未記載。",
-      "checkedAt": "2026-10-23T20:11:00Z",
+      "date": "10/26 午後11:45更新（原文TZ未確認）",
+      "checkedAt": "2026-10-26T23:57:00Z",
       "source": "通常公開の公式企業・IRドメインのcanonical告知本文を直接取得。公式トップ/一覧への同題参照は検索索引で照合した範囲で、静的一覧の可視リンクは今回未抽出。警報の送受信や本人回線の動作確認ではありません。",
       "sourceRead": "body_retrieved",
       "noticeState": "announced",
-      "restored": false,
-      "restorationNote": "10/26は完了予定。緊急速報メール配信の実再開確認ではありません。",
+      "restored": true,
+      "restorationNote": "緊急速報メール全種の運営再開報告。全通信や実端末受信の検証ではありません。",
       "ownershipEvidence": [
         {
           "url": "https://www.softbank.jp/corp/news/info/2026/20261023_01/",
           "detail": "SoftBank公式企業・IRドメインのexact告知本文を直接取得。トップ/一覧の同題10/23参照は公式検索索引での照合に限り、静的一覧の可視リンクを直接取得できたとはしません。",
           "readState": "article_body_retrieved_navigation_search_index_only"
+        }
+      ],
+      "history": [
+        {
+          "id": "softbank-emergency-alert-mail",
+          "name": "SoftBank / Y!mobile / LINEMO 緊急速報メール",
+          "url": "https://www.softbank.jp/corp/news/info/2026/20261023_01/",
+          "icon": null,
+          "iconSource": "公式favicon画像を今回取得していないため文字fallback。既存カードの公式画像は変更せず、第三者favicon集約サービスは使いません。",
+          "cat": "web",
+          "tag": "警報配信の停止・完了予定",
+          "status": "対象3ブランドへの緊急速報メール配信を停止と案内",
+          "start": "2026/10/23 06:47から（原文表示、TZ未記載）",
+          "end": "10/26にメンテナンス完了予定。日付だけの予定で、実復旧・確約時刻ではありません。",
+          "scope": "SoftBank・ワイモバイル・LINEMOの利用者宛て緊急速報メール。緊急地震速報、津波警報、災害・避難情報が対象です。通常メール・通話・全通信が停止したという本文ではなく、それらへ影響を拡大しません。",
+          "safe": "運営の10/23付公式告知はPHP脆弱性対応の緊急保守で対象3ブランドへの緊急速報メール配信を停止と明示し、同日06:47開始・10/26完了予定を案内。終了予定の経過だけで復旧とせず、PHP原因もこの原文の明記に限定します。公式は代替の受信手段としてYahoo!防災速報アプリなどのサービスを案内していますが、本確認ではアプリ導入・通知設定・契約変更や本人の携帯会社の確認は行っていません。本人が対象キャリアを使っていると推定せず、実際の警報送信/受信試験、発災状況や全通信の安全性も検証していません。My SoftBankやあんしんフィルターなど別サービスの告知と混同しません。",
+          "reason": "PHP脆弱性への対応のための緊急メンテナンス（公式タイトル/本文にPHP明記）",
+          "reasonKey": "php",
+          "date": "2026/10/23掲載。掲載時計・TZ・実復旧時計は未記載。",
+          "checkedAt": "2026-10-23T20:11:00Z",
+          "source": "通常公開の公式企業・IRドメインのcanonical告知本文を直接取得。公式トップ/一覧への同題参照は検索索引で照合した範囲で、静的一覧の可視リンクは今回未抽出。警報の送受信や本人回線の動作確認ではありません。",
+          "sourceRead": "body_retrieved",
+          "noticeState": "announced",
+          "restored": false,
+          "restorationNote": "10/26は完了予定。緊急速報メール配信の実再開確認ではありません。",
+          "ownershipEvidence": [
+            {
+              "url": "https://www.softbank.jp/corp/news/info/2026/20261023_01/",
+              "detail": "SoftBank公式企業・IRドメインのexact告知本文を直接取得。トップ/一覧の同題10/23参照は公式検索索引での照合に限り、静的一覧の可視リンクを直接取得できたとはしません。",
+              "readState": "article_body_retrieved_navigation_search_index_only"
+            }
+          ]
+        },
+        {
+          "end": "10/25 午前9:25に緊急地震速報・津波警報の配信再開と10:30更新本文が報告（原文TZ未確認）",
+          "scope": "国/地方公共団体の災害・避難情報は停止継続。全体完了は10/26予定の段階。",
+          "safe": "当時の代替としてYahoo!防災速報等を案内。実受信未検証。",
+          "checkedAt": "2026-10-26T01:41:00Z",
+          "restored": false,
+          "url": "https://www.softbank.jp/corp/news/info/2026/20261023_01/"
         }
       ]
     },
@@ -14622,6 +14662,553 @@
         {
           "url": "https://www.kawamura-fc.com/NEWS",
           "detail": "運営自身の公式トップ/NEWS一覧が当該exact個別告知へ直接リンク。",
+          "readState": "body_retrieved"
+        }
+      ]
+    },
+    {
+      "id": "suita-library-three-online-services",
+      "name": "吹田市立図書館：自習室WEB座席予約・電子図書館・JapanKnowledge",
+      "cat": "public",
+      "url": "https://www.lib.suita.osaka.jp/important/2026/20261022112211.html",
+      "reason": "PHP脆弱性対応を公式本文が明記",
+      "reasonKey": "php",
+      "restored": true,
+      "start": "今回取得本文では正確な開始時計未確認",
+      "end": "中央図書館自習室WEB座席予約：10/27 07:00現在、電子図書館：10/26 13:00現在、JapanKnowledge：10/22 18:30現在、復旧を確認との運営報告（原文TZ未確認）",
+      "scope": "指定3機能のみ。物理図書館や全サービスの復旧へ広げません。",
+      "safe": "各時計は復旧の状況確認時点で、正確な実復旧時計ではありません。冒頭には再開不明との一般文も残るため、このカードは個別に復旧と明記された3機能に限定。自習室を学習室と言い換えず、当方の座席予約・電子貸出・実機能検証は未実施です。",
+      "tag": "対象範囲の再開を公式報告",
+      "status": "運営による対象範囲の復旧報告",
+      "date": "2026/10/27付の告知・更新（正確な掲載時計は未確認）",
+      "source": "運営自身の通常公開告知本文を読取。運営報告と当方の実機能検証を区別。",
+      "checkedAt": "2026-10-27T23:49:00Z",
+      "sourceRead": "body_retrieved",
+      "restorationNote": "当該対象の運営報告のみ。ログイン等の独立動作確認ではありません。",
+      "ownershipEvidence": [
+        {
+          "url": "https://www.lib.suita.osaka.jp/important/2026/20261022112211.html",
+          "detail": "当該運営・サービス自身の公開告知本文。対象範囲・日時・PHP記載有無を直接照合。"
+        }
+      ],
+      "icon": ""
+    },
+    {
+      "id": "hanshin-exp-disabled-discount-online-application",
+      "name": "阪神高速道路：有料道路障害者割引オンライン申請",
+      "cat": "public",
+      "url": "https://www.hanshin-exp.co.jp/drivers/news/post_487.html",
+      "reason": "緊急メンテナンス。PHP原因は本文に未記載",
+      "reasonKey": "unknown",
+      "restored": false,
+      "start": "停止開始日時は本文に未記載",
+      "end": "再開日時は本文に未記載",
+      "scope": "障害者割引オンライン申請受付サイトの新規・変更・更新申請。割引制度自体の停止や阪神電気鉄道のWeb停止とは別件です。",
+      "safe": "10/27告知はオンライン申請停止を案内。期限が近い場合は、手帳の住所を管轄する市区町村の福祉担当窓口で申請するよう明記しています。自動期限延長、PHP原因、実停止/終了時計は補完しません。申請・窓口連絡は未実施です。",
+      "tag": "オンライン申請停止",
+      "status": "制限継続／再開範囲を限定",
+      "date": "2026/10/27付の告知・更新（正確な掲載時計は未確認）",
+      "source": "運営自身の通常公開告知本文を読取。運営報告と当方の実機能検証を区別。",
+      "checkedAt": "2026-10-27T23:49:00Z",
+      "sourceRead": "body_retrieved",
+      "restorationNote": "当該対象の運営報告のみ。ログイン等の独立動作確認ではありません。",
+      "ownershipEvidence": [
+        {
+          "url": "https://www.hanshin-exp.co.jp/drivers/news/post_487.html",
+          "detail": "当該運営・サービス自身の公開告知本文。対象範囲・日時・PHP記載有無を直接照合。"
+        }
+      ],
+      "icon": ""
+    },
+    {
+      "id": "hotel-h2-nagasaki-email-recovery",
+      "name": "ホテルエイチツー長崎：メール送受信",
+      "cat": "travel",
+      "url": "https://hotel-h2.jp/diary/?p=4223",
+      "reason": "メールの緊急メンテナンス。PHP関係は本文に未記載",
+      "reasonKey": "unknown",
+      "restored": true,
+      "start": "正確な開始日時は今回未確認",
+      "end": "10/27付告知が正常な送受信・確認への復旧を報告。実復旧時計は未記載",
+      "scope": "ホテルのメール送受信・確認。宿泊施設や宿泊予約全体の停止/復旧とはしません。",
+      "safe": "保守中のメールには順次返信すると案内。返信がない場合や急ぎの場合は再送または電話を案内しています。告知日時から実復旧時計を推測せず、PHP原因も未確認。当方のメール送信・電話・予約操作は未実施です。",
+      "tag": "対象範囲の再開を公式報告",
+      "status": "運営による対象範囲の復旧報告",
+      "date": "2026/10/27付の告知・更新（正確な掲載時計は未確認）",
+      "source": "運営自身の通常公開告知本文を読取。運営報告と当方の実機能検証を区別。",
+      "checkedAt": "2026-10-27T23:49:00Z",
+      "sourceRead": "body_retrieved",
+      "restorationNote": "当該対象の運営報告のみ。ログイン等の独立動作確認ではありません。",
+      "ownershipEvidence": [
+        {
+          "url": "https://hotel-h2.jp/diary/?p=4223",
+          "detail": "当該運営・サービス自身の公開告知本文。対象範囲・日時・PHP記載有無を直接照合。"
+        }
+      ],
+      "icon": ""
+    },
+    {
+      "id": "dsj-fastcarbon-plus-reopening",
+      "name": "ディエスジャパン：ファストカーボン+",
+      "cat": "business",
+      "url": "https://www.dsj.co.jp/20261027-1/",
+      "reason": "PHP脆弱性への予防対策を公式本文が明記",
+      "reasonKey": "php",
+      "restored": false,
+      "start": "10/22から停止（正確な時計・原文TZ未確認）",
+      "end": "10/27に再開と運営報告。正確な再開時計は未記載、海外IP制限は継続または個別対応",
+      "scope": "ファストカーボン+。通常のファストカーボンとは区別し、海外を含む全利用制限解除とはしません。",
+      "safe": "公式はプラスの再開を報告する一方、海外IP制限の継続/個別対応を案内。海外から利用できない場合は既送の案内または窓口を確認する方針です。一部制限を残すため全体のrestoredはfalseを維持し、再開報告そのものは記録。ログイン・利用・窓口連絡は未実施です。",
+      "tag": "一部制限を伴う再開",
+      "status": "制限継続／再開範囲を限定",
+      "date": "2026/10/27付の告知・更新（正確な掲載時計は未確認）",
+      "source": "運営自身の通常公開告知本文を読取。運営報告と当方の実機能検証を区別。",
+      "checkedAt": "2026-10-27T23:49:00Z",
+      "sourceRead": "body_retrieved",
+      "restorationNote": "当該対象の運営報告のみ。ログイン等の独立動作確認ではありません。",
+      "ownershipEvidence": [
+        {
+          "url": "https://www.dsj.co.jp/20261027-1/",
+          "detail": "当該運営・サービス自身の公開告知本文。対象範囲・日時・PHP記載有無を直接照合。"
+        }
+      ],
+      "icon": ""
+    },
+    {
+      "id": "beingcollaboration-recovery-20261027",
+      "name": "ビーイング：BeingCollaboration",
+      "cat": "business",
+      "url": "https://www.beingcorp.co.jp/news/maintenance/20261027/",
+      "reason": "PHP対応に伴う停止と公式本文が明記",
+      "reasonKey": "php",
+      "restored": true,
+      "start": "正確な開始日時は今回未確認",
+      "end": "10/27 正午に復旧（運営記載の実績。原文TZ未記載）",
+      "scope": "BeingCollaborationのみ。他製品や全サービスへ拡張しません。",
+      "safe": "10/27正午は告知時刻から推測した時計ではなく、運営が本文に明記した復旧実績です。当方のログインや共同作業機能の動作、安全性の独立検証は未実施です。",
+      "tag": "対象範囲の再開を公式報告",
+      "status": "運営による対象範囲の復旧報告",
+      "date": "2026/10/27付の告知・更新（正確な掲載時計は未確認）",
+      "source": "運営自身の通常公開告知本文を読取。運営報告と当方の実機能検証を区別。",
+      "checkedAt": "2026-10-27T23:49:00Z",
+      "sourceRead": "body_retrieved",
+      "restorationNote": "当該対象の運営報告のみ。ログイン等の独立動作確認ではありません。",
+      "ownershipEvidence": [
+        {
+          "url": "https://www.beingcorp.co.jp/news/maintenance/20261027/",
+          "detail": "当該運営・サービス自身の公開告知本文。対象範囲・日時・PHP記載有無を直接照合。"
+        }
+      ],
+      "icon": ""
+    },
+    {
+      "id": "carenet-com-php-maintenance-resume",
+      "name": "CareNet.com",
+      "cat": "web",
+      "url": "https://www.carenet.com/info/cg005972_php_maintenance_resume.html",
+      "reason": "PHP脆弱性への予防保守と公式本文が説明",
+      "reasonKey": "php",
+      "restored": true,
+      "start": "正確な開始日時は今回未確認",
+      "end": "10/27に再開と運営報告（時計・原文TZ未記載）",
+      "scope": "CareNet.com。他の外部クラウド障害と各サービス復旧は別告知であり、全製品の復旧とはしません。",
+      "safe": "10/27付の直接公式告知を新たな根拠として照合。情報漏えい等が確認されていないとの説明は運営報告で、当方の安全性保証ではありません。既存part3 row97の元X本文未確認は保持し、今回の公式Web本文確認と区別。ログイン・受講等の実機能検証は未実施です。",
+      "tag": "対象範囲の再開を公式報告",
+      "status": "運営による対象範囲の復旧報告",
+      "date": "2026/10/27付の告知・更新（正確な掲載時計は未確認）",
+      "source": "運営自身の通常公開告知本文を読取。運営報告と当方の実機能検証を区別。",
+      "checkedAt": "2026-10-27T23:49:00Z",
+      "sourceRead": "body_retrieved",
+      "restorationNote": "当該対象の運営報告のみ。ログイン等の独立動作確認ではありません。",
+      "ownershipEvidence": [
+        {
+          "url": "https://www.carenet.com/info/cg005972_php_maintenance_resume.html",
+          "detail": "当該運営・サービス自身の公開告知本文。対象範囲・日時・PHP記載有無を直接照合。"
+        }
+      ],
+      "icon": ""
+    },
+    {
+      "id": "lolipop-new-signup-migration-webdav-8246",
+      "name": "ロリポップ！新規受付・WordPress移行・WebDAV・バックアップ新規受付（10/24別告知）",
+      "cat": "web",
+      "url": "https://lolipop.jp/info/news/8246/",
+      "reasonKey": "security",
+      "reason": "サイバー攻撃への予防措置。PHP名は本文に未記載",
+      "restored": false,
+      "start": "新規申込/無料お試し：10/24 14:08から、WordPress簡単引っ越し：10/24 19:22から停止（原文TZ未記載）。バックアップオプション新規受付：10/28 22:20から停止（原文TZ未記載）",
+      "end": "再開未確認。WebDAVは10/25 01:35追記が準備完了次第停止予定と案内し、停止中一覧は10/25未明からと記載",
+      "scope": "新規申込/無料お試し、WordPress簡単引っ越し、WebDAV。既存サイト表示・メール送受信・ユーザーページログインは継続と案内。 バックアップオプションの新規受付も対象。既に同オプションを利用中の場合は利用継続と案内。",
+      "safe": "WebDAVの予定表現と停止中一覧の両方を保持し、01:35を正確な実停止時計としません。既存契約者にも移行/WebDAV停止の例外があり、既存契約は全機能無影響とはしません。10/19や10/21の別告知・PHP保守と同一原因とは推測せず、代替経路や再開時計を補いません。",
+      "tag": "対象機能の停止・制限／再開未確認",
+      "status": "運営告知の停止・遅延・予定を区分",
+      "date": "2026/10/24掲載、10/24 19:22・10/25 01:35追記（原文TZ未記載）、10/28 22:20追記",
+      "source": "運営の公開告知本文を再取得し、10/28追記と停止中一覧を確認。実機能の動作は未検証。",
+      "checkedAt": "2026-10-28T23:14:50Z",
+      "sourceRead": "body_retrieved",
+      "restorationNote": "運営の対象範囲に限定した報告。実機能の独立動作確認は未実施。",
+      "ownershipEvidence": [
+        {
+          "url": "https://lolipop.jp/info/news/8246/",
+          "detail": "当該運営自身の直接公式告知本文。"
+        }
+      ],
+      "history": [
+        {
+          "id": "lolipop-new-signup-migration-webdav-8246",
+          "name": "ロリポップ！新規受付・WordPress移行・WebDAV（10/24別告知）",
+          "cat": "web",
+          "url": "https://lolipop.jp/info/news/8246/",
+          "reasonKey": "security",
+          "reason": "サイバー攻撃への予防措置。PHP名は本文に未記載",
+          "restored": false,
+          "start": "新規申込/無料お試し：10/24 14:08から、WordPress簡単引っ越し：10/24 19:22から停止（原文TZ未記載）",
+          "end": "再開未確認。WebDAVは10/25 01:35追記が準備完了次第停止予定と案内し、停止中一覧は10/25未明からと記載",
+          "scope": "新規申込/無料お試し、WordPress簡単引っ越し、WebDAV。既存サイト表示・メール送受信・ユーザーページログインは継続と案内。",
+          "safe": "WebDAVの予定表現と停止中一覧の両方を保持し、01:35を正確な実停止時計としません。既存契約者にも移行/WebDAV停止の例外があり、既存契約は全機能無影響とはしません。10/19や10/21の別告知・PHP保守と同一原因とは推測せず、代替経路や再開時計を補いません。",
+          "tag": "対象機能の停止・制限／再開未確認",
+          "status": "運営告知の停止・遅延・予定を区分",
+          "date": "2026/10/24掲載、10/24 19:22・10/25 01:35追記（原文TZ未記載）",
+          "source": "運営自身の通常公開本文を調査メモ記載時点で確認。本統合は保存済み調査記録の整理であり、本文の再取得・実機能の独立検証ではありません。",
+          "checkedAt": "2026-10-25T23:29:00Z",
+          "sourceRead": "body_retrieved",
+          "restorationNote": "運営の対象範囲に限定した報告。実機能の独立動作確認は未実施。",
+          "ownershipEvidence": [
+            {
+              "url": "https://lolipop.jp/info/news/8246/",
+              "detail": "当該運営自身の直接公式告知本文。"
+            }
+          ],
+          "evidenceRecordedAt": "2026-10-25T23:29:00Z"
+        }
+      ]
+    },
+    {
+      "id": "naccs-digital-certificate-issuance-delay",
+      "name": "NACCS：デジタル証明書の発行・再発行遅延",
+      "cat": "business",
+      "url": "https://bbs.naccscenter.com/docs/2026102300037/",
+      "reasonKey": "unknown",
+      "reason": "NSSの緊急保守。PHP原因は本文に未記載",
+      "restored": false,
+      "start": "NSS保守：10/23 22:15〜（原文TZ未記載）",
+      "end": "正確な終了・実再開日時未確認。保守終了後に順次処理、発行完了時メール通知",
+      "scope": "デジタル証明書の発行/再発行が数日遅れる場合あり。申込は可能。NACCSの全取引停止とはしません。",
+      "safe": "10/23告知は遅延の可能性と申込可能を併記。全利用者に必ず数日遅延するとの断定や、PHP原因の推定はしません。申込・証明書取得は未実施。",
+      "tag": "対象機能の停止・制限／再開未確認",
+      "status": "運営告知の停止・遅延・予定を区分",
+      "date": "2026/10/23公開（掲載時計・原文TZ未記載）",
+      "source": "運営自身の通常公開本文を調査メモ記載時点で確認。本統合は保存済み調査記録の整理であり、本文の再取得・実機能の独立検証ではありません。",
+      "checkedAt": "2026-10-25T23:29:00Z",
+      "sourceRead": "body_retrieved",
+      "restorationNote": "運営の対象範囲に限定した報告。実機能の独立動作確認は未実施。",
+      "ownershipEvidence": [
+        {
+          "url": "https://bbs.naccscenter.com/docs/2026102300037/",
+          "detail": "当該運営自身の直接公式告知本文。"
+        }
+      ],
+      "evidenceRecordedAt": "2026-10-25T23:29:00Z"
+    },
+    {
+      "id": "eaprin-maintenance-resumed",
+      "name": "eAPRIN",
+      "cat": "business",
+      "url": "https://www.aprin.or.jp/info/10902.html",
+      "reasonKey": "security",
+      "reason": "運営による予防措置の説明。PHP名や侵害原因は今回未確認",
+      "restored": true,
+      "start": "10/21 17:20（原文TZ未記載）",
+      "end": "10/23 11:30に再開と運営明記（原文TZ未記載）",
+      "scope": "eAPRINの全操作。実アカウントの受講/ログイン動作は未検証。",
+      "safe": "10/23の公式再開告知が保守期間と11:30再開を直接記載。旧予定10/22正午から10/23午前中目処へ延長した10/22案内は履歴として保持し、掲載時刻から実再開を推測しません。PHP名や侵害の因果は補完しません。",
+      "tag": "対象範囲の再開を公式報告",
+      "status": "運営による対象範囲の復旧報告",
+      "date": "2026/10/23公開の再開告知。10/22の延長案内は履歴（原文TZ未記載）",
+      "source": "運営自身の通常公開本文を調査メモ記載時点で確認。本統合は保存済み調査記録の整理であり、本文の再取得・実機能の独立検証ではありません。",
+      "checkedAt": "2026-10-25T23:29:00Z",
+      "sourceRead": "body_retrieved",
+      "restorationNote": "運営の対象範囲に限定した報告。実機能の独立動作確認は未実施。",
+      "ownershipEvidence": [
+        {
+          "url": "https://www.aprin.or.jp/info/10902.html",
+          "detail": "当該運営自身の直接公式告知本文。"
+        }
+      ],
+      "evidenceRecordedAt": "2026-10-25T23:29:00Z"
+    },
+    {
+      "id": "docomo-area-mail-disaster-resumed",
+      "name": "NTTドコモ：エリアメール一部・どこでも災害・避難情報",
+      "cat": "web",
+      "url": "https://www.docomo.ne.jp/info/notice/page/261023_00_m.html",
+      "reasonKey": "php",
+      "reason": "PHP対応に伴うメンテナンスと本文が明記",
+      "restored": true,
+      "start": "今回取得本文では正確な開始時計未確認",
+      "end": "10/25 午後8:01に対象配信再開と運営明記（原文TZ未確認）",
+      "scope": "停止対象だったエリアメールの一部サービス、および「どこでも災害・避難情報」。元々停止していない地震/津波や全通信へ広げません。",
+      "safe": "10/23付ページの10/25午後8:01時点本文がメンテ完了・配信再開を直接記載。以前の10/26未明〜朝方見込みや検索抜粋から実績を決めていません。既存ドコモ一部Webサイトとは別の配信対象。端末での受信検証は未実施。",
+      "tag": "対象範囲の再開を公式報告",
+      "status": "運営による対象範囲の復旧報告",
+      "date": "2026/10/23付ページ、10/25午後8:01時点の再開報告（原文TZ未確認）",
+      "source": "運営自身の通常公開本文を調査メモ記載時点で確認。本統合は保存済み調査記録の整理であり、本文の再取得・実機能の独立検証ではありません。",
+      "checkedAt": "2026-10-26T01:41:00Z",
+      "sourceRead": "body_retrieved",
+      "restorationNote": "運営の対象範囲に限定した報告。実機能の独立動作確認は未実施。",
+      "ownershipEvidence": [
+        {
+          "url": "https://www.docomo.ne.jp/info/notice/page/261023_00_m.html",
+          "detail": "当該運営自身の直接公式告知本文。"
+        }
+      ],
+      "evidenceRecordedAt": "2026-10-26T01:41:00Z"
+    },
+    {
+      "id": "lixil-owners-club-resumed",
+      "name": "LIXIL オーナーズクラブ",
+      "cat": "business",
+      "url": "https://owners.lixil.co.jp/information/detail/18806?category=news",
+      "reasonKey": "php",
+      "reason": "PHP脆弱性公表に伴う予防保守と運営が説明",
+      "restored": true,
+      "start": "10/21未明（原文TZ未確認）",
+      "end": "10/26 16:30にWebサイト再開と報告（原文TZ未確認）",
+      "scope": "会員登録・各種サービスの申込/変更。停止中に無料メーカー延長保証登録や長期保証申込の期限を迎えた人には問い合わせページを案内。",
+      "safe": "10/26の運営告知は再開と、期限を迎えた人向けカスタマーセンターへの問い合わせを案内します。自動期限延長・無条件保証承認とはしません。安全性検証完了や関連不正アクセス/漏えい未確認は運営説明で、独立保証ではありません。ログイン・申込は未実施。",
+      "tag": "対象範囲の再開を公式報告",
+      "status": "運営による対象範囲の復旧報告",
+      "date": "2026/10/26掲載（掲載時計・原文TZ未確認）",
+      "source": "運営自身の通常公開本文を調査メモ記載時点で確認。本統合は保存済み調査記録の整理であり、本文の再取得・実機能の独立検証ではありません。",
+      "checkedAt": "2026-10-26T23:57:00Z",
+      "sourceRead": "body_retrieved",
+      "restorationNote": "運営の対象範囲に限定した報告。実機能の独立動作確認は未実施。",
+      "ownershipEvidence": [
+        {
+          "url": "https://owners.lixil.co.jp/information/detail/18806?category=news",
+          "detail": "当該運営自身の直接公式告知本文。"
+        }
+      ],
+      "evidenceRecordedAt": "2026-10-26T23:57:00Z"
+    },
+    {
+      "id": "shibuya-digital-library-resumed",
+      "name": "渋谷区立図書館：電子図書館",
+      "cat": "public",
+      "url": "https://www.lib.city.shibuya.tokyo.jp/new-info/2026/10/post-148.html",
+      "reasonKey": "php",
+      "reason": "PHP脆弱性への対応と公式本文が明記",
+      "restored": true,
+      "start": "停止期間：10/22〜10/26（日付のみ）",
+      "end": "10/26掲載本文が「本日復旧」と報告。正確な再開時計未記載",
+      "scope": "電子図書館。停止時に貸出中/予約確保中だったコンテンツの日数を5日間延長。物理図書館休館や紙の本全件延長ではありません。",
+      "safe": "有効期間終了日が10/31のコンテンツについては返却期限が11月以降に入らないよう調整する例外を保持。5日延長を無条件一律に適用しません。利用者の実予約/電子貸出は未確認。",
+      "tag": "対象範囲の再開を公式報告",
+      "status": "運営による対象範囲の復旧報告",
+      "date": "2026/10/26掲載。「本日復旧」との報告（正確な時計未記載）",
+      "source": "運営自身の通常公開本文を調査メモ記載時点で確認。本統合は保存済み調査記録の整理であり、本文の再取得・実機能の独立検証ではありません。",
+      "checkedAt": "2026-10-26T23:57:00Z",
+      "sourceRead": "body_retrieved",
+      "restorationNote": "運営の対象範囲に限定した報告。実機能の独立動作確認は未実施。",
+      "ownershipEvidence": [
+        {
+          "url": "https://www.lib.city.shibuya.tokyo.jp/new-info/2026/10/post-148.html",
+          "detail": "当該運営自身の直接公式告知本文。"
+        }
+      ],
+      "evidenceRecordedAt": "2026-10-26T23:57:00Z"
+    },
+    {
+      "id": "gunma-shakyo-training-maintenance",
+      "name": "群馬県社会福祉協議会：研修管理システム",
+      "cat": "public",
+      "url": "https://www.g-shakyo.jp/mente.html",
+      "reasonKey": "php",
+      "reason": "PHP重大脆弱性公表に係るメンテナンスと公式が説明",
+      "restored": false,
+      "start": "正確な停止開始日時・初掲載日時は未確認",
+      "end": "10/26時点の復旧見込みは約3週間。確定復旧日は未公表",
+      "scope": "研修管理システム。第3期eラーニングA期間（10/1〜30）の延長、B期間（11/2〜30）の見直し等は今後別途告知。",
+      "safe": "約3週間から確定復旧日を計算せず、受講期間延長の日数や改定後日程を作りません。代替受講サイトも本文にないため補完せず、再開実績とはしません。実ログイン/受講は未実施。",
+      "tag": "対象機能の停止・制限／再開未確認",
+      "status": "運営告知の停止・遅延・予定を区分",
+      "date": "本文は2026/10/26時点と明記。初掲載日時は未確認",
+      "source": "運営自身の通常公開本文を調査メモ記載時点で確認。本統合は保存済み調査記録の整理であり、本文の再取得・実機能の独立検証ではありません。",
+      "checkedAt": "2026-10-26T23:57:00Z",
+      "sourceRead": "body_retrieved",
+      "restorationNote": "運営の対象範囲に限定した報告。実機能の独立動作確認は未実施。",
+      "ownershipEvidence": [
+        {
+          "url": "https://www.g-shakyo.jp/mente.html",
+          "detail": "当該運営自身の直接公式告知本文。"
+        }
+      ],
+      "evidenceRecordedAt": "2026-10-26T23:57:00Z"
+    },
+    {
+      "id": "official-20261029-hinode-functions",
+      "name": "日の出町",
+      "cat": "public",
+      "tag": "公式本文の限定確認",
+      "status": "対象範囲の復旧報告",
+      "reason": "PHP脆弱性への予防対応と運営が明記",
+      "reasonKey": "php",
+      "start": "正確な開始時計は今回未確認",
+      "end": "2026-10-28 21:49 掲示",
+      "scope": "PHP対応で停止していたお知らせメール・LINE配信、マイナアシストの撮影申込、町への手紙・ごみ分別検索・FAQを復旧と報告。",
+      "safe": "21:49は掲示時計。正確な復旧時計は記載なし。告知の列挙範囲外と機能の実動作は未確認。 「全機能」は当該告知の列挙範囲に限定しています。",
+      "url": "https://www.town.hinode.tokyo.jp/emergencyinfo/0000000041.html",
+      "date": "2026-10-28 21:49 掲示",
+      "source": "運営自身の通常公開本文を直接読取。運営報告と実機能の独立検証は区別。",
+      "checkedAt": "2026-10-29T23:58:00Z",
+      "restored": true,
+      "noticeState": "announced",
+      "sourceRead": "body_retrieved",
+      "icon": null,
+      "ownershipEvidence": [
+        {
+          "url": "https://www.town.hinode.tokyo.jp/emergencyinfo/0000000041.html",
+          "detail": "当該自治体・運営自身の通常公開サイトの告知本文。",
+          "readState": "body_retrieved"
+        }
+      ]
+    },
+    {
+      "id": "official-20261029-minato-partial",
+      "name": "港区",
+      "cat": "public",
+      "tag": "公式本文の限定確認",
+      "status": "一部復旧・停止を区分",
+      "reason": "PHP脆弱性への予防対応と運営が明記",
+      "reasonKey": "php",
+      "start": "10/21 23:50頃から一部停止と運営が説明（原文TZ未記載）",
+      "end": "2026-10-28 14:00現在",
+      "scope": "PHP対応で停止した一部HP機能の復旧を報告。他サービスの停止は継続。次回更新は10/30予定。",
+      "safe": "ページID・レコメンド・区民の声・二次元コード・多言語AI翻訳の列挙だけ。二次元コードは一部ページ非表示の但し書きが併記。停止PDF本文は未照合。全サービス復旧にしない。 次回更新10/30は予定であり、復旧期限ではありません。",
+      "url": "https://www.city.minato.tokyo.jp/senryakukouhou/phptaiou202610.html",
+      "date": "2026-10-28 14:00現在",
+      "source": "運営自身の通常公開本文を直接読取。運営報告と実機能の独立検証は区別。",
+      "checkedAt": "2026-10-29T23:58:00Z",
+      "restored": false,
+      "noticeState": "announced",
+      "sourceRead": "body_retrieved",
+      "icon": null,
+      "ownershipEvidence": [
+        {
+          "url": "https://www.city.minato.tokyo.jp/senryakukouhou/phptaiou202610.html",
+          "detail": "当該自治体・運営自身の通常公開サイトの告知本文。",
+          "readState": "body_retrieved"
+        }
+      ]
+    },
+    {
+      "id": "official-20261029-iki-contact",
+      "name": "壱岐市",
+      "cat": "public",
+      "tag": "公式本文の限定確認",
+      "status": "対象範囲の復旧報告",
+      "reason": "PHP脆弱性への予防対応と運営が明記",
+      "reasonKey": "php",
+      "start": "10/22からの停止を原告知が案内（正確な開始時計は未記載）",
+      "end": "2026-10-28 10:15現在",
+      "scope": "PHP対応の修正・安全確認を終えて問い合わせフォームを再開と報告。手続き検索ナビは10/22 18:01現在稼働の別記載。",
+      "safe": "現在時刻は状況の基準時点で正確な復旧時計ではない。実送信未検証。",
+      "url": "https://www.city.iki.nagasaki.jp/oshirase_kinkyu/16514.html",
+      "date": "2026-10-28 10:15現在",
+      "source": "運営自身の通常公開本文を直接読取。運営報告と実機能の独立検証は区別。",
+      "checkedAt": "2026-10-29T23:58:00Z",
+      "restored": true,
+      "noticeState": "announced",
+      "sourceRead": "body_retrieved",
+      "icon": null,
+      "ownershipEvidence": [
+        {
+          "url": "https://www.city.iki.nagasaki.jp/oshirase_kinkyu/16514.html",
+          "detail": "当該自治体・運営自身の通常公開サイトの告知本文。",
+          "readState": "body_retrieved"
+        }
+      ]
+    },
+    {
+      "id": "official-20261029-nanto-cultural",
+      "name": "南砺市",
+      "cat": "public",
+      "tag": "公式本文の限定確認",
+      "status": "一部復旧・停止を区分",
+      "reason": "PHP脆弱性への予防対応と運営が明記",
+      "reasonKey": "php",
+      "start": "正確な開始時計は今回未確認",
+      "end": "2026-10-28 更新",
+      "scope": "文化芸術アーカイブズHPは10/28 11:00頃復旧と明記。HP、GIS、図書館、学校・教育センターの各復旧日を別記。子育て支援ガイドすこやかは対応中。",
+      "safe": "復旧報告は、列挙されたサービスごとのものです。市の全サービスが復旧したという報告ではありません。指定管理者のサイトにも停止が残っています。原文にタイムゾーンの記載はなく、実機能も未検証です。",
+      "url": "https://www.city.nanto.toyama.jp/important_news/7683.html",
+      "date": "2026-10-28 更新",
+      "source": "運営自身の通常公開本文を直接読取。運営報告と実機能の独立検証は区別。",
+      "checkedAt": "2026-10-29T23:58:00Z",
+      "restored": false,
+      "noticeState": "announced",
+      "sourceRead": "body_retrieved",
+      "icon": null,
+      "ownershipEvidence": [
+        {
+          "url": "https://www.city.nanto.toyama.jp/important_news/7683.html",
+          "detail": "当該自治体・運営自身の通常公開サイトの告知本文。",
+          "readState": "body_retrieved"
+        }
+      ]
+    },
+    {
+      "id": "official-20261029-toyota-still-stopped",
+      "name": "豊田市",
+      "cat": "public",
+      "tag": "公式本文の限定確認",
+      "status": "一部機能の停止継続",
+      "reason": "PHP脆弱性への予防対応と運営が明記",
+      "reasonKey": "php",
+      "start": "正確な開始時計は今回未確認",
+      "end": "2026-10-29 午後5時現在（直接本文）",
+      "scope": "PHP対応に伴う停止機能一覧に豊田市交流館ホームページを掲載。",
+      "safe": "検索結果は午前9時版だが直接本文は午後5時版。午後5時は停止状況の基準時点で停止開始時刻ではない。他サービスの全面正常を意味しない。",
+      "url": "https://www.city.toyota.aichi.jp/shisei/koho/1073255/1081121.html",
+      "date": "2026-10-29 午後5時現在（直接本文）",
+      "source": "運営自身の通常公開本文を直接読取。運営報告と実機能の独立検証は区別。",
+      "checkedAt": "2026-10-29T23:58:00Z",
+      "restored": false,
+      "noticeState": "announced",
+      "sourceRead": "body_retrieved",
+      "icon": null,
+      "ownershipEvidence": [
+        {
+          "url": "https://www.city.toyota.aichi.jp/shisei/koho/1073255/1081121.html",
+          "detail": "当該自治体・運営自身の通常公開サイトの告知本文。",
+          "readState": "body_retrieved"
+        }
+      ]
+    },
+    {
+      "id": "official-20261029-tgkk-reservation",
+      "name": "東京技能講習協会",
+      "cat": "business",
+      "tag": "公式本文の限定確認",
+      "status": "対象範囲の復旧報告",
+      "reason": "PHP脆弱性への予防対応と運営が明記",
+      "reasonKey": "php",
+      "start": "10/22 12:00からの停止を告知（実開始の独立検証は未実施、原文TZ未記載）",
+      "end": "2026-10-27追記（元掲載10/22）",
+      "scope": "PHP対応によるWEB予約システム保守は10/22 12:00～10/28 12:00予定だったが、10/27追記で期間を前倒しして作業完了と報告。",
+      "safe": "10/28 12時を実復旧時計に転用しない。正確な完了時計・実予約は未確認。",
+      "url": "https://www.tgkk.or.jp/news/36448/",
+      "date": "2026-10-27追記（元掲載10/22）",
+      "source": "運営自身の通常公開本文を直接読取。運営報告と実機能の独立検証は区別。",
+      "checkedAt": "2026-10-29T23:58:00Z",
+      "restored": true,
+      "noticeState": "announced",
+      "sourceRead": "body_retrieved",
+      "icon": null,
+      "ownershipEvidence": [
+        {
+          "url": "https://www.tgkk.or.jp/news/36448/",
+          "detail": "当該自治体・運営自身の通常公開サイトの告知本文。",
           "readState": "body_retrieved"
         }
       ]
@@ -29450,7 +30037,14 @@
       "sourceRead": "body_retrieved",
       "checkedAt": "2026-10-22T08:10:31Z",
       "collectionBatch": "grok-public-candidates-20261022-1658",
-      "nextVerificationCondition": "通常公開の原文・運営自身が示す正確な公式所有・今回の対象範囲/日付を照合できた時点。第三者の報告だけでは公式昇格せず、アクセス制限は迂回しません。"
+      "nextVerificationCondition": "通常公開の原文・運営自身が示す正確な公式所有・今回の対象範囲/日付を照合できた時点。第三者の報告だけでは公式昇格せず、アクセス制限は迂回しません。",
+      "relatedOfficialEvidence": [
+        {
+          "sourceUrl": "https://www.city.satsumasendai.lg.jp/gyoseijoho/seisaku_keikaku/20241025/20241025-1/21458.html",
+          "verification": "pending",
+          "note": "検索10/29と直接本文10/26が混在。既存pending X候補を維持。"
+        }
+      ]
     },
     {
       "names": [
@@ -33554,7 +34148,16 @@
       "collectionBatch": "grok-public-candidates-20261022-2055",
       "collectionPart": 3,
       "nextVerificationCondition": "通常公開の原文、運営自身による正確な所有、対象範囲と日時を照合できた時点。アクセス制限や年齢確認は迂回しません。",
-      "collectionRow": 97
+      "collectionRow": 97,
+      "relatedOfficialEvidence": [
+        {
+          "confirmedId": "carenet-com-php-maintenance-resume",
+          "url": "https://www.carenet.com/info/cg005972_php_maintenance_resume.html",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-10-27T23:49:00Z",
+          "note": "同名企画の別公式Web根拠。元XのsourceRead/verification/confirmedIdは変更せず、未読を保持。"
+        }
+      ]
     },
     {
       "names": [
@@ -39403,6 +40006,39 @@
       "nextVerificationCondition": "exact個別公式本文が通常公開readで取得できた時点。タイトルだけで今回の緊急保守因果/全体影響/実再開時計を確定しない。",
       "checkedAt": "2026-10-24T03:12:40.033207+00:00",
       "collectionBatch": "official-public-followups-20261024-0300"
+    },
+    {
+      "names": [
+        "滑川市"
+      ],
+      "url": "https://www.city.namerikawa.toyama.jp/important_notice/11664.html",
+      "note": "検索本文復旧候補、直接open404。最新本文未確定。",
+      "sourceClass": "公式Web候補・最新本文の照合待ち",
+      "sourceRead": "latest_body_unverified",
+      "checkedAt": "2026-10-29T23:58:00Z",
+      "collectionBatch": "official-followups-20261029-2358"
+    },
+    {
+      "names": [
+        "PHONE APPLI"
+      ],
+      "url": "https://status.phoneappli.net/",
+      "note": "検索10/28続報に環境別状態。直接本文の現在停止と10/27別障害は読めたがexact10/28節の因果・本文再照合待ち。",
+      "sourceClass": "公式Web候補・最新本文の照合待ち",
+      "sourceRead": "latest_body_unverified",
+      "checkedAt": "2026-10-29T23:58:00Z",
+      "collectionBatch": "official-followups-20261029-2358"
+    },
+    {
+      "names": [
+        "なら建築住宅センター"
+      ],
+      "url": "https://zainara-kjc.net/pickup/10%E6%9C%8831%E6%97%A5%E5%9C%9F%E5%AE%9F%E6%96%BD%E4%BA%88%E5%AE%9A%E3%81%AE%E7%B7%8A%E6%80%A5%E3%83%A1%E3%83%B3%E3%83%86%E3%83%8A%E3%83%B3%E3%82%B9%E4%BD%9C%E6%A5%AD%E4%B8%AD%E6%AD%A2%E3%81%AE/",
+      "note": "10/31保守中止・影響PHP不使用の公式検索候補。直接open不可。",
+      "sourceClass": "公式Web候補・最新本文の照合待ち",
+      "sourceRead": "latest_body_unverified",
+      "checkedAt": "2026-10-29T23:58:00Z",
+      "collectionBatch": "official-followups-20261029-2358"
     }
   ],
   "discovery": [
@@ -70709,7 +71345,16 @@
       "checkedAt": "2026-10-22T12:06:30Z",
       "collectionBatch": "grok-public-candidates-20261022-2055",
       "collectionRow": 97,
-      "collectionPart": 3
+      "collectionPart": 3,
+      "relatedOfficialEvidence": [
+        {
+          "confirmedId": "carenet-com-php-maintenance-resume",
+          "url": "https://www.carenet.com/info/cg005972_php_maintenance_resume.html",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-10-27T23:49:00Z",
+          "note": "同名企画の別公式Web根拠。元XのsourceRead/verification/confirmedIdは変更せず、未読を保持。"
+        }
+      ]
     },
     {
       "name": "AIKO SciLingual(ASCA)",
@@ -77339,6 +77984,239 @@
       "note": "新しい直接公式原典。過去の第三者元候補は解決扱いにせず保持。",
       "sourceClass": "公式",
       "nextVerificationCondition": null
+    },
+    {
+      "name": "吹田市立図書館：自習室WEB座席予約・電子図書館・JapanKnowledge",
+      "sourceUrl": "https://www.lib.suita.osaka.jp/important/2026/20261022112211.html",
+      "verification": "confirmed_scoped_notice",
+      "confirmedId": "suita-library-three-online-services",
+      "sourceClass": "運営自身の直接公式Web告知",
+      "sourceRead": "body_retrieved",
+      "collectionBatch": "official-public-followups-20261027-six",
+      "checkedAt": "2026-10-27T23:49:00Z",
+      "note": "各時計は復旧の状況確認時点で、正確な実復旧時計ではありません。冒頭には再開不明との一般文も残るため、このカードは個別に復旧と明記された3機能に限定。自習室を学習室と言い換えず、当方の座席予約・電子貸出・実機能検証は未実施です。"
+    },
+    {
+      "name": "阪神高速道路：有料道路障害者割引オンライン申請",
+      "sourceUrl": "https://www.hanshin-exp.co.jp/drivers/news/post_487.html",
+      "verification": "confirmed_scoped_notice",
+      "confirmedId": "hanshin-exp-disabled-discount-online-application",
+      "sourceClass": "運営自身の直接公式Web告知",
+      "sourceRead": "body_retrieved",
+      "collectionBatch": "official-public-followups-20261027-six",
+      "checkedAt": "2026-10-27T23:49:00Z",
+      "note": "10/27告知はオンライン申請停止を案内。期限が近い場合は、手帳の住所を管轄する市区町村の福祉担当窓口で申請するよう明記しています。自動期限延長、PHP原因、実停止/終了時計は補完しません。申請・窓口連絡は未実施です。"
+    },
+    {
+      "name": "ホテルエイチツー長崎：メール送受信",
+      "sourceUrl": "https://hotel-h2.jp/diary/?p=4223",
+      "verification": "confirmed_scoped_notice",
+      "confirmedId": "hotel-h2-nagasaki-email-recovery",
+      "sourceClass": "運営自身の直接公式Web告知",
+      "sourceRead": "body_retrieved",
+      "collectionBatch": "official-public-followups-20261027-six",
+      "checkedAt": "2026-10-27T23:49:00Z",
+      "note": "保守中のメールには順次返信すると案内。返信がない場合や急ぎの場合は再送または電話を案内しています。告知日時から実復旧時計を推測せず、PHP原因も未確認。当方のメール送信・電話・予約操作は未実施です。"
+    },
+    {
+      "name": "ディエスジャパン：ファストカーボン+",
+      "sourceUrl": "https://www.dsj.co.jp/20261027-1/",
+      "verification": "confirmed_scoped_notice",
+      "confirmedId": "dsj-fastcarbon-plus-reopening",
+      "sourceClass": "運営自身の直接公式Web告知",
+      "sourceRead": "body_retrieved",
+      "collectionBatch": "official-public-followups-20261027-six",
+      "checkedAt": "2026-10-27T23:49:00Z",
+      "note": "公式はプラスの再開を報告する一方、海外IP制限の継続/個別対応を案内。海外から利用できない場合は既送の案内または窓口を確認する方針です。一部制限を残すため全体のrestoredはfalseを維持し、再開報告そのものは記録。ログイン・利用・窓口連絡は未実施です。"
+    },
+    {
+      "name": "ビーイング：BeingCollaboration",
+      "sourceUrl": "https://www.beingcorp.co.jp/news/maintenance/20261027/",
+      "verification": "confirmed_scoped_notice",
+      "confirmedId": "beingcollaboration-recovery-20261027",
+      "sourceClass": "運営自身の直接公式Web告知",
+      "sourceRead": "body_retrieved",
+      "collectionBatch": "official-public-followups-20261027-six",
+      "checkedAt": "2026-10-27T23:49:00Z",
+      "note": "10/27正午は告知時刻から推測した時計ではなく、運営が本文に明記した復旧実績です。当方のログインや共同作業機能の動作、安全性の独立検証は未実施です。"
+    },
+    {
+      "name": "CareNet.com",
+      "sourceUrl": "https://www.carenet.com/info/cg005972_php_maintenance_resume.html",
+      "verification": "confirmed_scoped_notice",
+      "confirmedId": "carenet-com-php-maintenance-resume",
+      "sourceClass": "運営自身の直接公式Web告知",
+      "sourceRead": "body_retrieved",
+      "collectionBatch": "official-public-followups-20261027-six",
+      "checkedAt": "2026-10-27T23:49:00Z",
+      "note": "10/27付の直接公式告知を新たな根拠として照合。情報漏えい等が確認されていないとの説明は運営報告で、当方の安全性保証ではありません。既存part3 row97の元X本文未確認は保持し、今回の公式Web本文確認と区別。ログイン・受講等の実機能検証は未実施です。"
+    },
+    {
+      "name": "ロリポップ！新規受付・WordPress移行・WebDAV（10/24別告知）",
+      "sourceUrl": "https://lolipop.jp/info/news/8246/",
+      "verification": "confirmed_scoped_notice",
+      "confirmedId": "lolipop-new-signup-migration-webdav-8246",
+      "sourceClass": "運営自身の直接公式Web告知",
+      "sourceRead": "body_retrieved",
+      "collectionBatch": "official-public-followups-20261025-26-backlog",
+      "checkedAt": "2026-10-25T23:29:00Z",
+      "note": "WebDAVの予定表現と停止中一覧の両方を保持し、01:35を正確な実停止時計としません。既存契約者にも移行/WebDAV停止の例外があり、既存契約は全機能無影響とはしません。10/19や10/21の別告知・PHP保守と同一原因とは推測せず、代替経路や再開時計を補いません。"
+    },
+    {
+      "name": "NACCS：デジタル証明書の発行・再発行遅延",
+      "sourceUrl": "https://bbs.naccscenter.com/docs/2026102300037/",
+      "verification": "confirmed_scoped_notice",
+      "confirmedId": "naccs-digital-certificate-issuance-delay",
+      "sourceClass": "運営自身の直接公式Web告知",
+      "sourceRead": "body_retrieved",
+      "collectionBatch": "official-public-followups-20261025-26-backlog",
+      "checkedAt": "2026-10-25T23:29:00Z",
+      "note": "10/23告知は遅延の可能性と申込可能を併記。全利用者に必ず数日遅延するとの断定や、PHP原因の推定はしません。申込・証明書取得は未実施。"
+    },
+    {
+      "name": "eAPRIN",
+      "sourceUrl": "https://www.aprin.or.jp/info/10902.html",
+      "verification": "confirmed_scoped_notice",
+      "confirmedId": "eaprin-maintenance-resumed",
+      "sourceClass": "運営自身の直接公式Web告知",
+      "sourceRead": "body_retrieved",
+      "collectionBatch": "official-public-followups-20261025-26-backlog",
+      "checkedAt": "2026-10-25T23:29:00Z",
+      "note": "10/23の公式再開告知が保守期間と11:30再開を直接記載。旧予定10/22正午から10/23午前中目処へ延長した10/22案内は履歴として保持し、掲載時刻から実再開を推測しません。PHP名や侵害の因果は補完しません。"
+    },
+    {
+      "name": "NTTドコモ：エリアメール一部・どこでも災害・避難情報",
+      "sourceUrl": "https://www.docomo.ne.jp/info/notice/page/261023_00_m.html",
+      "verification": "confirmed_scoped_notice",
+      "confirmedId": "docomo-area-mail-disaster-resumed",
+      "sourceClass": "運営自身の直接公式Web告知",
+      "sourceRead": "body_retrieved",
+      "collectionBatch": "official-public-followups-20261025-26-backlog",
+      "checkedAt": "2026-10-26T01:41:00Z",
+      "note": "10/23付ページの10/25午後8:01時点本文がメンテ完了・配信再開を直接記載。以前の10/26未明〜朝方見込みや検索抜粋から実績を決めていません。既存ドコモ一部Webサイトとは別の配信対象。端末での受信検証は未実施。"
+    },
+    {
+      "name": "LIXIL オーナーズクラブ",
+      "sourceUrl": "https://owners.lixil.co.jp/information/detail/18806?category=news",
+      "verification": "confirmed_scoped_notice",
+      "confirmedId": "lixil-owners-club-resumed",
+      "sourceClass": "運営自身の直接公式Web告知",
+      "sourceRead": "body_retrieved",
+      "collectionBatch": "official-public-followups-20261025-26-backlog",
+      "checkedAt": "2026-10-26T23:57:00Z",
+      "note": "10/26の運営告知は再開と、期限を迎えた人向けカスタマーセンターへの問い合わせを案内します。自動期限延長・無条件保証承認とはしません。安全性検証完了や関連不正アクセス/漏えい未確認は運営説明で、独立保証ではありません。ログイン・申込は未実施。"
+    },
+    {
+      "name": "渋谷区立図書館：電子図書館",
+      "sourceUrl": "https://www.lib.city.shibuya.tokyo.jp/new-info/2026/10/post-148.html",
+      "verification": "confirmed_scoped_notice",
+      "confirmedId": "shibuya-digital-library-resumed",
+      "sourceClass": "運営自身の直接公式Web告知",
+      "sourceRead": "body_retrieved",
+      "collectionBatch": "official-public-followups-20261025-26-backlog",
+      "checkedAt": "2026-10-26T23:57:00Z",
+      "note": "有効期間終了日が10/31のコンテンツについては返却期限が11月以降に入らないよう調整する例外を保持。5日延長を無条件一律に適用しません。利用者の実予約/電子貸出は未確認。"
+    },
+    {
+      "name": "群馬県社会福祉協議会：研修管理システム",
+      "sourceUrl": "https://www.g-shakyo.jp/mente.html",
+      "verification": "confirmed_scoped_notice",
+      "confirmedId": "gunma-shakyo-training-maintenance",
+      "sourceClass": "運営自身の直接公式Web告知",
+      "sourceRead": "body_retrieved",
+      "collectionBatch": "official-public-followups-20261025-26-backlog",
+      "checkedAt": "2026-10-26T23:57:00Z",
+      "note": "約3週間から確定復旧日を計算せず、受講期間延長の日数や改定後日程を作りません。代替受講サイトも本文にないため補完せず、再開実績とはしません。実ログイン/受講は未実施。"
+    },
+    {
+      "name": "日の出町",
+      "sourceUrl": "https://www.town.hinode.tokyo.jp/emergencyinfo/0000000041.html",
+      "verification": "confirmed",
+      "confirmedId": "official-20261029-hinode-functions",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-29T23:58:00Z",
+      "collectionBatch": "official-followups-20261029-2358"
+    },
+    {
+      "name": "港区",
+      "sourceUrl": "https://www.city.minato.tokyo.jp/senryakukouhou/phptaiou202610.html",
+      "verification": "confirmed",
+      "confirmedId": "official-20261029-minato-partial",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-29T23:58:00Z",
+      "collectionBatch": "official-followups-20261029-2358"
+    },
+    {
+      "name": "壱岐市",
+      "sourceUrl": "https://www.city.iki.nagasaki.jp/oshirase_kinkyu/16514.html",
+      "verification": "confirmed",
+      "confirmedId": "official-20261029-iki-contact",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-29T23:58:00Z",
+      "collectionBatch": "official-followups-20261029-2358"
+    },
+    {
+      "name": "南砺市",
+      "sourceUrl": "https://www.city.nanto.toyama.jp/important_news/7683.html",
+      "verification": "confirmed",
+      "confirmedId": "official-20261029-nanto-cultural",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-29T23:58:00Z",
+      "collectionBatch": "official-followups-20261029-2358"
+    },
+    {
+      "name": "豊田市",
+      "sourceUrl": "https://www.city.toyota.aichi.jp/shisei/koho/1073255/1081121.html",
+      "verification": "confirmed",
+      "confirmedId": "official-20261029-toyota-still-stopped",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-29T23:58:00Z",
+      "collectionBatch": "official-followups-20261029-2358"
+    },
+    {
+      "name": "東京技能講習協会",
+      "sourceUrl": "https://www.tgkk.or.jp/news/36448/",
+      "verification": "confirmed",
+      "confirmedId": "official-20261029-tgkk-reservation",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-10-29T23:58:00Z",
+      "collectionBatch": "official-followups-20261029-2358"
+    },
+    {
+      "name": "滑川市",
+      "sourceUrl": "https://www.city.namerikawa.toyama.jp/important_notice/11664.html",
+      "verification": "pending",
+      "sourceRead": "latest_body_unverified",
+      "note": "検索本文復旧候補、直接open404。最新本文未確定。",
+      "checkedAt": "2026-10-29T23:58:00Z",
+      "collectionBatch": "official-followups-20261029-2358"
+    },
+    {
+      "name": "薩摩川内市",
+      "sourceUrl": "https://www.city.satsumasendai.lg.jp/gyoseijoho/seisaku_keikaku/20241025/20241025-1/21458.html",
+      "verification": "pending",
+      "sourceRead": "latest_body_unverified",
+      "note": "検索10/29と直接本文10/26が混在。既存pending X候補を維持。",
+      "checkedAt": "2026-10-29T23:58:00Z",
+      "collectionBatch": "official-followups-20261029-2358"
+    },
+    {
+      "name": "PHONE APPLI",
+      "sourceUrl": "https://status.phoneappli.net/",
+      "verification": "pending",
+      "sourceRead": "latest_body_unverified",
+      "note": "検索10/28続報に環境別状態。直接本文の現在停止と10/27別障害は読めたがexact10/28節の因果・本文再照合待ち。",
+      "checkedAt": "2026-10-29T23:58:00Z",
+      "collectionBatch": "official-followups-20261029-2358"
+    },
+    {
+      "name": "なら建築住宅センター",
+      "sourceUrl": "https://zainara-kjc.net/pickup/10%E6%9C%8831%E6%97%A5%E5%9C%9F%E5%AE%9F%E6%96%BD%E4%BA%88%E5%AE%9A%E3%81%AE%E7%B7%8A%E6%80%A5%E3%83%A1%E3%83%B3%E3%83%86%E3%83%8A%E3%83%B3%E3%82%B9%E4%BD%9C%E6%A5%AD%E4%B8%AD%E6%AD%A2%E3%81%AE/",
+      "verification": "pending",
+      "sourceRead": "latest_body_unverified",
+      "note": "10/31保守中止・影響PHP不使用の公式検索候補。直接open不可。",
+      "checkedAt": "2026-10-29T23:58:00Z",
+      "collectionBatch": "official-followups-20261029-2358"
     }
   ],
   "related": [
@@ -104695,7 +105573,7 @@
     "classifiedOriginalGroups": 457,
     "additionalDiscoveryRows": 107,
     "classifiedAdditionalRows": 107,
-    "allDiscoveryRows": 2832,
+    "allDiscoveryRows": 2845,
     "sourceRowsByDecision": {
       "confirmed": 508,
       "duplicate": 62,
@@ -104709,16 +105587,20 @@
     "piyologNewPrimaryUrls": 27,
     "additionalOwnerVerifiedCards": 70,
     "followupReview": {
-      "checkedAt": "2026-10-24T23:30:00Z",
-      "scope": "TEAM26公式の機能別再開と、ムームー新規受付停止・河村隆一個別アーカイブ延長の直接公式原典のみ。全候補の現況再確認ではない。",
-      "newCards": 2,
-      "updatedCards": 1,
-      "priorPendingResolved": 0,
-      "newPendingGroups": 0,
-      "additionalSourceRows": 2,
-      "allPriorSourceIdentitiesRetained": 2830,
+      "checkedAt": "2026-10-27T23:49:00Z",
+      "scope": "10/27の直接公式6告知のみ。10/26以前の旧未公開差分は広げず、全既存対象の現況再確認ではない。",
+      "newCards": 6,
+      "additionalSourceRows": 6,
+      "allPriorSourceIdentitiesRetained": 2832,
       "unresolvedPreviouslyCollectedGroups": 2043,
-      "result": "557カード/範囲内終了101/未照合2043、元2830行全保持＋直接公式2URLで2832行。時刻経過を実再開にしない。"
+      "result": "吹田は指定3機能の確認時点、ビーイングは正午の実績、ファストカーボン+は海外制限残存。PHP名無し2件は未推定。CareNet元X未確認を保持。",
+      "limits": "サービス実機能・安全性の独立検証未実施。",
+      "additionalPriorBacklog": {
+        "newCards": 7,
+        "updatedCards": 1,
+        "additionalSourceRows": 7,
+        "scope": "10/25〜26の本文確認済み公式差分のみ。myTOKYOGAS補助/検索のみ滋賀候補は昇格しない。"
+      }
     },
     "followupDiscoveryRows": 1832,
     "followupReviews": [
@@ -108984,6 +109866,18 @@
         "run15CoverageCarriedForward": "既存42試行/本文34/未読8をそのまま保持、今回元URLの新規再試行なし。",
         "OSRead": "04:05–04:06UTCにPHP/CloudLinux4原典とAWS/Debian両CVE4表を取得、新実質差分なしでOSsource不変。AL2失敗advisory/AL2023拒否本文を再取得済みにせず、source表とCPU/binary/取得/稼働を分離。",
         "limits": "滋賀再開項目の年を別学部/隣接記事から補完しない。EXILE予定タイトルは実開始/終了や原因の確認ではない。検索抜粋/題の部分取得と全文取得を区分し、全候補/全体復旧の確認済み扱いにしない。"
+      },
+      {
+        "checkedAt": "2026-10-24T23:30:00Z",
+        "scope": "TEAM26公式の機能別再開と、ムームー新規受付停止・河村隆一個別アーカイブ延長の直接公式原典のみ。全候補の現況再確認ではない。",
+        "newCards": 2,
+        "updatedCards": 1,
+        "priorPendingResolved": 0,
+        "newPendingGroups": 0,
+        "additionalSourceRows": 2,
+        "allPriorSourceIdentitiesRetained": 2830,
+        "unresolvedPreviouslyCollectedGroups": 2043,
+        "result": "557カード/範囲内終了101/未照合2043、元2830行全保持＋直接公式2URLで2832行。時刻経過を実再開にしない。"
       },
       {
         "checkedAt": "2026-10-24T23:30:00Z",
@@ -124773,6 +125667,118 @@
       "uniqueURLs": 2,
       "kind": "既存保留2グループからの別公式原典2URL・いずれも全文未取得",
       "scope": "EXILE個別詳細は題まで、滋賀学部記事は公式検索抜粋/直接Cache miss。元一覧URL/所有参照/OBS汎用ページを原本行へ水増しせず、確認済み事故や復旧件数は増やさない。"
+    },
+    {
+      "id": "official-public-followups-20261027-six",
+      "checkedAt": "2026-10-27T23:49:00Z",
+      "rawRows": 6,
+      "uniqueURLs": 6,
+      "scope": "10/27の直接公式6告知。既存2832行と2043未照合群を保持。CareNetは元X未読のまま別公式根拠と関連付け。"
+    },
+    {
+      "id": "official-public-followups-20261025-26-backlog",
+      "checkedAt": "2026-10-26T23:57:00Z",
+      "rawRows": 7,
+      "uniqueURLs": 7,
+      "scope": "10/25〜26の未反映公式7対象。SoftBank同URL追補は既存カードと履歴のみ更新し原典行を水増ししない。"
+    },
+    {
+      "id": "official-followups-20261029-2358",
+      "checkedAt": "2026-10-29T23:58:00Z",
+      "rowCount": 10,
+      "members": [
+        {
+          "name": "日の出町",
+          "sourceUrl": "https://www.town.hinode.tokyo.jp/emergencyinfo/0000000041.html",
+          "verification": "confirmed",
+          "confirmedId": "official-20261029-hinode-functions",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-10-29T23:58:00Z",
+          "collectionBatch": "official-followups-20261029-2358"
+        },
+        {
+          "name": "港区",
+          "sourceUrl": "https://www.city.minato.tokyo.jp/senryakukouhou/phptaiou202610.html",
+          "verification": "confirmed",
+          "confirmedId": "official-20261029-minato-partial",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-10-29T23:58:00Z",
+          "collectionBatch": "official-followups-20261029-2358"
+        },
+        {
+          "name": "壱岐市",
+          "sourceUrl": "https://www.city.iki.nagasaki.jp/oshirase_kinkyu/16514.html",
+          "verification": "confirmed",
+          "confirmedId": "official-20261029-iki-contact",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-10-29T23:58:00Z",
+          "collectionBatch": "official-followups-20261029-2358"
+        },
+        {
+          "name": "南砺市",
+          "sourceUrl": "https://www.city.nanto.toyama.jp/important_news/7683.html",
+          "verification": "confirmed",
+          "confirmedId": "official-20261029-nanto-cultural",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-10-29T23:58:00Z",
+          "collectionBatch": "official-followups-20261029-2358"
+        },
+        {
+          "name": "豊田市",
+          "sourceUrl": "https://www.city.toyota.aichi.jp/shisei/koho/1073255/1081121.html",
+          "verification": "confirmed",
+          "confirmedId": "official-20261029-toyota-still-stopped",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-10-29T23:58:00Z",
+          "collectionBatch": "official-followups-20261029-2358"
+        },
+        {
+          "name": "東京技能講習協会",
+          "sourceUrl": "https://www.tgkk.or.jp/news/36448/",
+          "verification": "confirmed",
+          "confirmedId": "official-20261029-tgkk-reservation",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-10-29T23:58:00Z",
+          "collectionBatch": "official-followups-20261029-2358"
+        },
+        {
+          "name": "滑川市",
+          "sourceUrl": "https://www.city.namerikawa.toyama.jp/important_notice/11664.html",
+          "verification": "pending",
+          "sourceRead": "latest_body_unverified",
+          "note": "検索本文復旧候補、直接open404。最新本文未確定。",
+          "checkedAt": "2026-10-29T23:58:00Z",
+          "collectionBatch": "official-followups-20261029-2358"
+        },
+        {
+          "name": "薩摩川内市",
+          "sourceUrl": "https://www.city.satsumasendai.lg.jp/gyoseijoho/seisaku_keikaku/20241025/20241025-1/21458.html",
+          "verification": "pending",
+          "sourceRead": "latest_body_unverified",
+          "note": "検索10/29と直接本文10/26が混在。既存pending X候補を維持。",
+          "checkedAt": "2026-10-29T23:58:00Z",
+          "collectionBatch": "official-followups-20261029-2358"
+        },
+        {
+          "name": "PHONE APPLI",
+          "sourceUrl": "https://status.phoneappli.net/",
+          "verification": "pending",
+          "sourceRead": "latest_body_unverified",
+          "note": "検索10/28続報に環境別状態。直接本文の現在停止と10/27別障害は読めたがexact10/28節の因果・本文再照合待ち。",
+          "checkedAt": "2026-10-29T23:58:00Z",
+          "collectionBatch": "official-followups-20261029-2358"
+        },
+        {
+          "name": "なら建築住宅センター",
+          "sourceUrl": "https://zainara-kjc.net/pickup/10%E6%9C%8831%E6%97%A5%E5%9C%9F%E5%AE%9F%E6%96%BD%E4%BA%88%E5%AE%9A%E3%81%AE%E7%B7%8A%E6%80%A5%E3%83%A1%E3%83%B3%E3%83%86%E3%83%8A%E3%83%B3%E3%82%B9%E4%BD%9C%E6%A5%AD%E4%B8%AD%E6%AD%A2%E3%81%AE/",
+          "verification": "pending",
+          "sourceRead": "latest_body_unverified",
+          "note": "10/31保守中止・影響PHP不使用の公式検索候補。直接open不可。",
+          "checkedAt": "2026-10-29T23:58:00Z",
+          "collectionBatch": "official-followups-20261029-2358"
+        }
+      ],
+      "scope": "公式本文6件と照合保留4件の10URL。確認済みカード数・照合待ちグループ数と重複加算しない。"
     }
   ],
   "officialFollowups": [
@@ -125386,6 +126392,132 @@
       "end": "10/23 13:00頃より順次復旧。一部有料継続入会は同日19:00頃再開予定（実再開未確認）",
       "restored": false,
       "note": "10/23更新の公式本文で機能別の再開を確認。19:00頃は予定のままで、時刻経過や公開ログイン画面を実再開の根拠にしません。2027年度自動継続入会のコース・特典変更・解約等は受付終了と案内し、登録内容はマイページ、疑問点はマリーンズ・インフォメーションセンターへ案内しています。全機能再開・個人情報安全性の独立保証とはせず、ログイン・申込等の実操作は行っていません。"
+    },
+    {
+      "confirmedId": "suita-library-three-online-services",
+      "sourceUrl": "https://www.lib.suita.osaka.jp/important/2026/20261022112211.html",
+      "checkedAt": "2026-10-27T23:49:00Z",
+      "scope": "指定3機能のみ。物理図書館や全サービスの復旧へ広げません。",
+      "end": "中央図書館自習室WEB座席予約：10/27 07:00現在、電子図書館：10/26 13:00現在、JapanKnowledge：10/22 18:30現在、復旧を確認との運営報告（原文TZ未確認）",
+      "restored": true,
+      "note": "各時計は復旧の状況確認時点で、正確な実復旧時計ではありません。冒頭には再開不明との一般文も残るため、このカードは個別に復旧と明記された3機能に限定。自習室を学習室と言い換えず、当方の座席予約・電子貸出・実機能検証は未実施です。"
+    },
+    {
+      "confirmedId": "hanshin-exp-disabled-discount-online-application",
+      "sourceUrl": "https://www.hanshin-exp.co.jp/drivers/news/post_487.html",
+      "checkedAt": "2026-10-27T23:49:00Z",
+      "scope": "障害者割引オンライン申請受付サイトの新規・変更・更新申請。割引制度自体の停止や阪神電気鉄道のWeb停止とは別件です。",
+      "end": "再開日時は本文に未記載",
+      "restored": false,
+      "note": "10/27告知はオンライン申請停止を案内。期限が近い場合は、手帳の住所を管轄する市区町村の福祉担当窓口で申請するよう明記しています。自動期限延長、PHP原因、実停止/終了時計は補完しません。申請・窓口連絡は未実施です。"
+    },
+    {
+      "confirmedId": "hotel-h2-nagasaki-email-recovery",
+      "sourceUrl": "https://hotel-h2.jp/diary/?p=4223",
+      "checkedAt": "2026-10-27T23:49:00Z",
+      "scope": "ホテルのメール送受信・確認。宿泊施設や宿泊予約全体の停止/復旧とはしません。",
+      "end": "10/27付告知が正常な送受信・確認への復旧を報告。実復旧時計は未記載",
+      "restored": true,
+      "note": "保守中のメールには順次返信すると案内。返信がない場合や急ぎの場合は再送または電話を案内しています。告知日時から実復旧時計を推測せず、PHP原因も未確認。当方のメール送信・電話・予約操作は未実施です。"
+    },
+    {
+      "confirmedId": "dsj-fastcarbon-plus-reopening",
+      "sourceUrl": "https://www.dsj.co.jp/20261027-1/",
+      "checkedAt": "2026-10-27T23:49:00Z",
+      "scope": "ファストカーボン+。通常のファストカーボンとは区別し、海外を含む全利用制限解除とはしません。",
+      "end": "10/27に再開と運営報告。正確な再開時計は未記載、海外IP制限は継続または個別対応",
+      "restored": false,
+      "note": "公式はプラスの再開を報告する一方、海外IP制限の継続/個別対応を案内。海外から利用できない場合は既送の案内または窓口を確認する方針です。一部制限を残すため全体のrestoredはfalseを維持し、再開報告そのものは記録。ログイン・利用・窓口連絡は未実施です。"
+    },
+    {
+      "confirmedId": "beingcollaboration-recovery-20261027",
+      "sourceUrl": "https://www.beingcorp.co.jp/news/maintenance/20261027/",
+      "checkedAt": "2026-10-27T23:49:00Z",
+      "scope": "BeingCollaborationのみ。他製品や全サービスへ拡張しません。",
+      "end": "10/27 正午に復旧（運営記載の実績。原文TZ未記載）",
+      "restored": true,
+      "note": "10/27正午は告知時刻から推測した時計ではなく、運営が本文に明記した復旧実績です。当方のログインや共同作業機能の動作、安全性の独立検証は未実施です。"
+    },
+    {
+      "confirmedId": "carenet-com-php-maintenance-resume",
+      "sourceUrl": "https://www.carenet.com/info/cg005972_php_maintenance_resume.html",
+      "checkedAt": "2026-10-27T23:49:00Z",
+      "scope": "CareNet.com。他の外部クラウド障害と各サービス復旧は別告知であり、全製品の復旧とはしません。",
+      "end": "10/27に再開と運営報告（時計・原文TZ未記載）",
+      "restored": true,
+      "note": "10/27付の直接公式告知を新たな根拠として照合。情報漏えい等が確認されていないとの説明は運営報告で、当方の安全性保証ではありません。既存part3 row97の元X本文未確認は保持し、今回の公式Web本文確認と区別。ログイン・受講等の実機能検証は未実施です。"
+    },
+    {
+      "confirmedId": "lolipop-new-signup-migration-webdav-8246",
+      "sourceUrl": "https://lolipop.jp/info/news/8246/",
+      "checkedAt": "2026-10-25T23:29:00Z",
+      "scope": "新規申込/無料お試し、WordPress簡単引っ越し、WebDAV。既存サイト表示・メール送受信・ユーザーページログインは継続と案内。",
+      "end": "再開未確認。WebDAVは10/25 01:35追記が準備完了次第停止予定と案内し、停止中一覧は10/25未明からと記載",
+      "restored": false,
+      "note": "WebDAVの予定表現と停止中一覧の両方を保持し、01:35を正確な実停止時計としません。既存契約者にも移行/WebDAV停止の例外があり、既存契約は全機能無影響とはしません。10/19や10/21の別告知・PHP保守と同一原因とは推測せず、代替経路や再開時計を補いません。"
+    },
+    {
+      "confirmedId": "naccs-digital-certificate-issuance-delay",
+      "sourceUrl": "https://bbs.naccscenter.com/docs/2026102300037/",
+      "checkedAt": "2026-10-25T23:29:00Z",
+      "scope": "デジタル証明書の発行/再発行が数日遅れる場合あり。申込は可能。NACCSの全取引停止とはしません。",
+      "end": "正確な終了・実再開日時未確認。保守終了後に順次処理、発行完了時メール通知",
+      "restored": false,
+      "note": "10/23告知は遅延の可能性と申込可能を併記。全利用者に必ず数日遅延するとの断定や、PHP原因の推定はしません。申込・証明書取得は未実施。"
+    },
+    {
+      "confirmedId": "eaprin-maintenance-resumed",
+      "sourceUrl": "https://www.aprin.or.jp/info/10902.html",
+      "checkedAt": "2026-10-25T23:29:00Z",
+      "scope": "eAPRINの全操作。実アカウントの受講/ログイン動作は未検証。",
+      "end": "10/23 11:30に再開と運営明記（原文TZ未記載）",
+      "restored": true,
+      "note": "10/23の公式再開告知が保守期間と11:30再開を直接記載。旧予定10/22正午から10/23午前中目処へ延長した10/22案内は履歴として保持し、掲載時刻から実再開を推測しません。PHP名や侵害の因果は補完しません。"
+    },
+    {
+      "confirmedId": "docomo-area-mail-disaster-resumed",
+      "sourceUrl": "https://www.docomo.ne.jp/info/notice/page/261023_00_m.html",
+      "checkedAt": "2026-10-26T01:41:00Z",
+      "scope": "停止対象だったエリアメールの一部サービス、および「どこでも災害・避難情報」。元々停止していない地震/津波や全通信へ広げません。",
+      "end": "10/25 午後8:01に対象配信再開と運営明記（原文TZ未確認）",
+      "restored": true,
+      "note": "10/23付ページの10/25午後8:01時点本文がメンテ完了・配信再開を直接記載。以前の10/26未明〜朝方見込みや検索抜粋から実績を決めていません。既存ドコモ一部Webサイトとは別の配信対象。端末での受信検証は未実施。"
+    },
+    {
+      "confirmedId": "lixil-owners-club-resumed",
+      "sourceUrl": "https://owners.lixil.co.jp/information/detail/18806?category=news",
+      "checkedAt": "2026-10-26T23:57:00Z",
+      "scope": "会員登録・各種サービスの申込/変更。停止中に無料メーカー延長保証登録や長期保証申込の期限を迎えた人には問い合わせページを案内。",
+      "end": "10/26 16:30にWebサイト再開と報告（原文TZ未確認）",
+      "restored": true,
+      "note": "10/26の運営告知は再開と、期限を迎えた人向けカスタマーセンターへの問い合わせを案内します。自動期限延長・無条件保証承認とはしません。安全性検証完了や関連不正アクセス/漏えい未確認は運営説明で、独立保証ではありません。ログイン・申込は未実施。"
+    },
+    {
+      "confirmedId": "shibuya-digital-library-resumed",
+      "sourceUrl": "https://www.lib.city.shibuya.tokyo.jp/new-info/2026/10/post-148.html",
+      "checkedAt": "2026-10-26T23:57:00Z",
+      "scope": "電子図書館。停止時に貸出中/予約確保中だったコンテンツの日数を5日間延長。物理図書館休館や紙の本全件延長ではありません。",
+      "end": "10/26掲載本文が「本日復旧」と報告。正確な再開時計未記載",
+      "restored": true,
+      "note": "有効期間終了日が10/31のコンテンツについては返却期限が11月以降に入らないよう調整する例外を保持。5日延長を無条件一律に適用しません。利用者の実予約/電子貸出は未確認。"
+    },
+    {
+      "confirmedId": "gunma-shakyo-training-maintenance",
+      "sourceUrl": "https://www.g-shakyo.jp/mente.html",
+      "checkedAt": "2026-10-26T23:57:00Z",
+      "scope": "研修管理システム。第3期eラーニングA期間（10/1〜30）の延長、B期間（11/2〜30）の見直し等は今後別途告知。",
+      "end": "10/26時点の復旧見込みは約3週間。確定復旧日は未公表",
+      "restored": false,
+      "note": "約3週間から確定復旧日を計算せず、受講期間延長の日数や改定後日程を作りません。代替受講サイトも本文にないため補完せず、再開実績とはしません。実ログイン/受講は未実施。"
+    },
+    {
+      "confirmedId": "softbank-emergency-alert-mail",
+      "sourceUrl": "https://www.softbank.jp/corp/news/info/2026/20261023_01/",
+      "checkedAt": "2026-10-26T23:57:00Z",
+      "scope": "SoftBank / Y!mobile / LINEMOの緊急速報メール全種。通常通話・メールや全通信の復旧を意味しません。",
+      "end": "10/26 午後11:17に災害・避難情報の配信を再開（午後11:45更新本文、原文TZ未確認）",
+      "restored": true,
+      "note": "PHP対応保守が完了し、先に10/25午前9:25に再開した地震・津波に加え、国/地方公共団体の災害・避難情報も10/26午後11:17に再開と運営明記。旧予定・全種停止・部分再開と当時のYahoo!防災速報代替案内を履歴に保持し、現在も停止中とはしません。端末実配信/受信の独立検証は未実施。"
     }
   ],
   "pendingResolutionHistory": [
@@ -126586,5 +127718,251 @@
         }
       ]
     }
-  ]
+  ],
+  "nonStreamImpacts": [
+    {
+      "number": 1,
+      "title": "生田斗真 FC試聴会",
+      "candidateUrls": [
+        "https://x.com/TOMA_IKUTA10/status/2113120852380352685"
+      ],
+      "candidateTextRead": false,
+      "status": "verified_limited",
+      "sourceUrls": [
+        "https://toma-ikuta.com/news/detail/93665"
+      ],
+      "sourceTextRead": true,
+      "sourcePublishedDate": "2026-10-22",
+      "checkedAt": "2026-10-28T23:14:01Z",
+      "summary": "PHP対応メンテナンスに伴い、試聴会申込締切を10月22日23:59から10月23日12:00へ延長したと告知。",
+      "scope": "試聴会への申込",
+      "clockQualification": "日付・時刻は告知記載。本文にタイムゾーンの明示なし。",
+      "restriction": "実際のイベント開催や現在の機能稼働は未確認。"
+    },
+    {
+      "number": 2,
+      "title": "黒田倫弘 チケット",
+      "candidateUrls": [
+        "https://x.com/kurodastaff/status/2113470838213386603",
+        "https://x.com/kurodastaff/status/2113605841765151019",
+        "https://x.com/kurodastaff/status/2113627214281592934",
+        "https://x.com/kurodastaff/status/2113889668496552236"
+      ],
+      "candidateTextRead": false,
+      "status": "pending",
+      "sourceUrls": [],
+      "sourceTextRead": false,
+      "sourcePublishedDate": null,
+      "checkedAt": null,
+      "summary": null,
+      "scope": null,
+      "clockQualification": null,
+      "restriction": "候補告知本文を未確認。影響の具体的内容・日時・因果・再開は確定していない。"
+    },
+    {
+      "number": 3,
+      "title": "三浦宏規 FCチケット",
+      "candidateUrls": [
+        "https://x.com/willb_artists/status/2113465451371970828"
+      ],
+      "candidateTextRead": false,
+      "status": "verified_limited",
+      "sourceUrls": [
+        "https://miura-hiroki.com/contents/1121174"
+      ],
+      "sourceTextRead": true,
+      "sourcePublishedDate": "2026-10-23",
+      "checkedAt": "2026-10-28T23:14:01Z",
+      "summary": "PHP対応に伴い延期した『ドリアン・グレイ』東京・大阪公演のFC抽選先行受付を10月26日12:00〜11月1日23:59と再決定。締切は変更なし。",
+      "scope": "FCチケット抽選受付",
+      "clockQualification": "日付・時刻は告知記載。本文にタイムゾーンの明示なし。",
+      "restriction": "日程の告知であり、実際の受付開始やシステム復旧を確認したものではない。"
+    },
+    {
+      "number": 4,
+      "title": "マジカル・パンチライン チケット",
+      "candidateUrls": [
+        "https://x.com/MAGiPUNofficial/status/2113481522590446057"
+      ],
+      "candidateTextRead": false,
+      "status": "pending",
+      "sourceUrls": [],
+      "sourceTextRead": false,
+      "sourcePublishedDate": null,
+      "checkedAt": null,
+      "summary": null,
+      "scope": null,
+      "clockQualification": null,
+      "restriction": "候補告知本文を未確認。影響の具体的内容・日時・因果・再開は確定していない。"
+    },
+    {
+      "number": 5,
+      "title": "早慶戦ラグビー チケット一般販売",
+      "candidateUrls": [
+        "https://x.com/JERFU_1924/status/2113469332177272859"
+      ],
+      "candidateTextRead": false,
+      "status": "verified_limited",
+      "sourceUrls": [
+        "https://www.rugby.or.jp/univ/news/article/2773/"
+      ],
+      "sourceTextRead": true,
+      "sourcePublishedDate": "2026-10-22",
+      "checkedAt": "2026-10-28T23:14:01Z",
+      "summary": "PHP対応によるチケラグの緊急メンテナンスに伴い、11月23日の早慶戦一般販売日を10月23日18:00から10月26日18:00へ変更すると告知。対象はチケットぴあ・チケラグ・チケットペイ。",
+      "scope": "チケット一般販売日",
+      "clockQualification": "日付・時刻は告知記載。本文にタイムゾーンの明示なし。",
+      "restriction": "販売実施済み・現在の稼働を示す確認ではない。"
+    },
+    {
+      "number": 6,
+      "title": "日本FP協会 メールニュース",
+      "candidateUrls": [
+        "https://x.com/fp_kyokai/status/2113171803107631566"
+      ],
+      "candidateTextRead": false,
+      "status": "pending",
+      "sourceUrls": [],
+      "sourceTextRead": false,
+      "sourcePublishedDate": null,
+      "checkedAt": null,
+      "summary": null,
+      "scope": null,
+      "clockQualification": null,
+      "restriction": "候補告知本文を未確認。影響の具体的内容・日時・因果・再開は確定していない。"
+    },
+    {
+      "number": 7,
+      "title": "S.Y.N.C町田",
+      "candidateUrls": [
+        "https://x.com/SYNC_machida_/status/2113271994414432561",
+        "https://x.com/SYNC_machida_/status/2113491557269766553"
+      ],
+      "candidateTextRead": false,
+      "status": "pending",
+      "sourceUrls": [],
+      "sourceTextRead": false,
+      "sourcePublishedDate": null,
+      "checkedAt": null,
+      "summary": null,
+      "scope": null,
+      "clockQualification": null,
+      "restriction": "候補告知本文を未確認。影響の具体的内容・日時・因果・再開は確定していない。"
+    },
+    {
+      "number": 8,
+      "title": "新潟県スポーツ公園 施設予約",
+      "candidateUrls": [
+        "https://x.com/eco_stadium/status/2113494522982490174"
+      ],
+      "candidateTextRead": false,
+      "status": "verified_limited",
+      "sourceUrls": [
+        "https://www.hardoff-eco-stadium.jp/topics/detail/id/7459"
+      ],
+      "sourceTextRead": true,
+      "sourcePublishedDate": "2026-10-27",
+      "checkedAt": "2026-10-28T23:14:01Z",
+      "summary": "PHP対応の改修でオンライン予約を停止したまま、10月27日12時から電話受付に変更すると案内。オンライン受付の再開時期は未定と記載。",
+      "scope": "施設予約の代替受付",
+      "clockQualification": "日付・時刻は告知記載。本文にタイムゾーンの明示なし。",
+      "restriction": "電話受付の実動作・オンライン再開・全面復旧は未確認。"
+    },
+    {
+      "number": 9,
+      "title": "関西大学 ライティングラボ",
+      "candidateUrls": [
+        "https://x.com/writinglabo/status/2113116151752577039"
+      ],
+      "candidateTextRead": false,
+      "status": "verified_limited",
+      "sourceUrls": [
+        "https://www.kansai-u.ac.jp/ctl/labo/news2026/10/tec-1.html"
+      ],
+      "sourceTextRead": true,
+      "sourcePublishedDate": "2026-10-22",
+      "checkedAt": "2026-10-28T23:14:01Z",
+      "summary": "PHP対応により10月22日・23日・26日はTECsystemでの予約とオンライン相談を利用できないと告知。相談希望者は直接来室し、既予約者は予約時間に来室、相談する文章を持参するよう案内。",
+      "scope": "予約受付・オンライン相談と対面代替",
+      "clockQualification": "日付・時刻は告知記載。本文にタイムゾーンの明示なし。",
+      "restriction": "期間延長の可能性あり。10月27日に学内情報システムで今後の対応を案内する予定との記載。学内情報や再開は未確認。"
+    },
+    {
+      "number": 10,
+      "title": "日本小児アレルギー学会 抄録閲覧",
+      "candidateUrls": [
+        "https://x.com/JSPACI_kouhou/status/2113551028281127400"
+      ],
+      "candidateTextRead": false,
+      "status": "verified_limited",
+      "sourceUrls": [
+        "https://www.jspaci.jp/news/member/20261023-6532/"
+      ],
+      "sourceTextRead": true,
+      "sourcePublishedDate": "2026-10-23",
+      "checkedAt": "2026-10-28T23:14:01Z",
+      "summary": "PHP対応による会員管理システムのメンテナンスで会員マイページから抄録号・プログラム集を閲覧等できないため、別の学術大会抄録ページを案内。",
+      "scope": "抄録等の代替閲覧経路",
+      "clockQualification": "日付・時刻は告知記載。本文にタイムゾーンの明示なし。",
+      "restriction": "代替先の閲覧にもパスワードが必要で、一般無料開放ではない。制限付き本文は未取得。"
+    }
+  ],
+  "nonStreamImpactCounting": {
+    "counts": {
+      "candidates": 10,
+      "candidateUrls": 14,
+      "verifiedLimited": 6,
+      "pending": 4
+    },
+    "counting": "予約・申込・販売・相談等の影響10候補を独立整理。公式本文6件を限定確認、4件は本文未確認。上の576告知カード・範囲内復旧113件・照合待ち2046群・収集2855行には加算しない。"
+  },
+  "dailyOfficialFollowup20261029": {
+    "verifiedIds": [
+      "official-20261029-hinode-functions",
+      "official-20261029-minato-partial",
+      "official-20261029-iki-contact",
+      "official-20261029-nanto-cultural",
+      "official-20261029-toyota-still-stopped",
+      "official-20261029-tgkk-reservation"
+    ],
+    "pending": [
+      {
+        "title": "滑川市",
+        "reason": "検索本文復旧候補、直接open404。最新本文未確定。",
+        "sourceUrls": [
+          "https://www.city.namerikawa.toyama.jp/important_notice/11664.html"
+        ],
+        "sourceRead": "latest_body_unverified",
+        "checkedAt": "2026-10-29T23:58:00Z"
+      },
+      {
+        "title": "薩摩川内市",
+        "reason": "検索10/29と直接本文10/26が混在。既存pending X候補を維持。",
+        "sourceUrls": [
+          "https://www.city.satsumasendai.lg.jp/gyoseijoho/seisaku_keikaku/20241025/20241025-1/21458.html"
+        ],
+        "sourceRead": "latest_body_unverified",
+        "checkedAt": "2026-10-29T23:58:00Z"
+      },
+      {
+        "title": "PHONE APPLI",
+        "reason": "検索10/28続報に環境別状態。直接本文の現在停止と10/27別障害は読めたがexact10/28節の因果・本文再照合待ち。",
+        "sourceUrls": [
+          "https://status.phoneappli.net/"
+        ],
+        "sourceRead": "latest_body_unverified",
+        "checkedAt": "2026-10-29T23:58:00Z"
+      },
+      {
+        "title": "なら建築住宅センター",
+        "reason": "10/31保守中止・影響PHP不使用の公式検索候補。直接open不可。",
+        "sourceUrls": [
+          "https://zainara-kjc.net/pickup/10%E6%9C%8831%E6%97%A5%E5%9C%9F%E5%AE%9F%E6%96%BD%E4%BA%88%E5%AE%9A%E3%81%AE%E7%B7%8A%E6%80%A5%E3%83%A1%E3%83%B3%E3%83%86%E3%83%8A%E3%83%B3%E3%82%B9%E4%BD%9C%E6%A5%AD%E4%B8%AD%E6%AD%A2%E3%81%AE/"
+        ],
+        "sourceRead": "latest_body_unverified",
+        "checkedAt": "2026-10-29T23:58:00Z"
+      }
+    ],
+    "scope": "今回の6件だけを限定照合。既存の全候補・未確認分類・過去資料は保持し、全件再取得とはしない。未確認4件はconfirmedに加算しない。"
+  }
 }

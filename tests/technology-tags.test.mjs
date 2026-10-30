@@ -15,6 +15,16 @@ const keys = (record, kind) => automaticTags(record).filter((item) => item.kind 
 const record = (title, lead = "", category = "agent", extra = {}) => ({ title, lead, category, ...extra });
 
 const existingProducts = {
+  "cloudflare-skills-files-032": ["cloudflare-agents-sdk"],
+  "jules-winddown-20261231": ["other"],
+  "codex-01660-resume-permissions": ["codex"],
+  "cloudflare-mcp-analytics-status": ["other"],
+  "ollama-04013-lfm3-linux-windows": ["ollama"],
+  "aws-agentcore-cli-100-ga": ["other"],
+  "cloudflare-workflows-jurisdiction": ["other"],
+  "cloudflare-dns-advanced-deadline": ["other"],
+  "openwebui-0124-security-update": ["other"],
+
   "litellm-11063-signing-key-rotation": ["other"],
   "ollama-04010-nemotron-bolt-e4b": ["ollama"],
   "cloudflare-d1-undelete-seven-days": ["other"],
@@ -111,6 +121,15 @@ test("all authored records have deterministic product/domain/change dimensions",
 
 test("current change tags distinguish pricing, fixes, public weights, GA, beta and correction", () => {
   const expected = {
+    "cloudflare-skills-files-032": ["compatibility"],
+    "jules-winddown-20261231": ["update"],
+    "codex-01660-resume-permissions": ["fix"],
+    "cloudflare-mcp-analytics-status": ["update"],
+    "ollama-04013-lfm3-linux-windows": ["update"],
+    "aws-agentcore-cli-100-ga": ["ga","compatibility"],
+    "cloudflare-workflows-jurisdiction": ["feature","compatibility"],
+    "cloudflare-dns-advanced-deadline": ["compatibility","deprecation"],
+    "openwebui-0124-security-update": ["fix","ga","security"],
   "litellm-11063-signing-key-rotation": ["release","compatibility"],
   "ollama-04010-nemotron-bolt-e4b": ["feature"],
   "cloudflare-d1-undelete-seven-days": ["update"],
