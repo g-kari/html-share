@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/vulnerabilities-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Sat, 17 Oct 2026 19:27:49 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 30 Oct 2026 01:01:55 GMT</lastBuildDate>
+    <item>
+      <title>Plex 4 CVE連鎖とSiemensの実悪用続報、Node.js10月21日修正10 CVEを補完</title>
+      <link>https://share.0g0.xyz/vulnerabilities</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/vulnerabilities-feed.xml#f62fbce32dc68871f2feb36e0ff9a3ed1a1a25c30079c273394cf663611878ba</guid>
+      <description>Plex 4 CVE連鎖とSiemensの実悪用続報、Node.js10月21日修正10 CVEを補完。元公表・修正・悪用続報を区別。残るChrome/Nuxt/Vitest等の未統合候補はこの部分候補に含めない。 10月23日のKEV追加2件（Arista VCO CVE-2026-114625、Collabora CODE CVE-2026-110447）とChrome156のCritical6件を補完。認証条件・停止中のみの成立・系列別修正版、CNAとCISAの別採点、Chromeのsandbox内外/Android条件を区別。旧318項目・49履歴を保持。 Pillowのmulti-frame境界外書込と同梱OpenJPEG、BIND GSS-TSIG並行処理、プリザンター限定LDAP認証の4項目を補完。正式修正版/互換性・成立条件・公表とDB登録日・実悪用と報告者実験を区別。旧321項目・50履歴を保持した未公開部分候補。 Unbound DoQ multi-thread UAF（CVE-2026-97206）とPowerDNS RecursorのDNSSEC検証回避/DoS（85555/73206）を補完。公式10月21日修正とJPRS10月23日案内、成立条件・採点・実悪用未確認を区別。 CERT/CC 10月26日公表のmpc-lib（CVE-2026-90975）祖先share隔離不備とvsomeip（CVE-2026-91141）TCPメモリDoSを追加。完全秘密鍵復元との違い、版範囲未確認・修正未提供と7月の既提供修正版、構成条件、実悪用/PoC/CVSS未確認を区別。 PAN-OSのPHP2Shell実悪用と製品別hotfix・非影響機能、Fragnesiaとの連鎖と10月28日KEV追加、VMware ESX41709のLow評価と実悪用を追加。Diffusersのローカルimport条件とbody-parser圧縮request DoSを補完。以前の未公開候補14件とGitLab・Wasmtime・OpenHands・PHP115560の4件を保持して統合し、日付更新だけを新情報にしない。 PHP115560はsession upload progress設定切替の別問題であり、PAN-OSはvendorの現行分析で非影響と区別する。 Authlib96760の正式修正版未確認という旧記述を訂正。maintainer影響範囲1.8.0以下と1.9.0正式release・PyPI配布を確認し、main修正履歴・旧CERT範囲・CVSS主体差を保持。新しい実悪用確認ではありません。</description>
+      <pubDate>Fri, 30 Oct 2026 01:01:55 GMT</pubDate>
+      <dcterms:created>2026-10-30T01:01:55.000Z</dcterms:created>
+    </item>
     <item>
       <title>10月14日のNext.js/React 2件、10月15日のMCP TypeScript HTTP 3件を一次資料で補完</title>
       <link>https://share.0g0.xyz/vulnerabilities</link>

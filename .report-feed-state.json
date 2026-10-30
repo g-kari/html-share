@@ -22,6 +22,7 @@
         "arista-cloudvision-upload-filesystem-xss": "e8382503a545d797d82c2ff2587776fa8a240109a66e0033663202f91449667d",
         "arista-cvcue-backend-auth-xss-command": "44535a054ec62953c8fdf5afebc63481c83769bd676391e3f0d6adad5ca1b7ff",
         "arista-vco-exploited-boundary": "b68eab3e7c19889901bf2462cc32377328a92aa80fac1b3b00f431ef29116076",
+        "arista-vco-sqli-exploited-114625": "691c297704ca2af3719382af3782fa900b881b5f452db4b8149185f7faeab379",
         "arista-wifi-ap-gateway-uplink-capture-corruption": "b8b094b22f49b7a0cc3849dd354a980b5431712006a2b703b4736da60fd53c1e",
         "arista-wifi-captive-portal-associated-client-dos": "3d668f80d78367920bff1b2a89d05d21db031331e536e67ac9eb2ed5904e39d7",
         "arista-wifi-wips-rf-sensor-memory-corruption": "6d1cf8163e3a8bae4e344d6dba402969e2ed157990921c36c27d8fc52dad678c",
@@ -34,7 +35,7 @@
         "aspnetcore-multipart-buffer-dos-70181": "15435cc27039423ff6f460179727469168cd215a639ad31b3d6d865408e85f32",
         "aspnetcore-negotiate-ldap-principal-70179": "b2bc8f6787bd11fcaed5925ba3662f5cf79ceff527380efe72d9acdaf6c33366",
         "atlassian-multiproduct-unauthenticated-file-access": "1255249e9e0847733d5d9f4c8cb454fc5e6cd1c6467b73906d029345db5a7d83",
-        "authlib-empty-signatures-jws-verification-bypass": "a037c64f1df320520beaa8d1d2aebb3ea0b741d102eb487a991ec6bb632010b4",
+        "authlib-empty-signatures-jws-verification-bypass": "cc816d1bf2b43548bbec57df44d14d4ebc78d767acad3552e3b0cae6a9f8dcde",
         "avideo-youphpflix-trailer-url-stored-xss": "9d5860a130f9547d4e4825338da8a22ce2c4c5a07fd4d3b277e326966f357921",
         "aws-agentcore-import-generated-code-and-openapi-boundaries": "6ea6e6d7d27aecf1ad0470d0c30900427ccf115bae3151b7a148f842a83b3be7",
         "aws-powershell-iam-console-password-log-disclosure": "89d978ec84df97f0c3fae6d1f08440c67a9c01aeb63dac62a35568b433934cf9",
@@ -53,11 +54,14 @@
         "backstage-techdocs-mkdocs-sanitizer-theme-code-execution": "c5995734f8dca70e53d035224422c6f20834abd97f31f096d631ad121faf208b",
         "better-auth-magic-link-oauth-proxy-purpose-isolation": "ff153c1e6208e1a34253f6141f1a54ea75e56cc8fafbcec51763ccf187ff3391",
         "beyondtrust-remote-support-origin-validation-exploited": "a98f87b8ce4cc54c42ee7dc8168a8933943e43de69b2c0280a6f02733c818bd6",
+        "bind-gss-tsig-concurrency-94300": "ed3363dc32d10191437775261e0e085088beaf521d9ae5b49616989ad47f61bc",
         "bind-tkey-dos-october-kev-followup": "cb402560e9ebcc44123fc348921c054513761cddbd3f52c61ac3da67838eda1f",
+        "body-parser-compressed-body-trailing-bytes-dos": "0abd6c570a765a3659baf30b26b8365cdc67762eaa0f9181a514f6ff42511ce1",
         "busybox-proxy-prefix-smuggling-and-deb-extraction-escape": "5eed4a36be7cd80be42b13ac6c667d0d4f6e4f0de3d4043b3a43560a23c1924a",
         "capacitor-native-webview-origin-proxy": "664019fab05a7bb19a09675443758dd4e9b970df8de83a85f0e2de29865ff9fa",
         "checkpoint-management-exploited-script-upload": "5a079d0149879e339c9df0e66463db668d2dd23028ae1abe0bc3c0e767e604d4",
         "checkpoint-vpn-exploited-certificate-rce": "061d31fd8854be97ecdcaae792d0269b248c75426512f6efd23bd18176419559",
+        "chrome-156-october-critical-six": "ea3d37850f2fc2a55b4e738082fb28046f20df2ed802c81b553abb9ff978f4a3",
         "chrome-october-fifteen-prerender-critical-fixes": "385a3034f1ef55430e3637e73c9a4815da5a78958b0328e0f956542b5b89106d",
         "chrome-october-six-critical-use-after-free": "48931811b31e8cf4fc362330457e29a1b4c6f8fc33a8b9326352b28a15971a48",
         "chrome-october-thirteen-critical-memory-fixes": "087cca90bc673f89aa681dacfa917207f7bea71187db066ee75b35bc6d6fd49d",
@@ -71,8 +75,10 @@
         "claude-desktop-windows-project-git-executable-search": "a98588be4d1d1177bbd1f067176bcc5be543a35b4c8ef7562172acae4cd713c9",
         "claude-plugin-sha-pin-checkout-bypass": "6997249a276c537cd304c8ed5ff476e23497ba84f43e4885357263ec3e92db10",
         "cloudflare-containers-residual-data": "697eb8f64e6623a13596210e3b7c8a9268999211f28e0fc80b4412dcb6bb1a53",
+        "collabora-richdocumentscode-exploited-110447": "d6cc022db79fd5a83e59aafdacbd0c5616f4354f687f7206a9b9b3fb4ed942b0",
         "convertx-calibre-recipe-execution": "f9e216fa2494213b3d816fec59a1659aaafe31f4420c1c9c6d3b7656ce68e579",
         "coraza-argument-limit-bypass-and-json-stack-crash": "3ed7660b6d2583fdf1f04ec873b8edbba817588a94b800d84602dadab8546784",
+        "covesa-vsomeip-tcp-unbounded-allocation": "9c3f52e105835d2bfea5ee4edd93de5e13371e9436709050f20edd868e2301fa",
         "cowlib-structured-header-crlf-source-fix-unreleased": "97358c76feb65614282fdd1a6f39f1b1bd28f58e4b3ce3030bcbb9fc02bfc58e",
         "cpanel-september-adminbin-xss": "4aa2bbc63bfce68577ba1a550f6a81257ef7f7e9efdb320b9c6a25cff38db483",
         "curl-http2-upload-rst-stream-use-after-free": "7c63d5ebe4cac61b2cc6f3ee49bd95fdf4e17b9b5d75748a70257ed56154a7ab",
@@ -90,6 +96,7 @@
         "dell-csm-authentication-cluster-boundaries": "56b9b0bc653c8f56457998ef9eb543a45c53ce4bee3c12aeff4763104fc4ad39",
         "dell-system-update-root-path-and-permissions": "e2349581b1cf61fa9fad11e69144b5439dc8b6ec4be69175eadc7c9e33f5b8cb",
         "devolutions-server-login-replay-and-global-vault": "d7ebf909d206f5037d36384bf53347ae92eaecb8cad3fc158a93b66dd588bb27",
+        "diffusers-local-model-import-trust-boundary": "833b934ed9b6a491508af9dbcae87f22985753202eeb22c20fecb0839ece4d5e",
         "dormakaba-evolo-service-system-rce": "2c2e3d72530737599b05463d3d00d7ea41d11d1733da732d4062e34a784a12fe",
         "dotnet-wpf-xaml-xps-rce-70035": "12e4b87faffbac64dc30957b1ff01c519b8cba1d1189bfa1e72f4c2a8758fdc6",
         "drupal-entity-list-contributed-module-rce": "b0f522096e2c406bd77b24cec106b8c8e76fbeccf612ff4faa9d67b86e0cbb85",
@@ -106,6 +113,7 @@
         "external-secrets-webhook-label-bypass": "94c350b1e50372ac8d639303d3b5f27aace07f46c9a5a8333053a2620137028c",
         "fanvil-x7a-pa2s-management-websocket-boundaries": "b7162cbf689bdd1d02a80028a6bc49dc543e0a2ace0eb860beabca32c6ee5aaa",
         "fast-jwt-algorithm-claims-cache-boundaries": "bbebcc6be62529bc478b9f9b21a92248f3af77b474fa6494a9cd5dfddb73ab53",
+        "fireblocks-mpclib-hardened-ancestor-isolation": "68db432007927bd9b2ce67e19b7550ea2f5d13afcba87986f4b08de0ee35959a",
         "flexnet-lmadmin-soap-administrator-authentication-bypass": "c0c46f88cc5eb93a801f236135c1d52feff0fb7362b41c5ae1ac43f13b7c3039",
         "fortimail-exploited-file-write": "4e5e49df2593e4129f842786d14bac6ae2b2a9821197b940543262ba5c57d720",
         "fortinet-admin-cli-path-traversal-exploited-61624": "d2a047aba75e091dd5ecd9c1c4cc3e29a0a5c6b006e1a2dcdac4517823586a68",
@@ -137,6 +145,7 @@
         "gitlab-97229": "5bdd79fea976ae272643c75afba4e4f914abdb2da11a24548e3bdd5928da0136",
         "gitlab-ai-gateway-template-escape": "5e50a3d18b626de79909181e6f0fefaac17f674c8b81eb94ad4d26049945b345",
         "gitlab-exploited-repository-api-file-read": "7e4570f922221db47a07868bfaec02eb40843955ed1cb2e93de325ae8c34cea9",
+        "gitlab-onigmo-unauthenticated-rce-110264": "41b0d3e23da8ccabd803caee93ed4f8c4c3fb222c2a201bbd1a474db6ac21270",
         "gitpython-remote-pull-refspec-command-injection": "be00e67ab809671b58084be4dd88bc3b31bcabf6adcbd89167b85f331ed539f1",
         "google-gvisor-vfs-double-free-sentry-boundary": "e58dbd8f908615663079cec06d981ab79b06279b056cefbe9ff71935df400f83",
         "gstreamer-asfmux-non-bmp-metadata-heap-write": "e58e09d8ec6beef9db8c10c8d7beeae2b48e109a5423b8ec875e317e60bf97ef",
@@ -183,6 +192,7 @@
         "libexpat-buffer-length-32bit-realloc": "246e3bf22529a2b200567bac1f9b7cb1bd88bcfd5caac2f25df2667c92b8e661",
         "libreoffice-jdbc-document-rce": "0fe05f7c8a5b05eb0d0db011054aeae48353519b47340e515951734387b5248f",
         "libsoup-http2-upload-goaway-uaf-rhel-eus-fix": "e7d4121b8b427f0ea75c34fa70039337147953cd024f01d91375384fd4d0303c",
+        "linux-fragnesia-page-cache-lpe-46300": "b83e659b516fc33b9ada9347c673d0c4f7642a7058ee3d9d2e92bfac6d90b7ca",
         "linux-rdma-rxe-mr-range-overflow-oob-access": "dc26e07289498c500b4a444d1d3b452c39a030bc43f104eddac11c299e994dd1",
         "linux-rdma-siw-fragmented-header-oob-write": "6d909d43481acf47bdf0b5bf13e035fedb58da4f8036b0efdaeff8b9a74b4741",
         "linux-vhost-stale-iotlb-vghost-disclosure": "9cf6521fa934f6f28a8938e92f6532cc173c4a1ea36c416ae4f41e9d8686e615",
@@ -216,6 +226,7 @@
         "nginx-october-alias-script-http3-tickets-aio": "d7f43596ca93b872b5bb7a32fa41798ab4b054cfb7042d5932716b27c0df9dd5",
         "nginx-ui-2026-107804-107813": "a007dfd7169272d4804dc362f7ccab05b07265c8b392df17496db4aa4d24faef",
         "nix-lix-october-store-sandbox-installer-boundaries": "35504814accfa97c75f757f51c7779ab536dd9d8d52f06d1e436bb189f353df9",
+        "nodejs-october-2026-security-release": "b61856e47500d9b0f49bb311945e9fa894195ffb424be242746658a81dc4f27d",
         "npm-css-jptvix-polyfill-malware": "c6f42d03229a0d0b38f6f2efb85be87095f396d09d0c1ade3310cbd69ee7af64",
         "npm-proxyaddr-trust-subnet-spoofing": "323d3a44e8a40098435c6974bef0b5221ea82d9fcbae5cc05acdce71de5cba95",
         "npm-seroval-fromjson-bypass": "65a00bffb700da1c7f1e5ae9fc3e784593b3d75f56ace5c65310f70715333572",
@@ -234,6 +245,7 @@
         "oj-uaf-iterator-and-symbol-cache-boundaries": "b49c6ede5582825b5e3987fc035ed98224d27c495ec1b988123934014bbdffa3",
         "onlyoffice-upload-jwt-traversal-october-kev-followup": "86a5cba68f10d50a21d6cb339118c4247779dca68cad790d53fcf94d421c2356",
         "openapi-python-client-generation-injection": "4c07046eaba05f218c128edb3787de46e09cb9d091cd92d841f9e556853c247d",
+        "openhands-sdk-exposed-unauthenticated-sandbox": "88856351055ec7e934e913069077cf4011ae977d9edf182d921ef61145f01188",
         "openoffice-java-document-rce": "68dc10ceafd6e7cd6585835b65d0ed414f4db6813eb13aa87b21504ab53cb5c3",
         "openpdc-openhistorian-console-publisher-docker-boundaries": "66e7044909c5e591d7d4291312b96cb51d524e6f2ca799c099f9d96ddcd96853",
         "openssl-dtls-retransmission-heap-disclosure": "f52e014ed97559cab65b9cafaf49759c2b36f7ff24e5a2b739c27e4bb903d481",
@@ -250,6 +262,7 @@
         "paloalto-pan-os-320": "fb74b60ffa425fc0299f4d5304d059d6b4e73d81e9f65c00f7bc70aa8ebc933b",
         "paloalto-pan-os-321": "34e13c488ce19a73c244bf87f7fdafb6cee13c8b0ca4822b3223e8739e863eb3",
         "paloalto-pan-os-322": "1d9fbb98d90de3d6dca7d93e3864233b80b24c1b3504b69948c8bdfc857dfc26",
+        "pan-os-php2shell-management-interface": "0b54b1e776a8e166500cdd2578ca5afb998721652bdb45dc41250e5e84660e60",
         "patool-windows-archive-filename-shell-injection": "3a127c61378699c39faae13a89523e234a5814f5e2cb836cbaf154f5ca604335",
         "payload-auth-field-write-boundaries": "f5849cb62d0d1a6608c0625b012a63f6da46f22ada4d872b4d830e646cca3a06",
         "payload-form-first-register-rce": "d9bd21f8fd40c1efd5c7f39d0f24d4e4d975992c04f749bdb15a3d1c7d800053",
@@ -262,9 +275,15 @@
         "payload-stripe-ecommerce-boundaries": "f1abf2d213bfd6124dfd91c960ad0550e3eef5662de0ae2133fd423da076bb43",
         "payload-upload-trust-lifecycle": "8d8353ce5acaaba355c89b61d9f6ae84fc433836d34d138b81fbe90dd2ec298e",
         "penpot-svg-export-command-injection": "8e9a3484b4f092ed9bd8a574153302ce8e093a0cd96c6c5da7455ef071ace2b5",
+        "php-session-upload-progress-handler-switch-115560": "9d86f2da8ce0e6792034898f600166af59572632ab94559fa516d8128d75f0ec",
+        "pillow-bundled-openjpeg-heap-overflow": "e4c8552d163dbbec924b978e9840966511828ed34d5553e0c03cfa14fd2d5beb",
+        "pillow-multiframe-native-storage-96639": "368afbf6eca139b55b635ff28e3fe223c98c7481efeff1cc990e88484926ae23",
         "pingvin-share-x-oauth-email-account-linking-takeover": "c3b8a06d672df78c2b192e2c417baf23eb7b3f78f8a43440aefb21cc581e974f",
         "pixel-october-critical-bluetooth-gdmc-gsa": "3ad631bd2bdfa4d540222b0ee7109387dd54dd6de31e18237b26abff790feda0",
         "planka-totp-bruteforce": "336ec8f5f57298328f8541660a026ede451f768e694f63505031c7795805c4d1",
+        "pleasanter-ldap-auth-bypass-113438": "04ab85581447fd1e5e7bd4623ea8124da5667622c67c5d2123716f4fed83d6bc",
+        "plex-server-october-exploited-chain": "22b82fec8bd7785616ee19c9a7dda11c614daabbae3dc263935a9649685c02a3",
+        "powerdns-recursor-october-dnssec-dos": "6e9f9420d2fbcf9ea1cde67ef2fc4a683d6618000ae1c11a6a8b6155870a5f58",
         "praisonai-agentmail-webhook-signature-boundary": "b1ad779b94bb2f78e50d7e7ef3a4afee26a71e7af828da3a7bb420580b3e3c82",
         "proftpd-modcopy-october-kev-followup": "a8a51a57c7d678397bf39c2bcc946fb59c22b8623a2689dc7d39a0382185bc92",
         "progress-arcgenai-generator-command-injection": "846fa21f1032fdd5f374daef49160eb4d1bd1e47fabe19bbfbffd4d530997d70",
@@ -281,6 +300,7 @@
         "rundeck-windows-job-option-command-injection": "1548ad49cb2da99fa37a95e4d5664a5c107db83a613608e39eaae2afded215bc",
         "sagemaker-distribution-project-startup-command-injection": "2f2fbd7c0c30e9cac8c1f5fbb9c048989c1beac62ad70e955609bd49f0e946f7",
         "sharepoint-exploited-authenticated-code-injection": "474a959d4cb9e863dcec1ee5b6714dd865d2ddc5544d333d7710fb9da0227b6e",
+        "siemens-software-center-dll-exploited": "37904306471d22469b308d24f3e716740fafa0c78f2b47c63e1e9bc0c506639d",
         "sipay-pos-opencart-prestashop-signature-validation": "e64e2745ef891107dbf5fd309d2e4e93f31358c3ccf51e2937e3d0ab58c8b022",
         "siteguard-server-statistics-exploited-command-injection": "ca1b0298a5c508271938160886448df8bbbbfedf77efb33da8b19a9787cc14a5",
         "smartermail-volume-script-jwt-demotion-and-mutation-xss": "c939fffdc9ddf5b5f17f57109000bcd5b4fa00cc83788d12eca1793335dcbb24",
@@ -298,6 +318,7 @@
         "tenable-identity-exposure-ad-listener-command-injection": "957a4dc3d7a58255ab39e03011b181d0e470c049a9591fe81b47f1d3e937297d",
         "tenda-ac5-wifi-handler-authenticated-overflow": "a794752e56573fd8cc988ee20b4330ffa0562a928c27015fae239311cb297ba7",
         "twenty-workspace-graphql-external-credentials": "f5bd3f14152bcf42f91803d50e951c6e2f508ffd1f40da34009e546a374eb5e8",
+        "unbound-doq-multithread-uaf-97206": "619ce3806df6bfd1a66f97d60f5871b292dbf90bb65c94500990e77c2ed6be7a",
         "unifi-protect-ai-key-command-and-access-boundaries": "4074a31aed6d1212fbedd07fc73f7507f08d7fdd2221aa2743267e451c24bcae",
         "uptime-kuma-public-ping-badge-resource-dos": "5f271286bda5e8194576686034cedf77818a6a6040414a4603e0ce87d75192d1",
         "veeam-backup-viewer-system-rce": "1c44858ba7f94d378bcb8ac2b3e348d3f7905e1f0329bc5f19d94a211181d954",
@@ -306,7 +327,9 @@
         "vllm-moss-audio-unbounded-processor-cache": "7137613bf5fcde4296966ffc1fa5afd1f55d20833ab204301cb1ca13c1109dc5",
         "vllm-multimodal-request-processor-resource-dos": "9b9b9301ae003cc8086cf697673b0881f886f0adfd6c0753f4d617a3b58e6f52",
         "vllm-request-code-revision-processor-rce": "a07675a4572f88f03ba70dd50fd3e646dc370d54e0b1f99555055b8efe78e1a2",
+        "vmware-esx-insufficient-logging-41709": "17b1a36e1e85a91252876b948a45474772f6110d334c855ec4019e7748ada0fa",
         "vmware-workstation-fusion-vmxnet3-hgfs-host-execution": "ef6dda42f9bf39bce24570e2af1b1218f571cf607b1f6762acebec1de6dbf722",
+        "wasmtime-cranelift-sandbox-escape-oct2026": "02e275d45455f7d44f665c81b9d2c287ae1e6d8e58242c706a1ee8612c5b7ae9",
         "weasyprint-eps-ghostscript-dispatch": "b6d6385b11a49561386bf7af95533dca5c21ac02c96d6fe9bbb85fdfb7d09d9c",
         "wger-gym-trainer-authorization-csrf": "7c06ee7c73d1027097cb5d20216a4f27f6fa6fe6e71da0c634c55ce5a9927775",
         "windows-exploited-eop": "9a0d69060c4fa2f2c50a6674477bed037d31268fce5cc202e7acdd0860a847ac",
@@ -750,6 +773,79 @@
             "npm-sharp-librsvg-svg-uaf"
           ],
           "date": "2026-10-18"
+        },
+        {
+          "signature": "4561f2d384ce044c07464e51aa630251cddde788caec3fd98fe7cfb678c94cf7",
+          "summary": "Plex 4 CVE連鎖とSiemensの実悪用続報、Node.js10月21日修正10 CVEを補完。元公表・修正・悪用続報を区別。残るChrome/Nuxt/Vitest等の未統合候補はこの部分候補に含めない。",
+          "ids": [
+            "nodejs-october-2026-security-release",
+            "plex-server-october-exploited-chain",
+            "siemens-software-center-dll-exploited"
+          ],
+          "date": "2026-10-23"
+        },
+        {
+          "signature": "5622cdc2942e6efe7a19c4a37e543354cf12838d59d229955b80538f0b4ef1e5",
+          "summary": "10月23日のKEV追加2件（Arista VCO CVE-2026-114625、Collabora CODE CVE-2026-110447）とChrome156のCritical6件を補完。認証条件・停止中のみの成立・系列別修正版、CNAとCISAの別採点、Chromeのsandbox内外/Android条件を区別。旧318項目・49履歴を保持。",
+          "ids": [
+            "arista-vco-sqli-exploited-114625",
+            "chrome-156-october-critical-six",
+            "collabora-richdocumentscode-exploited-110447"
+          ],
+          "date": "2026-10-24"
+        },
+        {
+          "signature": "b933acfb6edf98ca94c4d7b24c8f19bb6bf71e5c995e21e00c810ba545ea7450",
+          "summary": "Pillowのmulti-frame境界外書込と同梱OpenJPEG、BIND GSS-TSIG並行処理、プリザンター限定LDAP認証の4項目を補完。正式修正版/互換性・成立条件・公表とDB登録日・実悪用と報告者実験を区別。旧321項目・50履歴を保持した未公開部分候補。",
+          "ids": [
+            "bind-gss-tsig-concurrency-94300",
+            "pillow-bundled-openjpeg-heap-overflow",
+            "pillow-multiframe-native-storage-96639",
+            "pleasanter-ldap-auth-bypass-113438"
+          ],
+          "date": "2026-10-25"
+        },
+        {
+          "signature": "fbb9aba76738fb27cc26f90b995079cceeb683e3ffddf5a35e694f0c9fb572eb",
+          "summary": "Unbound DoQ multi-thread UAF（CVE-2026-97206）とPowerDNS RecursorのDNSSEC検証回避/DoS（85555/73206）を補完。公式10月21日修正とJPRS10月23日案内、成立条件・採点・実悪用未確認を区別。",
+          "ids": [
+            "powerdns-recursor-october-dnssec-dos",
+            "unbound-doq-multithread-uaf-97206"
+          ],
+          "date": "2026-10-26"
+        },
+        {
+          "signature": "ad3bfd65bad465fbe4f7f98082e0e535f8ae2ebc0aec051a814214ea672a9970",
+          "summary": "CERT/CC 10月26日公表のmpc-lib（CVE-2026-90975）祖先share隔離不備とvsomeip（CVE-2026-91141）TCPメモリDoSを追加。完全秘密鍵復元との違い、版範囲未確認・修正未提供と7月の既提供修正版、構成条件、実悪用/PoC/CVSS未確認を区別。",
+          "ids": [
+            "covesa-vsomeip-tcp-unbounded-allocation",
+            "fireblocks-mpclib-hardened-ancestor-isolation"
+          ],
+          "date": "2026-10-27"
+        },
+        {
+          "signature": "75c52255896e153b1e63df167824dc11031f4a8536d295f56da98ddfc3b43486",
+          "summary": "PAN-OSのPHP2Shell実悪用と製品別hotfix・非影響機能、Fragnesiaとの連鎖と10月28日KEV追加、VMware ESX41709のLow評価と実悪用を追加。Diffusersのローカルimport条件とbody-parser圧縮request DoSを補完。以前の未公開候補14件とGitLab・Wasmtime・OpenHands・PHP115560の4件を保持して統合し、日付更新だけを新情報にしない。 PHP115560はsession upload progress設定切替の別問題であり、PAN-OSはvendorの現行分析で非影響と区別する。",
+          "ids": [
+            "body-parser-compressed-body-trailing-bytes-dos",
+            "diffusers-local-model-import-trust-boundary",
+            "gitlab-onigmo-unauthenticated-rce-110264",
+            "linux-fragnesia-page-cache-lpe-46300",
+            "openhands-sdk-exposed-unauthenticated-sandbox",
+            "pan-os-php2shell-management-interface",
+            "php-session-upload-progress-handler-switch-115560",
+            "vmware-esx-insufficient-logging-41709",
+            "wasmtime-cranelift-sandbox-escape-oct2026"
+          ],
+          "date": "2026-10-30"
+        },
+        {
+          "signature": "a14c0af934c1a7838cd94bf7ba6340f061cbecb952ab55258804355b505914b8",
+          "summary": "Authlib96760の正式修正版未確認という旧記述を訂正。maintainer影響範囲1.8.0以下と1.9.0正式release・PyPI配布を確認し、main修正履歴・旧CERT範囲・CVSS主体差を保持。新しい実悪用確認ではありません。",
+          "ids": [
+            "authlib-empty-signatures-jws-verification-bypass"
+          ],
+          "date": "2026-10-30"
         }
       ],
       "items": [
@@ -1519,9 +1615,90 @@
           ],
           "published": "2026-10-17T19:27:49.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "f62fbce32dc68871f2feb36e0ff9a3ed1a1a25c30079c273394cf663611878ba",
+          "summary": "Plex 4 CVE連鎖とSiemensの実悪用続報、Node.js10月21日修正10 CVEを補完。元公表・修正・悪用続報を区別。残るChrome/Nuxt/Vitest等の未統合候補はこの部分候補に含めない。 10月23日のKEV追加2件（Arista VCO CVE-2026-114625、Collabora CODE CVE-2026-110447）とChrome156のCritical6件を補完。認証条件・停止中のみの成立・系列別修正版、CNAとCISAの別採点、Chromeのsandbox内外/Android条件を区別。旧318項目・49履歴を保持。 Pillowのmulti-frame境界外書込と同梱OpenJPEG、BIND GSS-TSIG並行処理、プリザンター限定LDAP認証の4項目を補完。正式修正版/互換性・成立条件・公表とDB登録日・実悪用と報告者実験を区別。旧321項目・50履歴を保持した未公開部分候補。 Unbound DoQ multi-thread UAF（CVE-2026-97206）とPowerDNS RecursorのDNSSEC検証回避/DoS（85555/73206）を補完。公式10月21日修正とJPRS10月23日案内、成立条件・採点・実悪用未確認を区別。 CERT/CC 10月26日公表のmpc-lib（CVE-2026-90975）祖先share隔離不備とvsomeip（CVE-2026-91141）TCPメモリDoSを追加。完全秘密鍵復元との違い、版範囲未確認・修正未提供と7月の既提供修正版、構成条件、実悪用/PoC/CVSS未確認を区別。 PAN-OSのPHP2Shell実悪用と製品別hotfix・非影響機能、Fragnesiaとの連鎖と10月28日KEV追加、VMware ESX41709のLow評価と実悪用を追加。Diffusersのローカルimport条件とbody-parser圧縮request DoSを補完。以前の未公開候補14件とGitLab・Wasmtime・OpenHands・PHP115560の4件を保持して統合し、日付更新だけを新情報にしない。 PHP115560はsession upload progress設定切替の別問題であり、PAN-OSはvendorの現行分析で非影響と区別する。 Authlib96760の正式修正版未確認という旧記述を訂正。maintainer影響範囲1.8.0以下と1.9.0正式release・PyPI配布を確認し、main修正履歴・旧CERT範囲・CVSS主体差を保持。新しい実悪用確認ではありません。",
+          "journal": [
+            {
+              "signature": "4561f2d384ce044c07464e51aa630251cddde788caec3fd98fe7cfb678c94cf7",
+              "summary": "Plex 4 CVE連鎖とSiemensの実悪用続報、Node.js10月21日修正10 CVEを補完。元公表・修正・悪用続報を区別。残るChrome/Nuxt/Vitest等の未統合候補はこの部分候補に含めない。",
+              "ids": [
+                "nodejs-october-2026-security-release",
+                "plex-server-october-exploited-chain",
+                "siemens-software-center-dll-exploited"
+              ],
+              "date": "2026-10-23"
+            },
+            {
+              "signature": "5622cdc2942e6efe7a19c4a37e543354cf12838d59d229955b80538f0b4ef1e5",
+              "summary": "10月23日のKEV追加2件（Arista VCO CVE-2026-114625、Collabora CODE CVE-2026-110447）とChrome156のCritical6件を補完。認証条件・停止中のみの成立・系列別修正版、CNAとCISAの別採点、Chromeのsandbox内外/Android条件を区別。旧318項目・49履歴を保持。",
+              "ids": [
+                "arista-vco-sqli-exploited-114625",
+                "chrome-156-october-critical-six",
+                "collabora-richdocumentscode-exploited-110447"
+              ],
+              "date": "2026-10-24"
+            },
+            {
+              "signature": "b933acfb6edf98ca94c4d7b24c8f19bb6bf71e5c995e21e00c810ba545ea7450",
+              "summary": "Pillowのmulti-frame境界外書込と同梱OpenJPEG、BIND GSS-TSIG並行処理、プリザンター限定LDAP認証の4項目を補完。正式修正版/互換性・成立条件・公表とDB登録日・実悪用と報告者実験を区別。旧321項目・50履歴を保持した未公開部分候補。",
+              "ids": [
+                "bind-gss-tsig-concurrency-94300",
+                "pillow-bundled-openjpeg-heap-overflow",
+                "pillow-multiframe-native-storage-96639",
+                "pleasanter-ldap-auth-bypass-113438"
+              ],
+              "date": "2026-10-25"
+            },
+            {
+              "signature": "fbb9aba76738fb27cc26f90b995079cceeb683e3ffddf5a35e694f0c9fb572eb",
+              "summary": "Unbound DoQ multi-thread UAF（CVE-2026-97206）とPowerDNS RecursorのDNSSEC検証回避/DoS（85555/73206）を補完。公式10月21日修正とJPRS10月23日案内、成立条件・採点・実悪用未確認を区別。",
+              "ids": [
+                "powerdns-recursor-october-dnssec-dos",
+                "unbound-doq-multithread-uaf-97206"
+              ],
+              "date": "2026-10-26"
+            },
+            {
+              "signature": "ad3bfd65bad465fbe4f7f98082e0e535f8ae2ebc0aec051a814214ea672a9970",
+              "summary": "CERT/CC 10月26日公表のmpc-lib（CVE-2026-90975）祖先share隔離不備とvsomeip（CVE-2026-91141）TCPメモリDoSを追加。完全秘密鍵復元との違い、版範囲未確認・修正未提供と7月の既提供修正版、構成条件、実悪用/PoC/CVSS未確認を区別。",
+              "ids": [
+                "covesa-vsomeip-tcp-unbounded-allocation",
+                "fireblocks-mpclib-hardened-ancestor-isolation"
+              ],
+              "date": "2026-10-27"
+            },
+            {
+              "signature": "75c52255896e153b1e63df167824dc11031f4a8536d295f56da98ddfc3b43486",
+              "summary": "PAN-OSのPHP2Shell実悪用と製品別hotfix・非影響機能、Fragnesiaとの連鎖と10月28日KEV追加、VMware ESX41709のLow評価と実悪用を追加。Diffusersのローカルimport条件とbody-parser圧縮request DoSを補完。以前の未公開候補14件とGitLab・Wasmtime・OpenHands・PHP115560の4件を保持して統合し、日付更新だけを新情報にしない。 PHP115560はsession upload progress設定切替の別問題であり、PAN-OSはvendorの現行分析で非影響と区別する。",
+              "ids": [
+                "body-parser-compressed-body-trailing-bytes-dos",
+                "diffusers-local-model-import-trust-boundary",
+                "gitlab-onigmo-unauthenticated-rce-110264",
+                "linux-fragnesia-page-cache-lpe-46300",
+                "openhands-sdk-exposed-unauthenticated-sandbox",
+                "pan-os-php2shell-management-interface",
+                "php-session-upload-progress-handler-switch-115560",
+                "vmware-esx-insufficient-logging-41709",
+                "wasmtime-cranelift-sandbox-escape-oct2026"
+              ],
+              "date": "2026-10-30"
+            },
+            {
+              "signature": "a14c0af934c1a7838cd94bf7ba6340f061cbecb952ab55258804355b505914b8",
+              "summary": "Authlib96760の正式修正版未確認という旧記述を訂正。maintainer影響範囲1.8.0以下と1.9.0正式release・PyPI配布を確認し、main修正履歴・旧CERT範囲・CVSS主体差を保持。新しい実悪用確認ではありません。",
+              "ids": [
+                "authlib-empty-signatures-jws-verification-bypass"
+              ],
+              "date": "2026-10-30"
+            }
+          ],
+          "published": "2026-10-30T01:01:55.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "1f49678df925362a88c29c85923f8373a8b7f044"
+      "cursor": "67aafb694e0caa431b65252d94feb516d8a30ecd"
     },
     "security-incidents": {
       "records": {
@@ -1559,12 +1736,13 @@
         "coconala-resume-20261008": "eb238bb47e37b31ac1b72f96a1443f5fa5b5bde6c97aec836f0e052dd64a785c",
         "comhairle-cyberattack-20231107": "969973749209f04fd022ca4fbbb96b8912e33f409bfbbfcfd6b7da252cd459b5",
         "commune-community-20261005": "d322cd9f8add11e34e8ae71a6b6c313316b51096170f1b4ff1ed21bd1ce467f5",
-        "connectwise-cloud-backup-20261016": "578adf94faeb8c91accb053c05af081df208fd6ff89feb4e007976713f3c5186",
+        "connectwise-cloud-backup-20261016": "270dcd28dfbcda05cbcb36e997e6d0de8561c6c9da5e88dd5db05f33be5d673e",
         "cynd-beautymerit-2026": "dc70226d1acb1c024eae63c2ccc36cd9c2a69ee4860d4e516419d871b6b3b207",
         "daiichikosho-ncg-pc-20261002": "d35a2b8b8d7e0e315603bff41756cafb621d19524b6147deb26e3dea3d8d7447",
         "daiichilife-hr-20260924": "1e98e1d06a6656056652dc03334c624398f2c266f1b39b3c83499cf0683de3b7",
         "daiki-app-20260915": "c6b2d634d0ceb02bbe009b8d07a45c184eb3bdb16d2c7b4c5531eba813fae0d2",
         "daiwa-sc-inquiry-20261002": "10b219d3cf389f148ce418689f2102227f042973c3c2d241e6588fb6ab8a98ae",
+        "data-cymru-ogi-20241101": "e45a04b393b90a6c295b9dcdfe3146d5ceefaeb87595c3b670a71a4de9c4fab2",
         "denmark-cpr-202609": "09530cda566c311efec57744d4aac7f0b639d60adec60ba71becf9f6e77af99a",
         "digital-gss-20260625": "cc80960f66e57c16c31434b188bc63b70a51ddc777c374564f6462a08863a5f0",
         "divd-zammad-20260921": "d2ed878c758362ae76bd4939b2fcf4e8d0598bc5d2dcbdcf2af782ac87ebd48e",
@@ -1589,14 +1767,14 @@
         "ghostaction-actions-20260831": "574819c206a94c471aee7c13a933559ea42cf7f9414571dcc36c8c9a900ddba4",
         "gmo-infoq-20261002": "dc3bea01b9b4470cc5e2a23cb979616f526e00f4a70afb70a467d439e6723ace",
         "gmo-trustlogin-storage-20260914": "2adc230ca2e280b49e89cf76b0f9e41a74d1b72ba2247eac22aa0f05ec8b22c6",
-        "gyazo-20260911": "5cfea9221bbe5d1a4c8a843dc35940bd4efc77229f33fbaf2dc725e15a21914c",
+        "gyazo-20260911": "bb9026b39223caa087d44f1468ce80d7943faf71ed1518e3d64daa13d4d36da0",
         "hachijuni-nagano-mail-20261007": "d60ef399deb6dff6ffb177c658b88c66e35121591d8c220d1e786232cc9f2e10",
         "hachioji-gakuen-ransomware-20260708": "bf01b81c29665c5447402b11c680f995ecbb1bcc14f8270c71b5fbe1c63cc809",
         "haicheese-photo-2026": "48d970231e574d0dd68b64859ed4996aa8f4a44a3e518aaf17003b85f72048a8",
         "hasbro-network-20260328": "073d95bbcc6abbff7ec335ef3a6edf58e9d3c040aea6de66231d4f46bbdfdb1f",
         "his-thailand-files-20251211": "39bc712b0110e2c0c3835834fda56b62fa724b3cc1e749a240f62479d6b6a0a9",
         "icc-2026": "46efd179efcaa10ceca01aa9b87e511375c341ca055eb4a98c61bdff02fa1f53",
-        "idcf-cloud-east1-20261007": "99187302a06fb634b5ebcc807805c382d1440e8adfd35b3cb5d58b2c2360c8a4",
+        "idcf-cloud-east1-20261007": "8a9ebb29261bf9b574f7b496e143985ceefad063aff2b88c6c8d8059c1910ec1",
         "idscan-veriscan-cloud-20260404": "2a57e6a7865983acb4b7456db224f250f8cb2cc0a6fa759056bf925086d36ece",
         "ieej-m365-20260729": "fa99e2b810a20bc27c306797d14b3da0f8d8c266ee8d2d200fccbc03140f552e",
         "ielove-2026": "59e7a5fcf1890717adab0af4da194f253baf584af11b667d3124908d14f5be65",
@@ -1629,7 +1807,7 @@
         "kuins-eportfolio-20260930": "ea2ba18fb8a9dc5e7d1c39f719588feab4c1732c3db70a2745949d5b900836df",
         "lashinbang-20260914": "1025cd57c78faf179128f22ae815ef7b54222d8b780b5f203e6109a8eb10b2d3",
         "lawson-2026-mail": "f37705791d7a9bc7040119e3f24e0ff8dac77137a14b6274a120d8f877a868ee",
-        "lawson-id-reservation-20260912": "fbad7d29e9d7cc04f65966e4ca2adb5728d03f87737f36f8403cdb788e4b4fc1",
+        "lawson-id-reservation-20260912": "ed5003f166572a3e86d0127c1f2c94e59d7496ad19f1378af59628d5b3b9d289",
         "line-games-ad-20220525": "1567b92a31485e0b9d50c3f41cde8346299ee69878d98503e1650d6dfed8dfdd",
         "logicvein-vpn-20251208-update": "0e9861717c0ede0efadf52b2435bdad7a850883d52e095f329cfee0c9ea36fd3",
         "luminis-health-cyber-2026": "73a328a412c7bc2c60df581f59e6b7a8e0a6ca0cc23bbab62a3b3a6342dbfc31",
@@ -2634,6 +2812,46 @@
             "timescar-20260925"
           ],
           "date": "2026-10-25"
+        },
+        {
+          "signature": "8b8327b861e99dd9243753952fb4bada5ad7d6dfad981a71286e7dad763aa411",
+          "summary": "ローソン10月24日の情報種類訂正、10月19日の予約再開を反映。10月26日の別委託先店舗検索停止は機能制限として分離し、新たな漏えい・予約全面停止としない。",
+          "ids": [
+            "lawson-id-reservation-20260912"
+          ],
+          "date": "2026-10-28"
+        },
+        {
+          "signature": "38342382f4076ea082d9d1af5f6880a09e02c0bf1dca45e9454e3bf7a9cc8327",
+          "summary": "Gyazo10月21日第三報・最終調査を反映。自社変換処理の脆弱性、133名432画像の閲覧・取得、専門家評価のログ上の限界、実施済み措置と継続対策を区別。",
+          "ids": [
+            "gyazo-20260911"
+          ],
+          "date": "2026-10-28"
+        },
+        {
+          "signature": "6b57582aa5e045e2cdab721b0e3b81ad1752864f21e49c8781447f391b7378f0",
+          "summary": "IDCF10月27日第7報を公式RSS全文で反映。OSS脆弱性悪用と調査完了、ポータル最大71社・個人名等最大31社31件、パスワード不正変更最大4件を区別。206顧客のバックアップ取出し可は全体復旧ではなく、ポータル停止・段階計画を保持。",
+          "ids": [
+            "idcf-cloud-east1-20261007"
+          ],
+          "date": "2026-10-28"
+        },
+        {
+          "signature": "32addc273677dfc0d3b7a263d57acf4d022bc59ea9021f9f30f3cd9901b0a16c",
+          "summary": "ICO10月20日調査結果からData Cymru／Ogiの2024年11月攻撃を過去比較枠へ追加。3,300人、暗号化182.7GB、持出し42GBを区別し、不要アカウント・弱い認証・委託責任分担の指摘を記録。",
+          "ids": [
+            "data-cymru-ogi-20241101"
+          ],
+          "date": "2026-10-28"
+        },
+        {
+          "signature": "c56a05a5b81842793f9727d718bee0891dc9161c0621504c259ca516d7017f4b",
+          "summary": "ConnectWise10月28・29日公式続報を反映。新アプリによるM365バックアップ・復元の段階再開、各テナントの再認可と正常完了確認を追記。旧アプリの無断再有効化禁止、個別侵害調査継続と全機能復旧未確認を区別。",
+          "ids": [
+            "connectwise-cloud-backup-20261016"
+          ],
+          "date": "2026-10-30"
         }
       ],
       "items": [
@@ -3827,9 +4045,57 @@
           ],
           "published": "2026-10-25T02:06:01.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "ed1c6736a5519542765994e54fd414c2d1fb5eeeb190406781a2c3e82d44c7cb",
+          "summary": "ローソン10月24日の情報種類訂正、10月19日の予約再開を反映。10月26日の別委託先店舗検索停止は機能制限として分離し、新たな漏えい・予約全面停止としない。 Gyazo10月21日第三報・最終調査を反映。自社変換処理の脆弱性、133名432画像の閲覧・取得、専門家評価のログ上の限界、実施済み措置と継続対策を区別。 IDCF10月27日第7報を公式RSS全文で反映。OSS脆弱性悪用と調査完了、ポータル最大71社・個人名等最大31社31件、パスワード不正変更最大4件を区別。206顧客のバックアップ取出し可は全体復旧ではなく、ポータル停止・段階計画を保持。 ICO10月20日調査結果からData Cymru／Ogiの2024年11月攻撃を過去比較枠へ追加。3,300人、暗号化182.7GB、持出し42GBを区別し、不要アカウント・弱い認証・委託責任分担の指摘を記録。 ConnectWise10月28・29日公式続報を反映。新アプリによるM365バックアップ・復元の段階再開、各テナントの再認可と正常完了確認を追記。旧アプリの無断再有効化禁止、個別侵害調査継続と全機能復旧未確認を区別。",
+          "journal": [
+            {
+              "signature": "8b8327b861e99dd9243753952fb4bada5ad7d6dfad981a71286e7dad763aa411",
+              "summary": "ローソン10月24日の情報種類訂正、10月19日の予約再開を反映。10月26日の別委託先店舗検索停止は機能制限として分離し、新たな漏えい・予約全面停止としない。",
+              "ids": [
+                "lawson-id-reservation-20260912"
+              ],
+              "date": "2026-10-28"
+            },
+            {
+              "signature": "38342382f4076ea082d9d1af5f6880a09e02c0bf1dca45e9454e3bf7a9cc8327",
+              "summary": "Gyazo10月21日第三報・最終調査を反映。自社変換処理の脆弱性、133名432画像の閲覧・取得、専門家評価のログ上の限界、実施済み措置と継続対策を区別。",
+              "ids": [
+                "gyazo-20260911"
+              ],
+              "date": "2026-10-28"
+            },
+            {
+              "signature": "6b57582aa5e045e2cdab721b0e3b81ad1752864f21e49c8781447f391b7378f0",
+              "summary": "IDCF10月27日第7報を公式RSS全文で反映。OSS脆弱性悪用と調査完了、ポータル最大71社・個人名等最大31社31件、パスワード不正変更最大4件を区別。206顧客のバックアップ取出し可は全体復旧ではなく、ポータル停止・段階計画を保持。",
+              "ids": [
+                "idcf-cloud-east1-20261007"
+              ],
+              "date": "2026-10-28"
+            },
+            {
+              "signature": "32addc273677dfc0d3b7a263d57acf4d022bc59ea9021f9f30f3cd9901b0a16c",
+              "summary": "ICO10月20日調査結果からData Cymru／Ogiの2024年11月攻撃を過去比較枠へ追加。3,300人、暗号化182.7GB、持出し42GBを区別し、不要アカウント・弱い認証・委託責任分担の指摘を記録。",
+              "ids": [
+                "data-cymru-ogi-20241101"
+              ],
+              "date": "2026-10-28"
+            },
+            {
+              "signature": "c56a05a5b81842793f9727d718bee0891dc9161c0621504c259ca516d7017f4b",
+              "summary": "ConnectWise10月28・29日公式続報を反映。新アプリによるM365バックアップ・復元の段階再開、各テナントの再認可と正常完了確認を追記。旧アプリの無断再有効化禁止、個別侵害調査継続と全機能復旧未確認を区別。",
+              "ids": [
+                "connectwise-cloud-backup-20261016"
+              ],
+              "date": "2026-10-30"
+            }
+          ],
+          "published": "2026-10-30T01:01:55.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "e05768798356f56919ff02c102cebce9c0f99a8f"
+      "cursor": "67aafb694e0caa431b65252d94feb516d8a30ecd"
     }
   }
 }

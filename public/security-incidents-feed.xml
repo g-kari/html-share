@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Sun, 25 Oct 2026 02:06:01 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 30 Oct 2026 01:01:55 GMT</lastBuildDate>
+    <item>
+      <title>ローソン10月24日の情報種類訂正、10月19日の予約再開を反映</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#ed1c6736a5519542765994e54fd414c2d1fb5eeeb190406781a2c3e82d44c7cb</guid>
+      <description>ローソン10月24日の情報種類訂正、10月19日の予約再開を反映。10月26日の別委託先店舗検索停止は機能制限として分離し、新たな漏えい・予約全面停止としない。 Gyazo10月21日第三報・最終調査を反映。自社変換処理の脆弱性、133名432画像の閲覧・取得、専門家評価のログ上の限界、実施済み措置と継続対策を区別。 IDCF10月27日第7報を公式RSS全文で反映。OSS脆弱性悪用と調査完了、ポータル最大71社・個人名等最大31社31件、パスワード不正変更最大4件を区別。206顧客のバックアップ取出し可は全体復旧ではなく、ポータル停止・段階計画を保持。 ICO10月20日調査結果からData Cymru／Ogiの2024年11月攻撃を過去比較枠へ追加。3,300人、暗号化182.7GB、持出し42GBを区別し、不要アカウント・弱い認証・委託責任分担の指摘を記録。 ConnectWise10月28・29日公式続報を反映。新アプリによるM365バックアップ・復元の段階再開、各テナントの再認可と正常完了確認を追記。旧アプリの無断再有効化禁止、個別侵害調査継続と全機能復旧未確認を区別。</description>
+      <pubDate>Fri, 30 Oct 2026 01:01:55 GMT</pubDate>
+      <dcterms:created>2026-10-30T01:01:55.000Z</dcterms:created>
+    </item>
     <item>
       <title>タイムズカー10月23日第5報を反映</title>
       <link>https://share.0g0.xyz/security-incidents</link>

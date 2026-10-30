@@ -6,28 +6,29 @@
 @media(max-width:560px){body{font-size:15px}.wrap{width:calc(100% - 32px)}.topbar{padding:16px 0;font-size:12px}.topbar nav{gap:12px}.intro h1{font-size:29px}.edition{display:block}.edition strong{margin-bottom:6px}.quick ul{grid-template-columns:1fr;gap:10px}.correction{padding:16px}.tools{grid-template-columns:1fr;padding:16px;gap:12px}.tools button{grid-column:auto}.collection-title{display:block}.collection-title p{margin-top:8px}.update{padding:20px}.update h3{font-size:19px}.updates{gap:18px}.notes{padding:22px;gap:20px}.history{padding:20px}.quick{padding-bottom:20px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 @media print{body{background:#fff;color:#000;font-size:11pt}.wrap{width:100%}.topbar nav,.tools,.quick,.permalink,.site-footer{display:none!important}.intro{padding:12px 0}.updates,.notes{display:block}.update{break-inside:avoid;margin-bottom:20px}.update[hidden]{display:block!important}.collection{padding-bottom:20px}.correction,.test{background:#fff;border:1px solid #aaa}a{color:#000}.history{break-inside:avoid}}
-.tools{grid-template-columns:repeat(2,minmax(0,1fr));align-items:end}.tools button{justify-self:start}.auto-tag{font-size:12px;padding:3px 8px;border:1px solid var(--line);border-radius:4px;text-decoration:none;min-height:30px}.pagination,.archive-nav{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:20px 0}.pagination button{min-height:44px;background:#fff;color:var(--ink);border:1px solid #949db6;border-radius:5px;padding:8px 14px;cursor:pointer}.pagination button:disabled{opacity:.55;cursor:default}.load-error{padding:16px;background:var(--alertbg);border:1px solid #bd8d2b;margin:16px 0}.load-error button{min-height:44px}.archive-list{padding:24px;background:#fff;border:1px solid var(--line);border-radius:var(--radius)}.archive-list li{margin:12px 0}.updates:empty{display:none}@media(max-width:560px){.tools{grid-template-columns:1fr}}</style>  <!-- html-share: social metadata -->
+.tools{grid-template-columns:repeat(2,minmax(0,1fr));align-items:end}.tools button{justify-self:start}.auto-tag{font-size:12px;padding:3px 8px;border:1px solid var(--line);border-radius:4px;text-decoration:none;min-height:30px}.pagination,.archive-nav{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:20px 0}.pagination button{min-height:44px;background:#fff;color:var(--ink);border:1px solid #949db6;border-radius:5px;padding:8px 14px;cursor:pointer}.pagination button:disabled{opacity:.55;cursor:default}.load-error{padding:16px;background:var(--alertbg);border:1px solid #bd8d2b;margin:16px 0}.load-error button{min-height:44px}.archive-list{padding:24px;background:#fff;border:1px solid var(--line);border-radius:var(--radius)}.archive-list li{margin:12px 0}.updates:empty{display:none}@media(max-width:560px){.tools{grid-template-columns:1fr}}</style>
+<meta property="og:image" content="https://share.0g0.xyz/assets/technology-updates-review-v1.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1734">
+<meta property="og:image:height" content="907">
+<meta property="og:image:alt" content="公式発表の書類、影響を調べる虫眼鏡、小さな検証用の机を順に並べた図。">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://share.0g0.xyz/assets/technology-updates-review-v1.png">
+<meta name="twitter:image:alt" content="公式発表の書類、影響を調べる虫眼鏡、小さな検証用の机を順に並べた図。">
+  <!-- html-share: social metadata -->
   <link rel="canonical" href="https://share.0g0.xyz/technology-updates/archive">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="HTML Share">
   <meta property="og:title" content="重要技術アップデート 月別アーカイブ 1">
   <meta property="og:description" content="AIモデル、料金、OSS・ローカル実行、開発エージェント、音声・画像・動画、MCPの重要更新を一次資料で確認。利用条件と再テスト案、訂正履歴をまとめる。">
   <meta property="og:url" content="https://share.0g0.xyz/technology-updates/archive">
-  <meta property="og:image" content="https://share.0g0.xyz/assets/html-share-card-v1.png">
-  <meta property="og:image:type" content="image/png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="HTML Shareのロゴと共有ページを表すカード">
-  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="重要技術アップデート 月別アーカイブ 1">
   <meta name="twitter:description" content="AIモデル、料金、OSS・ローカル実行、開発エージェント、音声・画像・動画、MCPの重要更新を一次資料で確認。利用条件と再テスト案、訂正履歴をまとめる。">
-  <meta name="twitter:image" content="https://share.0g0.xyz/assets/html-share-card-v1.png">
-  <meta name="twitter:image:alt" content="HTML Shareのロゴと共有ページを表すカード">
   <!-- /html-share: social metadata -->
   <!-- html-share: rss discovery -->
   <link rel="alternate" type="application/rss+xml" title="HTML Share RSS" href="https://share.0g0.xyz/feed.xml">
   <!-- /html-share: rss discovery -->
 </head>
-<body><a class="skip" href="/technology-updates#updates">本文へ移動</a><header class="masthead" id="top"><div class="wrap"><div class="topbar"><a href="/">共有ノート</a><nav aria-label="ページ案内"><a href="/technology-updates#updates">更新一覧</a><a href="/technology-updates#method">掲載基準</a><a href="/technology-updates/history#history">履歴</a></nav></div><div class="intro"><div><h1>重要技術アップデート</h1><p>何が変わり、どんな作業で役立つか。AIモデルと料金だけでなく、ローカル実行、開発エージェント、音声・画像・動画、MCPまで。試す前に確認したい条件を、一次資料からまとめます。</p></div><aside class="edition" aria-label="確認範囲"><strong>2026年10月24日 UTC 確認</strong><p><span>対象：9月29日〜10月24日の発表・重要な続報</span><span>74項目 / 8分野</span><span>実機での性能測定は未実施</span></p></aside></div></div></header>
-<main class="wrap"><aside class="correction" aria-label="重要な訂正"><strong>訂正：Gemini 3.1 Flash Image の終了日は未発表</strong><p>「10月29日終了」という説明を訂正しました。推奨置換先は Nano Banana 2.1 ですが、終了日は公式表で未発表です。<a href="/technology-updates/archive/2026-10-6#gemini-image-lifecycle">根拠と移行の確認点</a></p></aside>
-<section class="archive-list"><h2>月別アーカイブ</h2><p>全74件。各本文ページは12件まで。検索・タグ絞り込みは最近の更新ページから使えます。</p><ul><li><a href="/technology-updates/archive/2026-10">2026-10</a>（73件）</li><li><a href="/technology-updates/archive/2026-09">2026-09</a>（1件）</li></ul></section><nav class="archive-nav" aria-label="月一覧ページ送り"><a href="/technology-updates">最近の更新・全件検索</a><a href="/technology-updates/archive">月別アーカイブ</a></nav></main><footer class="site-footer"><div class="wrap"><a href="/">共有ノート一覧</a></div></footer></body></html>
+<body><a class="skip" href="/technology-updates#updates">本文へ移動</a><header class="masthead" id="top"><div class="wrap"><div class="topbar"><a href="/">共有ノート</a><nav aria-label="ページ案内"><a href="/technology-updates#updates">更新一覧</a><a href="/technology-updates#method">掲載基準</a><a href="/technology-updates/history#history">履歴</a></nav></div><div class="intro"><div><h1>重要技術アップデート</h1><p>何が変わり、どんな作業で役立つか。AIモデルと料金だけでなく、ローカル実行、開発エージェント、音声・画像・動画、MCPまで。試す前に確認したい条件を、一次資料からまとめます。</p></div><aside class="edition" aria-label="確認範囲"><strong>2026年10月29日 UTC 確認</strong><p><span>対象：9月29日〜10月29日の発表・重要な続報</span><span>83項目 / 8分野</span><span>実機での性能測定は未実施</span></p></aside></div></div></header>
+<main class="wrap"><aside class="correction" aria-label="重要な訂正"><strong>訂正：Gemini 3.1 Flash Image の終了日は未発表</strong><p>「10月29日終了」という説明を訂正しました。推奨置換先は Nano Banana 2.1 ですが、終了日は公式表で未発表です。<a href="/technology-updates/archive/2026-10-7#gemini-image-lifecycle">根拠と移行の確認点</a></p></aside>
+<figure style="margin:24px 0"><img src="https://share.0g0.xyz/assets/technology-updates-review-v1.png" width="1734" height="907" style="width:100%;height:auto;display:block" alt="公式発表の書類、影響を調べる虫眼鏡、小さな検証用の机を順に並べた図。"><figcaption>公式発表を読み、使う環境への影響を確認してから、小さな検証で試す流れを示したイラスト。自動更新や安全の保証を表すものではない。</figcaption></figure><section class="archive-list"><h2>月別アーカイブ</h2><p>全83件。各本文ページは12件まで。検索・タグ絞り込みは最近の更新ページから使えます。</p><ul><li><a href="/technology-updates/archive/2026-10">2026-10</a>（82件）</li><li><a href="/technology-updates/archive/2026-09">2026-09</a>（1件）</li></ul></section><nav class="archive-nav" aria-label="月一覧ページ送り"><a href="/technology-updates">最近の更新・全件検索</a><a href="/technology-updates/archive">月別アーカイブ</a></nav></main><footer class="site-footer"><div class="wrap"><a href="/">共有ノート一覧</a></div></footer></body></html>
