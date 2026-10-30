@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Fri, 30 Oct 2026 01:01:55 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 30 Oct 2026 07:02:31 GMT</lastBuildDate>
+    <item>
+      <title>企業向け特設サイト公開基盤の設計｜CloudFront・S3・Lambdaの使い分け</title>
+      <link>https://share.0g0.xyz/multi-tenant-site-hosting</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/multi-tenant-site-hosting</guid>
+      <description>複数企業が静的・動的な特設サイトをセルフサービス公開するAWS基盤。CloudFront、S3、Lambda、API Gateway、CloudFront SaaS Managerの設計と同一オリジン問題、運用・費用・セキュリティを図解。</description>
+      <pubDate>Fri, 30 Oct 2026 07:02:31 GMT</pubDate>
+      <dcterms:created>2026-10-30T07:02:31.000Z</dcterms:created>
+      <dcterms:modified>2026-10-30T07:02:31.000Z</dcterms:modified>
+    </item>
     <item>
       <title>緊急メンテナンス一覧｜2026年10月21日前後・公式告知と再開予定</title>
       <link>https://share.0g0.xyz/php-emergency-maintenance</link>
