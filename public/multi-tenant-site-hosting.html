@@ -51,7 +51,7 @@
 </header>
 <main class="wrap">
   <nav class="nav" aria-label="目次">
-    <a href="#conclusion">結論</a><a href="#architecture">全体像</a><a href="#domains">パス vs サブドメイン</a><a href="#choices">構成比較</a><a href="#dynamic">動的サイト</a><a href="#operations">公開フロー</a><a href="#security">安全対策</a><a href="#roadmap">段階的構築</a><a href="#sources">出典</a>
+    <a href="#conclusion">結論</a><a href="#architecture">全体像</a><a href="#domains">パス vs サブドメイン</a><a href="#choices">構成比較</a><a href="#implementation">最小構成の設定例</a><a href="#dynamic">動的サイト</a><a href="#operations">公開フロー</a><a href="#security">安全対策</a><a href="#roadmap">段階的構築</a><a href="#sources">出典</a>
   </nav>
 
   <section class="section" id="conclusion">
@@ -120,6 +120,23 @@
       </table>
     </div>
     <p class="mini">上記のコストは相対評価。正確な月額は転送量、リクエスト数、保存量、ビルド回数、動的実行時間、企業数、WAFなどで変化する。CloudFrontの従量制と定額制で使える機能も異なるため、プランを前提に別途試算が必要。<a href="https://aws.amazon.com/cloudfront/pricing/" target="_blank" rel="noopener noreferrer">CloudFront料金</a> / <a href="https://aws.amazon.com/amplify/pricing/" target="_blank" rel="noopener noreferrer">Amplify料金</a></p>
+  </section>
+
+  <section class="section" id="implementation">
+    <h2 class="section-title">CloudFront + S3 を最小構成で始める設定例</h2>
+    <p>運営が管理する静的な特設サイトだけなら、まずはS3の1バケットにサイト別プレフィックスを置く。公開URLを <code>/campaign-a/</code>、<code>/campaign-b/</code> とし、CloudFrontのS3オリジンにはOACを設定する。S3の公開アクセスはブロックする。</p>
+    <div class="twin">
+      <div class="panel goodpanel"><h3>配置とURLを対応させる</h3><pre><code>public.example.com/campaign-a/
+  → s3://site-assets/campaign-a/index.html
+public.example.com/campaign-b/
+  → s3://site-assets/campaign-b/index.html</code></pre><p class="mini">サイト内のリンク・画像参照は、各プレフィックスを基準に構築する。異なる企業が任意のJavaScriptを公開できる共有ホストにはしない。</p></div>
+      <div class="panel"><h3>必要な設定</h3><ul><li>CloudFrontの代替ドメインとACM証明書を設定</li><li>S3 RESTオリジン + OAC、S3公開アクセスを遮断</li><li><code>/campaign-a</code> → <code>/campaign-a/index.html</code> などをViewer Requestで補正</li><li>更新時はハッシュ付きアセットを推奨。HTMLのキャッシュ期間・無効化を管理</li></ul></div>
+    </div>
+    <details><summary>設定上の注意：CloudFront Functionsでできること・できないこと</summary><div class="inner">
+      <p>CloudFront FunctionsはViewer RequestでURIを書き換えられるが、選択済みCache Behaviorやオリジンの再選択を行う仕組みではない。パスごとに別S3バケットやAPIへ送るなら、事前にCache Behaviorとオリジンを構成する。<a href="#sources">[4][6][9]</a></p>
+      <p><code>Default root object = index.html</code> は配下の全ディレクトリの <code>index.html</code> を自動で返す設定ではない。サブディレクトリの末尾スラッシュや拡張子なしURLを扱う場合は、URI補正の規則を明示し、存在しないファイル・APIパスへの誤適用をテストする。</p>
+      <p>運営管理のサイトが少数なら単一バケットが簡単。企業別のアップロード権限・監査・保存期間・削除単位が異なるならバケット分割、任意の動的コードを許可するなら分離実行を優先する。</p>
+    </div></details>
   </section>
 
   <section class="section" id="dynamic">
