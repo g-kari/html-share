@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="状態遷移モデルをテストオラクルに使う、仕様起点のE2E設計見直しガイド。3資料の比較と実装・CI・レビューの合格条件を整理。">
+  <title>仕様をオラクルにするE2E再設計ガイド｜2026-10-30</title>
+  <style>
+    :root{--ink:#18283b;--muted:#586a7c;--paper:#f6f8fb;--white:#fff;--line:#dbe4ed;--navy:#10253a;--teal:#087f78;--teal-l:#ddf5f0;--amber:#a45612;--amber-l:#fff1d9;--violet:#5f52a8;--violet-l:#f0edff;--red:#a53c43;--red-l:#fff0f1;--shadow:0 10px 35px rgba(20,46,70,.07)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:28px}body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.76 system-ui,-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",sans-serif}a{color:#086b9b;text-underline-offset:3px}a:hover{color:#01466b}a:focus-visible,summary:focus-visible{outline:3px solid #42ada7;outline-offset:3px;border-radius:5px}p{margin:.65em 0 1em}h1,h2,h3{letter-spacing:-.025em;line-height:1.35}h1{font-size:clamp(2.1rem,4.5vw,3.4rem);margin:14px 0 20px}h2{font-size:clamp(1.6rem,2.5vw,2.15rem);margin:0 0 20px}h3{font-size:1.16rem;margin:20px 0 10px}ul,ol{padding-left:1.5em}li{margin:.38em 0}code,pre{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace}code{font-size:.9em;background:#edf2f6;border-radius:4px;padding:.1em .3em}pre{white-space:pre;overflow:auto;background:#14283d;color:#e9f6ff;border-radius:12px;padding:20px 23px;font-size:.84rem;line-height:1.65;margin:12px 0 18px}pre code{color:inherit;background:none;padding:0;font-size:inherit}small,.small{font-size:.84rem;color:var(--muted)}
+    .top{background:linear-gradient(125deg,#10253a 0%,#153a4d 57%,#146f70 100%);color:#fff;padding:68px max(24px,calc((100vw - 1250px)/2)) 76px;position:relative;overflow:hidden}.top:after{content:"";position:absolute;width:450px;height:450px;border:1px solid #ffffff26;border-radius:50%;right:-160px;top:-140px;box-shadow:0 0 0 60px #ffffff0b,0 0 0 120px #ffffff06;pointer-events:none}.top .eyebrow{font-size:.77rem;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:#8ee0d4}.top .intro{font-size:clamp(1rem,1.6vw,1.22rem);max-width:840px;color:#e1eff4;line-height:1.85}.top .meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:25px}.pill{display:inline-flex;align-items:center;font-size:.8rem;line-height:1.5;font-weight:750;border:1px solid #ffffff47;border-radius:25px;padding:6px 12px;color:#e7faff;background:#ffffff0e}.top strong{color:#9df5e2}
+    .layout{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:225px minmax(0,1fr);gap:38px;padding:42px 24px 100px}.side{position:sticky;top:20px;align-self:start;max-height:calc(100vh - 40px);overflow:auto;padding:18px 12px 20px 0;border-right:1px solid var(--line)}.side .label{color:#6b7f90;font-weight:800;letter-spacing:.13em;font-size:.7rem;margin:0 0 12px 14px}.side a{display:block;text-decoration:none;font-size:.86rem;padding:9px 12px;border-radius:9px;color:#3b5367;font-weight:650}.side a:hover{background:#e9f2f4;color:#035c60}.main{min-width:0}.section{margin:0 0 42px;padding:34px 36px;border:1px solid var(--line);border-radius:21px;background:var(--white);box-shadow:var(--shadow)}.section .kicker{color:var(--teal);font-size:.78rem;font-weight:850;letter-spacing:.11em;text-transform:uppercase;margin:0 0 9px}.lead{font-size:1.17rem;line-height:1.85;color:#2d455c}.section>p:last-child{margin-bottom:0}.stamp{display:inline-block;border-radius:6px;font-size:.75rem;line-height:1.4;padding:3px 7px;font-weight:800;white-space:nowrap}.stamp.fact{background:var(--teal-l);color:#006b62}.stamp.reported{background:var(--amber-l);color:#92521a}.stamp.proposal{background:var(--violet-l);color:#594796}.stamp.limit{background:var(--red-l);color:#933c44}
+    .callout{background:#ecf7f5;border:1px solid #b8dfd9;border-left:5px solid var(--teal);padding:19px 22px;border-radius:12px;margin:20px 0}.callout.critical{background:#fff5e6;border-color:#f0d2a3;border-left-color:#d08020}.callout.danger{background:#fff1f1;border-color:#f2cbcd;border-left-color:#c6545d}.callout p{margin:4px 0 0}.summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;margin:26px 0}.summary article{border-radius:14px;background:#f3f7fa;border:1px solid #dfebf1;padding:20px}.summary b{display:block;color:var(--teal);font-size:1.03rem;margin-bottom:8px}.summary p{font-size:.91rem;line-height:1.75;margin:0}.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.card{border:1px solid var(--line);background:#fcfdff;border-radius:15px;padding:21px}.card .num{color:var(--teal);font-size:.74rem;letter-spacing:.1em;font-weight:850}.card h3{margin:7px 0 7px}.card p{font-size:.91rem;margin:0}.measure{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:25px 0}.measure>div{background:#f7fafc;border:1px solid var(--line);border-radius:13px;padding:18px;text-align:center}.measure strong{display:block;font-size:clamp(1.4rem,2.8vw,2.2rem);letter-spacing:-.05em;color:#174d62}.measure span{font-size:.79rem;color:var(--muted);line-height:1.55;display:block}
+    .flow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));align-items:stretch;gap:9px;margin:25px 0}.flow .stage{border-radius:13px;padding:15px 10px;text-align:center;background:#eff6fa;border:1px solid #d5e6ef;position:relative}.flow .stage:not(:last-child):after{content:"→";position:absolute;right:-13px;top:36%;z-index:3;color:#0b867f;font-size:1.12rem;font-weight:bold;background:white;border-radius:50%;line-height:1}.flow .stage:nth-child(1){background:var(--teal-l);border-color:#afded5}.flow .stage:nth-child(2){background:#edf8e7;border-color:#c9e5bc}.flow .stage:nth-child(4){background:#fff4dd;border-color:#f0d7a3}.flow b{display:block;font-size:.95rem}.flow small{display:block;font-size:.75rem;margin-top:7px;color:#526777;line-height:1.5}.loop{margin-top:-6px;margin-bottom:18px;text-align:center;color:#5b6b7d;font-size:.86rem;font-weight:650}.layer-table{width:100%;border-collapse:collapse;font-size:.9rem;margin:15px 0 25px}.layer-table th,.layer-table td{padding:12px 13px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}.layer-table th{background:#edf4f7;color:#334e65;font-weight:800}.layer-table tr:last-child td{border-bottom:0}.layer-table td:first-child{font-weight:800;min-width:135px}.layer-table td:nth-child(2){min-width:155px}.tag{display:inline-block;background:#e9f2f8;border:1px solid #d3e2eb;color:#3f5b71;border-radius:5px;padding:2px 6px;font-size:.72rem;font-weight:800;margin:0 4px 4px 0}
+    .state{display:flex;align-items:stretch;flex-wrap:wrap;gap:9px;background:#f4f8fb;border:1px solid #dfebf0;border-radius:14px;padding:18px;margin:17px 0}.node{flex:1;min-width:125px;background:white;border:2px solid #a7c1d0;padding:12px;border-radius:11px;text-align:center;font-weight:800}.node.final{border-color:#54b0a2;background:#ebfbf7}.node.alt{border-color:#e2b26f;background:#fff6e8}.arrow{display:flex;align-items:center;justify-content:center;min-width:63px;color:#58768a;font-size:.76rem;text-align:center;font-weight:800;line-height:1.4}.arrow:after{content:"→";margin-left:6px;font-size:1.2rem;color:var(--teal)}.branch{font-size:.88rem;color:#607287;padding-left:4px;margin-top:-6px}.twocol{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.twocol>*{min-width:0}.inset{background:#f6f8fb;border-radius:13px;border:1px solid var(--line);padding:16px 18px}.inset h3{margin-top:0}.inset ul{margin-bottom:0}.rule-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.rule{padding:16px 18px;border:1px solid var(--line);border-radius:11px;background:#f9fbfc}.rule strong{display:block;font-size:.97rem}.rule p{font-size:.87rem;margin:5px 0 0}.checklist{list-style:none;padding:0}.checklist li{position:relative;padding:11px 12px 11px 40px;border-bottom:1px solid #e7edf1;margin:0}.checklist li:before{content:"□";position:absolute;left:11px;top:10px;color:#358d85;font-size:1.25rem;font-weight:600}.checklist li:last-child{border-bottom:0}.checklist b{display:block}
+    details{border:1px solid var(--line);border-radius:12px;background:#fafcfd;margin:12px 0;overflow:hidden}summary{cursor:pointer;padding:15px 19px;font-size:.97rem;color:#23475e;font-weight:800}details[open] summary{border-bottom:1px solid var(--line);background:#f0f6f8}details .detailbody{padding:13px 19px 19px}details .detailbody>:last-child{margin-bottom:0}.notes{padding-left:1.3em}.notes li{font-size:.9rem;margin:10px 0;overflow-wrap:anywhere}.ref{font-size:.77rem;color:#496b7f;text-decoration:none;border:1px solid #d7e6ec;background:#f1f8fa;border-radius:5px;padding:1px 5px;white-space:nowrap}.foot{font-size:.84rem;color:var(--muted);border-top:1px solid var(--line);padding-top:18px;margin-top:28px}.footer{text-align:center;color:#62778a;font-size:.82rem;padding:0 20px 40px}
+    @media(max-width:1050px){.layout{grid-template-columns:1fr}.side{position:static;border-right:0;border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:4px;max-height:none;overflow:visible}.side .label{width:100%;margin:0 0 3px 10px}.side a{padding:7px 9px}.summary,.cards{grid-template-columns:1fr 1fr}.section{padding:27px 25px}}
+    @media(max-width:680px){body{font-size:16px}.top{padding:52px 22px 56px}.layout{padding:22px 12px 65px;gap:18px}.side{padding:12px 3px}.side a{font-size:.76rem}.section{padding:25px 19px;border-radius:15px;margin-bottom:18px}.summary,.cards,.measure,.twocol,.rule-grid{grid-template-columns:1fr}.flow{grid-template-columns:1fr;gap:18px}.flow .stage:not(:last-child):after{content:"↓";right:50%;top:auto;bottom:-17px}.layer-table{display:block;overflow:auto;white-space:normal}.layer-table th,.layer-table td{min-width:125px}.state{flex-direction:column}.arrow{min-height:45px}.arrow:after{content:"↓"}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}@media print{body{background:#fff;color:#111;font-size:11pt}.top{padding:35px;color:#111;background:none}.top .intro,.top .eyebrow,.top strong{color:#111}.top .pill{color:#222;border:1px solid #aaa}.layout{display:block;padding:0 10mm}.side{display:none}.section{break-inside:avoid;box-shadow:none;border:1px solid #ccc;padding:18px;margin-bottom:16px}details{break-inside:avoid}details:not([open])>.detailbody{display:block}a{color:#111}.footer{padding:0}pre{white-space:pre-wrap;background:#f3f3f3;color:#111}h1{font-size:28pt}}
+  </style>
+</head>
+<body>
+  <header class="top">
+    <div class="eyebrow">ENGINEERING DESIGN REVIEW · 2026.10.30</div>
+    <h1>仕様をオラクルにする<br>E2E再設計ガイド</h1>
+    <p class="intro"><strong>E2Eは、仕様を決める場所ではない。</strong> 先に状態遷移モデルで「正しい振る舞い」を定義・検証し、その仕様を独立したテストオラクルとして実装と照合する。3つの実践資料をつなぎ、設計レビューに使える判断基準へ落とし込んだ。</p>
+    <div class="meta"><span class="pill">仕様先行 / State Machine</span><span class="pill">Model Checking</span><span class="pill">Traceability / CI</span><span class="pill">AI Triage</span><span class="pill">レビュー用・実装未適用</span></div>
+  </header>
+  <div class="layout">
+    <nav class="side" aria-label="目次"><div class="label">CONTENTS</div><a href="#decision">01. 結論と優先原則</a><a href="#sources">02. 3資料の位置づけ</a><a href="#architecture">03. 推奨アーキテクチャ</a><a href="#example">04. 状態遷移モデルの例</a><a href="#mapping">05. オラクルと対応表</a><a href="#quality">06. CIと失敗時の扱い</a><a href="#migration">07. 移行・合格条件</a><a href="#handoff">08. 設計レビュー指示</a><a href="#references">09. 出典・注意事項</a></nav>
+    <main class="main">
+      <section id="decision" class="section">
+        <div class="kicker">01 / Decision brief</div><h2>結論：E2Eの数より、正解の出所を見直す</h2>
+        <p class="lead">まず問うべきことは「何件のE2Eがあるか」ではなく、<strong>「そのテストは実装を見ずに正解を判定できるか」</strong>である。</p>
+        <div class="summary"><article><b>① 仕様を独立させる</b><p>要求・権限・イベント・状態変化を実装前に定義。実装の現在の振る舞いを期待値としてコピーしない。</p></article><article><b>② 論理はモデル検査へ</b><p>到達可能性、不変条件、デッドロック、ライブネスを可能な範囲で早期に確認する。</p></article><article><b>③ E2Eは実システムの照合へ</b><p>ユーザー操作からAPI・DB・画面まで、仕様と現実のずれを少数の価値あるシナリオで検出する。</p></article></div>
+        <div class="callout"><b>推奨する役割分担</b><p>仕様の正しさを「仕様レビューとモデル検査」で、実装の内部整合性を「Unit / Integration / Contract」で、実環境での振る舞いを「E2E」で確認する。E2Eの失敗調査は証拠収集とAIトリアージで短縮する。<span class="stamp proposal">提案</span></p></div>
+        <p class="small">この文書は特定リポジトリの実測・実装済み設計を示すものではない。導入可否とテスト数は対象コードの調査後に決める。</p>
+      </section>
+
+      <section id="sources" class="section">
+        <div class="kicker">02 / Source synthesis</div><h2>3つの資料は、解く課題が異なる</h2>
+        <div class="cards"><article class="card"><div class="num">01 · Kuniwak氏 / X</div><h3>そもそもの仕様が正しいか</h3><p>トップレベルの状態遷移仕様をモデル検査する。そのモデルをE2Eオラクルとして再利用し、現状追認を防ぐ。<a class="ref" href="#ref1">[S1]</a></p></article><article class="card"><div class="num">02 · polyco / Zenn</div><h3>実装とテストをどう追従させるか</h3><p>実装の検証対象・シナリオ・テスト実体を照合。対応漏れをCIで落とし、変更箇所に関係するE2Eを選択実行する。<a class="ref" href="#ref2">[S2]</a></p></article><article class="card"><div class="num">03 · WinTicket / Speaker Deck</div><h3>失敗時の保守をどう楽にするか</h3><p>テストデータ分離、Patrol、Allure形式の証拠、原因分類Skillを組み合わせ、AIに調査・再現・修正を任せる。<a class="ref" href="#ref3">[S3]</a></p></article></div>
+        <div class="measure"><div><strong>2,000</strong><span>状態/秒のモデル検査<br><span class="stamp reported">X投稿の事例値</span></span></div><div><strong>約180</strong><span>一晩で定義したE2Eケース<br><span class="stamp reported">X投稿の事例値</span></span></div><div><strong>約1時間</strong><span>当該E2Eの実行時間<br><span class="stamp reported">X投稿の事例値</span></span></div></div>
+        <p class="small">X投稿には「モデル検査はE2Eの1,000倍以上速い」という主張もある。ただし対象・状態空間・マシン・テスト内容を揃えた一般ベンチマークではない。<strong>モデル検査で探索する状態とE2Eのケース数は同じ単位ではなく、単純比較できない。</strong> 数字は導入効果の保証に使わない。<a class="ref" href="#ref1">[S1]</a></p>
+        <details><summary>資料の詳細と、混同しやすい点</summary><div class="detailbody">
+          <ul><li><b>仕様起点のアプローチ：</b>状態遷移モデルは実装ではなく要求から作る。仕様アニメーションで関係者が意図を確認し、モデル検査はモデル上の性質を検証する。仕様そのものの妥当性まで自動保証されるわけではない。</li>
+          <li><b>Zenn事例：</b>19領域・842シナリオ中、実装済み784・未実装58。AI探索の26指摘は不具合3、仕様確認7、誤検知16。単なる件数を品質指標にせず、対象の網羅とassertionの意味を別途レビューしている。<a class="ref" href="#ref2">[S2]</a></li>
+          <li><b>Speaker Deck事例：</b>FlutterのPatrolとDevinによるワークフローで、失敗をtest_bug / production_bug / infra_failure / flakyに分類し、修正後には実機Test Labの証拠をPRへ添付する。Webアプリへ同じツールを機械的に移植する話ではない。<a class="ref" href="#ref3">[S3]</a></li>
+          <li><b>ビジュアル品質：</b>投稿はgolden画像を使わない機能E2Eの事例だが、表示崩れの検出は別問題。視覚差分、デバイス別レイアウト、アクセシビリティは独立した検証観点として残す。</li></ul>
+        </div></details>
+      </section>
+
+      <section id="architecture" class="section">
+        <div class="kicker">03 / Target architecture</div><h2>望ましい検証の流れ</h2>
+        <div class="flow" role="img" aria-label="要求と独立した仕様から、モデル検査、実装、E2E照合、証拠とトリアージへ進む流れ"><div class="stage"><b>要求・不変条件</b><small>仕様の意図と例外を合意</small></div><div class="stage"><b>状態遷移モデル</b><small>形式化・アニメーション・モデル検査</small></div><div class="stage"><b>実装 / 下層テスト</b><small>Unit、統合、契約、権限</small></div><div class="stage"><b>仕様オラクルE2E</b><small>実UIとAPIを操作して照合</small></div><div class="stage"><b>証拠と原因分析</b><small>Trace・失敗分類・再検証</small></div></div>
+        <p class="loop">↶ 仕様の反例は仕様・要求へ、実装との差異は実装・接続へ戻す。どちらを修正すべきか証拠で判定する。</p>
+        <table class="layer-table"><thead><tr><th>検証層</th><th>主に確かめるもの</th><th>ここだけでは保証できないもの</th></tr></thead><tbody>
+          <tr><td>仕様レビュー＋モデル検査</td><td>状態・遷移・ガード・不変条件・進行性、並行操作の振る舞い</td><td>現物UI、実通信、実装の一致、書き忘れた要求</td></tr>
+          <tr><td>Unit / Property</td><td>業務ロジック、境界値、計算、認可判断の局所的な性質</td><td>画面遷移や複数サービスの実接続</td></tr>
+          <tr><td>Integration / Contract</td><td>API契約、DB永続化、トランザクション、コンポーネント結合</td><td>ブラウザ上の一連の操作とUX全体</td></tr>
+          <tr><td>E2E</td><td>ユーザー操作と状態・API・画面の一貫性、重要な横断シナリオ</td><td>全状態網羅、仕様の真偽、すべての表示崩れ</td></tr>
+          <tr><td>Visual / Accessibility</td><td>レイアウト、表示差分、操作可能性、読み上げ上の問題</td><td>複雑な業務状態の網羅・正当性</td></tr>
+        </tbody></table>
+        <div class="callout critical"><b>重要：モデル検査は無条件の完全保証ではない</b><p>結果はモデル化した振る舞い・抽象化・境界・公平性仮定・探索した有限モデルに依存する。実装に独立したオラクルを持つ一方で、モデル自体の要求レビューも必須。<a class="ref" href="#ref4">[S4]</a></p></div>
+      </section>
+
+      <section id="example" class="section">
+        <div class="kicker">04 / Worked example</div><h2>例：申請を承認する機能をモデル化する</h2>
+        <p>仮想的な「申請者が提出し、承認者が承認または差し戻す」フロー。<strong>この図は説明用の仕様案であり、特定製品の仕様ではない。</strong></p>
+        <div class="state" aria-label="draftからsubmitでreviewingへ、reviewingからapproveでapprovedへ移る。reviewingからrejectでrejectedへ移る"><div class="node">draft<br><small>下書き</small></div><div class="arrow">submit</div><div class="node">reviewing<br><small>審査中</small></div><div class="arrow">approve</div><div class="node final">approved<br><small>承認済み</small></div></div>
+        <div class="state"><div class="node">reviewing<br><small>審査中</small></div><div class="arrow">reject</div><div class="node alt">rejected<br><small>差し戻し</small></div><div class="arrow">revise</div><div class="node">draft<br><small>再編集</small></div></div>
+        <div class="twocol"><div class="inset"><h3>安全性（Safety）の例</h3><ul><li>申請者は自分の申請を承認できない。</li><li>未提出の申請は承認済みにできない。</li><li>承認済みが差し戻し状態へ勝手に戻らない。</li><li>同じ承認イベントを重複受信しても二重処理にならない。</li></ul></div><div class="inset"><h3>進行性（Liveness）の例</h3><ul><li>審査中が無限に放置されない、という要件を置くなら期限とエスカレーション経路が必要。</li><li>外部処理の失敗が永久の「処理中」にならず、失敗・再試行・保留などへ遷移できる。</li><li>進行性の検査には環境・担当者・公平性の仮定を明示する。</li></ul></div></div>
+        <details><summary>状態遷移の契約例（設計用JSON・実行可能な形式仕様ではない）</summary><div class="detailbody"><pre><code>{
+  "specId": "APPROVAL-001",
+  "version": "1.0",
+  "initial": "draft",
+  "transitions": [
+    {"id":"T-SUBMIT","from":"draft","event":"submit",
+     "actor":"owner","guard":"inputValid","to":"reviewing",
+     "observe":{"statusText":"審査中"}},
+    {"id":"T-APPROVE","from":"reviewing","event":"approve",
+     "actor":"reviewer","to":"approved",
+     "observe":{"statusText":"承認済み"}},
+    {"id":"T-REJECT","from":"reviewing","event":"reject",
+     "actor":"reviewer","to":"rejected",
+     "observe":{"statusText":"差し戻し"}}
+  ],
+  "invariants": ["onlyReviewerCanApprove", "noDoubleApproval"],
+  "assumptions": ["reviewerAccountAvailable"]
+}</code></pre><p class="small">禁止されたイベント（申請者によるapprove、重複approveなど）は、状態が変わらないことと拒否理由が見えることを別途明示する。これをTLA+/PlusCal等で形式化し、検査条件を定義するのは次工程。</p></div></details>
+        <details><summary>画面提示を「観測可能な出力」にする</summary><div class="detailbody"><p>モデルと画面実装を直接結合させず、<code>transition → expected observation</code> を定義する。例えば <code>T-APPROVE</code> に対し「承認済みと表示」「再読み込み後も承認済み」「申請者には承認ボタンを表示しない」を期待値にする。</p><p>入力イベント／API応答／DB永続化／ユーザー可視の表示をチャネルやアダプタで結びつける。UIのラベルやDOMセレクタが変わっても、業務状態の正しさの定義は変えない。<span class="stamp proposal">提案</span></p></div></details>
+      </section>
+
+      <section id="mapping" class="section">
+        <div class="kicker">05 / Oracle and traceability</div><h2>「仕様 → 実装 → E2E → 証拠」を追跡する</h2>
+        <p>独立した仕様があっても、実装と対応付けられなければ更新漏れが起きる。Zenn事例のように検証対象・シナリオ・実テストの対応を機械的に照合し、<strong>期待値の意味は仕様側から供給する</strong>。<a class="ref" href="#ref2">[S2]</a></p>
+        <table class="layer-table"><thead><tr><th>追跡キー</th><th>持つ情報</th><th>更新時の検査</th></tr></thead><tbody><tr><td><code>specId</code></td><td>要求／トップレベル仕様とバージョン</td><td>要求変更のレビュー記録があるか</td></tr><tr><td><code>transitionId</code></td><td>状態、イベント、ガード、期待する観測</td><td>未カバーの遷移・不変条件がないか</td></tr><tr><td><code>implementationRefs</code></td><td>画面・API・権限・イベント処理</td><td>新規・削除・改名で台帳が古くなっていないか</td></tr><tr><td><code>testIds</code></td><td>Unit／統合／E2Eのテスト実体</td><td>宣言だけでテストが存在しない状態を検出</td></tr><tr><td><code>evidence</code></td><td>実行環境、結果、trace、未実施範囲</td><td>skip／未実行を成功として扱っていないか</td></tr></tbody></table>
+        <div class="callout"><b>オラクル独立性を守るルール</b><p>実装の現在の画面やAPI応答をスナップショットして、そのまま正解とみなさない。差異が出たら、要求・仕様・実装のどこが間違っているかレビューする。<strong>テストを通すためだけに仕様を実装へ合わせる自動修正は禁止</strong>する。</p></div>
+        <details><summary>推奨ディレクトリ構造とテストの概念例</summary><div class="detailbody"><pre><code>spec/
+  approval/requirements.md       # 人がレビューした要求
+  approval/model.*               # 形式仕様（ツールは要選定）
+  approval/properties.*          # 不変条件・進行性
+  approval/observations.json     # チャネル／UIの期待値
+tests/
+  ledger/scenarios.json          # specId / transitionId / testIds / refs
+  e2e/approval.spec.ts           # Playwright等による実ブラウザ照合
+  reports/                       # CI artifact（通常はGit管理しない）
+scripts/
+  check-traceability.*           # 不整合ゲート（案）</code></pre><pre><code>// 疑似コード：実プロジェクトのAPIに合わせて実装する
+const expected = spec.step("T-APPROVE", { actor: "reviewer" });
+await ui.loginAs("reviewer");
+await ui.approveRequest();
+expect(await ui.visibleStatus()).toEqual(expected.observe.statusText);
+expect(await backend.readState()).toEqual(expected.to);
+await ui.reload();
+expect(await ui.visibleStatus()).toEqual(expected.observe.statusText);</code></pre><p class="small">上記は設計の関係を示す疑似コード。ブラウザテストでは許可されない内部状態を使って操作を省略せず、ユーザー経路と整合する検証点を選ぶ。</p></div></details>
+        <details><summary>どのE2Eを走らせるか</summary><div class="detailbody"><ol><li>変更した実装から台帳で関連シナリオを引く。</li><li>共有ロジック／権限／API契約の変更は利用先へ影響を伝播させる。</li><li>高リスク変更や大規模リファクタは全体回帰の対象を拡大する。</li><li>PRには選択理由、実行したブラウザ・表示幅、skipped／未実行領域を記録する。</li><li>ランナーの自動フィルタは「何を実行するか」の補助であり、仕様・実装・シナリオの対応管理そのものを代替しない。</li></ol><p class="small">Zenn事例では通常は関連E2Eだけを実行し、大きなリファクタでは全体実行している。<a class="ref" href="#ref2">[S2]</a></p></div></details>
+      </section>
+
+      <section id="quality" class="section">
+        <div class="kicker">06 / Quality gates</div><h2>CIは「テストを走らせる」以上の仕事をする</h2>
+        <div class="rule-grid"><div class="rule"><strong>Gate A · 仕様の変更管理</strong><p>要求・状態遷移・不変条件の変更を記録し、仕様アニメーション／形式検査の結果を紐付ける。</p></div><div class="rule"><strong>Gate B · 対応漏れ検査</strong><p>対象の追加・削除・改名・テスト消失・ID不整合・理由のないpending増加を失敗にする。</p></div><div class="rule"><strong>Gate C · 動作確認</strong><p>Unit／統合／契約＋変更関連E2E。重要導線の最小smokeはCIでも独立再現する。</p></div><div class="rule"><strong>Gate D · 証拠と結果の厳密化</strong><p>pass / fail / flaky / skipped / not-runを区別。失敗時のtraceや画面・ログ・環境情報を保存する。</p></div></div>
+        <p class="small">Playwright公式はTrace Viewer、CIでのtrace記録、タグ、projects、リトライ等を提供する。全テストの常時traceはコストに注意。<a class="ref" href="#ref5">[S5]</a> <a class="ref" href="#ref6">[S6]</a></p>
+        <h3>失敗した場合の4分類</h3><table class="layer-table"><thead><tr><th>分類</th><th>判断に使う証拠</th><th>次の行動</th></tr></thead><tbody><tr><td><span class="tag">production_bug</span></td><td>仕様との差異、再現手順、画面・API・DBの事実</td><td>実装を最小修正して再検証</td></tr><tr><td><span class="tag">test_bug</span></td><td>セレクタの破損、テスト前提、古いセットアップ</td><td>仕様を変えずテスト側を修正</td></tr><tr><td><span class="tag">infra_failure</span></td><td>端末・ブラウザ・ネットワーク・テスト環境の異常</td><td>環境を修復し同条件で再実行</td></tr><tr><td><span class="tag">flaky</span></td><td>同一コード・条件で結果が揺れる履歴とコンテキスト</td><td>原因を特定。リトライだけで合格扱いしない</td></tr></tbody></table>
+        <div class="callout danger"><b>見かけの緑を作らない</b><p>「失敗したのでassertionを削除」「skipしたのでCI成功」「リトライで一度通ったので根本原因未確認のまま完了」は避ける。AIは修正候補を作れても、仕様変更・不具合修正の採否は証拠付きでレビューする。<a class="ref" href="#ref3">[S3]</a></p></div>
+        <details><summary>隔離環境・外部送信・視覚検証の補足</summary><div class="detailbody"><ul><li>並列エージェントごとにDB・ストレージ・認証ユーザー・ポートを分離する。後片付け時もテスト証拠は残す。</li><li>本番への書き込み・メール送信・課金API呼び出しをE2Eが起こさないよう、接続先と実行権限を限定する。</li><li>表示崩れは機能オラクルでは見落とすため、必要なページにVisual Regressionを別途導入する。端末ごとのアクセシビリティチェックも分離する。</li><li>リトライ時も初回失敗の証拠を保存する。Playwrightのtrace設定は <code>retain-on-failure</code> または <code>on-first-retry</code> など要件に応じて決める。</li></ul></div></details>
+      </section>
+
+      <section id="migration" class="section">
+        <div class="kicker">07 / Adoption path</div><h2>まず1つの重要フローでPoCする</h2>
+        <div class="cards"><article class="card"><div class="num">PHASE 0 · INVENTORY</div><h3>現状の見える化</h3><p>既存E2Eの件数・実行時間・flaky率・仕様の出所・業務リスクを棚卸し。最重要の1フローを選ぶ。</p></article><article class="card"><div class="num">PHASE 1 · SPEC PILOT</div><h3>独立したモデルを作る</h3><p>状態・遷移・ガード・不変条件をレビューし、モデル検査。仕様からオラクルと1〜数本のE2Eを構築。</p></article><article class="card"><div class="num">PHASE 2 · CONTROL</div><h3>漏れと失敗を制御</h3><p>台帳ゲート・選択実行・隔離環境・証拠収集・トリアージを導入。効果を測ってから広げる。</p></article></div>
+        <h3>設計見直しの合格条件</h3><ul class="checklist">
+          <li><b>独立性</b> PoCフローの期待値が実装の現状ではなく、合意された要求・仕様から導かれている。</li>
+          <li><b>形式検査</b> 不変条件と少なくとも1つの進行性の検討があり、探索条件・制約・反例の有無を記録する。</li>
+          <li><b>検出力</b> 意図的な不正遷移・権限違反を注入した際に、モデル検査または適切な下層／E2Eが落ちることを確認する。</li>
+          <li><b>追跡性</b> <code>specId → transitionId → testIds → execution evidence</code> が辿れ、削除・新規追加の不整合を検知できる。</li>
+          <li><b>実行の厳密性</b> クリーンな隔離環境で実行でき、未実行・skip・再試行は明示される。PRに証拠と限界が残る。</li>
+          <li><b>責任範囲</b> 画面崩れ、外部認証、外部サービス依存など、モデルE2Eで未保証の箇所が一覧化されている。</li>
+          <li><b>運用効果</b> 変更当たりのE2E時間、失敗調査時間、flaky率、重大な漏れを導入前後で比較できる。</li>
+        </ul>
+        <p class="small">どの形式仕様言語・ランナーを採用するかは既存言語・CI・アプリ特性に依存。TLA+/PlusCal、Playwright Test、tester-army/e2e、Patrolは候補・参考であり、一括導入を推奨していない。</p>
+      </section>
+
+      <section id="handoff" class="section">
+        <div class="kicker">08 / Handoff prompt</div><h2>このHTMLと一緒に渡す設計レビュー指示</h2>
+        <p>まず変更前の監査と提案を求める。現状の技術スタックを決めつけず、既存テスト資産を残して移行するための指示。</p>
+        <details open><summary>Codex等へ渡すプロンプト</summary><div class="detailbody"><pre><code>このHTMLをE2E再設計の検討資料として読み、対象リポジトリの
+現行E2E設計を監査して、仕様起点への改善案を作成してください。
+
+目的：実装の現状追認ではないテストオラクルを持ち、
+モデル検査・Unit/Integration/Contract・E2Eの責務を分けること。
+
+最初に最新のREADME、AGENTS.md等の指示、コード、テスト、
+Issue/PR、CI、既存の実行結果を調査してください。
+作業中の既存タスク・未マージDraft PRを無視した重複着手は禁止。
+
+以下を報告してください。
+1. 現行のテスト層と機能別シナリオ対応表。既存の良い設計も残す。
+2. 実装をそのまま正解としてしまっているアサーションの一覧。
+3. トップレベル状態遷移仕様を置く価値が高いフロー候補と理由。
+4. モデル検査で確認する不変条件、進行性、並行性、境界と仮定。
+5. 独立した仕様からE2Eオラクルを供給する構成案。
+6. API・DB・UI・外部サービス・視覚品質の適切なテスト責務。
+7. 実装とシナリオの台帳、CIの検査、変更時の選択実行案。
+8. flaky/環境障害/実装バグ/テストバグのトリアージ案。
+9. 小規模PoCの対象、合格条件、コスト、移行順、ロールバック。
+
+安全・品質条件：
+- 仕様の変更は「テストを通すため」という理由だけで行わない。
+- モデル検査とE2Eの性能比較は同条件・同単位と誤認しない。
+- skipped / not-run / retry-passを無条件の成功と扱わない。
+- 本番データや外部送信を用いた実験はしない。
+- まず監査結果と設計案を提出する。実装・PR・CI・マージ・配備
+  は段階を分けて報告し、未実行の段階を完了と書かない。
+- 既存のテストを一括削除・置換しない。
+
+成果物：現状評価、Before/After図、責務マトリクス、
+優先度付き改善計画、PoC合格条件、未確認事項の一覧。</code></pre></div></details>
+      </section>
+
+      <section id="references" class="section">
+        <div class="kicker">09 / References & provenance</div><h2>出典と検証状況</h2>
+        <ol class="notes">
+          <li id="ref1"><b>[S1] Kuniwak氏のX投稿：</b><a href="https://x.com/orga_chem/status/2115940189566873820" target="_blank" rel="noopener noreferrer">元投稿</a>。本文は依頼者がこの会話で提供した引用をもとに要約。外部サイトからの本文直接照合はできていない。数値と有効性の主張は投稿者の事例報告として扱った。</li>
+          <li id="ref2"><b>[S2] Tatsunori Nakano：</b><a href="https://zenn.dev/polyco/articles/26624b38c951b5" target="_blank" rel="noopener noreferrer">「最近の E2E 戦略（2026年10月現在）」</a>、Zenn、2026-10-26。実装・対応表・テストの照合、CIゲート、変更関連実行、tester-army/e2eの運用事例。記事の一部掲載コード・期待出力には未検証である旨の注記がある。</li>
+          <li id="ref3"><b>[S3] Kosei Akaboshi：</b><a href="https://speakerdeck.com/akaboshinit/e2e-tte-tsurakunaidesu-ka-e2e-no-kanri-kosuto-o-sageru-shudan-to-sono-jissen" target="_blank" rel="noopener noreferrer">「E2Eってつらくないですか？ E2Eの管理コストを下げる手段とその実践」</a>、Speaker Deck、2026-10-29。WinTicket/Flutterでの失敗調査、Patrol、証拠収集、トリアージSkill。</li>
+          <li id="ref4"><b>[S4] Leslie Lamport：</b><a href="https://lamport.azurewebsites.net/tla/high-level-view.html" target="_blank" rel="noopener noreferrer">A High-Level View of TLA+</a>。TLA+の状態・振る舞い・不変条件・進行性・モデルの抽象化に関する一次資料。</li>
+          <li id="ref5"><b>[S5] Playwright公式：</b><a href="https://playwright.dev/docs/best-practices" target="_blank" rel="noopener noreferrer">Best Practices</a>、<a href="https://playwright.dev/docs/trace-viewer" target="_blank" rel="noopener noreferrer">Trace Viewer</a>。CI失敗時のトレースと負荷上の注意。</li>
+          <li id="ref6"><b>[S6] Playwright公式：</b><a href="https://playwright.dev/docs/test-annotations" target="_blank" rel="noopener noreferrer">Tags / Annotations</a>、<a href="https://playwright.dev/docs/test-projects" target="_blank" rel="noopener noreferrer">Projects</a>、<a href="https://playwright.dev/docs/ci" target="_blank" rel="noopener noreferrer">CI</a>。</li>
+          <li id="ref7"><b>[S7] ランナーの候補：</b><a href="https://github.com/tester-army/e2e" target="_blank" rel="noopener noreferrer">tester-army/e2e</a>。Zennで紹介されたWeb/モバイル向けE2Eライブラリ。既存Playwright資産との移行可否は本資料では未検証。</li>
+        </ol>
+        <div class="foot"><b>この資料の線引き：</b>「資料が報告したこと」と「この文書の設計提案」は意図的に区別した。ここにあるJSON・擬似コード・CIゲートは導入済み実装ではない。構成・性能・使うライブラリは対象リポジトリを調べてから確定する。<br>最終整理：2026年10月30日（日本時間）</div>
+      </section>
+    </main>
+  </div>
+  <footer class="footer">Specification-first E2E design review · Self-contained HTML / external assets and analytics: none</footer>
+</body>
+</html>
