@@ -1,6 +1,6 @@
 {
   "title": "2026年10月21日前後 緊急メンテナンス・関連告知一覧",
-  "checkedAt": "2026-10-29T23:58:00Z",
+  "checkedAt": "2026-11-04T12:42:00Z",
   "scope": "PHPの因果不問。今回の緊急/予防メンテと同時期の関連告知・別インシデントを区分。件数による上限なし。",
   "counting": "confirmedは公式資料を確認した対象別の告知カード数（部分本文・同一基盤・包括/個別の重なりを含む）。固有サイト数・実停止数・独立インシデント数・被害数ではない。pendingは原典/公式所有/対象範囲等の追加照合待ち。関連・重複・除外理由も全収集行に保持し、件数で打ち切らない。 実施自体が未定の停止可能性の予告も別状態（possible_unstarted）で保持し、実停止・復旧には数えません。",
   "confirmed": [
@@ -15209,6 +15209,119 @@
         {
           "url": "https://www.tgkk.or.jp/news/36448/",
           "detail": "当該自治体・運営自身の通常公開サイトの告知本文。",
+          "readState": "body_retrieved"
+        }
+      ]
+    },
+    {
+      "id": "nara-nice-maintenance-cancelled-20261031",
+      "name": "なら建築住宅センター NICEシステム／電子(WEB)申請",
+      "cat": "business",
+      "tag": "保守中止・サービス停止なし",
+      "status": "10/31予定の作業は中止、停止しないと10/29告知",
+      "reason": "当該脆弱性の影響を受けるPHPを使用していないとの運営調査結果",
+      "reasonKey": "php",
+      "start": "10/31実施予定だった保守は実施しない。開始時刻・実停止は確認していない。",
+      "end": "10/29告知で保守中止とサービス停止なしを案内。復旧報告ではない。",
+      "scope": "なら建築住宅センターのNICEシステム／電子(WEB)申請。",
+      "safe": "サーバー管理会社の詳細調査により当該脆弱性の影響を受けるPHPが使われていないと確認した、という運営説明です。予定の中止を実停止や復旧へ加算せず、当方の稼働・安全性検証ともしていません。",
+      "url": "https://zainara-kjc.net/pickup/10%E6%9C%8831%E6%97%A5%E5%9C%9F%E5%AE%9F%E6%96%BD%E4%BA%88%E5%AE%9A%E3%81%AE%E7%B7%8A%E6%80%A5%E3%83%A1%E3%83%B3%E3%83%86%E3%83%8A%E3%83%B3%E3%82%B9%E4%BD%9C%E6%A5%AD%E4%B8%AD%E6%AD%A2%E3%81%AE/",
+      "date": "2026/10/29公表。対象は10/31の実施予定作業。",
+      "restored": false,
+      "noticeState": "cancelled",
+      "actualStopped": false,
+      "source": "公式告知の本文を確認。運営による説明と、当方によるサービス機能の検証は区別しています。",
+      "checkedAt": "2026-11-04T12:42:00Z",
+      "sourceRead": "body_retrieved",
+      "icon": null,
+      "ownershipEvidence": [
+        {
+          "url": "https://zainara-kjc.net/pickup/10%E6%9C%8831%E6%97%A5%E5%9C%9F%E5%AE%9F%E6%96%BD%E4%BA%88%E5%AE%9A%E3%81%AE%E7%B7%8A%E6%80%A5%E3%83%A1%E3%83%B3%E3%83%86%E3%83%8A%E3%83%B3%E3%82%B9%E4%BD%9C%E6%A5%AD%E4%B8%AD%E6%AD%A2%E3%81%AE/",
+          "detail": "当該運営・事業の公式告知本文とサイトの運営表記を確認。",
+          "readState": "body_retrieved"
+        }
+      ]
+    },
+    {
+      "id": "tokyo-customer-harassment-entry-period-20261029",
+      "name": "東京都カスタマーハラスメント防止対策推進事業 企業向け奨励金",
+      "cat": "public",
+      "tag": "受付開始・期間変更",
+      "status": "11/4に事前エントリー受付開始を運営告知、11/18 17時まで",
+      "reason": "セキュリティ対策の一時的メンテナンスを実施したことに伴う変更。PHP固有の因果は不明。",
+      "reasonKey": "security",
+      "start": "メンテナンスの正確な開始時刻・旧受付期間は今回未確認。",
+      "end": "11/4付で受付開始を告知。受付期間は11/4 10時〜11/18 17時（原文時刻）。保守終了時刻ではない。",
+      "scope": "同事業の令和8年度第2回申請受付に向けた事前エントリー。受付5,000件、先着順ではない。",
+      "safe": "受付は5,000件で先着順ではなく、支給申請は抽選で複数回に分けると案内しています。受付開始は運営の公表に基づきます。当方は申請・ログイン機能や保守終了時刻を検証していません。",
+      "url": "https://www.tokyo-cusharaboushi.jp/",
+      "date": "10/29に期間変更、11/4に受付開始を公式告知。",
+      "restored": false,
+      "noticeState": "announced",
+      "source": "公式告知の本文を確認。運営による説明と、当方によるサービス機能の検証は区別しています。",
+      "checkedAt": "2026-11-04T12:42:00Z",
+      "sourceRead": "body_retrieved",
+      "icon": null,
+      "ownershipEvidence": [
+        {
+          "url": "https://www.tokyo-cusharaboushi.jp/",
+          "detail": "当該運営・事業の公式告知本文とサイトの運営表記を確認。",
+          "readState": "body_retrieved"
+        }
+      ]
+    },
+    {
+      "id": "sompo-institute-plus-website-reopened-20261030",
+      "name": "SOMPOインスティチュート・プラス 自社ホームページ",
+      "cat": "business",
+      "tag": "自社HPの再開を運営報告",
+      "status": "10/30にホームページ再開、正確な時刻は非記載",
+      "reason": "PHPの重大脆弱性を受けた影響確認・予防的な緊急メンテナンス",
+      "reasonKey": "php",
+      "start": "10/22よりホームページの公開を一時停止（正確な時刻は非記載）",
+      "end": "10/30に再開したと運営報告（正確な時刻は非記載）",
+      "scope": "SOMPOインスティチュート・プラスのホームページ。SOMPOグループ全体のシステムやサービスではない。",
+      "safe": "セキュリティ対策と安全確認を実施したという運営説明です。自社HPは顧客個人情報を保有せず、当該脆弱性に起因する不正アクセス・改ざん被害も確認していないと説明。独立の安全保証や当方の機能実測とはしません。",
+      "url": "https://www.sompo-ri.co.jp/news/20261030-24842/",
+      "date": "2026/10/30公表。停止開始は10/22との記載。",
+      "restored": true,
+      "noticeState": "announced",
+      "source": "公式告知の本文を確認。運営による説明と、当方によるサービス機能の検証は区別しています。",
+      "checkedAt": "2026-11-04T12:42:00Z",
+      "sourceRead": "body_retrieved",
+      "icon": null,
+      "ownershipEvidence": [
+        {
+          "url": "https://www.sompo-ri.co.jp/news/20261030-24842/",
+          "detail": "当該運営・事業の公式告知本文とサイトの運営表記を確認。",
+          "readState": "body_retrieved"
+        }
+      ]
+    },
+    {
+      "id": "phone-appli-php-partial-restoration-20261030",
+      "name": "PHONE APPLI PEOPLE 連携先PHP対応の環境別影響",
+      "cat": "business",
+      "tag": "機能・環境別の部分復旧、停止継続あり",
+      "status": "会社機能は復旧報告、k1/k2名刺オペレーター入力は停止継続",
+      "reason": "委託先サービスのPHP脆弱性対応に伴う機能停止を公式続報で明記",
+      "reasonKey": "php",
+      "start": "会社機能は10/22から停止。k1/k2入力は10/26午前中を目処に停止するとの当時の案内。掲載時刻と実停止時刻は別。",
+      "end": "10/30 14:45掲載で会社機能復旧を報告。k1/k2入力は同続報でも停止継続。実復旧の正確な時刻は非記載。",
+      "scope": "会社機能と名刺オペレーター入力を分離。p1〜p5/c1/c2/o1入力は10/28 18:50掲載で復旧報告、k1/k2は停止継続。",
+      "safe": "PHP対応の続報では、k1/k2のOCRへの影響はないと説明しています。基盤がPHPを使用していないことと、委託先・連携機能への影響は別です。11/2のOCR遅延からの復旧は別障害のため、本件の全面復旧とは扱いません。当方の機能操作は未実施です。",
+      "url": "https://status.phoneappli.net/",
+      "date": "PHP続報節：10/30 14:45、10/28 18:50、10/26 11:20、10/22 12:45掲載。",
+      "restored": false,
+      "noticeState": "partial",
+      "source": "公式告知の本文を確認。運営による説明と、当方によるサービス機能の検証は区別しています。",
+      "checkedAt": "2026-11-04T12:42:00Z",
+      "sourceRead": "body_retrieved",
+      "icon": null,
+      "ownershipEvidence": [
+        {
+          "url": "https://status.phoneappli.net/",
+          "detail": "当該運営・事業の公式告知本文とサイトの運営表記を確認。",
           "readState": "body_retrieved"
         }
       ]
@@ -40013,28 +40126,6 @@
       ],
       "url": "https://www.city.namerikawa.toyama.jp/important_notice/11664.html",
       "note": "検索本文復旧候補、直接open404。最新本文未確定。",
-      "sourceClass": "公式Web候補・最新本文の照合待ち",
-      "sourceRead": "latest_body_unverified",
-      "checkedAt": "2026-10-29T23:58:00Z",
-      "collectionBatch": "official-followups-20261029-2358"
-    },
-    {
-      "names": [
-        "PHONE APPLI"
-      ],
-      "url": "https://status.phoneappli.net/",
-      "note": "検索10/28続報に環境別状態。直接本文の現在停止と10/27別障害は読めたがexact10/28節の因果・本文再照合待ち。",
-      "sourceClass": "公式Web候補・最新本文の照合待ち",
-      "sourceRead": "latest_body_unverified",
-      "checkedAt": "2026-10-29T23:58:00Z",
-      "collectionBatch": "official-followups-20261029-2358"
-    },
-    {
-      "names": [
-        "なら建築住宅センター"
-      ],
-      "url": "https://zainara-kjc.net/pickup/10%E6%9C%8831%E6%97%A5%E5%9C%9F%E5%AE%9F%E6%96%BD%E4%BA%88%E5%AE%9A%E3%81%AE%E7%B7%8A%E6%80%A5%E3%83%A1%E3%83%B3%E3%83%86%E3%83%8A%E3%83%B3%E3%82%B9%E4%BD%9C%E6%A5%AD%E4%B8%AD%E6%AD%A2%E3%81%AE/",
-      "note": "10/31保守中止・影響PHP不使用の公式検索候補。直接open不可。",
       "sourceClass": "公式Web候補・最新本文の照合待ち",
       "sourceRead": "latest_body_unverified",
       "checkedAt": "2026-10-29T23:58:00Z",
@@ -78217,6 +78308,46 @@
       "note": "10/31保守中止・影響PHP不使用の公式検索候補。直接open不可。",
       "checkedAt": "2026-10-29T23:58:00Z",
       "collectionBatch": "official-followups-20261029-2358"
+    },
+    {
+      "name": "なら建築住宅センター NICEシステム／電子(WEB)申請",
+      "sourceUrl": "https://zainara-kjc.net/pickup/10%E6%9C%8831%E6%97%A5%E5%9C%9F%E5%AE%9F%E6%96%BD%E4%BA%88%E5%AE%9A%E3%81%AE%E7%B7%8A%E6%80%A5%E3%83%A1%E3%83%B3%E3%83%86%E3%83%8A%E3%83%B3%E3%82%B9%E4%BD%9C%E6%A5%AD%E4%B8%AD%E6%AD%A2%E3%81%AE/",
+      "verification": "confirmed",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-11-04T12:42:00Z",
+      "confirmedId": "nara-nice-maintenance-cancelled-20261031",
+      "collectionBatch": "official-monitor-20261104-six-approved",
+      "observation": "対象を限定した公式本文の確認。元の収集記録は保持。"
+    },
+    {
+      "name": "東京都カスタマーハラスメント防止対策推進事業 企業向け奨励金",
+      "sourceUrl": "https://www.tokyo-cusharaboushi.jp/",
+      "verification": "confirmed",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-11-04T12:42:00Z",
+      "confirmedId": "tokyo-customer-harassment-entry-period-20261029",
+      "collectionBatch": "official-monitor-20261104-six-approved",
+      "observation": "対象を限定した公式本文の確認。元の収集記録は保持。"
+    },
+    {
+      "name": "SOMPOインスティチュート・プラス 自社ホームページ",
+      "sourceUrl": "https://www.sompo-ri.co.jp/news/20261030-24842/",
+      "verification": "confirmed",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-11-04T12:42:00Z",
+      "confirmedId": "sompo-institute-plus-website-reopened-20261030",
+      "collectionBatch": "official-monitor-20261104-six-approved",
+      "observation": "対象を限定した公式本文の確認。元の収集記録は保持。"
+    },
+    {
+      "name": "PHONE APPLI PEOPLE 連携先PHP対応の環境別影響",
+      "sourceUrl": "https://status.phoneappli.net/",
+      "verification": "confirmed",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-11-04T12:42:00Z",
+      "confirmedId": "phone-appli-php-partial-restoration-20261030",
+      "collectionBatch": "official-monitor-20261104-six-approved",
+      "observation": "対象を限定した公式本文の確認。元の収集記録は保持。"
     }
   ],
   "related": [
@@ -125779,6 +125910,54 @@
         }
       ],
       "scope": "公式本文6件と照合保留4件の10URL。確認済みカード数・照合待ちグループ数と重複加算しない。"
+    },
+    {
+      "id": "official-monitor-20261104-six-approved",
+      "checkedAt": "2026-11-04T12:42:00Z",
+      "rowCount": 4,
+      "members": [
+        {
+          "name": "なら建築住宅センター NICEシステム／電子(WEB)申請",
+          "sourceUrl": "https://zainara-kjc.net/pickup/10%E6%9C%8831%E6%97%A5%E5%9C%9F%E5%AE%9F%E6%96%BD%E4%BA%88%E5%AE%9A%E3%81%AE%E7%B7%8A%E6%80%A5%E3%83%A1%E3%83%B3%E3%83%86%E3%83%8A%E3%83%B3%E3%82%B9%E4%BD%9C%E6%A5%AD%E4%B8%AD%E6%AD%A2%E3%81%AE/",
+          "verification": "confirmed",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-11-04T12:42:00Z",
+          "confirmedId": "nara-nice-maintenance-cancelled-20261031",
+          "collectionBatch": "official-monitor-20261104-six-approved",
+          "observation": "対象を限定した公式本文の確認。元の収集記録は保持。"
+        },
+        {
+          "name": "東京都カスタマーハラスメント防止対策推進事業 企業向け奨励金",
+          "sourceUrl": "https://www.tokyo-cusharaboushi.jp/",
+          "verification": "confirmed",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-11-04T12:42:00Z",
+          "confirmedId": "tokyo-customer-harassment-entry-period-20261029",
+          "collectionBatch": "official-monitor-20261104-six-approved",
+          "observation": "対象を限定した公式本文の確認。元の収集記録は保持。"
+        },
+        {
+          "name": "SOMPOインスティチュート・プラス 自社ホームページ",
+          "sourceUrl": "https://www.sompo-ri.co.jp/news/20261030-24842/",
+          "verification": "confirmed",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-11-04T12:42:00Z",
+          "confirmedId": "sompo-institute-plus-website-reopened-20261030",
+          "collectionBatch": "official-monitor-20261104-six-approved",
+          "observation": "対象を限定した公式本文の確認。元の収集記録は保持。"
+        },
+        {
+          "name": "PHONE APPLI PEOPLE 連携先PHP対応の環境別影響",
+          "sourceUrl": "https://status.phoneappli.net/",
+          "verification": "confirmed",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-11-04T12:42:00Z",
+          "confirmedId": "phone-appli-php-partial-restoration-20261030",
+          "collectionBatch": "official-monitor-20261104-six-approved",
+          "observation": "対象を限定した公式本文の確認。元の収集記録は保持。"
+        }
+      ],
+      "scope": "承認された4件を追加。予定中止・受付開始・自社HP再開・部分復旧を区別。"
     }
   ],
   "officialFollowups": [
@@ -126942,6 +127121,42 @@
       "resolvedAt": "2026-10-24T03:12:40.033207+00:00",
       "confirmedId": "ezblox-scheduled-maintenance",
       "reason": "初期JCS元候補の過去本文と、今回直接取得したサービス公式個別告知の対象/予定期間が対応。運営exact所有も独立参照で照合。過去Xを今回再取得した意味ではなく、後日別X群は保留を維持。"
+    },
+    {
+      "originalPendingGroup": {
+        "names": [
+          "なら建築住宅センター"
+        ],
+        "url": "https://zainara-kjc.net/pickup/10%E6%9C%8831%E6%97%A5%E5%9C%9F%E5%AE%9F%E6%96%BD%E4%BA%88%E5%AE%9A%E3%81%AE%E7%B7%8A%E6%80%A5%E3%83%A1%E3%83%B3%E3%83%86%E3%83%8A%E3%83%B3%E3%82%B9%E4%BD%9C%E6%A5%AD%E4%B8%AD%E6%AD%A2%E3%81%AE/",
+        "note": "10/31保守中止・影響PHP不使用の公式検索候補。直接open不可。",
+        "sourceClass": "公式Web候補・最新本文の照合待ち",
+        "sourceRead": "latest_body_unverified",
+        "checkedAt": "2026-10-29T23:58:00Z",
+        "collectionBatch": "official-followups-20261029-2358"
+      },
+      "originalPendingIndex": 2045,
+      "resolvedAt": "2026-11-04T12:42:00Z",
+      "resolvedBatch": "official-monitor-20261104-six-approved",
+      "confirmedId": "nara-nice-maintenance-cancelled-20261031",
+      "reason": "同じ公式URLの本文を確認。元の資料と取得状態は保持し、運営の公表と実機能検証を区別。"
+    },
+    {
+      "originalPendingGroup": {
+        "names": [
+          "PHONE APPLI"
+        ],
+        "url": "https://status.phoneappli.net/",
+        "note": "検索10/28続報に環境別状態。直接本文の現在停止と10/27別障害は読めたがexact10/28節の因果・本文再照合待ち。",
+        "sourceClass": "公式Web候補・最新本文の照合待ち",
+        "sourceRead": "latest_body_unverified",
+        "checkedAt": "2026-10-29T23:58:00Z",
+        "collectionBatch": "official-followups-20261029-2358"
+      },
+      "originalPendingIndex": 2044,
+      "resolvedAt": "2026-11-04T12:42:00Z",
+      "resolvedBatch": "official-monitor-20261104-six-approved",
+      "confirmedId": "phone-appli-php-partial-restoration-20261030",
+      "reason": "同じ公式URLの本文を確認。元の資料と取得状態は保持し、運営の公表と実機能検証を区別。"
     }
   ],
   "streamImpacts": [
