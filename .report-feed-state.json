@@ -1837,6 +1837,7 @@
         "nms-musashikosugi-2026": "52a060013b23833dcd9fb0f8f8bac9b364a0ffd3edcc0f424cf37176d5f90d13",
         "ns-biojapan-2026": "fac5d87184cc520290dcf87fe1d99c132be2733476d1e6304c6ffae2f05cd63a",
         "ntt-west-insider-20231017": "00e8fe96ab1f93f613d14a39d3cc9ccc357f2cf51ca83e6c3975261b7398615e",
+        "nttdata-st-direct-vendor-digital-bonds-20261031": "5902c6a49484aaef1ea3c7a380639b2cfc6b38eb3a14fc6e22f81f5edabea63f",
         "ntv-wands-faveconnect-20261011": "94f94c2a5d9e1a148f59088a0d9d6cd77f8f5fac7d61f9fe8ad02a4fc3983d10",
         "nyk-2026": "06a21effc496a3be7ada96d7b08fb02fb9ccd65419efb5a8be96df568c329ddb",
         "odawara-mailbox-20260327": "4573fd6668cd51e5da61f70a6b46dace40a31375ca483f409fbfa11698f581fd",
@@ -1854,6 +1855,7 @@
         "rideon-express-server-20261007": "bc349af089908121e5bc0e6b27b225351ec88de9cc43b6798cec07240af6e98b",
         "saga-nas-20260924": "8294f062197e99320ddc4a0c3fd02cbfb521131872279375fa7f6b5040b3a3f5",
         "sagawa-tracking-20260930": "01693ab80d161aea7f7883c54e89da4d0e181c106002eefa61dd9026793fa127",
+        "saison-smart-realestate-member-platform-20261029": "5cd72547f259aa350f753458118c1a75d4a95b0c2f0c384a3b5ef19e902b7889",
         "saitama-shibusawa-mix-20261006": "edc0c30757b9585959f3ebc0a77feceaf09b32a5ed92599571e840cd68d368db",
         "sakura-systems-20260809": "8f9baf1572b86f2bfefa7d75aedd2fa659298187a7623f99661147631718554f",
         "saltydog-googleads-mcc-20261005": "8fc5ef363cc7813b10bd3849dd85a098cd71bbc3de7e56147b3da33b013d0d79",
@@ -2852,6 +2854,15 @@
             "connectwise-cloud-backup-20261016"
           ],
           "date": "2026-10-30"
+        },
+        {
+          "signature": "343c8d6084681bfb2d6449025f78b0d6e45ecac9d062565ff87fe9dc16d6e7e6",
+          "summary": "セゾンの会員管理基盤とNTTデータの委託先SaaSの2系列を追加。セゾンは1,889名の漏えい確認、NTTは11月2日第2報の一部漏えい確認・委託先名・原因説明と停止継続を反映。初報の可能性範囲や対象人数を新しい数値へ合算せず、発生・公表・確認日を分ける。旧196事案と全履歴を保持。",
+          "ids": [
+            "nttdata-st-direct-vendor-digital-bonds-20261031",
+            "saison-smart-realestate-member-platform-20261029"
+          ],
+          "date": "2026-11-04"
         }
       ],
       "items": [
@@ -4093,9 +4104,26 @@
           ],
           "published": "2026-10-30T01:01:55.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "c139699aa54681fabd2085f1e493b4c6be71d6fdfe8a13b449b90f21beba1012",
+          "summary": "セゾンの会員管理基盤とNTTデータの委託先SaaSの2系列を追加。セゾンは1,889名の漏えい確認、NTTは11月2日第2報の一部漏えい確認・委託先名・原因説明と停止継続を反映。初報の可能性範囲や対象人数を新しい数値へ合算せず、発生・公表・確認日を分ける。旧196事案と全履歴を保持。",
+          "journal": [
+            {
+              "signature": "343c8d6084681bfb2d6449025f78b0d6e45ecac9d062565ff87fe9dc16d6e7e6",
+              "summary": "セゾンの会員管理基盤とNTTデータの委託先SaaSの2系列を追加。セゾンは1,889名の漏えい確認、NTTは11月2日第2報の一部漏えい確認・委託先名・原因説明と停止継続を反映。初報の可能性範囲や対象人数を新しい数値へ合算せず、発生・公表・確認日を分ける。旧196事案と全履歴を保持。",
+              "ids": [
+                "nttdata-st-direct-vendor-digital-bonds-20261031",
+                "saison-smart-realestate-member-platform-20261029"
+              ],
+              "date": "2026-11-04"
+            }
+          ],
+          "published": "2026-11-04T13:09:33.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "96fed381d8ef17e536a278982e4d8f4588f95f84"
+      "cursor": "1531748862b00c1a4f0a9e087de5278dbe451a6e"
     }
   }
 }

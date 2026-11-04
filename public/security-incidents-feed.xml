@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Fri, 30 Oct 2026 01:01:55 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 04 Nov 2026 13:09:33 GMT</lastBuildDate>
+    <item>
+      <title>セゾンの会員管理基盤とNTTデータの委託先SaaSの2系列を追加</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#c139699aa54681fabd2085f1e493b4c6be71d6fdfe8a13b449b90f21beba1012</guid>
+      <description>セゾンの会員管理基盤とNTTデータの委託先SaaSの2系列を追加。セゾンは1,889名の漏えい確認、NTTは11月2日第2報の一部漏えい確認・委託先名・原因説明と停止継続を反映。初報の可能性範囲や対象人数を新しい数値へ合算せず、発生・公表・確認日を分ける。旧196事案と全履歴を保持。</description>
+      <pubDate>Wed, 04 Nov 2026 13:09:33 GMT</pubDate>
+      <dcterms:created>2026-11-04T13:09:33.000Z</dcterms:created>
+    </item>
     <item>
       <title>ローソン10月24日の情報種類訂正、10月19日の予約再開を反映</title>
       <link>https://share.0g0.xyz/security-incidents</link>
