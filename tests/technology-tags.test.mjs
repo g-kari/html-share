@@ -15,6 +15,12 @@ const keys = (record, kind) => automaticTags(record).filter((item) => item.kind 
 const record = (title, lead = "", category = "agent", extra = {}) => ({ title, lead, category, ...extra });
 
 const existingProducts = {
+  "claude-code-21318-permission-config-save": ["claude-code"],
+  "llamacpp-090-fp8-kv-audio-api": ["llama-cpp"],
+  "n8n-2466-npm-install-fix": ["other"],
+  "cloudflare-ai-gateway-model-aliases-beta": ["other"],
+  "cloudflare-personal-agent-access-policies": ["other"],
+  "comfyui-0440-video-workflow-compatibility": ["other"],
   "cloudflare-skills-files-032": ["cloudflare-agents-sdk"],
   "jules-winddown-20261231": ["other"],
   "codex-01660-resume-permissions": ["codex"],
@@ -121,6 +127,12 @@ test("all authored records have deterministic product/domain/change dimensions",
 
 test("current change tags distinguish pricing, fixes, public weights, GA, beta and correction", () => {
   const expected = {
+    "claude-code-21318-permission-config-save": ["fix"],
+    "llamacpp-090-fp8-kv-audio-api": ["compatibility"],
+    "n8n-2466-npm-install-fix": ["fix"],
+    "cloudflare-ai-gateway-model-aliases-beta": ["preview"],
+    "cloudflare-personal-agent-access-policies": ["update"],
+    "comfyui-0440-video-workflow-compatibility": ["fix", "compatibility", "deprecation"],
     "cloudflare-skills-files-032": ["compatibility"],
     "jules-winddown-20261231": ["update"],
     "codex-01660-resume-permissions": ["fix"],
