@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Fri, 30 Oct 2026 08:53:29 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 04 Nov 2026 12:36:26 GMT</lastBuildDate>
+    <item>
+      <title>共有Web基盤の設計図：S3・CloudFront・Lambda Web Functionのまとめ方と分け方</title>
+      <link>https://share.0g0.xyz/shared-web-platform</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/shared-web-platform</guid>
+      <description>リポジトリ追加の手作業をなくす共有Web基盤。S3、CloudFront FunctionsとKVS、Node.jsのLambda Web Functionを、全統合・用途別・アプリ別・コンテナの比較から設計します。</description>
+      <pubDate>Wed, 04 Nov 2026 12:36:26 GMT</pubDate>
+      <dcterms:created>2026-11-04T12:36:26.000Z</dcterms:created>
+      <dcterms:modified>2026-11-04T12:36:26.000Z</dcterms:modified>
+    </item>
     <item>
       <title>仕様をオラクルにするE2E再設計ガイド｜2026-10-30</title>
       <link>https://share.0g0.xyz/e2e-spec-first-review-2026-10-30</link>

@@ -13,6 +13,12 @@
 /* Keep explanatory copy legible on desktop and mobile. */
 main p,main table,.branch p,.mini,.flow b,.flow span,.sources{font-size:18px}.flow span{line-height:1.8}.table-wrap:focus-visible,.diagram-scroll:focus-visible{outline:3px solid var(--amber);outline-offset:3px}pre{font-size:17px}pre code{font-size:1em}.recommend th{border-left:4px solid var(--teal)}
 </style>
+  <!-- html-share: social metadata -->
+  <meta property="og:site_name" content="HTML Share">
+  <!-- /html-share: social metadata -->
+  <!-- html-share: rss discovery -->
+  <link rel="alternate" type="application/rss+xml" title="HTML Share RSS" href="https://share.0g0.xyz/feed.xml">
+  <!-- /html-share: rss discovery -->
 </head>
 <body>
 <header><div class="mast"><a href="/">技術ノート</a><span>共有Web基盤 / 設計提案</span></div><div class="hero"><p class="meta">公式資料確認日 2026-11-04 ／ 本番配備・性能測定は未実施</p><h1>リポジトリ追加で配備する<br>共有Web基盤の設計</h1><p class="lead">S3で静的ページを配り、Node.js®の動的処理を共有する。目指すのは「Functionが1個」ではなく、<strong>リポジトリを追加しても配信設定の手作業が増えない</strong>構成です。</p><div class="conclusion"><p>最小構成は <strong>S3＋1つの共有Web Function、2つのorigin</strong>。容量が増え、権限や障害範囲を分離したくなったら、用途や信頼境界ごとのFunctionをIaCで自動生成します。アプリごとに分けても、利用者には同じURL体系を見せられます。</p></div><p class="status">この記事は設計案です。AWSの公式上限と、推奨する運用上の余裕を区別します。何リポジトリを収容できるか、費用・性能・実機でのorigin認証は未測定・未検証です。</p></div></header>
