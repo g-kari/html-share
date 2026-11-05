@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Wed, 04 Nov 2026 23:57:07 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 05 Nov 2026 01:14:57 GMT</lastBuildDate>
+    <item>
+      <title>脆弱性レポート | 実悪用・修正版・対処</title>
+      <link>https://share.0g0.xyz/vulnerabilities</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/vulnerabilities</guid>
+      <description>重要な脆弱性の影響製品・実悪用・修正版・対処を公開一次資料で確認するレポート。CVSSと条件付き対処優先度を分けて掲載します。</description>
+      <pubDate>Thu, 05 Nov 2026 01:14:57 GMT</pubDate>
+      <dcterms:created>2026-10-06T05:47:01.000Z</dcterms:created>
+      <dcterms:modified>2026-11-05T01:14:57.000Z</dcterms:modified>
+    </item>
     <item>
       <title>緊急メンテナンス一覧｜2026年10月21日前後・公式告知と再開予定</title>
       <link>https://share.0g0.xyz/php-emergency-maintenance</link>
@@ -78,15 +87,6 @@
       <description>PHP緊急更新を一次資料で追跡。OS別修正版、Docker HubとAWS ECR Publicのイメージ、旧OSサポート、攻撃成立条件、設定でできる部分対策と限界を図解。</description>
       <pubDate>Fri, 30 Oct 2026 01:01:55 GMT</pubDate>
       <dcterms:created>2026-10-21T13:13:10.000Z</dcterms:created>
-      <dcterms:modified>2026-10-30T01:01:55.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>脆弱性レポート | 実悪用・修正版・対処</title>
-      <link>https://share.0g0.xyz/vulnerabilities</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/vulnerabilities</guid>
-      <description>重要な脆弱性の影響製品・実悪用・修正版・対処を公開一次資料で確認するレポート。CVSSと条件付き対処優先度を分けて掲載します。</description>
-      <pubDate>Fri, 30 Oct 2026 01:01:55 GMT</pubDate>
-      <dcterms:created>2026-10-06T05:47:01.000Z</dcterms:created>
       <dcterms:modified>2026-10-30T01:01:55.000Z</dcterms:modified>
     </item>
     <item>

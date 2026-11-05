@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/vulnerabilities-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Fri, 30 Oct 2026 01:01:55 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 05 Nov 2026 01:14:57 GMT</lastBuildDate>
+    <item>
+      <title>WordPress Core119977の11月3日KEV追加と7.1.4修正、Ivanti111357/118527・Cisco76418・Brotli111497・Adobe48356の実悪用を補</title>
+      <link>https://share.0g0.xyz/vulnerabilities</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/vulnerabilities-feed.xml#41ab2c8347ecda1d7e6a8dfc8ae96a28dd06e96d3b52a251e0eb80701470a1dd</guid>
+      <description>WordPress Core119977の11月3日KEV追加と7.1.4修正、Ivanti111357/118527・Cisco76418・Brotli111497・Adobe48356の実悪用を補完。GitLab97229を実悪用確認へ訂正し、研究者のPoC公開と実証経路の条件も区別。Node.js集約はBrotliだけの実悪用として区別。Firefox159.0.1、pgAdmin9.19の2件、NWR100の2件を追加。版表・採点主体差・条件と未取得範囲を保持し、収録補完を新しい攻撃発生としない。 Apple WebKit27834の11月4日KEV追加、AirbyteのJVN実悪用確認と構成別条件を追加。Chrome157のCritical7件はAndroid限定とsandbox内外を区別。Barracuda2件、Hinemosのパッケージ番号付き修正、7月修正済みAkeebaの国内公表を補完。BrotliのSiemens Desigo CC V8/V9への影響追加と.NET更新案内を反映。新規公表・国内掲載・実悪用確認・修正日を分けて記録。 Cisco UCS Centralの11月4日公開の認証済みRCEと2.1(2c)修正を追加。 Cisco Secure Email Gateway76461は15.5.5-014の追加fixとRetro Remediation Engine4.0.2以上の確認条件、公開exploit codeへの言及を補足。</description>
+      <pubDate>Thu, 05 Nov 2026 01:14:57 GMT</pubDate>
+      <dcterms:created>2026-11-05T01:14:57.000Z</dcterms:created>
+    </item>
     <item>
       <title>Plex 4 CVE連鎖とSiemensの実悪用続報、Node.js10月21日修正10 CVEを補完</title>
       <link>https://share.0g0.xyz/vulnerabilities</link>

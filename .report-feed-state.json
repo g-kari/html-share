@@ -5,8 +5,11 @@
       "records": {
         "aas-edge-client-unmaintained-unauthenticated-api": "84ccea7ec5917de021ecbe5367ffdcfbb307243618d04b7315b93ee46c1e8d7f",
         "actual-sync-server-github-prefix-token-disclosure": "10ccb84a6ccbd61028edd541378ae85def658bf040674da9f26fee92538c8446",
+        "adobe-commerce-dangerous-upload-48356": "2ee096c9a272fc2d04f3bcd13eb40d8e567fa6ae22d17cb375ab82d4e2b9ee1c",
         "ahsaycbs-exploited-authentication-command-chain": "b4e56f1c74b1f7518083e6f0fa0eb2e83ee38339c2bc2f9e1579a9555aba6a2b",
+        "airbyte-connector-builder-rce-exploitation-jvn": "ab15e108433b9aea5d5dd129a4b409013de56e1e9fe7d2736e64448de2980d69",
         "akamai-gpa-jwt-local-privilege-and-platform-dos": "98a650c3d05645a370459b1040b316c5bbe9a0678f2d7fa7133e369bfe7fd66f",
+        "akeeba-csrf-105296-jvn": "479f735543c49635d25b466a02c0c50850d3d495f3c860e67047bf3b20c7fa53",
         "amd-rccl-proxy-untrusted-peer-pointer": "ff6332721c6b7e765c7e68cd1df45c475f0b904a14c62990a518e6d121cf5958",
         "android-october-critical-components": "9bb6543d037be34881589620674a02613f83e2e571fc7660b5e2b98266b3c5ba",
         "apache-bcel-class-name-repository-cache-poisoning": "941d62bc68c0b57f6d99448e1b0dadd2fcf229431cb33209124e0943b01ff1d7",
@@ -15,6 +18,7 @@
         "apache-httpd-october-http2-and-config-overflows": "bcef95b066294df34d40cde8085b2fa456762a07627f78b11e091b397764c476",
         "apache-impala-trusted-jar-path-traversal": "0df867eafedc2543d9f742f4748b2f3e73284ee7cd201f83dee11d33fc931ac2",
         "apple-coregraphics-exploited-file-rce": "d3ef514ed3f433382d8b85be586d4fc476be15018bc5d56448181250c00c65f8",
+        "apple-webkit-pointer-auth-27834": "b84cb1cf337dc0ad6e2e76e8352110f40c427ed2e7d8403a3b10ba5ab5c91081",
         "apprise-cross-origin-redirect-auth-headers": "7f4cdb0eb7c0ad525fa5ab5337f85a0c8d0397511df854241d84afac3df16e7d",
         "argo-cd-ssh-repository-proxy-command-injection": "ea55bb8381d4686243d85771641001ec6395705b951612f8522cd89738013957",
         "arista-cloudvision-sensor-high-privilege-path-traversal": "531c278e385bbb224d376b70ece034a7e9b91d51bcafdd7ef94d30be86523fb9",
@@ -52,25 +56,30 @@
         "backstage-techdocs-markdown-mapping-sanitization-followup": "e7350c738d94ae4e26716e3d0a86177b70e4499d781b03aee0c4958a6bd37bd2",
         "backstage-techdocs-mkdocs-plugin-configuration-ssrf": "6fd315508b254caf157a36f0a85fdbdd42e9a644fd498759cceb700dbb1837eb",
         "backstage-techdocs-mkdocs-sanitizer-theme-code-execution": "c5995734f8dca70e53d035224422c6f20834abd97f31f096d631ad121faf208b",
+        "barracuda-esg-auth-bypass-admin-command-injection": "5ef53d78e933c62bf7ae387fe5ae4bd6ea69d7217ea0ddfda85cec38c95b5f6b",
         "better-auth-magic-link-oauth-proxy-purpose-isolation": "ff153c1e6208e1a34253f6141f1a54ea75e56cc8fafbcec51763ccf187ff3391",
         "beyondtrust-remote-support-origin-validation-exploited": "a98f87b8ce4cc54c42ee7dc8168a8933943e43de69b2c0280a6f02733c818bd6",
         "bind-gss-tsig-concurrency-94300": "ed3363dc32d10191437775261e0e085088beaf521d9ae5b49616989ad47f61bc",
         "bind-tkey-dos-october-kev-followup": "cb402560e9ebcc44123fc348921c054513761cddbd3f52c61ac3da67838eda1f",
         "body-parser-compressed-body-trailing-bytes-dos": "0abd6c570a765a3659baf30b26b8365cdc67762eaa0f9181a514f6ff42511ce1",
+        "brotli-decoder-out-of-bounds-write-111497": "8b78126602facc8ae450da8ab7ec167a4faf327f585bf86b1921673708471062",
         "busybox-proxy-prefix-smuggling-and-deb-extraction-escape": "5eed4a36be7cd80be42b13ac6c667d0d4f6e4f0de3d4043b3a43560a23c1924a",
         "capacitor-native-webview-origin-proxy": "664019fab05a7bb19a09675443758dd4e9b970df8de83a85f0e2de29865ff9fa",
         "checkpoint-management-exploited-script-upload": "5a079d0149879e339c9df0e66463db668d2dd23028ae1abe0bc3c0e767e604d4",
         "checkpoint-vpn-exploited-certificate-rce": "061d31fd8854be97ecdcaae792d0269b248c75426512f6efd23bd18176419559",
         "chrome-156-october-critical-six": "ea3d37850f2fc2a55b4e738082fb28046f20df2ed802c81b553abb9ff978f4a3",
+        "chrome-157-november-three-critical-seven": "51476e937f7a5c9db86646c0c4de663dfe6f4d6de6539e83fee1824faf7437cf",
         "chrome-october-fifteen-prerender-critical-fixes": "385a3034f1ef55430e3637e73c9a4815da5a78958b0328e0f956542b5b89106d",
         "chrome-october-six-critical-use-after-free": "48931811b31e8cf4fc362330457e29a1b4c6f8fc33a8b9326352b28a15971a48",
         "chrome-october-thirteen-critical-memory-fixes": "087cca90bc673f89aa681dacfa917207f7bea71187db066ee75b35bc6d6fd49d",
         "chrome-v8-exploited-september": "9c096eda40cfb0400d083b402082b5be0fc595df88b696a2a05d820259106556",
         "chrome-webgl": "75328e936e24a3657f8bae0cee8b954b7bddabf810e8bbe3e131b9ee7a1c5ec8",
+        "cisco-asa-ftd-secondary-auth-vpn-dos-76418": "6bf6e84c46482310467ba996afc03bb917612824e221c45107d6b4429a05f373",
         "cisco-fmc-exploited-authentication-root": "5b94f05d52c4c9d7577fdbb882711f27a41a41f440863a8a6c623ffba3ef4316",
         "cisco-ios-xe-august-hardening-october-fix-table": "d9137245aaf8690b8ff4c264591a7b6dde6dfb295ff0c46026199ca36e5cd4eb",
         "cisco-sdwan-exploited-api-bypass": "9258609fe2b2fa147a76fc01e387736e172428431f1e50f39b8c9e06cf504b0a",
         "cisco-secure-email-amp-file-reputation-root-rce": "b08de0ee498e6926d811e330e4c06b71d4b193835099f3e4228e73a90fe7e400",
+        "cisco-ucs-central-auth-rce-76506": "d9c89b8b46f1755ab213b5a4a2e8ef2bba7312b11220c31f3101410deae51235",
         "claude-code-write-time-symlink-outside-project": "f7aa37b0dff9f98c22bf9950ec0708169e16a64d00f5931d3a5382d307a74389",
         "claude-desktop-windows-project-git-executable-search": "a98588be4d1d1177bbd1f067176bcc5be543a35b4c8ef7562172acae4cd713c9",
         "claude-plugin-sha-pin-checkout-bypass": "6997249a276c537cd304c8ed5ff476e23497ba84f43e4885357263ec3e92db10",
@@ -87,7 +96,7 @@
         "cve-2026-16516": "3e68198880291267b496b9ec40458ef630246dea0e77ffe2eb5a3fdf82e5948b",
         "cve-2026-18022": "dd345dbf151f2107c60718aae6e0d2354756d66766537a4f4076d490d38f7a12",
         "cve-2026-76460": "5d489deb52d338fed6ddc2938ef9af48f5513641b05e69bc6dedd89d5c4cfea6",
-        "cve-2026-76461": "494c5a2aa4ed6e123cf3f27610d3ede7b9f755865c1078205115e338269927f7",
+        "cve-2026-76461": "cf3b2a084e6f4bb0c2576c2e1f6fd5f436d80a58e9250eeffe0ff53dfd331dc2",
         "cve-2026-83540": "1250c1d5779cade57452c816a9d8cf69f62f93fb5fb911c147b08aef2916febd",
         "cve-2026-88771": "99f6245619b542e82c3ffdf32dca84be9a09699e78add3027dc8f84e1fbeb6d7",
         "cve-2026-88779": "f9da3b36e5fc8f7286130594677f25843065fefce6afe59bb9167fa194b9db02",
@@ -114,6 +123,7 @@
         "fanvil-x7a-pa2s-management-websocket-boundaries": "b7162cbf689bdd1d02a80028a6bc49dc543e0a2ace0eb860beabca32c6ee5aaa",
         "fast-jwt-algorithm-claims-cache-boundaries": "bbebcc6be62529bc478b9f9b21a92248f3af77b474fa6494a9cd5dfddb73ab53",
         "fireblocks-mpclib-hardened-ancestor-isolation": "68db432007927bd9b2ce67e19b7550ea2f5d13afcba87986f4b08de0ee35959a",
+        "firefox-layout-boundary-120572": "095b85a673bb89a402ff70710cef03982a63f14053aad62d3e9393847f925e41",
         "flexnet-lmadmin-soap-administrator-authentication-bypass": "c0c46f88cc5eb93a801f236135c1d52feff0fb7362b41c5ae1ac43f13b7c3039",
         "fortimail-exploited-file-write": "4e5e49df2593e4129f842786d14bac6ae2b2a9821197b940543262ba5c57d720",
         "fortinet-admin-cli-path-traversal-exploited-61624": "d2a047aba75e091dd5ecd9c1c4cc3e29a0a5c6b006e1a2dcdac4517823586a68",
@@ -142,7 +152,7 @@
         "gitlab-81839": "579d957556e9a52fa4fc8297f565b1f5b35dd0c2486b7c91be78d1f85e5bb5a7",
         "gitlab-92883": "0fb0397df3defaef72682cb8924aea6fcd8d0eca9eafd1e221f87ac5532b09a0",
         "gitlab-96893": "5c6df724206f910b7c860c22b420714b774df5dba214bf2c5a6ebf4d2d8f3da1",
-        "gitlab-97229": "5bdd79fea976ae272643c75afba4e4f914abdb2da11a24548e3bdd5928da0136",
+        "gitlab-97229": "8f6a936f2ca18a0133bf14812cc5c8bc85a1dff609a2cadf3ef1b8f7ee523681",
         "gitlab-ai-gateway-template-escape": "5e50a3d18b626de79909181e6f0fefaac17f674c8b81eb94ad4d26049945b345",
         "gitlab-exploited-repository-api-file-read": "7e4570f922221db47a07868bfaec02eb40843955ed1cb2e93de325ae8c34cea9",
         "gitlab-onigmo-unauthenticated-rce-110264": "41b0d3e23da8ccabd803caee93ed4f8c4c3fb222c2a201bbd1a474db6ac21270",
@@ -156,6 +166,7 @@
         "hermes-automatic-git-config-execution": "833129c476e243893eb7b452e99594a212c66a6cc3471154a09819479753933f",
         "hermes-dashboard-authentication-resource-boundaries": "92812e899d022abc81d3e890079c1088841a8870a2186662e11e9b8df0adf623",
         "hermes-email-sender-allowlist-spoofing": "01d6c533107edd645410b63a95901ce1cbd5a2c88fa936c82d1a2874a1683590",
+        "hinemos-password-change-privilege-109849": "11afc0dcc0803bd435edf045f35cf3e251a3404fa25c837dd6c1214453ee5738",
         "hpe-aos-switch-october-critical-management": "9c31ff6d4ab464ac76fe513eb79dc4d1ddf99d86a12518ea7fb9a66eddfd21e1",
         "hpe-clearpass-manager-onguard-client-high-ten": "e19d890b8f976b6f7b5cfc51405d9c33498c2cd57ad7f5c340bc9ee983616962",
         "hpe-clearpass-october-client-integrity-rce": "2c60a69b0db1cbb989c36f7bd4bcb71f94d48d39d9a055c00406fcc1ec7e848e",
@@ -164,7 +175,8 @@
         "ibm-datapower-ldap-jws-and-memory-rce": "2a9d1374ea79d9291094e06da0269527120db637d7f97ed31d03cf14d44754a2",
         "ibm-guardium-edge-authentication-and-native-boundaries": "6ee88e27fa6ba849fbcbab5e6027501eadcc95ab1b45ad715af597f3c0264888",
         "ibm-verify-access-unauthenticated-deserialization-rce": "349f69651a16d17b42ab9d0d8a044a682d96fb5fba952fe6cf88c981987202d2",
-        "ivanti-connect-secure-auth-bypass-104935": "5e0111e45acefb8ffff51122aab6151a36a075514e8c1e62ecad774276b9619c",
+        "ivanti-connect-secure-auth-bypass-104935": "772c66f5e4d812dbf55565679c4347329953a8ea3f15aac4e331a7f48544aa64",
+        "ivanti-connect-secure-chained-file-write-lpe": "2b7da420f5c682f07cf477d52626cbc3d54faeb428b32b53c5406422620f3808",
         "jetbrains-exposed-string-sql-function-injection": "4cd317d9bfcf3c62e3d64218fed6412cbfc160d68a061a20f6da3d3b759a970b",
         "jtl-shop-consent-statistics-stored-xss": "b12dac1cafd212d60bbe8bf5999b9809632afd13e8dc4cea78ff129d59fbeae2",
         "jtl-shop-unauthenticated-plugin-safe-mode-toggle": "da87cbc4c635229ad93918fc31d53db4144504067c1ef49d2a14519a744555b2",
@@ -226,7 +238,7 @@
         "nginx-october-alias-script-http3-tickets-aio": "d7f43596ca93b872b5bb7a32fa41798ab4b054cfb7042d5932716b27c0df9dd5",
         "nginx-ui-2026-107804-107813": "a007dfd7169272d4804dc362f7ccab05b07265c8b392df17496db4aa4d24faef",
         "nix-lix-october-store-sandbox-installer-boundaries": "35504814accfa97c75f757f51c7779ab536dd9d8d52f06d1e436bb189f353df9",
-        "nodejs-october-2026-security-release": "b61856e47500d9b0f49bb311945e9fa894195ffb424be242746658a81dc4f27d",
+        "nodejs-october-2026-security-release": "b2f13cd8d53bdbd7c9ef7a1ae6869781569d234003f4431dac6ece37e63bfc02",
         "npm-css-jptvix-polyfill-malware": "c6f42d03229a0d0b38f6f2efb85be87095f396d09d0c1ade3310cbd69ee7af64",
         "npm-proxyaddr-trust-subnet-spoofing": "323d3a44e8a40098435c6974bef0b5221ea82d9fcbae5cc05acdce71de5cba95",
         "npm-seroval-fromjson-bypass": "65a00bffb700da1c7f1e5ae9fc3e784593b3d75f56ace5c65310f70715333572",
@@ -275,6 +287,7 @@
         "payload-stripe-ecommerce-boundaries": "f1abf2d213bfd6124dfd91c960ad0550e3eef5662de0ae2133fd423da076bb43",
         "payload-upload-trust-lifecycle": "8d8353ce5acaaba355c89b61d9f6ae84fc433836d34d138b81fbe90dd2ec298e",
         "penpot-svg-export-command-injection": "8e9a3484b4f092ed9bd8a574153302ce8e093a0cd96c6c5da7455ef071ace2b5",
+        "pgadmin-919-command-injection-auth-source-confusion": "425aef1b5a21a95e5e2a38505e42a1a46b89350a700312d382e4b4eea47d4157",
         "php-session-upload-progress-handler-switch-115560": "9d86f2da8ce0e6792034898f600166af59572632ab94559fa516d8128d75f0ec",
         "pillow-bundled-openjpeg-heap-overflow": "e4c8552d163dbbec924b978e9840966511828ed34d5553e0c03cfa14fd2d5beb",
         "pillow-multiframe-native-storage-96639": "368afbf6eca139b55b635ff28e3fe223c98c7481efeff1cc990e88484926ae23",
@@ -334,8 +347,10 @@
         "wger-gym-trainer-authorization-csrf": "7c06ee7c73d1027097cb5d20216a4f27f6fa6fe6e71da0c634c55ce5a9927775",
         "windows-exploited-eop": "9a0d69060c4fa2f2c50a6674477bed037d31268fce5cc202e7acdd0860a847ac",
         "windows-shell-motw-bypass-96951": "0709c08412abdf2f9c049810088dc27adc1177033e764eca648cfcf2a7f23551",
+        "wordpress-core-upgrade-window-rce-119977": "439ce8062ad5038e5d452a68e443da2d7a1a69760bc76bd1fdbb1a7a95187dc7",
         "wp-post-author-authenticated-and-second-order-sqli": "e1ad32f391b891d83f73a93c1700697558008c6f4a4b4082319727fc00b6fb5c",
         "x64dbg-mcp-unauthenticated-debugger-and-preauth-dos": "987775ce90da146831ba6b66cfbdb49fe5e1a57d5d954358f7c26f8b13e8d643",
+        "yamaha-nwr100-os-command-config-disclosure": "ecd142065cdf1140d03148615c213dbc86f54690f8bf8b0009ebdfa776ee24f3",
         "zammad-exploited-chain": "c06f7dfb1a18efcd827f3701847396b27773d8cb395fada4c90c78178ed1e6ab",
         "zephyr-bluetooth-mesh-solicitation-stack-overflow": "8a2f09f4543eb7131ac4d61acdfe4dba73e3ff0d3c6b1db8a858770fad5fd630",
         "zephyr-userspace-dynamic-kernel-object-size-overflow": "025ca09525f7683fbd36bd0a8f9c787c9c01b54f05ec62e5c43f97fd52be3694",
@@ -846,6 +861,40 @@
             "authlib-empty-signatures-jws-verification-bypass"
           ],
           "date": "2026-10-30"
+        },
+        {
+          "signature": "5d7e690bbf6c2125a3b7a0a5a526fd36e8519a2518e0190f2e94c999116e7e70",
+          "summary": "WordPress Core119977の11月3日KEV追加と7.1.4修正、Ivanti111357/118527・Cisco76418・Brotli111497・Adobe48356の実悪用を補完。GitLab97229を実悪用確認へ訂正し、研究者のPoC公開と実証経路の条件も区別。Node.js集約はBrotliだけの実悪用として区別。Firefox159.0.1、pgAdmin9.19の2件、NWR100の2件を追加。版表・採点主体差・条件と未取得範囲を保持し、収録補完を新しい攻撃発生としない。",
+          "ids": [
+            "adobe-commerce-dangerous-upload-48356",
+            "brotli-decoder-out-of-bounds-write-111497",
+            "cisco-asa-ftd-secondary-auth-vpn-dos-76418",
+            "firefox-layout-boundary-120572",
+            "gitlab-97229",
+            "ivanti-connect-secure-auth-bypass-104935",
+            "ivanti-connect-secure-chained-file-write-lpe",
+            "nodejs-october-2026-security-release",
+            "pgadmin-919-command-injection-auth-source-confusion",
+            "wordpress-core-upgrade-window-rce-119977",
+            "yamaha-nwr100-os-command-config-disclosure"
+          ],
+          "date": "2026-11-04"
+        },
+        {
+          "signature": "d88d656209584fbc728f4b5c6735cf3a5e1b53cd83dc3e89649c6844993da7ab",
+          "summary": "Apple WebKit27834の11月4日KEV追加、AirbyteのJVN実悪用確認と構成別条件を追加。Chrome157のCritical7件はAndroid限定とsandbox内外を区別。Barracuda2件、Hinemosのパッケージ番号付き修正、7月修正済みAkeebaの国内公表を補完。BrotliのSiemens Desigo CC V8/V9への影響追加と.NET更新案内を反映。新規公表・国内掲載・実悪用確認・修正日を分けて記録。 Cisco UCS Centralの11月4日公開の認証済みRCEと2.1(2c)修正を追加。 Cisco Secure Email Gateway76461は15.5.5-014の追加fixとRetro Remediation Engine4.0.2以上の確認条件、公開exploit codeへの言及を補足。",
+          "ids": [
+            "airbyte-connector-builder-rce-exploitation-jvn",
+            "akeeba-csrf-105296-jvn",
+            "apple-webkit-pointer-auth-27834",
+            "barracuda-esg-auth-bypass-admin-command-injection",
+            "brotli-decoder-out-of-bounds-write-111497",
+            "chrome-157-november-three-critical-seven",
+            "cisco-ucs-central-auth-rce-76506",
+            "cve-2026-76461",
+            "hinemos-password-change-privilege-109849"
+          ],
+          "date": "2026-11-05"
         }
       ],
       "items": [
@@ -1696,9 +1745,51 @@
           ],
           "published": "2026-10-30T01:01:55.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "41ab2c8347ecda1d7e6a8dfc8ae96a28dd06e96d3b52a251e0eb80701470a1dd",
+          "summary": "WordPress Core119977の11月3日KEV追加と7.1.4修正、Ivanti111357/118527・Cisco76418・Brotli111497・Adobe48356の実悪用を補完。GitLab97229を実悪用確認へ訂正し、研究者のPoC公開と実証経路の条件も区別。Node.js集約はBrotliだけの実悪用として区別。Firefox159.0.1、pgAdmin9.19の2件、NWR100の2件を追加。版表・採点主体差・条件と未取得範囲を保持し、収録補完を新しい攻撃発生としない。 Apple WebKit27834の11月4日KEV追加、AirbyteのJVN実悪用確認と構成別条件を追加。Chrome157のCritical7件はAndroid限定とsandbox内外を区別。Barracuda2件、Hinemosのパッケージ番号付き修正、7月修正済みAkeebaの国内公表を補完。BrotliのSiemens Desigo CC V8/V9への影響追加と.NET更新案内を反映。新規公表・国内掲載・実悪用確認・修正日を分けて記録。 Cisco UCS Centralの11月4日公開の認証済みRCEと2.1(2c)修正を追加。 Cisco Secure Email Gateway76461は15.5.5-014の追加fixとRetro Remediation Engine4.0.2以上の確認条件、公開exploit codeへの言及を補足。",
+          "journal": [
+            {
+              "signature": "5d7e690bbf6c2125a3b7a0a5a526fd36e8519a2518e0190f2e94c999116e7e70",
+              "summary": "WordPress Core119977の11月3日KEV追加と7.1.4修正、Ivanti111357/118527・Cisco76418・Brotli111497・Adobe48356の実悪用を補完。GitLab97229を実悪用確認へ訂正し、研究者のPoC公開と実証経路の条件も区別。Node.js集約はBrotliだけの実悪用として区別。Firefox159.0.1、pgAdmin9.19の2件、NWR100の2件を追加。版表・採点主体差・条件と未取得範囲を保持し、収録補完を新しい攻撃発生としない。",
+              "ids": [
+                "adobe-commerce-dangerous-upload-48356",
+                "brotli-decoder-out-of-bounds-write-111497",
+                "cisco-asa-ftd-secondary-auth-vpn-dos-76418",
+                "firefox-layout-boundary-120572",
+                "gitlab-97229",
+                "ivanti-connect-secure-auth-bypass-104935",
+                "ivanti-connect-secure-chained-file-write-lpe",
+                "nodejs-october-2026-security-release",
+                "pgadmin-919-command-injection-auth-source-confusion",
+                "wordpress-core-upgrade-window-rce-119977",
+                "yamaha-nwr100-os-command-config-disclosure"
+              ],
+              "date": "2026-11-04"
+            },
+            {
+              "signature": "d88d656209584fbc728f4b5c6735cf3a5e1b53cd83dc3e89649c6844993da7ab",
+              "summary": "Apple WebKit27834の11月4日KEV追加、AirbyteのJVN実悪用確認と構成別条件を追加。Chrome157のCritical7件はAndroid限定とsandbox内外を区別。Barracuda2件、Hinemosのパッケージ番号付き修正、7月修正済みAkeebaの国内公表を補完。BrotliのSiemens Desigo CC V8/V9への影響追加と.NET更新案内を反映。新規公表・国内掲載・実悪用確認・修正日を分けて記録。 Cisco UCS Centralの11月4日公開の認証済みRCEと2.1(2c)修正を追加。 Cisco Secure Email Gateway76461は15.5.5-014の追加fixとRetro Remediation Engine4.0.2以上の確認条件、公開exploit codeへの言及を補足。",
+              "ids": [
+                "airbyte-connector-builder-rce-exploitation-jvn",
+                "akeeba-csrf-105296-jvn",
+                "apple-webkit-pointer-auth-27834",
+                "barracuda-esg-auth-bypass-admin-command-injection",
+                "brotli-decoder-out-of-bounds-write-111497",
+                "chrome-157-november-three-critical-seven",
+                "cisco-ucs-central-auth-rce-76506",
+                "cve-2026-76461",
+                "hinemos-password-change-privilege-109849"
+              ],
+              "date": "2026-11-05"
+            }
+          ],
+          "published": "2026-11-05T01:14:57.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "96fed381d8ef17e536a278982e4d8f4588f95f84"
+      "cursor": "a7be779b0f565878f831583f65d0ad9165c95e00"
     },
     "security-incidents": {
       "records": {
