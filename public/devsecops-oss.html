@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DevSecOpsをOSSで組み立てる：統合ダッシュボードと用途別構成</title>
+<meta name="description" content="DefectDojo、Dependency-Track、Trivyなどの役割とOSSの範囲を比較。既存ツールを活かす方法から、用途別の最小構成と導入前の検証条件まで。">
+<link rel="canonical" href="https://share.0g0.xyz/devsecops-oss">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DevSecOpsをOSSで組み立てる：統合ダッシュボードと用途別構成">
+<meta property="og:description" content="検査・集約・修正を分けて考える。OSSの範囲、用途別構成、既存実装の改善点を公式資料で整理。">
+<meta property="og:url" content="https://share.0g0.xyz/devsecops-oss">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://share.0g0.xyz/assets/devsecops-oss-ogp-v1.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1716">
+<meta property="og:image:height" content="917">
+<meta property="og:image:alt" content="DevSecOps × OSS。複数の検査結果を台帳にまとめ、修正の管理へつなぐ説明イラスト。">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://share.0g0.xyz/assets/devsecops-oss-ogp-v1.png">
+<meta name="twitter:image:alt" content="DevSecOps × OSS。複数の検査結果を台帳にまとめ、修正の管理へつなぐ説明イラスト。">
+<style>
+:root{color-scheme:light;--paper:#fff;--ice:#f2f8fc;--navy:#17324d;--muted:#52667a;--line:#cbdce6;--teal:#086c6c;--teal-bg:#e8f5f2;--coral:#b64639;--coral-bg:#fff0ec;--radius:10px}
+*{box-sizing:border-box}html{scroll-padding-top:1.5rem}body{margin:0;background:var(--ice);color:var(--navy);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;font-size:18px;line-height:1.85;overflow-wrap:anywhere}a{color:#075f88;text-underline-offset:.2em;text-decoration-thickness:.07em}a:hover{text-decoration-thickness:.15em}a:focus-visible,summary:focus-visible,[tabindex="0"]:focus-visible{outline:3px solid var(--coral);outline-offset:4px;border-radius:3px}a:target,section:target,h2:target,li:target{scroll-margin-top:1.5rem}.skip{position:absolute;left:1rem;top:-8rem;z-index:10;background:var(--navy);color:#fff;padding:.65rem 1rem}.skip:focus{top:1rem}.shell{max-width:1120px;margin:auto;padding:0 32px}.site-header{border-bottom:1px solid var(--line);background:var(--paper)}.site-header .shell{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:17px}.site-header strong{font-size:.95rem;font-weight:750}.site-header a{font-size:.85rem}.meta{color:var(--muted);font-size:.84rem;margin:.4rem 0 1rem}.article{background:var(--paper);padding:40px 48px 48px;margin:28px auto 40px;border:1px solid var(--line);border-top:5px solid var(--teal)}h1,h2,h3{line-height:1.5;letter-spacing:.015em;overflow-wrap:anywhere}h1{font-size:clamp(1.7rem,3.4vw,2.35rem);margin:0 0 1rem;max-width:24em}h1 span{display:block;font-size:.68em;font-weight:600;margin-top:.35rem}h2{font-size:1.55rem;margin:0 0 1.3rem;padding-top:.3rem}h3{font-size:1.17rem;margin:1.6rem 0 .7rem}p{margin:.7rem 0 1.15rem}.prose{max-width:44em}.lead{font-size:1.1rem;font-weight:650;max-width:43em}.summary{border-inline-start:5px solid var(--teal);background:var(--teal-bg);padding:18px 24px;margin:24px 0}.summary p:last-child{margin-bottom:0}.summary strong{color:#085957}.toc{margin:24px 0 0;padding:15px 0;border-block:1px solid var(--line)}.toc ul{display:flex;flex-wrap:wrap;gap:8px 25px;margin:0;padding:0;list-style:none}.toc a{font-size:.91rem;display:inline-block;padding:4px 0}.section{margin-top:48px;border-top:1px solid var(--line);padding-top:32px}.kicker{font-weight:700;color:var(--teal);font-size:.9rem}.ref{font-size:.78em;white-space:nowrap;margin-inline-start:.25em;vertical-align:super}.ref a{text-decoration:none;padding:2px}.tag{font-size:.78rem;display:inline-block;padding:1px 9px;border-radius:4px;font-weight:650;background:#edf2f6;color:#334d63}.tag.teal{background:var(--teal-bg);color:var(--teal)}.tag.coral{background:var(--coral-bg);color:var(--coral)}.note{font-size:.9rem;color:var(--muted)}.callout{border:1px solid var(--line);border-inline-start:4px solid var(--coral);padding:16px 20px;margin:22px 0;background:#fffaf8}.callout p{margin:.4rem 0}.callout.teal{border-inline-start-color:var(--teal);background:#f4fbf9}ul,ol{padding-inline-start:1.5em}li{margin:.45rem 0}li::marker{color:var(--muted)}code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.88em;background:#edf3f7;padding:2px 5px;border-radius:3px}figure{margin:26px 0}figcaption{color:var(--muted);font-size:.87rem;line-height:1.7;margin-top:11px}.diagram{border:1px solid var(--line);border-radius:var(--radius);padding:24px;background:var(--ice)}.diagram-title{margin:0 0 20px;font-weight:750;font-size:1rem}.flow{display:grid;grid-template-columns:minmax(0,1fr) 26px minmax(0,1.13fr) 26px minmax(0,1fr);gap:8px;align-items:center}.node{border:1px solid #a8bdcb;padding:14px 16px;background:#fff;border-radius:7px;min-width:0}.node strong,.node small{display:block}.node small{color:var(--muted);font-size:.84rem;line-height:1.65;margin-top:5px}.node.detect{border-top:4px solid var(--coral)}.node.manage{border-top:4px solid var(--teal);background:#f6fcfa}.arrow{color:var(--muted);font-weight:750;text-align:center}.loop{margin-top:16px;padding:12px 16px;border:1px dashed #93b7b5;border-radius:6px;color:var(--teal);font-size:.9rem}.loop strong{display:block}.diagram-legend{display:flex;flex-wrap:wrap;gap:15px;font-size:.8rem;margin:14px 0 0;color:var(--muted)}.legend-mark{display:inline-block;inline-size:12px;block-size:12px;background:var(--coral);margin-inline-end:6px}.legend-mark.teal{background:var(--teal)}.table-wrap{max-inline-size:100%;overflow:auto;border:1px solid var(--line);border-radius:7px;margin:20px 0;overscroll-behavior-inline:contain}table{border-collapse:separate;border-spacing:0;width:100%;min-width:760px;font-size:.92rem;line-height:1.75}caption{text-align:left;font-size:.9rem;font-weight:700;background:var(--ice);padding:14px 18px;color:var(--navy)}th,td{vertical-align:top;text-align:left;padding:14px 17px;border-top:1px solid var(--line)}thead th{background:#e7f0f6;font-size:.86rem}tbody th{font-weight:750;background:#f7fbfd;width:20%}tbody td{background:#fff}tbody tr:first-child th,tbody tr:first-child td{border-top:1px solid var(--line)}tbody tr.recommended td,tbody tr.recommended th{background:#f1faf7}.table-hint{font-size:.81rem;color:var(--muted);margin-bottom:0}.columns{display:grid;grid-template-columns:1fr 1fr;gap:26px}.option{border-top:3px solid var(--teal);padding:16px 0 8px}.option h3{margin:0 0 .6rem}.option p{font-size:.95rem}.stack{font-size:.92rem;font-weight:650;background:var(--ice);border:1px solid var(--line);border-radius:5px;padding:12px 16px}.illustration{border-bottom:1px solid var(--line);padding:8px 0 18px}.illustration img{display:block;max-width:100%;height:auto;border-radius:8px}.state-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}.state{background:#fff;border:1px solid var(--line);border-inline-start:4px solid var(--teal);padding:14px 16px;font-size:.93rem}.state strong{display:block}.state span{display:block;font-size:.83rem;color:var(--muted);line-height:1.65;margin-top:4px}.state.pending{border-inline-start-color:var(--coral)}.state-caption{margin:14px 0 0;font-size:.87rem}.details-group{margin:20px 0}details{border:1px solid var(--line);border-radius:7px;margin:12px 0;background:#fff}summary{padding:17px 20px;font-size:1rem;font-weight:700;cursor:pointer;background:#f3f8fb;border-radius:7px}details[open] summary{border-bottom:1px solid var(--line);border-radius:7px 7px 0 0}details .detail-body{padding:8px 22px 18px}details p,details li{font-size:.94rem}.logo-title{display:flex;align-items:center;gap:14px}.logo-title img{width:98px;height:40px;object-fit:contain;flex-shrink:0}.checklist li{padding:.3rem 0 .7rem .15rem;border-bottom:1px solid #e5edf2}.checklist strong{display:block}.source-list{font-size:.85rem;line-height:1.7;columns:2;column-gap:36px;padding-inline-start:1.9rem}.source-list li{break-inside:avoid;padding:.25rem 0 .6rem}.source-list a{overflow-wrap:anywhere}.source-list small{display:block;color:var(--muted)}.source-list li:target{background:#fff1c9;outline:2px solid #c88b26;outline-offset:4px}.footer{font-size:.86rem;color:var(--muted);border-top:1px solid var(--line);margin-top:32px;padding-top:20px}.footer a{display:inline-block;padding:3px 0}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}@media(max-width:760px){.shell{padding-inline:18px}.article{padding:28px 22px;margin-top:18px}.flow{grid-template-columns:1fr}.arrow{transform:rotate(90deg);line-height:1.1}.columns{grid-template-columns:1fr;gap:12px}.state-grid{grid-template-columns:1fr}.source-list{columns:1}.diagram{padding:18px}.section{margin-top:36px;padding-top:25px}h2{font-size:1.38rem}.site-header .shell{align-items:flex-start}.site-header strong{max-width:14em}.summary{padding:16px 18px}.logo-title{align-items:flex-start;flex-wrap:wrap}.logo-title img{height:32px}}@media(max-width:380px){.shell{padding-inline:10px}.article{padding-inline:16px}.toc ul{gap:8px 15px}h1{font-size:1.6rem}.diagram{padding:14px}.node{padding:12px}.summary{padding-inline:14px}}@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}@media print{body{background:#fff}.shell{max-width:none;padding:0}.article{border:0;margin:0;padding:0}.site-header,.toc,.skip{display:none}.table-wrap{overflow:visible}table{min-width:0;font-size:9pt}.source-list{columns:1}.diagram,details{break-inside:avoid}a{color:inherit}}
+</style>
+<style>
+html{font-size:112.5%}body{font-size:1rem}
+@media(max-width:760px){.diagram .node strong,.diagram .node small,.diagram .state strong,.diagram .state span,.diagram .diagram-title,.diagram .loop{font-size:1rem}}
+</style>
+  <!-- html-share: social metadata -->
+  <meta property="og:site_name" content="HTML Share">
+  <meta name="twitter:title" content="DevSecOpsをOSSで組み立てる：統合ダッシュボードと用途別構成">
+  <meta name="twitter:description" content="検査・集約・修正を分けて考える。OSSの範囲、用途別構成、既存実装の改善点を公式資料で整理。">
+  <!-- /html-share: social metadata -->
+  <!-- html-share: rss discovery -->
+  <link rel="alternate" type="application/rss+xml" title="HTML Share RSS" href="https://share.0g0.xyz/feed.xml">
+  <!-- /html-share: rss discovery -->
+</head>
+<body>
+<a class="skip" href="#main">本文へ移動</a>
+<header class="site-header"><div class="shell"><strong>技術を選ぶための調査ノート</strong><a href="#sources">公式資料と調査範囲</a></div></header>
+<div class="shell">
+<main id="main" class="article" tabindex="-1">
+<article>
+<header>
+<p class="meta">公開基準日 <time datetime="2026-11-05">2026年11月5日</time>（JST）／文献・公開コード調査</p>
+<h1>DevSecOpsをOSSで組み立てる<span>統合ダッシュボードと用途別構成</span></h1>
+<p class="lead">複数の検査結果をまとめて、修正まで追いたいなら、まずDefectDojo OSSを評価する。部品表を保存して新しい脆弱性に備えたいなら、Dependency-Trackを補完に使う。</p>
+<div class="summary">
+<p><strong>最初に決めるのは「何を検査するか」と「誰が修正を管理するか」。</strong>検査する道具、結果を整理する台帳、更新するbotは役割が違う。必要な役割だけをつなぐ。</p>
+<p>少数のGitHubリポジトリなら、既存の通知・一覧ツールを育てる選択もある。すべての製品を同時に導入する必要はない。</p>
+</div>
+<p class="note">この記事の推奨構成は公式仕様と公開コードからの評価・提案です。各製品の導入、実データの取り込み、負荷・料金の計測は実施していません。動作や互換性が未確認の点は、導入前の試験項目として示します。</p>
+<nav class="toc" aria-label="記事の目次"><ul><li><a href="#roles">役割を分ける</a></li><li><a href="#platforms">統合基盤を比べる</a></li><li><a href="#patterns">用途別に選ぶ</a></li><li><a href="#existing">既存ツールを活かす</a></li><li><a href="#technical">技術詳細</a></li><li><a href="#poc">導入前の試験</a></li></ul></nav>
+</header>
+
+<section id="roles" class="section">
+<h2>検査・集約・修正を分けて考える</h2>
+<p class="prose">DevSecOpsは開発と運用の流れにセキュリティ確認を組み込む考え方。ここでは、検査結果を一度表示して終わらせず、担当者が判断し、修正し、再検査で確認する仕組みに絞って考える。</p>
+<figure class="diagram" aria-describedby="dojo-flow-desc">
+<p class="diagram-title">検査した結果を、修正につながる台帳へ</p>
+<div class="flow">
+<div class="node detect"><strong>検査・収集</strong><small>TrivyのJSON<br>Dependabotの取得・形式変換<br>コード検査・動作中Webの検査など</small></div><div class="arrow" aria-hidden="true">→</div>
+<div class="node manage"><strong>DefectDojo OSS</strong><small>ファイル/APIで取り込み<br>対象別に整理・再取り込み<br>担当・判断・履歴を管理</small></div><div class="arrow" aria-hidden="true">→</div>
+<div class="node"><strong>人と作業へつなぐ</strong><small>担当者が優先順位を判断<br>必要な差分だけ通知<br>修正PR・設定変更</small></div>
+</div>
+<div class="loop"><strong>修正後に再スキャン → 同じ対象・同じ範囲へ再取り込み</strong>検出が消えたかを確認する。通知の自動化や修正PRとの接続は、採用機能・連携スクリプトを別途設計する。</div>
+<p class="diagram-legend"><span><i class="legend-mark" aria-hidden="true"></i>検出する役割</span><span><i class="legend-mark teal" aria-hidden="true"></i>整理・追跡する役割</span></p>
+<figcaption id="dojo-flow-desc">検査ツールの出力をDefectDojoへ取り込み、担当者の判断と修正へつなぐ構成案。再取り込みで新規・継続・消失・再発を扱う。OSSのファイル取り込みと、有償の自動取得connectorは区別する。<sup class="ref"><a href="#s01" aria-label="出典1">[1]</a><a href="#s03" aria-label="出典3">[3]</a><a href="#s04" aria-label="出典4">[4]</a></sup></figcaption>
+</figure>
+<p class="prose"><strong>Grafanaは件数や推移を見る補助に向く。</strong>Prometheus・Loki・SQLなどに保存したデータを問い合わせて可視化する製品であり、それだけで検査結果の重複判定や修正履歴の台帳が完成するわけではない。<sup class="ref"><a href="#s27" aria-label="出典27">[27]</a></sup></p>
+</section>
+
+<section id="platforms" class="section">
+<h2>統合基盤の第一候補はDefectDojo</h2>
+<p class="prose">異なる種類の検査結果を集め、同じ結果の再投入や修正後の変化を追うことが目的なら、DefectDojoを最初の評価候補にする。SBOMに特化するDependency-Trackとは、入口も管理する対象も違う。</p>
+<p class="table-hint">表は横にスクロールできます。キーボードでは表を選び、左右キーで移動できます。</p>
+<div class="table-wrap" role="region" aria-labelledby="platform-caption" tabindex="0">
+<table>
+<caption id="platform-caption">統合基盤の比較。運用負担は構成からの評価であり、実測比較ではない</caption>
+<thead><tr><th scope="col">候補・ライセンス</th><th scope="col">主な役割と入口</th><th scope="col">採用に向く条件</th><th scope="col">境界・運用上の論点</th></tr></thead>
+<tbody>
+<tr class="recommended"><th scope="row">DefectDojo OSS<br><span class="tag teal">第一評価候補</span><br><span class="note">BSD-3-Clause</span></th><td>Trivy等のレポートをUI/APIで取り込み、検出事項と判断履歴を管理。<sup class="ref"><a href="#s01">[1]</a><a href="#s02">[2]</a></sup></td><td>複数repo・複数種類の検査をまとめ、担当と修正状況を追いたい。</td><td>OSSでも条件をそろえたhashでtool間を照合可能。専用のcross-tool設定UI・Global等の拡張やupstream connectorはPro。DB、worker、添付ファイルの保守が必要。<sup class="ref"><a href="#s03">[3]</a><a href="#s05">[5]</a><a href="#s06">[6]</a></sup></td></tr>
+<tr><th scope="row">Dependency-Track 5.2<br><span class="tag teal">SBOMの補完</span><br><span class="note">Apache-2.0</span></th><td>ソフトウェアの部品表を保存し、部品の脆弱性・ライセンス・policyを継続解析。<sup class="ref"><a href="#s07">[7]</a><a href="#s08">[8]</a></sup></td><td>リリース済みの製品についても、新たに公表された脆弱性を調べたい。</td><td>汎用SAST/DAST結果の台帳とは別。v5はPostgreSQLが必要。v4からは別DBへの移行手順を使う。<sup class="ref"><a href="#s09">[9]</a><a href="#s10">[10]</a></sup></td></tr>
+<tr><th scope="row">Faraday Community<br><span class="note">GPL-3.0</span></th><td>ペンテスト・ネットワーク検査を含むレポート集約。Trivy JSON pluginあり。<sup class="ref"><a href="#s11">[11]</a></sup></td><td>すでに使う検査ツールとのparser対応を重視したい。</td><td>Dependabot Executorは存在するが、CommunityでのAgent連携範囲と自動close/reopenは未確認。複数processの保守も評価する。<sup class="ref"><a href="#s12">[12]</a></sup></td></tr>
+<tr><th scope="row">ArcherySec<br><span class="note">GPL-3.0</span></th><td>Web/network等のscan起動と結果管理。CLIでTrivy対応あり。<sup class="ref"><a href="#s13">[13]</a></sup></td><td>検査の実行もまとめたい。採用版で形式と再取り込みを試験できる。</td><td>現行Trivy形式、Dependabot標準連携、再発時の扱いは未確認。公式READMEは内部利用限定・公開禁止と明記。<sup class="ref"><a href="#s13">[13]</a></sup></td></tr>
+<tr><th scope="row">OWASP secureCodeBox<br><span class="note">Apache-2.0</span></th><td>Kubernetes上でscannerとhookを連鎖実行。DefectDojoへ保存するhookあり。<sup class="ref"><a href="#s14">[14]</a></sup></td><td>既存Kubernetesで検査の実行基盤を統一したい。</td><td>人が判断する台帳本体とは別。cluster/RBAC、jobs、storage、hookの運用が増える。採用版の再取り込み方針は試験する。</td></tr>
+</tbody></table></div>
+<div class="callout teal"><p><strong>「対応parserがある」と「自動で取りに行く」は別。</strong>parserはレポートを読み取る部品、connectorは他製品から取得する連携機能。DefectDojo OSSはレポートを取り込める。GitHub Advanced SecurityからDependabot等を直接pullするconnectorはProの機能。OSSで定期取得するなら、API呼び出し・形式変換・再投入を自分のCIやworkerで接続する。<sup class="ref"><a href="#s01">[1]</a><a href="#s03">[3]</a><a href="#s04">[4]</a></sup></p></div>
+</section>
+
+<section id="patterns" class="section">
+<h2>用途に合う小さな構成から始める</h2>
+<p class="prose">次の4つは導入を判断するための構成案。まず1つを選び、足りない役割だけを追加する。更新botも、同じ依存関係を扱うDependabotとRenovateを最初から重ねる必要はない。</p>
+<div class="columns">
+<section class="option"><h3>既存の通知・一覧を育てる</h3><p>入力がDependabotとコンテナ検査など少数なら、既存アプリへレポート入力と履歴を足す。使い慣れた日本語の説明や通知を残せる。</p><p class="stack">既存の収集・一覧・通知<br>＋ Trivy入力アダプター<br>＋ 検査の範囲と状態履歴</p><p class="note">parser更新、誤った解消判定の防止、権限と監査を自分で保守する選択。<a href="#existing">具体的な改善点</a>は後述。</p></section>
+<section class="option"><h3>小規模なGitHub中心</h3><p>依存更新はDependabotまたはRenovate。検査は対象に合う1つから始める。コンテナ・設定中心ならTrivy、依存関係中心ならOSV-Scannerを候補にする。<sup class="ref"><a href="#s16">[16]</a><a href="#s18">[18]</a><a href="#s22">[22]</a><a href="#s23">[23]</a></sup></p><p class="stack">GitHub Actions<br>＋ 更新bot 1つ<br>＋ 主スキャナ 1つ</p><p class="note">結果は既存一覧やCI成果物へ。GitHub code scanningへのSARIF表示はrepo種別・Code Securityの条件を先に確認する。<sup class="ref"><a href="#s24">[24]</a></sup></p></section>
+<section class="option"><h3>複数リポジトリ・複数の検査を集約</h3><p>種類の異なる検出事項が増えたら、台帳をDefectDojoへ寄せる。既存アプリは収集アダプターや通知ワーカーとして共存させ、どちらが状態を確定するかを1つに決める。</p><p class="stack">必要な検査ツールをCIで実行<br>→ 結果の取得・変換<br>→ DefectDojo OSS</p><p class="note">対象・検査ツールごとに安定したTest（再取り込み先となる検査単位）へ再投入。新規・再発・期限超過を差分通知する設計にする。<sup class="ref"><a href="#s02">[2]</a><a href="#s04">[4]</a></sup></p></section>
+<section class="option"><h3>SBOMを継続監視</h3><p>出荷後の部品まで追うなら、SyftまたはTrivyでSBOMを生成し、Dependency-Trackへ送る。CIを止める検査と、保存済みの部品を後から調べ直す仕組みを分ける。<sup class="ref"><a href="#s08">[8]</a><a href="#s17">[17]</a></sup></p><p class="stack">Syft または Trivy<br>→ CycloneDX SBOM<br>→ Dependency-Track 5.2</p><p class="note">Dependency-Trackは必須の追加ではない。SBOM資産とライセンスを継続管理する必要がある場合に選ぶ。</p></section>
+</div>
+<figure class="diagram" aria-describedby="sbom-flow-desc">
+<p class="diagram-title">SBOMは「その製品に何が入っているか」を残す</p>
+<div class="flow"><div class="node detect"><strong>リリース時にSBOM作成</strong><small>Syft / Trivy<br>プロジェクト・バージョン・イメージのダイジェストと紐づける</small></div><div class="arrow" aria-hidden="true">→</div><div class="node manage"><strong>Dependency-Track</strong><small>CycloneDXを取り込み<br>部品・脆弱性・ライセンスを解析</small></div><div class="arrow" aria-hidden="true">→</div><div class="node"><strong>新しい脆弱性を再評価</strong><small>新しいアドバイザリに照らして<br>保存済みの部品を調べる</small></div></div>
+<div class="loop"><strong>新しい公開情報 → 再解析 → 対応の判断</strong>コードを再ビルドしなくても、保存した部品表から影響候補を探せる。SBOM自体の正確さと対象バージョンの管理が前提。</div>
+<figcaption id="sbom-flow-desc">SBOMは部品表であり、脆弱性の一覧そのものではない。Dependency-Trackは保存した部品と脆弱性情報を継続照合する。アップロードの受付と非同期解析の完了も別段階。<sup class="ref"><a href="#s08">[8]</a><a href="#s09">[9]</a></sup></figcaption>
+</figure>
+<figure class="illustration"><a href="assets/devsecops-oss-explainer-v1.png" aria-label="説明用イラストを原寸で拡大"><img src="assets/devsecops-oss-explainer-v1.png" width="1724" height="912" loading="lazy" decoding="async" alt="検査係から届く結果を台帳で整理し、部品表を保管し、修理と再検査へ回す工房。検査・集約・継続監視・修正の役割分担を表す。"></a><figcaption>ソフトウェアの修理工房という比喩。実画面ではなく説明用イラスト。検査結果は台帳で整理して担当者へ渡し、修正後は再検査する。部品表は別に保存し、新しい脆弱性情報でも調べ直す。製品間の正確な接続条件は本文と構成図を参照。<a href="assets/devsecops-oss-explainer-v1.png">図を拡大（原寸PNG）</a></figcaption></figure>
+</section>
+
+<section id="existing" class="section">
+<h2>既存ツールは、入力と状態管理を拡張する</h2>
+<p class="prose">公開されている <a href="https://github.com/g-kari/dependabot-alert-notice">dependabot-alert-notice</a> のソースには、Dependabot収集、CVE別・repo別の表示、検索、SQLite保存、AI評価、Slack/Discord通知がすでにある。これらを新機能として作り直すより、異なる検査結果の取り込み方法と、検出から解消までの状態管理を追加するほうが目的に合う。<sup class="ref"><a href="#s28">[28]</a><a href="#s29">[29]</a><a href="#s30">[30]</a></sup></p>
+<p class="note">以下は2026年11月4日の公開コミットを読んだ結果と改善提案です。実サービスの起動・配備状況・設定・利用者の環境は確認していません。</p>
+<div class="table-wrap" role="region" aria-labelledby="existing-caption" tabindex="0"><table><caption id="existing-caption">既存機能を残して追加する機能</caption><thead><tr><th scope="col">すでにあるもの</th><th scope="col">追加・変更の提案</th><th scope="col">必要な理由</th></tr></thead><tbody>
+<tr><th scope="row">Dependabot収集・SQLite保存</th><td>Trivy JSONのアダプターと、汎用Finding・ScanRunを追加する。</td><td>GitHubのアラート番号を持たない結果、CVEのない設定不備・SASTも扱う。元の出力と取得元のIDを保持する。<sup class="ref"><a href="#s28">[28]</a><a href="#s30">[30]</a></sup></td></tr>
+<tr><th scope="row">CVE別・repo別表示、検索</th><td>CVEは閲覧用グループとして残し、発生箇所を別の識別子で区別する。</td><td>同じCVEでもpackage、version、manifest、imageが違えば修正対象が違う。tool＋asset＋rule/package＋location等の安定した指紋を設計する。<sup class="ref"><a href="#s29">[29]</a></sup></td></tr>
+<tr><th scope="row">AI評価と評価の再利用</th><td>共通の脆弱性説明と、プロジェクト別の影響判断を分ける。</td><td>公開コードのAI入力はアドバイザリ・パッケージ等のメタデータ。ソースを調べた到達可能性の証明や、修正の安全性確認とは別。<sup class="ref"><a href="#s31">[31]</a></sup></td></tr>
+<tr><th scope="row">通知・承認・関連PRの処理</th><td>実際のmerge結果と、その後の解消確認を分ける。新規・再発・期限超過などの状態変化を差分通知する。</td><td><code>gh pr merge --auto</code> の成功は自動mergeの予約成功の場合もある。修正の承認、merge、検出の解消は別の状態。<sup class="ref"><a href="#s32">[32]</a></sup></td></tr>
+</tbody></table></div>
+<figure class="diagram" aria-describedby="state-desc"><p class="diagram-title">「承認した」から「解消を確認した」までを分ける</p>
+<div class="state-grid">
+<div class="state pending"><strong>1. 検出・再発</strong><span>新しい検出事項を記録する。解消済みでも再検出なら履歴をつないで再発扱い。</span></div>
+<div class="state"><strong>2. 判断・対応</strong><span>担当、期限、対応方針を決める。例外なら理由・承認者・見直し期限を記録。</span></div>
+<div class="state pending"><strong>3. 修正の反映待ち</strong><span>PRの承認、自動merge有効化、実際のmergeを個別に確認する。</span></div>
+<div class="state pending"><strong>4. 再スキャン待ち</strong><span>同じ入力源・対象・範囲の完全な検査が成功したかを確認する。</span></div>
+<div class="state"><strong>5. 解消を確認</strong><span>同じ範囲の完全な再検査で未検出となり、入力源の終了理由と必要な対処を確認。秘密情報は失効・再発行まで確認し、履歴を残す。</span></div>
+<div class="state pending"><strong>分岐: 未完了・継続</strong><span>検査失敗・部分結果なら状態を保留。再検出なら対応へ戻す。</span></div>
+</div>
+<figcaption id="state-desc">状態遷移の設計案。通常は1→2→3→4→5。4で検出が残れば2へ、5の後に再検出すれば1へ戻す。失敗・部分的な検査を解消の証拠にしない。未検出と必要な対処の完了を分け、例外は期限後に見直す。<sup class="ref"><a href="#s20">[20]</a><a href="#s28">[28]</a></sup></figcaption>
+</figure>
+<div class="callout"><p><strong>「今回の一覧にない」だけで閉じない。</strong>既存実装には取得したopen alertsから消えたレコードを削除する処理がある。汎用化するなら、対象scope・取得の完全性・成功を記録し、解消履歴を残す必要がある。severityで絞った結果、pagination途中、認証エラーを「全部直った」と解釈しない。Dependabotの<code>FIXED</code>と<code>DISMISSED</code>／<code>AUTO_DISMISSED</code>も区別する。未検出を修正済みへ直結させない。<sup class="ref"><a href="#s28">[28]</a></sup><sup class="ref"><a href="#s30">[30]</a><a href="#s04">[4]</a></sup></p></div>
+<p class="prose">DefectDojoと共存するなら、<strong>修正状態を確定する台帳と、通知を送る側を決める。</strong>両方から独立してclose/reopenや通知を行う設計は避け、取得元のレコードIDと詳細へのリンクを残す。権限、期限つき例外、永続的な監査履歴も、入力源や利用者を増やす前に設計する。</p>
+<p class="prose"><strong>優先順位は重大度だけで決めない。</strong>設計案として、既に悪用が確認された脆弱性の一覧（KEV）等の情報、公開範囲、該当機能の利用、修正版の有無、対応期限を合わせて絞る。EPSSはCVEが今後30日間に実悪用される確率の推定で、個別環境の到達性や損害の大きさは示さない。脆弱性の深刻度を示すCVSSとの単純な掛け算にせず、判断材料を分けて残す。通知は新規・再発・悪用情報追加・修正版提供・例外期限切れなどの変化を対象にする。これは追加の運用設計案であり、各OSSの標準自動機能を保証するものではない。<sup class="ref"><a href="#s33">[33]</a></sup></p>
+</section>
+
+<section id="technical" class="section">
+<h2>必要なところだけ読む技術詳細</h2>
+<p class="prose">OSSという名前だけで機能や利用条件をそろえて比較しない。エンジン、ルール、ホストサービス、UIへの取り込みを分けて確認する。</p>
+<div class="details-group">
+<details><summary>DefectDojo: 重複排除・再取り込み・Dependabot形式</summary><div class="detail-body">
+<p><strong>重複排除と再取り込みは別の処理。</strong>OSSでも共通のhash、service、endpoint等の条件をそろえれば、異なるtoolの結果を照合できる。Proにはcross-tool用の個別設定UIやGlobal等の追加機能がある。同じCVEだけで自動的に1件へ統合されるとは限らず、採用版の設定と入力で試験する。<sup class="ref"><a href="#s05">[5]</a></sup></p>
+<p>reimportは同じTestのfindingを照合する。新規を加え、<code>close_old_findings</code>で消えたものを閉じ、戻ったものを再活性化できる。完全性の異なる結果はTestを分けるか、自動closureを無効にする。同じasset、scanner、service、branch等のscopeを一貫させる。<sup class="ref"><a href="#s04">[4]</a></sup></p>
+<p><code>Github Vulnerability Scan</code> parserはGraphQLの<code>RepositoryVulnerabilityAlert</code>／<code>vulnerabilityAlerts</code>形式を扱う。既存アプリはREST alertsを主に収集しGraphQLで補足するため、そのSQLite内JSONをそのまま投入できるとは限らない。paginationを完走するexport adapterとschema検証を用意する。<sup class="ref"><a href="#s02">[2]</a><a href="#s28">[28]</a></sup></p>
+<p>Trivy CLIとTrivy OperatorのJSONは別scan type。parserが対応することと、任意の新version・全modeの互換性は別なので、採用versionで試験する。現行の階層表記はOrganizations→Assets→Engagements→Tests→Findings。旧称Product等や既存API field名も残るため、表示名だけでAPI名を置換しない。<sup class="ref"><a href="#s02">[2]</a><a href="#s06">[6]</a></sup></p>
+</div></details>
+<details><summary>Dependency-Track 5.2: SBOM入力・非同期解析・v4からの移行</summary><div class="detail-body">
+<p>公式Downloadが案内する現行版は5.2。CycloneDX BOMをproject/versionに紐づけてUI/APIから送る。新規advisoryによる継続照合と、汎用検査結果のclose/reopenは異なる機能。GitHub Advisoriesを情報源にすることも、repoのDependabot alert状態を取り込むこととは違う。<sup class="ref"><a href="#s07">[7]</a><a href="#s08">[8]</a></sup></p>
+<p>アップロード後の解析は非同期。v5はevent tokenが<code>COMPLETED</code>になるまで確認する。Trivy連携にはTrivy生成のCycloneDXを送る方式と、別運用のTrivy serverへ解析を依頼する方式がある。通常のTrivyの検査JSONを何でも取り込めるわけではない。<sup class="ref"><a href="#s09">[9]</a></sup></p>
+<p><strong>v5のDBはPostgreSQL。</strong>v4のコンテナ資源表を、そのままv5全体の必要メモリとして転記しない。API、DB、storage、backupを合わせて評価する。v4→v5はin-place更新ではなく、別PostgreSQLへ専用migratorで移す手順。バックアップと停止窓、通知payload/APIの変更も確認する。<sup class="ref"><a href="#s10">[10]</a></sup></p>
+</div></details>
+<details><summary>スキャナは検査対象に合わせて選ぶ</summary><div class="detail-body">
+<h3 class="logo-title"><img src="assets/devsecops-trivy-logo.svg" alt="Trivy" width="98" height="40" loading="lazy"><span>Trivyを中心に、足りない検査を追加する</span></h3>
+<p>Trivyは脆弱性・設定不備・secret・license、SBOMを対象にできるが、対応はscan対象とmodeによって異なる。似た検査を重ねる前に、検出したい問題とCIで止める条件を決める。<sup class="ref"><a href="#s16">[16]</a></sup></p>
+<p class="table-hint">この表も横にスクロールできます。</p>
+<div class="table-wrap" role="region" aria-labelledby="scanner-caption" tabindex="0"><table><caption id="scanner-caption">検査・更新ツールの役割と利用条件</caption><thead><tr><th scope="col">道具</th><th scope="col">役割</th><th scope="col">ライセンス・条件</th></tr></thead><tbody>
+<tr><th scope="row">Trivy</th><td>image・repo・filesystem等の既知脆弱性、設定、secret、license。SBOM生成・入力。</td><td>Apache-2.0。対象別の対応と採用versionを確認。<sup class="ref"><a href="#s16">[16]</a></sup></td></tr>
+<tr><th scope="row">Syft / Grype</th><td>SyftがSBOM生成、Grypeがimage/filesystem/SBOMの脆弱性照合。</td><td>ともにApache-2.0。生成と照合を分けたい場合の選択肢。<sup class="ref"><a href="#s17">[17]</a></sup></td></tr>
+<tr><th scope="row">OSV-Scanner</th><td>OSVによる依存関係の脆弱性照合。V2はsource/containerも対象。</td><td>Apache-2.0。対応manifest、artifact、call analysisの条件は個別確認。<sup class="ref"><a href="#s18">[18]</a></sup></td></tr>
+<tr><th scope="row">Semgrep CE</th><td>ソースコードのルールベース静的解析（SAST）。</td><td>engineはLGPL-2.1。Semgrep保守rulesは別license。Proのcross-file解析等をCE機能と混同しない。<sup class="ref"><a href="#s19">[19]</a></sup></td></tr>
+<tr><th scope="row">Gitleaks</th><td>Git履歴・ファイル等の秘密情報検出。</td><td>CLIはMIT。公式Action v2以降は別licenseでorganizationにはkeyが必要。<sup class="ref"><a href="#s20">[20]</a></sup></td></tr>
+<tr><th scope="row">ZAP</th><td>動作するWeb/APIの動的検査（DAST）。</td><td>Apache-2.0。Baselineは巡回＋passive、Full/APIはactive scanを含む。対象と実行許可を定める。<sup class="ref"><a href="#s21">[21]</a></sup></td></tr>
+<tr><th scope="row">Checkov</th><td>Terraform、Kubernetes、Helm、Dockerfile等のIaC検査。</td><td>Apache-2.0。Trivy設定検査と重なるため、IaCの必要範囲で選ぶ。<sup class="ref"><a href="#s15">[15]</a></sup></td></tr>
+<tr><th scope="row">Renovate</th><td>依存関係のmanifest/lockfileを更新するPRを作る。</td><td>OSS本体はAGPL-3.0-only。Mend Self-Hosted CE/EEはclosed source/EULA。<sup class="ref"><a href="#s22">[22]</a></sup></td></tr>
+<tr><th scope="row">Dependabot</th><td>更新ロジックのcoreと、GitHubのalerts/security updates/version updates。</td><td>coreはMIT、ホスト機能はGitHubサービス。standalone CLIはdiff生成とPR作成を分ける。<sup class="ref"><a href="#s23">[23]</a></sup></td></tr>
+</tbody></table></div>
+<p><strong>Semgrepはrulesの出所まで確認する。</strong>Semgrepが保守するCommunity/Pro rulesはSemgrep Rules License v1で、内部業務利用に限定。ルールの配布・他者へのサービス提供には制限がある。Registryの第三者rulesは元のlicenseを継承する。<sup class="ref"><a href="#s19">[19]</a></sup></p>
+<p><strong>GitHubの画面に表示する条件も別。</strong>SARIF取り込みはpublic GitHub.com repo、またはGitHub Code Securityを有効にした所定のorganization-owned repo等が対象。private/internalではCode Security条件を確認する。OSSのCLIを実行できることから、統合UIも無条件に無償とは判断しない。<sup class="ref"><a href="#s24">[24]</a></sup></p>
+<p class="note">Trivyは2026年3月、特定期間のv0.69.4配布物・ActionタグやDocker Hubの0.69.5/0.69.6等で供給経路侵害があった。対象条件と対処は公式advisoryを参照。過去の露出と、現在の全版の状態を混同しない。<sup class="ref"><a href="#s25">[25]</a></sup></p>
+<p class="note">Trivy logo: Aqua Security / Trivy project。公式素材（変更なし）、CC BY 4.0。各製品による本記事の承認を意味しない。<sup class="ref"><a href="#s34">[34]</a></sup></p>
+</div></details>
+<details><summary>Kubernetesがある場合: Operator・UI・Policy Reporterを分ける</summary><div class="detail-body">
+<p>Trivy Operatorはclusterの変更に応じて検査し、結果をVulnerabilityReport等のCRDへ保存する。Operator自体にはUIがない。HeadlampのTrivy pluginはそのCRDを表示する選択肢であり、別のscannerではない。<sup class="ref"><a href="#s26">[26]</a></sup></p>
+<p class="stack">表示だけ: Trivy Operator → Headlamp + Trivy plugin<br>policy横断管理: Trivy Operator → PolicyReport Adapter → Policy Reporter UI</p>
+<p>Policy ReporterのTrivy Pluginは、Adapterで変換した脆弱性結果に詳細情報を足す。AdapterとPluginは別の部品。件数推移が必要なら既存Prometheus/Grafanaへ接続する。UIを全部重ねる構成にはしない。<sup class="ref"><a href="#s26">[26]</a><a href="#s27">[27]</a></sup></p>
+<p class="note">Operator公式docsにはAPI/CRD変更の可能性が記載されている。Headlamp pluginも、READMEのテスト済み組合せを超える現行版間の互換性は未検証。新しいclusterを結果集約だけのために用意するかは、増える運用を含めて判断する。</p>
+</div></details>
+<details><summary>運用負担: 無償ライセンスと運用費を分ける</summary><div class="detail-body">
+<p>DefectDojoはアプリに加えてDB、非同期worker、キュー等を保守する。Dependency-Track v5もPostgreSQLを含む構成になる。DBとアップロードファイルのbackup、worker失敗、データ保持、upgradeと復元を運用対象に含める。<sup class="ref"><a href="#s06">[6]</a><a href="#s10">[10]</a></sup></p>
+<p>FaradayもPostgreSQL/Redis/server/worker等を運用する。secureCodeBoxはKubernetesと実行jobs・storage・hookの管理が加わる。小さな独自アプリは構成を絞れる一方、parser・指紋・状態遷移・権限の保守を引き受ける。これは構成上の比較であり、速度・RAM・費用の順位を実測したものではない。<sup class="ref"><a href="#s11">[11]</a><a href="#s14">[14]</a></sup></p>
+<p>料金、ホストサービスの無料枠、必要CPU/RAMの一律値は示さない。保持する件数、scan頻度、利用人数、可用性、backupの条件を決めてから測定する。公開する調査記事と、管理システムを外部へ公開する判断も分ける。</p>
+</div></details>
+</div>
+</section>
+
+<section id="poc" class="section">
+<h2>導入前の試験で、8つを確認する</h2>
+<p class="prose">まず小さな検証用データで、一連の更新が期待どおりに追えるかを確認する。製品名が並ぶことより、誤って解消扱いにせず、修正が終わったと説明できることを合格条件にする。</p>
+<ol class="checklist">
+<li><strong>同じ結果を2回送っても増殖しない。</strong>同じasset・scanner・scopeのreportを再投入し、active findingの件数と識別子が維持される。</li>
+<li><strong>追加→修正→再発が履歴でつながる。</strong>1件増やし、修正を確認し、再び戻したreportで、新規・解消・再発の時刻と件数が期待どおりになる。Dependabotのdismissや、秘密情報の文字列除去だけを修正完了にしない。</li>
+<li><strong>別の対象を閉じない。</strong>repo、branch、manifest、image digest、scannerのscopeを分離し、一部のscanやseverity絞り込みで他のfindingが誤closeされない。</li>
+<li><strong>形式の違いを検出できる。</strong>採用版のTrivy CLI/OperatorとDependabot exportを使う。RESTからGraphQL parser形式への変換、pagination、CVEなしの入力を確認する。cross-toolの同一CVEも、OSSの実際の表示と件数で評価する。</li>
+<li><strong>失敗・未完了を解消と判定しない。</strong>空の正常report、scan失敗、認証エラー、取得途中、upload受付だけ、非同期解析失敗を区別する。SBOMは解析完了まで確認する。</li>
+<li><strong>承認・merge・解消を別々に追える。</strong>自動merge予約の成功だけで解消にしない。例外には理由・承認者・期限を残し、誰が何を変えたかを後から確認できる。</li>
+<li><strong>通知が差分になり、秘密が出ない。</strong>新規・再発・期限超過などの状態変化を対象にする。二重通知を防ぎ、raw secretや認証情報を通知文・HTML・ログへ出さない。</li>
+<li><strong>運用を戻せる。</strong>想定件数と頻度で処理待ち・DB増加を測る。DBと添付のbackupから復元し、upgrade失敗時の戻し方を試す。資源・費用はこの結果で見積もる。</li>
+</ol>
+<p class="note">この一覧は導入試験の提案であり、この記事の作成時に合格を確認した結果ではありません。Faraday/ArcherySecの再取り込み、secureCodeBox hook、Dependency-Trackの部品再導入時の判断引き継ぎなど、製品・versionごとの未確認点もここで確かめます。</p>
+</section>
+
+<section id="sources" class="section">
+<h2>公式資料・公開コードと調査範囲</h2>
+<p class="prose">仕様・ライセンスは2026年11月5日JSTを基準に公式資料で確認。既存ツールは公開コミット <code>715de8014c6c</code> を読んだ。比較表の推奨と構成案は、その事実からの評価。採用版の動作、実サービスの状態、費用、性能は未確認。</p>
+<ol class="source-list">
+<li id="s01"><a href="https://docs.defectdojo.com/get_started/about/faq/">DefectDojo FAQ</a><small>OSS/Pro、file parserとconnector。<a href="https://github.com/DefectDojo/django-DefectDojo">公式repo・BSD-3-Clause</a></small></li>
+<li id="s02"><a href="https://defectdojo.com/integrations/trivy">DefectDojo Trivy integration</a><small>CLI/Operatorのscan type。<a href="https://docs.defectdojo.com/supported_tools/parsers/file/github_vulnerability/">GitHub GraphQL parser</a></small></li>
+<li id="s03"><a href="https://docs.defectdojo.com/connectors/toolreference/github_advanced_security/">GitHub Advanced Security connector</a><small>Proの自動取得機能。</small></li>
+<li id="s04"><a href="https://docs.defectdojo.com/import_data/import_intro/reimport/">DefectDojo Reimport</a><small>同一Testの照合、close/reopen、scope。</small></li>
+<li id="s05"><a href="https://docs.defectdojo.com/triage_findings/finding_deduplication/about_deduplication/">DefectDojo deduplication</a><small><a href="https://docs.defectdojo.com/triage_findings/finding_deduplication/deduplication_across_tools/">OSSのtool間hash照合とProの拡張条件</a></small></li>
+<li id="s06"><a href="https://docs.defectdojo.com/get_started/open_source/architecture/">DefectDojo architecture</a><small><a href="https://docs.defectdojo.com/get_started/open_source/running-in-production/">本番運用</a>、<a href="https://docs.defectdojo.com/asset_modelling/engagements_tests/os__assets/">Assetsの階層表記</a></small></li>
+<li id="s07"><a href="https://dependencytrack.org/download/">Dependency-Track Download</a><small>現行5.2。<a href="https://github.com/DependencyTrack/dependency-track">公式repo・Apache-2.0</a></small></li>
+<li id="s08"><a href="https://dependencytrack.github.io/docs/next/">Dependency-Track v5 documentation</a><small>SBOMと継続解析。<a href="https://dependencytrack.github.io/docs/next/reference/file-formats/">file formats</a></small></li>
+<li id="s09"><a href="https://dependencytrack.github.io/docs/next/guides/user/uploading-boms/">BOM uploadと解析完了</a><small><a href="https://dependencytrack.github.io/docs/next/reference/analyzers/">Trivy等のanalyzer</a></small></li>
+<li id="s10"><a href="https://dependencytrack.github.io/docs/next/guides/administration/deploying-to-production/">Dependency-Track v5本番構成</a><small><a href="https://dependencytrack.github.io/docs/next/guides/administration/migrating-from-v4/">v4→v5移行</a></small></li>
+<li id="s11"><a href="https://github.com/infobyte/faraday">Faraday公式repo</a><small>GPL-3.0。<a href="https://docs.faradaysec.com/Plugin-List-v4/">plugins</a>、<a href="https://docs.faradaysec.com/Install-guide-community/">Community構成</a></small></li>
+<li id="s12"><a href="https://docs.faradaysec.com/executors/executor-dependabot/">Faraday Dependabot Executor</a><small><a href="https://docs.faradaysec.com/FAQ/">Communityと商用の境界</a></small></li>
+<li id="s13"><a href="https://github.com/archerysec/archerysec">ArcherySec公式repo</a><small>GPL-3.0、内部利用の注意。<a href="https://github.com/archerysec/archerysec-cli">Trivy対応CLI</a></small></li>
+<li id="s14"><a href="https://github.com/secureCodeBox/secureCodeBox">secureCodeBox公式repo</a><small>Apache-2.0。<a href="https://www.securecodebox.io/docs/scanners/trivy/">Trivy scanner</a>、<a href="https://www.securecodebox.io/docs/hooks/defectdojo/">DefectDojo hook</a></small></li>
+<li id="s15"><a href="https://www.checkov.io/1.Welcome/What%20is%20Checkov.html">Checkovの対象と役割</a><small><a href="https://github.com/bridgecrewio/checkov">公式repo・Apache-2.0</a></small></li>
+<li id="s16"><a href="https://github.com/aquasecurity/trivy">Trivy公式repo</a><small>Apache-2.0。<a href="https://trivy.dev/docs/latest/guide/target/repository/">repository scan</a>、<a href="https://trivy.dev/docs/latest/guide/scanner/misconfiguration/">設定検査</a></small></li>
+<li id="s17"><a href="https://github.com/anchore/syft">Syft公式repo</a><small><a href="https://github.com/anchore/grype">Grype公式repo</a>、<a href="https://oss.anchore.com/docs/guides/vulnerability/scan-targets/">Grype入力形式</a></small></li>
+<li id="s18"><a href="https://google.github.io/osv-scanner/">OSV-Scanner documentation</a><small><a href="https://github.com/google/osv-scanner">公式repo・Apache-2.0</a></small></li>
+<li id="s19"><a href="https://docs.semgrep.dev/licensing">Semgrep licensing</a><small><a href="https://semgrep.dev/legal/rules-license/">Rules License v1</a>、<a href="https://semgrep.dev/products/pro-engine/">Pro Engine</a></small></li>
+<li id="s20"><a href="https://github.com/gitleaks/gitleaks">Gitleaks CLI・MIT</a><small><a href="https://github.com/gitleaks/gitleaks-action">Actionのlicenseとorganization条件</a></small></li>
+<li id="s21"><a href="https://www.zaproxy.org/docs/docker/">ZAPのscan種別</a><small><a href="https://www.zaproxy.org/docs/docker/baseline-scan/">Baseline</a>、<a href="https://www.zaproxy.org/docs/docker/api-scan/">API scan</a>、<a href="https://github.com/zaproxy/zaproxy/blob/main/LEGALNOTICE.md">license</a></small></li>
+<li id="s22"><a href="https://docs.renovatebot.com/">Renovate OSS</a><small>AGPL-3.0-only。<a href="https://docs.renovatebot.com/getting-started/running/">Mend Self-Hosted CE/EEとの違い</a></small></li>
+<li id="s23"><a href="https://github.com/dependabot/dependabot-core">Dependabot core・MIT</a><small>GitHubの<a href="https://docs.github.com/en/code-security/concepts/supply-chain-security/dependabot-alerts">alerts</a>、<a href="https://docs.github.com/en/code-security/concepts/supply-chain-security/dependabot-security-updates">security updates</a>、<a href="https://docs.github.com/en/code-security/concepts/supply-chain-security/dependabot-version-updates">version updates</a></small></li>
+<li id="s24"><a href="https://docs.github.com/en/code-security/how-tos/find-and-fix-code-vulnerabilities/integrate-with-existing-tools/upload-sarif-file">GitHubのSARIF取り込み条件</a><small>repository種別とGitHub Code Security。</small></li>
+<li id="s25"><a href="https://github.com/aquasecurity/trivy/security/advisories/GHSA-69fq-xp46-6x23">Trivyの2026年3月incident advisory</a><small>対象期間・配布物の条件。<a href="https://github.com/aquasecurity/trivy/discussions/10462">3月30日公式結論</a></small></li>
+<li id="s26"><a href="https://aquasecurity.github.io/trivy-operator/latest/">Trivy Operator</a><small><a href="https://github.com/kubebeam/trivy-headlamp-plugin">Headlamp plugin</a>、<a href="https://github.com/fjogeleit/trivy-operator-polr-adapter">PolicyReport Adapter</a>、<a href="https://kyverno.github.io/policy-reporter-docs/plugin-system/trivy-plugin.html">Trivy Plugin</a></small></li>
+<li id="s27"><a href="https://grafana.com/docs/grafana/latest/datasources/">Grafanaのdata sourceモデル</a><small><a href="https://github.com/aquasecurity/trivy-operator/blob/main/deploy/helm/README.md">OperatorのUIなし・metrics設定</a></small></li>
+<li id="s28"><a href="https://github.com/g-kari/dependabot-alert-notice/blob/715de8014c6cd761e1db575bebb49a6c42ebb78d/internal/github/alerts.go">既存コード: Dependabot収集</a><small><a href="https://github.com/g-kari/dependabot-alert-notice/blob/715de8014c6cd761e1db575bebb49a6c42ebb78d/README.md">README</a>、<a href="https://docs.github.com/en/graphql/reference/dependabot">GitHub公式のDependabot状態定義</a></small></li>
+<li id="s29"><a href="https://github.com/g-kari/dependabot-alert-notice/blob/715de8014c6cd761e1db575bebb49a6c42ebb78d/internal/web/handlers.go">既存コード: 一覧・検索・page分割</a><small>CVE/GHSA別とrepo別の表示。</small></li>
+<li id="s30"><a href="https://github.com/g-kari/dependabot-alert-notice/blob/715de8014c6cd761e1db575bebb49a6c42ebb78d/internal/store/store.go">既存コード: SQLite保存・削除・評価再利用</a><small><a href="https://github.com/g-kari/dependabot-alert-notice/blob/715de8014c6cd761e1db575bebb49a6c42ebb78d/main.go">処理の接続</a></small></li>
+<li id="s31"><a href="https://github.com/g-kari/dependabot-alert-notice/blob/715de8014c6cd761e1db575bebb49a6c42ebb78d/internal/evaluator/evaluator.go">既存コード: AI評価の入力</a><small>公開ソースの調査。実際の影響・到達可能性は未検証。</small></li>
+<li id="s32"><a href="https://github.com/g-kari/dependabot-alert-notice/blob/715de8014c6cd761e1db575bebb49a6c42ebb78d/internal/merger/merger.go">既存コード: 自動merge処理</a><small><a href="https://github.com/g-kari/dependabot-alert-notice/blob/715de8014c6cd761e1db575bebb49a6c42ebb78d/internal/slack/notify.go">Slack通知</a>、<a href="https://github.com/g-kari/dependabot-alert-notice/blob/715de8014c6cd761e1db575bebb49a6c42ebb78d/internal/discord/discord.go">Discord通知</a>、<a href="https://cli.github.com/manual/gh_pr_merge">GitHub CLI: gh pr merge / --auto</a></small></li>
+<li id="s33"><a href="https://www.first.org/epss/faq">FIRST EPSS FAQ</a><small>予測の期間と限界、CVSS・KEV等との使い分け。<a href="https://www.first.org/epss/">EPSS公式説明</a>、<a href="https://www.first.org/cvss/">CVSS公式説明</a></small></li>
+<li id="s34"><a href="https://github.com/aquasecurity/trivy/blob/bb6caea5cbe83dfdf1812814730dc65aa08ea785/brand/Trivy-OSS-Logo-Color-Horizontal-RGB.svg">Trivy公式ロゴ素材</a><small><a href="https://github.com/aquasecurity/trivy/blob/bb6caea5cbe83dfdf1812814730dc65aa08ea785/brand/readme.md">公式利用条件</a>、<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></small></li>
+</ol>
+</section>
+<footer class="footer"><h2>更新履歴</h2><p><time datetime="2026-11-05">2026年11月5日</time>（JST） 初版。公式資料による役割・OSS範囲の比較、用途別構成、公開コードの改善提案、導入試験の合格条件を整理。</p><p><a href="#main">記事の先頭へ</a></p></footer>
+</article>
+</main>
+</div>
+</body>
+</html>
