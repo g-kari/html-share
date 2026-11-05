@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Wed, 04 Nov 2026 23:54:47 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 04 Nov 2026 23:57:07 GMT</lastBuildDate>
+    <item>
+      <title>緊急メンテナンス一覧｜2026年10月21日前後・公式告知と再開予定</title>
+      <link>https://share.0g0.xyz/php-emergency-maintenance</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/php-emergency-maintenance</guid>
+      <description>PHPに限らず、2026年10月21日前後の緊急メンテナンス・関連告知を整理。公式資料確認済み587カード（部分本文含む）と、収集した全候補の照合状況。影響範囲・終了予定・復旧報告を分けて確認。</description>
+      <pubDate>Wed, 04 Nov 2026 23:57:07 GMT</pubDate>
+      <dcterms:created>2026-10-21T12:51:32.000Z</dcterms:created>
+      <dcterms:modified>2026-11-04T23:57:07.000Z</dcterms:modified>
+    </item>
     <item>
       <title>重要技術アップデート｜AI・開発ツール・MCP</title>
       <link>https://share.0g0.xyz/technology-updates</link>
@@ -25,15 +34,6 @@
       <pubDate>Wed, 04 Nov 2026 17:27:57 GMT</pubDate>
       <dcterms:created>2026-11-04T12:36:26.000Z</dcterms:created>
       <dcterms:modified>2026-11-04T17:27:57.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>緊急メンテナンス一覧｜2026年10月21日前後・公式告知と再開予定</title>
-      <link>https://share.0g0.xyz/php-emergency-maintenance</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/php-emergency-maintenance</guid>
-      <description>PHPに限らず、2026年10月21日前後の緊急メンテナンス・関連告知を整理。公式資料確認済み580カード（部分本文含む）と、収集した全候補の照合状況。影響範囲・終了予定・復旧報告を分けて確認。</description>
-      <pubDate>Wed, 04 Nov 2026 13:09:33 GMT</pubDate>
-      <dcterms:created>2026-10-21T12:51:32.000Z</dcterms:created>
-      <dcterms:modified>2026-11-04T13:09:33.000Z</dcterms:modified>
     </item>
     <item>
       <title>2026年 不正アクセス・情報漏えいウォッチ｜原因・出典・続報</title>
