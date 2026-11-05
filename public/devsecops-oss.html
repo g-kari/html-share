@@ -11,13 +11,13 @@
 <meta property="og:description" content="検査・集約・修正を分けて考える。OSSの範囲、用途別構成、既存実装の改善点を公式資料で整理。">
 <meta property="og:url" content="https://share.0g0.xyz/devsecops-oss">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:image" content="https://share.0g0.xyz/assets/devsecops-oss-ogp-v1.png">
+<meta property="og:image" content="https://share.0g0.xyz/assets/devsecops-oss-ogp-v2.png">
 <meta property="og:image:type" content="image/png">
-<meta property="og:image:width" content="1716">
-<meta property="og:image:height" content="917">
+<meta property="og:image:width" content="1733">
+<meta property="og:image:height" content="908">
 <meta property="og:image:alt" content="DevSecOps × OSS。複数の検査結果を台帳にまとめ、修正の管理へつなぐ説明イラスト。">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://share.0g0.xyz/assets/devsecops-oss-ogp-v1.png">
+<meta name="twitter:image" content="https://share.0g0.xyz/assets/devsecops-oss-ogp-v2.png">
 <meta name="twitter:image:alt" content="DevSecOps × OSS。複数の検査結果を台帳にまとめ、修正の管理へつなぐ説明イラスト。">
 <style>
 :root{color-scheme:light;--paper:#fff;--ice:#f2f8fc;--navy:#17324d;--muted:#52667a;--line:#cbdce6;--teal:#086c6c;--teal-bg:#e8f5f2;--coral:#b64639;--coral-bg:#fff0ec;--radius:10px}
@@ -104,7 +104,7 @@ html{font-size:112.5%}body{font-size:1rem}
 <div class="loop"><strong>新しい公開情報 → 再解析 → 対応の判断</strong>コードを再ビルドしなくても、保存した部品表から影響候補を探せる。SBOM自体の正確さと対象バージョンの管理が前提。</div>
 <figcaption id="sbom-flow-desc">SBOMは部品表であり、脆弱性の一覧そのものではない。Dependency-Trackは保存した部品と脆弱性情報を継続照合する。アップロードの受付と非同期解析の完了も別段階。<sup class="ref"><a href="#s08">[8]</a><a href="#s09">[9]</a></sup></figcaption>
 </figure>
-<figure class="illustration"><a href="assets/devsecops-oss-explainer-v1.png" aria-label="説明用イラストを原寸で拡大"><img src="assets/devsecops-oss-explainer-v1.png" width="1724" height="912" loading="lazy" decoding="async" alt="検査係から届く結果を台帳で整理し、部品表を保管し、修理と再検査へ回す工房。検査・集約・継続監視・修正の役割分担を表す。"></a><figcaption>ソフトウェアの修理工房という比喩。実画面ではなく説明用イラスト。検査結果は台帳で整理して担当者へ渡し、修正後は再検査する。部品表は別に保存し、新しい脆弱性情報でも調べ直す。製品間の正確な接続条件は本文と構成図を参照。<a href="assets/devsecops-oss-explainer-v1.png">図を拡大（原寸PNG）</a></figcaption></figure>
+<figure class="illustration"><a href="assets/devsecops-oss-explainer-v2.png" aria-label="説明用イラストを原寸で拡大"><img src="assets/devsecops-oss-explainer-v2.png" width="1734" height="907" loading="lazy" decoding="async" alt="検査係から届く結果を台帳で整理し、部品表を保管し、修理と再検査へ回す工房。検査・集約・継続監視・修正の役割分担を表す。"></a><figcaption>ソフトウェアの修理工房という比喩。実画面ではなく説明用イラスト。検査結果は台帳で整理して担当者へ渡し、修正後は再検査する。部品表は別に保存し、新しい脆弱性情報でも調べ直す。製品間の正確な接続条件は本文と構成図を参照。<a href="assets/devsecops-oss-explainer-v2.png">図を拡大（原寸PNG）</a></figcaption></figure>
 </section>
 
 <section id="existing" class="section">
