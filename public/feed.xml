@@ -18,6 +18,15 @@
       <dcterms:modified>2026-11-05T03:16:48.000Z</dcterms:modified>
     </item>
     <item>
+      <title>DevSecOpsをOSSで組み立てる：統合ダッシュボードと用途別構成</title>
+      <link>https://share.0g0.xyz/devsecops-oss</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/devsecops-oss</guid>
+      <description>DefectDojo、Dependency-Track、Trivyなどの役割とOSSの範囲を比較。既存ツールを活かす方法から、用途別の最小構成と導入前の検証条件まで。</description>
+      <pubDate>Thu, 05 Nov 2026 03:13:34 GMT</pubDate>
+      <dcterms:created>2026-11-05T03:13:34.000Z</dcterms:created>
+      <dcterms:modified>2026-11-05T03:13:34.000Z</dcterms:modified>
+    </item>
+    <item>
       <title>脆弱性レポート | 実悪用・修正版・対処</title>
       <link>https://share.0g0.xyz/vulnerabilities</link>
       <guid isPermaLink="true">https://share.0g0.xyz/vulnerabilities</guid>
