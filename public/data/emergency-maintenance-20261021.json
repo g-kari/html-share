@@ -1,6 +1,6 @@
 {
   "title": "2026年10月21日前後 緊急メンテナンス・関連告知一覧",
-  "checkedAt": "2026-11-04T12:42:00Z",
+  "checkedAt": "2026-11-04T23:40:04Z",
   "scope": "PHPの因果不問。今回の緊急/予防メンテと同時期の関連告知・別インシデントを区分。件数による上限なし。",
   "counting": "confirmedは公式資料を確認した対象別の告知カード数（部分本文・同一基盤・包括/個別の重なりを含む）。固有サイト数・実停止数・独立インシデント数・被害数ではない。pendingは原典/公式所有/対象範囲等の追加照合待ち。関連・重複・除外理由も全収集行に保持し、件数で打ち切らない。 実施自体が未定の停止可能性の予告も別状態（possible_unstarted）で保持し、実停止・復旧には数えません。",
   "confirmed": [
@@ -1422,19 +1422,36 @@
     {
       "id": "myroyal",
       "name": "MyROYAL（ロイヤル）",
-      "url": "https://www.royal-co.net/news/5113/",
+      "url": "https://www.royal-co.net/news/5151/",
       "start": "10/21 19:00",
-      "end": "未記載",
+      "end": "11/4 9:00頃に復旧と運営報告（原文の時間帯表記なし）",
       "scope": "利用者設定、Web発注、注文履歴、在庫照会。",
-      "safe": "PHP脆弱性対策用メンテナンスと公式題名に明記。",
+      "safe": "11月4日付の公式告知は利用者設定・Web発注・注文履歴検索・在庫照会の復旧を報告しています。復旧時刻の「9:00頃」を保持し、掲載時刻や当方の機能試験結果には置き換えません。10月21日のPHP対策による停止告知も履歴に保持しています。",
       "reason": "PHP対策",
       "cat": "business",
-      "date": "10/21",
-      "source": "公式検索本文",
-      "tag": "対象範囲を確認",
-      "status": "公式の実施告知・完了未確認",
-      "restored": false,
-      "icon": "https://www.royal-co.net/favicon.ico"
+      "date": "11/4掲載。復旧は同日9:00頃との報告。",
+      "source": "公式検索に収録された告知本文を確認。ページ本文の直接取得と、ログイン・発注等の実操作は未実施。",
+      "tag": "対象範囲の復旧報告",
+      "status": "対象4機能の復旧を運営が報告",
+      "restored": true,
+      "icon": "https://www.royal-co.net/favicon.ico",
+      "noticeState": "restored",
+      "sourceRead": "official_indexed_body",
+      "checkedAt": "2026-11-04T23:40:04Z",
+      "sources": [
+        {
+          "url": "https://www.royal-co.net/news/5113/",
+          "title": "10/21の停止告知（過去の記録）",
+          "sourceRead": "official_indexed_body",
+          "checkedAt": "2026-11-04T23:40:04Z"
+        },
+        {
+          "url": "https://www.royal-co.net/news/5151/",
+          "title": "11/4の復旧報告",
+          "sourceRead": "official_indexed_body",
+          "checkedAt": "2026-11-04T23:40:04Z"
+        }
+      ]
     },
     {
       "id": "sanmei",
@@ -7670,22 +7687,24 @@
       "icon": "https://infini-cloud.net/favicon.ico",
       "cat": "web",
       "tag": "Webサービス",
-      "status": "公式の実施告知（完了未確認）",
+      "status": "新規登録・新規容量アップグレードの停止継続",
       "start": "10/21から（時刻未記載）",
-      "end": "来週半ばの再開予定（厳密な日時なし）",
-      "scope": "新規アカウント登録と新規容量アップグレード。",
+      "end": "11/4更新で再開時期を未定に変更",
+      "scope": "新規アカウント登録（ウェイティングリスト登録）と新規容量アップグレード。",
       "reason": "PHP脆弱性対応",
-      "safe": "既存のファイルアクセスやログインなど、告知にない機能まで停止扱いにしません。",
+      "safe": "11月4日更新では10月下旬を予定していた再開時期を未定に変更。追加のセキュリティ検証で対応が必要な問題が判明し、修正方針を検討中と説明しています。悪用を確認していないというのは運営の説明です。告知対象にない既存ファイルへのアクセスやログインまで停止したとは扱いません。",
       "restored": false,
-      "date": "2026/10/22 01:20 JST確認",
-      "source": "公開の公式原文を確認。操作を伴う機能テストは未実施",
-      "checkedAt": "2026-10-21T16:20:00Z",
+      "date": "10/21掲載、11/4更新",
+      "source": "公式本文を確認。運営の説明と当方の機能試験は別。",
+      "checkedAt": "2026-11-04T23:40:04Z",
       "ownershipEvidence": [
         {
           "url": "https://infini-cloud.net/ja/news_20261021.html",
           "note": "運営者公式ページ・公式アカウントへのリンクを確認。"
         }
-      ]
+      ],
+      "noticeState": "partial",
+      "sourceRead": "body_retrieved"
     },
     {
       "id": "hanshin-web",
@@ -15323,6 +15342,250 @@
           "url": "https://status.phoneappli.net/",
           "detail": "当該運営・事業の公式告知本文とサイトの運営表記を確認。",
           "readState": "body_retrieved"
+        }
+      ]
+    },
+    {
+      "id": "canonet-php-cohort-status-20261104",
+      "name": "Canonet レンタルサーバー（W1〜W4を区分）",
+      "cat": "web",
+      "tag": "対象・予定を限定した公式告知",
+      "status": "環境・PHP版ごとに再開報告、予定、検証中が混在",
+      "reason": "PHP脆弱性対応",
+      "reasonKey": "php",
+      "start": "10/23よりPHPサービス停止を伴う保守を実施と運営説明（開始時刻未記載）",
+      "end": "W1 PHP5.2は11/5、W3 PHP7.4/8.1/8.2は11/4 14:00開始、W4 PHP8.2は11/6の作業予定。再開時計ではない。",
+      "scope": "W2 PHP5.6は11/3、W3 PHP8.0とW4 PHP8.3は10/24に再開したと運営報告。W1 PHP4.4とW2 PHP7.0/7.3は検証中。",
+      "safe": "11月4日13:00題名の告知と19:00題名の告知を区別。公式一覧の掲載は各13:04と19:22で、原文の時間帯表記はありません。phpMyAdminは修正版で再開したとの説明ですが、W1 PHP4.4は停止継続という脚注があります。W1/W2はPHP公式サポート終了のためW4への移行を案内。予定の経過を再開とせず、古いPHPの一般サポート再開や利用者環境の動作保証にはしません。",
+      "url": "https://hminfo.canon.jp/faq/show/505?site_domain=default",
+      "date": "11/4掲載。13:00・19:00は告知題名の時計。",
+      "restored": false,
+      "noticeState": "partial",
+      "source": "公式本文を独立した読取りでも確認。サービスの実機能試験は未実施。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-11-04T23:40:04Z",
+      "icon": null,
+      "ownershipEvidence": [
+        {
+          "url": "https://hminfo.canon.jp/faq/show/505?site_domain=default",
+          "detail": "運営自身の公式サイトにある個別告知。",
+          "readState": "body_retrieved"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://hminfo.canon.jp/faq/show/502?site_domain=default",
+          "title": "W3・W4の予定と限定群の再開報告",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-11-04T23:40:04Z"
+        },
+        {
+          "url": "https://hminfo.canon.jp/faq/show/505?site_domain=default",
+          "title": "W1・W2の予定・検証状況と限定再開",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-11-04T23:40:04Z"
+        },
+        {
+          "url": "https://hminfo.canon.jp/category/show/14?site_domain=default",
+          "title": "公式の障害・メンテナンス情報一覧",
+          "sourceRead": "official_indexed_body",
+          "checkedAt": "2026-11-04T23:40:04Z"
+        }
+      ]
+    },
+    {
+      "id": "gakunin-lms-emergency-20261104",
+      "name": "学認LMS 研究データ管理講座・PtM",
+      "cat": "web",
+      "tag": "対象範囲の復旧報告",
+      "status": "17:30に緊急メンテナンス終了と運営追記",
+      "reason": "システムアップデートに伴う緊急保守。PHPの記載なし",
+      "reasonKey": "other",
+      "start": "11/4 17:00 JSTの予定",
+      "end": "11/4 17:30 JSTに終了と運営報告",
+      "scope": "研究データ管理講座とPtM。マイクロコンテンツ教材管理・動画ストリーミングも対象。情報セキュリティ講座は利用可能。",
+      "safe": "11月4日15:21掲載の公式告知に、17:30に終了したとの追記を確認しました。学認認証やNIIの全サービスが停止したという意味ではありません。ログイン・講座視聴の実操作はしていません。",
+      "url": "https://contents.nii.ac.jp/lms_support/info/maintenance/20261104152106-0",
+      "date": "11/4 15:21掲載。終了は17:30 JSTとの追記。",
+      "restored": true,
+      "noticeState": "restored",
+      "source": "公式本文を確認。運営による説明と、当方のサービス実操作は区別。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-11-04T23:40:04Z",
+      "icon": null,
+      "ownershipEvidence": [
+        {
+          "url": "https://contents.nii.ac.jp/lms_support/info/maintenance/20261104152106-0",
+          "detail": "運営自身の公式サイトにある個別告知。",
+          "readState": "body_retrieved"
+        }
+      ]
+    },
+    {
+      "id": "hyogo-php-stopped-sites-20261104",
+      "name": "兵庫県・関係機関の一部Webサイト",
+      "cat": "public",
+      "tag": "対象・予定を限定した公式告知",
+      "status": "11/4 16時時点の停止一覧を県が掲載",
+      "reason": "PHP脆弱性対策",
+      "reasonKey": "php",
+      "start": "個別サイトの開始時計は一覧だけでは未確認",
+      "end": "安全対策後に順次再開する方針。個別の終了時計は未確認。",
+      "scope": "公文書目録検索、公共施設予約、兵庫県立美術館、兵庫津ミュージアムの団体予約など。停止対象は公式一覧で個別確認。",
+      "safe": "11月4日更新の公式ページと16時時点の停止一覧PDFの文字情報を確認しました。一覧の基準時点を各サイトの停止開始にせず、県全体の行政機能停止にも広げません。不正アクセス・情報漏えい等を確認していないのは県の説明です。一覧からの省略だけで復旧を判断せず、既存の美術館の未照合資料も残しています。",
+      "url": "https://web.pref.hyogo.lg.jp/kk51/website_20261023.html",
+      "date": "11/4更新。一覧は同日16時時点。",
+      "restored": false,
+      "noticeState": "partial",
+      "source": "公式本文を確認。運営による説明と、当方のサービス実操作は区別。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-11-04T23:40:04Z",
+      "icon": null,
+      "ownershipEvidence": [
+        {
+          "url": "https://web.pref.hyogo.lg.jp/kk51/website_20261023.html",
+          "detail": "運営自身の公式サイトにある個別告知。",
+          "readState": "body_retrieved"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://web.pref.hyogo.lg.jp/kk51/website_20261023.html",
+          "title": "県の一部Webサイト停止案内",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-11-04T23:40:04Z"
+        },
+        {
+          "url": "https://web.pref.hyogo.lg.jp/kk51/documents/2026110416.pdf",
+          "title": "11/4 16時時点の停止一覧（PDF文字情報。表の画像確認は未完了）",
+          "sourceRead": "pdf_text_retrieved",
+          "checkedAt": "2026-11-04T23:40:04Z"
+        }
+      ]
+    },
+    {
+      "id": "logoform-database-outage-20261103",
+      "name": "LoGoフォーム（提供元と日野市立図書館の案内）",
+      "cat": "public",
+      "tag": "対象・予定を限定した公式告知",
+      "status": "全回答フォーム・管理画面停止。再開は見込み段階",
+      "reason": "データベース障害。今回のPHP因果は記載なし",
+      "reasonKey": "other",
+      "start": "11/3 11:57頃に送信エラー発生、12:40頃検知、15:30停止と提供元説明",
+      "end": "11/5 06:00時点では同日16:00以降（本日中）に再開する見込み。完了報告ではない。",
+      "scope": "提供元の全回答フォーム・管理画面。日野市立図書館ではリクエスト、レファレンス、講演申し込みの電子申請が対象。",
+      "safe": "11月3日11:57〜15:30頃に送信エラーとなった申請は受け付け・保存されず、再開後の再申請が必要との提供元説明です。完了画面が出た回答は正常保存と説明。攻撃・漏えい・過去回答の破損を確認していないことも提供元の説明です。図書館は通常開館し、急ぐ場合は窓口・電話を案内しています。同図書館の10月のPHP対応電子図書館保守やNaxos障害とは別です。原文にない時間帯は補っていません。",
+      "url": "https://publitech.fun/logoform_failure",
+      "date": "提供元：11/5 06:00現在。図書館：11/4 10:00時点。",
+      "restored": false,
+      "noticeState": "announced",
+      "source": "公式本文を確認。運営による説明と、当方のサービス実操作は区別。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-11-04T23:40:04Z",
+      "icon": null,
+      "ownershipEvidence": [
+        {
+          "url": "https://publitech.fun/logoform_failure",
+          "detail": "運営自身の公式サイトにある個別告知。",
+          "readState": "body_retrieved"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://publitech.fun/logoform_failure",
+          "title": "提供元の障害経過・申請の扱い・再開見込み",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-11-04T23:40:04Z"
+        },
+        {
+          "url": "https://www.lib.city.hino.lg.jp/news/announce/2026/October/20261022110032.html",
+          "title": "日野市立図書館の電子申請停止と窓口・電話代替",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-11-04T23:40:04Z"
+        }
+      ]
+    },
+    {
+      "id": "grand-seiko-ewarranty-restored-20261027",
+      "name": "グランドセイコー 電子保証サービス",
+      "cat": "shopping",
+      "tag": "対象範囲の復旧報告",
+      "status": "10/27から復旧・利用可能と11/4に運営公表",
+      "reason": "緊急システムメンテナンス。PHPの記載なし",
+      "reasonKey": "other",
+      "start": "10/21 20:30頃からの保守と運営説明",
+      "end": "10/27から復旧と運営報告。11/4は掲載日。",
+      "scope": "グランドセイコーの電子保証サービス。腕時計販売・修理全体の停止という意味ではない。",
+      "safe": "11月4日付の終了・復旧告知は10月27日から利用可能になったと説明しています。下段に残る10月21日の停止案内と区別します。保守中の購入で保証No.が空欄の保証カードについて、電子保証登録後に確認する手順を案内。登録操作や番号照合は実施していません。",
+      "url": "https://www.grand-seiko.com/jp-ja/news/2026/topics/20261104",
+      "date": "11/4掲載。復旧日は10/27との報告。",
+      "restored": true,
+      "noticeState": "restored",
+      "source": "公式本文を確認。運営による説明と、当方のサービス実操作は区別。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-11-04T23:40:04Z",
+      "icon": null,
+      "ownershipEvidence": [
+        {
+          "url": "https://www.grand-seiko.com/jp-ja/news/2026/topics/20261104",
+          "detail": "運営自身の公式サイトにある個別告知。",
+          "readState": "body_retrieved"
+        }
+      ]
+    },
+    {
+      "id": "mfj-emergency-maintenance-20261105",
+      "name": "日本モーターサイクルスポーツ協会（MFJ）サービス",
+      "cat": "web",
+      "tag": "対象・予定を限定した公式告知",
+      "status": "11/5の予定告知。終了時計は題名と本文で異なる",
+      "reason": "安定運用・安全性向上のための緊急保守。PHPの記載なし",
+      "reasonKey": "security",
+      "start": "11/5 0:00の予定（原文の時間帯表記なし）",
+      "end": "題名は04:00、本文は4:30の予定。どちらかに補正せず保持。",
+      "scope": "当該告知は時間帯に全サービス利用不可、終了後順次再開と説明。レース開催や団体活動全体の中止とはしない。",
+      "safe": "11月4日掲載の公式本文を独立した読取りでも確認しました。終了時計の食い違いがあるため、利用前に公式の最新案内を確認してください。予定時刻が過ぎたことを実施・復旧の証拠にはしていません。",
+      "url": "https://www.mfj.or.jp/2026/11/04/93211/",
+      "date": "11/4掲載。11/5の予定告知。",
+      "restored": false,
+      "noticeState": "planned",
+      "source": "公式本文を独立した読取りでも確認。サービスの実機能試験は未実施。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-11-04T23:40:04Z",
+      "icon": null,
+      "ownershipEvidence": [
+        {
+          "url": "https://www.mfj.or.jp/2026/11/04/93211/",
+          "detail": "運営自身の公式サイトにある個別告知。",
+          "readState": "body_retrieved"
+        }
+      ]
+    },
+    {
+      "id": "etax-emergency-maintenance-20261104",
+      "name": "国税電子申告・納税システム e-Tax",
+      "cat": "public",
+      "tag": "対象・予定を限定した公式告知",
+      "status": "緊急メンテナンス中・利用不可と公式案内",
+      "reason": "緊急メンテナンス。取得した公式本文では理由未記載",
+      "reasonKey": "other",
+      "start": "取得した公式本文では開始時計未記載",
+      "end": "終了時期は改めて同ホームページで案内するとの説明",
+      "scope": "緊急メンテナンス期間中のe-Tax利用。税務署の全業務停止へは広げない。",
+      "safe": "11月4日付の公式検索収録本文は緊急メンテナンス中で利用できないと案内しています。取得した公式本文には不審通信・侵害・漏えい・PHP原因の記載はありません。第三者の原因説明を公式確認として採用せず、10月の別告知や未照合の元資料と分けています。申告・納税・ログイン操作は未実施です。",
+      "url": "https://www.e-tax.nta.go.jp/topics/2026/topics_20261104_mentenansu.htm",
+      "date": "11/4掲載。開始・終了時計は未記載。",
+      "restored": false,
+      "noticeState": "announced",
+      "source": "公式検索に収録された告知本文。ページ本文の直接取得は未完了。実機能試験は未実施。",
+      "sourceRead": "official_indexed_body",
+      "checkedAt": "2026-11-04T23:40:04Z",
+      "icon": null,
+      "ownershipEvidence": [
+        {
+          "url": "https://www.e-tax.nta.go.jp/topics/2026/topics_20261104_mentenansu.htm",
+          "detail": "運営自身の公式サイトにある個別告知。",
+          "readState": "official_indexed_body"
         }
       ]
     }
@@ -78348,6 +78611,116 @@
       "confirmedId": "phone-appli-php-partial-restoration-20261030",
       "collectionBatch": "official-monitor-20261104-six-approved",
       "observation": "対象を限定した公式本文の確認。元の収集記録は保持。"
+    },
+    {
+      "name": "MyROYAL（ロイヤル）",
+      "sourceUrl": "https://www.royal-co.net/news/5151/",
+      "verification": "confirmed",
+      "sourceRead": "official_indexed_body",
+      "checkedAt": "2026-11-04T23:40:04Z",
+      "confirmedId": "myroyal",
+      "collectionBatch": "official-followups-20261105-0836",
+      "observation": "11/4の復旧報告。提供元の公表と実機能検証を区別。"
+    },
+    {
+      "name": "Canonet レンタルサーバー（W1〜W4を区分）",
+      "sourceUrl": "https://hminfo.canon.jp/faq/show/502?site_domain=default",
+      "verification": "confirmed",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-11-04T23:40:04Z",
+      "confirmedId": "canonet-php-cohort-status-20261104",
+      "collectionBatch": "official-followups-20261105-0836",
+      "observation": "W3・W4の予定と限定群の再開報告。提供元の公表と実機能検証を区別。"
+    },
+    {
+      "name": "Canonet レンタルサーバー（W1〜W4を区分）",
+      "sourceUrl": "https://hminfo.canon.jp/faq/show/505?site_domain=default",
+      "verification": "confirmed",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-11-04T23:40:04Z",
+      "confirmedId": "canonet-php-cohort-status-20261104",
+      "collectionBatch": "official-followups-20261105-0836",
+      "observation": "W1・W2の予定・検証状況と限定再開。提供元の公表と実機能検証を区別。"
+    },
+    {
+      "name": "学認LMS 研究データ管理講座・PtM",
+      "sourceUrl": "https://contents.nii.ac.jp/lms_support/info/maintenance/20261104152106-0",
+      "verification": "confirmed",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-11-04T23:40:04Z",
+      "confirmedId": "gakunin-lms-emergency-20261104",
+      "collectionBatch": "official-followups-20261105-0836",
+      "observation": "学認LMS 研究データ管理講座・PtM。提供元の公表と実機能検証を区別。"
+    },
+    {
+      "name": "兵庫県・関係機関の一部Webサイト",
+      "sourceUrl": "https://web.pref.hyogo.lg.jp/kk51/website_20261023.html",
+      "verification": "confirmed",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-11-04T23:40:04Z",
+      "confirmedId": "hyogo-php-stopped-sites-20261104",
+      "collectionBatch": "official-followups-20261105-0836",
+      "observation": "県の一部Webサイト停止案内。提供元の公表と実機能検証を区別。"
+    },
+    {
+      "name": "兵庫県・関係機関の一部Webサイト",
+      "sourceUrl": "https://web.pref.hyogo.lg.jp/kk51/documents/2026110416.pdf",
+      "verification": "confirmed",
+      "sourceRead": "pdf_text_retrieved",
+      "checkedAt": "2026-11-04T23:40:04Z",
+      "confirmedId": "hyogo-php-stopped-sites-20261104",
+      "collectionBatch": "official-followups-20261105-0836",
+      "observation": "11/4 16時時点の停止一覧（PDF文字情報。表の画像確認は未完了）。提供元の公表と実機能検証を区別。"
+    },
+    {
+      "name": "LoGoフォーム（提供元と日野市立図書館の案内）",
+      "sourceUrl": "https://publitech.fun/logoform_failure",
+      "verification": "confirmed",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-11-04T23:40:04Z",
+      "confirmedId": "logoform-database-outage-20261103",
+      "collectionBatch": "official-followups-20261105-0836",
+      "observation": "提供元の障害経過・申請の扱い・再開見込み。提供元の公表と実機能検証を区別。"
+    },
+    {
+      "name": "LoGoフォーム（提供元と日野市立図書館の案内）",
+      "sourceUrl": "https://www.lib.city.hino.lg.jp/news/announce/2026/October/20261022110032.html",
+      "verification": "confirmed",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-11-04T23:40:04Z",
+      "confirmedId": "logoform-database-outage-20261103",
+      "collectionBatch": "official-followups-20261105-0836",
+      "observation": "日野市立図書館の電子申請停止と窓口・電話代替。提供元の公表と実機能検証を区別。"
+    },
+    {
+      "name": "グランドセイコー 電子保証サービス",
+      "sourceUrl": "https://www.grand-seiko.com/jp-ja/news/2026/topics/20261104",
+      "verification": "confirmed",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-11-04T23:40:04Z",
+      "confirmedId": "grand-seiko-ewarranty-restored-20261027",
+      "collectionBatch": "official-followups-20261105-0836",
+      "observation": "グランドセイコー 電子保証サービス。提供元の公表と実機能検証を区別。"
+    },
+    {
+      "name": "日本モーターサイクルスポーツ協会（MFJ）サービス",
+      "sourceUrl": "https://www.mfj.or.jp/2026/11/04/93211/",
+      "verification": "confirmed",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-11-04T23:40:04Z",
+      "confirmedId": "mfj-emergency-maintenance-20261105",
+      "collectionBatch": "official-followups-20261105-0836",
+      "observation": "日本モーターサイクルスポーツ協会（MFJ）サービス。提供元の公表と実機能検証を区別。"
+    },
+    {
+      "name": "国税電子申告・納税システム e-Tax",
+      "sourceUrl": "https://www.e-tax.nta.go.jp/topics/2026/topics_20261104_mentenansu.htm",
+      "verification": "confirmed",
+      "sourceRead": "official_indexed_body",
+      "checkedAt": "2026-11-04T23:40:04Z",
+      "confirmedId": "etax-emergency-maintenance-20261104",
+      "collectionBatch": "official-followups-20261105-0836",
+      "observation": "国税電子申告・納税システム e-Tax。提供元の公表と実機能検証を区別。"
     }
   ],
   "related": [
@@ -105473,6 +105846,138 @@
           "readState": "body_retrieved"
         }
       ]
+    },
+    {
+      "sourceUrl": "https://infini-cloud.net/ja/news_20261021.html",
+      "names": [
+        "InfiniCLOUD 新規登録・容量アップグレード"
+      ],
+      "decision": "confirmed",
+      "reason": "11月4日更新では10月下旬を予定していた再開時期を未定に変更。追加のセキュリティ検証で対応が必要な問題が判明し、修正方針を検討中と説明しています。悪用を確認していないというのは運営の説明です。告知対象にない既存ファイルへのアクセスやログインまで停止したとは扱いません。",
+      "checkedAt": "2026-11-04T23:40:04Z",
+      "sourceRead": "body_retrieved",
+      "confirmedId": "infinicloud-partial"
+    },
+    {
+      "sourceUrl": "https://www.royal-co.net/news/5151/",
+      "names": [
+        "MyROYAL（ロイヤル）"
+      ],
+      "decision": "confirmed",
+      "reason": "11月4日付の公式告知は利用者設定・Web発注・注文履歴検索・在庫照会の復旧を報告しています。復旧時刻の「9:00頃」を保持し、掲載時刻や当方の機能試験結果には置き換えません。10月21日のPHP対策による停止告知も履歴に保持しています。",
+      "checkedAt": "2026-11-04T23:40:04Z",
+      "sourceRead": "official_indexed_body",
+      "confirmedId": "myroyal"
+    },
+    {
+      "sourceUrl": "https://hminfo.canon.jp/faq/show/502?site_domain=default",
+      "names": [
+        "Canonet レンタルサーバー（W1〜W4を区分）"
+      ],
+      "decision": "confirmed",
+      "reason": "11月4日13:00題名の告知と19:00題名の告知を区別。公式一覧の掲載は各13:04と19:22で、原文の時間帯表記はありません。phpMyAdminは修正版で再開したとの説明ですが、W1 PHP4.4は停止継続という脚注があります。W1/W2はPHP公式サポート終了のためW4への移行を案内。予定の経過を再開とせず、古いPHPの一般サポート再開や利用者環境の動作保証にはしません。",
+      "checkedAt": "2026-11-04T23:40:04Z",
+      "sourceRead": "body_retrieved",
+      "confirmedId": "canonet-php-cohort-status-20261104"
+    },
+    {
+      "sourceUrl": "https://hminfo.canon.jp/faq/show/505?site_domain=default",
+      "names": [
+        "Canonet レンタルサーバー（W1〜W4を区分）"
+      ],
+      "decision": "confirmed",
+      "reason": "11月4日13:00題名の告知と19:00題名の告知を区別。公式一覧の掲載は各13:04と19:22で、原文の時間帯表記はありません。phpMyAdminは修正版で再開したとの説明ですが、W1 PHP4.4は停止継続という脚注があります。W1/W2はPHP公式サポート終了のためW4への移行を案内。予定の経過を再開とせず、古いPHPの一般サポート再開や利用者環境の動作保証にはしません。",
+      "checkedAt": "2026-11-04T23:40:04Z",
+      "sourceRead": "body_retrieved",
+      "confirmedId": "canonet-php-cohort-status-20261104"
+    },
+    {
+      "sourceUrl": "https://contents.nii.ac.jp/lms_support/info/maintenance/20261104152106-0",
+      "names": [
+        "学認LMS 研究データ管理講座・PtM"
+      ],
+      "decision": "confirmed",
+      "reason": "11月4日15:21掲載の公式告知に、17:30に終了したとの追記を確認しました。学認認証やNIIの全サービスが停止したという意味ではありません。ログイン・講座視聴の実操作はしていません。",
+      "checkedAt": "2026-11-04T23:40:04Z",
+      "sourceRead": "body_retrieved",
+      "confirmedId": "gakunin-lms-emergency-20261104"
+    },
+    {
+      "sourceUrl": "https://web.pref.hyogo.lg.jp/kk51/website_20261023.html",
+      "names": [
+        "兵庫県・関係機関の一部Webサイト"
+      ],
+      "decision": "confirmed",
+      "reason": "11月4日更新の公式ページと16時時点の停止一覧PDFの文字情報を確認しました。一覧の基準時点を各サイトの停止開始にせず、県全体の行政機能停止にも広げません。不正アクセス・情報漏えい等を確認していないのは県の説明です。一覧からの省略だけで復旧を判断せず、既存の美術館の未照合資料も残しています。",
+      "checkedAt": "2026-11-04T23:40:04Z",
+      "sourceRead": "body_retrieved",
+      "confirmedId": "hyogo-php-stopped-sites-20261104"
+    },
+    {
+      "sourceUrl": "https://web.pref.hyogo.lg.jp/kk51/documents/2026110416.pdf",
+      "names": [
+        "兵庫県・関係機関の一部Webサイト"
+      ],
+      "decision": "confirmed",
+      "reason": "11月4日更新の公式ページと16時時点の停止一覧PDFの文字情報を確認しました。一覧の基準時点を各サイトの停止開始にせず、県全体の行政機能停止にも広げません。不正アクセス・情報漏えい等を確認していないのは県の説明です。一覧からの省略だけで復旧を判断せず、既存の美術館の未照合資料も残しています。",
+      "checkedAt": "2026-11-04T23:40:04Z",
+      "sourceRead": "pdf_text_retrieved",
+      "confirmedId": "hyogo-php-stopped-sites-20261104"
+    },
+    {
+      "sourceUrl": "https://publitech.fun/logoform_failure",
+      "names": [
+        "LoGoフォーム（提供元と日野市立図書館の案内）"
+      ],
+      "decision": "confirmed",
+      "reason": "11月3日11:57〜15:30頃に送信エラーとなった申請は受け付け・保存されず、再開後の再申請が必要との提供元説明です。完了画面が出た回答は正常保存と説明。攻撃・漏えい・過去回答の破損を確認していないことも提供元の説明です。図書館は通常開館し、急ぐ場合は窓口・電話を案内しています。同図書館の10月のPHP対応電子図書館保守やNaxos障害とは別です。原文にない時間帯は補っていません。",
+      "checkedAt": "2026-11-04T23:40:04Z",
+      "sourceRead": "body_retrieved",
+      "confirmedId": "logoform-database-outage-20261103"
+    },
+    {
+      "sourceUrl": "https://www.lib.city.hino.lg.jp/news/announce/2026/October/20261022110032.html",
+      "names": [
+        "LoGoフォーム（提供元と日野市立図書館の案内）"
+      ],
+      "decision": "confirmed",
+      "reason": "11月3日11:57〜15:30頃に送信エラーとなった申請は受け付け・保存されず、再開後の再申請が必要との提供元説明です。完了画面が出た回答は正常保存と説明。攻撃・漏えい・過去回答の破損を確認していないことも提供元の説明です。図書館は通常開館し、急ぐ場合は窓口・電話を案内しています。同図書館の10月のPHP対応電子図書館保守やNaxos障害とは別です。原文にない時間帯は補っていません。",
+      "checkedAt": "2026-11-04T23:40:04Z",
+      "sourceRead": "body_retrieved",
+      "confirmedId": "logoform-database-outage-20261103"
+    },
+    {
+      "sourceUrl": "https://www.grand-seiko.com/jp-ja/news/2026/topics/20261104",
+      "names": [
+        "グランドセイコー 電子保証サービス"
+      ],
+      "decision": "confirmed",
+      "reason": "11月4日付の終了・復旧告知は10月27日から利用可能になったと説明しています。下段に残る10月21日の停止案内と区別します。保守中の購入で保証No.が空欄の保証カードについて、電子保証登録後に確認する手順を案内。登録操作や番号照合は実施していません。",
+      "checkedAt": "2026-11-04T23:40:04Z",
+      "sourceRead": "body_retrieved",
+      "confirmedId": "grand-seiko-ewarranty-restored-20261027"
+    },
+    {
+      "sourceUrl": "https://www.mfj.or.jp/2026/11/04/93211/",
+      "names": [
+        "日本モーターサイクルスポーツ協会（MFJ）サービス"
+      ],
+      "decision": "confirmed",
+      "reason": "11月4日掲載の公式本文を独立した読取りでも確認しました。終了時計の食い違いがあるため、利用前に公式の最新案内を確認してください。予定時刻が過ぎたことを実施・復旧の証拠にはしていません。",
+      "checkedAt": "2026-11-04T23:40:04Z",
+      "sourceRead": "body_retrieved",
+      "confirmedId": "mfj-emergency-maintenance-20261105"
+    },
+    {
+      "sourceUrl": "https://www.e-tax.nta.go.jp/topics/2026/topics_20261104_mentenansu.htm",
+      "names": [
+        "国税電子申告・納税システム e-Tax"
+      ],
+      "decision": "confirmed",
+      "reason": "11月4日付の公式検索収録本文は緊急メンテナンス中で利用できないと案内しています。取得した公式本文には不審通信・侵害・漏えい・PHP原因の記載はありません。第三者の原因説明を公式確認として採用せず、10月の別告知や未照合の元資料と分けています。申告・納税・ログイン操作は未実施です。",
+      "checkedAt": "2026-11-04T23:40:04Z",
+      "sourceRead": "official_indexed_body",
+      "confirmedId": "etax-emergency-maintenance-20261104"
     }
   ],
   "relationships": [
@@ -105697,6 +106202,12 @@
       "childId": "sukiya-app-maintenance",
       "type": "independent_official_notice_found_original_candidate_still_unread",
       "reason": "元第三者投稿の本文は未読のまま保持。別の運営exact原典の確認を、元投稿の照合完了やpending削除へ置き換えない。"
+    },
+    {
+      "parentPendingSourceUrl": "https://x.com/hyogoartm/status/2113186452955906354",
+      "childId": "hyogo-php-stopped-sites-20261104",
+      "type": "independent_official_notice_found_original_candidate_still_unread",
+      "reason": "県の公式停止一覧を別に確認。元資料の本文・所有の確認完了には置き換えず、候補を保持。"
     }
   ],
   "reviewCoverage": {
@@ -110021,6 +110532,16 @@
         "allPriorSourceIdentitiesRetained": 2830,
         "unresolvedPreviouslyCollectedGroups": 2043,
         "result": "557カード/範囲内終了101/未照合2043、元2830行全保持＋直接公式2URLで2832行。時刻経過を実再開にしない。"
+      },
+      {
+        "checkedAt": "2026-11-04T23:40:04Z",
+        "scope": "今回10告知群・9系列のみ。全カード・全候補の同時再確認ではない。",
+        "newCards": 7,
+        "updatedCards": 2,
+        "additionalSourceRows": 11,
+        "totalSourceRowsAfter": 2870,
+        "unresolvedPreviouslyCollectedGroups": 2044,
+        "limits": "提供元の公表に基づく記録。サービスのログイン、申請、視聴などの機能試験や安全性の独立検証は未実施。"
       }
     ],
     "sourceRowsDecisionBasis": "元収集行に保存した当時の判断内訳です。後続の公式照合結果はsourceReviews/最新followupReview、現在の未解決グループはpendingを参照してください。元の収集行は保持しています。",
@@ -125958,6 +126479,135 @@
         }
       ],
       "scope": "承認された4件を追加。予定中止・受付開始・自社HP再開・部分復旧を区別。"
+    },
+    {
+      "id": "official-followups-20261105-0836",
+      "checkedAt": "2026-11-04T23:40:04Z",
+      "rowCount": 11,
+      "reviewedSourceCount": 12,
+      "members": [
+        {
+          "name": "InfiniCLOUD 新規登録・容量アップグレード",
+          "sourceUrl": "https://infini-cloud.net/ja/news_20261021.html",
+          "verification": "confirmed",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-11-04T23:40:04Z",
+          "confirmedId": "infinicloud-partial",
+          "collectionBatch": "official-followups-20261105-0836",
+          "observation": "InfiniCLOUD 新規登録・容量アップグレード。提供元の公表と実機能検証を区別。"
+        },
+        {
+          "name": "MyROYAL（ロイヤル）",
+          "sourceUrl": "https://www.royal-co.net/news/5151/",
+          "verification": "confirmed",
+          "sourceRead": "official_indexed_body",
+          "checkedAt": "2026-11-04T23:40:04Z",
+          "confirmedId": "myroyal",
+          "collectionBatch": "official-followups-20261105-0836",
+          "observation": "11/4の復旧報告。提供元の公表と実機能検証を区別。"
+        },
+        {
+          "name": "Canonet レンタルサーバー（W1〜W4を区分）",
+          "sourceUrl": "https://hminfo.canon.jp/faq/show/502?site_domain=default",
+          "verification": "confirmed",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-11-04T23:40:04Z",
+          "confirmedId": "canonet-php-cohort-status-20261104",
+          "collectionBatch": "official-followups-20261105-0836",
+          "observation": "W3・W4の予定と限定群の再開報告。提供元の公表と実機能検証を区別。"
+        },
+        {
+          "name": "Canonet レンタルサーバー（W1〜W4を区分）",
+          "sourceUrl": "https://hminfo.canon.jp/faq/show/505?site_domain=default",
+          "verification": "confirmed",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-11-04T23:40:04Z",
+          "confirmedId": "canonet-php-cohort-status-20261104",
+          "collectionBatch": "official-followups-20261105-0836",
+          "observation": "W1・W2の予定・検証状況と限定再開。提供元の公表と実機能検証を区別。"
+        },
+        {
+          "name": "学認LMS 研究データ管理講座・PtM",
+          "sourceUrl": "https://contents.nii.ac.jp/lms_support/info/maintenance/20261104152106-0",
+          "verification": "confirmed",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-11-04T23:40:04Z",
+          "confirmedId": "gakunin-lms-emergency-20261104",
+          "collectionBatch": "official-followups-20261105-0836",
+          "observation": "学認LMS 研究データ管理講座・PtM。提供元の公表と実機能検証を区別。"
+        },
+        {
+          "name": "兵庫県・関係機関の一部Webサイト",
+          "sourceUrl": "https://web.pref.hyogo.lg.jp/kk51/website_20261023.html",
+          "verification": "confirmed",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-11-04T23:40:04Z",
+          "confirmedId": "hyogo-php-stopped-sites-20261104",
+          "collectionBatch": "official-followups-20261105-0836",
+          "observation": "県の一部Webサイト停止案内。提供元の公表と実機能検証を区別。"
+        },
+        {
+          "name": "兵庫県・関係機関の一部Webサイト",
+          "sourceUrl": "https://web.pref.hyogo.lg.jp/kk51/documents/2026110416.pdf",
+          "verification": "confirmed",
+          "sourceRead": "pdf_text_retrieved",
+          "checkedAt": "2026-11-04T23:40:04Z",
+          "confirmedId": "hyogo-php-stopped-sites-20261104",
+          "collectionBatch": "official-followups-20261105-0836",
+          "observation": "11/4 16時時点の停止一覧（PDF文字情報。表の画像確認は未完了）。提供元の公表と実機能検証を区別。"
+        },
+        {
+          "name": "LoGoフォーム（提供元と日野市立図書館の案内）",
+          "sourceUrl": "https://publitech.fun/logoform_failure",
+          "verification": "confirmed",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-11-04T23:40:04Z",
+          "confirmedId": "logoform-database-outage-20261103",
+          "collectionBatch": "official-followups-20261105-0836",
+          "observation": "提供元の障害経過・申請の扱い・再開見込み。提供元の公表と実機能検証を区別。"
+        },
+        {
+          "name": "LoGoフォーム（提供元と日野市立図書館の案内）",
+          "sourceUrl": "https://www.lib.city.hino.lg.jp/news/announce/2026/October/20261022110032.html",
+          "verification": "confirmed",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-11-04T23:40:04Z",
+          "confirmedId": "logoform-database-outage-20261103",
+          "collectionBatch": "official-followups-20261105-0836",
+          "observation": "日野市立図書館の電子申請停止と窓口・電話代替。提供元の公表と実機能検証を区別。"
+        },
+        {
+          "name": "グランドセイコー 電子保証サービス",
+          "sourceUrl": "https://www.grand-seiko.com/jp-ja/news/2026/topics/20261104",
+          "verification": "confirmed",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-11-04T23:40:04Z",
+          "confirmedId": "grand-seiko-ewarranty-restored-20261027",
+          "collectionBatch": "official-followups-20261105-0836",
+          "observation": "グランドセイコー 電子保証サービス。提供元の公表と実機能検証を区別。"
+        },
+        {
+          "name": "日本モーターサイクルスポーツ協会（MFJ）サービス",
+          "sourceUrl": "https://www.mfj.or.jp/2026/11/04/93211/",
+          "verification": "confirmed",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-11-04T23:40:04Z",
+          "confirmedId": "mfj-emergency-maintenance-20261105",
+          "collectionBatch": "official-followups-20261105-0836",
+          "observation": "日本モーターサイクルスポーツ協会（MFJ）サービス。提供元の公表と実機能検証を区別。"
+        },
+        {
+          "name": "国税電子申告・納税システム e-Tax",
+          "sourceUrl": "https://www.e-tax.nta.go.jp/topics/2026/topics_20261104_mentenansu.htm",
+          "verification": "confirmed",
+          "sourceRead": "official_indexed_body",
+          "checkedAt": "2026-11-04T23:40:04Z",
+          "confirmedId": "etax-emergency-maintenance-20261104",
+          "collectionBatch": "official-followups-20261105-0836",
+          "observation": "国税電子申告・納税システム e-Tax。提供元の公表と実機能検証を区別。"
+        }
+      ],
+      "scope": "既存2カードの続報と新7カード。10告知群を9系列に整理。検索収録本文と直接取得を区別し、既存候補を解決済みにしない。"
     }
   ],
   "officialFollowups": [
@@ -128179,5 +128829,67 @@
       }
     ],
     "scope": "今回の6件だけを限定照合。既存の全候補・未確認分類・過去資料は保持し、全件再取得とはしない。未確認4件はconfirmedに加算しない。"
+  },
+  "dailyOfficialFollowup20261105": {
+    "batchId": "official-followups-20261105-0836",
+    "checkedAt": "2026-11-04T23:40:04Z",
+    "updatedIds": [
+      "infinicloud-partial",
+      "myroyal"
+    ],
+    "newIds": [
+      "canonet-php-cohort-status-20261104",
+      "gakunin-lms-emergency-20261104",
+      "hyogo-php-stopped-sites-20261104",
+      "logoform-database-outage-20261103",
+      "grand-seiko-ewarranty-restored-20261027",
+      "mfj-emergency-maintenance-20261105",
+      "etax-emergency-maintenance-20261104"
+    ],
+    "previousRecords": [
+      {
+        "id": "myroyal",
+        "name": "MyROYAL（ロイヤル）",
+        "url": "https://www.royal-co.net/news/5113/",
+        "start": "10/21 19:00",
+        "end": "未記載",
+        "scope": "利用者設定、Web発注、注文履歴、在庫照会。",
+        "safe": "PHP脆弱性対策用メンテナンスと公式題名に明記。",
+        "reason": "PHP対策",
+        "cat": "business",
+        "date": "10/21",
+        "source": "公式検索本文",
+        "tag": "対象範囲を確認",
+        "status": "公式の実施告知・完了未確認",
+        "restored": false,
+        "icon": "https://www.royal-co.net/favicon.ico"
+      },
+      {
+        "id": "infinicloud-partial",
+        "name": "InfiniCLOUD 新規登録・容量アップグレード",
+        "url": "https://infini-cloud.net/ja/news_20261021.html",
+        "icon": "https://infini-cloud.net/favicon.ico",
+        "cat": "web",
+        "tag": "Webサービス",
+        "status": "公式の実施告知（完了未確認）",
+        "start": "10/21から（時刻未記載）",
+        "end": "来週半ばの再開予定（厳密な日時なし）",
+        "scope": "新規アカウント登録と新規容量アップグレード。",
+        "reason": "PHP脆弱性対応",
+        "safe": "既存のファイルアクセスやログインなど、告知にない機能まで停止扱いにしません。",
+        "restored": false,
+        "date": "2026/10/22 01:20 JST確認",
+        "source": "公開の公式原文を確認。操作を伴う機能テストは未実施",
+        "checkedAt": "2026-10-21T16:20:00Z",
+        "ownershipEvidence": [
+          {
+            "url": "https://infini-cloud.net/ja/news_20261021.html",
+            "note": "運営者公式ページ・公式アカウントへのリンクを確認。"
+          }
+        ]
+      }
+    ],
+    "unresolvedOriginalCandidatesRetained": true,
+    "summary": "InfiniCLOUD再開未定とMyROYAL限定復旧、Canonet版別予定・再開、NII/電子保証の限定終了、兵庫県停止一覧、LoGo再申請・図書館代替、MFJ予定時計差、e-Tax理由未記載を追加。"
   }
 }

@@ -12,19 +12,19 @@ const i = id => incident.incidents.find(item => item.id === id);
 const hash = value => createHash('sha256').update(JSON.stringify(value)).digest('hex');
 
 test('four approved maintenance notices retain all old records and resolve only their two matching pending URLs', () => {
-  assert.equal(maintenance.confirmed.length, 580);
-  assert.equal(maintenance.confirmed.filter(item => item.restored).length, 114);
+  assert.equal(maintenance.confirmed.length, 587);
+  assert.equal(maintenance.confirmed.filter(item => item.restored).length, 117);
   assert.equal(maintenance.pending.length, 2044);
-  assert.equal(maintenance.discovery.length, 2859);
+  assert.equal(maintenance.discovery.length, 2870);
   const batch = maintenance.collectionBatches.find(item => item.id === 'official-monitor-20261104-six-approved');
   assert.equal(batch.rowCount, 4);
   const resolved = maintenance.pendingResolutionHistory.filter(item => item.resolvedBatch === batch.id);
   assert.equal(resolved.length, 2);
   assert.deepEqual(resolved.map(item => item.originalPendingIndex).sort((a,b) => a-b), [2044,2045]);
   for (const item of resolved) assert.equal(maintenance.pending.some(row => row.url === item.originalPendingGroup.url), false);
-  assert.equal(hash(maintenance.confirmed.slice(0, 576)), 'ec409102ada836a1277d2ab83140d27374b3de0d6c82079beb483f34dd00f482');
+  assert.equal(hash(maintenance.confirmed.slice(0, 576).map(item => maintenance.dailyOfficialFollowup20261105.previousRecords.find(previous => previous.id === item.id) ?? item)), 'ec409102ada836a1277d2ab83140d27374b3de0d6c82079beb483f34dd00f482');
   assert.equal(hash(maintenance.discovery.slice(0, 2855)), '304c32a90e0e7790c92826b6471cb03f3b9c96f0b45e1b73fa09d2ee6d720e48');
-  assert.match(maintenanceHTML, /今回の限定照合：2026\/11\/04 21:42 JST。/);
+  assert.match(maintenanceHTML, /11\/4 21:42 JSTの限定照合記録：/);
 });
 
 test('cancellation, entry reopening and scope-limited restoration do not become blanket service recovery', () => {

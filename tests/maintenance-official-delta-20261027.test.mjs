@@ -10,8 +10,8 @@ const hash=value=>createHash('sha256').update(JSON.stringify(value)).digest('hex
 const priorHashes={confirmed:'d4540107931cde655a2848deef1c11e182de869b573e2903567badbbd3945031',pending:'84eb1a88c2bbdcbd02c8b8899200a76507b692f67f6f6c662a4f152ca3eae49c',discovery:'aa17e17b9111f62bed66ddc9308cd29fa5fcf663df176bfc1447564979eb7fae'};
 const get=id=>data.confirmed.find(c=>c.id===id);
 test('six official followups preserve every prior confirmed card and source row',()=>{
- assert.equal(hash(data.confirmed.slice(0,557).map(c=>c.id==='softbank-emergency-alert-mail'?c.history.find(h=>h.id===c.id):c)),priorHashes.confirmed);
- assert.equal(data.confirmed.length,580);assert.equal(data.discovery.length,2859);assert.equal(data.pending.length,2044);
+ assert.equal(hash(data.confirmed.slice(0,557).map(c=>data.dailyOfficialFollowup20261105.previousRecords.find(old=>old.id===c.id)??c).map(c=>c.id==='softbank-emergency-alert-mail'?c.history.find(h=>h.id===c.id):c)),priorHashes.confirmed);
+ assert.equal(data.confirmed.length,587);assert.equal(data.discovery.length,2870);assert.equal(data.pending.length,2044);
  for(const [key,count] of [['pending',2043],['discovery',2832]]) {
   const prior=data[key].slice(0,count).map(row=>{const current={...row};delete current.relatedOfficialEvidence;return current;});
   assert.equal(hash(prior),priorHashes[key]);
