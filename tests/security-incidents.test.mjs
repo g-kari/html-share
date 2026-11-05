@@ -90,7 +90,7 @@ test('every cause type composes with region, certainty, year/month, and normaliz
     for (const region of ['all','日本','海外']) {
       for (const certainty of ['all','known','unknown']) {
         for (const scope of ['all','2026','historical']) {
-          for (const month of ['all','2026-04','2026-09','2026-10']) {
+          for (const month of ['all','2026-04','2026-09','2026-10','2026-11']) {
             controls['cause-type'].value=type; controls.period.value=scope; controls.month.value=month;
             click('region',region); click('certainty',certainty);
             const expected=register.incidents.filter(item => (type==='all'||(type==='multiple'?item.cause_types.length>1:item.cause_types.includes(type)))&&(region==='all'||item.region===region)&&(certainty==='all'||item.cause_key===certainty)&&(scope==='all'||item.scope===scope)&&(month==='all'||item.catalog_month===month)).length;

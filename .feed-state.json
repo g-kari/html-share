@@ -61,11 +61,6 @@
       "published": "2026-10-29T14:53:02.000Z",
       "updated": "2026-10-30T07:18:38.000Z"
     },
-    "devsecops-oss.html": {
-      "fingerprint": "af4587cc95545b0ca5cf2f9aaeaac5848d0c998d4a61d5e95b4a8df66eb890fa",
-      "published": "2026-11-05T02:46:20.000Z",
-      "updated": "2026-11-05T02:46:20.000Z"
-    },
     "dsh-ollama-cloud.html": {
       "fingerprint": "3983f85f4dcd9c0003b95314b5cf3f61cb575448be472d6acd3c4db40f4351ae",
       "published": "2026-10-06T06:15:49.000Z",
@@ -172,9 +167,9 @@
       "updated": "2026-10-03T06:21:28.000Z"
     },
     "security-incidents.html": {
-      "fingerprint": "cf788cdcc40c462c784e200af34cf4fae4dc02ef5859c7dd6189e8c744574e02",
+      "fingerprint": "b95a872e2f1cebc36e9a3a1bf02aff477ce7c954b5c7f097f77e47fe6a84e769",
       "published": "2026-10-02T06:08:44.000Z",
-      "updated": "2026-11-04T13:09:33.000Z"
+      "updated": "2026-11-05T03:16:48.000Z"
     },
     "security-lessons.html": {
       "fingerprint": "3999cbaad7e85c2ca13671c6899ee220783415e2acf49558a1a46ff579febb25",
