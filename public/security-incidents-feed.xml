@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Wed, 04 Nov 2026 13:09:33 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 05 Nov 2026 03:16:48 GMT</lastBuildDate>
+    <item>
+      <title>国内9系列を追加</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#3eb9b29e115d2c59465419cab869210874b7c48d4b3c398256f3354bc3ac7f2c</guid>
+      <description>国内9系列を追加。アララは利用企業TKCの続報を統合し、7NOWと出前館はCBcloudの同じ系列として整理。アイスタイル、ノジマ、PCS、SmartNews、Shippio、Getchu、インテージの公式公表から、確認済み流出・可能性・調査中を区別。人数と件数、異なる区分は合算しない。 GitBook、Chainalysis、Northflank、WorkOS、Trigger.devの5件を追加。GitBookは11月4日の詳細報告、Chainalysisは同日の一部パスワード露出とKYT等の停止を反映。公開日と発生日、実際の取得確認と露出扱いの評価、提供元の復旧と利用者側の対処を区別。 ApplyNow11月4日最終報を反映。396,920人と内数のSign雇用契約者30,067人を記録し、利用企業別の既報件数と合算しない。外部調査の10月23日完了、会社が認めた管理上の不備、実施済み・進行中・予定の対策を分離。 ConnectWise11月4日続報を反映。報告・エクスポート等の復旧と請求機能の復旧継続、SaaS Security・Cloud Automationの復旧と連携再接続を区別。ログイン方式別の再設定・同意、テナント再認可と正常バックアップ確認を補足。</description>
+      <pubDate>Thu, 05 Nov 2026 03:16:48 GMT</pubDate>
+      <dcterms:created>2026-11-05T03:16:48.000Z</dcterms:created>
+    </item>
     <item>
       <title>セゾンの会員管理基盤とNTTデータの委託先SaaSの2系列を追加</title>
       <link>https://share.0g0.xyz/security-incidents</link>
