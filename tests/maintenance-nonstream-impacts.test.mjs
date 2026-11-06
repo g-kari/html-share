@@ -4,14 +4,14 @@ import {readFileSync} from 'node:fs';
 import {addSocialMetadata} from '../scripts/social-metadata.mjs';
 const d=JSON.parse(readFileSync('public/data/emergency-maintenance-20261021.json'));
 const h=readFileSync('public/php-emergency-maintenance.html','utf8');
-test('non-stream effects remain ten separate leads with six official confirmations',()=>{
- assert.equal(d.nonStreamImpacts.length,10);
+test('non-stream effects retain ten old leads and four new bounded official impacts',()=>{
+ assert.equal(d.nonStreamImpacts.length,14);
  assert.equal(d.nonStreamImpacts.reduce((n,r)=>n+r.candidateUrls.length,0),14);
- assert.equal(d.nonStreamImpacts.filter(r=>r.status==='verified_limited').length,6);
+ assert.equal(d.nonStreamImpacts.filter(r=>r.status==='verified_limited').length,10);
  assert.equal(d.nonStreamImpacts.filter(r=>r.status==='pending').length,4);
  for(const r of d.nonStreamImpacts){assert.equal(r.candidateTextRead,false);if(r.status==='pending')assert.equal(r.summary,null);}
- assert.equal(d.confirmed.length,587);assert.equal(d.pending.length,2044);assert.equal(d.discovery.length,2870);
- assert.equal(d.confirmed.filter(x=>x.restored).length,117);
+ assert.equal(d.confirmed.length,599);assert.equal(d.pending.length,2044);assert.equal(d.discovery.length,2887);
+ assert.equal(d.confirmed.filter(x=>x.restored).length,122);
  assert.ok(h.indexOf('id="stream-impacts"')<h.indexOf('id="non-stream-impacts"'));
  assert.ok(h.indexOf('id="non-stream-impacts"')<h.indexOf('id="pending"'));
  assert.doesNotMatch(h,/01M5PFXR|gizensya\/cursor|Sentinel_/);
