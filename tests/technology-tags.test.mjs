@@ -15,6 +15,13 @@ const keys = (record, kind) => automaticTags(record).filter((item) => item.kind 
 const record = (title, lead = "", category = "agent", extra = {}) => ({ title, lead, category, ...extra });
 
 const existingProducts = {
+  "claude-code-21319-mcp-permission-boundaries": ["claude-code"],
+  "codex-01670-provider-history-network-approval": ["codex"],
+  "cloudflare-workers-ai-retirement-20261120": ["other"],
+  "cloudflare-durable-objects-automatic-retries": ["cloudflare-durable-objects"],
+  "aws-agentcore-web-answer-ga": ["other"],
+  "vrchat-sdk-3106-live-parameters-udon": ["vrchat"],
+
   "claude-code-21318-permission-config-save": ["claude-code"],
   "llamacpp-090-fp8-kv-audio-api": ["llama-cpp"],
   "n8n-2466-npm-install-fix": ["other"],
@@ -127,6 +134,12 @@ test("all authored records have deterministic product/domain/change dimensions",
 
 test("current change tags distinguish pricing, fixes, public weights, GA, beta and correction", () => {
   const expected = {
+    "claude-code-21319-mcp-permission-boundaries": ["fix"],
+    "codex-01670-provider-history-network-approval": ["fix"],
+    "cloudflare-workers-ai-retirement-20261120": ["deprecation"],
+    "cloudflare-durable-objects-automatic-retries": ["update"],
+    "aws-agentcore-web-answer-ga": ["ga"],
+    "vrchat-sdk-3106-live-parameters-udon": ["update"],
     "claude-code-21318-permission-config-save": ["fix"],
     "llamacpp-090-fp8-kv-audio-api": ["compatibility"],
     "n8n-2466-npm-install-fix": ["fix"],
@@ -193,8 +206,8 @@ test("current change tags distinguish pricing, fixes, public weights, GA, beta a
   "cloudflare-http3-client-cancel-499": ["improvement"],
   "codex-cli-01621": ["fix"],
   "claude-code-21296": ["fix","compatibility"],
-  "vrchat-202641-open-beta": ["fix","preview"],
-  "vrchat-planned-parameters-raycast-colliders": ["preview"],
+  "vrchat-202641-open-beta": ["fix", "ga", "preview"],
+  "vrchat-planned-parameters-raycast-colliders": ["ga"],
   "aws-bedrock-cost-product-attributes": ["pricing"],
   "cloudflare-workflows-createbatch-object": ["compatibility"],
   "unity-cli-beta13-pipeline-names": ["preview"],
