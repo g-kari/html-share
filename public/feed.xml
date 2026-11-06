@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Thu, 05 Nov 2026 05:54:35 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 06 Nov 2026 00:27:31 GMT</lastBuildDate>
+    <item>
+      <title>2026年 不正アクセス・情報漏えいウォッチ｜原因・出典・続報</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/security-incidents</guid>
+      <description>2026年の不正アクセス・情報漏えいを原因・影響・対応・日付・一次資料で整理。全215件。ドコモ・MUJI・ブラストメールを追加し、Shippio・PCS・Chainalysisの公式続報を反映。</description>
+      <pubDate>Fri, 06 Nov 2026 00:27:31 GMT</pubDate>
+      <dcterms:created>2026-10-02T06:08:44.000Z</dcterms:created>
+      <dcterms:modified>2026-11-06T00:27:31.000Z</dcterms:modified>
+    </item>
     <item>
       <title>DevSecOpsをOSSで組み立てる：統合ダッシュボードと用途別構成</title>
       <link>https://share.0g0.xyz/devsecops-oss</link>
@@ -16,15 +25,6 @@
       <pubDate>Thu, 05 Nov 2026 05:54:35 GMT</pubDate>
       <dcterms:created>2026-11-05T03:13:34.000Z</dcterms:created>
       <dcterms:modified>2026-11-05T05:54:35.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>2026年 不正アクセス・情報漏えいウォッチ｜原因・出典・続報</title>
-      <link>https://share.0g0.xyz/security-incidents</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/security-incidents</guid>
-      <description>2026年の不正アクセス・情報漏えい事案と過去の主要事例を、原因・影響・対応・日付・一次資料で整理。全212件。国内9系列・海外5件とApplyNow最終報、ConnectWiseの復旧続報を追加。</description>
-      <pubDate>Thu, 05 Nov 2026 03:16:48 GMT</pubDate>
-      <dcterms:created>2026-10-02T06:08:44.000Z</dcterms:created>
-      <dcterms:modified>2026-11-05T03:16:48.000Z</dcterms:modified>
     </item>
     <item>
       <title>脆弱性レポート | 実悪用・修正版・対処</title>

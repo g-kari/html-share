@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Thu, 05 Nov 2026 03:16:48 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 06 Nov 2026 00:27:31 GMT</lastBuildDate>
+    <item>
+      <title>NTTドコモ、MUJI、ブラストメールの未掲載3件を公式資料から追加</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#d576c0aefd53ed1390f9ac23499fa49a350b61bdafeaa671f9874f8a088c5288</guid>
+      <description>NTTドコモ、MUJI、ブラストメールの未掲載3件を公式資料から追加。ドコモの最大約30万件の流出確認と、MUJIの最大約2,726万件・カード旧情報等の可能性を区別。ブラストメールの421件は契約件数で、全契約者情報とは別区分。10月の初報・11月の続報と今回の掲載日を分け、重複や異なる単位を合算しない。 Shippioの11月5日9:20頃からの順次再開、氏名・メールの漏えい確認、ユーザー電話番号は保有せず漏えいなしとの訂正を反映。PCSには損保ジャパン約6.5万件の可能性と、提供元から報告されたアクセス制御・認証情報管理の設定不備を追記。提供元全体の件数へ加算しない。 Chainalysisの11月4日23:00 EST（11月5日04:00 UTC）続報を反映。全ユーザーのパスワードハッシュ・有効な認証トークン等の露出と、一部KYTアカウントへの不正アクセスの疑いを追記。初報時の証拠なしという説明を最新の評価とせず、11月5日の復旧開始予定を完了扱いしない。</description>
+      <pubDate>Fri, 06 Nov 2026 00:27:31 GMT</pubDate>
+      <dcterms:created>2026-11-06T00:27:31.000Z</dcterms:created>
+    </item>
     <item>
       <title>国内9系列を追加</title>
       <link>https://share.0g0.xyz/security-incidents</link>

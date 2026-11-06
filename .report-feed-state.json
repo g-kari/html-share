@@ -1822,7 +1822,7 @@
         "cec-datacenter-20260805": "64512b0b0b2e1693ee0e33f2f3d94daca3397821cbd5aeb71afcd6f242895ce1",
         "ceres-pointincome-20261005": "8e4ba99ea257fb88a31ceda3c6159823b8ae821a51243f31063d82cab97e4e17",
         "certfr-refrigeration-20261012": "d83a4a7b8ced172a461391aedc2e339f383a5fd8dac81590af88e909d6813108",
-        "chainalysis-internal-tools-202610": "50ee1f3775b2be42e45e02044aecb3a538add1dc175bb300f1aa1bbb7ce399a9",
+        "chainalysis-internal-tools-202610": "2683cb9d923300eab61cbf136e33200d62c39d2906f4e9ece9702404ad2149c3",
         "change-healthcare-20240212": "b916068f884c94a6d1d4569351b251b68b49afa1686518bc562cbda572ba08b0",
         "chuden-credentials-20260729": "1231c7761d4f157f05b11d9e51e68267dee9e9bb48fb872bdc228ecf9a976138",
         "cinra-job-cloud-20260818": "e59118944b62794f4d6162a2069c14940b69c70c9904544f2afad6b238ff1187",
@@ -1840,6 +1840,7 @@
         "denmark-cpr-202609": "09530cda566c311efec57744d4aac7f0b639d60adec60ba71becf9f6e77af99a",
         "digital-gss-20260625": "cc80960f66e57c16c31434b188bc63b70a51ddc777c374564f6462a08863a5f0",
         "divd-zammad-20260921": "d2ed878c758362ae76bd4939b2fcf4e8d0598bc5d2dcbdcf2af782ac87ebd48e",
+        "docomo-online-mydocomo-20261104": "ed5885087fa20de4b42abd63fbd725dd50466c59a8d15b73f3528182c1d3fce4",
         "dotmoney-2026": "c7af7398ec07c643e78a40077d281d63aa937bb31a8d699183657191fc17be88",
         "doublecounter-metabase-cloud-20261004": "324f97262bf7852be87d42327a38231fd3f1207bd2f65b487322c617949100ea",
         "dtu-dtubasen-20261002": "726e62cc3cfa7b584e780c786e0d6df3b223a71b81a665df96754943bf8806c6",
@@ -1947,13 +1948,15 @@
         "ozmall-20260926": "ce00c46bd69400064edec6258d9c59c6abe632c55e60f9c1d3b86f306bfd2fb6",
         "paperlogic-cloud-20260827": "f59bdf5b4d99338a511c08bef82f4ee97658bcd046144dd9314300485a752d24",
         "photon-health-metabase-202608": "558c59e446aba4aaa7f9c384e4db33a324ecaf83bfbddca3b1055702a71f8ce1",
-        "prestige-pcs-20261029": "7924d8f705bfd7e746f1a95cf96f6857ec7aceb9b791e8ed4a0093b48284db5c",
+        "prestige-pcs-20261029": "1635331a81dae85355706af975aa0fbbf47ef92ca9ee93b8451627ecefb713bf",
         "publica-software-provider-202609": "f8c0a91a379f319f6ace6bf377b9ca77628cf4ef3615c27c0d32700d71eeaa6d",
+        "rakus-blastmail-20261020": "fba7d55507087f1e86306ae198267d1f8874fb28d057570ea1ce94023166f805",
         "rakuten-drive-storage-20260129": "8ae32f2f5a1811466e9f1411b384e3c66d36169db75a8e5dfbd6cdc6bc24be9b",
         "relycomply-20260908": "981c4411cd7e77a861436ceaa824ec88624d990f7a6b6d61a8c2160ae63d18dd",
         "resorttrust-web-20261005": "5567964bc58411fdd4e6c2e9fdec6b29689d2caf29166a225b0053fff5d2f584",
         "rext-ransomware-20260809": "9ae25f9131e84b78714bd4a80299492444ca2962fa77c73523abd49abc725bef",
         "rideon-express-server-20261007": "bc349af089908121e5bc0e6b27b225351ec88de9cc43b6798cec07240af6e98b",
+        "ryohin-muji-app-store-20261030": "ab49a5ed61b3a6080e8700a194d745025bdc46711496ed50e46143ed6d2bede6",
         "saga-nas-20260924": "8294f062197e99320ddc4a0c3fd02cbfb521131872279375fa7f6b5040b3a3f5",
         "sagawa-tracking-20260930": "01693ab80d161aea7f7883c54e89da4d0e181c106002eefa61dd9026793fa127",
         "saison-smart-realestate-member-platform-20261029": "5cd72547f259aa350f753458118c1a75d4a95b0c2f0c384a3b5ef19e902b7889",
@@ -1963,7 +1966,7 @@
         "sammy-777conpass-20260925": "0ddd7ed0a519b461063980550af8d3fb28036656fb558427e540a93ec903501e",
         "seicomart-app-20260924": "f14bf9d749a2fc8634f8951945d5a47893a8ea10e6d51b23fca2f812dbe8c30e",
         "shimonoseki-disaster-mail-20261013": "d4af2bf0535c5001bf81067e8edc2a9ebfc44f871fa1417930f43d551cbe2405",
-        "shippio-platform-20261030": "29b8de1b58fd4d3ff31a3cf45d191219998dd445ba2feba17debddc285989e43",
+        "shippio-platform-20261030": "b27976bbdeec688037e5257dcacd0a1610f184497bef3dc47e0bf6b1194240db",
         "shueisha-hpc-20260909": "f90c6e88cfabe4ff0fe0609a104a01b1fff540bb2112e06ed2d373496ae0e978",
         "siu-phishing-20260709": "a449fe6d1aa354632cbe6b0d9e247ce5038d1e9be331a209c833f3ab6ea0667b",
         "skyticket-three-paths-20261009": "0b74296ce2e8ea118774aa00a1109f5277223733358ebad8e7fd19056de39d2f",
@@ -3012,6 +3015,33 @@
             "connectwise-cloud-backup-20261016"
           ],
           "date": "2026-11-05"
+        },
+        {
+          "signature": "c5a96161d9c13f424fd905c716c36021a07873c7178f36d2c6e58a6f553241ef",
+          "summary": "NTTドコモ、MUJI、ブラストメールの未掲載3件を公式資料から追加。ドコモの最大約30万件の流出確認と、MUJIの最大約2,726万件・カード旧情報等の可能性を区別。ブラストメールの421件は契約件数で、全契約者情報とは別区分。10月の初報・11月の続報と今回の掲載日を分け、重複や異なる単位を合算しない。",
+          "ids": [
+            "docomo-online-mydocomo-20261104",
+            "rakus-blastmail-20261020",
+            "ryohin-muji-app-store-20261030"
+          ],
+          "date": "2026-11-06"
+        },
+        {
+          "signature": "55c23a36d3044283c47b7cdfe4aab8fa67b3bdc200aaee70b78163e4154c526f",
+          "summary": "Shippioの11月5日9:20頃からの順次再開、氏名・メールの漏えい確認、ユーザー電話番号は保有せず漏えいなしとの訂正を反映。PCSには損保ジャパン約6.5万件の可能性と、提供元から報告されたアクセス制御・認証情報管理の設定不備を追記。提供元全体の件数へ加算しない。",
+          "ids": [
+            "prestige-pcs-20261029",
+            "shippio-platform-20261030"
+          ],
+          "date": "2026-11-06"
+        },
+        {
+          "signature": "91f2b8c4b71afcd710eb6fd4eaef6167ea2223da86b55cfd02ef2a168397e96d",
+          "summary": "Chainalysisの11月4日23:00 EST（11月5日04:00 UTC）続報を反映。全ユーザーのパスワードハッシュ・有効な認証トークン等の露出と、一部KYTアカウントへの不正アクセスの疑いを追記。初報時の証拠なしという説明を最新の評価とせず、11月5日の復旧開始予定を完了扱いしない。",
+          "ids": [
+            "chainalysis-internal-tools-202610"
+          ],
+          "date": "2026-11-06"
         }
       ],
       "items": [
@@ -4322,9 +4352,44 @@
           ],
           "published": "2026-11-05T03:16:48.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "d576c0aefd53ed1390f9ac23499fa49a350b61bdafeaa671f9874f8a088c5288",
+          "summary": "NTTドコモ、MUJI、ブラストメールの未掲載3件を公式資料から追加。ドコモの最大約30万件の流出確認と、MUJIの最大約2,726万件・カード旧情報等の可能性を区別。ブラストメールの421件は契約件数で、全契約者情報とは別区分。10月の初報・11月の続報と今回の掲載日を分け、重複や異なる単位を合算しない。 Shippioの11月5日9:20頃からの順次再開、氏名・メールの漏えい確認、ユーザー電話番号は保有せず漏えいなしとの訂正を反映。PCSには損保ジャパン約6.5万件の可能性と、提供元から報告されたアクセス制御・認証情報管理の設定不備を追記。提供元全体の件数へ加算しない。 Chainalysisの11月4日23:00 EST（11月5日04:00 UTC）続報を反映。全ユーザーのパスワードハッシュ・有効な認証トークン等の露出と、一部KYTアカウントへの不正アクセスの疑いを追記。初報時の証拠なしという説明を最新の評価とせず、11月5日の復旧開始予定を完了扱いしない。",
+          "journal": [
+            {
+              "signature": "c5a96161d9c13f424fd905c716c36021a07873c7178f36d2c6e58a6f553241ef",
+              "summary": "NTTドコモ、MUJI、ブラストメールの未掲載3件を公式資料から追加。ドコモの最大約30万件の流出確認と、MUJIの最大約2,726万件・カード旧情報等の可能性を区別。ブラストメールの421件は契約件数で、全契約者情報とは別区分。10月の初報・11月の続報と今回の掲載日を分け、重複や異なる単位を合算しない。",
+              "ids": [
+                "docomo-online-mydocomo-20261104",
+                "rakus-blastmail-20261020",
+                "ryohin-muji-app-store-20261030"
+              ],
+              "date": "2026-11-06"
+            },
+            {
+              "signature": "55c23a36d3044283c47b7cdfe4aab8fa67b3bdc200aaee70b78163e4154c526f",
+              "summary": "Shippioの11月5日9:20頃からの順次再開、氏名・メールの漏えい確認、ユーザー電話番号は保有せず漏えいなしとの訂正を反映。PCSには損保ジャパン約6.5万件の可能性と、提供元から報告されたアクセス制御・認証情報管理の設定不備を追記。提供元全体の件数へ加算しない。",
+              "ids": [
+                "prestige-pcs-20261029",
+                "shippio-platform-20261030"
+              ],
+              "date": "2026-11-06"
+            },
+            {
+              "signature": "91f2b8c4b71afcd710eb6fd4eaef6167ea2223da86b55cfd02ef2a168397e96d",
+              "summary": "Chainalysisの11月4日23:00 EST（11月5日04:00 UTC）続報を反映。全ユーザーのパスワードハッシュ・有効な認証トークン等の露出と、一部KYTアカウントへの不正アクセスの疑いを追記。初報時の証拠なしという説明を最新の評価とせず、11月5日の復旧開始予定を完了扱いしない。",
+              "ids": [
+                "chainalysis-internal-tools-202610"
+              ],
+              "date": "2026-11-06"
+            }
+          ],
+          "published": "2026-11-06T00:27:31.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "fc1a2cf380e60fda827e76a85d00e5a67a42911f"
+      "cursor": "e1a4c24c6e97338481478a82969b08b6436bcd48"
     }
   }
 }
