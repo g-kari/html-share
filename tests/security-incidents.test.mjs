@@ -109,3 +109,38 @@ test('every cause type composes with region, certainty, year/month, and normaliz
   assert.equal(controls['cause-type'].value,'all');
   assert.ok(buttons.filter(button=>button.dataset.filter==='all').every(button=>button.pressed));
 });
+
+test('November 6 additions distinguish publication dates, contract counts and possible exposure', () => {
+  const docomo = byId.get('docomo-online-mydocomo-20261104');
+  const muji = byId.get('ryohin-muji-app-store-20261030');
+  const blast = byId.get('rakus-blastmail-20261020');
+  for (const item of [docomo, muji, blast]) {
+    assert.ok(item);
+    assert.ok(item.sources.every(source => source.type === 'official'));
+    assert.ok(html.includes(`id="${item.id}"`));
+    assert.doesNotMatch(JSON.stringify(item), /turn\d+(search|view)\d+|L\d+-L\d+/);
+  }
+  assert.equal(docomo.disclosed, '2026-11-05');
+  assert.match(docomo.count, /最大約30万件.*30万人とはしない/);
+  assert.equal(muji.disclosed, '2026-10-30');
+  assert.equal(muji.updated, '2026-11-04');
+  assert.match(muji.count, /2,726万件.*109万件.*34.5万件.*120件.*非加算/);
+  assert.match(muji.impact_status, /可能性/);
+  assert.equal(blast.catalog_month, '2026-10');
+  assert.match(blast.count, /421件.*契約件数/);
+  assert.match(blast.response, /11月11日頃.*変動.*OEM.*未定/);
+});
+
+test('November 6 follow-ups separate restoration, corrected fields and authentication exposure', () => {
+  const shippio = byId.get('shippio-platform-20261030');
+  const pcs = byId.get('prestige-pcs-20261029');
+  const chainalysis = byId.get('chainalysis-internal-tools-202610');
+  assert.match(shippio.response, /11月5日9:20.*順次再開/);
+  assert.match(shippio.impact, /ユーザー電話番号.*保有せず漏えいなし.*会社電話/);
+  assert.deepEqual(pcs.cause_types, ['external_attack', 'operational_error']);
+  assert.match(pcs.cause_type_basis.note, /PCSからの報告.*設定不備/);
+  assert.match(pcs.count, /550万件.*6.5万件.*非加算/);
+  assert.match(chainalysis.count, /全ユーザー.*パスワードハッシュ.*live token/);
+  assert.match(chainalysis.impact, /不正アクセスがあったとみられる.*全ユーザーの平文パスワード窃取とは説明していない/);
+  assert.match(chainalysis.response, /復旧.*方針.*復旧完了の発表はない/);
+});
