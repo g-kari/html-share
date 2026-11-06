@@ -12,10 +12,10 @@ const i = id => incident.incidents.find(item => item.id === id);
 const hash = value => createHash('sha256').update(JSON.stringify(value)).digest('hex');
 
 test('four approved maintenance notices retain all old records and resolve only their two matching pending URLs', () => {
-  assert.equal(maintenance.confirmed.length, 587);
-  assert.equal(maintenance.confirmed.filter(item => item.restored).length, 117);
+  assert.equal(maintenance.confirmed.length, 599);
+  assert.equal(maintenance.confirmed.filter(item => item.restored).length, 122);
   assert.equal(maintenance.pending.length, 2044);
-  assert.equal(maintenance.discovery.length, 2870);
+  assert.equal(maintenance.discovery.length, 2887);
   const batch = maintenance.collectionBatches.find(item => item.id === 'official-monitor-20261104-six-approved');
   assert.equal(batch.rowCount, 4);
   const resolved = maintenance.pendingResolutionHistory.filter(item => item.resolvedBatch === batch.id);

@@ -4,15 +4,16 @@ import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 const data = JSON.parse(readFileSync('public/data/emergency-maintenance-20261021.json', 'utf8'));
 const html = readFileSync('public/php-emergency-maintenance.html', 'utf8');
-const get = id => data.confirmed.find(x => x.id === id);
+// Previous-state assertions remain tied to their saved November 5 evidence.
+const get = id => data.dailyOfficialFollowup20261106.previousRecords.find(x => x.id === id) ?? data.confirmed.find(x => x.id === id);
 const followup = data.dailyOfficialFollowup20261105;
 const hash = value => createHash('sha256').update(JSON.stringify(value)).digest('hex');
 
 test('new official followups preserve all original records, unresolved sources, and discovery rows', () => {
-  assert.equal(data.confirmed.length, 587);
-  assert.equal(data.confirmed.filter(x => x.restored).length, 117);
+  assert.equal(data.confirmed.length, 599);
+  assert.equal(data.confirmed.filter(x => x.restored).length, 122);
   assert.equal(data.pending.length, 2044);
-  assert.equal(data.discovery.length, 2870);
+  assert.equal(data.discovery.length, 2887);
   assert.equal(followup.newIds.length, 7);
   assert.deepEqual(followup.updatedIds, ['infinicloud-partial', 'myroyal']);
   const originals = data.confirmed.slice(0, 580).map(x => followup.previousRecords.find(old => old.id === x.id) ?? x);

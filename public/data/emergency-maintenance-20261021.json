@@ -1,6 +1,6 @@
 {
   "title": "2026年10月21日前後 緊急メンテナンス・関連告知一覧",
-  "checkedAt": "2026-11-04T23:40:04Z",
+  "checkedAt": "2026-11-05T23:35:00Z",
   "scope": "PHPの因果不問。今回の緊急/予防メンテと同時期の関連告知・別インシデントを区分。件数による上限なし。",
   "counting": "confirmedは公式資料を確認した対象別の告知カード数（部分本文・同一基盤・包括/個別の重なりを含む）。固有サイト数・実停止数・独立インシデント数・被害数ではない。pendingは原典/公式所有/対象範囲等の追加照合待ち。関連・重複・除外理由も全収集行に保持し、件数で打ち切らない。 実施自体が未定の停止可能性の予告も別状態（possible_unstarted）で保持し、実停止・復旧には数えません。",
   "confirmed": [
@@ -15467,21 +15467,21 @@
       "id": "logoform-database-outage-20261103",
       "name": "LoGoフォーム（提供元と日野市立図書館の案内）",
       "cat": "public",
-      "tag": "対象・予定を限定した公式告知",
-      "status": "全回答フォーム・管理画面停止。再開は見込み段階",
+      "tag": "対象範囲の復旧報告",
+      "status": "両環境の再開を提供元が報告",
       "reason": "データベース障害。今回のPHP因果は記載なし",
       "reasonKey": "other",
       "start": "11/3 11:57頃に送信エラー発生、12:40頃検知、15:30停止と提供元説明",
-      "end": "11/5 06:00時点では同日16:00以降（本日中）に再開する見込み。完了報告ではない。",
+      "end": "11/5 17:00にLGWAN、18:00にインターネット環境を再開と運営報告（原文TZ未明示）",
       "scope": "提供元の全回答フォーム・管理画面。日野市立図書館ではリクエスト、レファレンス、講演申し込みの電子申請が対象。",
-      "safe": "11月3日11:57〜15:30頃に送信エラーとなった申請は受け付け・保存されず、再開後の再申請が必要との提供元説明です。完了画面が出た回答は正常保存と説明。攻撃・漏えい・過去回答の破損を確認していないことも提供元の説明です。図書館は通常開館し、急ぐ場合は窓口・電話を案内しています。同図書館の10月のPHP対応電子図書館保守やNaxos障害とは別です。原文にない時間帯は補っていません。",
+      "safe": "提供元の11月5日18:00時点の更新がLGWAN環境17:00、インターネット環境18:00の再開を報告しています。以前の16:00以降という見込みは履歴へ残します。11月3日11:57頃〜15:30頃に送信エラーとなった申請は未受付・未保存で、再申請が必要との案内は継続。完了画面が表示された回答は正常保存との提供元説明です。日野市立図書館の窓口・電話案内と、10月の別PHP保守は区別します。実際の申請や個別受付の確認はしていません。",
       "url": "https://publitech.fun/logoform_failure",
-      "date": "提供元：11/5 06:00現在。図書館：11/4 10:00時点。",
-      "restored": false,
-      "noticeState": "announced",
+      "date": "11/5 18:00時点の提供元更新",
+      "restored": true,
+      "noticeState": "restored",
       "source": "公式本文を確認。運営による説明と、当方のサービス実操作は区別。",
       "sourceRead": "body_retrieved",
-      "checkedAt": "2026-11-04T23:40:04Z",
+      "checkedAt": "2026-11-05T23:35:00Z",
       "icon": null,
       "ownershipEvidence": [
         {
@@ -15565,27 +15565,405 @@
       "id": "etax-emergency-maintenance-20261104",
       "name": "国税電子申告・納税システム e-Tax",
       "cat": "public",
-      "tag": "対象・予定を限定した公式告知",
-      "status": "緊急メンテナンス中・利用不可と公式案内",
-      "reason": "緊急メンテナンス。取得した公式本文では理由未記載",
-      "reasonKey": "other",
+      "tag": "対象範囲の復旧報告",
+      "status": "利用再開を国税庁が報告",
+      "reason": "11/4に検知した不審な通信への対応と機器メンテナンス。PHP原因は未記載",
+      "reasonKey": "security",
       "start": "取得した公式本文では開始時計未記載",
-      "end": "終了時期は改めて同ホームページで案内するとの説明",
+      "end": "11/5更新で再開を報告。実再開時計は未記載",
       "scope": "緊急メンテナンス期間中のe-Tax利用。税務署の全業務停止へは広げない。",
-      "safe": "11月4日付の公式検索収録本文は緊急メンテナンス中で利用できないと案内しています。取得した公式本文には不審通信・侵害・漏えい・PHP原因の記載はありません。第三者の原因説明を公式確認として採用せず、10月の別告知や未照合の元資料と分けています。申告・納税・ログイン操作は未実施です。",
+      "safe": "同じ公式URLが「e-Tax再開のお知らせ」に更新され、必要な対応と安全性確認後の再開を報告しています。納税者情報の漏えいがないことを確認したというのは国税庁の説明です。不審通信の検知日、掲載日、更新日を分け、掲載時計から復旧時刻を推測しません。10月のPHP対応と今回の原因を結び付けず、当方による安全性・実申告の確認とも区別します。",
       "url": "https://www.e-tax.nta.go.jp/topics/2026/topics_20261104_mentenansu.htm",
-      "date": "11/4掲載。開始・終了時計は未記載。",
-      "restored": false,
-      "noticeState": "announced",
-      "source": "公式検索に収録された告知本文。ページ本文の直接取得は未完了。実機能試験は未実施。",
-      "sourceRead": "official_indexed_body",
-      "checkedAt": "2026-11-04T23:40:04Z",
+      "date": "11/4掲載、11/5更新",
+      "restored": true,
+      "noticeState": "restored",
+      "source": "同じ公式URLの更新本文を直接取得。申告・納税・ログイン操作は未実施。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-11-05T23:35:00Z",
       "icon": null,
       "ownershipEvidence": [
         {
           "url": "https://www.e-tax.nta.go.jp/topics/2026/topics_20261104_mentenansu.htm",
           "detail": "運営自身の公式サイトにある個別告知。",
           "readState": "official_indexed_body"
+        }
+      ]
+    },
+    {
+      "id": "osaka-prefecture-web-resumed-20261105",
+      "name": "大阪府 予算・公金支出・メールマガジン",
+      "cat": "public",
+      "reason": "PHP脆弱性への対応",
+      "reasonKey": "php",
+      "status": "残っていた3機能の再開を府が報告",
+      "start": "正確な開始時計は今回未確認",
+      "end": "11/5 12時頃から再開と報告。14時は報道提供時計",
+      "scope": "予算編成過程・公金支出情報の公表、メールマガジンの新規読者登録と履歴検索。",
+      "safe": "府の告知はPHP対応で停止していた残るシステムの再開を報告しています。「全面再開」という題名を府内のすべての独立システムの動作保証へ広げず、明記された3機能を記録します。「頃」を保持し、実際の登録・検索はしていません。",
+      "url": "https://www.pref.osaka.lg.jp/hodo/fumin/o070050/prs_51100.html",
+      "date": "11/5 14:00報道提供、再開報告は同日12時頃",
+      "restored": true,
+      "noticeState": "restored",
+      "tag": "対象範囲の復旧報告",
+      "source": "運営自身の通常公開本文を直接取得。機能の実操作・安全性の独立試験は未実施。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "icon": null,
+      "ownershipEvidence": [
+        {
+          "url": "https://www.pref.osaka.lg.jp/hodo/fumin/o070050/prs_51100.html",
+          "detail": "当該運営の公式ドメインの個別告知。",
+          "readState": "body_retrieved"
+        }
+      ]
+    },
+    {
+      "id": "ncd-public-website-resumed-20261105",
+      "name": "NCD公式Webサイト",
+      "cat": "web",
+      "reason": "PHP脆弱性への予防対応",
+      "reasonKey": "php",
+      "status": "公式Webの暫定運用終了・復旧を運営報告",
+      "start": "10/22 16:00頃（暫定運用開始）",
+      "end": "11/5 13:00頃（暫定運用終了）",
+      "scope": "公式Webのお問い合わせフォーム等。症例登録システムは別対象。",
+      "safe": "運営は簡易HTMLによる暫定運用と一部機能停止を終了したと報告。症例登録システムは問題となったPHPを利用しておらず、本件の症例情報漏えい等は発生していないとの運営説明です。公開Webの保守を症例登録システムの停止と混同せず、データの独立監査結果にはしません。",
+      "url": "https://www.ncd.or.jp/info/information/5660.html",
+      "date": "11/5掲載、期間の両端は頃表記",
+      "restored": true,
+      "noticeState": "restored",
+      "tag": "対象範囲の復旧報告",
+      "source": "運営自身の通常公開本文を直接取得。機能の実操作・安全性の独立試験は未実施。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "icon": null,
+      "ownershipEvidence": [
+        {
+          "url": "https://www.ncd.or.jp/info/information/5660.html",
+          "detail": "当該運営の公式ドメインの個別告知。",
+          "readState": "body_retrieved"
+        }
+      ]
+    },
+    {
+      "id": "jartis-partial-resumed-20261105",
+      "name": "日本診療放射線技師会 JARTIS",
+      "cat": "public",
+      "reason": "PHP脆弱性への予防対応",
+      "reasonKey": "php",
+      "status": "本体は順次再開、etudes連携は調整継続",
+      "start": "10/22から予防停止。実開始時計は未記載",
+      "end": "11/4 17:00頃から本体を順次再開。連携の終了は未確認",
+      "scope": "会員情報変更、各種申請・決済、イベント申込、CBT等。本体と外部講習連携を分離。",
+      "safe": "11月5日付の再開告知です。etudes提供元の10月29日22:00頃再開という報告があっても、JARTIS経由の告示研修・倫理指針セミナーへの遷移は接続調整中です。全機能復旧とはしません。ワクチン実技講習の特例は別の同日告知に基づき、下の利用者影響欄へ記録しています。",
+      "url": "https://www.jart.jp/news/info/20261105-01",
+      "date": "11/5掲載。再開開始は11/4 17:00頃",
+      "restored": false,
+      "noticeState": "partial",
+      "tag": "機能・予定・実績を区分",
+      "source": "運営自身の通常公開本文を直接取得。機能の実操作・安全性の独立試験は未実施。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "icon": null,
+      "ownershipEvidence": [
+        {
+          "url": "https://www.jart.jp/news/info/20261105-01",
+          "detail": "当該運営の公式ドメインの個別告知。",
+          "readState": "body_retrieved"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.jart.jp/news/info/20261105-01",
+          "title": "本体再開と外部連携の停止継続",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-11-05T23:35:00Z"
+        },
+        {
+          "url": "https://www.jart.jp/news/info/20261105-02",
+          "title": "ワクチン注射行為実技講習の特例",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-11-05T23:35:00Z"
+        }
+      ]
+    },
+    {
+      "id": "niigata-eniiigata-registration-alternative-20261105",
+      "name": "新潟市 建築関係資料の代替電子申請",
+      "cat": "public",
+      "reason": "e-NIIGATA緊急メンテナンス。PHPの記載なし",
+      "reasonKey": "other",
+      "status": "新規登録不可に対するメール・郵送代替を案内",
+      "start": "今回の告知に実開始時計なし",
+      "end": "終了未定。新規登録復旧後に臨時受付終了と案内",
+      "scope": "e-NIIGATA未登録者の建築計画概要書・証明書等。既存登録者は電子申請可能。",
+      "safe": "未登録者は申請書データを市へメール送付し、案内された手数料を定額小為替で郵送後、電子データの交付を受ける流れです。FAX申請と電話での照会・回答は不可と明記。全電子申請停止ではなく、新規登録できない人への臨時措置です。実際の申請・送信・郵送はしていません。",
+      "url": "https://www.city.niigata.lg.jp/kurashi/jyutaku/kenchiku/kenchikugaiyosho/daitaisochi.html",
+      "date": "11/5更新",
+      "restored": false,
+      "noticeState": "announced",
+      "tag": "機能・予定・実績を区分",
+      "source": "運営自身の通常公開本文を直接取得。機能の実操作・安全性の独立試験は未実施。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "icon": null,
+      "ownershipEvidence": [
+        {
+          "url": "https://www.city.niigata.lg.jp/kurashi/jyutaku/kenchiku/kenchikugaiyosho/daitaisochi.html",
+          "detail": "当該運営の公式ドメインの個別告知。",
+          "readState": "body_retrieved"
+        }
+      ]
+    },
+    {
+      "id": "cpi-db-admin-resumed-20261105",
+      "name": "CPI phpMyAdmin・phpPgAdmin",
+      "cat": "web",
+      "reason": "PHP脆弱性への対応",
+      "reasonKey": "php",
+      "status": "契約時期・DB版ごとの再開群を運営が掲載",
+      "start": "10/23 17:30頃に開始と運営追記",
+      "end": "対象群を10/30・11/2に再開済みと案内。実再開時計は未記載",
+      "scope": "指定シェアード・マネージドプランのDB管理画面。DB自体の稼働は停止対象外。",
+      "safe": "11月5日12:40更新の表はZZ、指定ACE01・SV-Basic・ビジネス スタンダード、指定MG/CHM群の再開を案内。一部ACE01とSV-Basic MySQL5.7は管理画面へのBasic認証が必要です。全契約やDB全体を停止・復旧扱いせず、詳細な契約時期は公式表を確認してください。未読の元X候補は別に保持します。",
+      "url": "https://www.cpi.ad.jp/news/support-info/261023/",
+      "date": "10/23掲載、11/5 12:40更新",
+      "restored": false,
+      "noticeState": "partial",
+      "tag": "機能・予定・実績を区分",
+      "source": "運営自身の通常公開本文を直接取得。機能の実操作・安全性の独立試験は未実施。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "icon": null,
+      "ownershipEvidence": [
+        {
+          "url": "https://www.cpi.ad.jp/news/support-info/261023/",
+          "detail": "当該運営の公式ドメインの個別告知。",
+          "readState": "body_retrieved"
+        }
+      ]
+    },
+    {
+      "id": "aucfan-partial-and-compensation-20261105",
+      "name": "オークファン 機能別復旧と補填検討",
+      "cat": "shopping",
+      "reason": "PHP脆弱性への予防対応",
+      "reasonKey": "php",
+      "status": "PC検索・入札予約は一部再開、他機能は復旧作業中",
+      "start": "今回の本文で正確な停止開始時計は未確認",
+      "end": "スマホ相場検索は11/6復旧予定。補填内容・実施時期は未決定",
+      "scope": "PC相場・買物検索、入札予約の一部、スマホ検索、プロPlus等を分離。",
+      "safe": "11月5日17:15時点でPC検索と入札予約の一部は利用可能との案内。ウォッチリスト連携や画像検索等は未復旧です。プロPlus向けにはPC版の期間おまとめ検索を案内しています。査定コンソール・MCPの申込終了と、MCPの10月末までの無料条件を残し、現在も無料受付中とは扱いません。補填は社内協議中で返金確約ではありません。",
+      "url": "https://help.aucfan.com/hc/ja/articles/63474809662873",
+      "date": "11/5 17:15時点。画面上の更新時計08:14とは区別",
+      "restored": false,
+      "noticeState": "partial",
+      "tag": "機能・予定・実績を区分",
+      "source": "運営自身の通常公開本文を直接取得。機能の実操作・安全性の独立試験は未実施。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "icon": null,
+      "ownershipEvidence": [
+        {
+          "url": "https://help.aucfan.com/hc/ja/articles/63474809662873",
+          "detail": "当該運営の公式ドメインの個別告知。",
+          "readState": "body_retrieved"
+        }
+      ]
+    },
+    {
+      "id": "whitepoint-transfer-maintenance-20261105",
+      "name": "Transfer Center / Transfer Center Business",
+      "cat": "web",
+      "reason": "安定稼働・セキュリティ強化。PHPの記載なし",
+      "reasonKey": "security",
+      "status": "昼の完了報告と夜の別保守予定を区分",
+      "start": "11/5 13:00は実施報告。別保守は同日18:00予定",
+      "end": "昼の保守は14:20完了報告。夜は23:00終了予定で実終了未確認",
+      "scope": "ファイル送受信、集荷、ログイン・設定。",
+      "safe": "運営は13:00開始の保守を14:20に完了と追記しましたが、その後の18:00〜23:00予定は別の告知です。アップロード途中のファイルは未完了の可能性があり、終了後の送信状況確認を案内。作成済みリンク・アップロード済みファイルは夜の保守後も利用可能との説明です。昼の完了を夜の完了へ転用しません。",
+      "url": "https://www.whitepoint.co.jp/news/202611053/",
+      "date": "11/5掲載。昼の完了追記は14:20",
+      "restored": false,
+      "noticeState": "announced",
+      "tag": "機能・予定・実績を区分",
+      "source": "運営自身の通常公開本文を直接取得。機能の実操作・安全性の独立試験は未実施。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "icon": null,
+      "ownershipEvidence": [
+        {
+          "url": "https://www.whitepoint.co.jp/news/202611053/",
+          "detail": "当該運営の公式ドメインの個別告知。",
+          "readState": "body_retrieved"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.whitepoint.co.jp/news/202611052/",
+          "title": "昼の実施と14:20完了報告",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-11-05T23:35:00Z"
+        },
+        {
+          "url": "https://www.whitepoint.co.jp/news/202611053/",
+          "title": "夜18:00〜23:00の予定",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-11-05T23:35:00Z"
+        }
+      ]
+    },
+    {
+      "id": "itscom-mypage-maintenance-20261105",
+      "name": "イッツコム マイページ・加入仮申込",
+      "cat": "web",
+      "reason": "システムメンテナンス。PHPの記載なし",
+      "reasonKey": "other",
+      "status": "対象機能の緊急メンテナンス予定",
+      "start": "11/5 18:00予定",
+      "end": "11/5 19:00予定。実終了未確認",
+      "scope": "マイページ・加入仮申し込み。インターネット接続は影響なしとの案内。",
+      "safe": "公式の対象地域・機能に限定した予定です。時間帯が過ぎたことや通常の問い合わせ導線があることを、実復旧・代替申込受付の確認にしていません。",
+      "url": "https://www.itscom.co.jp/support/userpage/20261105_A9414.html",
+      "date": "11/5の予定告知",
+      "restored": false,
+      "noticeState": "planned",
+      "tag": "機能・予定・実績を区分",
+      "source": "運営自身の通常公開本文を直接取得。機能の実操作・安全性の独立試験は未実施。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "icon": null,
+      "ownershipEvidence": [
+        {
+          "url": "https://www.itscom.co.jp/support/userpage/20261105_A9414.html",
+          "detail": "当該運営の公式ドメインの個別告知。",
+          "readState": "body_retrieved"
+        }
+      ]
+    },
+    {
+      "id": "nagasaki-php-sites-20261105",
+      "name": "長崎県 関連Webサイトの停止状況",
+      "cat": "public",
+      "reason": "PHP脆弱性への予防対応",
+      "reasonKey": "php",
+      "status": "11/5正午時点の停止中・停止予定一覧",
+      "start": "各サービスの実開始時計は今回未確認",
+      "end": "安全対策後の個別終了は未確認",
+      "scope": "在籍型出向支援、Nぴか、交通規制、新規就農、公共施設予約、職員募集、女性活躍、大気環境の8掲載対象。",
+      "safe": "一覧は11月5日12:00現在の状況です。この基準時計を停止開始にせず、県庁全体や一覧外サービスへ広げません。各項目の停止中・停止予定の細分と実復旧は未確認です。",
+      "url": "https://www.pref.nagasaki.lg.jp/doc/54287.html",
+      "date": "11/5更新、12:00現在",
+      "restored": false,
+      "noticeState": "announced",
+      "tag": "機能・予定・実績を区分",
+      "source": "運営自身の通常公開本文を直接取得。機能の実操作・安全性の独立試験は未実施。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "icon": null,
+      "ownershipEvidence": [
+        {
+          "url": "https://www.pref.nagasaki.lg.jp/doc/54287.html",
+          "detail": "当該運営の公式ドメインの個別告知。",
+          "readState": "body_retrieved"
+        }
+      ]
+    },
+    {
+      "id": "onojo-php-five-services-resumed-20261105",
+      "name": "大野城市 5サービスの対応状況",
+      "cat": "public",
+      "reason": "PHP脆弱性への対応",
+      "reasonKey": "php",
+      "status": "表に掲載された5サービスの再開を市が案内",
+      "start": "各サービスの実開始時計は未記載",
+      "end": "ツナグト10/23、電子図書館10/27、いこいの里11/4、Qottaby10/26、健診予約10/30再開済みと記載",
+      "scope": "表の5サービス。市公式HPはPHP未使用との市の説明。",
+      "safe": "11月5日更新の表にある各再開日を保持します。更新日を全サービスの一斉復旧日とせず、実時計や各サービスの機能試験は未確認です。市が述べるPHP未使用・被害未確認は運営説明として扱います。",
+      "url": "https://www.city.onojo.fukuoka.jp/kiji0039180/index.html",
+      "date": "11/5更新。再開日は各行の記載",
+      "restored": true,
+      "noticeState": "restored",
+      "tag": "対象範囲の復旧報告",
+      "source": "運営自身の通常公開本文を直接取得。機能の実操作・安全性の独立試験は未実施。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "icon": null,
+      "ownershipEvidence": [
+        {
+          "url": "https://www.city.onojo.fukuoka.jp/kiji0039180/index.html",
+          "detail": "当該運営の公式ドメインの個別告知。",
+          "readState": "body_retrieved"
+        }
+      ]
+    },
+    {
+      "id": "miyagi-php-four-sites-20261105",
+      "name": "宮城県 管理・利用するWeb/システム",
+      "cat": "public",
+      "reason": "PHP脆弱性への対応",
+      "reasonKey": "php",
+      "status": "11/5 16時時点で一部サービス停止と県が案内",
+      "start": "各サービスの実開始時計は未記載",
+      "end": "最新の実復旧は各サービスの案内で確認するよう県が説明",
+      "scope": "県CMSは一部停止、放射線・放射能ポータル、デジタルフォトライブラリー、道の駅道路情報は停止と表記。",
+      "safe": "一覧は11月5日16:00時点で、その後の再開の可能性を県が明記しています。掲載から現在も同じ停止状態と断定せず、県の全Web・行政業務へ広げません。不正アクセス未確認は県の説明です。",
+      "url": "https://www.pref.miyagi.jp/soshiki/jyoho/20261021php.html",
+      "date": "11/5掲載、16:00現在",
+      "restored": false,
+      "noticeState": "announced",
+      "tag": "機能・予定・実績を区分",
+      "source": "運営自身の通常公開本文を直接取得。機能の実操作・安全性の独立試験は未実施。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "icon": null,
+      "ownershipEvidence": [
+        {
+          "url": "https://www.pref.miyagi.jp/soshiki/jyoho/20261021php.html",
+          "detail": "当該運営の公式ドメインの個別告知。",
+          "readState": "body_retrieved"
+        }
+      ]
+    },
+    {
+      "id": "docomo-online-maintenance-20261105",
+      "name": "ドコモオンラインショップ・My docomo（11月の別保守）",
+      "cat": "web",
+      "reason": "不正アクセスへの対応。原因調査中でPHPとの因果は未記載",
+      "reasonKey": "security",
+      "status": "各種手続きの停止継続と運営が案内",
+      "start": "11/5 01:05頃から各種手続き停止と説明",
+      "end": "11/5 18:30時点で復旧見込み未定",
+      "scope": "オンラインショップ・My docomoの手続き。通常の携帯電話回線停止とは別。",
+      "safe": "11月4日検知の不正アクセスへの対応による新しい保守で、10月の予防停止とは別に記録します。最新の第二報は情報流出を確認したと説明していますが、当方が範囲を独立調査したものではありません。手続きを急ぐ人向けの店頭相談案内は朝の第一報にあり、実際の店頭受付可否は未確認です。",
+      "url": "https://www.docomo.ne.jp/info/notice/page/261105_03_m.html",
+      "date": "11/5 18:30時点の第二報",
+      "restored": false,
+      "noticeState": "announced",
+      "tag": "機能・予定・実績を区分",
+      "source": "運営自身の通常公開本文を直接取得。機能の実操作・安全性の独立試験は未実施。",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "icon": null,
+      "ownershipEvidence": [
+        {
+          "url": "https://www.docomo.ne.jp/info/notice/page/261105_03_m.html",
+          "detail": "当該運営の公式ドメインの個別告知。",
+          "readState": "body_retrieved"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.docomo.ne.jp/info/notice/page/261105_03_m.html",
+          "title": "第二報と手続き停止継続",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-11-05T23:35:00Z"
+        },
+        {
+          "url": "https://www.docomo.ne.jp/info/notice/page/261105_02_m.html",
+          "title": "第一報の店頭相談案内（検索収録本文のみ）",
+          "sourceRead": "official_indexed_body",
+          "checkedAt": "2026-11-05T23:35:00Z"
         }
       ]
     }
@@ -78721,6 +79099,173 @@
       "confirmedId": "etax-emergency-maintenance-20261104",
       "collectionBatch": "official-followups-20261105-0836",
       "observation": "国税電子申告・納税システム e-Tax。提供元の公表と実機能検証を区別。"
+    },
+    {
+      "name": "大阪府 予算・公金支出・メールマガジン",
+      "sourceUrl": "https://www.pref.osaka.lg.jp/hodo/fumin/o070050/prs_51100.html",
+      "verification": "confirmed",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "confirmedId": "osaka-prefecture-web-resumed-20261105",
+      "collectionBatch": "official-followups-20261106-0835",
+      "observation": "大阪府 予算・公金支出・メールマガジン"
+    },
+    {
+      "name": "NCD公式Webサイト",
+      "sourceUrl": "https://www.ncd.or.jp/info/information/5660.html",
+      "verification": "confirmed",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "confirmedId": "ncd-public-website-resumed-20261105",
+      "collectionBatch": "official-followups-20261106-0835",
+      "observation": "NCD公式Webサイト"
+    },
+    {
+      "name": "日本診療放射線技師会 JARTIS",
+      "sourceUrl": "https://www.jart.jp/news/info/20261105-01",
+      "verification": "confirmed",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "confirmedId": "jartis-partial-resumed-20261105",
+      "collectionBatch": "official-followups-20261106-0835",
+      "observation": "本体再開と外部連携の停止継続"
+    },
+    {
+      "name": "日本診療放射線技師会 JARTIS",
+      "sourceUrl": "https://www.jart.jp/news/info/20261105-02",
+      "verification": "confirmed",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "confirmedId": "jartis-partial-resumed-20261105",
+      "collectionBatch": "official-followups-20261106-0835",
+      "observation": "ワクチン注射行為実技講習の特例"
+    },
+    {
+      "name": "新潟市 建築関係資料の代替電子申請",
+      "sourceUrl": "https://www.city.niigata.lg.jp/kurashi/jyutaku/kenchiku/kenchikugaiyosho/daitaisochi.html",
+      "verification": "confirmed",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "confirmedId": "niigata-eniiigata-registration-alternative-20261105",
+      "collectionBatch": "official-followups-20261106-0835",
+      "observation": "新潟市 建築関係資料の代替電子申請"
+    },
+    {
+      "name": "CPI phpMyAdmin・phpPgAdmin",
+      "sourceUrl": "https://www.cpi.ad.jp/news/support-info/261023/",
+      "verification": "confirmed",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "confirmedId": "cpi-db-admin-resumed-20261105",
+      "collectionBatch": "official-followups-20261106-0835",
+      "observation": "CPI phpMyAdmin・phpPgAdmin"
+    },
+    {
+      "name": "オークファン 機能別復旧と補填検討",
+      "sourceUrl": "https://help.aucfan.com/hc/ja/articles/63474809662873",
+      "verification": "confirmed",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "confirmedId": "aucfan-partial-and-compensation-20261105",
+      "collectionBatch": "official-followups-20261106-0835",
+      "observation": "オークファン 機能別復旧と補填検討"
+    },
+    {
+      "name": "Transfer Center / Transfer Center Business",
+      "sourceUrl": "https://www.whitepoint.co.jp/news/202611052/",
+      "verification": "confirmed",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "confirmedId": "whitepoint-transfer-maintenance-20261105",
+      "collectionBatch": "official-followups-20261106-0835",
+      "observation": "昼の実施と14:20完了報告"
+    },
+    {
+      "name": "Transfer Center / Transfer Center Business",
+      "sourceUrl": "https://www.whitepoint.co.jp/news/202611053/",
+      "verification": "confirmed",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "confirmedId": "whitepoint-transfer-maintenance-20261105",
+      "collectionBatch": "official-followups-20261106-0835",
+      "observation": "夜18:00〜23:00の予定"
+    },
+    {
+      "name": "イッツコム マイページ・加入仮申込",
+      "sourceUrl": "https://www.itscom.co.jp/support/userpage/20261105_A9414.html",
+      "verification": "confirmed",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "confirmedId": "itscom-mypage-maintenance-20261105",
+      "collectionBatch": "official-followups-20261106-0835",
+      "observation": "イッツコム マイページ・加入仮申込"
+    },
+    {
+      "name": "三洋工業 Webサイト",
+      "sourceUrl": "https://sanyo-alf.co.jp/news/753/",
+      "verification": "related",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "confirmedId": null,
+      "collectionBatch": "official-followups-20261106-0835",
+      "observation": "三洋工業 Webサイト"
+    },
+    {
+      "name": "長崎県 関連Webサイトの停止状況",
+      "sourceUrl": "https://www.pref.nagasaki.lg.jp/doc/54287.html",
+      "verification": "confirmed",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "confirmedId": "nagasaki-php-sites-20261105",
+      "collectionBatch": "official-followups-20261106-0835",
+      "observation": "長崎県 関連Webサイトの停止状況"
+    },
+    {
+      "name": "大野城市 5サービスの対応状況",
+      "sourceUrl": "https://www.city.onojo.fukuoka.jp/kiji0039180/index.html",
+      "verification": "confirmed",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "confirmedId": "onojo-php-five-services-resumed-20261105",
+      "collectionBatch": "official-followups-20261106-0835",
+      "observation": "大野城市 5サービスの対応状況"
+    },
+    {
+      "name": "宮城県 管理・利用するWeb/システム",
+      "sourceUrl": "https://www.pref.miyagi.jp/soshiki/jyoho/20261021php.html",
+      "verification": "confirmed",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "confirmedId": "miyagi-php-four-sites-20261105",
+      "collectionBatch": "official-followups-20261106-0835",
+      "observation": "宮城県 管理・利用するWeb/システム"
+    },
+    {
+      "name": "ドコモオンラインショップ・My docomo（11月の別保守）",
+      "sourceUrl": "https://www.docomo.ne.jp/info/notice/page/261105_03_m.html",
+      "verification": "confirmed",
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "confirmedId": "docomo-online-maintenance-20261105",
+      "collectionBatch": "official-followups-20261106-0835",
+      "observation": "第二報と手続き停止継続"
+    },
+    {
+      "name": "ドコモオンラインショップ・My docomo（11月の別保守）",
+      "sourceUrl": "https://www.docomo.ne.jp/info/notice/page/261105_02_m.html",
+      "verification": "confirmed",
+      "sourceRead": "official_indexed_body",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "confirmedId": "docomo-online-maintenance-20261105",
+      "collectionBatch": "official-followups-20261106-0835",
+      "observation": "第一報の店頭相談案内（検索収録本文のみ）"
+    },
+    {
+      "name": "川崎市青少年科学館 2教室の申込期限延長",
+      "sourceUrl": "https://www.nature-kawasaki.jp/logoform-maintenance",
+      "verification": "confirmed_limited_user_impact",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "collectionBatch": "official-followups-20261106-0835"
     }
   ],
   "related": [
@@ -80050,6 +80595,14 @@
           "readState": "body_retrieved"
         }
       ]
+    },
+    {
+      "name": "三洋工業 Webサイト PHP更新作業予告（緊急性未確認）",
+      "url": "https://sanyo-alf.co.jp/news/753/",
+      "note": "sanyo-alf.co.jpのWebサイト。 11/5 09:00予定〜11/5 17:00予定。実終了未確認 11月4日付の作業予告は、作業中の数分〜数十分程度のアクセス不可や表示遅延・レイアウト崩れの可能性を案内。作業枠全体の連続停止や会社業務全体の停止、当該CVEの修復完了とは扱いません。",
+      "confirmedId": null,
+      "sourceRead": "body_retrieved",
+      "checkedAt": "2026-11-05T23:35:00Z"
     }
   ],
   "excluded": [
@@ -105978,6 +106531,244 @@
       "checkedAt": "2026-11-04T23:40:04Z",
       "sourceRead": "official_indexed_body",
       "confirmedId": "etax-emergency-maintenance-20261104"
+    },
+    {
+      "sourceUrl": "https://publitech.fun/logoform_failure",
+      "names": [
+        "LoGoフォーム（提供元と日野市立図書館の案内）"
+      ],
+      "decision": "confirmed",
+      "reason": "提供元の11月5日18:00時点の更新がLGWAN環境17:00、インターネット環境18:00の再開を報告しています。以前の16:00以降という見込みは履歴へ残します。11月3日11:57頃〜15:30頃に送信エラーとなった申請は未受付・未保存で、再申請が必要との案内は継続。完了画面が表示された回答は正常保存との提供元説明です。日野市立図書館の窓口・電話案内と、10月の別PHP保守は区別します。実際の申請や個別受付の確認はしていません。",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "sourceRead": "body_retrieved",
+      "confirmedId": "logoform-database-outage-20261103"
+    },
+    {
+      "sourceUrl": "https://www.e-tax.nta.go.jp/topics/2026/topics_20261104_mentenansu.htm",
+      "names": [
+        "国税電子申告・納税システム e-Tax"
+      ],
+      "decision": "confirmed",
+      "reason": "同じ公式URLが「e-Tax再開のお知らせ」に更新され、必要な対応と安全性確認後の再開を報告しています。納税者情報の漏えいがないことを確認したというのは国税庁の説明です。不審通信の検知日、掲載日、更新日を分け、掲載時計から復旧時刻を推測しません。10月のPHP対応と今回の原因を結び付けず、当方による安全性・実申告の確認とも区別します。",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "sourceRead": "body_retrieved",
+      "confirmedId": "etax-emergency-maintenance-20261104"
+    },
+    {
+      "sourceUrl": "https://www.pref.osaka.lg.jp/hodo/fumin/o070050/prs_51100.html",
+      "names": [
+        "大阪府 予算・公金支出・メールマガジン"
+      ],
+      "decision": "confirmed",
+      "reason": "府の告知はPHP対応で停止していた残るシステムの再開を報告しています。「全面再開」という題名を府内のすべての独立システムの動作保証へ広げず、明記された3機能を記録します。「頃」を保持し、実際の登録・検索はしていません。",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "sourceRead": "body_retrieved",
+      "confirmedId": "osaka-prefecture-web-resumed-20261105"
+    },
+    {
+      "sourceUrl": "https://www.ncd.or.jp/info/information/5660.html",
+      "names": [
+        "NCD公式Webサイト"
+      ],
+      "decision": "confirmed",
+      "reason": "運営は簡易HTMLによる暫定運用と一部機能停止を終了したと報告。症例登録システムは問題となったPHPを利用しておらず、本件の症例情報漏えい等は発生していないとの運営説明です。公開Webの保守を症例登録システムの停止と混同せず、データの独立監査結果にはしません。",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "sourceRead": "body_retrieved",
+      "confirmedId": "ncd-public-website-resumed-20261105"
+    },
+    {
+      "sourceUrl": "https://www.jart.jp/news/info/20261105-01",
+      "names": [
+        "日本診療放射線技師会 JARTIS"
+      ],
+      "decision": "confirmed",
+      "reason": "11月5日付の再開告知です。etudes提供元の10月29日22:00頃再開という報告があっても、JARTIS経由の告示研修・倫理指針セミナーへの遷移は接続調整中です。全機能復旧とはしません。ワクチン実技講習の特例は別の同日告知に基づき、下の利用者影響欄へ記録しています。",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "sourceRead": "body_retrieved",
+      "confirmedId": "jartis-partial-resumed-20261105"
+    },
+    {
+      "sourceUrl": "https://www.jart.jp/news/info/20261105-02",
+      "names": [
+        "日本診療放射線技師会 JARTIS"
+      ],
+      "decision": "confirmed",
+      "reason": "11月5日付の再開告知です。etudes提供元の10月29日22:00頃再開という報告があっても、JARTIS経由の告示研修・倫理指針セミナーへの遷移は接続調整中です。全機能復旧とはしません。ワクチン実技講習の特例は別の同日告知に基づき、下の利用者影響欄へ記録しています。",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "sourceRead": "body_retrieved",
+      "confirmedId": "jartis-partial-resumed-20261105"
+    },
+    {
+      "sourceUrl": "https://www.city.niigata.lg.jp/kurashi/jyutaku/kenchiku/kenchikugaiyosho/daitaisochi.html",
+      "names": [
+        "新潟市 建築関係資料の代替電子申請"
+      ],
+      "decision": "confirmed",
+      "reason": "未登録者は申請書データを市へメール送付し、案内された手数料を定額小為替で郵送後、電子データの交付を受ける流れです。FAX申請と電話での照会・回答は不可と明記。全電子申請停止ではなく、新規登録できない人への臨時措置です。実際の申請・送信・郵送はしていません。",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "sourceRead": "body_retrieved",
+      "confirmedId": "niigata-eniiigata-registration-alternative-20261105"
+    },
+    {
+      "sourceUrl": "https://www.cpi.ad.jp/news/support-info/261023/",
+      "names": [
+        "CPI phpMyAdmin・phpPgAdmin"
+      ],
+      "decision": "confirmed",
+      "reason": "11月5日12:40更新の表はZZ、指定ACE01・SV-Basic・ビジネス スタンダード、指定MG/CHM群の再開を案内。一部ACE01とSV-Basic MySQL5.7は管理画面へのBasic認証が必要です。全契約やDB全体を停止・復旧扱いせず、詳細な契約時期は公式表を確認してください。未読の元X候補は別に保持します。",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "sourceRead": "body_retrieved",
+      "confirmedId": "cpi-db-admin-resumed-20261105"
+    },
+    {
+      "sourceUrl": "https://help.aucfan.com/hc/ja/articles/63474809662873",
+      "names": [
+        "オークファン 機能別復旧と補填検討"
+      ],
+      "decision": "confirmed",
+      "reason": "11月5日17:15時点でPC検索と入札予約の一部は利用可能との案内。ウォッチリスト連携や画像検索等は未復旧です。プロPlus向けにはPC版の期間おまとめ検索を案内しています。査定コンソール・MCPの申込終了と、MCPの10月末までの無料条件を残し、現在も無料受付中とは扱いません。補填は社内協議中で返金確約ではありません。",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "sourceRead": "body_retrieved",
+      "confirmedId": "aucfan-partial-and-compensation-20261105"
+    },
+    {
+      "sourceUrl": "https://www.whitepoint.co.jp/news/202611052/",
+      "names": [
+        "Transfer Center / Transfer Center Business"
+      ],
+      "decision": "confirmed",
+      "reason": "運営は13:00開始の保守を14:20に完了と追記しましたが、その後の18:00〜23:00予定は別の告知です。アップロード途中のファイルは未完了の可能性があり、終了後の送信状況確認を案内。作成済みリンク・アップロード済みファイルは夜の保守後も利用可能との説明です。昼の完了を夜の完了へ転用しません。",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "sourceRead": "body_retrieved",
+      "confirmedId": "whitepoint-transfer-maintenance-20261105"
+    },
+    {
+      "sourceUrl": "https://www.whitepoint.co.jp/news/202611053/",
+      "names": [
+        "Transfer Center / Transfer Center Business"
+      ],
+      "decision": "confirmed",
+      "reason": "運営は13:00開始の保守を14:20に完了と追記しましたが、その後の18:00〜23:00予定は別の告知です。アップロード途中のファイルは未完了の可能性があり、終了後の送信状況確認を案内。作成済みリンク・アップロード済みファイルは夜の保守後も利用可能との説明です。昼の完了を夜の完了へ転用しません。",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "sourceRead": "body_retrieved",
+      "confirmedId": "whitepoint-transfer-maintenance-20261105"
+    },
+    {
+      "sourceUrl": "https://www.itscom.co.jp/support/userpage/20261105_A9414.html",
+      "names": [
+        "イッツコム マイページ・加入仮申込"
+      ],
+      "decision": "confirmed",
+      "reason": "公式の対象地域・機能に限定した予定です。時間帯が過ぎたことや通常の問い合わせ導線があることを、実復旧・代替申込受付の確認にしていません。",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "sourceRead": "body_retrieved",
+      "confirmedId": "itscom-mypage-maintenance-20261105"
+    },
+    {
+      "sourceUrl": "https://sanyo-alf.co.jp/news/753/",
+      "names": [
+        "三洋工業 Webサイト"
+      ],
+      "decision": "related",
+      "reason": "PHP更新の予定告知で、緊急保守や当該CVEとの関係は未確認。",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "sourceRead": "body_retrieved",
+      "confirmedId": null
+    },
+    {
+      "sourceUrl": "https://www.pref.nagasaki.lg.jp/doc/54287.html",
+      "names": [
+        "長崎県 関連Webサイトの停止状況"
+      ],
+      "decision": "confirmed",
+      "reason": "一覧は11月5日12:00現在の状況です。この基準時計を停止開始にせず、県庁全体や一覧外サービスへ広げません。各項目の停止中・停止予定の細分と実復旧は未確認です。",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "sourceRead": "body_retrieved",
+      "confirmedId": "nagasaki-php-sites-20261105"
+    },
+    {
+      "sourceUrl": "https://www.city.onojo.fukuoka.jp/kiji0039180/index.html",
+      "names": [
+        "大野城市 5サービスの対応状況"
+      ],
+      "decision": "confirmed",
+      "reason": "11月5日更新の表にある各再開日を保持します。更新日を全サービスの一斉復旧日とせず、実時計や各サービスの機能試験は未確認です。市が述べるPHP未使用・被害未確認は運営説明として扱います。",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "sourceRead": "body_retrieved",
+      "confirmedId": "onojo-php-five-services-resumed-20261105"
+    },
+    {
+      "sourceUrl": "https://www.pref.miyagi.jp/soshiki/jyoho/20261021php.html",
+      "names": [
+        "宮城県 管理・利用するWeb/システム"
+      ],
+      "decision": "confirmed",
+      "reason": "一覧は11月5日16:00時点で、その後の再開の可能性を県が明記しています。掲載から現在も同じ停止状態と断定せず、県の全Web・行政業務へ広げません。不正アクセス未確認は県の説明です。",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "sourceRead": "body_retrieved",
+      "confirmedId": "miyagi-php-four-sites-20261105"
+    },
+    {
+      "sourceUrl": "https://www.docomo.ne.jp/info/notice/page/261105_03_m.html",
+      "names": [
+        "ドコモオンラインショップ・My docomo（11月の別保守）"
+      ],
+      "decision": "confirmed",
+      "reason": "11月4日検知の不正アクセスへの対応による新しい保守で、10月の予防停止とは別に記録します。最新の第二報は情報流出を確認したと説明していますが、当方が範囲を独立調査したものではありません。手続きを急ぐ人向けの店頭相談案内は朝の第一報にあり、実際の店頭受付可否は未確認です。",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "sourceRead": "body_retrieved",
+      "confirmedId": "docomo-online-maintenance-20261105"
+    },
+    {
+      "sourceUrl": "https://www.docomo.ne.jp/info/notice/page/261105_02_m.html",
+      "names": [
+        "ドコモオンラインショップ・My docomo（11月の別保守）"
+      ],
+      "decision": "confirmed",
+      "reason": "11月4日検知の不正アクセスへの対応による新しい保守で、10月の予防停止とは別に記録します。最新の第二報は情報流出を確認したと説明していますが、当方が範囲を独立調査したものではありません。手続きを急ぐ人向けの店頭相談案内は朝の第一報にあり、実際の店頭受付可否は未確認です。",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "sourceRead": "official_indexed_body",
+      "confirmedId": "docomo-online-maintenance-20261105"
+    },
+    {
+      "sourceUrl": "https://www.nature-kawasaki.jp/logoform-maintenance",
+      "names": [
+        "川崎市青少年科学館 2教室の申込期限延長"
+      ],
+      "decision": "confirmed_limited_user_impact",
+      "reason": "LoGoフォームの緊急メンテナンスに伴い、11/5締切を延長。新しい締切日は復旧後に告知すると案内。提供元の復旧だけで新締切を決めない。",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "sourceUrl": "https://www.city.niigata.lg.jp/kurashi/jyutaku/kenchiku/kenchikugaiyosho/daitaisochi.html",
+      "names": [
+        "新潟市 建築資料のメール・郵送代替"
+      ],
+      "decision": "confirmed_limited_user_impact",
+      "reason": "新規登録停止中に申請書をメール送付し、手数料を定額小為替で郵送して電子データ交付を受ける臨時受付。既登録者は従来の電子申請が可能。",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "sourceUrl": "https://www.jart.jp/news/info/20261105-02",
+      "names": [
+        "JART ワクチン実技講習の特例"
+      ],
+      "decision": "confirmed_limited_user_impact",
+      "reason": "会員は事前動画未修了でも実技を先行受講でき、後日の動画修了とJARTIS修了登録が必要。非会員は事前動画修了と修了画面等の提示が必要と案内。告示研修修了者が対象という条件を維持。",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "sourceRead": "body_retrieved"
+    },
+    {
+      "sourceUrl": "https://help.aucfan.com/hc/ja/articles/63474809662873",
+      "names": [
+        "オークファン 復旧までの代替と補填協議"
+      ],
+      "decision": "confirmed_limited_user_impact",
+      "reason": "プロPlusの復旧まではPC側の期間おまとめ検索を回数無制限で開放と案内。補填内容・実施時期は協議中で未決定。",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "sourceRead": "body_retrieved"
     }
   ],
   "relationships": [
@@ -106208,6 +106999,18 @@
       "childId": "hyogo-php-stopped-sites-20261104",
       "type": "independent_official_notice_found_original_candidate_still_unread",
       "reason": "県の公式停止一覧を別に確認。元資料の本文・所有の確認完了には置き換えず、候補を保持。"
+    },
+    {
+      "parentPendingSourceUrl": "https://x.com/cpiadjp/status/2113230654855156039",
+      "childId": "cpi-db-admin-resumed-20261105",
+      "type": "independent_official_notice_found_original_candidate_still_unread",
+      "reason": "CPI公式Webを独立確認。元X本文の確認完了には置き換えず保持。"
+    },
+    {
+      "parentPendingSourceUrl": "https://x.com/cpiadjp/status/2113282201643364591",
+      "childId": "cpi-db-admin-resumed-20261105",
+      "type": "independent_official_notice_found_original_candidate_still_unread",
+      "reason": "CPI公式Webを独立確認。元X本文の確認完了には置き換えず保持。"
     }
   ],
   "reviewCoverage": {
@@ -110542,6 +111345,15 @@
         "totalSourceRowsAfter": 2870,
         "unresolvedPreviouslyCollectedGroups": 2044,
         "limits": "提供元の公表に基づく記録。サービスのログイン、申請、視聴などの機能試験や安全性の独立検証は未実施。"
+      },
+      {
+        "checkedAt": "2026-11-05T23:35:00Z",
+        "newCards": 12,
+        "updatedCards": 2,
+        "additionalSourceRows": 17,
+        "scope": "12新規告知と2既存告知の差分、利用者影響4企画。通常作業1件は関連欄へ。全件の現況再確認ではない。",
+        "unresolvedPreviouslyCollectedGroups": 2044,
+        "limits": "運営発表を記録。実際の申込・決済・機能試験は未実施。"
       }
     ],
     "sourceRowsDecisionBasis": "元収集行に保存した当時の判断内訳です。後続の公式照合結果はsourceReviews/最新followupReview、現在の未解決グループはpendingを参照してください。元の収集行は保持しています。",
@@ -126608,6 +127420,195 @@
         }
       ],
       "scope": "既存2カードの続報と新7カード。10告知群を9系列に整理。検索収録本文と直接取得を区別し、既存候補を解決済みにしない。"
+    },
+    {
+      "id": "official-followups-20261106-0835",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "rowCount": 17,
+      "reviewedSourceCount": 22,
+      "members": [
+        {
+          "name": "LoGoフォーム（提供元と日野市立図書館の案内）",
+          "sourceUrl": "https://publitech.fun/logoform_failure",
+          "verification": "confirmed",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-11-05T23:35:00Z",
+          "confirmedId": "logoform-database-outage-20261103",
+          "collectionBatch": "official-followups-20261106-0835",
+          "observation": "LoGoフォーム（提供元と日野市立図書館の案内）"
+        },
+        {
+          "name": "国税電子申告・納税システム e-Tax",
+          "sourceUrl": "https://www.e-tax.nta.go.jp/topics/2026/topics_20261104_mentenansu.htm",
+          "verification": "confirmed",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-11-05T23:35:00Z",
+          "confirmedId": "etax-emergency-maintenance-20261104",
+          "collectionBatch": "official-followups-20261106-0835",
+          "observation": "国税電子申告・納税システム e-Tax"
+        },
+        {
+          "name": "大阪府 予算・公金支出・メールマガジン",
+          "sourceUrl": "https://www.pref.osaka.lg.jp/hodo/fumin/o070050/prs_51100.html",
+          "verification": "confirmed",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-11-05T23:35:00Z",
+          "confirmedId": "osaka-prefecture-web-resumed-20261105",
+          "collectionBatch": "official-followups-20261106-0835",
+          "observation": "大阪府 予算・公金支出・メールマガジン"
+        },
+        {
+          "name": "NCD公式Webサイト",
+          "sourceUrl": "https://www.ncd.or.jp/info/information/5660.html",
+          "verification": "confirmed",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-11-05T23:35:00Z",
+          "confirmedId": "ncd-public-website-resumed-20261105",
+          "collectionBatch": "official-followups-20261106-0835",
+          "observation": "NCD公式Webサイト"
+        },
+        {
+          "name": "日本診療放射線技師会 JARTIS",
+          "sourceUrl": "https://www.jart.jp/news/info/20261105-01",
+          "verification": "confirmed",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-11-05T23:35:00Z",
+          "confirmedId": "jartis-partial-resumed-20261105",
+          "collectionBatch": "official-followups-20261106-0835",
+          "observation": "本体再開と外部連携の停止継続"
+        },
+        {
+          "name": "日本診療放射線技師会 JARTIS",
+          "sourceUrl": "https://www.jart.jp/news/info/20261105-02",
+          "verification": "confirmed",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-11-05T23:35:00Z",
+          "confirmedId": "jartis-partial-resumed-20261105",
+          "collectionBatch": "official-followups-20261106-0835",
+          "observation": "ワクチン注射行為実技講習の特例"
+        },
+        {
+          "name": "新潟市 建築関係資料の代替電子申請",
+          "sourceUrl": "https://www.city.niigata.lg.jp/kurashi/jyutaku/kenchiku/kenchikugaiyosho/daitaisochi.html",
+          "verification": "confirmed",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-11-05T23:35:00Z",
+          "confirmedId": "niigata-eniiigata-registration-alternative-20261105",
+          "collectionBatch": "official-followups-20261106-0835",
+          "observation": "新潟市 建築関係資料の代替電子申請"
+        },
+        {
+          "name": "CPI phpMyAdmin・phpPgAdmin",
+          "sourceUrl": "https://www.cpi.ad.jp/news/support-info/261023/",
+          "verification": "confirmed",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-11-05T23:35:00Z",
+          "confirmedId": "cpi-db-admin-resumed-20261105",
+          "collectionBatch": "official-followups-20261106-0835",
+          "observation": "CPI phpMyAdmin・phpPgAdmin"
+        },
+        {
+          "name": "オークファン 機能別復旧と補填検討",
+          "sourceUrl": "https://help.aucfan.com/hc/ja/articles/63474809662873",
+          "verification": "confirmed",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-11-05T23:35:00Z",
+          "confirmedId": "aucfan-partial-and-compensation-20261105",
+          "collectionBatch": "official-followups-20261106-0835",
+          "observation": "オークファン 機能別復旧と補填検討"
+        },
+        {
+          "name": "Transfer Center / Transfer Center Business",
+          "sourceUrl": "https://www.whitepoint.co.jp/news/202611052/",
+          "verification": "confirmed",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-11-05T23:35:00Z",
+          "confirmedId": "whitepoint-transfer-maintenance-20261105",
+          "collectionBatch": "official-followups-20261106-0835",
+          "observation": "昼の実施と14:20完了報告"
+        },
+        {
+          "name": "Transfer Center / Transfer Center Business",
+          "sourceUrl": "https://www.whitepoint.co.jp/news/202611053/",
+          "verification": "confirmed",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-11-05T23:35:00Z",
+          "confirmedId": "whitepoint-transfer-maintenance-20261105",
+          "collectionBatch": "official-followups-20261106-0835",
+          "observation": "夜18:00〜23:00の予定"
+        },
+        {
+          "name": "イッツコム マイページ・加入仮申込",
+          "sourceUrl": "https://www.itscom.co.jp/support/userpage/20261105_A9414.html",
+          "verification": "confirmed",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-11-05T23:35:00Z",
+          "confirmedId": "itscom-mypage-maintenance-20261105",
+          "collectionBatch": "official-followups-20261106-0835",
+          "observation": "イッツコム マイページ・加入仮申込"
+        },
+        {
+          "name": "三洋工業 Webサイト",
+          "sourceUrl": "https://sanyo-alf.co.jp/news/753/",
+          "verification": "related",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-11-05T23:35:00Z",
+          "confirmedId": null,
+          "collectionBatch": "official-followups-20261106-0835",
+          "observation": "三洋工業 Webサイト"
+        },
+        {
+          "name": "長崎県 関連Webサイトの停止状況",
+          "sourceUrl": "https://www.pref.nagasaki.lg.jp/doc/54287.html",
+          "verification": "confirmed",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-11-05T23:35:00Z",
+          "confirmedId": "nagasaki-php-sites-20261105",
+          "collectionBatch": "official-followups-20261106-0835",
+          "observation": "長崎県 関連Webサイトの停止状況"
+        },
+        {
+          "name": "大野城市 5サービスの対応状況",
+          "sourceUrl": "https://www.city.onojo.fukuoka.jp/kiji0039180/index.html",
+          "verification": "confirmed",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-11-05T23:35:00Z",
+          "confirmedId": "onojo-php-five-services-resumed-20261105",
+          "collectionBatch": "official-followups-20261106-0835",
+          "observation": "大野城市 5サービスの対応状況"
+        },
+        {
+          "name": "宮城県 管理・利用するWeb/システム",
+          "sourceUrl": "https://www.pref.miyagi.jp/soshiki/jyoho/20261021php.html",
+          "verification": "confirmed",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-11-05T23:35:00Z",
+          "confirmedId": "miyagi-php-four-sites-20261105",
+          "collectionBatch": "official-followups-20261106-0835",
+          "observation": "宮城県 管理・利用するWeb/システム"
+        },
+        {
+          "name": "ドコモオンラインショップ・My docomo（11月の別保守）",
+          "sourceUrl": "https://www.docomo.ne.jp/info/notice/page/261105_03_m.html",
+          "verification": "confirmed",
+          "sourceRead": "body_retrieved",
+          "checkedAt": "2026-11-05T23:35:00Z",
+          "confirmedId": "docomo-online-maintenance-20261105",
+          "collectionBatch": "official-followups-20261106-0835",
+          "observation": "第二報と手続き停止継続"
+        },
+        {
+          "name": "ドコモオンラインショップ・My docomo（11月の別保守）",
+          "sourceUrl": "https://www.docomo.ne.jp/info/notice/page/261105_02_m.html",
+          "verification": "confirmed",
+          "sourceRead": "official_indexed_body",
+          "checkedAt": "2026-11-05T23:35:00Z",
+          "confirmedId": "docomo-online-maintenance-20261105",
+          "collectionBatch": "official-followups-20261106-0835",
+          "observation": "第一報の店頭相談案内（検索収録本文のみ）"
+        }
+      ],
+      "scope": "今回の直接公式本文と明記した検索収録本文のみ。全候補の同時再確認ではない。"
     }
   ],
   "officialFollowups": [
@@ -128770,16 +129771,106 @@
       "scope": "抄録等の代替閲覧経路",
       "clockQualification": "日付・時刻は告知記載。本文にタイムゾーンの明示なし。",
       "restriction": "代替先の閲覧にもパスワードが必要で、一般無料開放ではない。制限付き本文は未取得。"
+    },
+    {
+      "title": "川崎市青少年科学館 2教室の申込期限延長",
+      "actor": "川崎市青少年科学館",
+      "scope": "11/28星空教室、11/29子ども創意くふう教室への申込",
+      "summary": "LoGoフォームの緊急メンテナンスに伴い、11/5締切を延長。新しい締切日は復旧後に告知すると案内。提供元の復旧だけで新締切を決めない。",
+      "period": "当初締切11/5。変更後締切は今回資料では未定",
+      "relation": "LoGoフォームの緊急メンテナンスと明記。PHP関係は記載なし",
+      "alternative": "未確定の締切告知待ち。電話申込へ切り替わったとは推測しない",
+      "outcome": "延長の告知。実申込・後続締切未確認",
+      "number": 11,
+      "status": "verified_limited",
+      "sourceUrls": [
+        "https://www.nature-kawasaki.jp/logoform-maintenance"
+      ],
+      "sourceTextRead": true,
+      "sourcePublishedDate": "2026-11-05",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "clockQualification": "原文記載の日時。JSTの明示は独立未確認。",
+      "restriction": "運営の公開案内に限定。実際の手続き・申込等は未検証。",
+      "candidateUrls": [],
+      "candidateTextRead": false
+    },
+    {
+      "title": "新潟市 建築資料のメール・郵送代替",
+      "actor": "新潟市",
+      "scope": "e-NIIGATA未登録者の建築関係資料・証明書交付申請",
+      "summary": "新規登録停止中に申請書をメール送付し、手数料を定額小為替で郵送して電子データ交付を受ける臨時受付。既登録者は従来の電子申請が可能。",
+      "period": "新規登録復旧まで。実受付終了未確認",
+      "relation": "e-NIIGATA緊急メンテナンスと明記。PHP関係は記載なし",
+      "alternative": "e-NIIGATA新規登録から市へのメール・郵送へ。FAX不可、電話での照会・回答なし",
+      "outcome": "市の代替案内。申請・支払・送信は未実施",
+      "number": 12,
+      "status": "verified_limited",
+      "sourceUrls": [
+        "https://www.city.niigata.lg.jp/kurashi/jyutaku/kenchiku/kenchikugaiyosho/daitaisochi.html"
+      ],
+      "sourceTextRead": true,
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "clockQualification": "原文記載の日時。JSTの明示は独立未確認。",
+      "restriction": "運営の公開案内に限定。実際の手続き・申込等は未検証。",
+      "candidateUrls": [],
+      "candidateTextRead": false,
+      "sourceUpdatedDate": "2026-11-05",
+      "sourcePublishedDate": null
+    },
+    {
+      "title": "JART ワクチン実技講習の特例",
+      "actor": "公益社団法人日本診療放射線技師会",
+      "scope": "11/9までの対象実技講習。会員・非会員で条件が異なる",
+      "summary": "会員は事前動画未修了でも実技を先行受講でき、後日の動画修了とJARTIS修了登録が必要。非会員は事前動画修了と修了画面等の提示が必要と案内。告示研修修了者が対象という条件を維持。",
+      "period": "11/5〜11/9の直近講習、11/10以降は従来条件",
+      "relation": "PHP対応によるJARTIS閉鎖で事前動画の視聴時間が不足したためと明記",
+      "alternative": "会員のみ学習順序を一時変更。医療行為を本人へ勧める案内ではない",
+      "outcome": "運営の特例告知。個々の受講・資格・修了を確認したものではない",
+      "number": 13,
+      "status": "verified_limited",
+      "sourceUrls": [
+        "https://www.jart.jp/news/info/20261105-02"
+      ],
+      "sourceTextRead": true,
+      "sourcePublishedDate": "2026-11-05",
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "clockQualification": "原文記載の日時。JSTの明示は独立未確認。",
+      "restriction": "運営の公開案内に限定。実際の手続き・申込等は未検証。",
+      "candidateUrls": [],
+      "candidateTextRead": false
+    },
+    {
+      "title": "オークファン 復旧までの代替と補填協議",
+      "actor": "オークファン",
+      "scope": "プロPlus利用、代替検索、補填対応",
+      "summary": "プロPlusの復旧まではPC側の期間おまとめ検索を回数無制限で開放と案内。補填内容・実施時期は協議中で未決定。",
+      "period": "11/5 17:15時点。スマホ復旧は11/6予定で実績未確認",
+      "relation": "PHP対策メンテナンスと明記",
+      "alternative": "プロPlus画面からaucfan.com側検索へ。査定コンソール/MCPの新規申込は終了表示",
+      "outcome": "代替の案内・補填検討。契約変更や返金は行っていない",
+      "number": 14,
+      "status": "verified_limited",
+      "sourceUrls": [
+        "https://help.aucfan.com/hc/ja/articles/63474809662873"
+      ],
+      "sourceTextRead": true,
+      "checkedAt": "2026-11-05T23:35:00Z",
+      "clockQualification": "原文記載の日時。JSTの明示は独立未確認。",
+      "restriction": "運営の公開案内に限定。実際の手続き・申込等は未検証。",
+      "candidateUrls": [],
+      "candidateTextRead": false,
+      "sourceUpdatedDate": "2026-11-05",
+      "sourcePublishedDate": null
     }
   ],
   "nonStreamImpactCounting": {
     "counts": {
-      "candidates": 10,
+      "candidates": 14,
       "candidateUrls": 14,
-      "verifiedLimited": 6,
+      "verifiedLimited": 10,
       "pending": 4
     },
-    "counting": "予約・申込・販売・相談等の影響10候補を独立整理。公式本文6件を限定確認、4件は本文未確認。上の576告知カード・範囲内復旧113件・照合待ち2046群・収集2855行には加算しない。"
+    "counting": "利用者影響14企画（公式本文を限定確認10、元本文未確認4）。告知カード件数・収集行数とは別単位で、古い未照合を保持。"
   },
   "dailyOfficialFollowup20261029": {
     "verifiedIds": [
@@ -128891,5 +129982,101 @@
     ],
     "unresolvedOriginalCandidatesRetained": true,
     "summary": "InfiniCLOUD再開未定とMyROYAL限定復旧、Canonet版別予定・再開、NII/電子保証の限定終了、兵庫県停止一覧、LoGo再申請・図書館代替、MFJ予定時計差、e-Tax理由未記載を追加。"
+  },
+  "dailyOfficialFollowup20261106": {
+    "batchId": "official-followups-20261106-0835",
+    "checkedAt": "2026-11-05T23:35:00Z",
+    "updatedIds": [
+      "logoform-database-outage-20261103",
+      "etax-emergency-maintenance-20261104"
+    ],
+    "newIds": [
+      "osaka-prefecture-web-resumed-20261105",
+      "ncd-public-website-resumed-20261105",
+      "jartis-partial-resumed-20261105",
+      "niigata-eniiigata-registration-alternative-20261105",
+      "cpi-db-admin-resumed-20261105",
+      "aucfan-partial-and-compensation-20261105",
+      "whitepoint-transfer-maintenance-20261105",
+      "itscom-mypage-maintenance-20261105",
+      "nagasaki-php-sites-20261105",
+      "onojo-php-five-services-resumed-20261105",
+      "miyagi-php-four-sites-20261105",
+      "docomo-online-maintenance-20261105"
+    ],
+    "previousRecords": [
+      {
+        "id": "logoform-database-outage-20261103",
+        "name": "LoGoフォーム（提供元と日野市立図書館の案内）",
+        "cat": "public",
+        "tag": "対象・予定を限定した公式告知",
+        "status": "全回答フォーム・管理画面停止。再開は見込み段階",
+        "reason": "データベース障害。今回のPHP因果は記載なし",
+        "reasonKey": "other",
+        "start": "11/3 11:57頃に送信エラー発生、12:40頃検知、15:30停止と提供元説明",
+        "end": "11/5 06:00時点では同日16:00以降（本日中）に再開する見込み。完了報告ではない。",
+        "scope": "提供元の全回答フォーム・管理画面。日野市立図書館ではリクエスト、レファレンス、講演申し込みの電子申請が対象。",
+        "safe": "11月3日11:57〜15:30頃に送信エラーとなった申請は受け付け・保存されず、再開後の再申請が必要との提供元説明です。完了画面が出た回答は正常保存と説明。攻撃・漏えい・過去回答の破損を確認していないことも提供元の説明です。図書館は通常開館し、急ぐ場合は窓口・電話を案内しています。同図書館の10月のPHP対応電子図書館保守やNaxos障害とは別です。原文にない時間帯は補っていません。",
+        "url": "https://publitech.fun/logoform_failure",
+        "date": "提供元：11/5 06:00現在。図書館：11/4 10:00時点。",
+        "restored": false,
+        "noticeState": "announced",
+        "source": "公式本文を確認。運営による説明と、当方のサービス実操作は区別。",
+        "sourceRead": "body_retrieved",
+        "checkedAt": "2026-11-04T23:40:04Z",
+        "icon": null,
+        "ownershipEvidence": [
+          {
+            "url": "https://publitech.fun/logoform_failure",
+            "detail": "運営自身の公式サイトにある個別告知。",
+            "readState": "body_retrieved"
+          }
+        ],
+        "sources": [
+          {
+            "url": "https://publitech.fun/logoform_failure",
+            "title": "提供元の障害経過・申請の扱い・再開見込み",
+            "sourceRead": "body_retrieved",
+            "checkedAt": "2026-11-04T23:40:04Z"
+          },
+          {
+            "url": "https://www.lib.city.hino.lg.jp/news/announce/2026/October/20261022110032.html",
+            "title": "日野市立図書館の電子申請停止と窓口・電話代替",
+            "sourceRead": "body_retrieved",
+            "checkedAt": "2026-11-04T23:40:04Z"
+          }
+        ]
+      },
+      {
+        "id": "etax-emergency-maintenance-20261104",
+        "name": "国税電子申告・納税システム e-Tax",
+        "cat": "public",
+        "tag": "対象・予定を限定した公式告知",
+        "status": "緊急メンテナンス中・利用不可と公式案内",
+        "reason": "緊急メンテナンス。取得した公式本文では理由未記載",
+        "reasonKey": "other",
+        "start": "取得した公式本文では開始時計未記載",
+        "end": "終了時期は改めて同ホームページで案内するとの説明",
+        "scope": "緊急メンテナンス期間中のe-Tax利用。税務署の全業務停止へは広げない。",
+        "safe": "11月4日付の公式検索収録本文は緊急メンテナンス中で利用できないと案内しています。取得した公式本文には不審通信・侵害・漏えい・PHP原因の記載はありません。第三者の原因説明を公式確認として採用せず、10月の別告知や未照合の元資料と分けています。申告・納税・ログイン操作は未実施です。",
+        "url": "https://www.e-tax.nta.go.jp/topics/2026/topics_20261104_mentenansu.htm",
+        "date": "11/4掲載。開始・終了時計は未記載。",
+        "restored": false,
+        "noticeState": "announced",
+        "source": "公式検索に収録された告知本文。ページ本文の直接取得は未完了。実機能試験は未実施。",
+        "sourceRead": "official_indexed_body",
+        "checkedAt": "2026-11-04T23:40:04Z",
+        "icon": null,
+        "ownershipEvidence": [
+          {
+            "url": "https://www.e-tax.nta.go.jp/topics/2026/topics_20261104_mentenansu.htm",
+            "detail": "運営自身の公式サイトにある個別告知。",
+            "readState": "official_indexed_body"
+          }
+        ]
+      }
+    ],
+    "unresolvedOriginalCandidatesRetained": true,
+    "summary": "LoGo/e-Tax再開、NCD/大阪府/大野城の対象範囲再開、JARTIS連携停止と特例、川崎締切延長・新潟代替・補填未定など機能別影響を追記。"
   }
 }
