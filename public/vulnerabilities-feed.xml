@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/vulnerabilities-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Fri, 06 Nov 2026 00:58:24 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 07 Nov 2026 02:38:23 GMT</lastBuildDate>
+    <item>
+      <title>SonicOS CVE-2026-19868を1項目追加</title>
+      <link>https://share.0g0.xyz/vulnerabilities</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/vulnerabilities-feed.xml#7a07238b3e2660af0183a0c5329e8028bc61be896a6272adc2da91ce3116d053</guid>
+      <description>SonicOS CVE-2026-19868を1項目追加。11月6日のCISA KEV追加、SSLVPNでSAML有効・別方式の有効な資格情報が必要な条件、Gen 7/8の修正版、SonicWallとCISAのCVSS評価差を記録。資格情報不要の認証回避や、同告知の別CVEの実悪用とは扱わず、既存356項目・591 CVE・全履歴を保持。</description>
+      <pubDate>Sat, 07 Nov 2026 02:38:23 GMT</pubDate>
+      <dcterms:created>2026-11-07T02:38:23.000Z</dcterms:created>
+    </item>
     <item>
       <title>OpenSSH 10.6p2のmusl/PAM無効構成での認証回避と、h5io120499の未信頼HDF5読込によるコード実行を追加</title>
       <link>https://share.0g0.xyz/vulnerabilities</link>

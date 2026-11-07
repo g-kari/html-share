@@ -321,6 +321,7 @@
         "siteguard-server-statistics-exploited-command-injection": "ca1b0298a5c508271938160886448df8bbbbfedf77efb33da8b19a9787cc14a5",
         "smartermail-volume-script-jwt-demotion-and-mutation-xss": "c939fffdc9ddf5b5f17f57109000bcd5b4fa00cc83788d12eca1793335dcbb24",
         "smarty-inheritance-cache-rce": "a6cf35adbfcaeda249d4d096c8237b9dee785fa20c3ab23b841fc4adf2130de4",
+        "sonicos-saml-sslvpn-auth-enforcement-19868": "8ea97bc24621f4971ab2c6b625535b0835b46eaaa248d1c073f6f041c2276fb6",
         "sonicwall-sma1000-october-boundaries": "fe157a4e6b4cffadc3ce0b221d7cf762bc4513635a7c2e67e3b99381eef992be",
         "spip-october-core-crayons-simplog": "df57a5e9024df782c4173b2f38670524a2b782d4503e18cd10bab209bcdd70d6",
         "strapi-private-filter-reset-token-october-kev-followup": "98d9284f67e1ee6f29656c0e33578397f3db9b51e9f4314fdcc3a4d98dc9e99e",
@@ -908,6 +909,14 @@
             "pillow13-fpx-lossless-jpeg-overflow-followup"
           ],
           "date": "2026-11-06"
+        },
+        {
+          "signature": "a28b6989d3125ce52d9e793c3488f4598b55c686db10cd5f3dfbfbf01bb9fb1d",
+          "summary": "SonicOS CVE-2026-19868を1項目追加。11月6日のCISA KEV追加、SSLVPNでSAML有効・別方式の有効な資格情報が必要な条件、Gen 7/8の修正版、SonicWallとCISAのCVSS評価差を記録。資格情報不要の認証回避や、同告知の別CVEの実悪用とは扱わず、既存356項目・591 CVE・全履歴を保持。",
+          "ids": [
+            "sonicos-saml-sslvpn-auth-enforcement-19868"
+          ],
+          "date": "2026-11-07"
         }
       ],
       "items": [
@@ -1818,9 +1827,25 @@
           ],
           "published": "2026-11-06T00:58:24.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "7a07238b3e2660af0183a0c5329e8028bc61be896a6272adc2da91ce3116d053",
+          "summary": "SonicOS CVE-2026-19868を1項目追加。11月6日のCISA KEV追加、SSLVPNでSAML有効・別方式の有効な資格情報が必要な条件、Gen 7/8の修正版、SonicWallとCISAのCVSS評価差を記録。資格情報不要の認証回避や、同告知の別CVEの実悪用とは扱わず、既存356項目・591 CVE・全履歴を保持。",
+          "journal": [
+            {
+              "signature": "a28b6989d3125ce52d9e793c3488f4598b55c686db10cd5f3dfbfbf01bb9fb1d",
+              "summary": "SonicOS CVE-2026-19868を1項目追加。11月6日のCISA KEV追加、SSLVPNでSAML有効・別方式の有効な資格情報が必要な条件、Gen 7/8の修正版、SonicWallとCISAのCVSS評価差を記録。資格情報不要の認証回避や、同告知の別CVEの実悪用とは扱わず、既存356項目・591 CVE・全履歴を保持。",
+              "ids": [
+                "sonicos-saml-sslvpn-auth-enforcement-19868"
+              ],
+              "date": "2026-11-07"
+            }
+          ],
+          "published": "2026-11-07T02:38:23.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "df74f9736c9005a956418d1ac539296e6873b94a"
+      "cursor": "dd69a81dc0ca7b0f6839a9fc738808bfee2f9ce1"
     },
     "security-incidents": {
       "records": {
