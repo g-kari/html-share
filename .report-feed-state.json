@@ -1882,6 +1882,7 @@
         "change-healthcare-20240212": "b916068f884c94a6d1d4569351b251b68b49afa1686518bc562cbda572ba08b0",
         "chuden-credentials-20260729": "1231c7761d4f157f05b11d9e51e68267dee9e9bb48fb872bdc228ecf9a976138",
         "cinra-job-cloud-20260818": "e59118944b62794f4d6162a2069c14940b69c70c9904544f2afad6b238ff1187",
+        "club-tourism-members-20261030": "e182e0b0512a3aad523f2a2083406af8af778ef8352e0094d4769f6f4dce6dfa",
         "coastline-sumareji-app-2026": "a37bd8f809252455357754b6483fdc6db2dcc4a3827575a0432614096f6d0ff0",
         "coconala-resume-20261008": "eb238bb47e37b31ac1b72f96a1443f5fa5b5bde6c97aec836f0e052dd64a785c",
         "comhairle-cyberattack-20231107": "969973749209f04fd022ca4fbbb96b8912e33f409bfbbfcfd6b7da252cd459b5",
@@ -2028,6 +2029,7 @@
         "shimonoseki-disaster-mail-20261013": "d4af2bf0535c5001bf81067e8edc2a9ebfc44f871fa1417930f43d551cbe2405",
         "shippio-platform-20261030": "b27976bbdeec688037e5257dcacd0a1610f184497bef3dc47e0bf6b1194240db",
         "shueisha-hpc-20260909": "f90c6e88cfabe4ff0fe0609a104a01b1fff540bb2112e06ed2d373496ae0e978",
+        "signaltalk-maru-jan-20261104": "a0f4df87cc29a3670f83d291009a8daf560201a4bf3f33c7b3aa58a8f9f61f21",
         "siu-phishing-20260709": "a449fe6d1aa354632cbe6b0d9e247ce5038d1e9be331a209c833f3ab6ea0667b",
         "skyticket-three-paths-20261009": "0b74296ce2e8ea118774aa00a1109f5277223733358ebad8e7fd19056de39d2f",
         "smartnews-systems-20261031": "691c18779c0ccebb309494c12f68e9036748a59fa4ed9447b4f45885c9233b89",
@@ -3134,6 +3136,15 @@
             "phrase-account-takeover-202608",
             "triggerdev-environment-variables-20261101",
             "workos-sales-support-20261030"
+          ],
+          "date": "2026-11-07"
+        },
+        {
+          "signature": "21ed5eab9c02efbe351e8a52aeb7d009bb06989925c6468d8bf95d6862c9c48f",
+          "summary": "Maru-Janの会員185万5578人分のメールアドレス・パスワード流出確認と11月7日16時再開、クラブツーリズムの約432万件の漏えい可能性と同日の写真募集ページを除く再開を追加。前者の確定と後者の可能性、人数と件数、再開と継続調査を分ける。初回公表は11月6日と10月31日で、今回の掲載日を発生日にしない。掲載範囲欄の年内件数も掲載一覧に合わせた。",
+          "ids": [
+            "club-tourism-members-20261030",
+            "signaltalk-maru-jan-20261104"
           ],
           "date": "2026-11-07"
         }
@@ -4521,9 +4532,26 @@
           ],
           "published": "2026-11-07T02:42:58.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "4995f200f8488d185e42fb06cf034d9d7727c86c583ce590774ada9c84a9bfad",
+          "summary": "Maru-Janの会員185万5578人分のメールアドレス・パスワード流出確認と11月7日16時再開、クラブツーリズムの約432万件の漏えい可能性と同日の写真募集ページを除く再開を追加。前者の確定と後者の可能性、人数と件数、再開と継続調査を分ける。初回公表は11月6日と10月31日で、今回の掲載日を発生日にしない。掲載範囲欄の年内件数も掲載一覧に合わせた。",
+          "journal": [
+            {
+              "signature": "21ed5eab9c02efbe351e8a52aeb7d009bb06989925c6468d8bf95d6862c9c48f",
+              "summary": "Maru-Janの会員185万5578人分のメールアドレス・パスワード流出確認と11月7日16時再開、クラブツーリズムの約432万件の漏えい可能性と同日の写真募集ページを除く再開を追加。前者の確定と後者の可能性、人数と件数、再開と継続調査を分ける。初回公表は11月6日と10月31日で、今回の掲載日を発生日にしない。掲載範囲欄の年内件数も掲載一覧に合わせた。",
+              "ids": [
+                "club-tourism-members-20261030",
+                "signaltalk-maru-jan-20261104"
+              ],
+              "date": "2026-11-07"
+            }
+          ],
+          "published": "2026-11-07T10:07:34.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "8b046145754f9ba01770136858245c41539cafd2"
+      "cursor": "d339e6336d2254bfa0b351ad22f011f7e0e8fa54"
     }
   }
 }

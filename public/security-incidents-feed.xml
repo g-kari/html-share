@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Sat, 07 Nov 2026 02:42:58 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 07 Nov 2026 10:07:34 GMT</lastBuildDate>
+    <item>
+      <title>Maru-Janの会員185万5578人分のメールアドレス・パスワード流出確認と11月7日16時再開、クラブツーリズムの約432万件の漏えい可能性と同日の写真募集ページを除く再開を追加</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#4995f200f8488d185e42fb06cf034d9d7727c86c583ce590774ada9c84a9bfad</guid>
+      <description>Maru-Janの会員185万5578人分のメールアドレス・パスワード流出確認と11月7日16時再開、クラブツーリズムの約432万件の漏えい可能性と同日の写真募集ページを除く再開を追加。前者の確定と後者の可能性、人数と件数、再開と継続調査を分ける。初回公表は11月6日と10月31日で、今回の掲載日を発生日にしない。掲載範囲欄の年内件数も掲載一覧に合わせた。</description>
+      <pubDate>Sat, 07 Nov 2026 10:07:34 GMT</pubDate>
+      <dcterms:created>2026-11-07T10:07:34.000Z</dcterms:created>
+    </item>
     <item>
       <title>JNSA、アイリスプラザ、SMBCコンシューマーファイナンス、宝くじ公式サイト・アプリを追加</title>
       <link>https://share.0g0.xyz/security-incidents</link>
