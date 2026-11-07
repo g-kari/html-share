@@ -142,5 +142,55 @@ test('November 6 follow-ups separate restoration, corrected fields and authentic
   assert.match(pcs.count, /550万件.*6.5万件.*非加算/);
   assert.match(chainalysis.count, /全ユーザー.*パスワードハッシュ.*live token/);
   assert.match(chainalysis.impact, /不正アクセスがあったとみられる.*全ユーザーの平文パスワード窃取とは説明していない/);
-  assert.match(chainalysis.response, /復旧.*方針.*復旧完了の発表はない/);
+  assert.match(chainalysis.timeline.find(event => event.date === '2026-11-05').text, /復旧開始を予定.*復旧実績は未確認/);
+  assert.match(chainalysis.response, /段階的なアクセス復旧を開始.*Reactor・Data Solutionsは復旧作業中/);
+});
+
+test('November 7 domestic additions preserve counts, uncertainty and regulator-report timing', () => {
+  const jnsa = byId.get('jnsa-literacy-check-20261030');
+  const iris = byId.get('irisplaza-cloud-20261028');
+  const smbc = byId.get('smbccf-guarantee-20261102');
+  const lottery = byId.get('takarakuji-account-login-202611');
+  const docomo = byId.get('docomo-online-mydocomo-20261104');
+  assert.match(jnsa.count, /最大15,128件.*確定流出人数に読み替えない/);
+  assert.match(jnsa.response, /個人情報保護委員会.*予定.*完了は未確認/);
+  assert.equal(iris.disclosed, '2026-10-29');
+  assert.match(iris.count, /580万人.*190万人.*770万人分.*実際.*調査中/);
+  assert.match(iris.impact_status, /可能性/);
+  assert.match(smbc.count, /最大320,118名.*加算しない/);
+  assert.match(smbc.impact_status, /外部送信を確認.*調査中/);
+  assert.match(lottery.count, /非公表/);
+  assert.match(lottery.impact_status, /パスワード変更を確認.*閲覧の可能性/);
+  assert.match(docomo.impact, /本人確認書類/);
+  assert.match(docomo.count, /30万件.*30万人とはしない/);
+  for (const item of [jnsa, iris, smbc, lottery, docomo]) {
+    assert.ok(item.sources.every(source => source.type === 'official'));
+    assert.ok(html.includes('id="' + item.id + '"'));
+  }
+});
+
+test('November 7 overseas follow-ups preserve attribution, limited verification and history links', () => {
+  const workos = byId.get('workos-sales-support-20261030');
+  const phrase = byId.get('phrase-account-takeover-202608');
+  const trigger = byId.get('triggerdev-environment-variables-20261101');
+  assert.match(JSON.stringify(workos), /研究者.*AI/);
+  assert.match(workos.impact, /顧客アカウント履歴/);
+  assert.deepEqual(workos.cause_types, ['external_attack', 'operational_error']);
+  assert.equal(phrase.disclosed, '2026-11-06');
+  assert.match(phrase.impact_status, /全対象.*未確認/);
+  for (const field of ['occurred', 'cause', 'count']) {
+    assert.match(trigger[field], /11月6日の詳細報告本文は今回未確認/);
+  }
+  const changes = register.changes.filter(change => change.date === '2026-11-07');
+  assert.equal(changes.length, 3);
+  const ids = new Set(changes.flatMap(change => change.incident_ids));
+  assert.equal(ids.size, 11);
+  for (const id of [
+    'jnsa-literacy-check-20261030', 'irisplaza-cloud-20261028',
+    'smbccf-guarantee-20261102', 'takarakuji-account-login-202611',
+    'docomo-online-mydocomo-20261104', 'mdaq-wallex-20261028',
+    'phrase-account-takeover-202608', 'chainalysis-internal-tools-202610',
+    'northflank-control-plane-20261030', 'workos-sales-support-20261030',
+    'triggerdev-environment-variables-20261101'
+  ]) assert.ok(ids.has(id), id);
 });
