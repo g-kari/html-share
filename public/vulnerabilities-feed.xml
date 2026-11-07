@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/vulnerabilities-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Thu, 05 Nov 2026 01:14:57 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 06 Nov 2026 00:58:24 GMT</lastBuildDate>
+    <item>
+      <title>OpenSSH 10.6p2のmusl/PAM無効構成での認証回避と、h5io120499の未信頼HDF5読込によるコード実行を追加</title>
+      <link>https://share.0g0.xyz/vulnerabilities</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/vulnerabilities-feed.xml#6ee37a40c563d5d64c948e7127f2cc18a6c36ce3ac93a971508535471b0ec06c</guid>
+      <description>OpenSSH 10.6p2のmusl/PAM無効構成での認証回避と、h5io120499の未信頼HDF5読込によるコード実行を追加。Alpineの追加条件・系列別バックポートと、h5io0.2.6のallow_pickle既定値変更、PoCと実悪用未確認を分けて記録。 Pillowの10月17日公表2件を未収録補完し、11月2日のTIFFメモリーDoSとPython3.10対応終了を区別。11月6日の新規発見や実悪用として扱わない。</description>
+      <pubDate>Fri, 06 Nov 2026 00:58:24 GMT</pubDate>
+      <dcterms:created>2026-11-06T00:58:24.000Z</dcterms:created>
+    </item>
     <item>
       <title>WordPress Core119977の11月3日KEV追加と7.1.4修正、Ivanti111357/118527・Cisco76418・Brotli111497・Adobe48356の実悪用を補</title>
       <link>https://share.0g0.xyz/vulnerabilities</link>

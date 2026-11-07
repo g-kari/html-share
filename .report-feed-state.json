@@ -161,6 +161,7 @@
         "gstreamer-asfmux-non-bmp-metadata-heap-write": "e58e09d8ec6beef9db8c10c8d7beeae2b48e109a5423b8ec875e317e60bf97ef",
         "gstreamer-editing-project-autoplug-arbitrary-elements": "0df574a7d3ecd10d33af298bce834d713dbe32bb31f23f40af999c8b2e7b7728",
         "guava-java-deserialization-array-allocation-dos": "483d97c8690b289e7cff9c89940dedb52332248d5d4a57a3017b4717fba9b6e3",
+        "h5io-crafted-hdf5-code-execution-120499": "db58d2fec119b1aaebc40938ff6e7c4191acd49c9a07b734eedfc150aec0ad5c",
         "handlebars-own-property-and-ast-compilation-rce": "818cefb25a07707a1ff1bea6dcfa7d602c5177159c2ec085a86b4f42eea4bd70",
         "hdf5-fill-value-corruption-and-scale-offset-boundary": "9141a6573eae2d4df9dbe7814ffd940f96955be990b5ed233a9aa8d82cbe509b",
         "hermes-automatic-git-config-execution": "833129c476e243893eb7b452e99594a212c66a6cc3471154a09819479753933f",
@@ -260,6 +261,7 @@
         "openhands-sdk-exposed-unauthenticated-sandbox": "88856351055ec7e934e913069077cf4011ae977d9edf182d921ef61145f01188",
         "openoffice-java-document-rce": "68dc10ceafd6e7cd6585835b65d0ed414f4db6813eb13aa87b21504ab53cb5c3",
         "openpdc-openhistorian-console-publisher-docker-boundaries": "66e7044909c5e591d7d4291312b96cb51d524e6f2ca799c099f9d96ddcd96853",
+        "openssh-musl-password-authentication-bypass-106p2": "1b485cb8afd1f0dcc86736ef9253042143bc0aa0d2461f251a40e2d4a0291e24",
         "openssl-dtls-retransmission-heap-disclosure": "f52e014ed97559cab65b9cafaf49759c2b36f7ff24e5a2b739c27e4bb903d481",
         "openwebui-community-session-theft": "4285411e86e7a5d39675eb9ce9b4fcb9c5495fcb90f0e9cce6007e6f010e7536",
         "paloalto-checkov-path-traversal-0312": "4374d68538b2672e4c04567b37d82e6627a8ad2aa8f0829992480e770353c675",
@@ -291,6 +293,7 @@
         "php-session-upload-progress-handler-switch-115560": "9d86f2da8ce0e6792034898f600166af59572632ab94559fa516d8128d75f0ec",
         "pillow-bundled-openjpeg-heap-overflow": "e4c8552d163dbbec924b978e9840966511828ed34d5553e0c03cfa14fd2d5beb",
         "pillow-multiframe-native-storage-96639": "368afbf6eca139b55b635ff28e3fe223c98c7481efeff1cc990e88484926ae23",
+        "pillow13-fpx-lossless-jpeg-overflow-followup": "a1cda950449a2a3d8ecead65952a8671f088f15161f758da10abec59ef2e9ddd",
         "pingvin-share-x-oauth-email-account-linking-takeover": "c3b8a06d672df78c2b192e2c417baf23eb7b3f78f8a43440aefb21cc581e974f",
         "pixel-october-critical-bluetooth-gdmc-gsa": "3ad631bd2bdfa4d540222b0ee7109387dd54dd6de31e18237b26abff790feda0",
         "planka-totp-bruteforce": "336ec8f5f57298328f8541660a026ede451f768e694f63505031c7795805c4d1",
@@ -895,6 +898,16 @@
             "hinemos-password-change-privilege-109849"
           ],
           "date": "2026-11-05"
+        },
+        {
+          "signature": "64743d94a6f9970c1e599a506a38b66c1cd9e7699763785925cd1b8815fa40a4",
+          "summary": "OpenSSH 10.6p2のmusl/PAM無効構成での認証回避と、h5io120499の未信頼HDF5読込によるコード実行を追加。Alpineの追加条件・系列別バックポートと、h5io0.2.6のallow_pickle既定値変更、PoCと実悪用未確認を分けて記録。 Pillowの10月17日公表2件を未収録補完し、11月2日のTIFFメモリーDoSとPython3.10対応終了を区別。11月6日の新規発見や実悪用として扱わない。",
+          "ids": [
+            "h5io-crafted-hdf5-code-execution-120499",
+            "openssh-musl-password-authentication-bypass-106p2",
+            "pillow13-fpx-lossless-jpeg-overflow-followup"
+          ],
+          "date": "2026-11-06"
         }
       ],
       "items": [
@@ -1787,9 +1800,27 @@
           ],
           "published": "2026-11-05T01:14:57.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "6ee37a40c563d5d64c948e7127f2cc18a6c36ce3ac93a971508535471b0ec06c",
+          "summary": "OpenSSH 10.6p2のmusl/PAM無効構成での認証回避と、h5io120499の未信頼HDF5読込によるコード実行を追加。Alpineの追加条件・系列別バックポートと、h5io0.2.6のallow_pickle既定値変更、PoCと実悪用未確認を分けて記録。 Pillowの10月17日公表2件を未収録補完し、11月2日のTIFFメモリーDoSとPython3.10対応終了を区別。11月6日の新規発見や実悪用として扱わない。",
+          "journal": [
+            {
+              "signature": "64743d94a6f9970c1e599a506a38b66c1cd9e7699763785925cd1b8815fa40a4",
+              "summary": "OpenSSH 10.6p2のmusl/PAM無効構成での認証回避と、h5io120499の未信頼HDF5読込によるコード実行を追加。Alpineの追加条件・系列別バックポートと、h5io0.2.6のallow_pickle既定値変更、PoCと実悪用未確認を分けて記録。 Pillowの10月17日公表2件を未収録補完し、11月2日のTIFFメモリーDoSとPython3.10対応終了を区別。11月6日の新規発見や実悪用として扱わない。",
+              "ids": [
+                "h5io-crafted-hdf5-code-execution-120499",
+                "openssh-musl-password-authentication-bypass-106p2",
+                "pillow13-fpx-lossless-jpeg-overflow-followup"
+              ],
+              "date": "2026-11-06"
+            }
+          ],
+          "published": "2026-11-06T00:58:24.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "88d0f1eb56bd07db57b9b697b436e45614238aba"
+      "cursor": "df74f9736c9005a956418d1ac539296e6873b94a"
     },
     "security-incidents": {
       "records": {

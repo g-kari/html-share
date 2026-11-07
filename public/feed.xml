@@ -18,6 +18,15 @@
       <dcterms:modified>2026-11-06T23:27:28.000Z</dcterms:modified>
     </item>
     <item>
+      <title>脆弱性レポート | 実悪用・修正版・対処</title>
+      <link>https://share.0g0.xyz/vulnerabilities</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/vulnerabilities</guid>
+      <description>重要な脆弱性の影響製品・実悪用・修正版・対処を公開一次資料で確認するレポート。CVSSと条件付き対処優先度を分けて掲載します。</description>
+      <pubDate>Fri, 06 Nov 2026 00:58:24 GMT</pubDate>
+      <dcterms:created>2026-10-06T05:47:01.000Z</dcterms:created>
+      <dcterms:modified>2026-11-06T00:58:24.000Z</dcterms:modified>
+    </item>
+    <item>
       <title>2026年 不正アクセス・情報漏えいウォッチ｜原因・出典・続報</title>
       <link>https://share.0g0.xyz/security-incidents</link>
       <guid isPermaLink="true">https://share.0g0.xyz/security-incidents</guid>
@@ -52,15 +61,6 @@
       <pubDate>Thu, 05 Nov 2026 05:54:35 GMT</pubDate>
       <dcterms:created>2026-11-05T03:13:34.000Z</dcterms:created>
       <dcterms:modified>2026-11-05T05:54:35.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>脆弱性レポート | 実悪用・修正版・対処</title>
-      <link>https://share.0g0.xyz/vulnerabilities</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/vulnerabilities</guid>
-      <description>重要な脆弱性の影響製品・実悪用・修正版・対処を公開一次資料で確認するレポート。CVSSと条件付き対処優先度を分けて掲載します。</description>
-      <pubDate>Thu, 05 Nov 2026 01:14:57 GMT</pubDate>
-      <dcterms:created>2026-10-06T05:47:01.000Z</dcterms:created>
-      <dcterms:modified>2026-11-05T01:14:57.000Z</dcterms:modified>
     </item>
     <item>
       <title>共有Web基盤の設計図：S3・CloudFront・Lambda Web Functionのまとめ方と分け方</title>
