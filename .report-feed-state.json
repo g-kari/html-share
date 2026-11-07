@@ -1845,7 +1845,7 @@
           "precision": "second"
         }
       ],
-      "cursor": "dd69a81dc0ca7b0f6839a9fc738808bfee2f9ce1"
+      "cursor": "248e313225142560a634c952f0c450f1dade7bec"
     },
     "security-incidents": {
       "records": {
@@ -1878,7 +1878,7 @@
         "cec-datacenter-20260805": "64512b0b0b2e1693ee0e33f2f3d94daca3397821cbd5aeb71afcd6f242895ce1",
         "ceres-pointincome-20261005": "8e4ba99ea257fb88a31ceda3c6159823b8ae821a51243f31063d82cab97e4e17",
         "certfr-refrigeration-20261012": "d83a4a7b8ced172a461391aedc2e339f383a5fd8dac81590af88e909d6813108",
-        "chainalysis-internal-tools-202610": "2683cb9d923300eab61cbf136e33200d62c39d2906f4e9ece9702404ad2149c3",
+        "chainalysis-internal-tools-202610": "c45b06618a708a966f733452e992076a9ba21a0394776674e079e716e0a7879b",
         "change-healthcare-20240212": "b916068f884c94a6d1d4569351b251b68b49afa1686518bc562cbda572ba08b0",
         "chuden-credentials-20260729": "1231c7761d4f157f05b11d9e51e68267dee9e9bb48fb872bdc228ecf9a976138",
         "cinra-job-cloud-20260818": "e59118944b62794f4d6162a2069c14940b69c70c9904544f2afad6b238ff1187",
@@ -1896,7 +1896,7 @@
         "denmark-cpr-202609": "09530cda566c311efec57744d4aac7f0b639d60adec60ba71becf9f6e77af99a",
         "digital-gss-20260625": "cc80960f66e57c16c31434b188bc63b70a51ddc777c374564f6462a08863a5f0",
         "divd-zammad-20260921": "d2ed878c758362ae76bd4939b2fcf4e8d0598bc5d2dcbdcf2af782ac87ebd48e",
-        "docomo-online-mydocomo-20261104": "ed5885087fa20de4b42abd63fbd725dd50466c59a8d15b73f3528182c1d3fce4",
+        "docomo-online-mydocomo-20261104": "674653529c1332f53ed64f2e7322b3fb13af1c56020ae02d3a67a7009e21a8b8",
         "dotmoney-2026": "c7af7398ec07c643e78a40077d281d63aa937bb31a8d699183657191fc17be88",
         "doublecounter-metabase-cloud-20261004": "324f97262bf7852be87d42327a38231fd3f1207bd2f65b487322c617949100ea",
         "dtu-dtubasen-20261002": "726e62cc3cfa7b584e780c786e0d6df3b223a71b81a665df96754943bf8806c6",
@@ -1937,6 +1937,7 @@
         "intage-survey-20261104": "bc001c14f26b856e2924d6420a9ae0fd3db51af55dd9a513be3650baecd0e57f",
         "iplug-offerbox-config-20261005": "075c84a4bf353d76090be0ae124b10ae61d1508676520cfd0daefaa167dcc511",
         "irhythm-business-apps-20260603": "21fc5bf745401fc411ad2bd6008d3099447f812b46fec8ac04a5954c6e2e371c",
+        "irisplaza-cloud-20261028": "db2ab54286e17da4c31254896458bbc3870f31eba1f78d63bbf7bf5135509f77",
         "iseto-20240526": "1604ddff4378964581d0c613779dc051dfd091936a4bb1cc6cf4edf6a676b79c",
         "istyle-cosme-members-20261028": "26e85141be681adb54e534898d798de3b330f769edffa0ad3f9c9668e6dbbcbc",
         "italy-mfa-attempt-20261008": "fa3cac271cc1f607c6a297bccb0033779b5a08a438b9fa91075bb919d09af545",
@@ -1945,6 +1946,7 @@
         "japanpost-app-20260925": "04a0467b654f04b5668d7c04f8b575611716765a87def492e04002c0857023c8",
         "japantimes-group-server-20261002": "9cd0f89c53f04fcce8133ba0c446e81fcc27f3fef18002f381890d11d3b4a5bc",
         "jmty-dev-environment-2026-update": "994423908854e7d9bc9e4e414462e518a6250e115b2bd9cd993a20c46e683f9f",
+        "jnsa-literacy-check-20261030": "855b069b804c6d102ddeecfd6deef28ea595a599661358924351eb077f566017",
         "jogmec-20260909": "079987d631aaa6075f8a43436fcf8411ac802652450f33c4e6b49157daf3cec3",
         "jr-kyushu-group-2026": "4bf949feb220aee35d486cd5f6c0188275a05868b6c5c0f6ed7001b5b292498e",
         "jst-mail-20260728": "cdcfdc5a71ccce93464ac9bbd7a819086e3dd9ccc6eaa079e76446b7424abc0b",
@@ -1969,6 +1971,7 @@
         "lycorp-20230914": "09d1ad9f63ba870a1616e164edef3f9c19091827e5668c73be18c21fe17e1227",
         "manage-my-health-202512": "744d4fa236324ce62fb2fe1661ddc693f6ea9ca7732b8cfe149e348837159d3f",
         "mazda-warehouse-2026": "06d9ca5d8d084bb80d6d41ad3466e35bea4c59b500b610f88f19d3f8ddbb9adc",
+        "mdaq-wallex-20261028": "a22127f3a039699ca837b14d325047f3769a7e7d63379ac47153c5582c2ac56c",
         "media4u-sms-20260624": "2b4a9f6b981516711c61ae6b4469f30c7922ccdf4c6c32f80ff63495bc7c9b30",
         "medley-atlink-20261011": "9769523910b24474698656c95de1bb1f19ff32318a5bd429aec33cbf20614a26",
         "mercor-litellm-202603": "c8ca789b983a3bd3087df6c7637546860e044118afd838b4f7639eebc1e0310d",
@@ -1991,7 +1994,7 @@
         "nippontele-ransomware-20260309": "a9edbb7babccad0abdaed16584db86f54dfa0289c39624750784a6beb7b5be91",
         "nms-musashikosugi-2026": "52a060013b23833dcd9fb0f8f8bac9b364a0ffd3edcc0f424cf37176d5f90d13",
         "nojima-online-20261101": "60e9ccc32be61384215d42cdafae081fa639ab6a65d0bf87ca21c64e988b4f4a",
-        "northflank-control-plane-20261030": "706379353f82aa7ea8db9d296d94bbab93454e3bf565c1e08ac2325be35f1980",
+        "northflank-control-plane-20261030": "e351971950ed82f9cad9f129b0c3e3bb366c8d130b6fccf10b2fa67617b6895b",
         "ns-biojapan-2026": "fac5d87184cc520290dcf87fe1d99c132be2733476d1e6304c6ffae2f05cd63a",
         "ntt-west-insider-20231017": "00e8fe96ab1f93f613d14a39d3cc9ccc357f2cf51ca83e6c3975261b7398615e",
         "nttdata-st-direct-vendor-digital-bonds-20261031": "5902c6a49484aaef1ea3c7a380639b2cfc6b38eb3a14fc6e22f81f5edabea63f",
@@ -2004,6 +2007,7 @@
         "ozmall-20260926": "ce00c46bd69400064edec6258d9c59c6abe632c55e60f9c1d3b86f306bfd2fb6",
         "paperlogic-cloud-20260827": "f59bdf5b4d99338a511c08bef82f4ee97658bcd046144dd9314300485a752d24",
         "photon-health-metabase-202608": "558c59e446aba4aaa7f9c384e4db33a324ecaf83bfbddca3b1055702a71f8ce1",
+        "phrase-account-takeover-202608": "4c2e64d44236f04cca1f8dac774006325d17d85f6d6663e82921d83a0f50d4c6",
         "prestige-pcs-20261029": "1635331a81dae85355706af975aa0fbbf47ef92ca9ee93b8451627ecefb713bf",
         "publica-software-provider-202609": "f8c0a91a379f319f6ace6bf377b9ca77628cf4ef3615c27c0d32700d71eeaa6d",
         "rakus-blastmail-20261020": "fba7d55507087f1e86306ae198267d1f8874fb28d057570ea1ce94023166f805",
@@ -2027,6 +2031,7 @@
         "siu-phishing-20260709": "a449fe6d1aa354632cbe6b0d9e247ce5038d1e9be331a209c833f3ab6ea0667b",
         "skyticket-three-paths-20261009": "0b74296ce2e8ea118774aa00a1109f5277223733358ebad8e7fd19056de39d2f",
         "smartnews-systems-20261031": "691c18779c0ccebb309494c12f68e9036748a59fa4ed9447b4f45885c9233b89",
+        "smbccf-guarantee-20261102": "988ed47ab224d1c7289d12f25d2a701a9113550c545eb0ae1f61ae72011146c2",
         "sodick-2026": "4bc4212814b1a3658aba8ff5c65dec182463c72027b209b2256eab615f63b28f",
         "sony-psn-qriocity-20110417": "141d9587da6ad9a8542a405a2db9ec9cde4bc8e86348390a7b07afaad0f2faa3",
         "stryker-20260311": "5d10f30fbd12193c4a1c0d96dc51c40c5a4e32965b82d66f7812f26c5ae8eeb3",
@@ -2034,6 +2039,7 @@
         "studysapuri-20260930": "6c257d9dc0b16b352fdeb16d5c5d2bd098875f582461b35855ecfdbca24d19aa",
         "suzukiworld-form-20260729": "6e1a19fbfc402c7b8fc024cc0f2c3c37c25dec6ab619e7eadbe744ccc184a5fe",
         "synnovis-cyber-202406": "67020ec420f09e223a206a2319f1ebf7490a033d7d6feb7fc406d28d985d36b5",
+        "takarakuji-account-login-202611": "4f6725598b0e1567b271f0f89bcf19369aa5ca9119c643ac389184372bb98638",
         "temairazu-202609": "86b662cdba269ee234cb7e1c7c3bd148eb729927682b8b26cb145890d471565f",
         "thinca-web-20260824": "aacaf2422340a1553ea29abfd02d694c8df53784192faacbbcf37fdb2510bb54",
         "timescar-20260925": "02296a332bac151da31bdd4bba6460484ef058444aef0158b007f5e1d410322e",
@@ -2046,7 +2052,7 @@
         "toppan-payments-20261014": "22e09fe9f648ae26ee25159836858f47f1d5a06e9057c41a72c87a7b2dfe60e9",
         "toyobo-mail-20260924": "96f77099191bfdb586a57b0f3920274b0ee09915f84d94037877e8f895a8a718",
         "toypo-api-20261004": "2ffc9d550dd64a0f495ae6d70e4818be649ee28a49480c2128cd7f0913a5d648",
-        "triggerdev-environment-variables-20261101": "3fb640472bb980e623a1376d117af9296ee93b4cd9337fbc2dee53c98b9400dc",
+        "triggerdev-environment-variables-20261101": "cda6094800bca070eb64810ee59eb260b49aafcb5ba9b48093b9f7edfc3906d2",
         "trizetto-provider-202411": "f193fd781374e9af909ff60526fcf94fb74c556758c7d89b9e8de76425a993e6",
         "uk-laa-20250423": "4d2a946b1a351ab29475cc146e09580b37f070785c1747cccc72a3ae59cf6063",
         "unirita-saas-documents-20260928": "b4373441f8674f9c64d65a4e8b9bf847b45eff8566b9b237e34e9217665a6793",
@@ -2059,7 +2065,7 @@
         "wasabi-switch-orders-20261014": "7dfa8605ad265c7737ada0e0484f710748b8a3cd885633b03d814a2940a4f64e",
         "westjet-social-engineering-20250612": "6b4160f7b35077f82e3c3739ea070f95acf5f2128439913acbc70ae80103a0bc",
         "whiteessence-reservation-20260805": "7e4305ed1095ddbd3b4e023d3f4ffde7dceca44b08df74fe79b2d689e9941e50",
-        "workos-sales-support-20261030": "0e546eacfe18fd88b2df3f510696c3e07377d7140b993f388f11fd1b15ec108a",
+        "workos-sales-support-20261030": "69986724b8f3d64d13b5a132b17a2b6498f5ad428e04be5fab9314c326066728",
         "yamato-paylater-20260928": "43edaa401fb0afc215ea2610792451aacafd3ff0fa4fd0cdb468eb8e0fab66b4",
         "ycc-2026": "1b505f87536962594cefeba1e83ccc9845780a02f22066fb52898e7660150303",
         "zojirushi-taiwan-2026": "8d675e26cdd2a54ee31b8dea02b982443697d27a82ac341f51ac7292413b1f83",
@@ -3098,6 +3104,38 @@
             "chainalysis-internal-tools-202610"
           ],
           "date": "2026-11-06"
+        },
+        {
+          "signature": "114448e9d525d7581bab23f452fc9e5b76563bf71f21831f5c9bef111298a3a0",
+          "summary": "JNSA、アイリスプラザ、SMBCコンシューマーファイナンス、宝くじ公式サイト・アプリを追加。JNSA最大15,128件とアイリス約770万人分は可能性、SMBCCF最大320,118名は情報の外部送信確認、宝くじは不正ログイン・パスワード変更と閲覧可能性を区別。発生・検知・公表日と掲載日、保存データと確定流出範囲を分けた。",
+          "ids": [
+            "irisplaza-cloud-20261028",
+            "jnsa-literacy-check-20261030",
+            "smbccf-guarantee-20261102",
+            "takarakuji-account-login-202611"
+          ],
+          "date": "2026-11-07"
+        },
+        {
+          "signature": "6e2c535a5b3feb541b3a5b2612d9e98f055a6ad19213cf7c9633b02b18695847",
+          "summary": "ドコモ11月6日第三報の流出項目を反映。本人確認書類番号・契約情報、一部の口座・代理人・勤務先・子育て応援プログラム情報を追記。最大約30万件と停止継続・再開未定を保持。",
+          "ids": [
+            "docomo-online-mydocomo-20261104"
+          ],
+          "date": "2026-11-07"
+        },
+        {
+          "signature": "bd946026ab0eeceec3a7ddbcb4fec836fdc40047fec3cc46cda6c94e46f20b35",
+          "summary": "M-DAQ／WallexとPhraseを追加。WorkOS11月6日報告の研究者AIへの帰属、公開設定・認証管理上の不備を反映。Northflankの復号・警報の時系列、Chainalysisの段階復旧開始を追記。Trigger.devの詳細報告公開を案内し、同本文は今回未確認と区別。",
+          "ids": [
+            "chainalysis-internal-tools-202610",
+            "mdaq-wallex-20261028",
+            "northflank-control-plane-20261030",
+            "phrase-account-takeover-202608",
+            "triggerdev-environment-variables-20261101",
+            "workos-sales-support-20261030"
+          ],
+          "date": "2026-11-07"
         }
       ],
       "items": [
@@ -4443,9 +4481,49 @@
           ],
           "published": "2026-11-06T00:27:31.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "d6c264d71ff87b70f541500738f52cfc29ab4906556bbdc7f5030ccb7266cabe",
+          "summary": "JNSA、アイリスプラザ、SMBCコンシューマーファイナンス、宝くじ公式サイト・アプリを追加。JNSA最大15,128件とアイリス約770万人分は可能性、SMBCCF最大320,118名は情報の外部送信確認、宝くじは不正ログイン・パスワード変更と閲覧可能性を区別。発生・検知・公表日と掲載日、保存データと確定流出範囲を分けた。 ドコモ11月6日第三報の流出項目を反映。本人確認書類番号・契約情報、一部の口座・代理人・勤務先・子育て応援プログラム情報を追記。最大約30万件と停止継続・再開未定を保持。 M-DAQ／WallexとPhraseを追加。WorkOS11月6日報告の研究者AIへの帰属、公開設定・認証管理上の不備を反映。Northflankの復号・警報の時系列、Chainalysisの段階復旧開始を追記。Trigger.devの詳細報告公開を案内し、同本文は今回未確認と区別。",
+          "journal": [
+            {
+              "signature": "114448e9d525d7581bab23f452fc9e5b76563bf71f21831f5c9bef111298a3a0",
+              "summary": "JNSA、アイリスプラザ、SMBCコンシューマーファイナンス、宝くじ公式サイト・アプリを追加。JNSA最大15,128件とアイリス約770万人分は可能性、SMBCCF最大320,118名は情報の外部送信確認、宝くじは不正ログイン・パスワード変更と閲覧可能性を区別。発生・検知・公表日と掲載日、保存データと確定流出範囲を分けた。",
+              "ids": [
+                "irisplaza-cloud-20261028",
+                "jnsa-literacy-check-20261030",
+                "smbccf-guarantee-20261102",
+                "takarakuji-account-login-202611"
+              ],
+              "date": "2026-11-07"
+            },
+            {
+              "signature": "6e2c535a5b3feb541b3a5b2612d9e98f055a6ad19213cf7c9633b02b18695847",
+              "summary": "ドコモ11月6日第三報の流出項目を反映。本人確認書類番号・契約情報、一部の口座・代理人・勤務先・子育て応援プログラム情報を追記。最大約30万件と停止継続・再開未定を保持。",
+              "ids": [
+                "docomo-online-mydocomo-20261104"
+              ],
+              "date": "2026-11-07"
+            },
+            {
+              "signature": "bd946026ab0eeceec3a7ddbcb4fec836fdc40047fec3cc46cda6c94e46f20b35",
+              "summary": "M-DAQ／WallexとPhraseを追加。WorkOS11月6日報告の研究者AIへの帰属、公開設定・認証管理上の不備を反映。Northflankの復号・警報の時系列、Chainalysisの段階復旧開始を追記。Trigger.devの詳細報告公開を案内し、同本文は今回未確認と区別。",
+              "ids": [
+                "chainalysis-internal-tools-202610",
+                "mdaq-wallex-20261028",
+                "northflank-control-plane-20261030",
+                "phrase-account-takeover-202608",
+                "triggerdev-environment-variables-20261101",
+                "workos-sales-support-20261030"
+              ],
+              "date": "2026-11-07"
+            }
+          ],
+          "published": "2026-11-07T02:42:58.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "3bd737eb5f828f3bf62b37bcae692848ff17a992"
+      "cursor": "8b046145754f9ba01770136858245c41539cafd2"
     }
   }
 }

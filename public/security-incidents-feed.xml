@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Fri, 06 Nov 2026 00:27:31 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 07 Nov 2026 02:42:58 GMT</lastBuildDate>
+    <item>
+      <title>JNSA、アイリスプラザ、SMBCコンシューマーファイナンス、宝くじ公式サイト・アプリを追加</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#d6c264d71ff87b70f541500738f52cfc29ab4906556bbdc7f5030ccb7266cabe</guid>
+      <description>JNSA、アイリスプラザ、SMBCコンシューマーファイナンス、宝くじ公式サイト・アプリを追加。JNSA最大15,128件とアイリス約770万人分は可能性、SMBCCF最大320,118名は情報の外部送信確認、宝くじは不正ログイン・パスワード変更と閲覧可能性を区別。発生・検知・公表日と掲載日、保存データと確定流出範囲を分けた。 ドコモ11月6日第三報の流出項目を反映。本人確認書類番号・契約情報、一部の口座・代理人・勤務先・子育て応援プログラム情報を追記。最大約30万件と停止継続・再開未定を保持。 M-DAQ／WallexとPhraseを追加。WorkOS11月6日報告の研究者AIへの帰属、公開設定・認証管理上の不備を反映。Northflankの復号・警報の時系列、Chainalysisの段階復旧開始を追記。Trigger.devの詳細報告公開を案内し、同本文は今回未確認と区別。</description>
+      <pubDate>Sat, 07 Nov 2026 02:42:58 GMT</pubDate>
+      <dcterms:created>2026-11-07T02:42:58.000Z</dcterms:created>
+    </item>
     <item>
       <title>NTTドコモ、MUJI、ブラストメールの未掲載3件を公式資料から追加</title>
       <link>https://share.0g0.xyz/security-incidents</link>

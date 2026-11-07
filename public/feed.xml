@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Sat, 07 Nov 2026 02:38:23 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 07 Nov 2026 02:42:58 GMT</lastBuildDate>
+    <item>
+      <title>2026年 不正アクセス・情報漏えいウォッチ｜原因・出典・続報</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/security-incidents</guid>
+      <description>2026年の不正アクセス・情報漏えいを原因・影響・対応・日付・一次資料で整理。全221件。JNSA・アイリスプラザ・SMBCCF・宝くじ・M-DAQ・Phraseと、ドコモ・WorkOS等の公式続報を反映。</description>
+      <pubDate>Sat, 07 Nov 2026 02:42:58 GMT</pubDate>
+      <dcterms:created>2026-10-02T06:08:44.000Z</dcterms:created>
+      <dcterms:modified>2026-11-07T02:42:58.000Z</dcterms:modified>
+    </item>
     <item>
       <title>脆弱性レポート | 実悪用・修正版・対処</title>
       <link>https://share.0g0.xyz/vulnerabilities</link>
@@ -25,15 +34,6 @@
       <pubDate>Fri, 06 Nov 2026 23:27:28 GMT</pubDate>
       <dcterms:created>2026-10-08T23:59:03.000Z</dcterms:created>
       <dcterms:modified>2026-11-06T23:27:28.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>2026年 不正アクセス・情報漏えいウォッチ｜原因・出典・続報</title>
-      <link>https://share.0g0.xyz/security-incidents</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/security-incidents</guid>
-      <description>2026年の不正アクセス・情報漏えいを原因・影響・対応・日付・一次資料で整理。全215件。ドコモ・MUJI・ブラストメールを追加し、Shippio・PCS・Chainalysisの公式続報を反映。</description>
-      <pubDate>Fri, 06 Nov 2026 00:27:31 GMT</pubDate>
-      <dcterms:created>2026-10-02T06:08:44.000Z</dcterms:created>
-      <dcterms:modified>2026-11-06T00:27:31.000Z</dcterms:modified>
     </item>
     <item>
       <title>緊急メンテナンス一覧｜2026年10月21日前後・公式告知と再開予定</title>
