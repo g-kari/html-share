@@ -181,7 +181,7 @@ test('November 7 overseas follow-ups preserve attribution, limited verification 
   for (const field of ['occurred', 'cause', 'count']) {
     assert.match(trigger[field], /11月6日の詳細報告本文は今回未確認/);
   }
-  const changes = register.changes.filter(change => change.date === '2026-11-07');
+  const changes = register.changes.filter(change => change.date === '2026-11-07' && change.kind !== 'official_maru_club_additions');
   assert.equal(changes.length, 3);
   const ids = new Set(changes.flatMap(change => change.incident_ids));
   assert.equal(ids.size, 11);
@@ -193,4 +193,38 @@ test('November 7 overseas follow-ups preserve attribution, limited verification 
     'northflank-control-plane-20261030', 'workos-sales-support-20261030',
     'triggerdev-environment-variables-20261101'
   ]) assert.ok(ids.has(id), id);
+});
+
+test('Maru-Jan and Club Tourism preserve distinct confirmed and possible exposure and restart scope', () => {
+  const maru = byId.get('signaltalk-maru-jan-20261104');
+  const club = byId.get('club-tourism-members-20261030');
+  assert.equal(maru.disclosed, '2026-11-06');
+  assert.match(maru.relevance, /詳報は11月7日/);
+  assert.match(maru.count, /185万5578人分.*全会員.*メールアドレスは登録済み/);
+  assert.match(maru.impact_status, /流出を確認/);
+  assert.match(maru.impact, /保存形式は公表していない/);
+  assert.match(maru.response, /11月7日16時.*再開.*旧パスワード.*他サービス.*変更/);
+  assert.equal(club.disclosed, '2026-10-31');
+  assert.equal(club.catalog_month, '2026-10');
+  assert.match(club.count, /約432万件.*可能性.*確定流出人数に読み替えない/);
+  assert.match(club.occurred, /5:45.*検知.*侵入開始日時ではない/);
+  assert.match(club.impact, /ログインパスワード、旅券・カード情報、金融機関口座番号は含まれない/);
+  assert.match(club.response, /写真大募集ページ.*停止継続.*新たな手続きは不要/);
+  assert.match(club.relevance, /URLに1102.*本文の日付.*2024年の別事案/);
+  const change = register.changes.find(item => item.kind === 'official_maru_club_additions');
+  assert.deepEqual(new Set(change.incident_ids), new Set([maru.id, club.id]));
+  for (const item of [maru, club]) {
+    assert.deepEqual(item.cause_types, ['external_attack']);
+    assert.ok(item.sources.every(source => source.type === 'official'));
+  }
+});
+
+test('visible coverage agrees with the unique incident register', () => {
+  const current = register.incidents.filter(item => item.scope === '2026').length;
+  const domestic = register.incidents.filter(item => item.region === '日本').length;
+  const overseas = register.incidents.filter(item => item.region === '海外').length;
+  assert.equal(register.coverage.current_year_cases, current);
+  assert.equal(register.coverage.domestic_cases, domestic);
+  assert.equal(register.coverage.overseas_cases, overseas);
+  assert.ok(html.includes(`計${register.incidents.length}件（国内${domestic}・海外${overseas}）。2026年の公表・続報・通知${current}件`));
 });
