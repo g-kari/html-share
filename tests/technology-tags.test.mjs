@@ -15,6 +15,10 @@ const keys = (record, kind) => automaticTags(record).filter((item) => item.kind 
 const record = (title, lead = "", category = "agent", extra = {}) => ({ title, lead, category, ...extra });
 
 const existingProducts = {
+  "puripuly-heart-2100-cpu-asr-replacement": ["puripuly-heart"],
+  "vrchat-202642-public-instance-owner-plan": ["vrchat"],
+  "aws-opensearch-legacy-support-surcharge-20261107": ["other"],
+
   "claude-code-21319-mcp-permission-boundaries": ["claude-code"],
   "codex-01670-provider-history-network-approval": ["codex"],
   "cloudflare-workers-ai-retirement-20261120": ["other"],
@@ -134,6 +138,9 @@ test("all authored records have deterministic product/domain/change dimensions",
 
 test("current change tags distinguish pricing, fixes, public weights, GA, beta and correction", () => {
   const expected = {
+    "puripuly-heart-2100-cpu-asr-replacement": ["update"],
+    "vrchat-202642-public-instance-owner-plan": ["preview", "compatibility"],
+    "aws-opensearch-legacy-support-surcharge-20261107": ["pricing"],
     "claude-code-21319-mcp-permission-boundaries": ["fix"],
     "codex-01670-provider-history-network-approval": ["fix"],
     "cloudflare-workers-ai-retirement-20261120": ["deprecation"],
