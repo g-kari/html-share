@@ -15,6 +15,7 @@ const keys = (record, kind) => automaticTags(record).filter((item) => item.kind 
 const record = (title, lead = "", category = "agent", extra = {}) => ({ title, lead, category, ...extra });
 
 const existingProducts = {
+  "unity-cli-beta17-process-delete-auth-guards": ["unity-cli"],
   "openwebui-0131-0132-files-approvals-migration": ["other"],
   "openai-agents-python-alpha7-write-mcp-storage": ["other"],
   "hermes-security-011-evidence-validation": ["other"],
@@ -142,6 +143,7 @@ test("all authored records have deterministic product/domain/change dimensions",
 
 test("current change tags distinguish pricing, fixes, public weights, GA, beta and correction", () => {
   const expected = {
+    "unity-cli-beta17-process-delete-auth-guards": ["preview", "compatibility", "security"],
     "openwebui-0131-0132-files-approvals-migration": ["compatibility"],
     "openai-agents-python-alpha7-write-mcp-storage": ["preview","compatibility"],
     "hermes-security-011-evidence-validation": ["security"],
