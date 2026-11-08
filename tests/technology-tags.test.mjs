@@ -15,6 +15,10 @@ const keys = (record, kind) => automaticTags(record).filter((item) => item.kind 
 const record = (title, lead = "", category = "agent", extra = {}) => ({ title, lead, category, ...extra });
 
 const existingProducts = {
+  "openwebui-0131-0132-files-approvals-migration": ["other"],
+  "openai-agents-python-alpha7-write-mcp-storage": ["other"],
+  "hermes-security-011-evidence-validation": ["other"],
+
   "puripuly-heart-2100-cpu-asr-replacement": ["puripuly-heart"],
   "vrchat-202642-public-instance-owner-plan": ["vrchat"],
   "aws-opensearch-legacy-support-surcharge-20261107": ["other"],
@@ -138,6 +142,9 @@ test("all authored records have deterministic product/domain/change dimensions",
 
 test("current change tags distinguish pricing, fixes, public weights, GA, beta and correction", () => {
   const expected = {
+    "openwebui-0131-0132-files-approvals-migration": ["compatibility"],
+    "openai-agents-python-alpha7-write-mcp-storage": ["preview","compatibility"],
+    "hermes-security-011-evidence-validation": ["security"],
     "puripuly-heart-2100-cpu-asr-replacement": ["update"],
     "vrchat-202642-public-instance-owner-plan": ["preview", "compatibility"],
     "aws-opensearch-legacy-support-surcharge-20261107": ["pricing"],
