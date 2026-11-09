@@ -290,7 +290,8 @@ test('November 5 incident additions retain units, provisional status and distinc
     assert.ok(['known', 'unknown'].includes(item.cause_key));
   }
   assert.match(i('arara-message-20261027').timeline.find(row => row.date === '2026-10-31').text, /19:53.*停止/);
-  assert.match(i('arara-message-20261027').count, /7,700万/);
+  assert.ok(i('arara-message-20261027').timeline.some(row => row.date === '2026-11-02' && /7,700万/.test(row.text)));
+  assert.match(i('arara-message-20261027').count, /81,329,467.*おそれ.*人数ではない/);
   assert.match(i('prestige-pcs-20261029').count, /重複/);
   assert.match(i('nojima-online-20261101').count, /700万件/);
   assert.match(i('shippio-platform-20261030').count, /1,300.*1,100/);
