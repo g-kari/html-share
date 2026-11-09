@@ -143,7 +143,7 @@ test('November 6 follow-ups separate restoration, corrected fields and authentic
   assert.match(chainalysis.count, /全ユーザー.*パスワードハッシュ.*live token/);
   assert.match(chainalysis.impact, /不正アクセスがあったとみられる.*全ユーザーの平文パスワード窃取とは説明していない/);
   assert.match(chainalysis.timeline.find(event => event.date === '2026-11-05').text, /復旧開始を予定.*復旧実績は未確認/);
-  assert.match(chainalysis.response, /段階的なアクセス復旧を開始.*Reactor・Data Solutionsは復旧作業中/);
+  assert.match(chainalysis.timeline.find(event => event.date === '2026-11-06').text, /段階復旧開始.*Reactor・Data Solutionsの復旧作業は継続/);
 });
 
 test('November 7 domestic additions preserve counts, uncertainty and regulator-report timing', () => {
@@ -178,9 +178,9 @@ test('November 7 overseas follow-ups preserve attribution, limited verification 
   assert.deepEqual(workos.cause_types, ['external_attack', 'operational_error']);
   assert.equal(phrase.disclosed, '2026-11-06');
   assert.match(phrase.impact_status, /全対象.*未確認/);
-  for (const field of ['occurred', 'cause', 'count']) {
-    assert.match(trigger[field], /11月6日の詳細報告本文は今回未確認/);
-  }
+  const priorSource = trigger.sources.find(source => source.checked_at === '2026-11-07');
+  assert.match(priorSource.date_note, /本文は今回未確認/);
+  assert.ok(trigger.timeline.some(event => /12:27 UTC.*本文は今回未確認/.test(event.text)));
   const changes = register.changes.filter(change => change.date === '2026-11-07' && change.kind !== 'official_maru_club_additions');
   assert.equal(changes.length, 3);
   const ids = new Set(changes.flatMap(change => change.incident_ids));
@@ -227,4 +227,105 @@ test('visible coverage agrees with the unique incident register', () => {
   assert.equal(register.coverage.domestic_cases, domestic);
   assert.equal(register.coverage.overseas_cases, overseas);
   assert.ok(html.includes(`計${register.incidents.length}件（国内${domestic}・海外${overseas}）。2026年の公表・続報・通知${current}件`));
+});
+
+
+test('November 8 portal reports separate records, investigated servers and partial financial fields', () => {
+  const host = byId.get('tsukaeru-portal-20261106');
+  const ms = byId.get('msins-contract-page-20261102');
+  const aioi = byId.get('aioinissaydowa-contract-page-20261102');
+  assert.equal(host.disclosed, '2026-11-07');
+  assert.match(host.count, /127件.*調査対象.*侵入・漏えい確認件数ではない/);
+  assert.match(host.impact, /バックアップ.*更新データ・送受信メール.*消失/);
+  assert.equal(ms.disclosed, '2026-11-03');
+  assert.equal(aioi.disclosed, '2026-11-03');
+  assert.match(ms.count, /約3.7万件.*人数.*合算しない/);
+  assert.match(ms.impact, /カード・口座情報を含まない/);
+  assert.match(aioi.count, /約44.4万件.*3件.*19件.*加算.*置換はしない/);
+  assert.match(aioi.impact, /下4桁.*下3桁を除く口座番号/);
+  assert.match(aioi.relevance, /共通基盤・同一攻撃.*未確認/);
+  for (const item of [host,ms,aioi]) assert.ok(item.sources.every(source=>source.type==='official'));
+});
+
+test('November 8 domestic followups retain scope and unfinished restoration', () => {
+  const pcs = byId.get('prestige-pcs-20261029');
+  const wasabi = byId.get('wasabi-switch-orders-20261014');
+  const arara = byId.get('arara-message-20261027');
+  assert.match(pcs.impact, /カード番号3件.*持ち出し.*損保ジャパン.*対象範囲に限る/);
+  assert.match(pcs.count, /550万件.*6.5万件.*カード番号3件.*加算しない/);
+  assert.match(wasabi.response, /暗号化.*完了.*futureshopは停止中/);
+  assert.match(wasabi.unknown.join(' '), /BUYMA/);
+  assert.match(arara.impact, /TKC.*未確認.*岡山県.*メールアドレス.*可能性/);
+  assert.ok(arara.sources.some(source=>source.url==='https://www.pref.okayama.jp/site/presssystem/1064871.html'));
+});
+
+test('November 8 overseas updates distinguish restored products, key exposure and planned shutdown', () => {
+  const chain = byId.get('chainalysis-internal-tools-202610');
+  const trigger = byId.get('triggerdev-environment-variables-20261101');
+  const gnosis = byId.get('gnosis-pay-legacy-cards-20261103');
+  assert.match(chain.response, /11月7日13:50 EST.*18:50 UTC.*Reactor.*KYT.*Address Screening.*復帰/);
+  assert.match(chain.response, /Data Solutionsの復旧完了.*記載がない/);
+  assert.match(trigger.count, /全顧客.*0.66％.*実数.*非公表/);
+  assert.match(trigger.impact, /root APIキー取得.*一覧取得.*セルフホスト.*個々の秘密情報.*非公表/);
+  assert.match(trigger.response, /DBパスワード.*旧情報の失効/);
+  assert.equal(gnosis.disclosed, '2026-11-06');
+  assert.match(gnosis.count, /非公表/);
+  assert.match(gnosis.response, /2時間以内に封じ込めを開始.*12月20日.*予定.*完了ではない/);
+  assert.match(gnosis.impact, /同社は資金.*法人向け基盤.*影響を受けていないと説明/);
+});
+
+test('November 8 records have one explicit change summary and official sources', () => {
+  const changes=register.changes.filter(x=>x.date==='2026-11-08');
+  assert.equal(changes.length,3);
+  const ids=changes.flatMap(x=>x.incident_ids);
+  assert.equal(ids.length,9); assert.equal(new Set(ids).size,9);
+  for(const id of ids){const item=byId.get(id);assert.ok(item);assert.ok(html.includes('id="'+id+'"'));assert.ok(item.sources.every(s=>s.type==='official'));}
+});
+
+test('November 9 domestic additions distinguish counts and information categories', () => {
+  const rohto=byId.get('rohto-telephone-crm-20260910');
+  assert.match(rohto.count,/2,797,545人/); assert.match(rohto.count,/9,715人/); assert.match(rohto.count,/合算しない/);
+  const sonet=byId.get('sonynet-member-database-20261019');
+  assert.match(sonet.count,/2,141,986件/); assert.match(sonet.count,/443,495件/);
+  assert.match(sonet.impact,/通常会員.*パスワード.*対象外/); assert.match(sonet.impact,/4メールサービス.*パスワード.*流出/);
+  const spirit=byId.get('teamspirit-development-cloud-20261027');
+  assert.match(spirit.count,/28,824件/); assert.match(spirit.count,/35件.*含む/);
+  const ele=byId.get('elestyle-oneqr-elepay-20261025');
+  assert.match(ele.impact_status,/可能性/); assert.match(ele.count,/7,162件.*907件.*合算しない/);
+});
+
+test('new domestic cases retain possibility, independent-event and image exclusions',()=>{
+ const aky=byId.get('euglena-akyrise-ec-20261104');
+ assert.match(aky.count,/49万件.*90万件.*合算しない/);
+ assert.ok(aky.sources.some(s=>s.date_note.includes('各々独立')));
+ const fca=byId.get('shiseido-fca-20261027');
+ assert.match(fca.count,/2,515件/); assert.match(fca.impact,/顔画像.*含まず/);
+ const teket=byId.get('teket-ticket-platform-20261108');
+ assert.match(teket.count,/調査中/); assert.match(teket.impact,/影響.*確認中/);
+ assert.ok(teket.sources.every(s=> /tef.or.jp|kyoto.kenchikusai.jp/.test(new URL(s.url).hostname)));
+});
+
+test('Arara third report and Sagawa fifth report preserve scope and chronology',()=>{
+ const arara=byId.get('arara-message-20261027');
+ assert.match(arara.count,/81,329,467.*おそれ.*人数ではない/);
+ assert.match(arara.count,/78,102,937.*2,842,400.*3,249,492.*非加算/);
+ assert.match(arara.count,/380社.*61社/); assert.match(arara.occurred,/27日.*偵察.*28日/);
+ assert.ok(arara.sources.some(s=>s.url.endsWith('20261106211906670s.pdf')));
+ const sagawa=byId.get('sagawa-tracking-20260930');
+ assert.match(sagawa.count,/5,323万件.*重複.*可能性/);
+ assert.match(sagawa.response,/10月23日.*Web.*再開/);
+ assert.match(sagawa.response,/同報時点.*API.*停止/);
+ assert.ok(sagawa.sources.some(s=>s.url.endsWith('/detail/430/')));
+});
+
+test('new overseas records avoid turning potential scope into confirmed people',()=>{
+ const railway=byId.get('railway-environment-variables-20261020');
+ assert.match(railway.count,/1.85％.*100,000 workspaces/); assert.match(railway.impact_status,/一部復号確認/);
+ assert.match(railway.impact,/ソースコード.*排除できていない/);
+ const dream=byId.get('dreamhost-filemanager-20261023');
+ assert.match(dream.impact_status,/認証情報取得確認.*メールボックス閲覧の可能性/);
+ assert.match(dream.count,/10％.*下回る/);
+ const nsw=byId.get('nsw-health-mndb-20261106');
+ assert.deepEqual(nsw.cause_types,['unknown']); assert.match(nsw.count,/非公表/);
+ assert.match(nsw.relevance,/診療情報流出と推定しない/);
 });
