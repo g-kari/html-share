@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Sat, 07 Nov 2026 10:07:34 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 09 Nov 2026 00:51:16 GMT</lastBuildDate>
+    <item>
+      <title>使えるねっと、三井住友海上、あいおいニッセイ同和損保の公式公表を追加</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#a900cb62494e9ea9da3283e10382d30d8e66292b9addd940fa0efcf47c81b1c2</guid>
+      <description>使えるねっと、三井住友海上、あいおいニッセイ同和損保の公式公表を追加。使えるねっとの127件は調査対象VPS数、損保2社はそれぞれ約3.7万件・約44.4万件の漏えい確認で、人数や同一事件の合計に読み替えない。あいおいのカード・口座関連項目は一部番号に限られ、内数を加算しない。 PCS第2報のカード番号3件の追加確認、WASABI SWITCHの暗号化完了と一部連携再開、TKCの対象システム説明と岡山県のアララ関連メールアドレス漏えい可能性を反映。提供元全体と利用組織別の範囲、再開済みと停止・調査継続を分ける。 Gnosis Payの旧個人向けカード基盤の情報露出を追加。人数・項目は未公表で、法人向け基盤・資金への非影響は会社説明として記載。Chainalysisは11月7日に再開を公表した3製品に範囲を限定。Trigger.devの11月6日詳報を確認し、全顧客の0.66％への影響、root APIキーと一部一覧の取得、顧客側の認証情報更新手順を追記。 チームスピリット、ロート製薬、So-net、ELESTYLE、あきゅらいずEC、資生堂、teketの公式公表を補充。顧客人数、アカウント・情報件数、可能性の最大範囲を区別する。teketは利用組織2者の報告で確認できた範囲に限定し、提供元全体の件数は未確定。今回の確認日を発生日・初報日としない。 アララ第3報の81,329,467メールアドレス（持出しのおそれを含み、区分間重複を除外）と別クラウド環境、共用環境の発生日訂正を反映。佐川急便第5報の最大約5,323万件（重複を含む可能性範囲）と問い合わせWeb再開を追補。利用企業の内訳と提供元総数を合算しない。 Railway、DreamHost、NSW Healthの公式公表を補充。Railwayの約10万はワークスペース数、DreamHostの影響は認証情報とメール閲覧の可能性を区別。NSW Healthは規制当局への漏えい届出と警察捜査の確認に限定し、情報項目や人数を推測しない。</description>
+      <pubDate>Mon, 09 Nov 2026 00:51:16 GMT</pubDate>
+      <dcterms:created>2026-11-09T00:51:16.000Z</dcterms:created>
+    </item>
     <item>
       <title>Maru-Janの会員185万5578人分のメールアドレス・パスワード流出確認と11月7日16時再開、クラブツーリズムの約432万件の漏えい可能性と同日の写真募集ページを除く再開を追加</title>
       <link>https://share.0g0.xyz/security-incidents</link>

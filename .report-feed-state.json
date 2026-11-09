@@ -1855,9 +1855,10 @@
         "aena-ec-app-20261013": "cbe73577bee23c0224a53bcd409e8ec7bcb93398c2c4aae16dfd3fe98571a0b2",
         "aflac-japan-2026": "c58c9c7d58d1ed7dbe628c8c0174ecb5a43de8dc8a54e4eb917f2ffe8ffc2cb2",
         "ahold-delhaize-cybersecurity-20261012": "302feb2347880bc07092e65f606d3e33bae88b654aba622c01205b1934bfa5ff",
+        "aioinissaydowa-contract-page-20261102": "a1785c3ec3a38fd8e6d97788741b45690822de92a8167e6fd5d12d0002369f62",
         "alpsalpine-2026": "d0b97049c7f4319d2e0155c5c84c144e5b7ee0bd5011e7f4aab5a6fee73a7f36",
         "applynow-analysis-20260809": "91b422b54f451ceb8255a164848f1390621e7d225735dcaab907b7199606fd54",
-        "arara-message-20261027": "3631ad324f4a2d84e9fe085e25495689f0eaac0ce40a80f717796e5b0a7e341b",
+        "arara-message-20261027": "3ecd20001323eaeb9026808400efb1223babd0904edd682f6a2cf1ced3c720fb",
         "arcadia-speecan-20261011": "68ae19b2f1c91d98ba57ae6fd3ae11590b229c2bc2a7965e87bfb3dec5c05f46",
         "arizona-courts-backups-20260924": "dd75acc97413bc42826c238b9a92c5ccf0298a41a689bb8aed03c0614b3eaf57",
         "asahi-20250929": "2ff3828a9d0efc3795b2ab714b01fb27bb3faca24a2a09326c2bd8bd3c5f504a",
@@ -1878,7 +1879,7 @@
         "cec-datacenter-20260805": "64512b0b0b2e1693ee0e33f2f3d94daca3397821cbd5aeb71afcd6f242895ce1",
         "ceres-pointincome-20261005": "8e4ba99ea257fb88a31ceda3c6159823b8ae821a51243f31063d82cab97e4e17",
         "certfr-refrigeration-20261012": "d83a4a7b8ced172a461391aedc2e339f383a5fd8dac81590af88e909d6813108",
-        "chainalysis-internal-tools-202610": "c45b06618a708a966f733452e992076a9ba21a0394776674e079e716e0a7879b",
+        "chainalysis-internal-tools-202610": "783ceaac28a42d14b8adfab876aaddd595f391940dd72362c9d9cdf013d81fb4",
         "change-healthcare-20240212": "b916068f884c94a6d1d4569351b251b68b49afa1686518bc562cbda572ba08b0",
         "chuden-credentials-20260729": "1231c7761d4f157f05b11d9e51e68267dee9e9bb48fb872bdc228ecf9a976138",
         "cinra-job-cloud-20260818": "e59118944b62794f4d6162a2069c14940b69c70c9904544f2afad6b238ff1187",
@@ -1900,9 +1901,11 @@
         "docomo-online-mydocomo-20261104": "674653529c1332f53ed64f2e7322b3fb13af1c56020ae02d3a67a7009e21a8b8",
         "dotmoney-2026": "c7af7398ec07c643e78a40077d281d63aa937bb31a8d699183657191fc17be88",
         "doublecounter-metabase-cloud-20261004": "324f97262bf7852be87d42327a38231fd3f1207bd2f65b487322c617949100ea",
+        "dreamhost-filemanager-20261023": "fbd60d80daca3d99dc7b646088b53760deb889e9ddbd420323f0249771de3fb4",
         "dtu-dtubasen-20261002": "726e62cc3cfa7b584e780c786e0d6df3b223a71b81a665df96754943bf8806c6",
         "ec-europa-20260319": "3814ad41120ae20c97a2fef8b6ae8a6a420c332b912bce3f73ecf1fd9a11a0a3",
         "egide-bollene-it-provider-20261006": "18b35eca9a01a3c904e0aad8625f050a5543a77afeaf958a0c62353d5801a63d",
+        "elestyle-oneqr-elepay-20261025": "5bcd6e29c99d0d1d460b36e65977acf5668c1cb9dcbd5c837fdb98854a440b40",
         "enecom-internal-network-20261006": "2e9d0c6a3dd1f3c13dd4ae05891f49359cf684e91918cc13ab042385370484d0",
         "epark-peakmanager-20260727": "8364fc3f64783fe1461ddc50cff369c154f2b36a8c0e157e7289b912ff476c2a",
         "eplus-refund-20260911": "587271ff57268b54810daba4f046b894c03a52a9a01d1964cb0b77d1fc90a4e0",
@@ -1910,6 +1913,7 @@
         "espec-2026": "4745adfb5b223f45c43c1659bc4ff954a24e9167a7f58140a4245a468183d16a",
         "estore-shops-20260521": "29cb684649a93f3ca2182aaa64f2f35e4391cbac06035ccc3c909654236f850e",
         "ets-california-sftp-20260522": "9bc14c1b4453c2c3a1a22d2fa55d6a8e6acae7ec332129e53ede1e1b0fb27842",
+        "euglena-akyrise-ec-20261104": "9ad3f059c17c61c93262419d291d00448f04b773282718296fe7bbcf4214808e",
         "evergreen-mail-20260626": "cddbc0247b50925cc204b08e8563ad3eda59663219ec8cbfa47913ab21c69148",
         "evotez-choisir2027-bots-20261009": "53c5990f0026bdc9d0b408e036989648037a0d415ba2e6bece24621f6ac5dcbe",
         "fines-reservation-20260922": "a06cf490adcf9315e09d023a9c139c9d1394b1e007a4a0e859b3abb29481a26e",
@@ -1921,6 +1925,7 @@
         "gitbook-infrastructure-20261102": "9baab46bc60760e9cfe059b8df61a96a4e850f7db883eccbb1360a037512b811",
         "gmo-infoq-20261002": "dc3bea01b9b4470cc5e2a23cb979616f526e00f4a70afb70a467d439e6723ace",
         "gmo-trustlogin-storage-20260914": "2adc230ca2e280b49e89cf76b0f9e41a74d1b72ba2247eac22aa0f05ec8b22c6",
+        "gnosis-pay-legacy-cards-20261103": "3fca454c93c10f233a376fab2c6060359323cb765a3baef67b2db5e5b68a7f55",
         "gyazo-20260911": "bb9026b39223caa087d44f1468ce80d7943faf71ed1518e3d64daa13d4d36da0",
         "hachijuni-nagano-mail-20261007": "d60ef399deb6dff6ffb177c658b88c66e35121591d8c220d1e786232cc9f2e10",
         "hachioji-gakuen-ransomware-20260708": "bf01b81c29665c5447402b11c680f995ecbb1bcc14f8270c71b5fbe1c63cc809",
@@ -1979,6 +1984,7 @@
         "moneyforward-2026": "33cbcbaccbb94cc411955fd3704627f0de88ba38802f4790e204757c7711ede5",
         "monogatari-king-app-20261002": "c9c3108e37c9847a29891e18d6a5f2cbcf53eac1050384410ae23746475d4f46",
         "mrmax-app-store-20261003": "fbb37747173b6537f7f3375a33639c022aef61fc4ba976e9e5bf99bf3d1817f1",
+        "msins-contract-page-20261102": "0ec04dec433e27b1c05661ff62ee52f26f192b61c2d0035647abfca7f0cbc1e9",
         "murata-it-20260228": "c02d8a8a68ec1215588f128f5e15dbba4e285059545726505fa3bfce9b54217b",
         "murauchi-web-20260715": "cdb19b93ec3d5a24f51080962f31cfc0be62283a7997da076e1b2825506e98d9",
         "mynavi-cloud-2026": "0d11dc39a8e547b90603ec8b4909efcac0430e9b498d3d7f612657fb49976354",
@@ -1997,6 +2003,7 @@
         "nojima-online-20261101": "60e9ccc32be61384215d42cdafae081fa639ab6a65d0bf87ca21c64e988b4f4a",
         "northflank-control-plane-20261030": "e351971950ed82f9cad9f129b0c3e3bb366c8d130b6fccf10b2fa67617b6895b",
         "ns-biojapan-2026": "fac5d87184cc520290dcf87fe1d99c132be2733476d1e6304c6ffae2f05cd63a",
+        "nsw-health-mndb-20261106": "c0d8f8b2eb71bcd75209148edc8f0e554ac937ce184406734fb3866617e4189a",
         "ntt-west-insider-20231017": "00e8fe96ab1f93f613d14a39d3cc9ccc357f2cf51ca83e6c3975261b7398615e",
         "nttdata-st-direct-vendor-digital-bonds-20261031": "5902c6a49484aaef1ea3c7a380639b2cfc6b38eb3a14fc6e22f81f5edabea63f",
         "ntv-wands-faveconnect-20261011": "94f94c2a5d9e1a148f59088a0d9d6cd77f8f5fac7d61f9fe8ad02a4fc3983d10",
@@ -2009,17 +2016,19 @@
         "paperlogic-cloud-20260827": "f59bdf5b4d99338a511c08bef82f4ee97658bcd046144dd9314300485a752d24",
         "photon-health-metabase-202608": "558c59e446aba4aaa7f9c384e4db33a324ecaf83bfbddca3b1055702a71f8ce1",
         "phrase-account-takeover-202608": "4c2e64d44236f04cca1f8dac774006325d17d85f6d6663e82921d83a0f50d4c6",
-        "prestige-pcs-20261029": "1635331a81dae85355706af975aa0fbbf47ef92ca9ee93b8451627ecefb713bf",
+        "prestige-pcs-20261029": "f86319dcb1b1b6e0fc8fb8957e907105c6c10de5e2bf4fd935409c012d453246",
         "publica-software-provider-202609": "f8c0a91a379f319f6ace6bf377b9ca77628cf4ef3615c27c0d32700d71eeaa6d",
+        "railway-environment-variables-20261020": "2f2fadd6a42c680e47b7237f92f83042108e11d4edadf8ae24709a09d671e56a",
         "rakus-blastmail-20261020": "fba7d55507087f1e86306ae198267d1f8874fb28d057570ea1ce94023166f805",
         "rakuten-drive-storage-20260129": "8ae32f2f5a1811466e9f1411b384e3c66d36169db75a8e5dfbd6cdc6bc24be9b",
         "relycomply-20260908": "981c4411cd7e77a861436ceaa824ec88624d990f7a6b6d61a8c2160ae63d18dd",
         "resorttrust-web-20261005": "5567964bc58411fdd4e6c2e9fdec6b29689d2caf29166a225b0053fff5d2f584",
         "rext-ransomware-20260809": "9ae25f9131e84b78714bd4a80299492444ca2962fa77c73523abd49abc725bef",
         "rideon-express-server-20261007": "bc349af089908121e5bc0e6b27b225351ec88de9cc43b6798cec07240af6e98b",
+        "rohto-telephone-crm-20260910": "f4129a080b5e9f147a739519472c1730b2c01cb6c88f44779668164c15a4546c",
         "ryohin-muji-app-store-20261030": "ab49a5ed61b3a6080e8700a194d745025bdc46711496ed50e46143ed6d2bede6",
         "saga-nas-20260924": "8294f062197e99320ddc4a0c3fd02cbfb521131872279375fa7f6b5040b3a3f5",
-        "sagawa-tracking-20260930": "01693ab80d161aea7f7883c54e89da4d0e181c106002eefa61dd9026793fa127",
+        "sagawa-tracking-20260930": "51f785450c9655e8b9984679b25203ba81f3c0b35b6f99615021fcc964cce0f9",
         "saison-smart-realestate-member-platform-20261029": "5cd72547f259aa350f753458118c1a75d4a95b0c2f0c384a3b5ef19e902b7889",
         "saitama-shibusawa-mix-20261006": "edc0c30757b9585959f3ebc0a77feceaf09b32a5ed92599571e840cd68d368db",
         "sakura-systems-20260809": "8f9baf1572b86f2bfefa7d75aedd2fa659298187a7623f99661147631718554f",
@@ -2028,6 +2037,7 @@
         "seicomart-app-20260924": "f14bf9d749a2fc8634f8951945d5a47893a8ea10e6d51b23fca2f812dbe8c30e",
         "shimonoseki-disaster-mail-20261013": "d4af2bf0535c5001bf81067e8edc2a9ebfc44f871fa1417930f43d551cbe2405",
         "shippio-platform-20261030": "b27976bbdeec688037e5257dcacd0a1610f184497bef3dc47e0bf6b1194240db",
+        "shiseido-fca-20261027": "71f156c3365f2653a4a8bf9c4e5181a25b6a20eb126d24844891b266f43dc2b7",
         "shueisha-hpc-20260909": "f90c6e88cfabe4ff0fe0609a104a01b1fff540bb2112e06ed2d373496ae0e978",
         "signaltalk-maru-jan-20261104": "a0f4df87cc29a3670f83d291009a8daf560201a4bf3f33c7b3aa58a8f9f61f21",
         "siu-phishing-20260709": "a449fe6d1aa354632cbe6b0d9e247ce5038d1e9be331a209c833f3ab6ea0667b",
@@ -2036,12 +2046,15 @@
         "smbccf-guarantee-20261102": "988ed47ab224d1c7289d12f25d2a701a9113550c545eb0ae1f61ae72011146c2",
         "sodick-2026": "4bc4212814b1a3658aba8ff5c65dec182463c72027b209b2256eab615f63b28f",
         "sony-psn-qriocity-20110417": "141d9587da6ad9a8542a405a2db9ec9cde4bc8e86348390a7b07afaad0f2faa3",
+        "sonynet-member-database-20261019": "721c8b65a698e728f7d8541927977726c50ad69d10ef892d18e8d55b46b8701f",
         "stryker-20260311": "5d10f30fbd12193c4a1c0d96dc51c40c5a4e32965b82d66f7812f26c5ae8eeb3",
         "studio-cloud-20260930": "750bd72b5db3d0a7e7d2eeb7c05ce8b2be0400fb0c76f088c073b904e8a9d067",
         "studysapuri-20260930": "6c257d9dc0b16b352fdeb16d5c5d2bd098875f582461b35855ecfdbca24d19aa",
         "suzukiworld-form-20260729": "6e1a19fbfc402c7b8fc024cc0f2c3c37c25dec6ab619e7eadbe744ccc184a5fe",
         "synnovis-cyber-202406": "67020ec420f09e223a206a2319f1ebf7490a033d7d6feb7fc406d28d985d36b5",
         "takarakuji-account-login-202611": "4f6725598b0e1567b271f0f89bcf19369aa5ca9119c643ac389184372bb98638",
+        "teamspirit-development-cloud-20261027": "75e816e61d02b7d00ea6618a6aae2c1a8a3bdf74b8555765c3d4e139f3acd965",
+        "teket-ticket-platform-20261108": "d6de562b817b331650ca891332811e27927c59399468192a7eaa45fb684ca98c",
         "temairazu-202609": "86b662cdba269ee234cb7e1c7c3bd148eb729927682b8b26cb145890d471565f",
         "thinca-web-20260824": "aacaf2422340a1553ea29abfd02d694c8df53784192faacbbcf37fdb2510bb54",
         "timescar-20260925": "02296a332bac151da31bdd4bba6460484ef058444aef0158b007f5e1d410322e",
@@ -2054,8 +2067,9 @@
         "toppan-payments-20261014": "22e09fe9f648ae26ee25159836858f47f1d5a06e9057c41a72c87a7b2dfe60e9",
         "toyobo-mail-20260924": "96f77099191bfdb586a57b0f3920274b0ee09915f84d94037877e8f895a8a718",
         "toypo-api-20261004": "2ffc9d550dd64a0f495ae6d70e4818be649ee28a49480c2128cd7f0913a5d648",
-        "triggerdev-environment-variables-20261101": "cda6094800bca070eb64810ee59eb260b49aafcb5ba9b48093b9f7edfc3906d2",
+        "triggerdev-environment-variables-20261101": "fdef879dd9521fadac69b1e5976e99bc743d659035257c1d3db7f3cfd41dfb4e",
         "trizetto-provider-202411": "f193fd781374e9af909ff60526fcf94fb74c556758c7d89b9e8de76425a993e6",
+        "tsukaeru-portal-20261106": "c1f9648febac7e92a26511f71e180ff0266ced1c7dd1bd4adfdf18a5b4a9dd40",
         "uk-laa-20250423": "4d2a946b1a351ab29475cc146e09580b37f070785c1747cccc72a3ae59cf6063",
         "unirita-saas-documents-20260928": "b4373441f8674f9c64d65a4e8b9bf847b45eff8566b9b237e34e9217665a6793",
         "upsider-2026": "cfb9c6481c4b13b592a581f379351111343525a8fdf7ebae5d7491f2500a0cbd",
@@ -2064,7 +2078,7 @@
         "visualarts-2026": "469d0c4db409d206a90b6e2b9030cd86fbc579b27a41b2bd4e687387a77060e4",
         "voising-bi-20260810": "9f123bcffb197958aa2957a3dc7ac3b0be4d5b9d26dfe8af791ce1dcf2ec7486",
         "wasabi-development-db-20260704": "53039845aabcf1589fb8812d0a774c7118884ab7aa4cdd1d8f6aef2216064127",
-        "wasabi-switch-orders-20261014": "7dfa8605ad265c7737ada0e0484f710748b8a3cd885633b03d814a2940a4f64e",
+        "wasabi-switch-orders-20261014": "52eeb2a74696b9f273489d8cbe94242964bea83156846a29ee6239e8fced8143",
         "westjet-social-engineering-20250612": "6b4160f7b35077f82e3c3739ea070f95acf5f2128439913acbc70ae80103a0bc",
         "whiteessence-reservation-20260805": "7e4305ed1095ddbd3b4e023d3f4ffde7dceca44b08df74fe79b2d689e9941e50",
         "workos-sales-support-20261030": "69986724b8f3d64d13b5a132b17a2b6498f5ad428e04be5fab9314c326066728",
@@ -3147,6 +3161,69 @@
             "signaltalk-maru-jan-20261104"
           ],
           "date": "2026-11-07"
+        },
+        {
+          "signature": "c30e1aa0e33ad26f06bd42511604f0deccd17ada0f4cf26d4373a0364337e2da",
+          "summary": "使えるねっと、三井住友海上、あいおいニッセイ同和損保の公式公表を追加。使えるねっとの127件は調査対象VPS数、損保2社はそれぞれ約3.7万件・約44.4万件の漏えい確認で、人数や同一事件の合計に読み替えない。あいおいのカード・口座関連項目は一部番号に限られ、内数を加算しない。",
+          "ids": [
+            "aioinissaydowa-contract-page-20261102",
+            "msins-contract-page-20261102",
+            "tsukaeru-portal-20261106"
+          ],
+          "date": "2026-11-08"
+        },
+        {
+          "signature": "4e0932d09f6897ab31655578a8ae912d2f433ef02eaeff85d8b0d27c2ffb3819",
+          "summary": "PCS第2報のカード番号3件の追加確認、WASABI SWITCHの暗号化完了と一部連携再開、TKCの対象システム説明と岡山県のアララ関連メールアドレス漏えい可能性を反映。提供元全体と利用組織別の範囲、再開済みと停止・調査継続を分ける。",
+          "ids": [
+            "arara-message-20261027",
+            "prestige-pcs-20261029",
+            "wasabi-switch-orders-20261014"
+          ],
+          "date": "2026-11-08"
+        },
+        {
+          "signature": "d4c0e84c47bfbeb460c21b3da36fe1a2bc9c5df52d4bf549ff16c8e8ed9a8532",
+          "summary": "Gnosis Payの旧個人向けカード基盤の情報露出を追加。人数・項目は未公表で、法人向け基盤・資金への非影響は会社説明として記載。Chainalysisは11月7日に再開を公表した3製品に範囲を限定。Trigger.devの11月6日詳報を確認し、全顧客の0.66％への影響、root APIキーと一部一覧の取得、顧客側の認証情報更新手順を追記。",
+          "ids": [
+            "chainalysis-internal-tools-202610",
+            "gnosis-pay-legacy-cards-20261103",
+            "triggerdev-environment-variables-20261101"
+          ],
+          "date": "2026-11-08"
+        },
+        {
+          "signature": "a83151161b1104427b0078840d76b9e004ae206cef7ebcabc4032c9f28efd3fb",
+          "summary": "チームスピリット、ロート製薬、So-net、ELESTYLE、あきゅらいずEC、資生堂、teketの公式公表を補充。顧客人数、アカウント・情報件数、可能性の最大範囲を区別する。teketは利用組織2者の報告で確認できた範囲に限定し、提供元全体の件数は未確定。今回の確認日を発生日・初報日としない。",
+          "ids": [
+            "elestyle-oneqr-elepay-20261025",
+            "euglena-akyrise-ec-20261104",
+            "rohto-telephone-crm-20260910",
+            "shiseido-fca-20261027",
+            "sonynet-member-database-20261019",
+            "teamspirit-development-cloud-20261027",
+            "teket-ticket-platform-20261108"
+          ],
+          "date": "2026-11-09"
+        },
+        {
+          "signature": "8e948db363785c3de3ed07dba1ba518791baa9426bccb038d3a77fed495414c5",
+          "summary": "アララ第3報の81,329,467メールアドレス（持出しのおそれを含み、区分間重複を除外）と別クラウド環境、共用環境の発生日訂正を反映。佐川急便第5報の最大約5,323万件（重複を含む可能性範囲）と問い合わせWeb再開を追補。利用企業の内訳と提供元総数を合算しない。",
+          "ids": [
+            "arara-message-20261027",
+            "sagawa-tracking-20260930"
+          ],
+          "date": "2026-11-09"
+        },
+        {
+          "signature": "ccb1e5f9b298556a47889e26ec08f74c943275001aade577077dfde73f246887",
+          "summary": "Railway、DreamHost、NSW Healthの公式公表を補充。Railwayの約10万はワークスペース数、DreamHostの影響は認証情報とメール閲覧の可能性を区別。NSW Healthは規制当局への漏えい届出と警察捜査の確認に限定し、情報項目や人数を推測しない。",
+          "ids": [
+            "dreamhost-filemanager-20261023",
+            "nsw-health-mndb-20261106",
+            "railway-environment-variables-20261020"
+          ],
+          "date": "2026-11-09"
         }
       ],
       "items": [
@@ -4549,9 +4626,80 @@
           ],
           "published": "2026-11-07T10:07:34.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "a900cb62494e9ea9da3283e10382d30d8e66292b9addd940fa0efcf47c81b1c2",
+          "summary": "使えるねっと、三井住友海上、あいおいニッセイ同和損保の公式公表を追加。使えるねっとの127件は調査対象VPS数、損保2社はそれぞれ約3.7万件・約44.4万件の漏えい確認で、人数や同一事件の合計に読み替えない。あいおいのカード・口座関連項目は一部番号に限られ、内数を加算しない。 PCS第2報のカード番号3件の追加確認、WASABI SWITCHの暗号化完了と一部連携再開、TKCの対象システム説明と岡山県のアララ関連メールアドレス漏えい可能性を反映。提供元全体と利用組織別の範囲、再開済みと停止・調査継続を分ける。 Gnosis Payの旧個人向けカード基盤の情報露出を追加。人数・項目は未公表で、法人向け基盤・資金への非影響は会社説明として記載。Chainalysisは11月7日に再開を公表した3製品に範囲を限定。Trigger.devの11月6日詳報を確認し、全顧客の0.66％への影響、root APIキーと一部一覧の取得、顧客側の認証情報更新手順を追記。 チームスピリット、ロート製薬、So-net、ELESTYLE、あきゅらいずEC、資生堂、teketの公式公表を補充。顧客人数、アカウント・情報件数、可能性の最大範囲を区別する。teketは利用組織2者の報告で確認できた範囲に限定し、提供元全体の件数は未確定。今回の確認日を発生日・初報日としない。 アララ第3報の81,329,467メールアドレス（持出しのおそれを含み、区分間重複を除外）と別クラウド環境、共用環境の発生日訂正を反映。佐川急便第5報の最大約5,323万件（重複を含む可能性範囲）と問い合わせWeb再開を追補。利用企業の内訳と提供元総数を合算しない。 Railway、DreamHost、NSW Healthの公式公表を補充。Railwayの約10万はワークスペース数、DreamHostの影響は認証情報とメール閲覧の可能性を区別。NSW Healthは規制当局への漏えい届出と警察捜査の確認に限定し、情報項目や人数を推測しない。",
+          "journal": [
+            {
+              "signature": "c30e1aa0e33ad26f06bd42511604f0deccd17ada0f4cf26d4373a0364337e2da",
+              "summary": "使えるねっと、三井住友海上、あいおいニッセイ同和損保の公式公表を追加。使えるねっとの127件は調査対象VPS数、損保2社はそれぞれ約3.7万件・約44.4万件の漏えい確認で、人数や同一事件の合計に読み替えない。あいおいのカード・口座関連項目は一部番号に限られ、内数を加算しない。",
+              "ids": [
+                "aioinissaydowa-contract-page-20261102",
+                "msins-contract-page-20261102",
+                "tsukaeru-portal-20261106"
+              ],
+              "date": "2026-11-08"
+            },
+            {
+              "signature": "4e0932d09f6897ab31655578a8ae912d2f433ef02eaeff85d8b0d27c2ffb3819",
+              "summary": "PCS第2報のカード番号3件の追加確認、WASABI SWITCHの暗号化完了と一部連携再開、TKCの対象システム説明と岡山県のアララ関連メールアドレス漏えい可能性を反映。提供元全体と利用組織別の範囲、再開済みと停止・調査継続を分ける。",
+              "ids": [
+                "arara-message-20261027",
+                "prestige-pcs-20261029",
+                "wasabi-switch-orders-20261014"
+              ],
+              "date": "2026-11-08"
+            },
+            {
+              "signature": "d4c0e84c47bfbeb460c21b3da36fe1a2bc9c5df52d4bf549ff16c8e8ed9a8532",
+              "summary": "Gnosis Payの旧個人向けカード基盤の情報露出を追加。人数・項目は未公表で、法人向け基盤・資金への非影響は会社説明として記載。Chainalysisは11月7日に再開を公表した3製品に範囲を限定。Trigger.devの11月6日詳報を確認し、全顧客の0.66％への影響、root APIキーと一部一覧の取得、顧客側の認証情報更新手順を追記。",
+              "ids": [
+                "chainalysis-internal-tools-202610",
+                "gnosis-pay-legacy-cards-20261103",
+                "triggerdev-environment-variables-20261101"
+              ],
+              "date": "2026-11-08"
+            },
+            {
+              "signature": "a83151161b1104427b0078840d76b9e004ae206cef7ebcabc4032c9f28efd3fb",
+              "summary": "チームスピリット、ロート製薬、So-net、ELESTYLE、あきゅらいずEC、資生堂、teketの公式公表を補充。顧客人数、アカウント・情報件数、可能性の最大範囲を区別する。teketは利用組織2者の報告で確認できた範囲に限定し、提供元全体の件数は未確定。今回の確認日を発生日・初報日としない。",
+              "ids": [
+                "elestyle-oneqr-elepay-20261025",
+                "euglena-akyrise-ec-20261104",
+                "rohto-telephone-crm-20260910",
+                "shiseido-fca-20261027",
+                "sonynet-member-database-20261019",
+                "teamspirit-development-cloud-20261027",
+                "teket-ticket-platform-20261108"
+              ],
+              "date": "2026-11-09"
+            },
+            {
+              "signature": "8e948db363785c3de3ed07dba1ba518791baa9426bccb038d3a77fed495414c5",
+              "summary": "アララ第3報の81,329,467メールアドレス（持出しのおそれを含み、区分間重複を除外）と別クラウド環境、共用環境の発生日訂正を反映。佐川急便第5報の最大約5,323万件（重複を含む可能性範囲）と問い合わせWeb再開を追補。利用企業の内訳と提供元総数を合算しない。",
+              "ids": [
+                "arara-message-20261027",
+                "sagawa-tracking-20260930"
+              ],
+              "date": "2026-11-09"
+            },
+            {
+              "signature": "ccb1e5f9b298556a47889e26ec08f74c943275001aade577077dfde73f246887",
+              "summary": "Railway、DreamHost、NSW Healthの公式公表を補充。Railwayの約10万はワークスペース数、DreamHostの影響は認証情報とメール閲覧の可能性を区別。NSW Healthは規制当局への漏えい届出と警察捜査の確認に限定し、情報項目や人数を推測しない。",
+              "ids": [
+                "dreamhost-filemanager-20261023",
+                "nsw-health-mndb-20261106",
+                "railway-environment-variables-20261020"
+              ],
+              "date": "2026-11-09"
+            }
+          ],
+          "published": "2026-11-09T00:51:16.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "639cc187083cfaafa12f4698338c4f2769e75131"
+      "cursor": "d4d27c0a5c6103a7c79e8d9189e8fe71452dc731"
     }
   }
 }
