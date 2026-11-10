@@ -1,0 +1,689 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#e9e2d2">
+  <meta name="description" content="AIは頭脳だけでは働けない。Agent Harnessとは何かを解剖し、Hermes、DeepSeek Harness、Codex、Claude Code、OpenCode、Pi、OpenClawを一次資料に基づき比較する新聞風図解特集。">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="AIハーネス新聞｜AIは、頭脳だけでは働けない。">
+  <meta property="og:description" content="Hermes、DSHほか7つのハーネスを新聞の紙面と図解で読み解く。2026年11月特別号。">
+  <meta property="og:image" content="https://share.0g0.xyz/assets/ai-harness-shinbun/cover-v1.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="AIハーネス新聞：機械式織機が多数の作業場へ配線を伸ばすモノクロ版画">
+  <link rel="canonical" href="https://share.0g0.xyz/ai-harness-shinbun">
+  <style>
+@charset "UTF-8";
+
+:root {
+  --paper: #eae3d4;
+  --paper-deep: #ded5c3;
+  --paper-light: #f3ecde;
+  --ink: #22211d;
+  --ink-soft: #49463f;
+  --muted: #68645a;
+  --rule: #302e29;
+  --fine-rule: #9a9384;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 32px; }
+body {
+  margin: 0;
+  background-color: #c9c0ae;
+  background-image: radial-gradient(rgba(34,30,22,.10) .4px, transparent .7px), repeating-linear-gradient(110deg, transparent 0 4px, rgba(75,59,37,.015) 5px 6px, transparent 7px 13px);
+  background-size: 6px 6px, auto;
+  color: var(--ink);
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", "Noto Serif CJK JP", "Noto Serif JP", "Times New Roman", serif;
+  font-size: 16px;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+button, input { font: inherit; }
+a { color: inherit; text-underline-offset: .2em; }
+a:hover { color: #6b5b40; }
+a:focus-visible, button:focus-visible { outline: 3px double var(--ink); outline-offset: 4px; }
+p, h1, h2, h3, h4, figure, blockquote { margin: 0; }
+strong, b { font-weight: 800; }
+::selection { color: white; background: #554b3a; }
+.reading-progress { position: fixed; top: 0; inset-inline: 0; height: 3px; z-index: 20; background: transparent; }
+.reading-progress span { display: block; height: 100%; width: 0; background: #151511; transition: width .08s linear; }
+.outer-toolbar {
+  max-width: 1440px;
+  padding: 20px 35px 18px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  font: 600 11px/1.5 Arial, "Noto Sans CJK JP", sans-serif;
+  letter-spacing: .11em;
+  color: #3a3832;
+}
+.toolbar-mark { font-family: Georgia, serif; font-weight: 900; letter-spacing: .06em; }
+.small-square { font-size: .65em; vertical-align: .12em; padding: 0 7px; }
+.toolbar-actions { display: flex; align-items: center; gap: 26px; }
+.tool-button {
+  border: 1px solid #554e42;
+  background: transparent;
+  border-radius: 0;
+  padding: 8px 12px;
+  color: #27251e;
+  cursor: pointer;
+  font-size: 11px;
+}
+.tool-button:hover { background: var(--ink); color: var(--paper); }
+.paper {
+  position: relative;
+  isolation: isolate;
+  max-width: 1370px;
+  margin: 0 auto 72px;
+  padding: 49px 59px 38px;
+  background-color: var(--paper);
+  background-image: radial-gradient(ellipse at 50% 0, rgba(255,255,255,.28), transparent 60%), repeating-linear-gradient(0deg, rgba(40,30,20,.011) 0 1px, transparent 1px 4px);
+  border: 1px solid rgba(66,55,40,.42);
+  box-shadow: 0 2px 0 #b4a995, 0 28px 60px rgba(48,41,31,.25), inset 0 0 55px rgba(111,87,54,.05);
+}
+.paper::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 9;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.58' numOctaves='3' seed='7' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.16'/%3E%3C/svg%3E");
+  opacity: .17;
+  mix-blend-mode: multiply;
+}
+.masthead { text-align: center; }
+.masthead-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  border-top: 2px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  padding: 7px 1px 6px;
+  color: #292824;
+  font: 700 11px/1.4 Arial, "Noto Sans CJK JP", sans-serif;
+  letter-spacing: .06em;
+}
+.black-star { font-size: 11px; }
+.wordmark {
+  white-space: nowrap;
+  font: 900 clamp(44px, 6.6vw, 102px)/1.15 Georgia, "Times New Roman", serif;
+  letter-spacing: -.072em;
+  text-transform: uppercase;
+  padding: 14px 0 7px;
+  font-variant: small-caps;
+}
+.wordmark-ornament { font-size: .35em; letter-spacing: -.035em; vertical-align: .32em; margin-right: .1em; }
+.wordmark-ital { font-style: italic; letter-spacing: -.07em; margin-left: -.02em; }
+.masthead-subline {
+  border-top: 5px double var(--ink);
+  border-bottom: 2px solid var(--ink);
+  padding: 10px 4px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 18px;
+  font: 600 10px/1.3 Arial, "Noto Sans CJK JP", sans-serif;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.masthead-subline strong { font: 900 17px/1.3 "Yu Mincho", "Noto Serif CJK JP", serif; letter-spacing: .3em; }
+.masthead-subline span:first-child { text-align: left; }
+.masthead-subline span:last-child { text-align: right; }
+.issue-nav {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  border-bottom: 1px solid var(--ink);
+  text-align: center;
+  font: 800 12px/1.4 Arial, "Noto Sans CJK JP", sans-serif;
+}
+.issue-nav a { padding: 13px 3px; text-decoration: none; border-right: 1px solid var(--fine-rule); }
+.issue-nav a:last-child { border-right: 0; }
+.issue-nav a:hover { background: #27251f; color: var(--paper); }
+.issue-nav span { font-size: 11px; font-weight: 400; margin-left: 4px; }
+.black-ribbon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--ink);
+  color: var(--paper-light);
+  font: 700 11px/1.4 Arial, "Noto Sans CJK JP", sans-serif;
+  letter-spacing: .12em;
+  padding: 8px 13px 7px;
+  margin: 23px 0 22px;
+}
+.lead-grid { display: grid; grid-template-columns: minmax(0,2.15fr) minmax(245px,.86fr); gap: 34px; }
+.lead-main { padding-right: 16px; }
+.section-eyebrow, .eyebrow, .mini-eyebrow {
+  font: 900 12px/1.3 Arial, "Noto Sans CJK JP", sans-serif;
+  letter-spacing: .14em;
+}
+.section-eyebrow { display: flex; gap: 10px; align-items: center; }
+.bullet-dot { font-size: 9px; }
+.tiny-rule { width: 54px; border-top: 1px solid; }
+h1, h2, h3 { color: #1f1e1a; }
+.lead-main h1 {
+  font-size: clamp(43px, 5.25vw, 81px);
+  font-weight: 900;
+  line-height: 1.26;
+  letter-spacing: -.065em;
+  margin: 19px 0 21px;
+}
+.lead-main h1 em { font-style: normal; border-bottom: .085em solid var(--ink); white-space: nowrap; }
+.deck {
+  font-size: clamp(16px, 1.45vw, 21px);
+  line-height: 1.8;
+  font-weight: 500;
+  letter-spacing: -.015em;
+  margin-bottom: 20px;
+}
+.byline { padding: 11px 0; border-top: 1px solid var(--fine-rule); color: var(--muted); font: 600 11px/1.5 Arial,"Noto Sans CJK JP",sans-serif; }
+.lead-sidebar { border-left: 3px double var(--ink); padding-left: 20px; display: flex; flex-direction: column; }
+.sidebar-label { font: 900 16px/1.5 "Yu Mincho",serif; border-top: 3px solid; border-bottom: 1px solid; padding: 5px 0; display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.sidebar-label span { font: 700 10px/1 Arial,sans-serif; letter-spacing: .08em; }
+.lead-sidebar p { display: grid; grid-template-columns: 39px 1fr; gap: 5px; align-items: baseline; padding: 13px 0; border-bottom: 1px solid var(--fine-rule); font-size: 14px; font-weight: 700; line-height: 1.55; }
+.lead-sidebar p strong { font: 700 24px/1 Georgia,serif; }
+.side-stamp { align-self: flex-end; margin-top: auto; padding: 10px 12px 0; border: 3px double #4d473d; transform: rotate(-7deg); font: 800 17px/1 Georgia,serif; text-align: center; letter-spacing: .1em; opacity: .7; }
+.side-stamp span { display: block; border-top: 1px solid; padding: 5px; margin-top: 5px; }
+.hero-figure { margin: 20px 0 25px; border-top: 1px solid var(--ink); padding-top: 5px; }
+.hero-figure img { display: block; width: 100%; height: auto; max-height: 560px; object-fit: cover; filter: grayscale(100%) contrast(1.06) sepia(.12); border: 1px solid #6e6555; }
+figcaption { display: flex; justify-content: space-between; align-items: start; gap: 20px; padding: 7px 0; border-bottom: 1px solid var(--fine-rule); font: 600 10px/1.55 Arial,"Noto Sans CJK JP",sans-serif; color: var(--ink-soft); letter-spacing: .025em; }
+.intro-columns { display: grid; grid-template-columns: 1fr 1fr .83fr; gap: 22px; margin-top: 34px; }
+.intro-columns .column { padding-right: 19px; border-right: 1px solid var(--fine-rule); }
+.intro-columns .column:last-child { border-right: 0; padding-right: 0; }
+.intro-columns h2 { font-size: 21px; line-height: 1.38; border-bottom: 2px solid var(--ink); padding: 0 0 10px; margin: 0 0 13px; }
+.intro-columns p { font-size: 14px; text-align: justify; line-height: 1.93; margin-bottom: 13px; }
+.dropcap { float: left; font: 900 49px/.86 Georgia,serif; margin: 0 6px 0 0; }
+.dark-quote { background: #292822; color: #efe8d9; padding: 17px 17px 8px !important; border: 0 !important; }
+.dark-quote .quote-mark { display: block; font: 900 80px/.65 Georgia,serif; height: 46px; color: #c9c0af; }
+.dark-quote blockquote { font-size: 19px; font-weight: 700; line-height: 1.72; }
+.dark-quote p { margin-top: 19px; color: #c7c0b1; text-align: left; font: 11px/1.7 Arial,"Noto Sans CJK JP",sans-serif; }
+.page-footer { display: flex; justify-content: space-between; margin-top: 43px; border-top: 3px double var(--ink); padding: 8px 0 0; font: 700 11px/1 Georgia,serif; letter-spacing: .06em; }
+.edition-section { margin-top: 68px; }
+.section-topline { border-top: 8px solid var(--ink); border-bottom: 1px solid var(--ink); padding: 9px 0; display: grid; grid-template-columns: 1fr auto 45px; gap: 10px; align-items: baseline; font: 800 11px/1.3 Arial,"Noto Sans CJK JP",sans-serif; letter-spacing: .08em; }
+.section-topline span:last-child { text-align: right; font: 900 19px/1 Georgia,serif; }
+.section-heading { display: grid; grid-template-columns: minmax(0,1.4fr) minmax(0,.6fr); gap: 65px; align-items: end; margin: 27px 0 28px; }
+.section-heading h2 { font-size: clamp(38px, 4.7vw, 69px); line-height: 1.28; letter-spacing: -.06em; margin-top: 9px; }
+.section-heading p { font-size: 14px; font-weight: 600; line-height: 1.9; border-left: 1px solid var(--ink); padding-left: 19px; text-align: justify; }
+.architecture-figure { background: rgba(255,255,255,.16); border: 2px solid var(--ink); padding: 15px 17px 12px; }
+.figure-title { display: flex; justify-content: space-between; gap: 15px; align-items: baseline; border-bottom: 1px solid var(--ink); font: 800 11px/1.5 Arial,"Noto Sans CJK JP",sans-serif; letter-spacing: .06em; padding-bottom: 9px; }
+.figure-title strong { font: 900 clamp(15px,2vw,26px)/1 Georgia,serif; letter-spacing: .015em; }
+.agent-svg { width: 100%; height: auto; display: block; margin: 8px auto 5px; }
+.svg-label { font: bold 15px Arial,"Noto Sans CJK JP",sans-serif; letter-spacing: .04em; fill: #24231e; }
+.svg-white { font: 900 20px Georgia,serif; fill: #f8f1e3; }
+.svg-white-sub { font: bold 14px Arial,"Noto Sans CJK JP",sans-serif; fill: #e7decf; }
+.svg-node { fill: #eae2d1; stroke: #28261f; stroke-width: 2.5; }
+.svg-node-muted { fill: #d7cebd; stroke: #585348; stroke-width: 1.6; }
+.svg-number { font: bold 15px Arial,sans-serif; fill: #545047; letter-spacing: .04em; }
+.svg-strong { font: 900 23px Arial,"Noto Sans CJK JP",sans-serif; fill: #22211d; }
+.svg-small { font: 15px Arial,"Noto Sans CJK JP",sans-serif; fill: #4d4940; }
+.svg-mini { font: 12px Arial,"Noto Sans CJK JP",sans-serif; fill: #4d4940; }
+.svg-arrow { fill: none; stroke: #24231e; stroke-width: 3; marker-end: url(#arrow); }
+.svg-arrow-dash { fill: none; stroke: #555149; stroke-width: 2; stroke-dasharray: 7 4; marker-end: url(#arrow-light); }
+.architecture-figure figcaption { border-top: 1px solid var(--fine-rule); border-bottom: 0; font-size: 12px; line-height: 1.7; }
+.relation-heading { border-bottom: 2px solid var(--ink); margin-top: 48px; padding-bottom: 11px; display: flex; justify-content: space-between; align-items: baseline; gap: 20px; }
+.relation-heading h3 { font-size: clamp(24px,2.6vw,37px); letter-spacing: -.045em; }
+.dictionary-grid { display: grid; grid-template-columns: repeat(3,1fr); border-bottom: 2px solid var(--ink); }
+.dictionary-grid > div { padding: 23px 18px 22px 0; border-bottom: 1px solid var(--fine-rule); border-right: 1px solid var(--fine-rule); }
+.dictionary-grid > div:nth-child(3n+2), .dictionary-grid > div:nth-child(3n+3) { padding-left: 20px; }
+.dictionary-grid > div:nth-child(3n) { border-right: 0; }
+.dictionary-grid > div:nth-last-child(-n+3) { border-bottom: 0; }
+.dictionary-grid span { font: 800 10px/1 Arial,sans-serif; color: var(--muted); letter-spacing: .17em; }
+.dictionary-grid h4 { font: 900 26px/1.4 Georgia,"Yu Mincho",serif; margin: 8px 0 8px; }
+.dictionary-grid p { font-size: 13px; line-height: 1.85; text-align: justify; }
+.editorial-note { margin: 22px 0 0; display: grid; grid-template-columns: 90px 1fr; gap: 15px; font-size: 12px; line-height: 1.7; }
+.note-head { background: var(--ink); color: #f6efdf; padding: 6px 8px; font: 800 11px/1.8 Arial,"Noto Sans CJK JP",sans-serif; align-self: start; text-align: center; }
+.heading-wide { margin-bottom: 21px; }
+.atlas-image { border: 1px solid var(--ink); padding: 4px; background: #ddd5c5; margin-bottom: 29px; }
+.atlas-image img { display: block; width: 100%; height: auto; max-height: 390px; object-fit: cover; object-position: center 42%; filter: grayscale(1) contrast(1.13); }
+.atlas-image figcaption { padding: 4px 5px 0; border: 0; }
+.feature-profiles { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); border-top: 4px double var(--ink); border-bottom: 3px double var(--ink); }
+.profile { min-width: 0; }
+.feature-profile { padding: 22px 27px 27px 0; }
+.feature-profile:nth-child(2) { border-left: 1px solid var(--ink); padding: 22px 0 27px 29px; }
+.profile-top { display: flex; justify-content: space-between; gap: 15px; font: 900 11px/1.25 Arial,"Noto Sans CJK JP",sans-serif; letter-spacing: .065em; }
+.profile-top span:first-child { border: 1px solid var(--ink); padding: 5px 8px; line-height: 1; }
+.profile-category { border-bottom: 1px solid var(--ink); padding-top: 3px; }
+.feature-profile h3 { font: 900 clamp(37px,4.1vw,61px)/1.12 Georgia,serif; letter-spacing: -.05em; margin: 20px 0 7px; }
+.profile h3 em { font-weight: 400; }
+.profile-origin { font: 800 10px/1.5 Arial,sans-serif; letter-spacing: .14em; color: var(--muted); }
+.profile-thesis { font-weight: 900; line-height: 1.5; }
+.feature-profile .profile-thesis { font-size: 22px; margin: 21px 0 12px; letter-spacing: -.035em; }
+.feature-profile > p:not(.profile-origin):not(.profile-thesis) { font-size: 14px; line-height: 1.95; text-align: justify; }
+.profile-facts { border-top: 1px solid var(--ink); margin-top: 19px; }
+.profile-facts p { display: grid; grid-template-columns: 48px 1fr; gap: 9px; border-bottom: 1px solid var(--fine-rule); padding: 9px 0; font-size: 12px; line-height: 1.7; }
+.profile-facts b { font-weight: 900; }
+.source-link { display: inline-flex; font: 800 12px/1.4 Arial,"Noto Sans CJK JP",sans-serif; padding: 6px 0 4px; margin-top: 15px; border-bottom: 2px solid; text-decoration: none; }
+.source-link:hover { color: #685943; }
+.secondary-profiles { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); border-bottom: 2px solid var(--ink); }
+.small-profile { padding: 23px 20px 24px 0; border-bottom: 1px solid var(--fine-rule); display: flex; flex-direction: column; }
+.small-profile:nth-child(3n+2), .small-profile:nth-child(3n+3) { border-left: 1px solid var(--fine-rule); padding-left: 20px; }
+.small-profile:nth-child(3), .small-profile:nth-child(4), .small-profile:nth-child(5) { border-bottom: 0; }
+.small-profile:nth-child(4) { border-left: 0; }
+.small-profile h3 { font: 900 clamp(31px,3vw,45px)/1.15 Georgia,serif; letter-spacing: -.055em; margin: 18px 0 8px; }
+.small-profile .profile-thesis { margin: 19px 0 10px; font-size: 17px; line-height: 1.55; }
+.small-profile > p:not(.profile-origin):not(.profile-thesis) { font-size: 13px; line-height: 1.84; text-align: justify; margin-bottom: 10px; }
+.small-profile p.profile-warning { padding-top: 9px; border-top: 1px solid var(--fine-rule); }
+.small-profile .source-link { margin-top: auto; align-self: start; }
+.comparison-heading { display: grid; grid-template-columns: 180px 1fr; column-gap: 20px; border-top: 7px solid var(--ink); margin-top: 43px; padding: 12px 0 17px; }
+.comparison-heading span { background: var(--ink); color: #fff7e8; padding: 9px 12px; align-self: start; font: 900 12px/1.4 Arial,"Noto Sans CJK JP",sans-serif; letter-spacing: .08em; }
+.comparison-heading h3 { font-size: clamp(26px,3vw,42px); line-height: 1.3; }
+.comparison-heading p { grid-column: 2; font-size: 12px; color: var(--muted); }
+.table-scroll { overflow-x: auto; }
+.comparison-table { width: 100%; min-width: 730px; border-collapse: collapse; text-align: left; font: 13px/1.55 Arial,"Noto Sans CJK JP",sans-serif; }
+.comparison-table thead { background: var(--ink); color: #f5ecdb; }
+.comparison-table th, .comparison-table td { border-bottom: 1px solid var(--fine-rule); padding: 13px 11px; vertical-align: top; }
+.comparison-table thead th { font-size: 12px; letter-spacing: .03em; }
+.comparison-table tbody th { font: 900 19px/1.3 Georgia,serif; white-space: nowrap; }
+.comparison-table tbody tr:nth-child(even) { background: rgba(85,74,54,.055); }
+.comparison-table tbody tr:hover { background: rgba(85,74,54,.1); }
+.process-graphic { border: 3px double var(--ink); padding: 19px; margin: 26px 0 36px; background: rgba(255,255,255,.12); }
+.process-title { font: 900 13px/1.5 Arial,"Noto Sans CJK JP",sans-serif; letter-spacing: .05em; border-bottom: 1px solid var(--ink); padding-bottom: 12px; }
+.process-flow { display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); gap: 13px; padding: 20px 0 15px; }
+.process-step { position: relative; border: 1.5px solid var(--ink); padding: 13px 9px; min-height: 126px; background: #e8e0d1; }
+.process-step:not(:last-child)::after { content: "→"; position: absolute; left: calc(100% + 1px); top: 35%; font: 900 22px Georgia,serif; width: 13px; text-align: center; }
+.process-step span { font: 900 17px/1 Georgia,serif; border-bottom: 2px solid var(--ink); padding-bottom: 5px; display: inline-block; }
+.process-step strong { display: block; font-size: 20px; margin-top: 7px; }
+.process-step small { display: block; font: 11px/1.5 Arial,"Noto Sans CJK JP",sans-serif; }
+.process-gate { background: var(--ink); color: #f3edde; }
+.process-gate strong { color: #f3edde; }
+.process-gate span { border-color: #d2c5ab; }
+.process-caption { border-top: 1px solid var(--ink); padding-top: 11px; display: grid; grid-template-columns: 140px 1fr; gap: 14px; font-size: 13px; line-height: 1.7; }
+.principles { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); border-top: 4px solid var(--ink); border-bottom: 1px solid var(--ink); }
+.principles article { padding: 22px 16px 26px 0; border-right: 1px solid var(--fine-rule); }
+.principles article:not(:first-child) { padding-left: 16px; }
+.principles article:last-child { border-right: 0; }
+.principle-no { font: 900 42px/1 serif; }
+.principles h3 { font-size: 23px; line-height: 1.4; margin: 9px 0; }
+.principles p { font-size: 13px; line-height: 1.85; text-align: justify; }
+.pull-feature { display: grid; grid-template-columns: .9fr 1.1fr; gap: 45px; background: var(--ink); color: #eee6d6; padding: 37px 34px 33px; margin: 34px 0; }
+.pull-feature h3 { color: #eee6d6; font-size: clamp(30px,3.5vw,51px); line-height: 1.36; margin-top: 22px; letter-spacing: -.06em; }
+.pull-feature > div:first-child > span { font: 900 12px/1 Georgia,serif; letter-spacing: .22em; }
+.choice-list p { border-bottom: 1px solid rgba(241,233,217,.45); padding: 10px 0 12px; }
+.choice-list b, .choice-list span { display: block; }
+.choice-list b { font-size: 15px; }
+.choice-list span { font: 12px/1.7 Arial,"Noto Sans CJK JP",sans-serif; margin-top: 3px; }
+.choice-list small { display: block; margin-top: 13px; font: 11px/1.8 Arial,"Noto Sans CJK JP",sans-serif; color: #c5beaf; }
+.harness-engineering { margin-top: 35px; padding: 29px 0 5px; border-top: 1px solid var(--ink); }
+.harness-engineering h3 { font-size: clamp(28px,3.5vw,49px); line-height: 1.45; letter-spacing: -.05em; margin: 17px 0 20px; }
+.harness-engineering h3 em { font-style: normal; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: .14em; }
+.closing-columns { display: grid; grid-template-columns: repeat(2,1fr); gap: 28px; }
+.closing-columns p { font-size: 14px; line-height: 1.95; text-align: justify; }
+.source-section { margin-top: 62px; border-top: 9px solid var(--ink); padding-top: 24px; }
+.source-header { display: grid; grid-template-columns: 160px 1fr; gap: 0 20px; align-items: baseline; }
+.source-header span { font: 900 12px/1 Arial,"Noto Sans CJK JP",sans-serif; }
+.source-header h2 { font: 900 clamp(28px,4vw,49px)/1 Georgia,serif; letter-spacing: -.02em; }
+.source-header p { grid-column: 2; max-width: 640px; font-size: 12px; color: var(--muted); margin-top: 11px; }
+.source-list { padding: 0; list-style: none; border-top: 1px solid var(--ink); margin: 21px 0 0; display: grid; grid-template-columns: repeat(2,1fr); gap: 0 29px; counter-reset: source; }
+.source-list li { counter-increment: source; border-bottom: 1px solid var(--fine-rule); min-width: 0; }
+.source-list a { display: flex; justify-content: space-between; gap: 18px; padding: 12px 0; text-decoration: none; font: 13px/1.65 Arial,"Noto Sans CJK JP",sans-serif; overflow-wrap: anywhere; }
+.source-list a::before { content: "[" counter(source,decimal-leading-zero) "]"; flex: 0 0 35px; font: 800 11px/1.8 Georgia,serif; color: var(--muted); }
+.source-list a span { margin-left: auto; white-space: nowrap; }
+.source-list a:hover { text-decoration: underline; }
+.method-note { border-left: 3px solid var(--ink); padding: 8px 15px; margin-top: 24px; color: var(--muted); font: 12px/1.8 Arial,"Noto Sans CJK JP",sans-serif; }
+.final-footer { border-top: 5px double var(--ink); margin-top: 45px; padding: 20px 0 5px; display: flex; justify-content: space-between; gap: 15px; align-items: baseline; font-size: 12px; }
+.final-footer span:first-child { font: 900 17px/1 Georgia,serif; letter-spacing: -.035em; }
+.final-footer a { text-decoration: none; border-bottom: 1px solid var(--ink); }
+
+@media (max-width: 1100px) {
+  .paper { margin: 0 22px 60px; padding: 35px 36px; }
+  .wordmark { font-size: clamp(41px,6.7vw,75px); }
+  .lead-main h1 { font-size: clamp(40px,5.5vw,65px); }
+  .section-heading { gap: 30px; }
+  .feature-profile h3 { font-size: clamp(35px,4.3vw,49px); }
+}
+@media (max-width: 780px) {
+  .outer-toolbar { padding: 14px 17px; }
+  .toolbar-actions > span { display: none; }
+  .paper { margin: 0 10px 35px; padding: 24px 23px; }
+  .masthead-meta { font-size: 9px; }
+  .masthead-meta span:nth-child(2) { display: none; }
+  .wordmark { font-size: clamp(35px,8vw,60px); letter-spacing: -.065em; }
+  .masthead-subline { grid-template-columns: 1fr; gap: 4px; }
+  .masthead-subline > span { display: none; }
+  .issue-nav { grid-template-columns: repeat(5,1fr); }
+  .issue-nav span { display: none; }
+  .issue-nav a { font-size: 10px; }
+  .black-ribbon span:nth-child(3) { display: none; }
+  .lead-grid { grid-template-columns: 1fr; gap: 18px; }
+  .lead-main { padding-right: 0; }
+  .lead-main h1 { font-size: clamp(37px,8vw,66px); }
+  .deck br { display: none; }
+  .lead-sidebar { border: 1px solid var(--ink); border-left-width: 3px; padding: 13px 16px; }
+  .lead-sidebar p { grid-template-columns: 39px 1fr; }
+  .lead-sidebar p:nth-of-type(n+3), .side-stamp { display: none; }
+  .intro-columns { grid-template-columns: repeat(2,1fr); }
+  .dark-quote { grid-column: span 2; }
+  .section-heading { grid-template-columns: 1fr; gap: 15px; }
+  .section-heading p { max-width: 630px; }
+  .secondary-profiles { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .small-profile:nth-child(n) { border-left: 0; border-bottom: 1px solid var(--fine-rule); padding: 20px 15px 20px 0; }
+  .small-profile:nth-child(even) { border-left: 1px solid var(--fine-rule); padding-left: 15px; }
+  .small-profile:last-child { border-bottom: 0; }
+  .principles { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .principles article:nth-child(2) { border-right: 0; }
+  .principles article:nth-child(-n+2) { border-bottom: 1px solid var(--fine-rule); }
+  .source-header { grid-template-columns: 1fr; }
+  .source-header h2 { margin-top: 8px; }
+  .source-header p { grid-column: 1; }
+}
+@media (max-width: 570px) {
+  body { font-size: 14px; }
+  .outer-toolbar { padding: 9px 12px; }
+  .toolbar-mark { font-size: 10px; }
+  .tool-button { padding: 7px; font-size: 10px; }
+  .paper { padding: 17px 14px 24px; margin: 0 5px 22px; }
+  .wordmark { font-size: clamp(28px,7.4vw,43px); padding: 10px 0 4px; }
+  .masthead-meta { gap: 3px; }
+  .masthead-meta > span:last-child { text-align: right; }
+  .masthead-subline strong { font-size: 13px; }
+  .issue-nav a { padding: 10px 0; font-size: 10px; }
+  .black-ribbon { padding: 8px; font-size: 9px; gap: 8px; }
+  .black-ribbon span:nth-child(2) { letter-spacing: .02em; font-size: 8px; text-align: right; }
+  .lead-main h1 { font-size: clamp(34px,9.4vw,49px); margin: 14px 0; }
+  .deck { font-size: 16px; }
+  .hero-figure img { min-height: 220px; object-fit: cover; }
+  figcaption { display: block; font-size: 9px; }
+  figcaption span { display: block; }
+  .intro-columns { grid-template-columns: 1fr; margin-top: 24px; }
+  .intro-columns .column { padding: 0 0 13px; border-right: 0; border-bottom: 1px solid var(--fine-rule); }
+  .intro-columns .dark-quote { grid-column: auto; padding: 20px 18px !important; }
+  .page-footer { margin-top: 27px; }
+  .edition-section { margin-top: 48px; }
+  .section-topline { grid-template-columns: 1fr 31px; gap: 8px; font-size: 9px; }
+  .section-topline span:nth-child(2) { display: none; }
+  .section-heading { margin: 22px 0; }
+  .section-heading h2 { font-size: clamp(33px,9vw,50px); }
+  .architecture-figure { padding: 8px; }
+  .figure-title { display: grid; grid-template-columns: 1fr auto; }
+  .figure-title strong { grid-column: 1 / -1; grid-row: 2; font-size: 19px; }
+  .agent-svg { min-width: 770px; }
+  .architecture-figure { overflow-x: auto; }
+  .relation-heading { display: block; }
+  .relation-heading h3 { margin-top: 7px; }
+  .dictionary-grid { grid-template-columns: 1fr 1fr; }
+  .dictionary-grid > div:nth-child(n) { padding: 16px 12px 16px 0; border-right: 1px solid var(--fine-rule); border-bottom: 1px solid var(--fine-rule); }
+  .dictionary-grid > div:nth-child(even) { border-right: 0; padding-left: 12px; }
+  .dictionary-grid > div:nth-last-child(-n+2) { border-bottom: 0; }
+  .dictionary-grid h4 { font-size: 22px; }
+  .dictionary-grid p { font-size: 12px; }
+  .editorial-note { display: block; }
+  .note-head { display: inline-block; margin-bottom: 8px; }
+  .feature-profiles { grid-template-columns: 1fr; }
+  .feature-profile:nth-child(n) { padding: 18px 0 24px; border: 0; }
+  .feature-profile:nth-child(2) { border-top: 2px solid var(--ink); }
+  .feature-profile h3 { font-size: clamp(36px,10vw,52px); }
+  .secondary-profiles { grid-template-columns: 1fr; }
+  .small-profile:nth-child(n) { padding: 19px 0 21px; border: 0; border-bottom: 1px solid var(--fine-rule); }
+  .small-profile:last-child { border-bottom: 0; }
+  .comparison-heading { display: block; }
+  .comparison-heading span { display: inline-block; margin-bottom: 12px; }
+  .comparison-heading p { margin-top: 8px; }
+  .process-graphic { padding: 12px; }
+  .process-flow { display: flex; flex-direction: column; gap: 11px; }
+  .process-step { min-height: auto; display: grid; grid-template-columns: 42px 1fr; column-gap: 9px; padding: 9px; }
+  .process-step span { grid-row: span 2; margin: auto 0; }
+  .process-step strong { margin: 0; font-size: 19px; }
+  .process-step::after { display: none; }
+  .process-caption { grid-template-columns: 1fr; gap: 4px; }
+  .principles { grid-template-columns: 1fr 1fr; }
+  .principles article { padding: 15px 9px 15px 0; }
+  .principles article:not(:first-child) { padding-left: 9px; }
+  .principles h3 { font-size: 18px; }
+  .principles p { font-size: 12px; }
+  .pull-feature { grid-template-columns: 1fr; padding: 20px 17px; gap: 15px; }
+  .pull-feature h3 { font-size: 31px; margin-top: 10px; }
+  .closing-columns { grid-template-columns: 1fr; gap: 15px; }
+  .source-list { grid-template-columns: 1fr; }
+  .source-header h2 { font-size: 33px; }
+  .final-footer { flex-wrap: wrap; }
+  .final-footer > span:nth-child(2) { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reading-progress span { transition: none; }
+}
+@page { size: A4; margin: 12mm; }
+@media print {
+  html, body { background: white !important; color: black; }
+  body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .reading-progress, .outer-toolbar, .issue-nav { display: none !important; }
+  .paper { width: 100%; max-width: none; margin: 0; padding: 0; border: 0; box-shadow: none; background-color: #fff; }
+  .paper::after { display: none; }
+  .masthead, .hero-figure, .profile, .architecture-figure, .process-graphic, .page-footer { break-inside: avoid; }
+  .edition-section { break-before: page; margin-top: 0; }
+  .lead-main h1 { font-size: 51px; }
+  .section-heading h2 { font-size: 43px; }
+  .wordmark { font-size: 61px; }
+  .source-link { color: black; }
+}
+
+</style>
+  <title>AIハーネス新聞 — 知能を動かす仕組み</title>
+</head>
+<body>
+  <div class="reading-progress" aria-hidden="true"><span id="reading-progress-inner"></span></div>
+  <div class="outer-toolbar">
+    <span class="toolbar-mark">THE HARNESS TIMES <span class="small-square">■</span> DIGITAL EDITION</span>
+    <div class="toolbar-actions">
+      <span>2026.11.10 / 特別号</span>
+      <button type="button" class="tool-button" id="print-button" aria-label="この特集を印刷する">紙面を印刷する <span aria-hidden="true">↗</span></button>
+    </div>
+  </div>
+
+  <main class="paper" id="top">
+    <header class="masthead" aria-label="紙名と発行日">
+      <div class="masthead-meta"><span>知能・技術・社会を読み解く</span><span>特別調査号　<span class="black-star">★</span>　第001号</span><span>東京発 / 2026年11月10日</span></div>
+      <div class="wordmark"><span class="wordmark-ornament">THE</span> HARNESS <span class="wordmark-ital">TIMES</span></div>
+      <div class="masthead-subline"><span>人工知能、実行基盤の新時代</span><strong>AI ハーネス新聞</strong><span>THE AGENT SYSTEMS REVIEW</span></div>
+    </header>
+
+    <nav class="issue-nav" aria-label="この記事の目次">
+      <a href="#front">第一面 <span>総論</span></a>
+      <a href="#anatomy">第二面 <span>構造図解</span></a>
+      <a href="#atlas">第三面 <span>7製品比較</span></a>
+      <a href="#practice">第四面 <span>実務設計</span></a>
+      <a href="#sources">資料室 <span>出典</span></a>
+    </nav>
+
+    <section id="front" class="front-section">
+      <div class="black-ribbon"><span>特集・保存版</span><span>AGENT HARNESS / INSIDE THE MACHINE</span><span>技術の裏側を読む</span></div>
+      <div class="lead-grid">
+        <div class="lead-main">
+          <div class="section-eyebrow"><span class="bullet-dot">●</span> FIRST REPORT <span class="tiny-rule"></span> 01</div>
+          <h1>AIは、頭脳だけでは<br><em>働けない。</em></h1>
+          <p class="deck">「考えるモデル」の外側にある、実行・記憶・道具・権限の仕組み。<br>Hermes、DSH、Codex……<strong>主役になりつつあるのは、AIを動かす“ハーネス”だ。</strong></p>
+          <div class="byline">技術特集班 / 2026年11月10日時点の公式資料に基づく</div>
+        </div>
+        <aside class="lead-sidebar" aria-label="今号の論点">
+          <div class="sidebar-label">今号の論点 <span>THE INDEX</span></div>
+          <p><strong>01</strong><span>LLMとHarnessは、どう違うのか</span></p>
+          <p><strong>02</strong><span>「Everything is a Plugin」— DSHの挑戦</span></p>
+          <p><strong>03</strong><span>Hermesが目指す、記憶する常駐エージェント</span></p>
+          <p><strong>04</strong><span>現場を変えるのは、検証と復旧の設計</span></p>
+          <div class="side-stamp">SPECIAL<br>ISSUE<span>2026</span></div>
+        </aside>
+      </div>
+
+      <figure class="hero-figure">
+        <img src="/assets/ai-harness-shinbun/harness-loom.webp" width="1672" height="941" loading="eager" fetchpriority="high" alt="巨大な機械式織機から配線が各作業者へ伸びる、AIハーネスを象徴したモノクロの版画風イラスト">
+        <figcaption><span>FIG. 01 ― 知能を仕事へ変える「機構」の比喩図</span><span>ILLUSTRATION: AI-GENERATED / NOT A HISTORICAL PHOTOGRAPH</span></figcaption>
+      </figure>
+
+      <div class="intro-columns">
+        <div class="column">
+          <h2 class="drop-title"><span class="dropcap">A</span>gent Harness とは何か</h2>
+          <p>モデルが一度だけ文章を返す仕組みと、仕事を終えるまで動くエージェントは違う。後者には、状況を読み、ツールを実行し、結果を観測して次の一手を決める<strong>実行ループ</strong>が必要だ。そのループと周辺の制御系が「ハーネス」である。</p>
+          <p>モデルは推論を担う。しかし、どのファイルが読めるか、操作に承認がいるか、失敗した作業をどこから再開するかは、モデルの知識だけでは決まらない。</p>
+        </div>
+        <div class="column">
+          <h2>プロンプトの外にある設計</h2>
+          <p>コンテキスト圧縮、セッション履歴、Sandbox、ツールの権限、進捗イベント、サブエージェント、検証。これらを組み合わせると、同じモデルでも仕事の進め方が大きく変わる。</p>
+          <p>つまり「どのAIが賢いか」だけを比べる時代から、<strong>「どの環境なら、その賢さを安全に発揮できるか」</strong>を問う時代へ移っている。</p>
+        </div>
+        <div class="column dark-quote">
+          <span class="quote-mark">“</span>
+          <blockquote>良いエージェントをつくることは、良い回答を引き出すことだけではない。<br><strong>良い仕事の進め方を、機械的に成立させることだ。</strong></blockquote>
+          <p>編集部による要約的な見解。特定企業の発言の引用ではない。</p>
+        </div>
+      </div>
+      <div class="page-footer"><span>THE HARNESS TIMES · 特別号</span><span>001</span></div>
+    </section>
+
+    <section id="anatomy" class="edition-section">
+      <div class="section-topline"><span>第二面 / 技術解剖</span><span>HOW THE MACHINE WORKS</span><span>02</span></div>
+      <div class="section-heading"><div><span class="eyebrow">図解でわかる</span><h2>ハーネスの<br>中で起きていること。</h2></div><p>モデルの推論は「一部」。本当に仕事をするには、ツール実行の結果を再びモデルへ返し、完了を確かめるまで循環させる。下図は一般化した構造で、個別製品の内部実装を厳密に再現したものではない。</p></div>
+      <figure class="architecture-figure">
+        <div class="figure-title"><span>構造図　01</span><strong>AGENT EXECUTION LOOP</strong><span>典型例 / 概念図</span></div>
+        <svg class="agent-svg" viewBox="0 0 1100 400" role="img" aria-labelledby="loop-title loop-desc">
+          <title id="loop-title">AIエージェント実行ループの概念図</title>
+          <desc id="loop-desc">ユーザーの依頼をハーネスが受け、LLMに判断させ、ツールを実行し、結果を検証して再びLLMへ戻す。セッション記録と権限制御が全体を支える。</desc>
+          <defs><pattern id="dot-grid" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".65" fill="#78746b" opacity=".25"/></pattern><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="#24231e"/></marker><marker id="arrow-light" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="#555149"/></marker></defs>
+          <rect x="206" y="22" width="864" height="355" fill="url(#dot-grid)" stroke="#292820" stroke-width="2"/>
+          <rect x="225" y="9" width="240" height="29" fill="#e8e0cf"/><text x="236" y="29" class="svg-label">HARNESS / 実行制御の領域</text>
+          <rect x="16" y="145" width="150" height="82" fill="#23231f"/><text x="91" y="177" class="svg-white" text-anchor="middle">USER</text><text x="91" y="199" class="svg-white-sub" text-anchor="middle">目的・合格条件</text>
+          <rect x="244" y="91" width="200" height="108" class="svg-node"/><text x="344" y="124" class="svg-number" text-anchor="middle">01 / ORCHESTRATOR</text><text x="344" y="158" class="svg-strong" text-anchor="middle">進行を制御</text><text x="344" y="180" class="svg-small" text-anchor="middle">計画・継続・分岐</text>
+          <rect x="521" y="91" width="200" height="108" class="svg-node"/><text x="621" y="124" class="svg-number" text-anchor="middle">02 / MODEL</text><text x="621" y="158" class="svg-strong" text-anchor="middle">LLMが判断</text><text x="621" y="180" class="svg-small" text-anchor="middle">次の行動を選ぶ</text>
+          <rect x="800" y="91" width="225" height="108" class="svg-node"/><text x="912" y="124" class="svg-number" text-anchor="middle">03 / ACTION</text><text x="912" y="158" class="svg-strong" text-anchor="middle">Tools / MCP</text><text x="912" y="180" class="svg-small" text-anchor="middle">Shell・GitHub・Web</text>
+          <rect x="244" y="258" width="220" height="84" class="svg-node-muted"/><text x="354" y="288" class="svg-number" text-anchor="middle">SESSION</text><text x="354" y="316" class="svg-strong" text-anchor="middle">履歴・状態・復旧</text>
+          <rect x="540" y="258" width="220" height="84" class="svg-node-muted"/><text x="650" y="288" class="svg-number" text-anchor="middle">POLICY</text><text x="650" y="316" class="svg-strong" text-anchor="middle">Sandbox・承認</text>
+          <rect x="828" y="258" width="197" height="84" class="svg-node-muted"/><text x="926" y="288" class="svg-number" text-anchor="middle">OBSERVE</text><text x="926" y="316" class="svg-strong" text-anchor="middle">結果・検証</text>
+          <path d="M166 186 H244" class="svg-arrow"/><path d="M444 145 H521" class="svg-arrow"/><path d="M721 145 H800" class="svg-arrow"/><path d="M912 199 V258" class="svg-arrow"/>
+          <path d="M828 299 H780 C765 299 760 288 760 275 V227 C760 216 746 215 730 215 H621 V199" class="svg-arrow-dash"/>
+          <path d="M354 258 V218 H344 V199" class="svg-arrow-dash"/><path d="M650 258 V230 H912 V199" class="svg-arrow-dash"/>
+          <text x="746" y="237" class="svg-mini" text-anchor="end">観測を戻す</text>
+        </svg>
+        <figcaption><strong>読み方：</strong>ハーネスが依頼を保持し、LLMの判断で道具を使い、観測結果を次の判断に戻す。状態と権限は全工程を横断する。すべてが常に自動実行されるわけではない。</figcaption>
+      </figure>
+
+      <div class="relation-heading"><div class="mini-eyebrow">用語の整理</div><h3>似ている言葉を、混ぜない。</h3></div>
+      <div class="dictionary-grid">
+        <div><span>MODEL</span><h4>LLM</h4><p>推論・文章生成・行動選択を行う「頭脳」。それ自体が外部システムの操作権限を持つとは限らない。</p></div>
+        <div><span>RUNTIME</span><h4>Harness</h4><p>モデル呼び出し、ツール実行、状態、承認、再試行を組み合わせる「実行系」。</p></div>
+        <div><span>PROTOCOL</span><h4>MCP</h4><p>外部ツールやデータへ接続するためのプロトコル。ハーネス全体の代わりにはならない。</p></div>
+        <div><span>PROCEDURE</span><h4>Skills</h4><p>再利用できる専門手順や知識。実行エンジンではなく、エージェントが参照する技能。</p></div>
+        <div><span>POLICY</span><h4>AGENTS.md 等</h4><p>リポジトリや作業環境固有の指示。守らせるには権限設定・CI等による実装上の制約も必要。</p></div>
+        <div><span>VERIFICATION</span><h4>Evals / CI</h4><p>「言った」ではなく「できた」を確かめる仕組み。実際の副作用や成果物を検証する。</p></div>
+      </div>
+      <div class="editorial-note"><span class="note-head">編集部注</span><p>「評価ハーネス（evaluation harness）」は、テスト課題を走らせて結果を採点する基盤を指す場合もある。本紙で主に扱う「エージェント・ハーネス」とは区別する。<a href="https://www.anthropic.com/research/demystifying-evals-for-ai-agents" target="_blank" rel="noopener noreferrer">Anthropicの整理 ↗</a></p></div>
+      <div class="page-footer"><span>THE HARNESS TIMES · 構造図解</span><span>002</span></div>
+    </section>
+
+    <section id="atlas" class="edition-section atlas-section">
+      <div class="section-topline"><span>第三面 / ハーネス図鑑</span><span>SEVEN SYSTEMS, SEVEN PHILOSOPHIES</span><span>03</span></div>
+      <div class="section-heading heading-wide"><div><span class="eyebrow">2026年・主要7系統</span><h2>同じAIでも、<br>働き方は違う。</h2></div><p>7製品を「何のためのハーネスか」で整理した。優劣のランキングではない。各製品の公式ドキュメントが説明する設計意図と、採用時に留意すべき点を並べた比較である。</p></div>
+      <figure class="atlas-image"><img src="/assets/ai-harness-shinbun/seven-machines.webp" width="1536" height="1024" loading="lazy" alt="七つの区画に分かれた機械の展示棚を描いたモノクロ版画。エージェント実行基盤の設計思想の違いを象徴する比喩図"><figcaption>PLATE II — SEVEN DISTINCT MACHINES / 生成した比喩図であり、実際の製品外観ではない。</figcaption></figure>
+
+      <div class="feature-profiles">
+        <article class="profile feature-profile" id="hermes">
+          <div class="profile-top"><span>FILE 01</span><span class="profile-category">常駐・パーソナル</span></div>
+          <h3>Hermes <em>Agent</em></h3>
+          <p class="profile-origin">NOUS RESEARCH / OPEN SOURCE</p>
+          <p class="profile-thesis">「記憶し、技能を蓄積し、会話の外でも働く」</p>
+          <p>持続的なメモリ、Skills、MCP、メッセージング連携、Cron、バックグラウンド作業、サブエージェントを備える。CLIやDiscordなどから扱える<strong>パーソナルエージェント基盤</strong>という位置づけ。</p>
+          <div class="profile-facts"><p><b>軸</b><span>継続運用 / 記憶 / チャット連携</span></p><p><b>注意</b><span>ローカルShellは既定で実行ホスト上。隔離バックエンドは別途選択する。</span></p><p><b>向く</b><span>常駐する個人アシスタント、通知・日常業務</span></p></div>
+          <a class="source-link" href="https://hermes-agent.nousresearch.com/ai-agent-platform" target="_blank" rel="noopener noreferrer">公式解説を読む ↗</a>
+        </article>
+        <article class="profile feature-profile" id="dsh">
+          <div class="profile-top"><span>FILE 02</span><span class="profile-category">プラグイン構成</span></div>
+          <h3>DeepSeek <em>Harness</em></h3>
+          <p class="profile-origin">DSH / DEEPSEEK AI / DEVELOPER PREVIEW</p>
+          <p class="profile-thesis">「Everything is a Plugin」— ループさえ交換可能に。</p>
+          <p>モデルアダプタ、ツール、セッションログ、エージェントループまでプラグインとして扱う。Cordisを基盤に、Profile・Bundle・Patchを重ねて構成する<strong>組み替え可能なランタイム</strong>。</p>
+          <div class="profile-facts"><p><b>軸</b><span>モジュール性 / 拡張 / 実験</span></p><p><b>注意</b><span>公式にDeveloper Preview。互換性を破る変更が起こり得る。</span></p><p><b>向く</b><span>独自ランタイム開発、内部構造の研究・カスタマイズ</span></p></div>
+          <a class="source-link" href="https://github.com/deepseek-ai/deepseek-harness" target="_blank" rel="noopener noreferrer">公式リポジトリ ↗</a>
+        </article>
+      </div>
+
+      <div class="secondary-profiles">
+        <article class="profile small-profile" id="codex"><div class="profile-top"><span>FILE 03</span><span>開発エージェント</span></div><h3>Codex</h3><p class="profile-origin">OPENAI</p><p class="profile-thesis">開発の実行ループを再利用する。</p><p>コンテキスト収集、Shell、Sandbox、承認、会話の継続を担うオープンなハーネス。CLI、SDK、app-server、マネージドなAgents APIがある。</p><p class="profile-warning"><b>見る点：</b>実行環境とホスト側の承認制御を分けて設計。</p><a class="source-link" href="https://developers.openai.com/blog/codex-as-a-platform" target="_blank" rel="noopener noreferrer">公式解説 ↗</a></article>
+        <article class="profile small-profile" id="claude"><div class="profile-top"><span>FILE 04</span><span>開発エージェント</span></div><h3>Claude Code</h3><p class="profile-origin">ANTHROPIC / AGENT SDK</p><p class="profile-thesis">コードの調査・編集を、ツール駆動で。</p><p>ファイルやShellを使う開発ワークフロー。Claude Agent SDKでは実行ループ、ツール、セッション等をアプリケーションに組み込める。</p><p class="profile-warning"><b>見る点：</b>Hooks、許可設定、実行プロセスの責任範囲。</p><a class="source-link" href="https://platform.claude.com/docs/en/cli-sdks-libraries/overview" target="_blank" rel="noopener noreferrer">公式資料 ↗</a></article>
+        <article class="profile small-profile" id="opencode"><div class="profile-top"><span>FILE 05</span><span>開発・多モデル</span></div><h3>OpenCode</h3><p class="profile-origin">OPEN SOURCE CODING AGENT</p><p class="profile-thesis">好みのモデルと、好みの拡張。</p><p>複数プロバイダーのモデル選択、カスタムAgentやプラグインに対応するオープンソースのコーディングエージェント。</p><p class="profile-warning"><b>見る点：</b>モデルごとに利用可能なツールや挙動が異なる。</p><a class="source-link" href="https://opencode.ai/docs/" target="_blank" rel="noopener noreferrer">公式ドキュメント ↗</a></article>
+        <article class="profile small-profile" id="pi"><div class="profile-top"><span>FILE 06</span><span>小さな土台</span></div><h3>Pi</h3><p class="profile-origin">EARENDIL-WORKS / OPEN SOURCE</p><p class="profile-thesis">必要な仕組みを、自分で積む。</p><p>ミニマルなエージェント・ハーネス。拡張、Skills、テンプレート、RPC、SDKでカスタマイズ可能。サブエージェントやPlan Modeは標準機能として前提にしない。</p><p class="profile-warning"><b>見る点：</b>シンプルさと引き換えに、自前設計の範囲が増える。</p><a class="source-link" href="https://github.com/earendil-works/pi" target="_blank" rel="noopener noreferrer">公式リポジトリ ↗</a></article>
+        <article class="profile small-profile" id="openclaw"><div class="profile-top"><span>FILE 07</span><span>Gateway・自動化</span></div><h3>OpenClaw</h3><p class="profile-origin">OPEN SOURCE AGENT PLATFORM</p><p class="profile-thesis">チャネルと長時間運用の接点に。</p><p>Gatewayを中心にメッセージング、セッション、Skills、自動化、複数エージェントの経路を扱う。日常利用の入口として設計されている。</p><p class="profile-warning"><b>見る点：</b>常駐Gatewayとツール権限の境界を明示する。</p><a class="source-link" href="https://docs.openclaw.ai/concepts/architecture" target="_blank" rel="noopener noreferrer">公式アーキテクチャ ↗</a></article>
+      </div>
+
+      <div class="comparison-heading"><span>保存版 比較早見表</span><h3>比較する軸を、間違えない。</h3><p>「実装の思想」と「向く利用場面」の編集部による整理。品質、速度、安全性を実測したランキングではない。</p></div>
+      <div class="table-scroll" role="region" aria-label="7製品の比較表" tabindex="0"><table class="comparison-table"><thead><tr><th scope="col">製品</th><th scope="col">設計の中心</th><th scope="col">強い用途の傾向</th><th scope="col">導入前の確認点</th></tr></thead><tbody>
+        <tr><th scope="row">Hermes</th><td>記憶・Skills・常駐運用</td><td>個人エージェント、チャット入口</td><td>Shell実行先、隔離設定</td></tr>
+        <tr><th scope="row">DSH</th><td>すべてをプラグイン化</td><td>独自機構・実験的拡張</td><td>Preview・互換性の変化</td></tr>
+        <tr><th scope="row">Codex</th><td>開発作業の実行ループ</td><td>コード調査・実装・検証</td><td>Sandboxと承認境界</td></tr>
+        <tr><th scope="row">Claude Code</th><td>ツールを使うコード作業</td><td>リポジトリ中心の開発</td><td>権限設定、Hooks、実行場所</td></tr>
+        <tr><th scope="row">OpenCode</th><td>多モデル・拡張可能な開発</td><td>プロバイダー選択と統合</td><td>モデル・ツール対応差</td></tr>
+        <tr><th scope="row">Pi</th><td>小さな拡張可能コア</td><td>自前のエージェント構築</td><td>追加実装する機能の範囲</td></tr>
+        <tr><th scope="row">OpenClaw</th><td>Gatewayとマルチチャネル</td><td>常駐・自動化・メッセージ</td><td>Gateway運用・アクセス制御</td></tr>
+      </tbody></table></div>
+      <div class="page-footer"><span>THE HARNESS TIMES · 7系統比較</span><span>003</span></div>
+    </section>
+
+    <section id="practice" class="edition-section practice-section">
+      <div class="section-topline"><span>第四面 / 実務設計</span><span>FROM DEMO TO RELIABLE WORK</span><span>04</span></div>
+      <div class="section-heading"><div><span class="eyebrow">運用者への提言</span><h2>「実行した」と<br>「完了した」は違う。</h2></div><p>Agent Harnessの本当の価値は、途中の失敗や権限の境界が現れたときにわかる。ハーネス設計では、成果物と環境の状態を検証可能にすることが最優先になる。</p></div>
+      <div class="process-graphic" role="img" aria-label="開発エージェントの状態遷移例。依頼を受けて調査、変更、テスト、PR、CI、配備、動作確認を順に行い、ゲートを通るまで完了にしない。">
+        <div class="process-title">CASE FILE / GitHub の不具合修正を依頼したら</div>
+        <div class="process-flow">
+          <div class="process-step"><span>01</span><strong>調査</strong><small>仕様・Issue・コード</small></div>
+          <div class="process-step"><span>02</span><strong>修正</strong><small>隔離環境で変更</small></div>
+          <div class="process-step"><span>03</span><strong>検証</strong><small>テスト・lint・build</small></div>
+          <div class="process-step process-gate"><span>04</span><strong>PR / CI</strong><small>レビューと承認</small></div>
+          <div class="process-step process-gate"><span>05</span><strong>配備</strong><small>本番動作を別確認</small></div>
+        </div>
+        <div class="process-caption"><b>中断・失敗時は？</b><span>現在状態・実行ログ・次の行動・再開条件を保存。承認前の操作や未検証の工程を「完了」に進めない。</span></div>
+      </div>
+      <div class="principles"><article><span class="principle-no">壱</span><h3>記録は外へ</h3><p>進捗、失敗、成果物、保留理由を会話の外に永続化。コンテキストが消えても再開できるようにする。</p></article><article><span class="principle-no">弐</span><h3>権限は狭く</h3><p>閲覧・編集・公開を分け、秘密情報を実行環境から隔離する。承認ルールは文章だけでなく実行系で強制。</p></article><article><span class="principle-no">参</span><h3>検証は外部事実で</h3><p>PR作成、CI成功、マージ、デプロイ、本番確認を別々に記録する。AIの自己申告だけでは判定しない。</p></article><article><span class="principle-no">四</span><h3>回復を設計する</h3><p>上限付き再試行、冪等な操作、タイムアウト、再開地点を準備。アクセス拒否は障害ではなく境界として扱う。</p></article></div>
+      <div class="pull-feature"><div><span>EDITORIAL</span><h3>どれを選ぶかより、<br>何を任せるか。</h3></div><div class="choice-list"><p><b>日常の常駐・チャット連携</b><span>Hermes / OpenClaw を検討</span></p><p><b>開発作業を終える実行基盤</b><span>Codex / Claude Code / OpenCode を検討</span></p><p><b>ハーネス自体を拡張・研究</b><span>DSH / Pi を検討</span></p><small>上記は設計目的に基づく編集部の方向づけ。運用要件、セキュリティ要件、費用、モデルとの適合は別途検証が必要。</small></div></div>
+      <div class="harness-engineering"><div class="section-eyebrow">後記 / HARNESS ENGINEERING</div><h3>良いプロンプトの次は、<br><em>良い作業環境を設計する。</em></h3><div class="closing-columns"><p>OpenAIのHarness Engineeringは、仕様・ドキュメント・テスト・lint・CI・フィードバックを、エージェントが理解し利用できる形で整える開発思想を示した。目的を明確にし、変更に強い検証ループを作ることが鍵になる。</p><p>ハーネスには万能の正解がない。構成可能性を重視するDSH、常駐の使い勝手を重視するHermes、開発作業を研ぎ澄ますCodex。それぞれの選択は「頭脳の賢さ」だけでは決まらない。</p></div></div>
+      <div class="page-footer"><span>THE HARNESS TIMES · 実務設計</span><span>004</span></div>
+    </section>
+
+    <section id="sources" class="source-section">
+      <div class="source-header"><span>資料室・出典</span><h2>SOURCES &amp; NOTES</h2><p>一次資料（各公式ドキュメント・公式リポジトリ）を優先。記述は2026年11月10日時点の確認内容に基づき、更新で変わる場合がある。</p></div>
+      <ol class="source-list">
+        <li><a href="https://developers.openai.com/blog/codex-as-a-platform" target="_blank" rel="noopener noreferrer">OpenAI Developers — Codex as a platform: build on the open agent harness <span>↗</span></a></li>
+        <li><a href="https://openai.com/index/harness-engineering/" target="_blank" rel="noopener noreferrer">OpenAI — Harness engineering: leveraging Codex in an agent-first world <span>↗</span></a></li>
+        <li><a href="https://www.anthropic.com/research/demystifying-evals-for-ai-agents" target="_blank" rel="noopener noreferrer">Anthropic — Demystifying evals for AI agents <span>↗</span></a></li>
+        <li><a href="https://hermes-agent.nousresearch.com/ai-agent-platform" target="_blank" rel="noopener noreferrer">Nous Research — The Open Source AI Agent Platform and Harness <span>↗</span></a></li>
+        <li><a href="https://github.com/deepseek-ai/deepseek-harness" target="_blank" rel="noopener noreferrer">DeepSeek AI — DeepSeek Harness / README <span>↗</span></a></li>
+        <li><a href="https://deepseek-harness.github.io/deepseek-harness/en/reference/" target="_blank" rel="noopener noreferrer">DeepSeek Harness — Architecture Reference <span>↗</span></a></li>
+        <li><a href="https://platform.claude.com/docs/en/cli-sdks-libraries/overview" target="_blank" rel="noopener noreferrer">Anthropic — SDKs, CLI, and libraries <span>↗</span></a></li>
+        <li><a href="https://opencode.ai/docs/" target="_blank" rel="noopener noreferrer">OpenCode — Official Documentation <span>↗</span></a></li>
+        <li><a href="https://github.com/earendil-works/pi" target="_blank" rel="noopener noreferrer">Pi — Official GitHub Repository <span>↗</span></a></li>
+        <li><a href="https://docs.openclaw.ai/concepts/architecture" target="_blank" rel="noopener noreferrer">OpenClaw — Gateway Architecture <span>↗</span></a></li>
+      </ol>
+      <p class="method-note"><strong>制作注：</strong>掲載イラストは新聞・版画の表現を目的に生成した概念画像です。実在する過去の設備、人物、製品の外観を記録した写真ではありません。比較は公開資料の機能・設計思想の整理であり、ベンチマーク・脆弱性監査・実機の相互運用試験を行ったものではありません。</p>
+    </section>
+
+    <footer class="final-footer"><span>THE HARNESS TIMES</span><span>知能を動かすのは、知能だけではない。</span><a href="#top">紙面の最上段へ ↑</a></footer>
+  </main>
+  <script>
+(() => {
+  const printButton = document.getElementById("print-button");
+  const progress = document.getElementById("reading-progress-inner");
+
+  printButton?.addEventListener("click", () => window.print());
+
+  let updateScheduled = false;
+  const updateProgress = () => {
+    updateScheduled = false;
+    if (!progress) return;
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    const ratio = scrollable > 0 ? Math.min(1, Math.max(0, window.scrollY / scrollable)) : 0;
+    progress.style.width = String(Math.round(ratio * 100)) + "%";
+  };
+  const scheduleProgress = () => {
+    if (updateScheduled) return;
+    updateScheduled = true;
+    window.requestAnimationFrame(updateProgress);
+  };
+  window.addEventListener("scroll", scheduleProgress, { passive: true });
+  window.addEventListener("resize", scheduleProgress, { passive: true });
+  updateProgress();
+})();
+
+</script>
+</body>
+</html>
