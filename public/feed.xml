@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Mon, 09 Nov 2026 00:51:16 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 10 Nov 2026 02:24:35 GMT</lastBuildDate>
+    <item>
+      <title>AIハーネス新聞 — 知能を動かす仕組み</title>
+      <link>https://share.0g0.xyz/ai-harness-shinbun</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/ai-harness-shinbun</guid>
+      <description>AIは頭脳だけでは働けない。Agent Harnessとは何かを解剖し、Hermes、DeepSeek Harness、Codex、Claude Code、OpenCode、Pi、OpenClawを一次資料に基づき比較する新聞風図解特集。</description>
+      <pubDate>Tue, 10 Nov 2026 02:24:35 GMT</pubDate>
+      <dcterms:created>2026-11-10T02:24:35.000Z</dcterms:created>
+      <dcterms:modified>2026-11-10T02:24:35.000Z</dcterms:modified>
+    </item>
     <item>
       <title>2026年 不正アクセス・情報漏えいウォッチ｜原因・出典・続報</title>
       <link>https://share.0g0.xyz/security-incidents</link>
