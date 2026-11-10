@@ -15,6 +15,8 @@ const keys = (record, kind) => automaticTags(record).filter((item) => item.kind 
 const record = (title, lead = "", category = "agent", extra = {}) => ({ title, lead, category, ...extra });
 
 const existingProducts = {
+  "puripuly-heart-2102-talk-listen-fixes": ["vrchat", "puripuly-heart"],
+  "claude-code-21321-oauth-permissions-mods": ["claude-code"],
   "unity-cli-beta17-process-delete-auth-guards": ["unity-cli"],
   "openwebui-0131-0132-files-approvals-migration": ["other"],
   "openai-agents-python-alpha7-write-mcp-storage": ["other"],
@@ -143,6 +145,8 @@ test("all authored records have deterministic product/domain/change dimensions",
 
 test("current change tags distinguish pricing, fixes, public weights, GA, beta and correction", () => {
   const expected = {
+    "puripuly-heart-2102-talk-listen-fixes": ["fix"],
+    "claude-code-21321-oauth-permissions-mods": ["fix", "compatibility"],
     "unity-cli-beta17-process-delete-auth-guards": ["preview", "compatibility", "security"],
     "openwebui-0131-0132-files-approvals-migration": ["compatibility"],
     "openai-agents-python-alpha7-write-mcp-storage": ["preview","compatibility"],
@@ -405,3 +409,30 @@ test("mutation of returned tags cannot alter later outputs or the input record",
 
 
 
+
+test('November 10 audio follow-up retains the exact recognition modes and prior release boundary', () => {
+  const item=records.find(value=>value.id==='puripuly-heart-2102-talk-listen-fixes');
+  assert.equal(item.date,'2026-11-09');
+  assert.match(item.title,/2\.10\.1／2\.10\.2/);
+  assert.match(item.facts[0],/句読点だけ.*Talk翻訳.*再起動までVRChat Chatbox/);
+  assert.match(item.facts[1],/Cloud Free Tier.*LISTEN.*どの音声認識方式でも起きる問題とは扱わない/);
+  assert.match(item.facts[2],/2\.10\.0.*区別.*実機での再現・修正確認はしていない/);
+  assert.deepEqual(item.sources.map(source=>source[1]),[
+    'https://github.com/kapitalismho/PuriPuly-heart/releases/tag/v2.10.1',
+    'https://github.com/kapitalismho/PuriPuly-heart/releases/tag/v2.10.2'
+  ]);
+});
+
+test('November 10 Claude update preserves permission changes and the deny-policy exception', () => {
+  const item=records.find(value=>value.id==='claude-code-21321-oauth-permissions-mods');
+  assert.equal(item.date,'2026-11-09');
+  assert.match(item.facts[0],/OAuth.*別ホスト.*refresh token.*修正/);
+  assert.match(item.facts[1],/cp／mv.*deny規則.*保護ファイル/);
+  assert.match(item.facts[2],/\$\.tool\.call／\$\.mcp\.call.*ask規則.*dontAsk・-p.*確認を出さない.*deny規則と組織ポリシー.*適用/);
+  assert.match(item.facts[3],/auto／bypass.*確認なし.*dontAsk.*読み込まれない/);
+  assert.match(item.test,/実際の認証情報を外部へ転送する試験はしない/);
+  const data=JSON.parse(html.match(/<script\b[^>]*\bid="technology-update-data"[^>]*>([\s\S]*?)<\/script>/)[1]);
+  const change=data.changes.find(value=>value.date==='2026-11-10');
+  assert.deepEqual(change.record_ids,['puripuly-heart-2102-talk-listen-fixes','claude-code-21321-oauth-permissions-mods']);
+  assert.match(change.summary,/既存102項目と17件の履歴を保持/);
+});
