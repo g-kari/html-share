@@ -15,6 +15,10 @@ const keys = (record, kind) => automaticTags(record).filter((item) => item.kind 
 const record = (title, lead = "", category = "agent", extra = {}) => ({ title, lead, category, ...extra });
 
 const existingProducts = {
+  "comfyui-0450-local-sso-video-memory": ["other"],
+  "vrct-361-transcription-ui-fixes": ["other"],
+  "cloudflare-workflows-concurrency-limit": ["other"],
+  "ollama-04016-memory-routing-truncation": ["ollama"],
   "puripuly-heart-2102-talk-listen-fixes": ["vrchat", "puripuly-heart"],
   "claude-code-21321-oauth-permissions-mods": ["claude-code"],
   "unity-cli-beta17-process-delete-auth-guards": ["unity-cli"],
@@ -145,6 +149,10 @@ test("all authored records have deterministic product/domain/change dimensions",
 
 test("current change tags distinguish pricing, fixes, public weights, GA, beta and correction", () => {
   const expected = {
+    "comfyui-0450-local-sso-video-memory": ["improvement"],
+    "vrct-361-transcription-ui-fixes": ["fix", "feature"],
+    "cloudflare-workflows-concurrency-limit": ["update"],
+    "ollama-04016-memory-routing-truncation": ["fix", "compatibility"],
     "puripuly-heart-2102-talk-listen-fixes": ["fix"],
     "claude-code-21321-oauth-permissions-mods": ["fix", "compatibility"],
     "unity-cli-beta17-process-delete-auth-guards": ["preview", "compatibility", "security"],
@@ -432,7 +440,39 @@ test('November 10 Claude update preserves permission changes and the deny-policy
   assert.match(item.facts[3],/auto／bypass.*確認なし.*dontAsk.*読み込まれない/);
   assert.match(item.test,/実際の認証情報を外部へ転送する試験はしない/);
   const data=JSON.parse(html.match(/<script\b[^>]*\bid="technology-update-data"[^>]*>([\s\S]*?)<\/script>/)[1]);
-  const change=data.changes.find(value=>value.date==='2026-11-10');
+  const change=data.changes.find(value=>value.record_ids?.includes('claude-code-21321-oauth-permissions-mods'));
   assert.deepEqual(change.record_ids,['puripuly-heart-2102-talk-listen-fixes','claude-code-21321-oauth-permissions-mods']);
   assert.match(change.summary,/既存102項目と17件の履歴を保持/);
+});
+
+
+test('November 10 late release scope and defaults remain explicit', () => {
+  const comfy=records.find(item=>item.id==='comfyui-0450-local-sso-video-memory');
+  assert.equal(comfy.date,'2026-11-10');
+  assert.match(comfy.facts.join(' '),/local_web_sso.*partner_node_token.*既定.*有効/);
+  assert.match(comfy.facts.join(' '),/enable_telemetry.*false/);
+  const vrct=records.find(item=>item.id==='vrct-361-transcription-ui-fixes');
+  assert.match(vrct.facts[0],/複数行字幕.*空の翻訳結果.*受信の文字起こし.*再起動まで/);
+  assert.match(vrct.facts[1],/テキストのサイズ.*100%以外/);
+  const workflows=records.find(item=>item.id==='cloudflare-workflows-concurrency-limit');
+  assert.match(workflows.facts.join(' '),/4\.127\.0/);
+  assert.match(workflows.facts[2],/毎回.*省略すると個別上限が解除/);
+  assert.match(workflows.facts[2],/GA／previewの区分表記はない/);
+  const ollama=records.find(item=>item.id==='ollama-04016-memory-routing-truncation');
+  assert.equal(ollama.date,'2026-11-09');
+  assert.match(ollama.facts[0],/truncation.*既定で切り詰めない/);
+  assert.match(ollama.facts[2],/Apple silicon.*27 GiB.*測定していない.*Ripple Preview.*試験版/);
+});
+
+test('November 10 late history keeps the earlier same-day follow-up separate', () => {
+  const data=JSON.parse(html.match(/<script\b[^>]*\bid="technology-update-data"[^>]*>([\s\S]*?)<\/script>/)[1]);
+  assert.equal(data.records.length,108);
+  assert.equal(data.changes.length,19);
+  assert.equal(data.changes.filter(item=>item.date==='2026-11-10').length,2);
+  assert.equal(data.changes[0].record_ids.length,4);
+  assert.match(data.changes[0].summary,/既存104項目と18件の履歴を保持/);
+  for(const id of data.changes[0].record_ids) {
+    assert.equal(data.records.filter(item=>item.id===id).length,1);
+    assert.ok(html.includes(`id="${id}"`));
+  }
 });
