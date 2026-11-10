@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Tue, 10 Nov 2026 02:24:35 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 10 Nov 2026 05:56:03 GMT</lastBuildDate>
+    <item>
+      <title>Goコード検証の全体像｜21項目とCI実装例</title>
+      <link>https://share.0g0.xyz/go-code-verification</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/go-code-verification</guid>
+      <description>Goのコード検証21項目を、静的検証6項目・動的検証11項目・横断的な検証4項目に整理。標準ツール、追加OSS、CIコマンド、運用上の注意点と公式資料をまとめた実践ガイド。</description>
+      <pubDate>Tue, 10 Nov 2026 05:56:03 GMT</pubDate>
+      <dcterms:created>2026-11-10T05:56:03.000Z</dcterms:created>
+      <dcterms:modified>2026-11-10T05:56:03.000Z</dcterms:modified>
+    </item>
     <item>
       <title>AIハーネス新聞 — 知能を動かす仕組み</title>
       <link>https://share.0g0.xyz/ai-harness-shinbun</link>
