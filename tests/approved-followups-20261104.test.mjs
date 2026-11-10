@@ -12,8 +12,8 @@ const i = id => incident.incidents.find(item => item.id === id);
 const hash = value => createHash('sha256').update(JSON.stringify(value)).digest('hex');
 
 test('four approved maintenance notices retain all old records and resolve only their two matching pending URLs', () => {
-  assert.equal(maintenance.confirmed.length, 599);
-  assert.equal(maintenance.confirmed.filter(item => item.restored).length, 122);
+  assert.equal(maintenance.confirmed.length, 631);
+  assert.equal(maintenance.confirmed.filter(item => item.restored).length, 130);
   assert.equal(maintenance.pending.length, 2044);
   assert.equal(maintenance.discovery.length, 2887);
   const batch = maintenance.collectionBatches.find(item => item.id === 'official-monitor-20261104-six-approved');
@@ -22,7 +22,7 @@ test('four approved maintenance notices retain all old records and resolve only 
   assert.equal(resolved.length, 2);
   assert.deepEqual(resolved.map(item => item.originalPendingIndex).sort((a,b) => a-b), [2044,2045]);
   for (const item of resolved) assert.equal(maintenance.pending.some(row => row.url === item.originalPendingGroup.url), false);
-  assert.equal(hash(maintenance.confirmed.slice(0, 576).map(item => maintenance.dailyOfficialFollowup20261105.previousRecords.find(previous => previous.id === item.id) ?? item)), 'ec409102ada836a1277d2ab83140d27374b3de0d6c82079beb483f34dd00f482');
+  assert.equal(hash(maintenance.confirmed.slice(0, 576).map(item => maintenance.dailyOfficialFollowup20261105.previousRecords.find(previous => previous.id === item.id) ?? maintenance.dailyOfficialFollowup20261110.previousRecords.find(previous => previous.id === item.id) ?? item)), 'ec409102ada836a1277d2ab83140d27374b3de0d6c82079beb483f34dd00f482');
   assert.equal(hash(maintenance.discovery.slice(0, 2855)), '304c32a90e0e7790c92826b6471cb03f3b9c96f0b45e1b73fa09d2ee6d720e48');
   assert.match(maintenanceHTML, /11\/4 21:42 JSTの限定照合記録：/);
 });

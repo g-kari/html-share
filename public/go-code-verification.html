@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Goコード検証の全体像｜21項目とCI実装例</title>
+  <meta name="description" content="Goのコード検証21項目を、静的検証6項目・動的検証11項目・横断的な検証4項目に整理。標準ツール、追加OSS、CIコマンド、運用上の注意点と公式資料をまとめた実践ガイド。">
+  <meta name="theme-color" content="#f7f7f5">
+  <style>
+    :root{color-scheme:light;--bg:#f7f7f5;--paper:#fff;--ink:#24302d;--muted:#52615c;--line:#d9dfdb;--link:#215879;--soft:#f0f3f1;--accent:#315448}
+    *{box-sizing:border-box}
+    html{scroll-padding-top:18px}
+    body{margin:0;background:var(--bg);color:var(--ink);font:15.5px/1.7 -apple-system,BlinkMacSystemFont,"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;overflow-wrap:anywhere}
+    a{color:var(--link);text-decoration-thickness:1px;text-underline-offset:3px}
+    a:hover{text-decoration-thickness:2px}
+    a:focus-visible,summary:focus-visible{outline:2px solid var(--link);outline-offset:3px}
+    .skip{position:absolute;top:-100px;left:12px;background:var(--paper);padding:6px 12px;z-index:5}
+    .skip:focus{top:8px}
+    .top{max-width:930px;margin:auto;padding:9px 18px;display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);font-size:12px}
+    .top a{color:var(--muted)}
+    article{max-width:930px;margin:0 auto;background:var(--paper);padding:20px 25px 34px;border-left:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+    h1{font-size:clamp(25px,3.4vw,33px);line-height:1.35;letter-spacing:-.025em;margin:1px 0 15px}
+    h2{font-size:21px;line-height:1.45;margin:24px 0 9px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+    h3{font-size:16px;margin:14px 0 5px}
+    p{margin:7px 0}
+    ul,ol{margin:6px 0;padding-left:1.5em}
+    li{margin:3px 0}
+    .lead{border-left:3px solid var(--accent);padding:6px 10px;background:var(--soft)}
+    .lead ul{margin:4px 0}
+    .lead strong{font-weight:750}
+    .atlas{margin:15px 0 14px;padding:11px 12px 8px;border:1px solid var(--line);background:#fafbfa}
+    .atlas .root{font-size:12px;letter-spacing:.08em;color:var(--muted);text-align:center;margin:0 0 8px}
+    .atlas-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+    .atlas a{display:block;padding:9px 10px;background:#fff;border:1px solid var(--line);text-decoration:none;color:var(--ink);min-height:77px}
+    .atlas a:hover{border-color:var(--accent);background:#f4f7f5}
+    .atlas strong{display:flex;gap:6px;align-items:baseline;justify-content:space-between;font-size:15px}
+    .atlas b{font-size:12px;color:var(--accent);white-space:nowrap}
+    .atlas small{display:block;margin-top:5px;color:var(--muted);line-height:1.5}
+    figcaption{font-size:12px;color:var(--muted);margin-top:7px}
+    .notice{background:var(--soft);padding:8px 12px;border-left:3px solid #748a7f;font-size:13px}
+    .table-wrap{overflow-x:auto;margin:6px 0 10px;border:1px solid var(--line)}
+    table{width:100%;border-collapse:collapse;table-layout:fixed}
+    th,td{padding:8px 11px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+    th{background:var(--soft);color:#40524b;font-size:12px;font-weight:750}
+    th:first-child{width:30%}
+    tr:last-child td{border-bottom:0}
+    td strong{display:block;line-height:1.45}
+    td small{display:block;font-size:12px;color:var(--muted);line-height:1.55;margin-top:3px}
+    .tag{display:inline-block;padding:1px 5px;margin:0 5px 0 0;border:1px solid #c4d3c9;border-radius:3px;color:#36584b;font-size:10px;line-height:1.5;vertical-align:1px;white-space:nowrap}
+    .tag.ext{border-color:#cfd5d9;color:#53636d}
+    code,pre{font-family:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace}
+    code{font-size:.9em;background:#eff1ef;border-radius:2px;padding:.12em .3em}
+    pre{background:#1e2827;color:#e5eee9;border-radius:4px;padding:12px 13px;overflow-x:auto;margin:9px 0 5px;line-height:1.55;font-size:12.5px;tab-size:2}
+    pre code{background:transparent;color:inherit;padding:0;font-size:inherit}
+    .pipeline{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin:9px 0}
+    .pipeline div{border:1px solid var(--line);padding:8px 10px;background:#fafbfa}
+    .pipeline strong{display:block;font-size:13px}
+    .pipeline span{font-size:12px;color:var(--muted)}
+    details{margin:8px 0;border:1px solid var(--line);border-radius:3px}
+    summary{cursor:pointer;padding:8px 11px;font-weight:700;background:#fafbfa}
+    details[open] summary{border-bottom:1px solid var(--line)}
+    .detail-body{padding:6px 12px 11px}
+    .detail-body p,.detail-body li{font-size:13px}
+    .sources ol{font-size:12.5px;line-height:1.65;padding-left:1.5em}
+    .sources li{margin-bottom:6px}
+    .source-note{font-size:12px;color:var(--muted)}
+    footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);margin-top:18px;padding-top:9px}
+    @media(max-width:650px){
+      body{font-size:14.5px;line-height:1.65}
+      .top{padding:8px 11px}
+      article{padding:15px 12px 23px;border-left:0;border-right:0}
+      h1{margin:0 0 12px}
+      h2{font-size:19px;margin-top:20px}
+      .atlas{padding:8px}
+      .atlas-grid{grid-template-columns:1fr;gap:5px}
+      .atlas a{min-height:0;padding:7px 9px}
+      .atlas small{margin-top:2px}
+      .pipeline{grid-template-columns:1fr;gap:5px}
+      th:first-child{width:37%}
+      th,td{padding:7px;font-size:13px}
+      pre{font-size:11.5px;padding:9px}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+    @media print{
+      body{background:#fff;font-size:11pt}
+      .top,.skip{display:none}
+      article{max-width:none;border:0;padding:0}
+      .atlas,.pipeline,.table-wrap,details{break-inside:avoid}
+      details::details-content{display:block}
+      a{color:#000}
+      pre{white-space:pre-wrap;color:#111;background:#f2f2f2}
+    }
+  </style>
+  <!-- html-share: social metadata -->
+  <link rel="canonical" href="https://share.0g0.xyz/go-code-verification">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="HTML Share">
+  <meta property="og:title" content="Goコード検証の全体像｜21項目とCI実装例">
+  <meta property="og:description" content="Goのコード検証21項目を、静的検証6項目・動的検証11項目・横断的な検証4項目に整理。標準ツール、追加OSS、CIコマンド、運用上の注意点と公式資料をまとめた実践ガイド。">
+  <meta property="og:url" content="https://share.0g0.xyz/go-code-verification">
+  <meta property="og:image" content="https://share.0g0.xyz/assets/html-share-card-v1.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="HTML Shareのロゴと共有ページを表すカード">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Goコード検証の全体像｜21項目とCI実装例">
+  <meta name="twitter:description" content="Goのコード検証21項目を、静的検証6項目・動的検証11項目・横断的な検証4項目に整理。標準ツール、追加OSS、CIコマンド、運用上の注意点と公式資料をまとめた実践ガイド。">
+  <meta name="twitter:image" content="https://share.0g0.xyz/assets/html-share-card-v1.png">
+  <meta name="twitter:image:alt" content="HTML Shareのロゴと共有ページを表すカード">
+  <!-- /html-share: social metadata -->
+  <!-- html-share: rss discovery -->
+  <link rel="alternate" type="application/rss+xml" title="HTML Share RSS" href="https://share.0g0.xyz/feed.xml">
+  <!-- /html-share: rss discovery -->
+</head>
+<body>
+  <a class="skip" href="#main">本文へ移動</a>
+  <nav class="top" aria-label="サイト内"><a href="/">HTML Share</a><a href="/feed.xml">更新RSS</a></nav>
+  <article id="main">
+    <h1>Goコード検証の全体像</h1>
+    <div class="lead" aria-label="結論">
+      <ul>
+        <li><strong>必須の土台：</strong><code>go build</code>・<code>go vet</code>・<code>go test</code>・<code>-race</code>・<code>govulncheck</code>。</li>
+        <li><strong>品質を拡張：</strong>golangci-lint / Staticcheck、カバレッジ、ファジング、ベンチマーク。</li>
+        <li><strong>用途に応じて追加：</strong>API契約テスト、E2E、DAST、ミューテーションテスト、形式手法。</li>
+      </ul>
+    </div>
+
+    <figure class="atlas" aria-label="Goのコード検証を三分類した図">
+      <div class="root">GO CODE VERIFICATION / 21項目</div>
+      <div class="atlas-grid">
+        <a href="#static"><strong>静的検証 <b>6項目</b></strong><small>対象プログラムを実行せず、型・構文・コード・依存関係を調べる</small></a>
+        <a href="#dynamic"><strong>動的検証 <b>11項目</b></strong><small>テスト対象を実行し、振る舞い・競合・性能などを調べる</small></a>
+        <a href="#cross"><strong>横断的な検証 <b>4項目</b></strong><small>複数手法にまたがる品質指標・保守性・規格適合など</small></a>
+      </div>
+      <figcaption>分類は実務上の整理。契約検証や形式手法など、静的・動的の境界をまたぐ手法もある。</figcaption>
+    </figure>
+
+    <section id="static" aria-labelledby="static-h">
+      <h2 id="static-h">01. 静的検証（6項目）</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>検証項目</th><th>Goでの実装・確認内容</th></tr></thead>
+          <tbody>
+            <tr><td><strong>01 型チェック</strong></td><td><span class="tag">標準</span><code>go build ./...</code><small>型の整合性、ジェネリクス制約、関数引数などはコンパイラが確認。Goでは型推論もコンパイル時に扱う。</small></td></tr>
+            <tr><td><strong>02 構文チェック</strong></td><td><span class="tag">標準</span><code>go build</code> / <code>gofmt</code><small>構文エラーはコンパイルで検出。gofmtは主にソース整形・構文解析を行うツール。</small></td></tr>
+            <tr><td><strong>03 意味解析</strong></td><td><span class="tag">標準</span>Goコンパイラ / <code>go vet</code><small>未定義の識別子、スコープ、シグネチャ不整合。vetはコンパイル可能でも疑わしいコードを追加検査。</small></td></tr>
+            <tr><td><strong>04 静的解析</strong></td><td><span class="tag">標準</span><code>go vet</code> <span class="tag ext">追加</span>Staticcheck / golangci-lint<small>未使用・疑わしい処理、エラーハンドリング、コード品質。複雑度や規約は有効化したルールに依存。</small></td></tr>
+            <tr><td><strong>05 SAST</strong></td><td><span class="tag ext">追加</span>gosec / Semgrep / CodeQL<small>危険なAPI使用、ハードコードされた秘密情報などを検出。静的スキャンで全脆弱性が見つかるわけではない。</small></td></tr>
+            <tr><td><strong>06 形式的検証</strong></td><td><span class="tag ext">追加</span>Gobra、TLA+など<small>GobraはGoコード向けの形式的検証、TLA+は並行動作・状態遷移などの仕様モデル検証。対象が異なる。</small></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="dynamic" aria-labelledby="dynamic-h">
+      <h2 id="dynamic-h">02. 動的検証（11項目）</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>検証項目</th><th>Goでの実装・確認内容</th></tr></thead>
+          <tbody>
+            <tr><td><strong>01 単体テスト</strong></td><td><span class="tag">標準</span><code>testing</code> / <code>go test ./...</code><small>関数・パッケージ単位の振る舞い。テーブル駆動テストと相性がよい。</small></td></tr>
+            <tr><td><strong>02 結合テスト</strong></td><td><span class="tag">標準</span><code>httptest</code> <span class="tag ext">追加</span>Testcontainers<small>APIとDBなどの連携。実DBを使うテストは分離した環境で実行する。</small></td></tr>
+            <tr><td><strong>03 E2Eテスト</strong></td><td><span class="tag ext">追加</span>Playwright / chromedp<small>ブラウザや利用者視点でシステムの最終結果を検証。PlaywrightはGoプロセス内で動かす必要はない。</small></td></tr>
+            <tr><td><strong>04 契約テスト</strong></td><td><span class="tag ext">追加</span>Pact Go / OpenAPIスキーマ検証<small>APIの提供側と利用側の約束を検査。仕様に対する妥当性と実装の整合性を分ける。</small></td></tr>
+            <tr><td><strong>05 プロパティベーステスト</strong></td><td><span class="tag">標準</span><code>testing/quick</code> <span class="tag ext">追加</span>Rapid<small>多様な入力に対して性質が保たれるかを検証。testing/quickは機能追加が凍結されている。</small></td></tr>
+            <tr><td><strong>06 ファジング</strong></td><td><span class="tag">標準</span><code>go test -fuzz</code><small>境界値・異常入力・クラッシュを探索。Go 1.18以降の標準機能。OSS-Fuzzとの連携も可能。</small></td></tr>
+            <tr><td><strong>07 ミューテーションテスト</strong></td><td><span class="tag ext">追加</span>Gremlins / go-mutesting<small>コードを小さく変え、既存テストが欠陥を検出するかを評価。ツールの保守状況と対象演算子は導入前に確認。</small></td></tr>
+            <tr><td><strong>08 実行時チェック</strong></td><td><span class="tag">標準</span>境界検査 / nil参照時のpanic / 明示的な検証<small>Goランタイムが一部を検査。業務上の不変条件や入力妥当性はアプリケーションで定義する。</small></td></tr>
+            <tr><td><strong>09 DAST</strong></td><td><span class="tag ext">追加</span>OWASP ZAP / Burp Suite<small>起動中のWeb APIを外部から調べる。対象・認証・テスト環境を制限して実施する。</small></td></tr>
+            <tr><td><strong>10 性能テスト</strong></td><td><span class="tag">標準</span><code>go test -bench</code> / pprof<small>処理時間、割当、CPU・メモリ使用量。システム負荷試験には別途負荷生成ツールを使う。</small></td></tr>
+            <tr><td><strong>11 メモリ安全性</strong></td><td><span class="tag">標準</span><code>go test -race</code> / pprof<small>データ競合の検出とメモリ診断。cgo・unsafe使用時は追加の検証が必要。raceとpprofだけでメモリ安全性の全体を証明できない。</small></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="cross" aria-labelledby="cross-h">
+      <h2 id="cross-h">03. 横断的な検証（4項目）</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>検証項目</th><th>Goでの実装・確認内容</th></tr></thead>
+          <tbody>
+            <tr><td><strong>01 カバレッジ</strong></td><td><span class="tag">標準</span><code>go test -coverprofile</code> / <code>go tool cover</code><small>主にステートメント網羅を測定。分岐条件・MC/DCを同等に計測するものではない。</small></td></tr>
+            <tr><td><strong>02 保守性・SCA</strong></td><td><span class="tag ext">追加</span>Staticcheck / golangci-lint / govulncheck / Dependabot<small>コードレビュー、規約・ドキュメント、依存モジュールの既知脆弱性を点検。</small></td></tr>
+            <tr><td><strong>03 コンプライアンス</strong></td><td><span class="tag ext">追加</span>go-licenses / 組織のポリシーチェック<small>OSSライセンス、配布物に含まれる依存関係、組織・業界固有の規約を検査。</small></td></tr>
+            <tr><td><strong>04 AI/ML検証</strong></td><td><span class="tag">標準</span><code>testing</code> / Fuzzing <span class="tag ext">追加</span>専用評価基盤<small>入力スキーマ、モデル出力・公平性・頑健性。Go固有ツールだけで十分とは限らない。</small></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="ci" aria-labelledby="ci-h">
+      <h2 id="ci-h">CIでの実行順序</h2>
+      <div class="pipeline" aria-label="Pull Request、統合・公開前、定期実行の三段階">
+        <div><strong>PR時</strong><span>コンパイル・静的解析・テスト・race・SCA</span></div>
+        <div><strong>統合・公開前</strong><span>API契約・重要なE2E・DAST</span></div>
+        <div><strong>夜間・定期</strong><span>Fuzzing・性能比較・ミューテーション</span></div>
+      </div>
+      <p>最初から全項目を毎PRで回す必要はない。速い検証を早い段階に置き、時間と環境を要する検証を分ける。</p>
+      <details open>
+        <summary>PRで使う基本コマンド</summary>
+        <div class="detail-body">
+          <pre><code># 静的検証
+go build ./...
+go vet ./...
+golangci-lint run ./...
+
+# 実行時検証
+go test ./...
+go test -race ./...
+
+# テスト到達範囲
+go test -coverprofile=coverage.out ./...
+go tool cover -func=coverage.out
+
+# 既知脆弱性がある依存関係
+govulncheck ./...</code></pre>
+          <p>golangci-lintとgovulncheckは別途導入する。Staticcheckを単体で使う場合は <code>staticcheck ./...</code>。同じ解析器を重複実行する必要はない。</p>
+        </div>
+      </details>
+      <details>
+        <summary>夜間・定期ジョブの例</summary>
+        <div class="detail-body">
+          <pre><code># ベンチマーク。結果の比較には実行環境を揃える
+go test -run '^$' -bench . -benchmem ./...
+
+# FuzzParseを定義したパッケージで30秒実行
+go test -fuzz '^FuzzParse$' \
+  -fuzztime=30s ./internal/parser
+
+# 必要に応じたCPU/メモリプロファイル
+go test -run '^$' -bench . \
+  -cpuprofile=cpu.out -memprofile=mem.out ./internal/parser
+go tool pprof cpu.out</code></pre>
+          <p>FuzzParseやパッケージ名は例。ファジングは対象を絞って実行する。ベンチマークの推移を評価する際は、マシン差・負荷差・Goバージョン差を管理する。</p>
+        </div>
+      </details>
+      <details>
+        <summary>実施基準と検証の限界</summary>
+        <div class="detail-body">
+          <ul>
+            <li><strong>カバレッジ100%でも正しさは証明できない。</strong>仕様に照らしたテストオラクル、境界条件、ミューテーションテストが補完する。</li>
+            <li><strong>race detectorは実行した経路のみ検出。</strong>非実行経路の競合は未検証となる。<code>-race</code>は追加負荷も発生する。</li>
+            <li><strong>pprofは診断ツール。</strong>メモリ使用量・goroutineの滞留を分析できても、リークや全メモリ不正アクセスの不存在は証明しない。</li>
+            <li><strong>govulncheckは既知の脆弱性を対象。</strong>到達可能性の解析は有用だが、動的呼び出し等の限界や、OS・コンテナイメージなどGoモジュール外の検査は別途考える。</li>
+            <li><strong>契約テストと形式手法の役割は異なる。</strong>契約は提供者と利用者の境界、TLA+は仕様上の状態遷移などを確認する。Goソースを直接実行して検証するものとは限らない。</li>
+            <li><strong>cgo / unsafeは別扱い。</strong>Goランタイムの保護だけに依存しない。対象プラットフォームで追加の検査・テストを実施する。</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <section class="sources" id="sources" aria-labelledby="sources-h">
+      <h2 id="sources-h">公式資料・ツールの資料</h2>
+      <ol>
+        <li><a href="https://go.dev/doc/security/fuzz/">Go Fuzzing</a> — 標準ファジングの仕組みと実行方法</li>
+        <li><a href="https://go.dev/doc/articles/race_detector">Go Data Race Detector</a> — <code>-race</code>の対象と制約</li>
+        <li><a href="https://go.dev/doc/security/vuln/">Go Vulnerability Management</a> — govulncheckと脆弱性データベース</li>
+        <li><a href="https://go.dev/doc/build-cover">Coverage profiling support for integration tests</a> — 結合テストのカバレッジを含む計測</li>
+        <li><a href="https://pkg.go.dev/testing/quick">testing/quick</a> — プロパティベース検証と保守状況</li>
+        <li><a href="https://go.dev/doc/diagnostics">Go Diagnostics</a> — pprofなどの診断機構</li>
+        <li><a href="https://staticcheck.dev/docs/getting-started/">Staticcheck</a> / <a href="https://golangci-lint.run/docs/welcome/quick-start/">golangci-lint</a> — Go静的解析</li>
+        <li><a href="https://github.com/securego/gosec">gosec</a> / <a href="https://docs.pact.io/implementation_guides/go/readme">Pact Go</a> / <a href="https://gremlins.dev/latest/">Gremlins</a> — セキュリティ・契約・ミューテーションの追加検証</li>
+        <li><a href="https://www.pm.inf.ethz.ch/research/gobra.html">Gobra（ETH Zurich）</a> / <a href="https://github.com/flyingmutant/rapid">Rapid</a> / <a href="https://golang.testcontainers.org/">Testcontainers for Go</a> / <a href="https://github.com/google/go-licenses">go-licenses</a> — 対象別の補助ツール</li>
+      </ol>
+      <p class="source-note">資料確認：2026年11月10日。具体的なCI導入時はGo本体・各ツール・GitHub Actionsの対応バージョンと実行環境を確認する。</p>
+    </section>
+    <footer><a href="/">HTML Shareの記事一覧</a> ／ <a href="/feed.xml">RSSを購読</a></footer>
+  </article>
+</body>
+</html>

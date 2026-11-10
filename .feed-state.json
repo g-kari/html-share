@@ -1,6 +1,11 @@
 {
   "version": 1,
   "pages": {
+    "ai-harness-shinbun.html": {
+      "fingerprint": "c39993299359fdbad4ca5a6a751ae1dd3825bd4537cf642c0ba3df87cc8cf4a5",
+      "published": "2026-11-10T02:24:35.000Z",
+      "updated": "2026-11-10T02:24:35.000Z"
+    },
     "animation-skills-research.html": {
       "fingerprint": "cad7f20a534129cac6d0e324c73af6c499e1306aaaee1bec38a26aeb98b5cf75",
       "published": "2026-10-08T13:44:50.000Z",
@@ -96,6 +101,11 @@
       "published": "2026-10-09T01:43:48.000Z",
       "updated": "2026-10-09T01:43:48.000Z"
     },
+    "go-code-verification.html": {
+      "fingerprint": "add16dcf6c555dc85cb859063495bf903ab5151b47f9de01db2dbaede2cc0162",
+      "published": "2026-11-10T05:56:03.000Z",
+      "updated": "2026-11-10T05:56:03.000Z"
+    },
     "hermes-agent-comparison.html": {
       "fingerprint": "0b593e785bf7821eb37419b40b562a7751a575122d475e9323fcc99e6e9f5573",
       "published": "2026-10-10T07:02:56.000Z",
@@ -137,9 +147,9 @@
       "updated": "2026-10-08T16:08:38.000Z"
     },
     "php-emergency-maintenance.html": {
-      "fingerprint": "8af05f316b672d22168ee65f62fe710f825f1df994e74aab23b7f862bfebc22d",
+      "fingerprint": "e922ed5309782b2a7bb7a94073641045116b0b999b562e0c167b5735d01e32f6",
       "published": "2026-10-21T12:51:32.000Z",
-      "updated": "2026-11-06T00:25:52.000Z"
+      "updated": "2026-11-10T15:14:09.000Z"
     },
     "php-security-os-response.html": {
       "fingerprint": "59a318a5ab0c53b932547c67d554453c22e9d97de26b0904f2fe0e8d84c760da",

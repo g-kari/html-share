@@ -5,8 +5,8 @@ const data=JSON.parse(readFileSync(new URL('../public/data/emergency-maintenance
 const html=readFileSync(new URL('../public/php-emergency-maintenance.html',import.meta.url),'utf8');
 const php=readFileSync(new URL('../public/php-security-os-response.html',import.meta.url),'utf8');
 test('six directly checked notices added without truncating prior candidates',()=>{
- assert.equal(data.confirmed.length,599);
- assert.equal(data.confirmed.filter(c=>c.restored).length,122);
+ assert.equal(data.confirmed.length,631);
+ assert.equal(data.confirmed.filter(c=>c.restored).length,130);
  const ids=data.dailyOfficialFollowup20261029.verifiedIds;
  assert.equal(ids.length,6);assert.equal(new Set(ids).size,6);
  for(const id of ids){const c=data.confirmed.find(x=>x.id===id);assert.equal(c.sourceRead,'body_retrieved');assert.equal(c.reasonKey,'php');assert.ok(c.ownershipEvidence.length);assert.match(c.checkedAt,/2026-10-29/);}

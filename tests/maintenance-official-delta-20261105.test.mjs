@@ -10,13 +10,13 @@ const followup = data.dailyOfficialFollowup20261105;
 const hash = value => createHash('sha256').update(JSON.stringify(value)).digest('hex');
 
 test('new official followups preserve all original records, unresolved sources, and discovery rows', () => {
-  assert.equal(data.confirmed.length, 599);
-  assert.equal(data.confirmed.filter(x => x.restored).length, 122);
+  assert.equal(data.confirmed.length, 631);
+  assert.equal(data.confirmed.filter(x => x.restored).length, 130);
   assert.equal(data.pending.length, 2044);
   assert.equal(data.discovery.length, 2887);
   assert.equal(followup.newIds.length, 7);
   assert.deepEqual(followup.updatedIds, ['infinicloud-partial', 'myroyal']);
-  const originals = data.confirmed.slice(0, 580).map(x => followup.previousRecords.find(old => old.id === x.id) ?? x);
+  const originals = data.confirmed.slice(0, 580).map(x => followup.previousRecords.find(old => old.id === x.id) ?? data.dailyOfficialFollowup20261110.previousRecords.find(old => old.id === x.id) ?? x);
   assert.equal(hash(originals), '50e13733b24f5a4d6248aacb6aa49ada0e11b65a819b47e8311b595ff9ccfdf7');
   assert.equal(hash(data.pending), '53bfafc6af96a8f5bd1205e0c821c6899d21089eb2f1b64b3cbf01a60090a2cd');
   assert.equal(hash(data.discovery.slice(0, 2859)), 'c312eb327e56782668636492764e19232d413e24c058740c37ce858b2857320c');

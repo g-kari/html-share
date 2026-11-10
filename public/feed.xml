@@ -7,7 +7,34 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Mon, 09 Nov 2026 00:51:16 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 10 Nov 2026 15:14:09 GMT</lastBuildDate>
+    <item>
+      <title>緊急メンテナンス一覧｜2026年10月21日前後・公式告知と再開予定</title>
+      <link>https://share.0g0.xyz/php-emergency-maintenance</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/php-emergency-maintenance</guid>
+      <description>PHPに限らず、2026年10月21日前後の緊急メンテナンス・関連告知を整理。公式資料確認済み631カード（部分本文含む）と、収集した全候補の照合状況。影響範囲・終了予定・復旧報告を分けて確認。</description>
+      <pubDate>Tue, 10 Nov 2026 15:14:09 GMT</pubDate>
+      <dcterms:created>2026-10-21T12:51:32.000Z</dcterms:created>
+      <dcterms:modified>2026-11-10T15:14:09.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>Goコード検証の全体像｜21項目とCI実装例</title>
+      <link>https://share.0g0.xyz/go-code-verification</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/go-code-verification</guid>
+      <description>Goのコード検証21項目を、静的検証6項目・動的検証11項目・横断的な検証4項目に整理。標準ツール、追加OSS、CIコマンド、運用上の注意点と公式資料をまとめた実践ガイド。</description>
+      <pubDate>Tue, 10 Nov 2026 05:56:03 GMT</pubDate>
+      <dcterms:created>2026-11-10T05:56:03.000Z</dcterms:created>
+      <dcterms:modified>2026-11-10T05:56:03.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>AIハーネス新聞 — 知能を動かす仕組み</title>
+      <link>https://share.0g0.xyz/ai-harness-shinbun</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/ai-harness-shinbun</guid>
+      <description>AIは頭脳だけでは働けない。Agent Harnessとは何かを解剖し、Hermes、DeepSeek Harness、Codex、Claude Code、OpenCode、Pi、OpenClawを一次資料に基づき比較する新聞風図解特集。</description>
+      <pubDate>Tue, 10 Nov 2026 02:24:35 GMT</pubDate>
+      <dcterms:created>2026-11-10T02:24:35.000Z</dcterms:created>
+      <dcterms:modified>2026-11-10T02:24:35.000Z</dcterms:modified>
+    </item>
     <item>
       <title>2026年 不正アクセス・情報漏えいウォッチ｜原因・出典・続報</title>
       <link>https://share.0g0.xyz/security-incidents</link>
@@ -34,15 +61,6 @@
       <pubDate>Sat, 07 Nov 2026 02:38:23 GMT</pubDate>
       <dcterms:created>2026-10-06T05:47:01.000Z</dcterms:created>
       <dcterms:modified>2026-11-07T02:38:23.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>緊急メンテナンス一覧｜2026年10月21日前後・公式告知と再開予定</title>
-      <link>https://share.0g0.xyz/php-emergency-maintenance</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/php-emergency-maintenance</guid>
-      <description>PHPに限らず、2026年10月21日前後の緊急メンテナンス・関連告知を整理。公式資料確認済み599カード（部分本文含む）と、収集した全候補の照合状況。影響範囲・終了予定・復旧報告を分けて確認。</description>
-      <pubDate>Fri, 06 Nov 2026 00:25:52 GMT</pubDate>
-      <dcterms:created>2026-10-21T12:51:32.000Z</dcterms:created>
-      <dcterms:modified>2026-11-06T00:25:52.000Z</dcterms:modified>
     </item>
     <item>
       <title>PHP緊急更新：OS・Docker・ECR Publicの対応と暫定対策</title>
