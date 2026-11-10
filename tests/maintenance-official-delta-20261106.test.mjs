@@ -7,12 +7,13 @@ const h=readFileSync('public/php-emergency-maintenance.html','utf8');
 const s=readFileSync('public/php-security-os-response.html','utf8');
 const get=id=>d.confirmed.find(x=>x.id===id);
 const previous=id=>d.dailyOfficialFollowup20261106.previousRecords.find(x=>x.id===id);
+const previous10=id=>d.dailyOfficialFollowup20261110.previousRecords.find(x=>x.id===id);
 test('November 6 followup preserves all prior cards, pending groups and discovery prefix',()=>{
- assert.equal(d.confirmed.length,599);assert.equal(d.confirmed.filter(x=>x.restored).length,122);
+ assert.equal(d.confirmed.length,631);assert.equal(d.confirmed.filter(x=>x.restored).length,130);
  assert.equal(d.pending.length,2044);assert.equal(d.discovery.length,2887);
  assert.equal(d.dailyOfficialFollowup20261106.newIds.length,12);
  assert.equal(d.dailyOfficialFollowup20261106.previousRecords.length,2);
- const original=d.confirmed.slice(0,587).map(x=>previous(x.id)??x);
+ const original=d.confirmed.slice(0,587).map(x=>previous(x.id)??previous10(x.id)??x);
  assert.equal(createHash('sha256').update(JSON.stringify(original)).digest('hex'),'4cc86a8a0fe63b61642dbf86962142bec868deef7171388633856839694110c5');
  assert.deepEqual([...h.matchAll(/<article class="service" id="([^"]+)"/g)].map(x=>x[1]),d.confirmed.map(x=>x.id));
  assert.match(h,/599告知カード・対象範囲の復旧報告122件・照合待ち2044群・収集2887行/);
