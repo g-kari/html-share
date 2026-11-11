@@ -11,7 +11,7 @@ const priorHashes={confirmed:'d4540107931cde655a2848deef1c11e182de869b573e290356
 const get=id=>data.confirmed.find(c=>c.id===id);
 test('six official followups preserve every prior confirmed card and source row',()=>{
  assert.equal(hash(data.confirmed.slice(0,557).map(c=>data.dailyOfficialFollowup20261105.previousRecords.find(old=>old.id===c.id)??data.dailyOfficialFollowup20261110.previousRecords.find(old=>old.id===c.id)??c).map(c=>c.id==='softbank-emergency-alert-mail'?c.history.find(h=>h.id===c.id):c)),priorHashes.confirmed);
- assert.equal(data.confirmed.length,631);assert.equal(data.discovery.length,2887);assert.equal(data.pending.length,2044);
+ assert.equal(data.confirmed.length,632);assert.equal(data.discovery.length,2887);assert.equal(data.pending.length,2044);
  for(const [key,count] of [['pending',2043],['discovery',2832]]) {
   const prior=data[key].slice(0,count).map(row=>{const current={...row};delete current.relatedOfficialEvidence;return current;});
   assert.equal(hash(prior),priorHashes[key]);

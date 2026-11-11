@@ -1,6 +1,6 @@
 {
   "title": "2026年10月21日前後 緊急メンテナンス・関連告知一覧",
-  "checkedAt": "2026-11-10T09:27:00Z",
+  "checkedAt": "2026-11-11T00:27:00Z",
   "scope": "PHPの因果不問。今回の緊急/予防メンテと同時期の関連告知・別インシデントを区分。件数による上限なし。",
   "counting": "confirmedは公式資料を確認した対象別の告知カード数（部分本文・同一基盤・包括/個別の重なりを含む）。固有サイト数・実停止数・独立インシデント数・被害数ではない。pendingは原典/公式所有/対象範囲等の追加照合待ち。関連・重複・除外理由も全収集行に保持し、件数で打ち切らない。 実施自体が未定の停止可能性の予告も別状態（possible_unstarted）で保持し、実停止・復旧には数えません。",
   "confirmed": [
@@ -379,20 +379,22 @@
       "name": "Big Advance等（ココペリ）",
       "cat": "business",
       "reason": "PHP対策",
-      "tag": "4サービスまとめ",
-      "status": "2度目の一時停止中（2026-11-07 17:00から）と公式が案内",
+      "tag": "両サービス再開",
+      "status": "2026-11-10 18:25頃にBig Advance・BAポータルが再開",
       "start": "10/21 20:00から順次",
-      "end": "未定。第1次の停止からは再開済み（再開日時は本収集記録に明記なし）。第2次は2026-11-09の公式発表時点で再開時期未定",
+      "end": "2026-11-10 18:25頃に両サービス再開し、第2次の停止は解消。第1次の停止からは再開済み（再開日時は本収集記録に明記なし）",
       "scope": "Big Advance、BIG ADVANCE GLOBAL、BMポータル、BAポータルの全機能（第1次）。第2次の対象はBig Advance・BAポータルと発表。",
-      "safe": "修正版の適用・安全確認後に順次再開予定。PHPの公開予定時刻とサービス再開時刻は別、と公式が明記。第2次は外部からの情報収集・脆弱性探査を目的としたアクセスへの対処のためと公式が説明。現時点で不正アクセス・情報漏えいの確認はないとしています。",
+      "safe": "緊急メンテナンス作業および安全性の確認がすべて完了したため再開。停止は外部の第三者による脆弱性を探るアクセスが断続的に確認されたことへの予防的措置で、調査と必要なセキュリティ対策を実施したと公式が説明。現時点で不正アクセス・情報漏えいの確認はないとしています。",
       "url": "https://www.kokopelli-inc.com/all/7138/",
       "source": "公式告知の検索取得本文（第1次）。第2次は2026-11-09の公式発表（ココペリ）に基づく収集記録",
-      "date": "10/21（第1次）。第2次は2026-11-09公式発表",
+      "date": "10/21（第1次）。第2次は2026-11-09公式発表、再開は2026-11-10 18:40最終更新の公式発表",
       "icon": "https://www.kokopelli-inc.com/favicon.ico",
       "sources": [
         "https://www.kokopelli-inc.com/all/7045/"
       ],
-      "checkedAt": "2026-11-10T09:27:00Z"
+      "checkedAt": "2026-11-11T00:27:00Z",
+      "restored": true,
+      "noticeState": "restored"
     },
     {
       "id": "studying",
@@ -16559,21 +16561,23 @@
       "cat": "entertainment",
       "reason": "不正アクセス",
       "reasonKey": "security",
-      "status": "予約・照会等を一時停止。ファミリーマート支払・発券は2026-11-09 13時時点で再開",
+      "status": "全サービス再開（2026-11-09 17:43発表）",
       "start": "2026-11-09未明に発覚し同日から一時停止",
-      "end": "未定（予約・照会等は停止継続。漏えいの有無・件数は13時公表で言及なし）",
-      "scope": "明治座オンラインチケットの予約・照会等と、電話による食事予約。",
-      "safe": "漏えいの有無は公表で言及されておらず、ありともなしとも補いません。",
-      "url": "https://www.meijiza.co.jp/news/2026_1109/",
-      "date": "2026-11-09発表（13時時点）",
-      "restored": false,
-      "noticeState": "partial",
-      "tag": "予約等停止・一部再開",
+      "end": "2026-11-09にすべてのサービスが通常どおり利用できる状態に復旧。明治座FAN倶楽部先行予約は受付を2026-11-10 10:00に再開し、2026-11-12 23:59まで延長",
+      "scope": "明治座オンラインチケットの予約・照会、ファミリーマートにおける支払と発券、電話による食事の予約。",
+      "safe": "影響範囲の調査・特定は関係各社と連携して継続中で、進捗・結果は改めて知らせるとしています。利用者情報の漏えいの有無については、再開告知でも言及がなく、ありともなしとも補いません。",
+      "url": "https://www.meijiza.co.jp/news/2026_1109_02/",
+      "date": "2026-11-09発表（13時時点）。同日17:43にサービス再開のお知らせ",
+      "restored": true,
+      "noticeState": "restored",
+      "tag": "全サービス再開",
       "source": "本収集の継続確認記録に基づく統合（公式発表および報道で確認）。公式告知URLは所在を確認して付記したもので、運営本文の直接取得・実機能の独立検証はしていません。",
-      "checkedAt": "2026-11-10T09:27:00Z",
+      "checkedAt": "2026-11-11T00:27:00Z",
       "icon": null,
       "ownershipEvidence": [],
-      "sources": []
+      "sources": [
+        "https://www.meijiza.co.jp/news/2026_1109/"
+      ]
     },
     {
       "id": "sapporo-city-transport-20261109",
@@ -16581,21 +16585,23 @@
       "cat": "public",
       "reason": "不正アクセス（6:35頃・12:10頃の2回）",
       "reasonKey": "security",
-      "status": "HP・アプリを使用不可とし停止中。運行自体は通常通り（2026-11-09 17時時点）",
+      "status": "HP・アプリを使用不可とし停止継続（2026-11-11 09:27の継続確認時点でも再開の公式発表なし）。運行自体は通常通り",
       "start": "2026-11-09朝からHP・アプリ使用不可。12:40頃に停止を判断",
-      "end": "未定（17時時点でも再開せず）",
+      "end": "未定（2026-11-10に秋元市長が陳謝し、他のシステムについても点検を進めていると報道。再開時期の発表なし）",
       "scope": "市営交通の運行情報システムHP・アプリと、さっぽろえきバスナビ。個人情報は保有しておらず漏えいはないと説明。",
       "safe": "停止は情報システムの範囲で、交通機関の運行停止とはしません。",
       "url": "https://www.city.sapporo.jp/st/trouble/r081109_homepageteijshi.html",
-      "date": "2026-11-09正式発表",
+      "date": "2026-11-09正式発表。2026-11-10に市長の陳謝と他システム点検の続報",
       "restored": false,
       "noticeState": "announced",
       "tag": "情報システム停止・運行は通常",
       "source": "本収集の継続確認記録に基づく統合（公式発表および報道で確認）。公式告知URLは所在を確認して付記したもので、運営本文の直接取得・実機能の独立検証はしていません。",
-      "checkedAt": "2026-11-10T09:27:00Z",
+      "checkedAt": "2026-11-11T00:27:00Z",
       "icon": null,
       "ownershipEvidence": [],
-      "sources": []
+      "sources": [
+        "https://news.web.nhk/newsweb/na/nd-20261110de73762"
+      ]
     },
     {
       "id": "jairo-cloud-20261028",
@@ -16733,6 +16739,30 @@
       "icon": null,
       "ownershipEvidence": [],
       "sources": []
+    },
+    {
+      "id": "gmo-aozora-bank-api-20261110",
+      "name": "GMOあおぞらネット銀行 銀行API接続／ラクスルバンク",
+      "cat": "business",
+      "reason": "外部からの不正な通信の検知（予防的停止）",
+      "reasonKey": "security",
+      "status": "2026-11-10 20:42から一時停止し同日22:30に再開。2026-11-11 01:02に再度一時停止し同日06:25に再開（解消済み）",
+      "start": "2026-11-10 20:42（第2次は2026-11-11 01:02）",
+      "end": "2026-11-11 06:25に再開（第1次は2026-11-10 22:30に再開）",
+      "scope": "GMOあおぞらネット銀行の銀行APIサービス。接続先の一つであるラクスルバンクでも取引が一時停止し、同日22:30に正常に再開したと案内。",
+      "safe": "個人情報の漏えいや不正な資金流出等は発生していないと両行が案内。停止は安全確保のための予防的措置で、引き続き監視・モニタリング態勢を維持するとしています。",
+      "url": "https://www.raksulbank.co.jp/%e3%80%90%e9%87%8d%e8%a6%81%e3%80%91gmo%e3%81%82%e3%81%8a%e3%81%9e%e3%82%89%e3%83%8d%e3%83%83%e3%83%88%e9%8a%80%e8%a1%8capi%e6%8e%a5%e7%b6%9a%e3%81%ae%e4%b8%80%e6%99%82%e5%81%9c%e6%ad%a2%e3%81%ab/",
+      "date": "2026-11-10発表（同日22:30再開まで）",
+      "restored": true,
+      "noticeState": "restored",
+      "tag": "一時停止と再開（2度）",
+      "source": "本収集の継続確認記録に基づく統合（公式発表および報道で確認）。公式告知URLは所在を確認して付記したもので、運営本文の直接取得・実機能の独立検証はしていません。",
+      "checkedAt": "2026-11-11T00:27:00Z",
+      "icon": null,
+      "ownershipEvidence": [],
+      "sources": [
+        "https://gmo-aozora.com/news/2026/20261110-01.html"
+      ]
     }
   ],
   "pending": [
@@ -128754,6 +128784,54 @@
           "observation": "ツイキャス"
         }
       ]
+    },
+    {
+      "id": "official-followups-20261111-0927",
+      "checkedAt": "2026-11-11T00:27:00Z",
+      "rowCount": 4,
+      "reviewedSourceCount": 4,
+      "members": [
+        {
+          "name": "GMOあおぞらネット銀行 銀行API接続／ラクスルバンク",
+          "sourceUrl": "https://www.raksulbank.co.jp/%e3%80%90%e9%87%8d%e8%a6%81%e3%80%91gmo%e3%81%82%e3%81%8a%e3%81%9e%e3%82%89%e3%83%8d%e3%83%83%e3%83%88%e9%8a%80%e8%a1%8capi%e6%8e%a5%e7%b6%9a%e3%81%ae%e4%b8%80%e6%99%82%e5%81%9c%e6%ad%a2%e3%81%ab/",
+          "verification": "confirmed",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-11-11T00:27:00Z",
+          "confirmedId": "gmo-aozora-bank-api-20261110",
+          "collectionBatch": "official-followups-20261111-0927",
+          "observation": "GMOあおぞらネット銀行 銀行API接続／ラクスルバンク"
+        },
+        {
+          "name": "Big Advance等（ココペリ）",
+          "sourceUrl": "https://www.kokopelli-inc.com/all/7138/",
+          "verification": "confirmed",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-11-11T00:27:00Z",
+          "confirmedId": "big-advance",
+          "collectionBatch": "official-followups-20261111-0927",
+          "observation": "Big Advance等（ココペリ）"
+        },
+        {
+          "name": "明治座オンラインチケット",
+          "sourceUrl": "https://www.meijiza.co.jp/news/2026_1109_02/",
+          "verification": "confirmed",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-11-11T00:27:00Z",
+          "confirmedId": "meijiza-online-ticket-20261109",
+          "collectionBatch": "official-followups-20261111-0927",
+          "observation": "明治座オンラインチケット"
+        },
+        {
+          "name": "札幌市営交通 運行情報システム／さっぽろえきバスナビ",
+          "sourceUrl": "https://news.web.nhk/newsweb/na/nd-20261110de73762",
+          "verification": "confirmed",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-11-11T00:27:00Z",
+          "confirmedId": "sapporo-city-transport-20261109",
+          "collectionBatch": "official-followups-20261111-0927",
+          "observation": "札幌市営交通 運行情報システム／さっぽろえきバスナビ"
+        }
+      ]
     }
   ],
   "officialFollowups": [
@@ -131695,5 +131773,85 @@
     ],
     "unresolvedOriginalCandidatesRetained": true,
     "summary": "2026-11-06〜11-10の収集継続確認（公式発表および報道）に基づく追随。新規32カード（しんきん共同システム全面復旧、松屋復旧完了、無印良品第4報、エディオン第2報・開始時刻の訂正、使えるねっと、ラクスル、JAIRO Cloud、LibrariE時間限定メンテ等）と既存5カードの続報更新（ドコモ第四報、ALL.Net/Aime、teket第一報、ココペリ第2次停止、ツイキャス段階再開）。631告知カード・対象範囲の復旧報告130件・照合待ち2044群・収集2887行。運営本文の再取得ではなく収集記録の統合であり、未照合候補・履歴は保持。"
+  },
+  "dailyOfficialFollowup20261111": {
+    "batchId": "official-followups-20261111-0927",
+    "checkedAt": "2026-11-11T00:27:00Z",
+    "updatedIds": [
+      "big-advance",
+      "meijiza-online-ticket-20261109",
+      "sapporo-city-transport-20261109"
+    ],
+    "newIds": [
+      "gmo-aozora-bank-api-20261110"
+    ],
+    "previousRecords": [
+      {
+        "id": "big-advance",
+        "name": "Big Advance等（ココペリ）",
+        "cat": "business",
+        "reason": "PHP対策",
+        "tag": "4サービスまとめ",
+        "status": "2度目の一時停止中（2026-11-07 17:00から）と公式が案内",
+        "start": "10/21 20:00から順次",
+        "end": "未定。第1次の停止からは再開済み（再開日時は本収集記録に明記なし）。第2次は2026-11-09の公式発表時点で再開時期未定",
+        "scope": "Big Advance、BIG ADVANCE GLOBAL、BMポータル、BAポータルの全機能（第1次）。第2次の対象はBig Advance・BAポータルと発表。",
+        "safe": "修正版の適用・安全確認後に順次再開予定。PHPの公開予定時刻とサービス再開時刻は別、と公式が明記。第2次は外部からの情報収集・脆弱性探査を目的としたアクセスへの対処のためと公式が説明。現時点で不正アクセス・情報漏えいの確認はないとしています。",
+        "url": "https://www.kokopelli-inc.com/all/7138/",
+        "source": "公式告知の検索取得本文（第1次）。第2次は2026-11-09の公式発表（ココペリ）に基づく収集記録",
+        "date": "10/21（第1次）。第2次は2026-11-09公式発表",
+        "icon": "https://www.kokopelli-inc.com/favicon.ico",
+        "sources": [
+          "https://www.kokopelli-inc.com/all/7045/"
+        ],
+        "checkedAt": "2026-11-10T09:27:00Z"
+      },
+      {
+        "id": "meijiza-online-ticket-20261109",
+        "name": "明治座オンラインチケット",
+        "cat": "entertainment",
+        "reason": "不正アクセス",
+        "reasonKey": "security",
+        "status": "予約・照会等を一時停止。ファミリーマート支払・発券は2026-11-09 13時時点で再開",
+        "start": "2026-11-09未明に発覚し同日から一時停止",
+        "end": "未定（予約・照会等は停止継続。漏えいの有無・件数は13時公表で言及なし）",
+        "scope": "明治座オンラインチケットの予約・照会等と、電話による食事予約。",
+        "safe": "漏えいの有無は公表で言及されておらず、ありともなしとも補いません。",
+        "url": "https://www.meijiza.co.jp/news/2026_1109/",
+        "date": "2026-11-09発表（13時時点）",
+        "restored": false,
+        "noticeState": "partial",
+        "tag": "予約等停止・一部再開",
+        "source": "本収集の継続確認記録に基づく統合（公式発表および報道で確認）。公式告知URLは所在を確認して付記したもので、運営本文の直接取得・実機能の独立検証はしていません。",
+        "checkedAt": "2026-11-10T09:27:00Z",
+        "icon": null,
+        "ownershipEvidence": [],
+        "sources": []
+      },
+      {
+        "id": "sapporo-city-transport-20261109",
+        "name": "札幌市営交通 運行情報システム／さっぽろえきバスナビ",
+        "cat": "public",
+        "reason": "不正アクセス（6:35頃・12:10頃の2回）",
+        "reasonKey": "security",
+        "status": "HP・アプリを使用不可とし停止中。運行自体は通常通り（2026-11-09 17時時点）",
+        "start": "2026-11-09朝からHP・アプリ使用不可。12:40頃に停止を判断",
+        "end": "未定（17時時点でも再開せず）",
+        "scope": "市営交通の運行情報システムHP・アプリと、さっぽろえきバスナビ。個人情報は保有しておらず漏えいはないと説明。",
+        "safe": "停止は情報システムの範囲で、交通機関の運行停止とはしません。",
+        "url": "https://www.city.sapporo.jp/st/trouble/r081109_homepageteijshi.html",
+        "date": "2026-11-09正式発表",
+        "restored": false,
+        "noticeState": "announced",
+        "tag": "情報システム停止・運行は通常",
+        "source": "本収集の継続確認記録に基づく統合（公式発表および報道で確認）。公式告知URLは所在を確認して付記したもので、運営本文の直接取得・実機能の独立検証はしていません。",
+        "checkedAt": "2026-11-10T09:27:00Z",
+        "icon": null,
+        "ownershipEvidence": [],
+        "sources": []
+      }
+    ],
+    "unresolvedOriginalCandidatesRetained": true,
+    "summary": "2026-11-11 09:27の収集継続確認（公式発表および報道）に基づく追随。新規1カード（GMOあおぞらネット銀行 銀行API接続／ラクスルバンクの一時停止と再開）と既存3カードの続報更新（ココペリBig Advance・BAポータルの再開、明治座オンラインチケットの全サービス再開、札幌市営交通・さっぽろえきバスナビの停止継続）。632告知カード・対象範囲の復旧報告133件・照合待ち2044群・収集2887行。運営本文の再取得ではなく収集記録の統合であり、未照合候補・履歴は保持。"
   }
 }

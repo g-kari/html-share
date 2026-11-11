@@ -7,10 +7,11 @@ const h=readFileSync('public/php-emergency-maintenance.html','utf8');
 const get=id=>d.confirmed.find(x=>x.id===id);
 const batch=d.dailyOfficialFollowup20261110;
 const previous=id=>batch.previousRecords.find(x=>x.id===id);
+const previous11=id=>d.dailyOfficialFollowup20261111.previousRecords.find(x=>x.id===id);
 const hash=value=>createHash('sha256').update(JSON.stringify(value)).digest('hex');
 test('November 10 collection-record followup preserves all prior cards, pending groups and discovery rows',()=>{
- assert.equal(d.checkedAt,'2026-11-10T09:27:00Z');
- assert.equal(d.confirmed.length,631);assert.equal(d.confirmed.filter(x=>x.restored).length,130);
+ assert.equal(d.checkedAt,'2026-11-11T00:27:00Z');
+ assert.equal(d.confirmed.length,632);assert.equal(d.confirmed.filter(x=>x.restored).length,133);
  assert.equal(d.pending.length,2044);assert.equal(d.discovery.length,2887);
  assert.equal(batch.batchId,'official-followups-20261110-1827');
  assert.equal(batch.newIds.length,32);assert.equal(batch.updatedIds.length,5);
@@ -22,10 +23,10 @@ test('November 10 collection-record followup preserves all prior cards, pending 
  assert.equal(hash(d.pending),'53bfafc6af96a8f5bd1205e0c821c6899d21089eb2f1b64b3cbf01a60090a2cd');
  assert.equal(hash(d.discovery.slice(0,2859)),'c312eb327e56782668636492764e19232d413e24c058740c37ce858b2857320c');
  // New cards are appended in batch order and the HTML article order follows confirmed order.
- assert.deepEqual(d.confirmed.slice(599).map(x=>x.id),batch.newIds);
+ assert.deepEqual(d.confirmed.slice(599,631).map(x=>x.id),batch.newIds);
  assert.deepEqual([...h.matchAll(/<article class="service" id="([^"]+)"/g)].map(x=>x[1]),d.confirmed.map(x=>x.id));
  assert.match(h,/新規32カードと既存5カードの更新で、631告知カード・対象範囲の復旧報告130件・照合待ち2044群・収集2887行/);
- assert.match(h,/<p id="count" aria-live="polite">631件の告知対象カード/);
+ assert.match(h,/<p id="count" aria-live="polite">632件の告知対象カード/);
  const cb=d.collectionBatches.find(x=>x.id===batch.batchId);
  assert.equal(cb.rowCount,37);assert.equal(cb.members.length,37);
  for(const id of [...batch.newIds,...batch.updatedIds]) assert.ok(cb.members.some(m=>m.confirmedId===id),id);
@@ -50,8 +51,8 @@ test('ALL.Net, teket, Kokopelli and TwitCasting followups keep scope and uncerta
  const b=get('big-advance');
  assert.equal(b.url,'https://www.kokopelli-inc.com/all/7138/');
  assert.ok(b.sources.includes('https://www.kokopelli-inc.com/all/7045/'));
- assert.match(b.status,/2度目の一時停止中（2026-11-07 17:00から）/);
- assert.match(b.safe,/不正アクセス・情報漏えいの確認はない/);
+ assert.match(previous11(b.id).status,/2度目の一時停止中（2026-11-07 17:00から）/);
+ assert.match(previous11(b.id).safe,/不正アクセス・情報漏えいの確認はない/);
  const w=get('twitcasting');
  assert.match(w.end,/全面再開は2026-11-11予定/);
  assert.match(w.safe,/販売済みチケットの50%補填/);

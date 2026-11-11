@@ -9,7 +9,7 @@ const get=id=>d.confirmed.find(x=>x.id===id);
 const previous=id=>d.dailyOfficialFollowup20261106.previousRecords.find(x=>x.id===id);
 const previous10=id=>d.dailyOfficialFollowup20261110.previousRecords.find(x=>x.id===id);
 test('November 6 followup preserves all prior cards, pending groups and discovery prefix',()=>{
- assert.equal(d.confirmed.length,631);assert.equal(d.confirmed.filter(x=>x.restored).length,130);
+ assert.equal(d.confirmed.length,632);assert.equal(d.confirmed.filter(x=>x.restored).length,133);
  assert.equal(d.pending.length,2044);assert.equal(d.discovery.length,2887);
  assert.equal(d.dailyOfficialFollowup20261106.newIds.length,12);
  assert.equal(d.dailyOfficialFollowup20261106.previousRecords.length,2);
