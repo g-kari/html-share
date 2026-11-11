@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/vulnerabilities-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Sat, 07 Nov 2026 02:38:23 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 11 Nov 2026 01:46:22 GMT</lastBuildDate>
+    <item>
+      <title>11月9〜10日のKEV追加を反映</title>
+      <link>https://share.0g0.xyz/vulnerabilities</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/vulnerabilities-feed.xml#a55dffb6ecd19985ce8ea040a09d83a481d2cc06ac6afeb63aeaa089755b3773</guid>
+      <description>11月9〜10日のKEV追加を反映。Outlookのファイル開封によるNTLMv2漏えい、Chrome XML、GPUStack、FreeSWITCH、Aspera、BroadWorks、Openwaveを7項目追加し、OpenSSHとBarracudaの実悪用・認証条件を更新。Windows SearchとLDAPの実悪用未確認のRCE2件を1項目追加。SonicOSは11月9日の暫定策を、PlexはQNAPの製品別対処を既存項目へ追記。初公表・修正・KEV追加日、操作や認証の要否、PoCと実悪用を分け、既存357項目・592 CVE・全履歴を保持。 未収録のVite2件、Prefab、Beta9、Linux TCP/AWS、UnityTLS、Cloudflare GLM-5.3、Chrome MediaStream、Konflux、LXD/MicroCloudも追加。Viteの6.4.5と6.4.6が修正する別問題、Unityの信頼ストア対策とBrotliで異なる再ビルド要否、提供済み版・未確認版とCVE対応の留保を明記。</description>
+      <pubDate>Wed, 11 Nov 2026 01:46:22 GMT</pubDate>
+      <dcterms:created>2026-11-11T01:46:22.000Z</dcterms:created>
+    </item>
     <item>
       <title>SonicOS CVE-2026-19868を1項目追加</title>
       <link>https://share.0g0.xyz/vulnerabilities</link>
