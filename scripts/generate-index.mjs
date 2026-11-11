@@ -1,6 +1,6 @@
 import { readdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
-import { addSocialMetadata, escapeHtml, pageDetails, routeFor } from "./social-metadata.mjs";
+import { addSocialMetadata, escapeHtml, pageDetails, routeFor, scanTags, SITE_URL } from "./social-metadata.mjs";
 import { addFeedDiscovery, writeFeed } from "./rss-feed.mjs";
 import { REPORT_FEEDS, writeReportFeeds } from "./report-feeds.mjs";
 import { authoredReportSource } from "./report-source.mjs";
@@ -31,7 +31,7 @@ async function walk(dir) {
 }
 
 const allFiles = (await walk(publicDir))
-  .filter((file) => path.resolve(file) !== path.resolve(outputFile))
+  .filter((file) => path.resolve(file) !== path.resolve(outputFile) && path.relative(publicDir, file) !== "404.html")
   .sort((a, b) => a.localeCompare(b, "ja"));
 const files = allFiles
   .filter((file) => path.resolve(file) !== path.resolve(outputFile))
@@ -55,6 +55,25 @@ for (const file of files) {
     ...details,
   });
 }
+
+const sitemapUrls = [SITE_URL + "/"];
+for (const file of allFiles) {
+  const source = await readFile(file, "utf8");
+  const tags = scanTags(source);
+  const noindex = tags.some((tag) => tag.name === "meta" &&
+    /^(robots|googlebot)$/i.test(tag.attrs.get("name")?.value || "") &&
+    /(?:^|[\s,])(noindex|none)(?:$|[\s,])/i.test(tag.attrs.get("content")?.value || ""));
+  if (noindex) continue;
+  const url = SITE_URL + routeFor(path.relative(publicDir, file));
+  const canonical = tags.find((tag) => tag.name === "link" &&
+    tag.attrs.get("rel")?.value.toLowerCase().split(/\s+/).includes("canonical"));
+  if (canonical && new URL(canonical.attrs.get("href")?.value || url, url).href !== url) continue;
+  sitemapUrls.push(url);
+}
+await writeFile(path.join(publicDir, "sitemap.xml"),
+  '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
+  [...new Set(sitemapUrls)].sort().map((url) => `  <url><loc>${escapeHtml(url)}</loc></url>`).join("\n") +
+  "\n</urlset>\n", "utf8");
 
 const searchUrl = await writeSearchIndex(path.resolve("."), allFiles);
 
