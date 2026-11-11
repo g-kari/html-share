@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Wed, 11 Nov 2026 01:46:22 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 11 Nov 2026 09:45:01 GMT</lastBuildDate>
+    <item>
+      <title>Linearで工数管理できる？ 見積もり・実績時間・連携の使い分け</title>
+      <link>https://share.0g0.xyz/linear-effort-guide</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/linear-effort-guide</guid>
+      <description>LinearのEstimateと実績時間の違い、Everhour・Harvestとの連携、料金プラン、API・MCPでできることを整理。個人開発で小さく始める運用例も紹介します。</description>
+      <pubDate>Wed, 11 Nov 2026 09:45:01 GMT</pubDate>
+      <dcterms:created>2026-11-11T09:45:01.000Z</dcterms:created>
+      <dcterms:modified>2026-11-11T09:45:01.000Z</dcterms:modified>
+    </item>
     <item>
       <title>脆弱性レポート | 実悪用・修正版・対処</title>
       <link>https://share.0g0.xyz/vulnerabilities</link>
