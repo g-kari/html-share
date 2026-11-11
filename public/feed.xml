@@ -7,15 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Wed, 11 Nov 2026 09:45:01 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 11 Nov 2026 10:19:07 GMT</lastBuildDate>
     <item>
-      <title>Linearで工数管理できる？ 見積もり・実績時間・連携の使い分け</title>
+      <title>Linearで工数管理できる？ WakaTimeとの比較と実績時間の考え方</title>
       <link>https://share.0g0.xyz/linear-effort-guide</link>
       <guid isPermaLink="true">https://share.0g0.xyz/linear-effort-guide</guid>
-      <description>LinearのEstimateと実績時間の違い、Everhour・Harvestとの連携、料金プラン、API・MCPでできることを整理。個人開発で小さく始める運用例も紹介します。</description>
-      <pubDate>Wed, 11 Nov 2026 09:45:01 GMT</pubDate>
+      <description>Linearの見積もり・進捗とWakaTimeの自動活動記録を比較。アイドル時間、プライバシー、料金、連携の制約を公式資料に基づいて整理し、実働時間と分けた運用を考えます。</description>
+      <pubDate>Wed, 11 Nov 2026 10:19:07 GMT</pubDate>
       <dcterms:created>2026-11-11T09:45:01.000Z</dcterms:created>
-      <dcterms:modified>2026-11-11T09:45:01.000Z</dcterms:modified>
+      <dcterms:modified>2026-11-11T10:19:07.000Z</dcterms:modified>
     </item>
     <item>
       <title>脆弱性レポート | 実悪用・修正版・対処</title>
