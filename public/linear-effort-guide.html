@@ -13,9 +13,150 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://share.0g0.xyz/assets/linear-wakatime-comparison-v2.png">
 <meta name="twitter:image:alt" content="Linearの見積もり・進捗とWakaTimeのエディタ活動時間を比較する図。どちらも実働時間とは別に扱う。">
+<link rel="preload" href="/assets/linear-guide-noto-sans-jp-v1.woff2" as="font" type="font/woff2" crossorigin>
 <style>
-:root{--paper:#f6f8fc;--white:#fff;--ink:#233553;--muted:#59677c;--blue:#385cbd;--teal:#237978;--line:#dce3ee;--soft:#e9effc}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:2rem}body{margin:0;background:var(--paper);color:var(--ink);font-family:"Noto Sans CJK JP","Yu Gothic",Meiryo,sans-serif;font-size:17px;line-height:1.95;overflow-wrap:anywhere}a{color:#284fae;text-decoration-thickness:1px;text-underline-offset:.2em}a:hover{color:#16347c}a:focus-visible{outline:3px solid var(--blue);outline-offset:5px}img{max-width:100%;height:auto}p{margin:1em 0}strong{font-weight:750}header,main,footer{max-width:1160px;margin:auto;padding-inline:40px}.topbar{display:flex;justify-content:space-between;align-items:center;padding-block:25px;border-bottom:1px solid var(--line);font-size:13px}.brand{display:block;width:100px;height:25px}.hero{padding:60px 0 34px}.date{font-size:13px;color:var(--muted);margin:0 0 17px}.hero h1{font-size:clamp(30px,4.4vw,49px);line-height:1.48;letter-spacing:-.035em;margin:0;max-width:900px;font-weight:800}.lead{font-size:21px;line-height:1.85;margin:25px 0 32px;max-width:820px}.answer{display:grid;grid-template-columns:1fr 1fr;background:var(--white);border-block:1px solid var(--line);margin-top:28px}.answer div{padding:24px 30px}.answer div+div{border-left:1px solid var(--line)}.answer h2{font-size:19px;margin:0 0 4px}.answer p{font-size:15px;margin:0;color:var(--muted)}.answer .planning h2{color:var(--blue)}.answer .tracking h2{color:var(--teal)}figure{margin:28px 0 0}figure img{display:block;border:1px solid var(--line);border-radius:9px;width:100%}figcaption{font-size:13px;color:var(--muted);line-height:1.8;margin:12px 0 0;max-width:900px}.reading{display:grid;grid-template-columns:185px minmax(0,1fr);gap:48px;margin-top:50px}.toc{align-self:start;position:sticky;top:28px;font-size:13px;line-height:1.8}.toc p{font-weight:700;margin:0 0 12px}.toc a{display:block;color:var(--muted);text-decoration:none;padding:8px 0;border-bottom:1px solid var(--line)}article{min-width:0}section{margin-bottom:58px}section h2{font-size:27px;line-height:1.6;letter-spacing:-.02em;margin:0 0 20px;padding-top:8px}h3{font-size:19px;margin:30px 0 10px}ul,ol{padding-left:1.5em}li{padding-left:.15em;margin:.5em 0}.source{font-size:13px;color:var(--muted);line-height:1.8}.note{background:var(--soft);border-left:4px solid var(--blue);padding:18px 22px;margin:24px 0;font-size:15px}.note p{margin:0}.metric{margin:24px 0;background:var(--white);border-block:1px solid var(--line)}.metric div{display:grid;grid-template-columns:130px 1fr;gap:15px;padding:17px 20px}.metric div+div{border-top:1px solid var(--line)}.metric dt{font-weight:750;font-size:15px}.metric dd{margin:0;font-size:15px}.table-wrap{overflow-x:auto;margin:22px 0;border-block:1px solid var(--line);background:var(--white)}table{border-collapse:collapse;width:100%;min-width:570px;font-size:14px;line-height:1.8;text-align:left}caption{text-align:left;padding:16px 18px;color:var(--muted);font-size:13px}th,td{padding:16px 18px;border-bottom:1px solid var(--line);vertical-align:top}thead th{background:#edf1f8;font-weight:750}tbody tr:last-child td,tbody tr:last-child th{border-bottom:0}td small{font-size:12px;color:var(--muted)}.steps{list-style:none;counter-reset:step;padding:0;margin:25px 0}.steps li{counter-increment:step;position:relative;padding:0 0 22px 42px;margin:0}.steps li:before{content:counter(step);position:absolute;left:0;top:3px;width:26px;height:26px;border-radius:50%;background:var(--blue);color:white;text-align:center;font-size:14px;line-height:26px}.steps strong{display:block}.steps span{display:block;font-size:15px;margin-top:4px}.conclusion{background:var(--ink);color:white;padding:28px 30px;border-radius:8px}.conclusion h2{font-size:24px;margin:0 0 10px;padding:0}.conclusion p{margin:0;font-size:17px}.refs{font-size:14px}.refs li{margin:12px 0}footer{padding-block:28px 45px;color:var(--muted);font-size:12px;border-top:1px solid var(--line)}.skip{position:absolute;left:-9999px}.skip:focus{left:15px;top:15px;background:white;padding:10px;z-index:10}@media(max-width:760px){header,main,footer{padding-inline:22px}.hero{padding-top:34px}.lead{font-size:18px}.answer div{padding:18px}.answer h2{font-size:17px}.answer p{font-size:13px}.reading{display:block;margin-top:34px}.toc{position:static;margin-bottom:35px;display:flex;flex-wrap:wrap;gap:5px 18px}.toc p{width:100%;margin-bottom:0}.toc a{padding:5px 0}.hero h1{letter-spacing:-.045em}section h2{font-size:24px}.metric div{grid-template-columns:105px 1fr;padding:15px}.note{padding:17px}section{margin-bottom:44px}}@media(max-width:420px){body{font-size:16px}.answer{grid-template-columns:1fr}.answer div+div{border-left:0;border-top:1px solid var(--line)}.answer div{padding:16px 20px}.metric div{display:block}.metric dd{margin-top:4px}.conclusion{padding:23px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}@media print{body{background:white}.toc,.topbar>a{display:none}.reading{display:block}.hero{padding-top:20px}header,main,footer{max-width:none;padding-inline:0}a{color:inherit}section{break-inside:avoid}figure{max-width:600px}.answer,.note,.conclusion{color:#233553;background:white}.table-wrap{overflow:visible}}
-.product-marks{display:flex;align-items:center;gap:24px}.waka-brand{display:block;width:125px;height:auto}.comparison th:first-child{min-width:110px}.comparison td{min-width:215px}.table-wrap:focus-visible{outline:3px solid var(--blue);outline-offset:4px}@media(max-width:420px){.product-marks{gap:13px}.brand{width:80px;height:20px}.waka-brand{width:105px}}
+/* Article-local Japanese font. Noto Sans JP, SIL OFL 1.1.
+   License: /assets/linear-guide-noto-sans-jp-OFL.txt */
+@font-face {
+  font-family: "Article Japanese Sans";
+  src: url("/assets/linear-guide-noto-sans-jp-v1.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+:root {
+  --paper: #f8fafc;
+  --white: #fff;
+  --ink: #172b42;
+  --muted: #44546a;
+  --blue: #294f9e;
+  --teal: #176b68;
+  --line: #d5deea;
+  --soft: #edf2fc;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 2rem; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Article Japanese Sans", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", Meiryo, sans-serif;
+  font-size: 18px;
+  font-weight: 450;
+  line-height: 1.9;
+  letter-spacing: .01em;
+  overflow-wrap: anywhere;
+  line-break: strict;
+}
+a { color: #1f4d99; text-decoration-thickness: 1px; text-underline-offset: .22em; }
+a:hover { color: #123576; }
+a:focus-visible, .table-wrap:focus-visible { outline: 3px solid var(--blue); outline-offset: 5px; }
+img { max-width: 100%; height: auto; }
+p { margin: 1em 0; }
+strong { font-weight: 700; }
+header, main, footer { max-width: 1120px; margin: auto; padding-inline: 40px; }
+.topbar { display: flex; justify-content: space-between; align-items: center; padding-block: 25px; border-bottom: 1px solid var(--line); font-size: 15px; }
+.brand { display: block; width: 100px; height: 25px; }
+.product-marks { display: flex; align-items: center; gap: 24px; }
+.waka-brand { display: block; width: 125px; height: auto; }
+.hero { padding: 52px 0 34px; }
+.date { font-size: 15px; color: var(--muted); margin: 0 0 20px; }
+.hero h1 { font-size: clamp(30px, 4vw, 44px); line-height: 1.55; letter-spacing: 0; margin: 0; max-width: 980px; font-weight: 700; }
+.lead { font-size: 21px; line-height: 1.9; margin: 27px 0 32px; max-width: 840px; }
+.answer { display: grid; grid-template-columns: 1fr 1fr; background: var(--white); border-block: 1px solid var(--line); margin-top: 28px; }
+.answer div { padding: 24px 28px; }
+.answer div+div { border-left: 1px solid var(--line); }
+.answer h2 { font-size: 20px; margin: 0 0 8px; font-weight: 700; line-height: 1.6; }
+.answer p { font-size: 16px; margin: 0; color: var(--muted); line-height: 1.85; }
+.answer .planning h2 { color: var(--blue); }
+.answer .tracking h2 { color: var(--teal); }
+figure { margin: 28px 0 0; }
+figure img { display: block; border: 1px solid var(--line); border-radius: 9px; width: 100%; }
+figcaption { font-size: 15px; color: var(--muted); line-height: 1.85; margin: 15px 0 0; max-width: 940px; }
+.reading { display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 40px; margin-top: 54px; }
+.toc { align-self: start; position: sticky; top: 28px; font-size: 15px; line-height: 1.8; }
+.toc p { font-weight: 700; margin: 0 0 12px; }
+.toc a { display: block; color: var(--muted); text-decoration: none; padding: 10px 0; border-bottom: 1px solid var(--line); }
+article { min-width: 0; max-width: 810px; }
+section { margin-bottom: 60px; }
+section h2 { font-size: 28px; line-height: 1.6; letter-spacing: 0; margin: 0 0 22px; padding-top: 8px; font-weight: 700; }
+h3 { font-size: 21px; line-height: 1.7; margin: 32px 0 12px; font-weight: 700; }
+ul, ol { padding-left: 1.5em; }
+li { padding-left: .15em; margin: .5em 0; }
+.source { font-size: 15px; color: var(--muted); line-height: 1.85; }
+.note { background: var(--soft); border-left: 4px solid var(--blue); padding: 20px 22px; margin: 26px 0; font-size: 17px; }
+.note p { margin: 0; }
+.metric { margin: 26px 0; background: var(--white); border-block: 1px solid var(--line); }
+.metric div { display: grid; grid-template-columns: 130px 1fr; gap: 18px; padding: 19px 20px; }
+.metric div+div { border-top: 1px solid var(--line); }
+.metric dt { font-weight: 700; font-size: 17px; }
+.metric dd { margin: 0; font-size: 17px; }
+.table-wrap { overflow-x: auto; margin: 25px 0; border-block: 1px solid var(--line); background: var(--white); }
+table { border-collapse: collapse; width: 100%; min-width: 640px; font-size: 16px; line-height: 1.85; text-align: left; }
+caption { text-align: left; padding: 18px 20px; color: var(--muted); font-size: 15px; line-height: 1.8; }
+th, td { padding: 18px 20px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-weight: 700; }
+thead th { background: #edf2f8; }
+tbody tr:last-child td, tbody tr:last-child th { border-bottom: 0; }
+td small { font-size: 14px; color: var(--muted); }
+.comparison th:first-child { min-width: 122px; }
+.comparison td { min-width: 245px; }
+.steps { list-style: none; counter-reset: step; padding: 0; margin: 27px 0; }
+.steps li { counter-increment: step; position: relative; padding: 0 0 25px 44px; margin: 0; }
+.steps li:before { content: counter(step); position: absolute; left: 0; top: 4px; width: 28px; height: 28px; border-radius: 50%; background: var(--blue); color: white; text-align: center; font-size: 16px; line-height: 28px; font-weight: 700; }
+.steps strong { display: block; }
+.steps span { display: block; font-size: 17px; margin-top: 6px; }
+.conclusion { background: var(--ink); color: white; padding: 30px; border-radius: 8px; }
+.conclusion h2 { font-size: 26px; margin: 0 0 12px; padding: 0; }
+.conclusion p { margin: 0; font-size: 18px; }
+.refs { font-size: 16px; }
+.refs li { margin: 14px 0; }
+footer { padding-block: 30px 45px; color: var(--muted); font-size: 14px; line-height: 1.9; border-top: 1px solid var(--line); }
+.skip { position: absolute; left: -9999px; }
+.skip:focus { left: 15px; top: 15px; background: white; padding: 10px; z-index: 10; }
+@media(max-width: 850px) {
+  header, main, footer { padding-inline: 24px; }
+  .hero { padding-top: 34px; }
+  .lead { font-size: 19px; }
+  .answer div { padding: 20px; }
+  .answer h2 { font-size: 19px; }
+  .reading { display: block; margin-top: 38px; }
+  .toc { position: static; margin-bottom: 40px; display: flex; flex-wrap: wrap; gap: 6px 20px; }
+  .toc p { width: 100%; margin-bottom: 0; }
+  .toc a { padding: 7px 0; }
+  article { max-width: none; }
+  section h2 { font-size: 26px; }
+  .metric div { grid-template-columns: 110px 1fr; padding: 18px; }
+  .note { padding: 19px; }
+  section { margin-bottom: 48px; }
+}
+@media(max-width: 480px) {
+  header, main, footer { padding-inline: 20px; }
+  .topbar { font-size: 14px; }
+  .product-marks { gap: 12px; }
+  .brand { width: 76px; height: 19px; }
+  .waka-brand { width: 101px; }
+  .hero h1 { font-size: 30px; line-height: 1.6; }
+  .answer { grid-template-columns: 1fr; }
+  .answer div+div { border-left: 0; border-top: 1px solid var(--line); }
+  .answer div { padding: 19px 20px; }
+  .metric div { display: block; }
+  .metric dd { margin-top: 7px; }
+  .conclusion { padding: 24px; }
+}
+@media(prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+@media print {
+  body { background: white; }
+  .toc, .topbar>a { display: none; }
+  .reading { display: block; }
+  .hero { padding-top: 20px; }
+  header, main, footer { max-width: none; padding-inline: 0; }
+  a { color: inherit; }
+  section { break-inside: avoid; }
+  figure { max-width: 600px; }
+  .answer, .note, .conclusion { color: #172b42; background: white; }
+  .table-wrap { overflow: visible; }
+}
 </style>
   <!-- html-share: social metadata -->
   <link rel="canonical" href="https://share.0g0.xyz/linear-effort-guide">
@@ -125,3 +266,4 @@
 <footer>Linear・WakaTimeは各権利者の商標です。公式ワードマークは<a href="https://linear.app/brand">Linearのブランドガイドライン</a>と<a href="https://wakatime.com/legal/logos-and-trademark-usage">WakaTimeの利用ガイドライン</a>に基づき、変更せず掲載しています。本記事は各社の公式記事ではなく、提携や推奨を示すものではありません。</footer>
 </body>
 </html>
+
