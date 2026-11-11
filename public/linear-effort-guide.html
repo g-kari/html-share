@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Linearで工数管理できる？ 見積もり・実績時間・連携の使い分け</title>
+<meta name="description" content="LinearのEstimateと実績時間の違い、Everhour・Harvestとの連携、料金プラン、API・MCPでできることを整理。個人開発で小さく始める運用例も紹介します。">
+<meta property="og:image" content="https://share.0g0.xyz/assets/linear-effort-guide-ogp-v1.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1536">
+<meta property="og:image:height" content="1024">
+<meta property="og:image:alt" content="Linearの工数管理。見積もりと実績時間を分けて扱う。">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://share.0g0.xyz/assets/linear-effort-guide-ogp-v1.png">
+<meta name="twitter:image:alt" content="Linearの工数管理。見積もりと実績時間を分けて扱う。">
+<style>
+:root{--paper:#f6f8fc;--white:#fff;--ink:#233553;--muted:#59677c;--blue:#385cbd;--teal:#237978;--line:#dce3ee;--soft:#e9effc}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:2rem}body{margin:0;background:var(--paper);color:var(--ink);font-family:"Noto Sans CJK JP","Yu Gothic",Meiryo,sans-serif;font-size:17px;line-height:1.95;overflow-wrap:anywhere}a{color:#284fae;text-decoration-thickness:1px;text-underline-offset:.2em}a:hover{color:#16347c}a:focus-visible{outline:3px solid var(--blue);outline-offset:5px}img{max-width:100%;height:auto}p{margin:1em 0}strong{font-weight:750}header,main,footer{max-width:1160px;margin:auto;padding-inline:40px}.topbar{display:flex;justify-content:space-between;align-items:center;padding-block:25px;border-bottom:1px solid var(--line);font-size:13px}.brand{display:block;width:100px;height:25px}.hero{padding:60px 0 34px}.date{font-size:13px;color:var(--muted);margin:0 0 17px}.hero h1{font-size:clamp(30px,4.4vw,49px);line-height:1.48;letter-spacing:-.035em;margin:0;max-width:900px;font-weight:800}.lead{font-size:21px;line-height:1.85;margin:25px 0 32px;max-width:820px}.answer{display:grid;grid-template-columns:1fr 1fr;background:var(--white);border-block:1px solid var(--line);margin-top:28px}.answer div{padding:24px 30px}.answer div+div{border-left:1px solid var(--line)}.answer h2{font-size:19px;margin:0 0 4px}.answer p{font-size:15px;margin:0;color:var(--muted)}.answer .planning h2{color:var(--blue)}.answer .tracking h2{color:var(--teal)}figure{margin:28px 0 0}figure img{display:block;border:1px solid var(--line);border-radius:9px;width:100%}figcaption{font-size:13px;color:var(--muted);line-height:1.8;margin:12px 0 0;max-width:900px}.reading{display:grid;grid-template-columns:185px minmax(0,1fr);gap:48px;margin-top:50px}.toc{align-self:start;position:sticky;top:28px;font-size:13px;line-height:1.8}.toc p{font-weight:700;margin:0 0 12px}.toc a{display:block;color:var(--muted);text-decoration:none;padding:8px 0;border-bottom:1px solid var(--line)}article{min-width:0}section{margin-bottom:58px}section h2{font-size:27px;line-height:1.6;letter-spacing:-.02em;margin:0 0 20px;padding-top:8px}h3{font-size:19px;margin:30px 0 10px}ul,ol{padding-left:1.5em}li{padding-left:.15em;margin:.5em 0}.source{font-size:13px;color:var(--muted);line-height:1.8}.note{background:var(--soft);border-left:4px solid var(--blue);padding:18px 22px;margin:24px 0;font-size:15px}.note p{margin:0}.metric{margin:24px 0;background:var(--white);border-block:1px solid var(--line)}.metric div{display:grid;grid-template-columns:130px 1fr;gap:15px;padding:17px 20px}.metric div+div{border-top:1px solid var(--line)}.metric dt{font-weight:750;font-size:15px}.metric dd{margin:0;font-size:15px}.table-wrap{overflow-x:auto;margin:22px 0;border-block:1px solid var(--line);background:var(--white)}table{border-collapse:collapse;width:100%;min-width:570px;font-size:14px;line-height:1.8;text-align:left}caption{text-align:left;padding:16px 18px;color:var(--muted);font-size:13px}th,td{padding:16px 18px;border-bottom:1px solid var(--line);vertical-align:top}thead th{background:#edf1f8;font-weight:750}tbody tr:last-child td,tbody tr:last-child th{border-bottom:0}td small{font-size:12px;color:var(--muted)}.steps{list-style:none;counter-reset:step;padding:0;margin:25px 0}.steps li{counter-increment:step;position:relative;padding:0 0 22px 42px;margin:0}.steps li:before{content:counter(step);position:absolute;left:0;top:3px;width:26px;height:26px;border-radius:50%;background:var(--blue);color:white;text-align:center;font-size:14px;line-height:26px}.steps strong{display:block}.steps span{display:block;font-size:15px;margin-top:4px}.conclusion{background:var(--ink);color:white;padding:28px 30px;border-radius:8px}.conclusion h2{font-size:24px;margin:0 0 10px;padding:0}.conclusion p{margin:0;font-size:17px}.refs{font-size:14px}.refs li{margin:12px 0}footer{padding-block:28px 45px;color:var(--muted);font-size:12px;border-top:1px solid var(--line)}.skip{position:absolute;left:-9999px}.skip:focus{left:15px;top:15px;background:white;padding:10px;z-index:10}@media(max-width:760px){header,main,footer{padding-inline:22px}.hero{padding-top:34px}.lead{font-size:18px}.answer div{padding:18px}.answer h2{font-size:17px}.answer p{font-size:13px}.reading{display:block;margin-top:34px}.toc{position:static;margin-bottom:35px;display:flex;flex-wrap:wrap;gap:5px 18px}.toc p{width:100%;margin-bottom:0}.toc a{padding:5px 0}.hero h1{letter-spacing:-.045em}section h2{font-size:24px}.metric div{grid-template-columns:105px 1fr;padding:15px}.note{padding:17px}section{margin-bottom:44px}}@media(max-width:420px){body{font-size:16px}.answer{grid-template-columns:1fr}.answer div+div{border-left:0;border-top:1px solid var(--line)}.answer div{padding:16px 20px}.metric div{display:block}.metric dd{margin-top:4px}.conclusion{padding:23px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}@media print{body{background:white}.toc,.topbar>a{display:none}.reading{display:block}.hero{padding-top:20px}header,main,footer{max-width:none;padding-inline:0}a{color:inherit}section{break-inside:avoid}figure{max-width:600px}.answer,.note,.conclusion{color:#233553;background:white}.table-wrap{overflow:visible}}
+</style>
+</head>
+<body>
+<a class="skip" href="#article">本文へ移動</a>
+<header><div class="topbar"><a href="https://share.0g0.xyz/">HTML Share</a><a href="https://linear.app/" aria-label="Linear公式サイト"><img class="brand" src="/assets/linear-official-wordmark-v1.svg" width="100" height="25" alt="Linear"></a></div></header>
+<main>
+<div class="hero">
+<p class="date">機能・料金の確認日：2026年11月11日</p>
+<h1>Linearで工数管理できる？<br>見積もりと実績時間を分けて考える</h1>
+<p class="lead">作業の大きさを見積もり、進み具合を追うならLinearが使えます。実際に何時間かかったかも知りたい場合は、時間記録を別に用意するのが実用的です。</p>
+<div class="answer"><div class="planning"><h2>作業量と進捗を知りたい</h2><p>標準のEstimate・Project・Cycleから始める。</p></div><div class="tracking"><h2>実働時間を集計したい</h2><p>時間記録サービスとの連携、または別の記録表を使う。</p></div></div>
+<figure><img src="/assets/linear-effort-guide-v1.png" width="1536" height="1024" alt="見積もりを1・2・3ポイントの大きさ、実績時間を2時間の時計で表した説明図。両者は別々に記録する。" fetchpriority="high"><figcaption>見積もりは作業の大きさ、実績時間は実際に使った時間です。数値は説明用の例で、ポイントから時間への換算を示すものではありません。図は生成したイラストで、Linearの画面ではありません。</figcaption></figure>
+</div>
+<div class="reading">
+<nav class="toc" aria-label="記事の目次"><p>この記事でわかること</p><a href="#estimate">標準機能でできること</a><a href="#time">実績時間を記録する方法</a><a href="#start">小さく始める運用例</a><a href="#plans">料金とプランの違い</a><a href="#automation">API・MCPの使いどころ</a><a href="#sources">公式資料</a></nav>
+<article id="article">
+<section id="estimate"><h2>標準機能での作業量の見積もり</h2>
+<p>Linearでは一つひとつの作業をIssueとして管理します。EstimateはそのIssueの複雑さや大きさを表す見積もりです。チームごとに有効にし、1・2・3・5・8のような数値や、XS・S・M・L・XLのようなサイズを使います。</p>
+<p>EstimateはProjectやCycleの進捗集計に使われます。Projectは複数のIssueをまとめる単位、Cycleは一定期間の作業をまとめる単位です。<strong>Estimateの「3」を入力しても、自動的に「3時間」を記録したことにはなりません。</strong></p>
+<p class="source">出典：<a href="https://linear.app/docs/issue-property#estimates">Linear Docs：Estimates</a></p>
+<h3>「Effort」と「Time」の意味と注意点</h3>
+<dl class="metric"><div><dt>Effort</dt><dd>Estimateの合計。実働時間の合計ではありません。</dd></div><div><dt>Cycle Time</dt><dd>Issueの開始から完了までの経過時間。</dd></div><div><dt>Lead Time</dt><dd>Issueの作成から完了までの経過時間。</dd></div></dl>
+<p>たとえば、月曜日に着手して水曜日に完了した作業でも、手を動かした時間は合計2時間かもしれません。経過時間をそのまま人時や請求時間として扱うと、確認待ちや中断を実作業に数えてしまいます。</p>
+<p class="source">出典：<a href="https://linear.app/docs/insights">Linear Docs：Insightsの集計指標</a></p>
+<div class="note"><p>未見積もりのIssueは、初期設定では1ポイントとして数えられます。明示的な0ポイントとは別です。集計前にチームの見積もり設定を確認すると、合計値の読み違いを減らせます。</p></div>
+</section>
+<section id="time"><h2>外部の時間記録との組み合わせ</h2>
+<p>今回確認した公式ドキュメントでは、実働時間を記録する標準タイマーや、実績時間専用のタイムシートは確認できませんでした。一方、Linearの公式連携一覧には、時間記録サービスが掲載されています。</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">連携先</th><th scope="col">できること</th><th scope="col">導入前の確認</th></tr></thead><tbody><tr><th scope="row"><a href="https://linear.app/integrations/everhour">Everhour</a></th><td>ブラウザ拡張でLinear内に時間記録の操作を追加。ProjectやIssueの情報をレポートに利用。</td><td>ブラウザ中心の使い方に合うか。料金・最低利用人数・同期範囲を確認。</td></tr><tr><th scope="row"><a href="https://linear.app/integrations/harvest">Harvest</a></th><td>Issueからタイマーを開始・停止し、Issueへのリンク付きでHarvestの時間記録を作成。</td><td>対応ブラウザと拡張機能、既存の時間記録・請求運用との相性を確認。</td></tr></tbody></table></div>
+<p>Linearの利用料とは別に、連携先の契約や料金がかかる場合があります。連携時に共有されるIssue名やProject名、アクセス権も確認してください。</p>
+<h3>少量なら別の表で手入力してもよい</h3>
+<p>個人の振り返りが目的なら、日付・Issueへのリンク・作業内容・実績分数を表に記録する方法もあります。Linearには見積もりと進捗を置き、時間は表で集計します。これは運用例で、Linearに専用の時間記録機能を追加するものではありません。</p>
+<p>説明欄やコメントに時間を書き残すこともできますが、自由文は集計や訂正が難しくなります。請求や複数人の集計に使うなら、記録形式をそろえられる時間管理サービスのほうが扱いやすいでしょう。</p>
+</section>
+<section id="start"><h2>個人開発での2週間の運用例</h2>
+<p>個人開発ではまず2週間だけ試す運用を提案します。最初から細かい管理を作り込まず、「今週どの程度進められたか」と「何に時間を使ったか」を分けて振り返ります。</p>
+<ol class="steps"><li><strong>作業を完了判定できる単位に分ける</strong><span>「サイトを改善する」より「検索結果の空表示を直す」のように、終わりがわかるIssueにします。</span></li><li><strong>着手前にEstimateを付ける</strong><span>小・中・大など、自分の中で比較できる目安を決めます。ポイントの基準を途中で変えたら、その変更も残します。</span></li><li><strong>必要な作業だけ、時間を別記録する</strong><span>開始・終了時刻、または実績分数を残します。調査、実装、確認のどこに時間を使ったかも一言添えます。</span></li><li><strong>週末に見積もりと実績を振り返る</strong><span>予定より大きかった作業や、待ち時間が長かった作業を確認。次のIssue分割や見積もりに反映します。</span></li></ol>
+<div class="table-wrap"><table><caption>記録の例。架空の作業であり、ポイントと時間の対応表ではありません。</caption><thead><tr><th scope="col">作業</th><th scope="col">見積もり</th><th scope="col">実績時間</th><th scope="col">振り返り</th></tr></thead><tbody><tr><th scope="row">文言の修正</th><td>1 pt</td><td>20分</td><td>想定どおり</td></tr><tr><th scope="row">検索の不具合修正</th><td>3 pt</td><td>120分</td><td>再現条件の調査が長かった</td></tr><tr><th scope="row">一覧表示の調整</th><td>2 pt</td><td>95分</td><td>スマートフォンの確認を追加</td></tr></tbody></table></div>
+<p>「1ポイント＝何時間」と固定するより、似た作業の実績を見積もりの参考にするほうが始めやすい運用です。チームごとに見積もりの尺度が異なるため、ポイント数だけで人やチームの生産性を比較する使い方も避けるのが無難です。</p>
+</section>
+<section id="plans"><h2>集計したい内容に合わせたプラン選び</h2>
+<p>確認時点の公式料金ページでは次の違いがあります。価格は米ドルの年払い時の月額換算です。月払いの条件や適用税、連携先の費用は別途確認してください。</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">プラン</th><th scope="col">表示価格</th><th scope="col">工数管理で見るポイント</th></tr></thead><tbody><tr><th scope="row">Free</th><td>US$0</td><td>2チーム・250 Issue。基本のIssue・Project・Cycle、API・Webhook・MCPを利用可能。</td></tr><tr><th scope="row">Basic</th><td>US$10／人・月<br><small>年払い</small></td><td>5チーム・Issue数無制限。Insightsは含まれません。</td></tr><tr><th scope="row">Business</th><td>US$16／人・月<br><small>年払い</small></td><td>Insightsを利用可能。Issueの属性で絞った集計や分析をしたい場合の候補。</td></tr><tr><th scope="row">Enterprise</th><td>個別見積もり</td><td>Dashboardsを利用可能。高度な組織・管理機能も含みます。</td></tr></tbody></table></div>
+<p>ポイントと進捗の確認から始めるなら、Freeの制限内で試せます。<strong>実績時間が欲しいという理由だけでBusinessにしても、InsightsのEffortが実働時間に変わるわけではありません。</strong></p>
+<p class="source">出典：<a href="https://linear.app/pricing">Linear公式料金</a>、<a href="https://linear.app/docs/insights">Insightsの対象プラン</a>。料金と機能は変更される場合があります。</p>
+</section>
+<section id="automation"><h2>API・MCPによる入力と振り返りの補助</h2>
+<p>LinearはGraphQL APIとWebhookを公開しています。MCPは対応するAIツールからIssue・Project・コメントなどを検索・作成・更新するための接続方法です。</p>
+<p>たとえば、AIに作業をIssueへ分割してもらう、完了したIssueを集めて週次の振り返りを作る、といった使い方が考えられます。APIと外部の時間記録を組み合わせれば、Issueごとの見積もりと実績を並べる仕組みも作れます。ただし、集計処理や連携の実装は別途必要です。</p>
+<div class="note"><p>APIやMCPへの接続だけで、実働時間を自動計測できるわけではありません。利用するツールが扱える項目と、時間記録の保存先を確認してください。</p></div>
+<p class="source">出典：<a href="https://linear.app/docs/api-and-webhooks">API and Webhooks</a>、<a href="https://linear.app/docs/mcp">MCP server</a></p>
+</section>
+<section class="conclusion"><h2>二つの目的に合わせた使い分け</h2><p>作業量と進捗はLinearで管理し、実際に使った時間も必要なら、時間記録サービスや表を組み合わせます。個人開発なら、この分担から小さく始めるのがよさそうです。</p></section>
+<section id="sources"><h2>確認した公式資料</h2><ul class="refs"><li><a href="https://linear.app/docs/issue-property#estimates">Issue properties：Estimateの尺度・集計・未見積もりの扱い</a></li><li><a href="https://linear.app/docs/insights">Insights：Effort、Cycle Time、Lead Timeの定義</a></li><li><a href="https://linear.app/integrations/everhour">EverhourとLinearの連携</a></li><li><a href="https://linear.app/integrations/harvest">HarvestとLinearの連携</a></li><li><a href="https://linear.app/pricing">Linearの料金とプラン比較</a></li><li><a href="https://linear.app/docs/api-and-webhooks">API and Webhooks</a> ／ <a href="https://linear.app/docs/mcp">MCP server</a></li></ul><p class="source">本記事は公式資料をもとにした使い分けの解説です。実際のサービス導入や有料契約、計測精度の検証は行っていません。</p></section>
+</article></div>
+</main>
+<footer>Linearは各権利者の商標です。公式ワードマークは<a href="https://linear.app/brand">ブランドガイドライン</a>に基づき掲載。本記事はLinearの公式記事ではなく、提携や推奨を示すものではありません。</footer>
+</body>
+</html>
