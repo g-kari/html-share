@@ -9,8 +9,8 @@ const batch=d.dailyOfficialFollowup20261111;
 const previous=id=>batch.previousRecords.find(x=>x.id===id);
 const hash=value=>createHash('sha256').update(JSON.stringify(value)).digest('hex');
 test('November 11 collection-record followup preserves all prior cards, pending groups and discovery rows',()=>{
- assert.equal(d.checkedAt,'2026-11-11T00:27:00Z');
- assert.equal(d.confirmed.length,632);assert.equal(d.confirmed.filter(x=>x.restored).length,133);
+ assert.equal(d.checkedAt,'2026-11-11T06:27:00Z');
+ assert.equal(d.confirmed.length,635);assert.equal(d.confirmed.filter(x=>x.restored).length,133);
  assert.equal(d.pending.length,2044);assert.equal(d.discovery.length,2887);
  assert.equal(batch.batchId,'official-followups-20261111-0927');
  assert.equal(batch.newIds.length,1);assert.equal(batch.updatedIds.length,3);
@@ -22,10 +22,10 @@ test('November 11 collection-record followup preserves all prior cards, pending 
  assert.equal(hash(d.pending),'53bfafc6af96a8f5bd1205e0c821c6899d21089eb2f1b64b3cbf01a60090a2cd');
  assert.equal(hash(d.discovery),'e0678961bd0fd9d16f71f510ae6f65e45b5b1f9f7624b32780ca3406e9f80632');
  // The new card is appended in batch order and the HTML article order follows confirmed order.
- assert.deepEqual(d.confirmed.slice(631).map(x=>x.id),batch.newIds);
+ assert.deepEqual(d.confirmed.slice(631,632).map(x=>x.id),batch.newIds);
  assert.deepEqual([...h.matchAll(/<article class="service" id="([^"]+)"/g)].map(x=>x[1]),d.confirmed.map(x=>x.id));
  assert.match(h,/新規1カードと既存3カードの更新で、632告知カード・対象範囲の復旧報告133件・照合待ち2044群・収集2887行/);
- assert.match(h,/<p id="count" aria-live="polite">632件の告知対象カード/);
+ assert.match(h,/<p id="count" aria-live="polite">635件の告知対象カード/);
  const cb=d.collectionBatches.find(x=>x.id===batch.batchId);
  assert.equal(cb.rowCount,4);assert.equal(cb.members.length,4);
  for(const id of [...batch.newIds,...batch.updatedIds]) assert.ok(cb.members.some(m=>m.confirmedId===id),id);

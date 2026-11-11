@@ -1,6 +1,6 @@
 {
   "title": "2026年10月21日前後 緊急メンテナンス・関連告知一覧",
-  "checkedAt": "2026-11-11T00:27:00Z",
+  "checkedAt": "2026-11-11T06:27:00Z",
   "scope": "PHPの因果不問。今回の緊急/予防メンテと同時期の関連告知・別インシデントを区分。件数による上限なし。",
   "counting": "confirmedは公式資料を確認した対象別の告知カード数（部分本文・同一基盤・包括/個別の重なりを含む）。固有サイト数・実停止数・独立インシデント数・被害数ではない。pendingは原典/公式所有/対象範囲等の追加照合待ち。関連・重複・除外理由も全収集行に保持し、件数で打ち切らない。 実施自体が未定の停止可能性の予告も別状態（possible_unstarted）で保持し、実停止・復旧には数えません。",
   "confirmed": [
@@ -16763,6 +16763,72 @@
       "sources": [
         "https://gmo-aozora.com/news/2026/20261110-01.html"
       ]
+    },
+    {
+      "id": "docomo-5gsa-outage-20261111",
+      "name": "NTTドコモ 全国通信障害（5G SA）",
+      "cat": "web",
+      "reason": "原因は調査中（第五報時点で、不正アクセスの形跡やサイバー攻撃を示す事象は確認されていないと説明）",
+      "reasonKey": "unknown",
+      "status": "2026-11-11 10:34から全国で利用しづらい状況が発生し、14:30時点の第五報でも継続中。復旧見込みは改めて知らせるとしている",
+      "start": "2026-11-11 10:34",
+      "end": "未定（第五報でも継続中。圏外表示になる場合があると案内）",
+      "scope": "5G SA（Standalone）契約者の音声通話・データ通信・SMS。影響エリアは全国。ドコモ回線を利用するMVNO、5G SA非契約の5G・4G、緊急通報には影響なしと確定。",
+      "safe": "代替手段として、ネットワーク設定で4Gを選択し、端末の再起動または機内モードのON／OFFを行うと利用できる場合があると公式が案内。2026-11-05〜11-06の5G SA障害（既報）とは別事象として記録します。",
+      "url": "https://www.docomo.ne.jp/info/network/",
+      "date": "2026-11-11発表（第五報は14:30時点）",
+      "restored": false,
+      "noticeState": "announced",
+      "tag": "全国通信障害・継続中",
+      "source": "本収集の継続確認記録に基づく統合（公式発表および報道で確認）。公式告知URLは所在を確認して付記したもので、運営本文の直接取得・実機能の独立検証はしていません。",
+      "checkedAt": "2026-11-11T06:27:00Z",
+      "icon": null,
+      "ownershipEvidence": [],
+      "sources": []
+    },
+    {
+      "id": "idemitsu-car-maintenance-20261110",
+      "name": "idemitsu カーメンテ予約（出光興産）",
+      "cat": "web",
+      "reason": "第三者による不正アクセス（個人情報の一部が外部に漏えいした可能性）",
+      "reasonKey": "security",
+      "status": "2026-11-10からサービスを一時停止中。再開時期は安全性が確認でき次第、改めて知らせるとしている",
+      "start": "2026-11-10（サービス一時停止）。不正アクセスは2026-11-07に検知し、11-09に確認",
+      "end": "未定（再開時期は未発表）",
+      "scope": "自動車整備等のWeb予約サービス「idemitsu カーメンテ予約」（旧称：PIT in plus）。停止中は新規予約のほか、既存予約の変更・取消もオンラインではできない。apollostation全体や出光興産の他サービスは対象外。",
+      "safe": "漏えいの有無・対象者・影響範囲は調査中で、第一報では実際に持ち出された情報の内容・件数は示されていない。対象者には確認が取れ次第、個別に連絡する方針。予約の変更・取消は予約した店舗へ直接連絡するよう案内し、特別問い合わせ窓口は0120-822-242（9:00〜20:00、土日祝日も受付）。",
+      "url": "https://www.idemitsu.com/jp/information/2026/261110.pdf",
+      "date": "2026-11-10発表（第一報）",
+      "restored": false,
+      "noticeState": "announced",
+      "tag": "不正アクセスで一時停止",
+      "source": "本収集の継続確認記録に基づく統合（公式発表および報道で確認）。公式告知URLは所在を確認して付記したもので、運営本文の直接取得・実機能の独立検証はしていません。",
+      "checkedAt": "2026-11-11T06:27:00Z",
+      "icon": null,
+      "ownershipEvidence": [],
+      "sources": []
+    },
+    {
+      "id": "ngt48-official-cd-shop-20261021",
+      "name": "NGT48 Official CD Shop",
+      "cat": "shopping",
+      "reason": "緊急メンテナンス（詳細は公表なし）",
+      "reasonKey": "unknown",
+      "status": "2026-10-21 22:00から緊急メンテナンスを実施。2026-11-11をサービス再開予定日として公式が発表（日程は変更される場合があると付記）",
+      "start": "2026-10-21 22:00",
+      "end": "2026-11-11に再開予定（公式発表）",
+      "scope": "NGT48 Official CD Shop。再開に伴うシステムの都合により、12thシングル「風の片想い」限定盤CDの第10次受付（2026-11-14開催 オンライン個別おしゃべり会の最終受付）は、申込み済みの全件を一括で取り消し（キャンセル）処理し、再開後の申込期間延長も中止。第11次受付以降のスケジュールは近日中に案内予定。",
+      "safe": "利用者側の手続きは不要で、キャンセルに関するメール配信はなく、マイページ上で「キャンセル」と表示される。公式HP（ngt48.jp）自体の再開発表は本収集時点では未確認のため分けて扱います。",
+      "url": "https://ngt48.boosty.app/feeds/1310",
+      "date": "2026-11-11確認（再開予定日の発表は2026-11-07夜）",
+      "restored": false,
+      "noticeState": "announced",
+      "tag": "再開予定と受付一括取消",
+      "source": "本収集の継続確認記録に基づく統合（公式発表および報道で確認）。公式告知URLは所在を確認して付記したもので、運営本文の直接取得・実機能の独立検証はしていません。",
+      "checkedAt": "2026-11-11T06:27:00Z",
+      "icon": null,
+      "ownershipEvidence": [],
+      "sources": []
     }
   ],
   "pending": [
@@ -128832,6 +128898,44 @@
           "observation": "札幌市営交通 運行情報システム／さっぽろえきバスナビ"
         }
       ]
+    },
+    {
+      "id": "official-followups-20261111-1527",
+      "checkedAt": "2026-11-11T06:27:00Z",
+      "rowCount": 3,
+      "reviewedSourceCount": 3,
+      "members": [
+        {
+          "name": "NTTドコモ 全国通信障害（5G SA）",
+          "sourceUrl": "https://www.docomo.ne.jp/info/network/",
+          "verification": "confirmed",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-11-11T06:27:00Z",
+          "confirmedId": "docomo-5gsa-outage-20261111",
+          "collectionBatch": "official-followups-20261111-1527",
+          "observation": "NTTドコモ 全国通信障害（5G SA）"
+        },
+        {
+          "name": "idemitsu カーメンテ予約（出光興産）",
+          "sourceUrl": "https://www.idemitsu.com/jp/information/2026/261110.pdf",
+          "verification": "confirmed",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-11-11T06:27:00Z",
+          "confirmedId": "idemitsu-car-maintenance-20261110",
+          "collectionBatch": "official-followups-20261111-1527",
+          "observation": "idemitsu カーメンテ予約（出光興産）"
+        },
+        {
+          "name": "NGT48 Official CD Shop",
+          "sourceUrl": "https://ngt48.boosty.app/feeds/1310",
+          "verification": "confirmed",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-11-11T06:27:00Z",
+          "confirmedId": "ngt48-official-cd-shop-20261021",
+          "collectionBatch": "official-followups-20261111-1527",
+          "observation": "NGT48 Official CD Shop"
+        }
+      ]
     }
   ],
   "officialFollowups": [
@@ -131853,5 +131957,18 @@
     ],
     "unresolvedOriginalCandidatesRetained": true,
     "summary": "2026-11-11 09:27の収集継続確認（公式発表および報道）に基づく追随。新規1カード（GMOあおぞらネット銀行 銀行API接続／ラクスルバンクの一時停止と再開）と既存3カードの続報更新（ココペリBig Advance・BAポータルの再開、明治座オンラインチケットの全サービス再開、札幌市営交通・さっぽろえきバスナビの停止継続）。632告知カード・対象範囲の復旧報告133件・照合待ち2044群・収集2887行。運営本文の再取得ではなく収集記録の統合であり、未照合候補・履歴は保持。"
+  },
+  "dailyOfficialFollowup20261111b": {
+    "batchId": "official-followups-20261111-1527",
+    "checkedAt": "2026-11-11T06:27:00Z",
+    "updatedIds": [],
+    "newIds": [
+      "docomo-5gsa-outage-20261111",
+      "idemitsu-car-maintenance-20261110",
+      "ngt48-official-cd-shop-20261021"
+    ],
+    "previousRecords": [],
+    "unresolvedOriginalCandidatesRetained": true,
+    "summary": "2026-11-11 12:27と15:27の収集継続確認（公式発表および報道）に基づく追随。新規3カード（NTTドコモ 全国通信障害（5G SA）、idemitsu カーメンテ予約（出光興産）、NGT48 Official CD Shop）。GMOあおぞらネット銀行 銀行API接続の再停止・再開（2026-11-11 01:02〜06:25）は09:27分の同カードに反映済みのため、本バッチでは変更なし。635告知カード・対象範囲の復旧報告133件・照合待ち2044群・収集2887行。運営本文の再取得ではなく収集記録の統合であり、未照合候補・履歴は保持。"
   }
 }
