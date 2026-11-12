@@ -1944,7 +1944,7 @@
         "aioinissaydowa-contract-page-20261102": "a1785c3ec3a38fd8e6d97788741b45690822de92a8167e6fd5d12d0002369f62",
         "alpsalpine-2026": "d0b97049c7f4319d2e0155c5c84c144e5b7ee0bd5011e7f4aab5a6fee73a7f36",
         "applynow-analysis-20260809": "91b422b54f451ceb8255a164848f1390621e7d225735dcaab907b7199606fd54",
-        "arara-message-20261027": "3ecd20001323eaeb9026808400efb1223babd0904edd682f6a2cf1ced3c720fb",
+        "arara-message-20261027": "2b0ac2f217c34ab920910d85a47d36a0097b7bcf610d983df2a0ed0452599f5d",
         "arcadia-speecan-20261011": "68ae19b2f1c91d98ba57ae6fd3ae11590b229c2bc2a7965e87bfb3dec5c05f46",
         "arizona-courts-backups-20260924": "dd75acc97413bc42826c238b9a92c5ccf0298a41a689bb8aed03c0614b3eaf57",
         "asahi-20250929": "2ff3828a9d0efc3795b2ab714b01fb27bb3faca24a2a09326c2bd8bd3c5f504a",
@@ -1984,7 +1984,8 @@
         "denmark-cpr-202609": "09530cda566c311efec57744d4aac7f0b639d60adec60ba71becf9f6e77af99a",
         "digital-gss-20260625": "cc80960f66e57c16c31434b188bc63b70a51ddc777c374564f6462a08863a5f0",
         "divd-zammad-20260921": "d2ed878c758362ae76bd4939b2fcf4e8d0598bc5d2dcbdcf2af782ac87ebd48e",
-        "docomo-online-mydocomo-20261104": "674653529c1332f53ed64f2e7322b3fb13af1c56020ae02d3a67a7009e21a8b8",
+        "docomo-online-mydocomo-20261104": "8c350b01c336200d3251fe9e775e30f2a7cc155e51f8aea1a3c4085792c8545f",
+        "dorsata-metabase-20260810": "08413f451d3cee673080e8e81803fb0ec511b50aa6550ff46ea1200fba7987ee",
         "dotmoney-2026": "c7af7398ec07c643e78a40077d281d63aa937bb31a8d699183657191fc17be88",
         "doublecounter-metabase-cloud-20261004": "324f97262bf7852be87d42327a38231fd3f1207bd2f65b487322c617949100ea",
         "dreamhost-filemanager-20261023": "fbd60d80daca3d99dc7b646088b53760deb889e9ddbd420323f0249771de3fb4",
@@ -2003,6 +2004,7 @@
         "evergreen-mail-20260626": "cddbc0247b50925cc204b08e8563ad3eda59663219ec8cbfa47913ab21c69148",
         "evotez-choisir2027-bots-20261009": "53c5990f0026bdc9d0b408e036989648037a0d415ba2e6bece24621f6ac5dcbe",
         "fines-reservation-20260922": "a06cf490adcf9315e09d023a9c139c9d1394b1e007a4a0e859b3abb29481a26e",
+        "fireworks-ai-credentials-20261006": "6a391f71f8813e96b5e2a7ff78dce926b785367aaac46522c3c4b4326725c34a",
         "fivot-idare-20260810": "2aca31ddceded7f3e6deb19564e5d2ccd824ea65a99cc3a071ca8a598b7c6e58",
         "frontline-education-202608": "8a0b42fcf90da9ccb59c81c0e9e9cbffe00b10826254b4020b9870efc6034d49",
         "gdo-servers-20261013": "1c5262962387099725d5c42acda5bd381a21742a7ac7f10d281b5486db2df058",
@@ -2170,6 +2172,7 @@
         "workos-sales-support-20261030": "69986724b8f3d64d13b5a132b17a2b6498f5ad428e04be5fab9314c326066728",
         "yamato-paylater-20260928": "43edaa401fb0afc215ea2610792451aacafd3ff0fa4fd0cdb468eb8e0fab66b4",
         "ycc-2026": "1b505f87536962594cefeba1e83ccc9845780a02f22066fb52898e7660150303",
+        "ymir-cuenote-fc-20261016": "861f518ab6b354167074465c442a861b46a572a7e73d762d9dea0200f4b4c14f",
         "zojirushi-taiwan-2026": "8d675e26cdd2a54ee31b8dea02b982443697d27a82ac341f51ac7292413b1f83",
         "zynas-joyfull-2026": "2a4228bf3e60057c5faf59083534cfc72345490c9ae777d66b3aa938ec99a018"
       },
@@ -3310,6 +3313,18 @@
             "railway-environment-variables-20261020"
           ],
           "date": "2026-11-09"
+        },
+        {
+          "signature": "c24937bfea3718c85966e9d9cc3e0362a5055fd3acfc612abadd900e8ac0753d",
+          "summary": "ユミルリンクのCuenote FCとアイスタイル利用分、Fireworks AI、Dorsataの公式公表を追加。別事案の対象数を合算せず、確認済みのアクセスと漏えい可能性を区別。ドコモのMy docomo段階再開とahamo再開、TKCの漏えいメールの分類と代替機能への切替を追補。停止継続・再開予定・実績、初報日と今回の掲載日を分けた。",
+          "ids": [
+            "arara-message-20261027",
+            "docomo-online-mydocomo-20261104",
+            "dorsata-metabase-20260810",
+            "fireworks-ai-credentials-20261006",
+            "ymir-cuenote-fc-20261016"
+          ],
+          "date": "2026-11-10"
         }
       ],
       "items": [
@@ -4783,9 +4798,29 @@
           ],
           "published": "2026-11-09T00:51:16.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "b5faf82be24109b305463628395c4d354385afb4c18b6abe1d973c7602c9001c",
+          "summary": "ユミルリンクのCuenote FCとアイスタイル利用分、Fireworks AI、Dorsataの公式公表を追加。別事案の対象数を合算せず、確認済みのアクセスと漏えい可能性を区別。ドコモのMy docomo段階再開とahamo再開、TKCの漏えいメールの分類と代替機能への切替を追補。停止継続・再開予定・実績、初報日と今回の掲載日を分けた。",
+          "journal": [
+            {
+              "signature": "c24937bfea3718c85966e9d9cc3e0362a5055fd3acfc612abadd900e8ac0753d",
+              "summary": "ユミルリンクのCuenote FCとアイスタイル利用分、Fireworks AI、Dorsataの公式公表を追加。別事案の対象数を合算せず、確認済みのアクセスと漏えい可能性を区別。ドコモのMy docomo段階再開とahamo再開、TKCの漏えいメールの分類と代替機能への切替を追補。停止継続・再開予定・実績、初報日と今回の掲載日を分けた。",
+              "ids": [
+                "arara-message-20261027",
+                "docomo-online-mydocomo-20261104",
+                "dorsata-metabase-20260810",
+                "fireworks-ai-credentials-20261006",
+                "ymir-cuenote-fc-20261016"
+              ],
+              "date": "2026-11-10"
+            }
+          ],
+          "published": "2026-11-10T00:42:40.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "33d99ff36180611867a7e6cf55283846fcdbda49"
+      "cursor": "37fef38e32ef43a8bf3ad5f17e032e16b7bdfb16"
     }
   }
 }

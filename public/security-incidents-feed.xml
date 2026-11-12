@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Mon, 09 Nov 2026 00:51:16 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 10 Nov 2026 00:42:40 GMT</lastBuildDate>
+    <item>
+      <title>ユミルリンクのCuenote FCとアイスタイル利用分、Fireworks AI、Dorsataの公式公表を追加</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#b5faf82be24109b305463628395c4d354385afb4c18b6abe1d973c7602c9001c</guid>
+      <description>ユミルリンクのCuenote FCとアイスタイル利用分、Fireworks AI、Dorsataの公式公表を追加。別事案の対象数を合算せず、確認済みのアクセスと漏えい可能性を区別。ドコモのMy docomo段階再開とahamo再開、TKCの漏えいメールの分類と代替機能への切替を追補。停止継続・再開予定・実績、初報日と今回の掲載日を分けた。</description>
+      <pubDate>Tue, 10 Nov 2026 00:42:40 GMT</pubDate>
+      <dcterms:created>2026-11-10T00:42:40.000Z</dcterms:created>
+    </item>
     <item>
       <title>使えるねっと、三井住友海上、あいおいニッセイ同和損保の公式公表を追加</title>
       <link>https://share.0g0.xyz/security-incidents</link>
