@@ -10,7 +10,7 @@ test('non-stream effects retain ten old leads and four new bounded official impa
  assert.equal(d.nonStreamImpacts.filter(r=>r.status==='verified_limited').length,10);
  assert.equal(d.nonStreamImpacts.filter(r=>r.status==='pending').length,4);
  for(const r of d.nonStreamImpacts){assert.equal(r.candidateTextRead,false);if(r.status==='pending')assert.equal(r.summary,null);}
- assert.equal(d.confirmed.length,632);assert.equal(d.pending.length,2044);assert.equal(d.discovery.length,2887);
+ assert.equal(d.confirmed.length,635);assert.equal(d.pending.length,2044);assert.equal(d.discovery.length,2887);
  assert.equal(d.confirmed.filter(x=>x.restored).length,133);
  assert.ok(h.indexOf('id="stream-impacts"')<h.indexOf('id="non-stream-impacts"'));
  assert.ok(h.indexOf('id="non-stream-impacts"')<h.indexOf('id="pending"'));

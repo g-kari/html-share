@@ -10,7 +10,7 @@ const followup = data.dailyOfficialFollowup20261105;
 const hash = value => createHash('sha256').update(JSON.stringify(value)).digest('hex');
 
 test('new official followups preserve all original records, unresolved sources, and discovery rows', () => {
-  assert.equal(data.confirmed.length, 632);
+  assert.equal(data.confirmed.length, 635);
   assert.equal(data.confirmed.filter(x => x.restored).length, 133);
   assert.equal(data.pending.length, 2044);
   assert.equal(data.discovery.length, 2887);

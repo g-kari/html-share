@@ -5,7 +5,7 @@ const data=JSON.parse(readFileSync(new URL('../public/data/emergency-maintenance
 const html=readFileSync(new URL('../public/php-emergency-maintenance.html',import.meta.url),'utf8');
 const php=readFileSync(new URL('../public/php-security-os-response.html',import.meta.url),'utf8');
 test('six directly checked notices added without truncating prior candidates',()=>{
- assert.equal(data.confirmed.length,632);
+ assert.equal(data.confirmed.length,635);
  assert.equal(data.confirmed.filter(c=>c.restored).length,133);
  const ids=data.dailyOfficialFollowup20261029.verifiedIds;
  assert.equal(ids.length,6);assert.equal(new Set(ids).size,6);
