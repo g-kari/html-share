@@ -8,10 +8,11 @@ const get=id=>d.confirmed.find(x=>x.id===id);
 const batch=d.dailyOfficialFollowup20261110;
 const previous=id=>batch.previousRecords.find(x=>x.id===id);
 const previous11=id=>d.dailyOfficialFollowup20261111.previousRecords.find(x=>x.id===id);
+const previous12=id=>d.dailyOfficialFollowup20261112.previousRecords.find(x=>x.id===id);
 const hash=value=>createHash('sha256').update(JSON.stringify(value)).digest('hex');
 test('November 10 collection-record followup preserves all prior cards, pending groups and discovery rows',()=>{
- assert.equal(d.checkedAt,'2026-11-11T06:27:00Z');
- assert.equal(d.confirmed.length,635);assert.equal(d.confirmed.filter(x=>x.restored).length,133);
+ assert.equal(d.checkedAt,'2026-11-12T00:27:00Z');
+ assert.equal(d.confirmed.length,639);assert.equal(d.confirmed.filter(x=>x.restored).length,135);
  assert.equal(d.pending.length,2044);assert.equal(d.discovery.length,2887);
  assert.equal(batch.batchId,'official-followups-20261110-1827');
  assert.equal(batch.newIds.length,32);assert.equal(batch.updatedIds.length,5);
@@ -26,7 +27,7 @@ test('November 10 collection-record followup preserves all prior cards, pending 
  assert.deepEqual(d.confirmed.slice(599,631).map(x=>x.id),batch.newIds);
  assert.deepEqual([...h.matchAll(/<article class="service" id="([^"]+)"/g)].map(x=>x[1]),d.confirmed.map(x=>x.id));
  assert.match(h,/新規32カードと既存5カードの更新で、631告知カード・対象範囲の復旧報告130件・照合待ち2044群・収集2887行/);
- assert.match(h,/<p id="count" aria-live="polite">635件の告知対象カード/);
+ assert.match(h,/<p id="count" aria-live="polite">639件の告知対象カード/);
  const cb=d.collectionBatches.find(x=>x.id===batch.batchId);
  assert.equal(cb.rowCount,37);assert.equal(cb.members.length,37);
  for(const id of [...batch.newIds,...batch.updatedIds]) assert.ok(cb.members.some(m=>m.confirmedId===id),id);
@@ -43,11 +44,11 @@ test('docomo fourth report separates My docomo partial reopening from the still-
 });
 test('ALL.Net, teket, Kokopelli and TwitCasting followups keep scope and uncertainty',()=>{
  const a=get('allnet-aime');
- assert.match(a.end,/次回報告は11\/12 09:00頃予定/);
+ assert.match(previous12(a.id).end,/次回報告は11\/12 09:00頃予定/);
  assert.match(a.status,/バンダイナムコ製品は試験稼働を再開。セガ製品は停止継続/);
  const t=get('teket');
  assert.match(t.safe,/全会員の氏名・メールアドレスの流出を確認/);
- assert.match(t.end,/再開時期は精査中/);
+ assert.match(previous12(t.id).end,/再開時期は精査中/);
  const b=get('big-advance');
  assert.equal(b.url,'https://www.kokopelli-inc.com/all/7138/');
  assert.ok(b.sources.includes('https://www.kokopelli-inc.com/all/7045/'));
@@ -78,7 +79,7 @@ test('new stopped and partial cards keep leakage as announced possibilities and 
  assert.ok(t.sources.some(s=>s.url==='https://www.tsukaeru.net/news/20261109/'));
  const j=get('jairo-cloud-20261028');
  assert.equal(j.restored,false);assert.match(j.reason,/PHP脆弱性ではないと公式が明言/);
- const l=get('librarie-trcdl-maintenance-20261110');
+ const l=previous12('librarie-trcdl-maintenance-20261110');
  assert.equal(l.restored,false);assert.equal(l.noticeState,'planned');
  assert.match(l.end,/2026-11-11 08:00（予定）/);
  const p=get('plm-marines-leak-20261106');
