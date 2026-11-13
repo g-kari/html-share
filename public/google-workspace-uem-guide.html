@@ -1,26 +1,133 @@
 <!doctype html>
-<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Google WorkspaceでWindowsとAndroidを管理する方法、登録手順、機能の違いと制約を公式資料で整理。"><title>Google WorkspaceのWindows・Android端末管理</title>
-<style>:root{font-family:system-ui,-apple-system,"Noto Sans JP",sans-serif;color:#20262c;background:#f6f7f7}*{box-sizing:border-box}body{margin:0}header{background:#182b36;color:#fff;padding:22px max(20px,calc((100vw - 1080px)/2))}main{max-width:1080px;margin:auto;padding:18px 20px 65px}h1{font-size:clamp(25px,3.5vw,36px);line-height:1.3;margin:0 0 8px}h2{font-size:23px;border-bottom:2px solid #cbd5da;padding-bottom:9px;margin:30px 0 13px}h3{font-size:18px;margin:17px 0 7px}p,li{line-height:1.75}.lede{color:#d8e5ed;margin:0}.stamp{font-size:12px;color:#a7bdc8}.callout{background:#e8f1f4;border-left:4px solid #26718a;padding:12px 16px;border-radius:4px}.warn{background:#fff4dd;border-left-color:#b67a16}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}.card{background:#fff;border:1px solid #dbe1e4;border-radius:8px;padding:15px}.card h3{margin-top:0}.mini{font-size:13px;color:#55656d}.scroll{overflow:auto}table{border-collapse:collapse;background:#fff;width:100%;min-width:690px;font-size:14px}th,td{border:1px solid #d8dfe3;padding:11px;text-align:left;vertical-align:top}th{background:#e7edef}details{background:#fff;border:1px solid #d8dfe3;border-radius:6px;margin:9px 0;padding:12px 15px}summary{cursor:pointer;font-weight:700}a{color:#146087}a:hover{text-decoration:none}header a{color:#fff}.flow{display:flex;gap:8px;align-items:stretch;flex-wrap:wrap}.step{flex:1;min-width:160px;background:white;padding:13px;border:1px solid #cbd9df;border-top:4px solid #39839c;border-radius:5px}.step b{display:block}.step small{display:block;color:#64747c;margin-top:4px}.tag{display:inline-block;font-size:12px;padding:3px 7px;border-radius:12px;background:#dcebf1;color:#1f5366}code{background:#edf0f2;padding:2px 5px;border-radius:3px}footer{border-top:1px solid #cbd5da;padding-top:14px;color:#56656d;font-size:13px}@media(max-width:700px){main{padding:14px 12px 45px}header{padding:23px 14px}.step{min-width:140px}}</style></head>
-<body><header><h1>Google WorkspaceのWindows・Android端末管理</h1><p class="lede">登録手順、できること・できないこと、運用上の判断を整理</p><p class="stamp">公式ヘルプ確認：2026年11月13日／機能は契約エディション・OS・管理方式によって異なる</p></header><main>
-<div class="callout"><strong>結論：</strong>AndroidはAndroid Enterpriseを通じて業務領域・アプリ・端末ポリシーを幅広く管理できる。Windowsでは「端末情報の確認」「Googleアカウントによるサインイン」「Windows MDMポリシー」「Chrome管理」は別の機能。Windows全体の管理をChrome管理だけで代替することはできない。</div>
-<h2>1. 最初に選ぶ管理方式</h2><div class="cards"><section class="card"><span class="tag">Windows</span><h3>Endpoint Verification</h3><p>端末情報を取得し、デバイスベースのアクセス制御を支援する。Chromeの拡張機能や必要に応じてヘルパーを利用。</p></section><section class="card"><span class="tag">Windows</span><h3>GCPW</h3><p>Google WorkspaceアカウントでWindowsにサインイン。既存Windowsプロファイルとの関連付けにも対応。</p></section><section class="card"><span class="tag">Windows</span><h3>Windows端末管理</h3><p>対応エディション・端末でWindows MDMポリシーを配布。カスタムOMA-URIによる設定も可能。</p></section><section class="card"><span class="tag">Android</span><h3>Google endpoint management</h3><p>基本管理と詳細管理を選択。Work Profile、Managed Google Play、企業所有端末は管理方式に応じて使用。</p></section></div>
-<h2>2. 機能比較</h2><div class="scroll"><table><thead><tr><th>用途</th><th>Windows</th><th>Android</th><th>注意点</th></tr></thead><tbody>
-<tr><td>デバイスの可視化</td><td>Endpoint Verificationほか</td><td>基本管理・詳細管理</td><td>取得項目は構成で変わる</td></tr>
-<tr><td>OSログイン</td><td>GCPWでGoogleアカウント認証</td><td>管理対象Googleアカウント</td><td>GCPWはMDM登録と同義ではない</td></tr>
-<tr><td>ロック・認証要件</td><td>Windows端末管理</td><td>基本／詳細管理</td><td>細かな制御は契約と管理レベルに依存</td></tr>
-<tr><td>アプリ配布</td><td>Chromeポリシー等／Windows MDM機能は要確認</td><td>Managed Google Play</td><td>汎用Windowsアプリ配布は要件別に検証</td></tr>
-<tr><td>業務と個人の分離</td><td>アカウント・ブラウザ中心</td><td>Work Profile</td><td>WindowsにAndroid型Work Profileはない</td></tr>
-<tr><td>遠隔ワイプ</td><td>Windows端末管理で可否と範囲を確認</td><td>アカウント削除／詳細管理で端末ワイプ</td><td>BYODと会社所有で影響が大きく異なる</td></tr>
-<tr><td>Chromeのポリシー</td><td>Chrome管理またはADMX/OMA-URI</td><td>Managed configuration</td><td>ブラウザ管理とOS管理は別</td></tr>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Google WorkspaceによるWindowsとAndroid端末管理の範囲、登録方式、管理構成と制約を図解で整理。">
+<title>Google WorkspaceのWindows・Android端末管理</title>
+<style>
+:root{font-family:system-ui,-apple-system,"Noto Sans JP",sans-serif;background:#fff;color:#151515;line-height:1.7}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0}a{color:#005b94}a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #005b94;outline-offset:3px}
+header{border-bottom:4px solid #151515;padding:27px max(20px,calc((100vw - 1060px)/2)) 22px}
+main{max-width:1060px;padding:10px 20px 68px;margin:0 auto}
+h1{font-size:clamp(29px,4vw,44px);line-height:1.25;letter-spacing:-.035em;margin:0 0 12px}
+h2{font-size:clamp(22px,3vw,28px);line-height:1.35;border-top:3px solid #171717;padding-top:13px;margin-top:38px}
+h3{font-size:19px;margin:20px 0 8px}p{margin:10px 0}small,.meta{color:#525252;font-size:13px}
+.lead{font-size:18px;max-width:800px}.kicker{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.summary{font-size:20px;font-weight:700;line-height:1.55;padding:18px 0;border-bottom:1px solid #777}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px}
+.rule{border-top:1px solid #aaa;padding:9px 0}.rule strong{display:block}
+.diagram{margin:18px 0 24px;border-top:1px solid #555;border-bottom:1px solid #555;padding:14px 0}
+.diagram figcaption{font-size:13px;color:#444;margin:0 0 10px}
+.diagram svg{display:block;width:100%;height:auto;overflow:visible}
+.diagram .node{fill:white;stroke:#202020;stroke-width:2}
+.diagram .dark{fill:#171717}
+.diagram .label{fill:#171717;font-size:17px;font-weight:700}
+.diagram .inverse{fill:#fff;font-size:17px;font-weight:700}
+.diagram .sub{fill:#555;font-size:12px}
+.diagram .line{stroke:#222;stroke-width:2.5;fill:none}
+.diagram .accent{stroke:#005b94;stroke-width:4;fill:none}
+.motion .signal{stroke-dasharray:12 16;animation:signal 2.8s linear infinite}
+@keyframes signal{to{stroke-dashoffset:-112}}
+.controls{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:10px 0}
+button{background:#171717;color:#fff;border:1px solid #171717;font:inherit;font-size:14px;font-weight:600;padding:8px 15px;cursor:pointer}
+button:hover{background:#444}.paused .signal{animation-play-state:paused}
+.step-flow{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;padding:0;margin:18px 0 6px;border:2px solid #171717;counter-reset:steps}
+.step-flow li{padding:12px;border-right:1px solid #999;counter-increment:steps;min-width:0}
+.step-flow li:last-child{border:0}.step-flow li::before{content:"0" counter(steps);font-weight:800;font-size:25px;display:block;line-height:1.1}
+.step-flow strong{display:block;margin:7px 0 2px;line-height:1.4}.step-flow span{font-size:13px;display:block;line-height:1.5}
+.scroll{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:660px;font-size:14px}
+th,td{border-bottom:1px solid #aaa;padding:10px 12px;text-align:left;vertical-align:top}
+th{border-bottom:3px solid #171717;background:#eee}tr:nth-child(even){background:#f5f5f5}
+details{border-bottom:1px solid #999;padding:12px 0}summary{cursor:pointer;font-weight:700;font-size:17px}
+details>div{padding:4px 0 8px 18px;max-width:860px}
+.note{border-left:4px solid #171717;padding-left:13px}.caution{border-left:4px solid #a44c00}
+code{background:#eee;padding:2px 5px}footer{margin-top:36px;border-top:2px solid #171717;padding-top:14px;font-size:13px;color:#555}
+@media(max-width:700px){header{padding:23px 14px}main{padding:7px 14px 48px}.layout{grid-template-columns:1fr;gap:0}.step-flow{grid-template-columns:repeat(2,minmax(0,1fr))}.step-flow li:nth-child(2){border-right:0}.step-flow li:nth-child(-n+2){border-bottom:1px solid #999}.diagram .label,.diagram .inverse{font-size:20px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<header>
+<div class="kicker">Technical guide / Google Workspace</div>
+<h1>Windows・Android端末管理</h1>
+<p class="lead">管理範囲、登録方法、Googleの各管理機能の違いを整理する。</p>
+<div class="meta">Google公式資料に基づく解説 ｜ 確認：2026年11月13日 ｜ 実機登録は未検証</div>
+</header>
+<main>
+<p class="summary">結論：Androidは業務プロファイルと端末管理を一体的に構成できる。Windowsは「端末確認」「OSログイン」「端末ポリシー」「ブラウザ制御」を別々に設計する。</p>
+<h2>01　全体の管理構造</h2>
+<figure class="diagram motion" id="architecture">
+<figcaption>管理対象と機能の分担。青い破線は、管理コンソールからの設定・状態連携を模式的に示す。</figcaption>
+<svg viewBox="0 0 920 365" role="img" aria-labelledby="arch-title arch-desc">
+<title id="arch-title">Google WorkspaceによるWindowsとAndroidの管理構造</title>
+<desc id="arch-desc">管理コンソールがWindows管理群とAndroid Enterprise管理群に分岐する。WindowsはEndpoint Verification、GCPW、Windows MDM、Chrome管理に分かれる。Androidは基本管理と詳細管理に分かれる。</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="none" stroke="#005b94" stroke-width="1.5"/></marker></defs>
+<rect class="dark" x="280" y="10" width="360" height="64"/><text class="inverse" x="460" y="39" text-anchor="middle">Google管理コンソール</text><text x="460" y="60" fill="#ccc" font-size="12" text-anchor="middle">組織部門・ポリシー・端末一覧</text>
+<path class="accent signal" d="M460 74 V99 H230 V125" marker-end="url(#arrow)"/><path class="accent signal" d="M460 99 H690 V125" marker-end="url(#arrow)"/>
+<rect class="node" x="45" y="125" width="370" height="52"/><text class="label" x="230" y="155" text-anchor="middle">Windows 10 / 11</text>
+<rect class="node" x="505" y="125" width="370" height="52"/><text class="label" x="690" y="155" text-anchor="middle">Android Enterprise</text>
+<path class="line" d="M230 177 V195 H126 V216 M230 195 H334 V216 M690 177 V195 H601 V216 M690 195 H784 V216"/>
+<rect class="node" x="35" y="216" width="182" height="65"/><text class="label" x="126" y="240" text-anchor="middle">Endpoint Verification</text><text class="sub" x="126" y="261" text-anchor="middle">端末情報・アクセス</text>
+<rect class="node" x="243" y="216" width="182" height="65"/><text class="label" x="334" y="240" text-anchor="middle">GCPW / Windows MDM</text><text class="sub" x="334" y="261" text-anchor="middle">ログイン・OSポリシー</text>
+<rect class="node" x="510" y="216" width="182" height="65"/><text class="label" x="601" y="240" text-anchor="middle">基本管理</text><text class="sub" x="601" y="261" text-anchor="middle">アカウント中心</text>
+<rect class="node" x="712" y="216" width="182" height="65"/><text class="label" x="803" y="240" text-anchor="middle">詳細管理</text><text class="sub" x="803" y="261" text-anchor="middle">Work Profile・アプリ</text>
+<text class="sub" x="230" y="318" text-anchor="middle">Chrome管理は別の制御レイヤー</text><text class="sub" x="690" y="318" text-anchor="middle">所有形態でワイプや分離の範囲が変わる</text>
+</svg>
+<div class="controls"><button type="button" class="motion-toggle" data-target="architecture" aria-pressed="false">アニメーションを停止</button><span class="meta">動きが無効な環境では静止図で表示</span></div>
+</figure>
+<div class="layout">
+<div><h3>Windows：管理を組み合わせる</h3><div class="rule"><strong>Endpoint Verification</strong>端末情報の収集とアクセス判定支援</div><div class="rule"><strong>GCPW</strong>Googleアカウントを使ったWindowsログイン</div><div class="rule"><strong>Windows端末管理</strong>対応端末へのMDMポリシー配布</div><div class="rule"><strong>Chrome管理</strong>ブラウザの機能・拡張機能・ポリシー</div></div>
+<div><h3>Android：管理レベルを選ぶ</h3><div class="rule"><strong>基本管理</strong>画面ロックなどの最低限のセキュリティと業務アカウント管理</div><div class="rule"><strong>詳細管理</strong>業務プロファイル、より詳細な制限、Managed Google Play</div><div class="rule"><strong>所有形態</strong>BYOD・業務専用・会社所有個人利用許可で管理権限が異なる</div></div>
+</div>
+<h2>02　できること・管理条件</h2>
+<div class="scroll"><table><thead><tr><th>目的</th><th>Windows</th><th>Android</th></tr></thead><tbody>
+<tr><td>可視化</td><td>Endpoint Verificationなどで端末属性を確認</td><td>基本・詳細管理で端末一覧を取得</td></tr>
+<tr><td>OSログイン</td><td>GCPWを使用可能</td><td>管理対象Googleアカウントで設定</td></tr>
+<tr><td>セキュリティ設定</td><td>Windows端末管理の対応ポリシー</td><td>基本管理／詳細管理で強度が異なる</td></tr>
+<tr><td>ブラウザ管理</td><td>Chrome管理・ADMX/OMA-URI</td><td>管理対象Chromeの設定</td></tr>
+<tr><td>業務アプリ</td><td>Chrome管理など。Windowsアプリ配布要件は別途確認</td><td>Managed Google Playで配布・設定</td></tr>
+<tr><td>個人領域の分離</td><td>Android型Work Profileとは別方式</td><td>詳細管理のWork Profileで分離</td></tr>
+<tr><td>遠隔削除</td><td>導入機能・管理状態により確認が必要</td><td>業務アカウントの削除／適用条件を満たす端末のワイプ</td></tr>
 </tbody></table></div>
-<h2>3. Androidの登録方法</h2><div class="flow"><div class="step"><b>① 管理方式を決定</b><small>基本管理／詳細管理、BYOD／企業所有</small></div><div class="step"><b>② 管理コンソールで有効化</b><small>端末 → モバイルとエンドポイント → 設定</small></div><div class="step"><b>③ 端末を登録</b><small>Google管理アカウントでサインインし、案内に従う</small></div><div class="step"><b>④ 適用を確認</b><small>端末一覧・業務プロファイル・アプリの状態</small></div></div>
-<details open><summary>個人所有端末（BYOD）の手順</summary><ol><li>管理者は対象の組織部門で適用する管理レベルを選び、必要なアプリ・ポリシーを設定する。</li><li>利用者はAndroid端末に会社の管理対象Googleアカウントを追加する。</li><li>詳細管理では表示される登録手順に従い、仕事用プロファイルの作成と管理への同意を行う。</li><li>仕事用アプリが仕事用プロファイルに入り、管理コンソールから端末を確認できることを検証する。</li></ol><p class="mini">端末OS・既存管理状態により画面は異なる。実機画面での確認は未実施。</p></details>
-<details><summary>会社所有端末（専用端末・個人利用許可端末）</summary><ol><li>会社所有としての登録方式（QRコード、ゼロタッチ登録等）と利用形態を決める。</li><li>管理コンソール側で組織・ポリシー・Managed Google Playの設定を整える。</li><li>新規セットアップ時に対象の登録方式でプロビジョニングし、ポリシーと業務アプリが反映されることを確認する。</li></ol><p>既存端末の再登録では初期化が必要になる方式がある。初期化やワイプは事前にバックアップと所有者確認を行う。</p></details>
-<h2>4. Windowsの登録方法</h2><div class="callout warn">目的を先に選ぶ。ブラウザ制御だけならChrome管理、端末の姿勢確認ならEndpoint Verification、GoogleアカウントでWindowsにログインしたいならGCPW、OS設定管理ならWindows端末管理を検討する。</div>
-<details open><summary>A. Endpoint Verificationを導入する</summary><ol><li>管理者が端末確認と必要なアクセス制御を構成する。</li><li>Windows 10/11のChromeにEndpoint Verification拡張機能をインストールする。</li><li>要求される環境ではネイティブヘルパーをインストールする。</li><li>管理対象GoogleアカウントでChromeにサインインし、端末情報の収集を確認する。</li></ol><p>これだけでWindows全体のMDM管理が有効になるわけではない。</p></details>
-<details><summary>B. GCPWでWindowsにサインインする</summary><ol><li>管理者がGCPWを構成して対象PCへインストールする。既存ローカル・ADプロファイルとの関連付けを事前に計画する。</li><li>最初のサインイン時はインターネット接続を用意する。</li><li>Windowsサインイン画面から「仕事用アカウントを追加」または既存アカウントを選択する。</li><li>Googleアカウント認証と必要な二段階認証を完了し、利用者プロファイルを確認する。</li></ol><p>Google公式では初回サインインにChrome 81以降とインターネットが必要とされる。AD参加時は追加条件がある。</p></details>
-<details><summary>C. Windows端末管理（MDM）を使う</summary><ol><li>契約エディションにWindows端末管理機能があるか確認する。</li><li>管理コンソールの <code>端末 → モバイルとエンドポイント → 設定 → Windows</code> で対象の組織部門・ポリシーを準備する。</li><li>Windowsの職場/学校アカウント登録画面で、管理者が指示する組織アカウントによる接続・登録を進める。</li><li>Google管理コンソールのデバイス一覧とWindows側の管理状態で登録・ポリシー適用を確認する。</li></ol><p class="mini">登録画面・自動登録の条件はエディション、Windowsの状態、GCPW導入構成に依存。正確な画面遷移は対象環境で要検証。</p></details>
-<h2>5. エディションと運用の注意</h2><ul><li>基本的なエンドポイント管理は多くのGoogle Workspace／Cloud Identityエディションに含まれるが、詳細管理とエンタープライズ管理には上位プランが必要になる場合がある。</li><li>Android詳細管理はサードパーティEMMとの併用制約がある。既存のIntune等を使う場合は管理主体を先に設計する。</li><li>Windows向けのポリシーとAndroid向けWork Profileは異なるアーキテクチャ。機能名だけで同等とみなさない。</li><li>業務端末と個人端末は組織部門や登録ポリシーを分け、ワイプ権限・対象範囲を事前確認する。</li><li>本稿は一般的な管理仕様の解説。利用中の契約エディション、既存MDM、実機OS、管理者権限は未確認。</li></ul>
-<h2>6. 検証チェックリスト</h2><div class="cards"><div class="card"><h3>管理者側</h3><label><input type="checkbox"> 契約エディションを確認</label><p><label><input type="checkbox"> 登録対象OUを確認</label></p><p><label><input type="checkbox"> BYOD/会社所有を分類</label></p><p><label><input type="checkbox"> ワイプ権限を確認</label></p></div><div class="card"><h3>端末側</h3><label><input type="checkbox"> 登録成功・一覧反映</label><p><label><input type="checkbox"> ポリシー適用確認</label></p><p><label><input type="checkbox"> アプリ配布を確認</label></p><p><label><input type="checkbox"> 登録解除の影響を検証</label></p></div></div>
-<h2>公式資料</h2><ol><li><a href="https://support.google.com/work/android/answer/9415508?hl=en">Android Enterprise：管理対象ドメインでのAndroid管理</a></li><li><a href="https://support.google.com/work/android/answer/6396012?hl=en">Android Enterprise：Android管理の開始</a></li><li><a href="https://support.google.com/a/users/answer/9018161?hl=ja">Endpoint Verificationの設定</a></li><li><a href="https://support.google.com/a/users/answer/9250915?hl=en">GCPW導入後のWindowsログイン</a></li><li><a href="https://support.google.com/chrome/a/answer/10407780?hl=en">Windows端末管理によるChromeポリシー</a></li><li><a href="https://support.google.com/chrome/a/answer/9490493?hl=en">AndroidのChrome管理</a></li><li><a href="https://support.google.com/a/answer/13801455?hl=ja">Chrome・ChromeOS管理の概要</a></li></ol>
-<footer>更新 2026-11-13｜Google公式ヘルプを基に作成。各種画面表示、機能提供範囲は変更される可能性があります。実機での登録検証・契約別の完全な機能照合は未実施。</footer></main></body></html>
+<p class="note caution">注意：同じ「端末管理」という名称でも、OS、契約エディション、所有形態、基本／詳細管理で権限が変わる。特にワイプ対象は導入前に確認する。</p>
+<h2>03　Android端末を登録する</h2>
+<ol class="step-flow"><li><strong>管理方式を決める</strong><span>基本／詳細、BYOD／会社所有を分類</span></li><li><strong>ポリシーを設定</strong><span>管理コンソールで対象OUと管理レベルを設定</span></li><li><strong>端末を登録</strong><span>管理対象Googleアカウントでサインイン</span></li><li><strong>適用を検証</strong><span>Work Profile・アプリ・端末一覧を確認</span></li></ol>
+<details open><summary>個人所有（BYOD）の登録手順</summary><div><ol><li>管理者が対象組織部門に基本管理または詳細管理を設定する。</li><li>利用者がAndroidに業務用Googleアカウントを追加する。</li><li>詳細管理では表示された案内に従い、仕事用プロファイルの作成と管理権限への同意を行う。</li><li>管理コンソールに登録され、仕事用アプリが分離されていることを確認する。</li></ol></div></details>
+<details><summary>会社所有端末の登録手順</summary><div><ol><li>業務専用・個人利用許可など運用モードを決める。</li><li>利用可能な登録方式（QRコード、ゼロタッチ登録等）を確認する。</li><li>新規セットアップ時に指定方式でプロビジョニングする。</li><li>アプリ・ポリシー適用を検証する。</li></ol><p class="note caution">既存端末の再登録では初期化が必要になる方式がある。作業前にバックアップを確認。</p></div></details>
+<h2>04　Windows端末を登録・管理する</h2>
+<figure class="diagram motion" id="winflow"><figcaption>目的別の導入ルート。経路は選択肢であり、各機能の登録が自動的に同時完了するわけではない。</figcaption>
+<svg viewBox="0 0 920 170" role="img" aria-labelledby="win-title win-desc"><title id="win-title">Windowsの管理目的別の導入方式</title><desc id="win-desc">端末を調べるならEndpoint Verification、GoogleログインならGCPW、OSポリシーならWindows端末管理、ブラウザ制御ならChrome管理。</desc>
+<rect class="dark" x="0" y="10" width="180" height="54"/><text class="inverse" x="90" y="42" text-anchor="middle">管理目的</text>
+<path class="accent signal" d="M180 37 H220 V136 H245 M220 37 H245 M220 68 H245 M220 102 H245"/>
+<g class="label" font-size="16"><text x="260" y="40">端末情報を集める → Endpoint Verification</text><text x="260" y="74">Googleでログインする → GCPW</text><text x="260" y="108">Windowsを設定する → Windows MDM</text><text x="260" y="142">ブラウザを制御する → Chrome管理</text></g></svg>
+<div class="controls"><button type="button" class="motion-toggle" data-target="winflow" aria-pressed="false">アニメーションを停止</button></div></figure>
+<details open><summary>Endpoint Verification</summary><div><ol><li>管理者がエンドポイント確認とアクセス制御の要件を設定する。</li><li>Windows 10/11のChromeにEndpoint Verification拡張機能を導入する。</li><li>必要に応じてネイティブヘルパーをインストールする。</li><li>管理対象GoogleアカウントでChromeにログインし、端末情報が表示されることを確認する。</li></ol><p>これだけでWindows OS全体のMDM管理が有効になるわけではない。</p></div></details>
+<details><summary>GCPWでWindowsにログインする</summary><div><ol><li>管理者がGCPWを構成し、既存Windowsプロファイルとの関連付けを検討する。</li><li>対象PCにGCPWをインストールする。</li><li>初回はインターネット接続を用意し、Windowsサインイン画面から仕事用アカウントを選ぶ。</li><li>Googleアカウント・必要な二段階認証を完了する。</li></ol><p>公式条件ではChrome 81以降が必要。AD参加端末は追加の条件がある。</p></div></details>
+<details><summary>Windows MDMポリシーを配布する</summary><div><ol><li>契約エディションでWindows端末管理を使用できるか確認する。</li><li>管理コンソールの「端末 → モバイルとエンドポイント → 設定 → Windows」からポリシーを用意する。</li><li>指示された職場／学校アカウント登録フローでWindows端末を登録する。</li><li>Windowsの管理状態と管理コンソールの端末一覧を照合する。</li></ol><p>正確な登録画面・自動登録条件は対象エディション・環境で要検証。</p></div></details>
+<h2>05　契約・運用の注意</h2>
+<ul><li>基本的なエンドポイント管理は多くのGoogle Workspace／Cloud Identityプランに含まれる。詳細管理・エンタープライズ管理の利用範囲はプラン別に確認する。</li><li>Android詳細管理と第三者EMMの併用には制約がある。既存MDMがあれば管理主体を確認する。</li><li>個人所有端末と会社所有端末は組織部門・管理ポリシー・削除権限を区別する。</li><li>実際の契約エディション、既存MDM、OSバージョン、管理者権限は未確認。本稿の登録画面は現物検証していない。</li></ul>
+<h2>06　公式出典</h2>
+<ol>
+<li><a href="https://support.google.com/work/android/answer/9415508?hl=en">Android管理：管理対象ドメインでの設定</a></li>
+<li><a href="https://support.google.com/work/android/answer/6396012?hl=en">Android Enterprise：導入概要</a></li>
+<li><a href="https://support.google.com/a/users/answer/9018161?hl=ja">Endpoint Verification：端末側の設定</a></li>
+<li><a href="https://support.google.com/a/users/answer/9250915?hl=en">GCPW：Windowsへのログイン</a></li>
+<li><a href="https://support.google.com/chrome/a/answer/10407780?hl=en">Windows管理によるChromeポリシー設定</a></li>
+<li><a href="https://support.google.com/chrome/a/answer/9490493?hl=en">AndroidのChrome管理</a></li>
+<li><a href="https://developer.chrome.com/docs/modern-web-guidance">Modern Web Guidance</a>（Web実装・設計参考）</li>
+</ol>
+<footer>確認日：2026年11月13日。製品仕様・契約条件は変更される場合があります。この記事は公開情報に基づくもので、実環境の登録・ワイプ操作は行っていません。</footer>
+</main>
+<script>
+for(const button of document.querySelectorAll('.motion-toggle')){
+  const diagram=document.getElementById(button.dataset.target);
+  if(!diagram)continue;
+  button.addEventListener('click',()=>{
+    const paused=diagram.classList.toggle('paused');
+    button.setAttribute('aria-pressed',String(paused));
+    button.textContent=paused?'アニメーションを再開':'アニメーションを停止';
+  });
+}
+</script>
+</body></html>
