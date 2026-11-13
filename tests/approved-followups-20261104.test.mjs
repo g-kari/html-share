@@ -12,7 +12,7 @@ const i = id => incident.incidents.find(item => item.id === id);
 const hash = value => createHash('sha256').update(JSON.stringify(value)).digest('hex');
 
 test('four approved maintenance notices retain all old records and resolve only their two matching pending URLs', () => {
-  assert.equal(maintenance.confirmed.length, 639);
+  assert.equal(maintenance.confirmed.length, 643);
   assert.equal(maintenance.confirmed.filter(item => item.restored).length, 135);
   assert.equal(maintenance.pending.length, 2044);
   assert.equal(maintenance.discovery.length, 2887);

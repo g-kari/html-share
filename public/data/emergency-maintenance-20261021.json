@@ -1,6 +1,6 @@
 {
   "title": "2026年10月21日前後 緊急メンテナンス・関連告知一覧",
-  "checkedAt": "2026-11-12T00:27:00Z",
+  "checkedAt": "2026-11-13T00:27:00Z",
   "scope": "PHPの因果不問。今回の緊急/予防メンテと同時期の関連告知・別インシデントを区分。件数による上限なし。",
   "counting": "confirmedは公式資料を確認した対象別の告知カード数（部分本文・同一基盤・包括/個別の重なりを含む）。固有サイト数・実停止数・独立インシデント数・被害数ではない。pendingは原典/公式所有/対象範囲等の追加照合待ち。関連・重複・除外理由も全収集行に保持し、件数で打ち切らない。 実施自体が未定の停止可能性の予告も別状態（possible_unstarted）で保持し、実停止・復旧には数えません。",
   "confirmed": [
@@ -16166,18 +16166,18 @@
       "cat": "entertainment",
       "reason": "パスワードが意図せず変更される事象への対応。続報で不正ログイン・会員情報閲覧の可能性を発表",
       "reasonKey": "security",
-      "status": "サイト・アプリ停止継続。復旧未定（2026-11-06発表）",
+      "status": "サイト・アプリ停止継続。2026-11-11発表で、リスト型攻撃による不正ログインにより、購入したくじの当落を含む会員情報を閲覧した可能性が公表された。再開については二次情報のみで、公式確認は取れていない",
       "start": "2026-11-05 10時頃から利用停止",
       "end": "未定（停止継続）",
-      "scope": "宝くじ公式サイトと公式アプリ。",
-      "safe": "サーバーへの侵入の形跡はないと発表されています。不正ログイン・閲覧は可能性の範囲で、確定被害とはしません。",
+      "scope": "宝くじ公式サイトと公式アプリ。閲覧された可能性があるのは、氏名・住所・電話番号・メールアドレス等の登録情報、購入したくじの種類・金額・当落の履歴、当せん金受取口座の金融機関名・口座名義・口座番号の上4桁、クレジットカード番号の下4桁、プロフィール画像。対象件数は公表されていない",
+      "safe": "該当会員には今後個別にメールで連絡するとしている。2026-11-11までに確認した範囲では、不正ログインによる購入や、口座情報を書き換えての当せん金の受け取りはない。サーバーやデータベースへの侵入の形跡はなく、会員データの流出も確認していないと発表。再開と全利用者のパスワード一斉リセットを伝える二次情報は、本収集時点で大手報道や公式サイト本文での直接確認が取れていないため、確定情報として扱いません。",
       "url": "https://sorry.takarakuji-official.jp/Sorry-PlannedMaintenance.html",
-      "date": "2026-11-05停止。続報は2026-11-06発表",
+      "date": "2026-11-05停止。続報は2026-11-06発表・2026-11-11発表",
       "restored": false,
       "noticeState": "announced",
-      "tag": "停止継続・復旧未定",
+      "tag": "停止継続・閲覧可能性の詳細を発表",
       "source": "本収集の継続確認記録に基づく統合（公式発表および報道で確認）。公式告知URLは所在を確認して付記したもので、運営本文の直接取得・実機能の独立検証はしていません。",
-      "checkedAt": "2026-11-10T09:27:00Z",
+      "checkedAt": "2026-11-13T00:27:00Z",
       "icon": null,
       "ownershipEvidence": [],
       "sources": []
@@ -16459,18 +16459,18 @@
       "cat": "shopping",
       "reason": "不正アクセス（リスト型攻撃を含む流出可能性）",
       "reasonKey": "security",
-      "status": "ネットストア全停止。再開は延期され時期未定（2026-11-09 第4報）",
+      "status": "ネットストア全停止。再開は延期され時期未定（2026-11-09 第4報）。2026-11-12の記者会見で清水智社長が謝罪し、現時点で再開のメドは立っていないと説明",
       "start": "2026-10-30 第1報（流出可能性の公表）。ネットストアは2026-11-06に全停止（第3報）",
       "end": "未定（第4報で再開延期・時期未定）",
       "scope": "無印良品ネットストア・MUJIアプリ。流出可能性は最大約2,726万件（第1報）。MUJI Card約109万件はカード番号全桁も可能性（第2報）。代引き受取先の氏名・郵便番号約44万件も可能性（第4報）。対象者への個別連絡は2026-11-10開始予定。",
-      "safe": "各報の件数と対象を合算せず分離します。いずれも可能性の発表範囲で、確定した流出とはしません。",
+      "safe": "各報の件数と対象を合算せず分離します。いずれも可能性の発表範囲で、確定した流出とはしません。再開後には利用者にパスワードの再設定を依頼するとしています。",
       "url": "https://prtimes.jp/main/html/rd/p/000001882.000000987.html",
-      "date": "第1報2026-10-30。第2報11-04。第3報11-06。第4報11-09",
+      "date": "第1報2026-10-30。第2報11-04。第3報11-06。第4報11-09。2026-11-12 記者会見",
       "restored": false,
       "noticeState": "announced",
       "tag": "全停止・再開延期",
       "source": "本収集の継続確認記録に基づく統合（公式発表および報道で確認）。公式告知URLは所在を確認して付記したもので、運営本文の直接取得・実機能の独立検証はしていません。",
-      "checkedAt": "2026-11-10T09:27:00Z",
+      "checkedAt": "2026-11-13T00:27:00Z",
       "icon": null,
       "ownershipEvidence": [],
       "sources": [
@@ -16919,6 +16919,94 @@
       "icon": null,
       "ownershipEvidence": [],
       "sources": []
+    },
+    {
+      "restored": false,
+      "noticeState": "announced",
+      "checkedAt": "2026-11-13T00:27:00Z",
+      "icon": null,
+      "ownershipEvidence": [],
+      "sources": [],
+      "id": "japanpost-line-posukuma-tonariwa-20261111",
+      "name": "日本郵便 LINE公式アカウント「郵便局［ぽすくま］」／電通デジタル「TONARIWA」",
+      "cat": "web",
+      "reason": "委託先の電通デジタル「TONARIWA」への不正アクセス（管理アカウントの認証情報漏えいを起点に第三者が権限昇格）で、情報が漏えいした恐れ",
+      "reasonKey": "security",
+      "status": "2026-11-11 14:20頃から緊急メンテナンスに入り、LINE公式アカウントからのサービスは利用できない。再開時期は未定で、再開時は公式サイトで案内するとしている",
+      "start": "2026-11-11 14:20頃",
+      "end": "未定",
+      "scope": "日本郵便のLINE公式アカウント「郵便局［ぽすくま］」（ID：@japanpost）のLINE経由サービス（追跡・再配達申込み等）。侵害を受けたのは電通デジタルのマーケティングプラットフォーム「TONARIWA」で、TONARIWA全体では一部の導入企業が扱う利用者の氏名・生年月日・連絡先等の属性情報に加え、LINE公式アカウント連携用のアクセストークン等も漏えい対象となりうるとされ、不正なメッセージ配信等のリスクを排除できないとしている。クレジットカード情報は含まれていない。郵便・配送システム自体への侵入を示す発表ではない",
+      "safe": "日本郵便の利用者については、2026-11-11時点で情報の不正取得や悪用の事実は確認されていない。LINE経由のサービスが使えない間の代替手段として、公式Webサイトからの利用を案内している",
+      "url": "https://www.post.japanpost.jp/",
+      "date": "2026-11-11（日本郵便・電通デジタルの発表）",
+      "tag": "不正アクセスでLINEサービス停止",
+      "source": "日本郵便発表（2026-11-11）と電通デジタル発表（2026-11-11）を報じるASCII／Yahoo!ニュース（2026-11-12 09:40）とセキュリティ対策Labで確認。発表は2026-11-11で、前回2026-11-12 09:27の収集では未記録だったため、今回の収集で新規として記録する。公式URLは日本郵便の公式サイトを付記したもの"
+    },
+    {
+      "restored": false,
+      "noticeState": "announced",
+      "checkedAt": "2026-11-13T00:27:00Z",
+      "icon": null,
+      "ownershipEvidence": [],
+      "sources": [],
+      "id": "tradewaltz-20261110",
+      "name": "TradeWaltz（トレードワルツ）",
+      "cat": "web",
+      "reason": "外部からの不正アクセス。資本関係のない外部委託事業者の運用サーバーが攻撃を受け、同サーバーに保管されていたシステム管理用アクセスキーが不正利用された。貿易書類130件の漏えいを確認",
+      "reasonKey": "security",
+      "status": "2026-11-10 14:30に本番環境とトレーニング環境を停止し、継続中。第9報（2026-11-12 17:00）で漏えいの対象範囲の特定が完了し、貿易書類130件のみと確定した（氏名およびイニシャルを含む）。2026-11-11〜11-13中の再開は困難で、11月14日以降の再開については2026-11-13 17時までに案内するとしている",
+      "start": "2026-11-10（10時頃に不正アクセスを検知し、14:30に本番／トレーニング環境を停止）",
+      "end": "未定（11月14日以降の再開可否は2026-11-13 17時までに案内予定。次回更新は2026-11-13 13時予定）",
+      "scope": "TradeWaltzの本番環境とトレーニング環境。TradeWaltz for Grain Importers、TradeWaltz for Export Documentary は対象外で、通常どおり利用可能と案内",
+      "safe": "漏えい対象であることが判明した顧客への個別連絡は2026-11-12 12:00までに完了。個人情報保護委員会への速報提出は完了。不正利用が確認されたアカウント等を削除し、アクセス元IP制限を実施したと発表",
+      "url": "https://www.tradewaltz.com/news/13816/",
+      "date": "2026-11-10停止。第8報は2026-11-12 12:00。第9報は2026-11-12 17:00",
+      "tag": "不正アクセスで両環境停止・再開未定",
+      "source": "株式会社トレードワルツ公式「不正アクセスの検知およびサービス一時停止のお知らせ（第8報）」（2026-11-12 12:00）と第9報（2026-11-12 17:00）の公式ページを直接確認。前回までの収集で未記録だったため、今回の収集で新規として記録する（停止開始は2026-11-10）"
+    },
+    {
+      "restored": false,
+      "noticeState": "announced",
+      "checkedAt": "2026-11-13T00:27:00Z",
+      "icon": null,
+      "ownershipEvidence": [],
+      "sources": [],
+      "id": "netmile-sugutama-20261102",
+      "name": "ネットマイル／すぐたま（ウィルズ）",
+      "cat": "web",
+      "reason": "システム環境への第三者の不正アクセスで、会員情報の一部が外部へ漏えいした可能性（対象は退会者を含む最大約549万人。氏名・メールアドレス・特典交換に関する情報）",
+      "reasonKey": "security",
+      "status": "二次被害の防止とセキュリティ対策のため、2026-11-02の公表とともに「ネットマイル」と「すぐたま」の両サイトを停止し、継続中。再開時期は未定。2026-11-12の確認時点でも、この件に関する最新の開示は2026-11-02分までで、第2報は確認できていない",
+      "start": "2026-11-02",
+      "end": "未定",
+      "scope": "ポイント交換サービス「ネットマイル」と「すぐたま」。関連してSEIBU PRINCE CLUBが2026-11-09、ネットマイルからSEIBU Smile POINTへの交換を10月30日時点で停止していたと案内した（交換時に登録された氏名等とSEIBU PRINCE CLUBお客さま番号が第三者から閲覧可能な状態にあったとしている）",
+      "safe": "保有マイルは会社が保証し、サービス再開後に復元すると案内（停止中は失効しない）",
+      "url": "https://www.wills.co.jp/",
+      "date": "2026-11-02公表（東証グロース開示）",
+      "tag": "不正アクセスで両サイト停止・再開未定",
+      "source": "ウィルズの開示（2026-11-02）を整理する報道・解説（manabinoba.blog、issoh.co.jp、TRAICY）で確認。サービス本体は503応答で、告知本文の直接取得や復旧完了の発表は2026-11-12の確認時点で確認できていない。発表は2026-11-02で、前回までの収集で未記録だったため、今回の収集で新規として記録する。公式URLはウィルズの公式サイトを付記したもの"
+    },
+    {
+      "restored": false,
+      "noticeState": "announced",
+      "checkedAt": "2026-11-13T00:27:00Z",
+      "icon": null,
+      "ownershipEvidence": [],
+      "sources": [],
+      "id": "microsoft365-outage-20261113",
+      "name": "Microsoft 365（Microsoft）",
+      "cat": "web",
+      "reason": "多数のサーバーが予期せず停止（自動ヘルスチェックの失敗等が調査対象）し、残りのサーバーに負荷が集中したためと公式が説明。根本原因は調査中。現時点でサイバー攻撃や情報流出を示す公式説明はない",
+      "reasonKey": "other",
+      "status": "2026-11-13未明から企業向けクラウドサービスで世界規模の接続障害が発生し、継続中。2026-11-13 08:06の更新では、影響を受けたサーバーの一部を稼働に戻し始め、一部の地域で限定的な回復を確認したとされたが、全面的な復旧時期は示されていない",
+      "start": "2026-11-13未明（公式X「Microsoft 365 Status」の初報は2026-11-13 02:54。当初は米大陸の利用者がExchange Onlineのメールボックスに接続できない事象として調査され、その後どの地域の利用者にも影響が及ぶ可能性に拡大）",
+      "end": "未定（2026-11-13 09:27の収集時点で復旧完了の公式発表は確認できていない）",
+      "scope": "Exchange Online（Outlookのメール）、Microsoft Teams、SharePoint Online、Microsoft 365 Copilot、Microsoft Defender XDR、Microsoft Planner、Microsoft To Do、Microsoft Purviewなど計13サービスに影響が出る可能性があるとされる（公式ステータスページ、2026-11-13 08:06更新時点）。障害IDは全体がMO1550821、Exchange OnlineがEX1550543",
+      "safe": "すべてのデプロイを一時停止し、トラフィックの振り分けや影響サーバーの再起動等を実施していると公式が説明。次回更新は2026-11-13 09:30までと予告された",
+      "url": "https://x.com/MSFT365Status",
+      "date": "2026-11-13 02:54（公式X初報）",
+      "tag": "世界規模の接続障害・復旧作業中",
+      "source": "テレビ朝日ニュース（2026-11-13 08:22公開、08:53更新）、ITmedia NEWS（2026-11-13 06:41公開）、日本時事新聞（jpjj.jp、Microsoft 365 Status公式X・ステータスページを引用）で確認。本収集は公式Xとステータスページの本文を直接再取得しておらず、報道経由の統合として記録する"
     }
   ],
   "pending": [
@@ -129124,6 +129212,74 @@
           "observation": "ツイキャス"
         }
       ]
+    },
+    {
+      "id": "official-followups-20261113-0927",
+      "checkedAt": "2026-11-13T00:27:00Z",
+      "rowCount": 6,
+      "reviewedSourceCount": 6,
+      "members": [
+        {
+          "name": "日本郵便 LINE公式アカウント「郵便局［ぽすくま］」／電通デジタル「TONARIWA」",
+          "sourceUrl": "https://www.post.japanpost.jp/",
+          "verification": "confirmed",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-11-13T00:27:00Z",
+          "confirmedId": "japanpost-line-posukuma-tonariwa-20261111",
+          "collectionBatch": "official-followups-20261113-0927",
+          "observation": "日本郵便 LINE公式アカウント「郵便局［ぽすくま］」／電通デジタル「TONARIWA」"
+        },
+        {
+          "name": "TradeWaltz（トレードワルツ）",
+          "sourceUrl": "https://www.tradewaltz.com/news/13816/",
+          "verification": "confirmed",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-11-13T00:27:00Z",
+          "confirmedId": "tradewaltz-20261110",
+          "collectionBatch": "official-followups-20261113-0927",
+          "observation": "TradeWaltz（トレードワルツ）"
+        },
+        {
+          "name": "ネットマイル／すぐたま（ウィルズ）",
+          "sourceUrl": "https://www.wills.co.jp/",
+          "verification": "confirmed",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-11-13T00:27:00Z",
+          "confirmedId": "netmile-sugutama-20261102",
+          "collectionBatch": "official-followups-20261113-0927",
+          "observation": "ネットマイル／すぐたま（ウィルズ）"
+        },
+        {
+          "name": "Microsoft 365（Microsoft）",
+          "sourceUrl": "https://x.com/MSFT365Status",
+          "verification": "confirmed",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-11-13T00:27:00Z",
+          "confirmedId": "microsoft365-outage-20261113",
+          "collectionBatch": "official-followups-20261113-0927",
+          "observation": "Microsoft 365（Microsoft）"
+        },
+        {
+          "name": "無印良品ネットストア／MUJIアプリ",
+          "sourceUrl": "https://prtimes.jp/main/html/rd/p/000001882.000000987.html",
+          "verification": "confirmed",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-11-13T00:27:00Z",
+          "confirmedId": "muji-netstore-20261030",
+          "collectionBatch": "official-followups-20261113-0927",
+          "observation": "無印良品ネットストア／MUJIアプリ"
+        },
+        {
+          "name": "宝くじ公式サイト",
+          "sourceUrl": "https://sorry.takarakuji-official.jp/Sorry-PlannedMaintenance.html",
+          "verification": "confirmed",
+          "sourceRead": "not_read_this_cycle",
+          "checkedAt": "2026-11-13T00:27:00Z",
+          "confirmedId": "takarakuji-official-20261105",
+          "collectionBatch": "official-followups-20261113-0927",
+          "observation": "宝くじ公式サイト"
+        }
+      ]
     }
   ],
   "officialFollowups": [
@@ -132589,5 +132745,76 @@
     ],
     "unresolvedOriginalCandidatesRetained": true,
     "summary": "2026-11-11 18:27と2026-11-12 09:27の収集継続確認（公式発表および報道）に基づく追随。新規4カード（東京ディズニーリゾート・ショッピング、ふるさとチョイス（トラストバンク）、シャープ「COCORO ENERGY」、Vポイントモール）と既存5カードの更新（NTTドコモ 全国通信障害（5G SA）は第八報と復旧報を統合して完全復旧、LibrariE／TRC-DLマガジンはメンテナンス完了、ALL.Net/Aime・teket・ツイキャスは続報）。639告知カード・対象範囲の復旧報告135件・照合待ち2044群・収集2887行。運営本文の再取得ではなく収集記録の統合であり、未照合候補・履歴は保持。"
+  },
+  "dailyOfficialFollowup20261113": {
+    "batchId": "official-followups-20261113-0927",
+    "checkedAt": "2026-11-13T00:27:00Z",
+    "updatedIds": [
+      "muji-netstore-20261030",
+      "takarakuji-official-20261105"
+    ],
+    "newIds": [
+      "japanpost-line-posukuma-tonariwa-20261111",
+      "tradewaltz-20261110",
+      "netmile-sugutama-20261102",
+      "microsoft365-outage-20261113"
+    ],
+    "previousRecords": [
+      {
+        "id": "muji-netstore-20261030",
+        "name": "無印良品ネットストア／MUJIアプリ",
+        "cat": "shopping",
+        "reason": "不正アクセス（リスト型攻撃を含む流出可能性）",
+        "reasonKey": "security",
+        "status": "ネットストア全停止。再開は延期され時期未定（2026-11-09 第4報）",
+        "start": "2026-10-30 第1報（流出可能性の公表）。ネットストアは2026-11-06に全停止（第3報）",
+        "end": "未定（第4報で再開延期・時期未定）",
+        "scope": "無印良品ネットストア・MUJIアプリ。流出可能性は最大約2,726万件（第1報）。MUJI Card約109万件はカード番号全桁も可能性（第2報）。代引き受取先の氏名・郵便番号約44万件も可能性（第4報）。対象者への個別連絡は2026-11-10開始予定。",
+        "safe": "各報の件数と対象を合算せず分離します。いずれも可能性の発表範囲で、確定した流出とはしません。",
+        "url": "https://prtimes.jp/main/html/rd/p/000001882.000000987.html",
+        "date": "第1報2026-10-30。第2報11-04。第3報11-06。第4報11-09",
+        "restored": false,
+        "noticeState": "announced",
+        "tag": "全停止・再開延期",
+        "source": "本収集の継続確認記録に基づく統合（公式発表および報道で確認）。公式告知URLは所在を確認して付記したもので、運営本文の直接取得・実機能の独立検証はしていません。",
+        "checkedAt": "2026-11-10T09:27:00Z",
+        "icon": null,
+        "ownershipEvidence": [],
+        "sources": [
+          {
+            "url": "https://www.ryohin-keikaku.jp/news/articles/2026_1030_01",
+            "title": "第1報（2026-10-30）"
+          },
+          {
+            "url": "https://www.ryohin-keikaku.jp/news/articles/2026_1104_02",
+            "title": "第2報（2026-11-04）"
+          }
+        ]
+      },
+      {
+        "id": "takarakuji-official-20261105",
+        "name": "宝くじ公式サイト",
+        "cat": "entertainment",
+        "reason": "パスワードが意図せず変更される事象への対応。続報で不正ログイン・会員情報閲覧の可能性を発表",
+        "reasonKey": "security",
+        "status": "サイト・アプリ停止継続。復旧未定（2026-11-06発表）",
+        "start": "2026-11-05 10時頃から利用停止",
+        "end": "未定（停止継続）",
+        "scope": "宝くじ公式サイトと公式アプリ。",
+        "safe": "サーバーへの侵入の形跡はないと発表されています。不正ログイン・閲覧は可能性の範囲で、確定被害とはしません。",
+        "url": "https://sorry.takarakuji-official.jp/Sorry-PlannedMaintenance.html",
+        "date": "2026-11-05停止。続報は2026-11-06発表",
+        "restored": false,
+        "noticeState": "announced",
+        "tag": "停止継続・復旧未定",
+        "source": "本収集の継続確認記録に基づく統合（公式発表および報道で確認）。公式告知URLは所在を確認して付記したもので、運営本文の直接取得・実機能の独立検証はしていません。",
+        "checkedAt": "2026-11-10T09:27:00Z",
+        "icon": null,
+        "ownershipEvidence": [],
+        "sources": []
+      }
+    ],
+    "unresolvedOriginalCandidatesRetained": true,
+    "summary": "2026-11-12 12:27・15:27・18:27と2026-11-13 09:27の収集継続確認（公式発表および報道）に基づく追随。新規4カード（日本郵便LINE公式アカウント「郵便局［ぽすくま］」／電通デジタル「TONARIWA」、TradeWaltz（トレードワルツ）、ネットマイル／すぐたま（ウィルズ）、Microsoft 365（Microsoft）の世界規模の接続障害）と既存2カードの続報更新（無印良品ネットストア／MUJIアプリの2026-11-12記者会見、宝くじ公式サイトの閲覧可能性の詳細公表）を追加。TradeWaltzは第8報と第9報を1カードへ統合し、宝くじの再開に関する二次情報は公式確認待ちとして確定扱いしていません。"
   }
 }
