@@ -1,7 +1,7 @@
 import { readdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { addSocialMetadata, escapeHtml, pageDetails, routeFor, scanTags, SITE_URL } from "./social-metadata.mjs";
-import { addFeedDiscovery, writeFeed } from "./rss-feed.mjs";
+import { addFeedDiscovery, contentFingerprint, pageDates, readFeedState, writeFeed } from "./rss-feed.mjs";
 import { REPORT_FEEDS, writeReportFeeds } from "./report-feeds.mjs";
 import { authoredReportSource } from "./report-source.mjs";
 import { generateSplitVulnerabilities, isReportArchive } from "./split-vulnerabilities.mjs";
@@ -77,8 +77,35 @@ await writeFile(path.join(publicDir, "sitemap.xml"),
 
 const searchUrl = await writeSearchIndex(path.resolve("."), allFiles);
 
-const cards = pages.length
-  ? pages.map(({ route, title, description }) => `
+// The top-page list is ordered by last update, newest first — the same
+// `updated` dates the RSS feed computes from each page's content history
+// (metadata-only commits do not count as edits). Ties fall back to route
+// order, matching renderFeed, so the page list and the feed agree.
+// Dates are only computed here, never written: writeReportFeeds and
+// writeFeed below still validate first and publish as before, so a
+// rejected build leaves every feed and saved state untouched. A page
+// whose date cannot be computed yet (e.g. uncommitted content) sorts
+// last here; writeFeed re-runs the same computation and reports the
+// real error before index.html is written.
+const feedState = await readFeedState(path.resolve("."));
+const updatedByRoute = new Map(pages.map((page) => {
+  let updated = null;
+  try {
+    updated = pageDates(path.resolve("."), page.relativePath,
+      contentFingerprint(page.source, page.relativePath), feedState.pages[page.relativePath]).updated;
+  } catch { /* Defer to writeFeed below, which throws before publishing. */ }
+  return [page.route, updated];
+}));
+const updatedTime = (route) => {
+  const parsed = Date.parse(updatedByRoute.get(route));
+  return Number.isFinite(parsed) ? parsed : Number.NEGATIVE_INFINITY;
+};
+const orderedPages = [...pages].sort((a, b) =>
+  updatedTime(b.route) - updatedTime(a.route) ||
+  a.route.localeCompare(b.route, "en"));
+
+const cards = orderedPages.length
+  ? orderedPages.map(({ route, title, description }) => `
       <article class="card">
         <a href="${escapeHtml(route)}">
           <h2>${escapeHtml(title)}</h2>
