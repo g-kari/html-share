@@ -3,8 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Google WorkspaceによるWindowsとAndroid端末管理の範囲、登録方式、管理構成と制約を図解で整理。">
-<title>Google WorkspaceのWindows・Android端末管理</title>
+<meta name="description" content="Google WorkspaceとCloud IdentityでWindows・Androidを管理するためのプラン・日本円料金・機能差・登録手順・遠隔削除の範囲を公式資料で比較。">
+<title>Google Workspaceの端末管理：Windows・Androidと契約プラン徹底比較</title>
+<meta name="color-scheme" content="light">
+<meta property="og:image" content="https://share.0g0.xyz/assets/google-workspace-uem-guide-ogp-20261114.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1734">
+<meta property="og:image:height" content="907">
+<meta property="og:image:alt" content="Windows・Android端末とGoogle管理コンソールの構造図。契約プラン比較の解説記事">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://share.0g0.xyz/assets/google-workspace-uem-guide-ogp-20261114.jpg">
+<meta name="twitter:image:alt" content="Google WorkspaceのWindows・Android端末管理を比較した技術解説">
 <style>
 :root{font-family:system-ui,-apple-system,"Noto Sans JP",sans-serif;background:#fff;color:#151515;line-height:1.7}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0}a{color:#005b94}a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #005b94;outline-offset:3px}
@@ -36,33 +45,33 @@ button:hover{background:#444}.paused .signal{animation-play-state:paused}
 .step-flow li{padding:12px;border-right:1px solid #999;counter-increment:steps;min-width:0}
 .step-flow li:last-child{border:0}.step-flow li::before{content:"0" counter(steps);font-weight:800;font-size:25px;display:block;line-height:1.1}
 .step-flow strong{display:block;margin:7px 0 2px;line-height:1.4}.step-flow span{font-size:13px;display:block;line-height:1.5}
-.scroll{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:660px;font-size:14px}
+.scroll{overflow-x:auto;max-width:100%;border-bottom:1px solid #777;margin:14px 0 6px}table{border-collapse:collapse;width:100%;min-width:660px;font-size:14px}
 th,td{border-bottom:1px solid #aaa;padding:10px 12px;text-align:left;vertical-align:top}
 th{border-bottom:3px solid #171717;background:#eee}tr:nth-child(even){background:#f5f5f5}
+.plan-matrix{min-width:970px;font-size:13px}.plan-matrix th:first-child{min-width:190px;position:sticky;left:0;background:#ddd;z-index:1}.plan-matrix td:first-child{position:sticky;left:0;background:#fff;font-weight:700;min-width:190px}.plan-matrix tr:nth-child(even) td:first-child{background:#f5f5f5}
+.plan-matrix td:not(:first-child){text-align:center;min-width:120px}.ok{font-weight:800;color:#075e39}.no{color:#6b3030}.conditional{font-weight:700;color:#805300}
+.prices{min-width:760px}.prices td:nth-child(2),.prices td:nth-child(3){font-variant-numeric:tabular-nums;white-space:nowrap}
+.caption{font-size:13px;color:#444;line-height:1.5}.feature-figure{margin:22px 0;border-bottom:1px solid #aaa;padding-bottom:12px}.feature-figure img{width:100%;height:auto;display:block;background:#ececec}
+.toc{display:flex;gap:8px 20px;flex-wrap:wrap;border-top:1px solid #aaa;border-bottom:1px solid #aaa;padding:10px 0;margin:20px 0}.toc a{font-size:14px}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:2px solid #111;border-bottom:2px solid #111;margin:22px 0}.facts p{padding:10px 14px;margin:0;border-right:1px solid #aaa}.facts p:last-child{border:0}.facts strong{display:block;font-size:20px;color:#004c88}
+.info-lines{margin:10px 0;padding:0;list-style:none}.info-lines li{border-top:1px solid #bbb;padding:8px 0}.info-lines b{display:inline-block;min-width:138px}.decision{border-collapse:collapse}.decision td:first-child{font-weight:700}
+.sources li{margin:5px 0;overflow-wrap:anywhere}a{overflow-wrap:anywhere}
 details{border-bottom:1px solid #999;padding:12px 0}summary{cursor:pointer;font-weight:700;font-size:17px}
 details>div{padding:4px 0 8px 18px;max-width:860px}
 .note{border-left:4px solid #171717;padding-left:13px}.caution{border-left:4px solid #a44c00}
 code{background:#eee;padding:2px 5px}footer{margin-top:36px;border-top:2px solid #171717;padding-top:14px;font-size:13px;color:#555}
-@media(max-width:700px){header{padding:23px 14px}main{padding:7px 14px 48px}.layout{grid-template-columns:1fr;gap:0}.step-flow{grid-template-columns:repeat(2,minmax(0,1fr))}.step-flow li:nth-child(2){border-right:0}.step-flow li:nth-child(-n+2){border-bottom:1px solid #999}.diagram .label,.diagram .inverse{font-size:20px}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+@media(max-width:700px){header{padding:23px 14px}main{padding:7px 14px 48px}.layout{grid-template-columns:1fr;gap:0}.facts{grid-template-columns:1fr}.facts p{border-right:0;border-bottom:1px solid #aaa}.facts p:last-child{border-bottom:0}.step-flow{grid-template-columns:repeat(2,minmax(0,1fr))}.step-flow li:nth-child(2){border-right:0}.step-flow li:nth-child(-n+2){border-bottom:1px solid #999}.diagram .label,.diagram .inverse{font-size:20px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
 </style>
   <!-- html-share: social metadata -->
   <link rel="canonical" href="https://share.0g0.xyz/google-workspace-uem-guide">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="HTML Share">
-  <meta property="og:title" content="Google WorkspaceのWindows・Android端末管理">
-  <meta property="og:description" content="Google WorkspaceによるWindowsとAndroid端末管理の範囲、登録方式、管理構成と制約を図解で整理。">
+  <meta property="og:title" content="Google Workspaceの端末管理：Windows・Androidと契約プラン徹底比較">
+  <meta property="og:description" content="Google WorkspaceとCloud IdentityでWindows・Androidを管理するためのプラン・日本円料金・機能差・登録手順・遠隔削除の範囲を公式資料で比較。">
   <meta property="og:url" content="https://share.0g0.xyz/google-workspace-uem-guide">
-  <meta property="og:image" content="https://share.0g0.xyz/assets/html-share-card-v1.png">
-  <meta property="og:image:type" content="image/png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="HTML Shareのロゴと共有ページを表すカード">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Google WorkspaceのWindows・Android端末管理">
-  <meta name="twitter:description" content="Google WorkspaceによるWindowsとAndroid端末管理の範囲、登録方式、管理構成と制約を図解で整理。">
-  <meta name="twitter:image" content="https://share.0g0.xyz/assets/html-share-card-v1.png">
-  <meta name="twitter:image:alt" content="HTML Shareのロゴと共有ページを表すカード">
+  <meta name="twitter:title" content="Google Workspaceの端末管理：Windows・Androidと契約プラン徹底比較">
+  <meta name="twitter:description" content="Google WorkspaceとCloud IdentityでWindows・Androidを管理するためのプラン・日本円料金・機能差・登録手順・遠隔削除の範囲を公式資料で比較。">
   <!-- /html-share: social metadata -->
   <!-- html-share: rss discovery -->
   <link rel="alternate" type="application/rss+xml" title="HTML Share RSS" href="https://share.0g0.xyz/feed.xml">
@@ -70,14 +79,60 @@ code{background:#eee;padding:2px 5px}footer{margin-top:36px;border-top:2px solid
 </head>
 <body>
 <header>
-<div class="kicker">Technical guide / Google Workspace</div>
-<h1>Windows・Android端末管理</h1>
-<p class="lead">管理範囲、登録方法、Googleの各管理機能の違いを整理する。</p>
-<div class="meta">Google公式資料に基づく解説 ｜ 確認：2026年11月13日 ｜ 実機登録は未検証</div>
+<div class="kicker">Google Workspace / Cloud Identity / Endpoint management</div>
+<h1>Windows・Android端末管理と契約プラン</h1>
+<p class="lead">料金、エディション別の管理機能、端末の登録・削除方法をGoogle公式資料で比較する。</p>
+<div class="meta">公式仕様・日本円の掲載料金を確認：2026年11月14日 ｜ 実機登録は未検証</div>
 </header>
 <main>
-<p class="summary">結論：Androidは業務プロファイルと端末管理を一体的に構成できる。Windowsは「端末確認」「OSログイン」「端末ポリシー」「ブラウザ制御」を別々に設計する。</p>
-<h2>01　全体の管理構造</h2>
+<p class="summary">結論：GoogleアカウントによるWindowsログインとAndroidの基本管理ならBusiness Starterでも対応。WindowsのOSポリシーとAndroidの仕事用プロファイルにはBusiness Plus以上、端末状態に応じたアクセス制限にはEnterprise Standard以上またはCloud Identity Premiumが必要になる。</p>
+<div class="facts" aria-label="管理プランの選択基準"><p><strong>基本管理</strong>Business Starter・Cloud Identity Free<br><small>Androidの基本管理、GCPW、端末情報</small></p><p><strong>詳細な端末管理</strong>Business Plus・Cloud Identity Premium<br><small>Windows MDM、Android仕事用プロファイル</small></p><p><strong>条件付きアクセス</strong>Enterprise Standard以上・Cloud Identity Premium<br><small>Context-Aware Access（CAA）</small></p></div>
+<nav class="toc" aria-label="記事内ナビゲーション"><a href="#plans">プラン・料金</a><a href="#matrix">機能比較</a><a href="#overview">構成図</a><a href="#android">Android登録</a><a href="#windows">Windows登録</a><a href="#operations">運用上の制限</a><a href="#references">公式出典</a></nav>
+
+<h2 id="plans">01　必要なサービスプランと料金</h2>
+<p>Google Workspaceの端末管理は、独立した「UEM」という単一契約ではない。WorkspaceまたはCloud Identityの対象ユーザーに付与したライセンスと、管理機能ごとの有効化設定で利用範囲が決まる。<a href="#source-features">[1]</a> Google Cloud IdentityはGmail・Googleドキュメントの利用契約を目的としない、ID・端末管理向けの選択肢である。<a href="#source-ci">[3]</a></p>
+<h3>国内公開料金の一覧</h3>
+<p class="caption">2026年11月14日確認。表示は日本円、ユーザー1人あたり。年間契約欄は月額換算、年単位の契約を伴う。契約先、消費税、キャンペーン、請求条件は正式な購入画面・見積もりで確認する。</p>
+<div class="scroll" tabindex="0" role="region" aria-label="料金比較表。横スクロール可能"><table class="prices"><thead><tr><th scope="col">サービス・エディション</th><th scope="col">年間契約の月額換算</th><th scope="col">月払い・柔軟契約</th><th scope="col">端末管理の主な位置づけ</th></tr></thead><tbody>
+<tr><th scope="row">Google Workspace Business Starter</th><td>¥800 / 人・月</td><td>¥950 / 人・月</td><td>基本管理。GCPW・Android基本管理</td></tr>
+<tr><th scope="row">Google Workspace Business Standard</th><td>¥1,600 / 人・月</td><td>¥1,900 / 人・月</td><td>端末管理範囲はStarterとほぼ同じ</td></tr>
+<tr><th scope="row">Google Workspace Business Plus</th><td>¥2,500 / 人・月</td><td>¥3,000 / 人・月</td><td>Windows MDM・Android詳細管理</td></tr>
+<tr><th scope="row">Google Workspace Enterprise Standard</th><td>¥3,060 / 人・月</td><td>¥3,670 / 人・月</td><td>詳細管理＋CAAなど</td></tr>
+<tr><th scope="row">Google Workspace Enterprise Plus</th><td>¥3,980 / 人・月</td><td>¥4,760 / 人・月</td><td>Enterprise Standard以上の高度な管理</td></tr>
+<tr><th scope="row">Cloud Identity Free</th><td>¥0</td><td>¥0</td><td>基本的なID・端末管理。Gmail等は別</td></tr>
+<tr><th scope="row">Cloud Identity Premium</th><td>¥645 / 人・月相当<br><small>年額¥7,740</small></td><td>¥774 / 人・月</td><td>高度な端末管理・CAA。Gmail等は別</td></tr>
+</tbody></table></div>
+<p class="caption">出典：<a href="https://workspace.google.com/intl/ja/business/">Google Workspace Business料金</a>、<a href="https://workspace.google.com/intl/ja/enterprise/">Enterprise料金</a>、<a href="https://docs.cloud.google.com/identity/docs/how-to/compare-cloud-identity-billing-plans">Cloud Identity料金</a>。Business系は通常300ユーザー以下が対象。Cloud Identity Premiumの年間契約は年額¥7,740を12で割った月額換算であり、契約上のユーザー数・期間のコミットメントがある。</p>
+<p class="note"><strong>費用の考え方：</strong>端末台数分ではなく利用者のライセンスを確認する。たとえばBusiness Starter利用者にWindows MDM機能が必要なら、Windows端末の追加ではなく利用者側のエディションを見直す。既存WorkspaceとCloud Identityのライセンスを併用する際は、対象ユーザーへの機能適用を管理コンソールで確かめる。<a href="#source-ci">[3]</a></p>
+<h3>機能からプランを選ぶ</h3>
+<div class="scroll" tabindex="0" role="region" aria-label="要件別推奨プラン。横スクロール可能"><table class="decision"><thead><tr><th>要件</th><th>候補となる最小クラス</th><th>追加条件</th></tr></thead><tbody>
+<tr><td>Androidの画面ロックと業務アカウント管理</td><td>Cloud Identity Free / Business Starter</td><td>基本管理のみ。仕事用プロファイルは対象外</td></tr>
+<tr><td>GoogleアカウントでWindowsにログイン</td><td>Cloud Identity Free / Business Starter</td><td>GCPWの対応Windowsエディションと管理者権限が必要</td></tr>
+<tr><td>WindowsのBitLocker・更新・USB等を制御</td><td>Business Plus / Cloud Identity Premium</td><td>Windows端末管理を有効化して登録</td></tr>
+<tr><td>BYOD Androidで個人用・仕事用を分離</td><td>Business Plus / Cloud Identity Premium</td><td>Android詳細管理と仕事用プロファイル</td></tr>
+<tr><td>会社Androidのゼロタッチ一括登録</td><td>Business Plus / Cloud Identity Premium</td><td>対応端末、認定販売店、詳細管理設定</td></tr>
+<tr><td>端末状態によるGoogleサービスへのアクセス制御</td><td>Enterprise Standard / Cloud Identity Premium</td><td>CAAの対象アプリ・条件を設計。端末データ収集も別途設定</td></tr>
+<tr><td>Chromeブラウザ設定だけを集中管理</td><td>Chrome Enterprise Core（無料）も選択肢</td><td>Chromeのクラウド管理。Windows OSのMDMではない</td></tr>
+</tbody></table></div>
+<p class="caption">「候補」は一般的な商用エディションの例。Frontline、Education、Essentials系にも対応するエディションがある。特定環境での機能利用はライセンス、ドメイン確認、組織部門、機能有効化の状態で判断する。<a href="#source-features">[1]</a></p>
+
+<h2 id="matrix">02　エディション別に使える機能</h2>
+<p>以下はGoogle公式エディション比較から、Windows・Androidの管理に関係する機能を抜き出したもの。<strong>「可」はライセンス上の対象</strong>を示し、端末登録や初期設定の完了を意味しない。<a href="#source-business">[2]</a><a href="#source-enterprise">[4]</a><a href="#source-ci">[3]</a></p>
+<div class="scroll" tabindex="0" role="region" aria-label="端末管理機能のエディション別比較表。横スクロール可能"><table class="plan-matrix"><thead><tr><th scope="col">管理機能</th><th scope="col">Business<br>Starter</th><th scope="col">Business<br>Standard</th><th scope="col">Business<br>Plus</th><th scope="col">Enterprise<br>Standard / Plus</th><th scope="col">Cloud Identity<br>Free</th><th scope="col">Cloud Identity<br>Premium</th></tr></thead><tbody>
+<tr><td>Android基本管理（パスコード等）</td><td class="ok">可</td><td class="ok">可</td><td class="ok">可</td><td class="ok">可</td><td class="ok">可</td><td class="ok">可</td></tr>
+<tr><td>Windows GCPW（単体）</td><td class="ok">可</td><td class="ok">可</td><td class="ok">可</td><td class="ok">可</td><td class="ok">可</td><td class="ok">可</td></tr>
+<tr><td>Endpoint Verification・PC情報収集</td><td class="ok">可</td><td class="ok">可</td><td class="ok">可</td><td class="ok">可</td><td class="ok">可</td><td class="ok">可</td></tr>
+<tr><td>Windows MDM（BitLocker等）</td><td class="no">不可</td><td class="no">不可</td><td class="ok">可</td><td class="ok">可</td><td class="no">不可</td><td class="ok">可</td></tr>
+<tr><td>Android詳細管理・仕事用プロファイル</td><td class="no">不可</td><td class="no">不可</td><td class="ok">可</td><td class="ok">可</td><td class="no">不可</td><td class="ok">可</td></tr>
+<tr><td>Androidゼロタッチ登録</td><td class="no">不可</td><td class="no">不可</td><td class="ok">可</td><td class="ok">可</td><td class="no">不可</td><td class="ok">可</td></tr>
+<tr><td>管理者による端末承認・端末ワイプ</td><td class="no">不可</td><td class="no">不可</td><td class="ok">可</td><td class="ok">可</td><td class="no">不可</td><td class="ok">可</td></tr>
+<tr><td>Context-Aware Access</td><td class="no">不可</td><td class="no">不可</td><td class="no">不可</td><td class="ok">可</td><td class="no">不可</td><td class="ok">可</td></tr>
+<tr><td>モバイル端末証明書の管理</td><td class="no">不可</td><td class="no">不可</td><td class="no">不可</td><td class="ok">可</td><td class="no">不可</td><td class="ok">可</td></tr>
+</tbody></table></div>
+<p class="note caution">Business PlusにはWindows MDMとAndroid詳細管理が含まれるが、Context-Aware Accessは含まれない。「GCPWでログインできる」と「Windows OSのポリシーを強制できる」も異なる権限である。端末の遠隔初期化が可能かどうかは、所有形態と登録方式にも依存する。</p>
+
+<h2 id="overview">03　全体の管理構造</h2>
+<figure class="feature-figure"><img src="/assets/google-workspace-uem-guide-management-20261114.jpg" width="1672" height="941" loading="lazy" decoding="async" alt="Windowsの管理をログイン・端末設定・Chromeブラウザに分け、Androidでは仕事用と個人用の領域を分ける模式図"><figcaption class="caption">Windowsはログイン・OS・ブラウザの制御が別機能。Androidは登録モードにより業務領域と個人領域の境界が変わる。利用できる機能は上記ライセンス表と登録状態に従う。</figcaption></figure>
 <figure class="diagram motion" id="architecture">
 <figcaption>管理対象と機能の分担。青い破線は、管理コンソールからの設定・状態連携を模式的に示す。</figcaption>
 <svg viewBox="0 0 920 365" role="img" aria-labelledby="arch-title arch-desc">
@@ -101,44 +156,112 @@ code{background:#eee;padding:2px 5px}footer{margin-top:36px;border-top:2px solid
 <div><h3>Windows：管理を組み合わせる</h3><div class="rule"><strong>Endpoint Verification</strong>端末情報の収集とアクセス判定支援</div><div class="rule"><strong>GCPW</strong>Googleアカウントを使ったWindowsログイン</div><div class="rule"><strong>Windows端末管理</strong>対応端末へのMDMポリシー配布</div><div class="rule"><strong>Chrome管理</strong>ブラウザの機能・拡張機能・ポリシー</div></div>
 <div><h3>Android：管理レベルを選ぶ</h3><div class="rule"><strong>基本管理</strong>画面ロックなどの最低限のセキュリティと業務アカウント管理</div><div class="rule"><strong>詳細管理</strong>業務プロファイル、より詳細な制限、Managed Google Play</div><div class="rule"><strong>所有形態</strong>BYOD・業務専用・会社所有個人利用許可で管理権限が異なる</div></div>
 </div>
-<h2>02　できること・管理条件</h2>
-<div class="scroll"><table><thead><tr><th>目的</th><th>Windows</th><th>Android</th></tr></thead><tbody>
-<tr><td>可視化</td><td>Endpoint Verificationなどで端末属性を確認</td><td>基本・詳細管理で端末一覧を取得</td></tr>
-<tr><td>OSログイン</td><td>GCPWを使用可能</td><td>管理対象Googleアカウントで設定</td></tr>
-<tr><td>セキュリティ設定</td><td>Windows端末管理の対応ポリシー</td><td>基本管理／詳細管理で強度が異なる</td></tr>
-<tr><td>ブラウザ管理</td><td>Chrome管理・ADMX/OMA-URI</td><td>管理対象Chromeの設定</td></tr>
-<tr><td>業務アプリ</td><td>Chrome管理など。Windowsアプリ配布要件は別途確認</td><td>Managed Google Playで配布・設定</td></tr>
-<tr><td>個人領域の分離</td><td>Android型Work Profileとは別方式</td><td>詳細管理のWork Profileで分離</td></tr>
-<tr><td>遠隔削除</td><td>導入機能・管理状態により確認が必要</td><td>業務アカウントの削除／適用条件を満たす端末のワイプ</td></tr>
+<h2>04　WindowsとAndroidで管理できる範囲</h2>
+<div class="scroll" tabindex="0" role="region" aria-label="OS別管理対象の比較。横スクロール可能"><table><thead><tr><th scope="col">目的</th><th scope="col">Windows</th><th scope="col">Android</th></tr></thead><tbody>
+<tr><th scope="row">端末の状態を収集</th><td>Endpoint VerificationでOS、暗号化等の情報を集める。対象ブラウザに拡張機能等が必要</td><td>基本／詳細管理の端末一覧。詳細管理ではより多くの属性やセキュリティ状態を取得</td></tr>
+<tr><th scope="row">OSへのログイン</th><td>GCPWがGoogleの認証をWindowsログインにつなぐ。OS全体の管理権限は別</td><td>Google業務アカウントで登録し、仕事用アプリを使用</td></tr>
+<tr><th scope="row">OSセキュリティの強制</th><td>Windows MDMでBitLocker、Windows Update、管理者権限、カスタムOMA-URI設定等</td><td>基本は画面ロック・アカウント中心。詳細管理はパスコード強度・機能制限などを追加</td></tr>
+<tr><th scope="row">ブラウザ制御</th><td>Chrome Enterprise Coreなどの管理ポリシー。Windows MDMは不要な構成も可能</td><td>管理対象Chromeの設定。ブラウザだけの管理と端末全体の管理を区別</td></tr>
+<tr><th scope="row">アプリ管理</th><td>Chrome拡張機能等は集中管理可。汎用Windowsアプリの配布・アンインストールは別の管理基盤も検討</td><td>詳細管理でManaged Google Playから仕事用アプリの配布・承認・設定</td></tr>
+<tr><th scope="row">個人データと業務データの分離</th><td>AndroidのWork Profileと同等のOS標準分離機能は提供しない</td><td>BYODの仕事用プロファイルで領域を分離。完全管理端末は仕組みが異なる</td></tr>
+<tr><th scope="row">紛失時の操作</th><td>セッションのログアウト、アカウント連携の解除、対応管理端末の全消去。機能ごとに範囲が異なる</td><td>仕事用データのみの削除／端末全体の初期化。登録モードで結果が変わる</td></tr>
 </tbody></table></div>
-<p class="note caution">注意：同じ「端末管理」という名称でも、OS、契約エディション、所有形態、基本／詳細管理で権限が変わる。特にワイプ対象は導入前に確認する。</p>
-<h2>03　Android端末を登録する</h2>
+<p class="note caution">会社の端末が管理画面に表示されるだけでは、BitLocker強制やワイプができるとは限らない。実際に有効な方式と、削除対象のデータ範囲を端末単位で記録する。<a href="#source-wipe">[11]</a></p>
+
+<h2 id="android">05　Android端末の登録と管理</h2>
+<p>Androidの基本管理は、業務用アカウントを追加するだけで始められる場合がある。仕事用プロファイル、Managed Google Playによるアプリ管理、ゼロタッチ登録には<strong>詳細管理</strong>を利用できるライセンスと設定が必要になる。<a href="#source-mobile">[5]</a></p>
 <ol class="step-flow"><li><strong>管理方式を決める</strong><span>基本／詳細、BYOD／会社所有を分類</span></li><li><strong>ポリシーを設定</strong><span>管理コンソールで対象OUと管理レベルを設定</span></li><li><strong>端末を登録</strong><span>管理対象Googleアカウントでサインイン</span></li><li><strong>適用を検証</strong><span>Work Profile・アプリ・端末一覧を確認</span></li></ol>
-<details open><summary>個人所有（BYOD）の登録手順</summary><div><ol><li>管理者が対象組織部門に基本管理または詳細管理を設定する。</li><li>利用者がAndroidに業務用Googleアカウントを追加する。</li><li>詳細管理では表示された案内に従い、仕事用プロファイルの作成と管理権限への同意を行う。</li><li>管理コンソールに登録され、仕事用アプリが分離されていることを確認する。</li></ol></div></details>
-<details><summary>会社所有端末の登録手順</summary><div><ol><li>業務専用・個人利用許可など運用モードを決める。</li><li>利用可能な登録方式（QRコード、ゼロタッチ登録等）を確認する。</li><li>新規セットアップ時に指定方式でプロビジョニングする。</li><li>アプリ・ポリシー適用を検証する。</li></ol><p class="note caution">既存端末の再登録では初期化が必要になる方式がある。作業前にバックアップを確認。</p></div></details>
-<h2>04　Windows端末を登録・管理する</h2>
+<details open><summary>管理者：基本管理／詳細管理を設定する</summary><div>
+<ol><li>管理コンソール <code>admin.google.com</code> に適切な権限でログインし、対象利用者と所属組織部門（OU）を確認する。</li><li><strong>端末 → モバイルとエンドポイント → 設定 → ユニバーサル → 全般 → モバイル管理</strong>を開く。</li><li>基本管理のみなら「基本」を選択。詳細管理の対象者は「カスタム」を選んでAndroidを「詳細」に設定する。すべてのOSをまとめて詳細管理にするとAppleのプッシュ証明書を要求する場合があるため、Androidのみならカスタム設定が適する。</li><li>画面ロック、パスコード、業務アプリ、端末承認、ワイプ権限などをOU別に設定する。</li><li>利用者に設定手順と管理される範囲を説明し、試験端末で登録・削除動作を確かめる。</li></ol>
+<p class="caption">契約がBusiness StarterやCloud Identity Freeなら、UI上で詳細管理を選んでも対象ユーザーへの高度な機能が使えるわけではない。Google管理アプリ（Android Device Policy）は登録フローの案内に沿って導入する。<a href="#source-android-setup">[6]</a></p>
+</div></details>
+<details open><summary>個人所有（BYOD）：既存のAndroidに仕事用プロファイルを作る</summary><div>
+<ol><li>管理者が対象OUにAndroid詳細管理を有効化し、対象ユーザーに対応ライセンスを付与する。</li><li>利用者がAndroidの「設定 → パスワードとアカウント」等から業務用Googleアカウントを追加する。機種により画面名は異なる。</li><li>表示される管理ポリシーと権限を確認し、Android Device Policyの案内に従って仕事用プロファイルを作成する。</li><li>「仕事用」のアプリ領域から会社アカウントで利用し、個人用領域とデータの保存先が分かれているか確認する。</li><li>管理者が端末一覧の登録状態・所有形態・最終同期・ポリシー適用を確認する。</li></ol>
+<p>Work Profileは業務アプリ・仕事用データと個人用の領域を分ける。管理者による「アカウントをワイプ」は原則として仕事用プロファイルを削除し、個人の写真や私的アプリを残す。基本管理だけではこの分離は行われない。<a href="#source-android-enroll">[7]</a><a href="#source-wipe">[11]</a></p>
+</div></details>
+<details><summary>会社所有端末：業務専用モードとゼロタッチ登録</summary><div>
+<ol><li>会社所有端末の購入・棚卸しを行い、<strong>業務専用（Fully managed）</strong>か、対応する個人利用許可モードかを決める。端末・Androidバージョンと管理要件によって対応可否が変わる。</li><li>対応ライセンスとAndroid詳細管理を準備。ゼロタッチを使う場合は、対応する端末を認定販売店経由で用意する。</li><li>管理コンソールの <strong>端末 → モバイルとエンドポイント → 登録 → Androidゼロタッチ登録</strong>で販売店側のゼロタッチアカウントと連携し、既定の登録構成とサポート連絡先を設定する。</li><li>新規端末の初期セットアップ、または初期化後のセットアップで自動登録を実施する。</li><li>管理者が所有形態、端末ポリシー、業務アプリ、ワイプできる範囲を確認する。</li></ol>
+<p class="note caution">ゼロタッチ登録は管理画面の設定だけで既存の利用中端末を無停止で取り込める機能ではない。登録の適用により端末の初期化が発生する場合があり、公式資料は既存端末について警告している。事前に利用者へ通知し、バックアップと業務停止時間を確保する。<a href="#source-zerotouch">[8]</a></p>
+</div></details>
+<details><summary>Androidで強制できる設定と制限</summary><div>
+<div class="scroll" tabindex="0" role="region" aria-label="Android基本管理・詳細管理の比較"><table><thead><tr><th>制御</th><th>基本管理</th><th>詳細管理</th></tr></thead><tbody>
+<tr><th scope="row">画面ロック</th><td>基本的なパスコード要件</td><td>より強いパスコードと機能制限を設定可能</td></tr>
+<tr><th scope="row">アプリ配布</th><td>基本的なアプリ管理</td><td>Managed Google Playによる承認・管理アプリ配布・構成</td></tr>
+<tr><th scope="row">業務データ分離</th><td>仕事用プロファイルは利用不可</td><td>BYODのWork Profile等を利用可</td></tr>
+<tr><th scope="row">端末一括登録</th><td>ゼロタッチ登録は利用不可</td><td>条件付きでゼロタッチ登録が利用可</td></tr>
+<tr><th scope="row">遠隔削除</th><td>業務アカウント中心</td><td>登録方式・所有形態に応じて仕事用削除／端末初期化</td></tr>
+</tbody></table></div>
+<p>詳細管理の端末要件はAndroidバージョン、Google Play開発者サービス、Work Profile対応などによって異なる。基本管理はAndroid 6.0以降などの公式要件を確認する。管理台数の推奨上限や、既存の他社EMMとの競合も設計時に確認する。<a href="#source-device-req">[9]</a></p>
+</div></details>
+
+<h2 id="windows">06　Windows端末の登録と管理</h2>
+<p>Windowsでは「端末が見える」「Googleでログインできる」「OSの設定を強制できる」の3つは別の機能。GCPW単体だけで端末暗号化や更新ポリシーの強制は行えない。OSポリシーが目的ならWindows端末管理への登録を確認する。<a href="#source-win-overview">[10]</a></p>
 <figure class="diagram motion" id="winflow"><figcaption>目的別の導入ルート。経路は選択肢であり、各機能の登録が自動的に同時完了するわけではない。</figcaption>
 <svg viewBox="0 0 920 170" role="img" aria-labelledby="win-title win-desc"><title id="win-title">Windowsの管理目的別の導入方式</title><desc id="win-desc">端末を調べるならEndpoint Verification、GoogleログインならGCPW、OSポリシーならWindows端末管理、ブラウザ制御ならChrome管理。</desc>
 <rect class="dark" x="0" y="10" width="180" height="54"/><text class="inverse" x="90" y="42" text-anchor="middle">管理目的</text>
 <path class="accent signal" d="M180 37 H220 V136 H245 M220 37 H245 M220 68 H245 M220 102 H245"/>
 <g class="label" font-size="16"><text x="260" y="40">端末情報を集める → Endpoint Verification</text><text x="260" y="74">Googleでログインする → GCPW</text><text x="260" y="108">Windowsを設定する → Windows MDM</text><text x="260" y="142">ブラウザを制御する → Chrome管理</text></g></svg>
 <div class="controls"><button type="button" class="motion-toggle" data-target="winflow" aria-pressed="false">アニメーションを停止</button></div></figure>
-<details open><summary>Endpoint Verification</summary><div><ol><li>管理者がエンドポイント確認とアクセス制御の要件を設定する。</li><li>Windows 10/11のChromeにEndpoint Verification拡張機能を導入する。</li><li>必要に応じてネイティブヘルパーをインストールする。</li><li>管理対象GoogleアカウントでChromeにログインし、端末情報が表示されることを確認する。</li></ol><p>これだけでWindows OS全体のMDM管理が有効になるわけではない。</p></div></details>
-<details><summary>GCPWでWindowsにログインする</summary><div><ol><li>管理者がGCPWを構成し、既存Windowsプロファイルとの関連付けを検討する。</li><li>対象PCにGCPWをインストールする。</li><li>初回はインターネット接続を用意し、Windowsサインイン画面から仕事用アカウントを選ぶ。</li><li>Googleアカウント・必要な二段階認証を完了する。</li></ol><p>公式条件ではChrome 81以降が必要。AD参加端末は追加の条件がある。</p></div></details>
-<details><summary>Windows MDMポリシーを配布する</summary><div><ol><li>契約エディションでWindows端末管理を使用できるか確認する。</li><li>管理コンソールの「端末 → モバイルとエンドポイント → 設定 → Windows」からポリシーを用意する。</li><li>指示された職場／学校アカウント登録フローでWindows端末を登録する。</li><li>Windowsの管理状態と管理コンソールの端末一覧を照合する。</li></ol><p>正確な登録画面・自動登録条件は対象エディション・環境で要検証。</p></div></details>
-<h2>05　契約・運用の注意</h2>
-<ul><li>基本的なエンドポイント管理は多くのGoogle Workspace／Cloud Identityプランに含まれる。詳細管理・エンタープライズ管理の利用範囲はプラン別に確認する。</li><li>Android詳細管理と第三者EMMの併用には制約がある。既存MDMがあれば管理主体を確認する。</li><li>個人所有端末と会社所有端末は組織部門・管理ポリシー・削除権限を区別する。</li><li>実際の契約エディション、既存MDM、OSバージョン、管理者権限は未確認。本稿の登録画面は現物検証していない。</li></ul>
-<h2>06　公式出典</h2>
-<ol>
-<li><a href="https://support.google.com/work/android/answer/9415508?hl=en">Android管理：管理対象ドメインでの設定</a></li>
-<li><a href="https://support.google.com/work/android/answer/6396012?hl=en">Android Enterprise：導入概要</a></li>
-<li><a href="https://support.google.com/a/users/answer/9018161?hl=ja">Endpoint Verification：端末側の設定</a></li>
-<li><a href="https://support.google.com/a/users/answer/9250915?hl=en">GCPW：Windowsへのログイン</a></li>
-<li><a href="https://support.google.com/chrome/a/answer/10407780?hl=en">Windows管理によるChromeポリシー設定</a></li>
-<li><a href="https://support.google.com/chrome/a/answer/9490493?hl=en">AndroidのChrome管理</a></li>
-<li><a href="https://developer.chrome.com/docs/modern-web-guidance">Modern Web Guidance</a>（Web実装・設計参考）</li>
+<details open><summary>Endpoint Verification：まず端末の状態を把握する</summary><div>
+<ol><li>管理者がエンドポイント確認を使う対象ユーザー・ブラウザ・配布方式を決める。</li><li>WindowsのChromeにEndpoint Verification拡張機能を配布し、必要なコンパニオンアプリを導入する。公式クイックスタートではChrome 110以降を対象とする。</li><li>管理対象GoogleアカウントでChromeにログインし、端末情報が管理コンソールのエンドポイント一覧に表示されるか確認する。</li><li>暗号化・OS・画面ロック等の取得できた情報をポリシー評価に使う。Context-Aware Accessを実際に設定する場合は、その機能に対応した別ライセンスが必要になる。</li></ol>
+<p class="caption">Endpoint Verificationそのものは基礎的な端末管理機能。端末情報を収集しても、Windows MDMのBitLocker設定や更新設定が自動的に配布されるわけではない。<a href="#source-endpoint">[14]</a></p>
+</div></details>
+<details open><summary>GCPW：GoogleアカウントでWindowsにログインする</summary><div>
+<p>対象：Windows 10/11のPro、Pro for Workstations、Enterprise、EducationなどGoogleが示す対応エディション。Windows HomeとARM版は対象外。インストールにはローカル管理者権限が必要で、Chromeの対応バージョン等も満たす必要がある。<a href="#source-gcpw">[12]</a></p>
+<ol><li>管理者がGoogle管理コンソールからGCPWのインストーラーを取得する。管理コンソールからの配布物に付く組織向けトークンと許可ドメインの設定を確認する。</li><li>既存ローカルWindowsプロファイルをGoogleアカウントへ関連付ける必要がある場合は、ユーザーデータの移行方針を先に決める。</li><li>対象PCへGCPWをインストールする。Windowsログイン画面のGoogleアカウントによるサインインを選択する。</li><li>管理対象アカウントで認証し、設定済みの2段階認証を完了する。</li><li>管理コンソールの登録情報と、Windowsログイン、既存アカウントとの対応付けを確認する。</li></ol>
+<p class="note">GCPW単体はBusiness StarterやCloud Identity Freeにも含まれる。一方、OSのポリシーを配布するWindows MDMはBusiness Plus、Enterprise Standard / Plus、Cloud Identity Premiumなどの対象ライセンスが必要。<a href="#source-business">[2]</a></p>
+</div></details>
+<details open><summary>Windows MDM：BitLocker・Windows Update・管理者権限を制御する</summary><div>
+<ol><li>管理対象ユーザーの契約がBusiness Plus、Enterprise Standard / Plus、Cloud Identity Premiumなどに該当するか確認する。</li><li>管理コンソールで <strong>端末 → モバイルとエンドポイント → 設定 → Windows → Windows管理の設定</strong>を開く。Windows端末管理は初期状態で無効のため、対象OUを選び有効化する。</li><li>暗号化（BitLocker）、更新プログラム、ローカルユーザー権限、画面ロック、カスタムOMA-URI（対応ポリシーに限る）などの設定をテストOUで作成する。</li><li>GCPW連携を使う場合はWindows端末の自動登録の設定を確認する。対応ユーザーがGCPWでログインすると自動登録される構成にできる。</li><li>GCPWを使わない場合はWindows側のChromeまたはEdgeで <code>https://deviceenrollmentforwindows.googleapis.com/v1/deeplink</code> を開き、画面案内で職場アカウントを登録する。</li><li>管理コンソールの <strong>端末 → 概要 → エンドポイント</strong> などで対象の管理方式と最終同期を確認し、実機でポリシー強制を検証する。</li></ol>
+<p>Windows端末管理では、同一デバイスでMDMに登録するユーザーは原則1人で、最初に登録したユーザーの端末ポリシーが他のWindowsユーザーにも影響する。GCPWの複数ユーザーでのログイン機能と区別する。<a href="#source-win-enable">[13]</a><a href="#source-win-enroll">[15]</a></p>
+<p class="note caution">リモートデバイスワイプはWindowsの業務データだけを安全に分離削除する操作とは限らず、端末内の個人データも含めて消去する。検証用端末と、所有形態に応じた承認フローを用意する。<a href="#source-wipe">[11]</a></p>
+</div></details>
+<details><summary>Chrome Enterprise Core：ブラウザだけを集中管理する場合</summary><div>
+<p>Chrome Enterprise Coreはブラウザのクラウド管理の無料枠。Google Workspaceの上位プランを購入しなくても、対応する管理用組織の設定とChromeの登録によってブラウザポリシーを配布できる。<a href="#source-chrome">[16]</a></p>
+<ul><li>設定できる例：拡張機能の許可・禁止、ブラウザ更新、Webアクセス、セキュリティポリシー。</li><li>別の領域：Windowsのユーザーログオン、BitLocker・Windows Update・USB制限などのOS管理。</li><li>端末全体が管理対象か、Chromeブラウザだけを管理しているかを登録一覧で区別する。</li></ul>
+</div></details>
+
+<h2 id="operations">07　遠隔削除・ポリシーと運用上の制限</h2>
+<p>ワイプは最も誤解しやすい操作。管理コンソールに同じ「アカウントをワイプ」「端末をワイプ」と表示されても、OSや登録モードで消去範囲が変わる。<a href="#source-wipe">[11]</a></p>
+<div class="scroll" tabindex="0" role="region" aria-label="端末の遠隔削除の範囲。横スクロール可能"><table><thead><tr><th>端末・登録方式</th><th>業務アカウントの削除</th><th>端末全体の初期化</th><th>利用者への影響</th></tr></thead><tbody>
+<tr><th scope="row">Android個人所有・仕事用プロファイル</th><td>仕事用プロファイルを削除</td><td>管理者の「端末ワイプ」対象ではない</td><td>原則として個人用領域は残る</td></tr>
+<tr><th scope="row">Android会社所有・業務専用</th><td>管理操作によっては端末全体が初期化</td><td>利用可能</td><td>端末内の個人データも消える可能性がある</td></tr>
+<tr><th scope="row">Android個人所有・仕事専用登録</th><td>仕事用アカウントの削除が全体初期化につながる場合がある</td><td>登録形態による</td><td>「個人所有」だけで安全な部分削除とは判断できない</td></tr>
+<tr><th scope="row">Windows GCPW単体</th><td>Googleアカウントの解除・ログイン制御の範囲を確認</td><td>Windows MDMの端末ワイプ機能は含まれない</td><td>ローカルに残るデータの扱いは別管理</td></tr>
+<tr><th scope="row">Windows MDM</th><td>機能別にGoogleアカウント情報を制御</td><td>端末ワイプに対応</td><td>OSの初期化によりローカルデータが失われる</td></tr>
+</tbody></table></div>
+<p class="note caution">アカウントワイプは、Drive for desktopでローカルにミラーされたファイルまで必ず消す操作ではない。オフライン保存・私的アプリ・同期済みコピーが残る可能性があるため、DLP、ストレージ暗号化、アカウント無効化などを別途設計する。<a href="#source-wipe">[11]</a></p>
+
+<h3>導入前のチェックリスト</h3>
+<ul class="info-lines"><li><b>対象ライセンス</b>ユーザーごとのWorkspace / Cloud Identityエディションと付与状況</li><li><b>管理範囲</b>端末台帳、所属OU、個人所有／会社所有、基本／詳細管理</li><li><b>登録方法</b>Android Work Profile・ゼロタッチ、Windows GCPW・手動MDMの区別</li><li><b>既存の管理製品</b>Microsoft Intune等のMDMや他社EMMとの管理主体・二重登録リスク</li><li><b>ポリシー適用</b>BitLocker回復キーの扱い、更新の再起動時間、アプリへの影響</li><li><b>削除対象</b>紛失時の仕事用データのみ／端末全体、本人への通知と承認</li><li><b>監査・検証</b>試験OUで登録、ポリシー適用、退職時の無効化・ワイプ操作を試す</li></ul>
+<details><summary>契約・環境によって変わる点と未確認事項</summary><div><ul><li>他の対象エディション：Frontline、Education、Essentials系などにも管理機能を含むプランがある。権限は公式機能セット比較で確認する。</li><li>実契約エディション、ユーザーのライセンス割当、端末OSバージョン、既存EMM、管理者の権限、設定済み組織部門は未確認。</li><li>GCPWと第三者のMDM / EMMとの組み合わせはGoogle公式案内の対象範囲と個別製品の対応条件を実機で確認する。一般的な共存を保証しない。</li><li>Google管理コンソールの日本語メニュー名はUI更新により変わることがある。管理画面の表示に合わせて英語の機能名も照合する。</li><li>本記事は実機を登録していない。端末ワイプなど取り返しのつかない操作は試験端末で検証する。</li></ul></div></details>
+
+<h2 id="references">08　Google公式出典</h2>
+<p>仕様と価格はGoogle公式資料の確認時点の記載。各リンクは該当機能・費用・登録条件の一次情報である。</p>
+<ol class="sources">
+<li id="source-features"><a href="https://knowledge.workspace.google.com/admin/devices/compare-google-endpoint-management-feature-sets">Google endpoint managementの機能セット比較</a>：ライセンスと基本・詳細・企業向け管理</li>
+<li id="source-business"><a href="https://knowledge.workspace.google.com/admin/getting-started/editions/compare-business-editions">Businessエディション比較</a>：Starter / Standard / Plusの権限差</li>
+<li id="source-ci"><a href="https://docs.cloud.google.com/identity/docs/editions">Cloud Identity Free / Premium比較</a>：ユーザー単位のライセンス、管理範囲</li>
+<li id="source-enterprise"><a href="https://knowledge.workspace.google.com/admin/getting-started/editions/compare-enterprise-editions">Enterpriseエディション比較</a>：高度な端末管理とCAA</li>
+<li id="source-mobile"><a href="https://knowledge.workspace.google.com/admin/devices/compare-mobile-management-features">基本モバイル管理と詳細モバイル管理の機能比較</a></li>
+<li id="source-android-setup"><a href="https://knowledge.workspace.google.com/admin/devices/set-up-advanced-mobile-management">Android詳細管理の設定手順</a></li>
+<li id="source-android-enroll"><a href="https://support.google.com/work/android/answer/9412115">Androidの仕事用プロファイルの登録と個人所有端末</a></li>
+<li id="source-zerotouch"><a href="https://knowledge.workspace.google.com/admin/devices/set-up-automatic-zero-touch-enrollment-for-android">Androidゼロタッチ登録と会社所有端末</a></li>
+<li id="source-device-req"><a href="https://knowledge.workspace.google.com/admin/devices/device-requirements-for-google-endpoint-management">管理対象端末のOS・ソフトウェア要件</a></li>
+<li id="source-win-overview"><a href="https://knowledge.workspace.google.com/admin/devices/overview-enhanced-desktop-security-for-windows">Windows向け高度なデスクトップセキュリティの概要</a></li>
+<li id="source-wipe"><a href="https://knowledge.workspace.google.com/admin/devices/wipe-corporate-data-from-a-device">端末とアカウントのワイプの違い</a></li>
+<li id="source-gcpw"><a href="https://knowledge.workspace.google.com/admin/devices/install-google-credential-provider-for-windows">GCPWのインストール・対応Windows・トークン</a></li>
+<li id="source-win-enable"><a href="https://knowledge.workspace.google.com/admin/devices/enable-windows-device-management">Windows端末管理を有効化する</a></li>
+<li id="source-endpoint"><a href="https://docs.cloud.google.com/endpoint-verification/docs/quickstart">Endpoint Verification公式クイックスタート</a></li>
+<li id="source-win-enroll"><a href="https://knowledge.workspace.google.com/admin/devices/enroll-a-device-in-windows-device-management">GCPW連携・Windows端末管理への手動登録</a></li>
+<li id="source-chrome"><a href="https://chromeenterprise.google/intl/download/products/chrome-enterprise-core/">Chrome Enterprise Core</a>：Chromeクラウド管理の無料プラン</li>
+<li><a href="https://workspace.google.com/intl/ja/business/">Google Workspace Businessの日本向け料金</a></li>
+<li><a href="https://workspace.google.com/intl/ja/enterprise/">Google Workspace Enterpriseの日本向け料金</a></li>
+<li><a href="https://docs.cloud.google.com/identity/docs/how-to/compare-cloud-identity-billing-plans">Cloud Identity Premiumの日本円料金と契約方式</a></li>
+<li><a href="https://knowledge.workspace.google.com/admin/security/create-context-aware-access-levels">Context-Aware Accessの対象エディション</a></li>
+<li><a href="https://developer.chrome.com/docs/modern-web-guidance">Modern Web Guidance</a>：記事のWeb実装設計</li>
 </ol>
-<footer>確認日：2026年11月13日。製品仕様・契約条件は変更される場合があります。この記事は公開情報に基づくもので、実環境の登録・ワイプ操作は行っていません。</footer>
+<footer>最終確認：2026年11月14日。内容：Google公式のプラン・日本円料金・Windows/Androidの機能比較・登録手順・遠隔削除の条件を追記。公開情報の調査結果であり、実契約・実機登録・実際のワイプは未検証。仕様や料金は変わる可能性があります。</footer>
 </main>
 <script>
 for(const button of document.querySelectorAll('.motion-toggle')){
