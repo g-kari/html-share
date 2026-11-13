@@ -8,17 +8,18 @@ const get=id=>d.confirmed.find(x=>x.id===id);
 const batch=d.dailyOfficialFollowup20261111;
 const previous=id=>batch.previousRecords.find(x=>x.id===id);
 const previous12=id=>d.dailyOfficialFollowup20261112.previousRecords.find(x=>x.id===id);
+const previous13=id=>d.dailyOfficialFollowup20261113.previousRecords.find(x=>x.id===id);
 const hash=value=>createHash('sha256').update(JSON.stringify(value)).digest('hex');
 test('November 11 collection-record followup preserves all prior cards, pending groups and discovery rows',()=>{
- assert.equal(d.checkedAt,'2026-11-12T00:27:00Z');
- assert.equal(d.confirmed.length,639);assert.equal(d.confirmed.filter(x=>x.restored).length,135);
+ assert.equal(d.checkedAt,'2026-11-13T00:27:00Z');
+ assert.equal(d.confirmed.length,643);assert.equal(d.confirmed.filter(x=>x.restored).length,135);
  assert.equal(d.pending.length,2044);assert.equal(d.discovery.length,2887);
  assert.equal(batch.batchId,'official-followups-20261111-0927');
  assert.equal(batch.newIds.length,1);assert.equal(batch.updatedIds.length,3);
  assert.equal(batch.previousRecords.length,3);
  assert.equal(batch.unresolvedOriginalCandidatesRetained,true);
  // Reconstructing the pre-batch 631 cards from previousRecords must reproduce the prior array exactly.
- const original=d.confirmed.slice(0,631).map(x=>previous(x.id)??previous12(x.id)??x);
+ const original=d.confirmed.slice(0,631).map(x=>previous(x.id)??previous12(x.id)??previous13(x.id)??x);
  assert.equal(hash(original),'44a12c37c6f8997afef640d847b07fabc5b5eb4ccfe451613125929beb5ae99e');
  assert.equal(hash(d.pending),'53bfafc6af96a8f5bd1205e0c821c6899d21089eb2f1b64b3cbf01a60090a2cd');
  assert.equal(hash(d.discovery),'e0678961bd0fd9d16f71f510ae6f65e45b5b1f9f7624b32780ca3406e9f80632');
@@ -26,7 +27,7 @@ test('November 11 collection-record followup preserves all prior cards, pending 
  assert.deepEqual(d.confirmed.slice(631,632).map(x=>x.id),batch.newIds);
  assert.deepEqual([...h.matchAll(/<article class="service" id="([^"]+)"/g)].map(x=>x[1]),d.confirmed.map(x=>x.id));
  assert.match(h,/新規1カードと既存3カードの更新で、632告知カード・対象範囲の復旧報告133件・照合待ち2044群・収集2887行/);
- assert.match(h,/<p id="count" aria-live="polite">639件の告知対象カード/);
+ assert.match(h,/<p id="count" aria-live="polite">643件の告知対象カード/);
  const cb=d.collectionBatches.find(x=>x.id===batch.batchId);
  assert.equal(cb.rowCount,4);assert.equal(cb.members.length,4);
  for(const id of [...batch.newIds,...batch.updatedIds]) assert.ok(cb.members.some(m=>m.confirmedId===id),id);

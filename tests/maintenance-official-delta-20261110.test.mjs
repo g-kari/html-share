@@ -11,8 +11,8 @@ const previous11=id=>d.dailyOfficialFollowup20261111.previousRecords.find(x=>x.i
 const previous12=id=>d.dailyOfficialFollowup20261112.previousRecords.find(x=>x.id===id);
 const hash=value=>createHash('sha256').update(JSON.stringify(value)).digest('hex');
 test('November 10 collection-record followup preserves all prior cards, pending groups and discovery rows',()=>{
- assert.equal(d.checkedAt,'2026-11-12T00:27:00Z');
- assert.equal(d.confirmed.length,639);assert.equal(d.confirmed.filter(x=>x.restored).length,135);
+ assert.equal(d.checkedAt,'2026-11-13T00:27:00Z');
+ assert.equal(d.confirmed.length,643);assert.equal(d.confirmed.filter(x=>x.restored).length,135);
  assert.equal(d.pending.length,2044);assert.equal(d.discovery.length,2887);
  assert.equal(batch.batchId,'official-followups-20261110-1827');
  assert.equal(batch.newIds.length,32);assert.equal(batch.updatedIds.length,5);
@@ -27,7 +27,7 @@ test('November 10 collection-record followup preserves all prior cards, pending 
  assert.deepEqual(d.confirmed.slice(599,631).map(x=>x.id),batch.newIds);
  assert.deepEqual([...h.matchAll(/<article class="service" id="([^"]+)"/g)].map(x=>x[1]),d.confirmed.map(x=>x.id));
  assert.match(h,/新規32カードと既存5カードの更新で、631告知カード・対象範囲の復旧報告130件・照合待ち2044群・収集2887行/);
- assert.match(h,/<p id="count" aria-live="polite">639件の告知対象カード/);
+ assert.match(h,/<p id="count" aria-live="polite">643件の告知対象カード/);
  const cb=d.collectionBatches.find(x=>x.id===batch.batchId);
  assert.equal(cb.rowCount,37);assert.equal(cb.members.length,37);
  for(const id of [...batch.newIds,...batch.updatedIds]) assert.ok(cb.members.some(m=>m.confirmedId===id),id);

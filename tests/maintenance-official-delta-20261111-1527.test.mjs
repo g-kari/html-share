@@ -8,17 +8,18 @@ const h=readFileSync(new URL('../public/php-emergency-maintenance.html',import.m
 const hash=v=>createHash('sha256').update(JSON.stringify(v)).digest('hex');
 const batch=d.dailyOfficialFollowup20261111b;
 const previous12=id=>d.dailyOfficialFollowup20261112.previousRecords.find(x=>x.id===id);
+const previous13=id=>d.dailyOfficialFollowup20261113.previousRecords.find(x=>x.id===id);
 
 test('November 11 15:27 collection-record followup adds three new cards without changing prior records',()=>{
- assert.equal(d.checkedAt,'2026-11-12T00:27:00Z');
- assert.equal(d.confirmed.length,639);assert.equal(d.confirmed.filter(x=>x.restored).length,135);
+ assert.equal(d.checkedAt,'2026-11-13T00:27:00Z');
+ assert.equal(d.confirmed.length,643);assert.equal(d.confirmed.filter(x=>x.restored).length,135);
  assert.equal(d.pending.length,2044);assert.equal(d.discovery.length,2887);
  assert.equal(batch.batchId,'official-followups-20261111-1527');assert.equal(batch.checkedAt,'2026-11-11T06:27:00Z');
  assert.deepEqual(batch.newIds,['docomo-5gsa-outage-20261111','idemitsu-car-maintenance-20261110','ngt48-official-cd-shop-20261021']);
  assert.deepEqual(batch.updatedIds,[]);assert.deepEqual(batch.previousRecords,[]);
  assert.equal(batch.unresolvedOriginalCandidatesRetained,true);
  // Every card that existed before this batch is byte-identical, in the same order.
- assert.equal(hash(d.confirmed.slice(0,632).map(x=>previous12(x.id)??x)),'d40c77cf4ec6e924d8b3f35c870f9619c8b7a3a0efc3d6a2313dd856905b8625');
+ assert.equal(hash(d.confirmed.slice(0,632).map(x=>previous12(x.id)??previous13(x.id)??x)),'d40c77cf4ec6e924d8b3f35c870f9619c8b7a3a0efc3d6a2313dd856905b8625');
  assert.equal(hash(d.pending),'53bfafc6af96a8f5bd1205e0c821c6899d21089eb2f1b64b3cbf01a60090a2cd');
  assert.equal(hash(d.discovery),'e0678961bd0fd9d16f71f510ae6f65e45b5b1f9f7624b32780ca3406e9f80632');
  assert.deepEqual(d.confirmed.slice(632,635).map(x=>x.id),batch.newIds);
@@ -42,6 +43,6 @@ test('November 11 15:27 collection-record followup adds three new cards without 
  assert.deepEqual(row.members.map(x=>x.confirmedId),batch.newIds);
  assert.deepEqual([...h.matchAll(/<article class="service" id="([^"]+)"/g)].map(x=>x[1]),d.confirmed.map(x=>x.id));
  assert.match(h,/公式追跡（2026年11月11日 15:27 JST）<\/h2><p>2026年11月11日 12:27と15:27の収集継続確認（公式発表および報道で確認）に基づく追随です。新規3カードの追加で、635告知カード・対象範囲の復旧報告133件・照合待ち2044群・収集2887行です。/);
- assert.match(h,/<p id="count" aria-live="polite">639件の告知対象カード/);
- assert.match(h,/今回の限定照合：2026\/11\/12 09:27 JST/);
+ assert.match(h,/<p id="count" aria-live="polite">643件の告知対象カード/);
+ assert.match(h,/今回の限定照合：2026\/11\/13 09:27 JST/);
 });

@@ -11,8 +11,8 @@ const NEW_IDS = ['tokyo-disney-resort-shopping-20261111', 'furusato-choice-trust
 const UPDATED_IDS = ['docomo-5gsa-outage-20261111', 'librarie-trcdl-maintenance-20261110', 'allnet-aime', 'teket', 'twitcasting'];
 
 test('2026-11-11 evening and 2026-11-12 morning followups add four notices and close two incidents', () => {
-  assert.equal(d.checkedAt, '2026-11-12T00:27:00Z');
-  assert.equal(d.confirmed.length, 639);
+  assert.equal(d.checkedAt, '2026-11-13T00:27:00Z');
+  assert.equal(d.confirmed.length, 643);
   assert.equal(d.confirmed.filter(x => x.restored).length, 135);
   assert.equal(d.pending.length, 2044);
   assert.equal(d.discovery.length, 2887);
@@ -27,18 +27,19 @@ test('2026-11-11 evening and 2026-11-12 morning followups add four notices and c
 
   // The five pre-update records are preserved verbatim and rebuild the prior 635-card state.
   const previous = id => batch.previousRecords.find(x => x.id === id);
+  const previous13 = id => d.dailyOfficialFollowup20261113.previousRecords.find(x => x.id === id);
   assert.match(previous('docomo-5gsa-outage-20261111').status, /第五報でも継続中/);
   assert.equal(previous('docomo-5gsa-outage-20261111').restored, false);
   assert.equal(previous('librarie-trcdl-maintenance-20261110').restored, false);
   assert.equal(previous('librarie-trcdl-maintenance-20261110').noticeState, 'planned');
   assert.match(previous('allnet-aime').end, /次回報告は11\/12 09:00頃予定/);
   assert.match(previous('teket').status, /再開時期は精査中/);
-  assert.equal(hash(d.confirmed.slice(0, 635).map(x => previous(x.id) ?? x)),
+  assert.equal(hash(d.confirmed.slice(0, 635).map(x => previous(x.id) ?? previous13(x.id) ?? x)),
     '257591fde49508a8ad7f4178c995523f39e9f6f38032846e695e906298cb32cf');
 
   // New cards are appended in collection order with complete sourced fields.
-  assert.deepEqual(d.confirmed.slice(635).map(x => x.id), NEW_IDS);
-  for (const card of d.confirmed.slice(635)) {
+  assert.deepEqual(d.confirmed.slice(635, 639).map(x => x.id), NEW_IDS);
+  for (const card of d.confirmed.slice(635, 639)) {
     assert.equal(card.checkedAt, '2026-11-12T00:27:00Z');
     assert.equal(card.restored, false);
     assert.match(card.url, /^https:\/\//);
@@ -99,6 +100,6 @@ test('2026-11-11 evening and 2026-11-12 morning followups add four notices and c
   const ids = [...h.matchAll(/<article class="service" id="([^"]+)"/g)].map(x => x[1]);
   assert.deepEqual(ids, d.confirmed.map(x => x.id));
   assert.match(h, /公式追跡（2026年11月12日 09:27 JST）<\/h2><p>2026年11月11日 18:27と11月12日 09:27の収集継続確認（公式発表および報道で確認）に基づく追随です。新規4カードと既存5カードの更新で、639告知カード・対象範囲の復旧報告135件・照合待ち2044群・収集2887行です。/);
-  assert.match(h, /<p id="count" aria-live="polite">639件の告知対象カード/);
-  assert.match(h, /今回の限定照合：2026\/11\/12 09:27 JST/);
+  assert.match(h, /<p id="count" aria-live="polite">643件の告知対象カード/);
+  assert.match(h, /今回の限定照合：2026\/11\/13 09:27 JST/);
 });
