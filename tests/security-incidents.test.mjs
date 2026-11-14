@@ -329,3 +329,48 @@ test('new overseas records avoid turning potential scope into confirmed people',
  assert.deepEqual(nsw.cause_types,['unknown']); assert.match(nsw.count,/非公表/);
  assert.match(nsw.relevance,/診療情報流出と推定しない/);
 });
+
+test('November 10 Cuenote addition separates provider totals, customer categories and ID incident', () => {
+  const item=byId.get('ymir-cuenote-fc-20261016');
+  assert.equal(item.disclosed, '2026-10-19');
+  assert.equal(item.updated, '2026-11-09');
+  assert.match(item.count, /49システム.*おそれ.*延べ51,628,280件.*約280万人.*約8,000人.*合算せず.*加算しない/);
+  assert.match(item.occurred, /6:49.*調査開始.*侵入開始日時ではない/);
+  assert.match(item.response, /一部利用停止.*11月中.*予定.*通知完了.*示すものではない/);
+  assert.match(item.relevance, /10月26日.*@cosme共通ID.*同一侵害や合計人数に統合しない/);
+  const provider=item.sources.find(source=>source.organization==='ユミルリンク');
+  assert.equal(provider.date, '2026-10-26');
+  assert.ok(provider.url.endsWith('ymir-information20261027.html'));
+});
+
+test('November 10 followups distinguish partial recovery and classifications from new breaches', () => {
+  const docomo=byId.get('docomo-online-mydocomo-20261104');
+  assert.match(docomo.count, /最大約30万件.*30万人とはしない/);
+  assert.match(docomo.response, /11月9日15時頃.*一部再開.*オンラインショップ.*停止継続/);
+  assert.match(docomo.response, /ahamoサイト.*11月8日09:00.*公表.*再開済み/);
+  assert.match(docomo.relevance, /作業完了時刻.*明記なし.*全面復旧・調査完了と扱わない/);
+  const arara=byId.get('arara-message-20261027');
+  assert.match(arara.count, /81,329,467.*おそれ.*人数ではない/);
+  assert.match(arara.response, /申請管理システム.*対応済み.*11月10日.*11月11日.*予定.*完了とはしていない/);
+  assert.match(arara.relevance, /6区分.*分類結果.*6システムへの侵入確認ではない/);
+});
+
+test('November 10 overseas additions distinguish publication dates, access and potential exposure', () => {
+  const fire=byId.get('fireworks-ai-credentials-20261006');
+  assert.equal(fire.disclosed, '2026-10-09');
+  assert.equal(fire.updated, '2026-11-09');
+  assert.match(fire.timeline.find(item=>item.date==='2026-10-09').text, /22:00 PDT.*10月10日05:00 UTC/);
+  assert.match(fire.count, /非公表.*一部アカウント.*秘密情報・モデル・データセット.*請求情報の対象範囲全体は非公表/);
+  assert.match(fire.impact, /未完成モデル重み・データセット.*カード番号.*保存しておらず/);
+  const dorsata=byId.get('dorsata-metabase-20260810');
+  assert.equal(dorsata.disclosed, '2026-10-14');
+  assert.equal(dorsata.updated, '2026-10-14');
+  assert.match(dorsata.occurred, /8月10日から12日/);
+  assert.match(dorsata.impact_status, /不正アクセス確認.*影響は可能性/);
+  assert.match(dorsata.impact, /社会保障番号、運転免許証番号、金融情報は対象外/);
+  assert.match(dorsata.relevance, /悪用の証拠がないことを取得の否定としない/);
+  const change=register.changes.find(item=>item.kind==='official_november_10_updates');
+  assert.equal(change.incident_ids.length,5);
+  assert.equal(new Set(change.incident_ids).size,5);
+  for(const id of change.incident_ids) assert.ok(byId.get(id).sources.every(source=>source.type==='official'));
+});

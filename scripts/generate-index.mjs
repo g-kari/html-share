@@ -1,7 +1,7 @@
 import { readdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
-import { addSocialMetadata, escapeHtml, pageDetails, routeFor } from "./social-metadata.mjs";
-import { addFeedDiscovery, writeFeed } from "./rss-feed.mjs";
+import { addSocialMetadata, escapeHtml, pageDetails, routeFor, scanTags, SITE_URL } from "./social-metadata.mjs";
+import { addFeedDiscovery, contentFingerprint, pageDates, readFeedState, writeFeed } from "./rss-feed.mjs";
 import { REPORT_FEEDS, writeReportFeeds } from "./report-feeds.mjs";
 import { authoredReportSource } from "./report-source.mjs";
 import { generateSplitVulnerabilities, isReportArchive } from "./split-vulnerabilities.mjs";
@@ -31,7 +31,7 @@ async function walk(dir) {
 }
 
 const allFiles = (await walk(publicDir))
-  .filter((file) => path.resolve(file) !== path.resolve(outputFile))
+  .filter((file) => path.resolve(file) !== path.resolve(outputFile) && path.relative(publicDir, file) !== "404.html")
   .sort((a, b) => a.localeCompare(b, "ja"));
 const files = allFiles
   .filter((file) => path.resolve(file) !== path.resolve(outputFile))
@@ -56,10 +56,56 @@ for (const file of files) {
   });
 }
 
+const sitemapUrls = [SITE_URL + "/"];
+for (const file of allFiles) {
+  const source = await readFile(file, "utf8");
+  const tags = scanTags(source);
+  const noindex = tags.some((tag) => tag.name === "meta" &&
+    /^(robots|googlebot)$/i.test(tag.attrs.get("name")?.value || "") &&
+    /(?:^|[\s,])(noindex|none)(?:$|[\s,])/i.test(tag.attrs.get("content")?.value || ""));
+  if (noindex) continue;
+  const url = SITE_URL + routeFor(path.relative(publicDir, file));
+  const canonical = tags.find((tag) => tag.name === "link" &&
+    tag.attrs.get("rel")?.value.toLowerCase().split(/\s+/).includes("canonical"));
+  if (canonical && new URL(canonical.attrs.get("href")?.value || url, url).href !== url) continue;
+  sitemapUrls.push(url);
+}
+await writeFile(path.join(publicDir, "sitemap.xml"),
+  '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
+  [...new Set(sitemapUrls)].sort().map((url) => `  <url><loc>${escapeHtml(url)}</loc></url>`).join("\n") +
+  "\n</urlset>\n", "utf8");
+
 const searchUrl = await writeSearchIndex(path.resolve("."), allFiles);
 
-const cards = pages.length
-  ? pages.map(({ route, title, description }) => `
+// The top-page list is ordered by last update, newest first — the same
+// `updated` dates the RSS feed computes from each page's content history
+// (metadata-only commits do not count as edits). Ties fall back to route
+// order, matching renderFeed, so the page list and the feed agree.
+// Dates are only computed here, never written: writeReportFeeds and
+// writeFeed below still validate first and publish as before, so a
+// rejected build leaves every feed and saved state untouched. A page
+// whose date cannot be computed yet (e.g. uncommitted content) sorts
+// last here; writeFeed re-runs the same computation and reports the
+// real error before index.html is written.
+const feedState = await readFeedState(path.resolve("."));
+const updatedByRoute = new Map(pages.map((page) => {
+  let updated = null;
+  try {
+    updated = pageDates(path.resolve("."), page.relativePath,
+      contentFingerprint(page.source, page.relativePath), feedState.pages[page.relativePath]).updated;
+  } catch { /* Defer to writeFeed below, which throws before publishing. */ }
+  return [page.route, updated];
+}));
+const updatedTime = (route) => {
+  const parsed = Date.parse(updatedByRoute.get(route));
+  return Number.isFinite(parsed) ? parsed : Number.NEGATIVE_INFINITY;
+};
+const orderedPages = [...pages].sort((a, b) =>
+  updatedTime(b.route) - updatedTime(a.route) ||
+  a.route.localeCompare(b.route, "en"));
+
+const cards = orderedPages.length
+  ? orderedPages.map(({ route, title, description }) => `
       <article class="card">
         <a href="${escapeHtml(route)}">
           <h2>${escapeHtml(title)}</h2>

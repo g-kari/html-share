@@ -4,7 +4,7 @@ ChatGPT から生成した HTML を Cloudflare Workers Static Assets で共有�
 
 ## Structure
 
-- `public/index.html` - 自動生成されるトップページ / SPA fallback
+- `public/index.html` - 自動生成されるトップページ
 - `public/feed.xml` - 自動生成されるRSS 2.0（新規公開・更新）
 - `public/**/*.html` - 共有用HTML
 - `reports/vulnerabilities.source.html` - 脆弱性レポートの編集原本（非配信）
@@ -70,7 +70,7 @@ Cloudflare Workers Static Assets の HTML handling により、URLは次のよ�
 5. `public/index.html` を再生成
 6. 全ページの `<head>` にOGP・Twitterカードを補完
 7. RSSと全ページのRSS autodiscoveryリンクを生成
-8. 公開HTML本文の全文検索索引を生成
+8. 公開HTML本文の全文検索索引と正規URLのXMLサイトマップを生成
 9. 差分がある場合だけ `github-actions[bot]` が生成物と日時状態をまとめて commit / push
 
 生成処理は現在の `main` を読み直してから実行します。並行してページが更新された場合も、新しい本文を古い生成結果で上書きしません。PRではテストだけを実行し、`main` に書き込みません。

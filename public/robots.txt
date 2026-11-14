@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://share.0g0.xyz/sitemap.xml

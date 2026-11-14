@@ -15,6 +15,13 @@ const keys = (record, kind) => automaticTags(record).filter((item) => item.kind 
 const record = (title, lead = "", category = "agent", extra = {}) => ({ title, lead, category, ...extra });
 
 const existingProducts = {
+  "claude-code-21325-bash-permission-defaults": ["claude-code"],
+  "codex-01690-project-trust-plan-handoff": ["codex"],
+  "unity-hub4-cli1-automation-migration": ["unity-cli"],
+  "cloudflare-workers-do-spend-management": ["cloudflare-durable-objects"],
+  "cloudflare-tunnel-matrix-path-normalization": ["other"],
+  "aws-agentcore-runtime-v2-default": ["other"],
+  "deepgram-nova3-japanese-20261112": ["other"],
   "comfyui-0450-local-sso-video-memory": ["other"],
   "vrct-361-transcription-ui-fixes": ["other"],
   "cloudflare-workflows-concurrency-limit": ["other"],
@@ -149,6 +156,13 @@ test("all authored records have deterministic product/domain/change dimensions",
 
 test("current change tags distinguish pricing, fixes, public weights, GA, beta and correction", () => {
   const expected = {
+    "claude-code-21325-bash-permission-defaults": ["fix", "security"],
+    "codex-01690-project-trust-plan-handoff": ["fix"],
+    "unity-hub4-cli1-automation-migration": ["compatibility", "security"],
+    "cloudflare-workers-do-spend-management": ["pricing"],
+    "cloudflare-tunnel-matrix-path-normalization": ["update"],
+    "aws-agentcore-runtime-v2-default": ["update"],
+    "deepgram-nova3-japanese-20261112": ["improvement"],
     "comfyui-0450-local-sso-video-memory": ["improvement"],
     "vrct-361-transcription-ui-fixes": ["fix", "feature"],
     "cloudflare-workflows-concurrency-limit": ["update"],
@@ -466,12 +480,13 @@ test('November 10 late release scope and defaults remain explicit', () => {
 
 test('November 10 late history keeps the earlier same-day follow-up separate', () => {
   const data=JSON.parse(html.match(/<script\b[^>]*\bid="technology-update-data"[^>]*>([\s\S]*?)<\/script>/)[1]);
-  assert.equal(data.records.length,108);
-  assert.equal(data.changes.length,19);
-  assert.equal(data.changes.filter(item=>item.date==='2026-11-10').length,2);
-  assert.equal(data.changes[0].record_ids.length,4);
-  assert.match(data.changes[0].summary,/既存104項目と18件の履歴を保持/);
-  for(const id of data.changes[0].record_ids) {
+  const sameDay = data.changes.filter(item=>item.date==='2026-11-10');
+  assert.equal(sameDay.length,2);
+  const late = sameDay.find(item=>item.record_ids.includes('comfyui-0450-local-sso-video-memory'));
+  assert.ok(late);
+  assert.equal(late.record_ids.length,4);
+  assert.match(late.summary,/既存104項目と18件の履歴を保持/);
+  for(const id of late.record_ids) {
     assert.equal(data.records.filter(item=>item.id===id).length,1);
     assert.ok(html.includes(`id="${id}"`));
   }

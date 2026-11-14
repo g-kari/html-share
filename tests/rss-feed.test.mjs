@@ -95,7 +95,18 @@ test("generator covers new/nested pages, meaningful updates, metadata-only build
     const source = document('<title>First &amp; title</title><meta name="description" content="Public summary">', "<p>BODY_MUST_NOT_ENTER_FEED</p>");
     await writeFile(path.join(temp, "public/memo/日本語 &.html"), source);
     await writeFile(path.join(temp, "private.html"), document("<title>PRIVATE_MUST_NOT_ENTER_FEED</title>"));
+    await writeFile(path.join(temp, "public/404.html"), document("<title>Missing page</title>"));
+    await writeFile(path.join(temp, "public/hidden.html"), document('<meta name="robots" content="noindex"><title>Hidden</title>'));
+    await writeFile(path.join(temp, "public/duplicate.html"), document('<link rel="canonical" href="https://share.0g0.xyz/memo/"><title>Duplicate</title>'));
     commit(temp, "Publish first page", firstDate);
+    generate(temp);
+    const sitemap = await readFile(path.join(temp, "public/sitemap.xml"), "utf8");
+    assert.match(sitemap, /<loc>https:\/\/share\.0g0\.xyz\/<\/loc>/);
+    assert.match(sitemap, /memo\/%E6%97%A5%E6%9C%AC%E8%AA%9E%20%26/);
+    assert.doesNotMatch(sitemap, /404|hidden|duplicate|private/);
+    assert.doesNotMatch(await readFile(path.join(temp, "public/index.html"), "utf8"), /Missing page/);
+    await rm(path.join(temp, "public/hidden.html"));
+    await rm(path.join(temp, "public/duplicate.html"));
     generate(temp);
     const firstFeed = await readFile(path.join(temp, "public/feed.xml"), "utf8");
     const firstState = await readFeedState(temp);
