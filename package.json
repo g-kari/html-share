@@ -14,7 +14,7 @@
     "@animate-ui/react": "2.0.0",
     "entities": "9.0.0",
     "esbuild": "0.28.2",
-    "motion": "14.11.1",
+    "motion": "14.13.0",
     "radix-ui": "1.8.1",
     "react": "19.3.1",
     "react-dom": "19.3.1",
