@@ -11,7 +11,7 @@
     "build:ui": "node scripts/build-site-guide.mjs"
   },
   "dependencies": {
-    "@animate-ui/react": "2.4.3",
+    "@animate-ui/react": "2.4.6",
     "entities": "9.0.0",
     "esbuild": "0.28.2",
     "motion": "14.14.0",
