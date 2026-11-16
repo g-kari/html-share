@@ -7,41 +7,58 @@
 <meta name="description" content="SpaceXAIのLauren Tan（poteto）がAI Engineer Code Summitで語った、AIエージェントに大量のPRを出させながらコード品質を上げる方法。lint・型・検証で固める「potetoピラミッド」と手描きスライドとともに要点をまとめた。">
 <style>
   :root{
-    --ink:#1c1a17; --muted:#6f6a61; --accent:#d96c8a; --accent-soft:#fbeef3;
+    --ink:#22201c; --muted:#6f6a61; --accent:#c94f74; --accent-soft:#fbeef3;
     --line:#e7e2d9; --panel:#faf8f4;
   }
   *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
   body{margin:0;color:var(--ink);background:#fff;
     font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",system-ui,sans-serif;
-    line-height:1.85;font-size:16.5px;}
-  .wrap{max-width:880px;margin:0 auto;padding:24px 20px 72px}
-  .hand{font-family:"Segoe Print","Bradley Hand","Comic Sans MS","Hiragino Maru Gothic ProN",cursive}
-  header.top{padding:28px 0 8px}
+    line-height:2.0;font-size:17px;-webkit-text-size-adjust:100%;}
+  .wrap{max-width:800px;margin:0 auto;padding:24px 20px 80px}
+  header.top{padding:26px 0 4px}
   .kicker{color:var(--accent);font-weight:700;letter-spacing:.08em;font-size:.85rem}
-  h1{font-size:2rem;line-height:1.35;margin:.35em 0 .3em}
-  h1 .en{font-family:"Segoe Print","Bradley Hand","Comic Sans MS",cursive;font-weight:700}
-  .meta{color:var(--muted);font-size:.92rem}
+  h1{font-size:1.9rem;line-height:1.45;margin:.35em 0 .4em}
+  h1 .en{font-family:"Segoe Print","Bradley Hand","Comic Sans MS","Hiragino Maru Gothic ProN",cursive}
+  .meta{color:var(--muted);font-size:.92rem;line-height:1.8}
   .meta a{color:var(--accent)}
-  figure{margin:26px 0}
+  figure{margin:30px 0}
   figure img{width:100%;height:auto;display:block;border:2px solid var(--ink);border-radius:10px}
-  figcaption{color:var(--muted);font-size:.86rem;margin-top:8px;text-align:center}
+  figcaption{color:var(--muted);font-size:.88rem;margin-top:9px;text-align:center;line-height:1.7}
   .hero img{border-radius:14px}
-  h2{font-size:1.35rem;margin:2.2em 0 .6em;padding-left:.55em;border-left:6px solid var(--accent);line-height:1.4}
+  .summary3{background:var(--accent-soft);border:2px solid var(--ink);border-radius:12px;padding:18px 22px;margin:28px 0}
+  .summary3 .ttl{font-weight:800;margin-bottom:6px}
+  .summary3 ol{margin:0;padding-left:1.4em}
+  .summary3 li{margin:.25em 0}
+  nav.toc{border:1px solid var(--line);background:var(--panel);border-radius:12px;padding:16px 22px;margin:26px 0}
+  nav.toc .ttl{font-weight:700;font-size:.92rem;color:var(--muted);margin-bottom:6px}
+  nav.toc ol{margin:0;padding-left:1.4em}
+  nav.toc li{margin:.3em 0}
+  nav.toc a{color:var(--ink);text-decoration:none}
+  nav.toc a:hover{text-decoration:underline}
+  nav.toc .time{color:var(--muted);font-size:.82rem;margin-left:.4em}
+  h2{font-size:1.32rem;margin:2.4em 0 .7em;padding:.15em 0 .15em .55em;border-left:6px solid var(--accent);line-height:1.5;scroll-margin-top:16px}
   h2 .time{color:var(--muted);font-size:.85rem;font-weight:400;margin-left:.5em;white-space:nowrap}
-  p{margin:.7em 0}
-  ul{margin:.5em 0 .9em;padding-left:1.3em}
-  li{margin:.3em 0}
-  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:22px 0}
-  .stat{background:var(--accent-soft);border:2px solid var(--ink);border-radius:10px;padding:14px 10px;text-align:center}
-  .stat .num{font-size:1.55rem;font-weight:800;line-height:1.2}
-  .stat .lbl{font-size:.8rem;color:var(--muted);margin-top:4px}
-  .point{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 18px;margin:18px 0}
+  p{margin:.9em 0}
+  ul{margin:.6em 0 1em;padding-left:1.35em}
+  li{margin:.45em 0}
+  strong{color:#111}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:24px 0}
+  .stat{background:var(--accent-soft);border:2px solid var(--ink);border-radius:10px;padding:14px 8px;text-align:center}
+  .stat .num{font-size:1.5rem;font-weight:800;line-height:1.25}
+  .stat .lbl{font-size:.8rem;color:var(--muted);margin-top:4px;line-height:1.5}
+  .point{background:var(--panel);border:1px solid var(--line);border-left:6px solid var(--accent);border-radius:10px;padding:14px 18px;margin:20px 0}
   .point strong{color:var(--accent)}
-  .links{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 20px;margin-top:34px}
-  .links p{margin:.35em 0;font-size:.94rem}
+  .links{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 20px;margin-top:36px}
+  .links p{margin:.4em 0;font-size:.94rem}
   a{color:#b04a6d}
-  .note{color:var(--muted);font-size:.85rem;margin-top:26px}
+  .note{color:var(--muted);font-size:.85rem;margin-top:28px}
   footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+  @media (max-width:560px){
+    body{font-size:16px}
+    h1{font-size:1.55rem}
+    .wrap{padding:16px 14px 64px}
+  }
 </style>
 </head>
 <body>
@@ -62,7 +79,29 @@
   <figcaption>タイトルスライド。右下のちびキャラは彼女のトレードマーク</figcaption>
 </figure>
 
-<p>他人の書いたコードを見て「全部ゴミ（slop）だ」と思ったことはあるはず。でも、その slop は金に変えられる——。SpaceXAI で AI チャットアプリ Grok Bot の開発を率いる Lauren Tan は、エージェントに大量のコードを書かせながら、むしろ品質を上げていく方法を語った。このページは、その講演の要点を彼女の手描きスライドとともにまとめたもの。</p>
+<p>他人の書いたコードを見て「全部ゴミ（slop）だ」と思ったことはあるはず。でも、その slop は金に変えられる——。</p>
+<p>SpaceXAI で AI チャットアプリ Grok Bot の開発を率いる Lauren Tan は、エージェントに大量のコードを書かせながら、むしろ品質を上げていく方法を語った。このページは、その講演の要点を彼女の手描きスライドとともにまとめたもの。</p>
+
+<div class="summary3">
+  <div class="ttl">3行で言うと</div>
+  <ol>
+    <li>エージェントのミスを直すとき、プロンプトに言葉を足すのではなく、lint・型・API設計のような<strong>決定論的なチェック</strong>に落とし込む。</li>
+    <li>検証（実行・スクリーンショット・形式的検証）にトークンの約7割を使い、レビューは「検証の成果物を見る仕事」にする。</li>
+    <li>土台が整えば、月11,000 PRでもリバート率は約0.5%。自動化は土台のあと。</li>
+  </ol>
+</div>
+
+<nav class="toc">
+  <div class="ttl">目次</div>
+  <ol>
+    <li><a href="#ch1">slopを金に変える</a><span class="time">0:00〜</span></li>
+    <li><a href="#ch2">信頼の「potetoピラミッド」</a><span class="time">2:03〜</span></li>
+    <li><a href="#ch3">Dune：問題を「カテゴリーごと」消す</a><span class="time">5:00〜</span></li>
+    <li><a href="#ch4">検証にトークンの7割を使う</a><span class="time">10:10〜</span></li>
+    <li><a href="#ch5">成果：速くても、壊れない</a><span class="time">13:32〜</span></li>
+    <li><a href="#ch6">結論：自動化は、土台のあと</a><span class="time">15:11〜</span></li>
+  </ol>
+</nav>
 
 <div class="stats">
   <div class="stat"><div class="num">3,000</div><div class="lbl">本人が先月出したPR</div></div>
@@ -72,20 +111,22 @@
   <div class="stat"><div class="num">6か月</div><div class="lbl">信頼できる環境づくりにかけた期間</div></div>
 </div>
 
-<h2>slopを金に変える<span class="time">0:00〜</span></h2>
+<h2 id="ch1">1. slopを金に変える<span class="time">0:00〜</span></h2>
 <figure>
   <img src="assets/all-code-is-slop/01-title.jpg" alt="タイトルスライド「all code is slop」、poteto (aka lauren tan)" width="1200" height="607" loading="lazy">
   <figcaption>「poteto」としても知られる Lauren Tan のタイトルスライド</figcaption>
 </figure>
-<p>エージェントの登場で、誰もが「週末に大規模プロダクトを書き直すような伝説のエンジニア」並みの生産量を持てるようになった。だからこそエンジニアの仕事は、品質を維持・改善しながら生産性を桁違いに上げる方法を見つけることに移る。</p>
-<p>彼女はこれを「ソフトウェアファクトリー」ではなく<strong>信頼の問題</strong>だと捉える。盲目的な信頼ではなく、エージェントが正しいことをすると信頼できるよう、環境そのものに投資する。その状態にたどり着くのに彼女は6か月かけたが、道筋が分かればもっと短くできるという。</p>
+<p>エージェントの登場で、誰もが「週末に大規模プロダクトを書き直すような伝説のエンジニア」並みの生産量を持てるようになった。</p>
+<p>だからこそエンジニアの仕事は、品質を維持・改善しながら、生産性を桁違いに上げる方法を見つけることに移っていく。</p>
+<p>彼女はこれを「ソフトウェアファクトリー」ではなく、<strong>信頼の問題</strong>だと捉える。盲目的な信頼ではない。エージェントが正しいことをすると信頼できるよう、環境そのものに投資するのだ。</p>
+<p>その状態にたどり着くのに彼女は6か月かけた。ただし、道筋が分かればもっと短くできるという。</p>
 
-<h2>信頼の「potetoピラミッド」<span class="time">2:03〜</span></h2>
+<h2 id="ch2">2. 信頼の「potetoピラミッド」<span class="time">2:03〜</span></h2>
 <figure>
   <img src="assets/all-code-is-slop/02-pyramid.jpg" alt="逆ピラミッド図「the poteto pyramid」。上から codebase、static analysis、verification、prose、human review" width="1200" height="607" loading="lazy">
   <figcaption>どうすればエージェントをもっと信頼できるか — 逆さピラミッドの土台が主役</figcaption>
 </figure>
-<p>信頼を積み上げる層は、下（土台）から順にこうなる。</p>
+<p>信頼を積み上げる層は、土台から順にこうなる。</p>
 <ul>
   <li><strong>codebase</strong>：良いAPI設計、アーキテクチャ、リファクタリング</li>
   <li><strong>static analysis</strong>：lintルール、型、コンパイラ、テスト、CI</li>
@@ -93,19 +134,20 @@
   <li><strong>prose</strong>：ルール文書、skills、AGENTS.md のような「文章の指示」</li>
   <li><strong>human review</strong>：人間のレビュー</li>
 </ul>
-<p>上の層ほどコストが高い。だから<strong>決定論的に効く下の2層を厚くし、判断がブレる prose の層は薄く</strong>するのが原則になる。エージェントの出力は入力で決まり、コードベースは最大の入力のひとつだ。</p>
+<p>上の層ほどコストが高い。だから原則は、<strong>決定論的に効く下の2層を厚くし、判断がブレる prose の層は薄く</strong>すること。</p>
+<p>エージェントの出力は入力で決まる。そしてコードベースは、最大の入力のひとつだ。</p>
 <div class="point">コードベースは<strong>庭</strong>のようなもの。悪いパターンや技術的負債は、次のエージェントにコピーされて雑草のように広がる。だから常にきれいに保ち、良いものだけがコピーされるようにする。エンジニアの仕事はガーデニングに近づいている、というのが彼女の見立てだ。</div>
 
-<h2>Dune：問題を「カテゴリーごと」消す<span class="time">5:00〜</span></h2>
+<h2 id="ch3">3. Dune：問題を「カテゴリーごと」消す<span class="time">5:00〜</span></h2>
 <figure>
   <img src="assets/all-code-is-slop/03-dune.jpg" alt="「dune: a framework for agents」。app framework + one folder per feature、strict import bans、no comments in code" width="1200" height="607" loading="lazy">
   <figcaption>Dune：アプリの土台に「機能ごとに1フォルダ」「厳格なimport禁止」「コード内コメントなし」を組み込んだフレームワーク</figcaption>
 </figure>
-<p>Grok Bot のために作ったクライアントフレームワーク「Dune」は、デスクトップアプリ開発の教訓を大量の制約と lint ルールとして埋め込んでいる。代表例は3つ。</p>
+<p>Grok Bot のために作ったクライアントフレームワーク「Dune」は、デスクトップアプリ開発の教訓を、大量の制約と lint ルールとして埋め込んでいる。代表例は3つ。</p>
 <ul>
-  <li><strong>useEffect の禁止</strong>：誤用が多くエージェントも使いこなせないため、製品コードでは禁止し、Dune の API 内部だけに許可。問題は「起きにくくする」のではなくカテゴリーごと消えた。</li>
-  <li><strong>ディレクトリによる分離</strong>：electron-main と electron-renderer を分け、相互の import を依存グラフ解析と lint で禁止。以前はエージェントがメインスレッドのコードをレンダラーに import して長時間タスクやカクつきを起こしていた。</li>
-  <li><strong>コメントの99%禁止</strong>：コメントはすぐ陳腐化し、誰も読まず、強制力もない。しかもエージェントはコメントを「正しいことをしない言い訳」を書く場所に使ってしまう。</li>
+  <li><strong>useEffect の禁止</strong>：誤用が多く、エージェントも使いこなせない。そこで製品コードでは禁止し、Dune の API 内部だけに許可した。すると問題は「起きにくくする」レベルではなく、カテゴリーごと消えた。</li>
+  <li><strong>ディレクトリによる分離</strong>：electron-main と electron-renderer を分け、相互の import を依存グラフ解析と lint で禁止。以前はエージェントがメインスレッドのコードをレンダラーに import し、長時間タスクやカクつきを起こしていた。</li>
+  <li><strong>コメントの99%禁止</strong>：コメントはすぐ陳腐化し、誰も読まず、強制力もない。しかもエージェントはコメントを、「正しいことをしない言い訳」を書く場所に使ってしまう。</li>
 </ul>
 <figure>
   <img src="assets/all-code-is-slop/04-useeffect.jpg" alt="「nuance tends to lead to slop / just design better APIs」というスライド" width="1200" height="607" loading="lazy">
@@ -119,18 +161,21 @@
   <img src="assets/all-code-is-slop/05-timers.jpg" alt="「quick fixes considered harmful」。9月9日の場当たり的なタイマーが10月3日に共有モジュールへコピーされ、10月17日には183個に増殖した図" width="1200" height="607" loading="lazy">
   <figcaption>場当たり的な修正の増殖：「ちらつきを直す」タイマーが共有モジュールにコピーされ、約1か月で183個に</figcaption>
 </figure>
-<p>命令型タイマーを多用する場当たり的な修正に、エージェントがコメントで正当化を書き添え、それがコピーされて性能が悪化した——という実例がコメント禁止の背景にある。代わりに用意したのは、根本原因を直すよう促す良いエラーメッセージを出す lint ルールだ。</p>
+<p>命令型タイマーを多用する場当たり的な修正に、エージェントがコメントで正当化を書き添える。それがコピーされて広がり、性能が悪化した——。この実例が、コメント禁止の背景にある。</p>
+<p>代わりに用意したのは、根本原因を直すよう促す、良いエラーメッセージを出す lint ルールだ。</p>
 <div class="point">一般原則はシンプルで、<strong>エージェントのミスを直すたびに、プロンプトやルール文書に1行足すのではなく、決定論的なチェック（lint・型・API設計）に落とし込む</strong>こと。これを繰り返すとレビューで気にすることが減り、やがてエージェントが自分のPRのほとんどを自分でマージできるようになる。</div>
 
-<h2>検証にトークンの7割を使う<span class="time">10:10〜</span></h2>
+<h2 id="ch4">4. 検証にトークンの7割を使う<span class="time">10:10〜</span></h2>
 <figure>
   <img src="assets/all-code-is-slop/06-verification.jpg" alt="「runtime verification」というスライド" width="1200" height="607" loading="lazy">
   <figcaption>実行時検証：エージェントが自分の仕事を自分で確かめる仕組み</figcaption>
 </figure>
-<p>もうひとつの柱が検証だ。最も基本的なのは、エージェントにコードを自分で実行させ、開発者用デバッグツールで挙動を確認させること。検証用のスキルには「feature map」（ユーザー視点での全機能の地図）が含まれ、共通の語彙でアプリを指し示せる。カスタムCLIも使い回し、毎回同じ手順で検証できるようにしてトークン消費を抑える。</p>
-<p>さらに最近は形式的検証も始めた。TLA+ で通知のような主要フローをモデル検査し、Lean で自作の仮想化ライブラリを証明してちらつきやジッターがないことを確かめる。プロパティベーステストも含め、すでにいくつかバグを捕まえているという。コードレビューは、コードを読む仕事から、動画・スクリーンショット・図・形式的検証といった<strong>検証の成果物を見る仕事</strong>へと縮小した。彼女の体感では、トークンの約70%は検証に使われている。</p>
+<p>もうひとつの柱が検証だ。最も基本的なのは、エージェントにコードを自分で実行させ、開発者用デバッグツールで挙動を確認させること。</p>
+<p>検証用のスキルには「feature map」（ユーザー視点での全機能の地図）が含まれ、共通の語彙でアプリを指し示せる。カスタムCLIも使い回し、毎回同じ手順で検証できるようにして、トークン消費を抑える。</p>
+<p>さらに最近は、形式的検証も始めた。TLA+ で通知のような主要フローをモデル検査し、Lean で自作の仮想化ライブラリを証明して、ちらつきやジッターがないことを確かめる。プロパティベーステストも含め、すでにいくつかバグを捕まえているという。</p>
+<p>こうしてコードレビューは、コードを読む仕事から、動画・スクリーンショット・図・形式的検証といった<strong>検証の成果物を見る仕事</strong>へと縮小した。彼女の体感では、トークンの約70%は検証に使われている。</p>
 
-<h2>成果：速くても、壊れない<span class="time">13:32〜</span></h2>
+<h2 id="ch5">5. 成果：速くても、壊れない<span class="time">13:32〜</span></h2>
 <figure>
   <img src="assets/all-code-is-slop/07-productive.jpg" alt="「everyone is more productive」。PRを出す人が6月の15人から10月の227人へ増えた積み上げ棒グラフ" width="1200" height="607" loading="lazy">
   <figcaption>PRを出す人は6月の15人から10月には227人へ。コアメンバーだけでなく「ついで寄稿」も増えた</figcaption>
@@ -145,10 +190,13 @@
   <li>これだけの量でも<strong>リバート率は約0.5%</strong>で安定</li>
   <li>起動（-39%）、タイピング（中央値-26%、長文-65%）、チャット切替（-44%）など、体感性能も改善した</li>
 </ul>
-<p>リリースのたびにアプリ全体をファズテストし、実際のユーザーのように使ってバグを見つけ、修正PRを開いて自動マージする仕組みまで回っている。土台が良いので、PRはデフォルトで良いものになり、深い人間レビューはほとんど要らないという。</p>
+<p>リリースのたびにアプリ全体をファズテストし、実際のユーザーのように使ってバグを見つけ、修正PRを開いて自動マージする仕組みまで回っている。</p>
+<p>土台が良いので、PRはデフォルトで良いものになり、深い人間レビューはほとんど要らないという。</p>
 
-<h2>結論：自動化は、土台のあと<span class="time">15:11〜</span></h2>
-<p>「ソフトウェアファクトリー」を作って何でも自動化する前に、まずコードベースを改善すること。内側のコーディングループが slop を出すなら、それを自動化しても slop が増えるだけで、トークンを際限なく投げる高くつく仕組みになる。逆に、コードベース・静的解析・実行時と形式的検証に投資しておけば、その上にファクトリーは簡単に築ける。</p>
+<h2 id="ch6">6. 結論：自動化は、土台のあと<span class="time">15:11〜</span></h2>
+<p>「ソフトウェアファクトリー」を作って何でも自動化する前に、まずコードベースを改善すること。</p>
+<p>内側のコーディングループが slop を出すなら、それを自動化しても slop が増えるだけだ。トークンを際限なく投げる、高くつく仕組みになる。</p>
+<p>逆に、コードベース・静的解析・実行時と形式的検証に投資しておけば、その上にファクトリーは簡単に築ける。</p>
 
 <div class="links">
   <p><strong>リンク</strong></p>
