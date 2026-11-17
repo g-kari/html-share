@@ -123,12 +123,13 @@ test('November 6 additions distinguish publication dates, contract counts and po
   assert.equal(docomo.disclosed, '2026-11-05');
   assert.match(docomo.count, /最大約30万件.*30万人とはしない/);
   assert.equal(muji.disclosed, '2026-10-30');
-  assert.equal(muji.updated, '2026-11-04');
-  assert.match(muji.count, /2,726万件.*109万件.*34.5万件.*120件.*非加算/);
+  assert.equal(muji.updated, '2026-11-09');
+  assert.match(muji.count, /2,726万件.*109万件.*34.5万件.*120件.*合算しない/);
   assert.match(muji.impact_status, /可能性/);
   assert.equal(blast.catalog_month, '2026-10');
-  assert.match(blast.count, /421件.*契約件数/);
-  assert.match(blast.response, /11月11日頃.*変動.*OEM.*未定/);
+  assert.match(blast.count, /421契約.*421は人数・アドレス数ではない/);
+  assert.ok(blast.timeline.some(event => event.date==='2026-11-05' && /11月11日頃.*目標/.test(event.text)));
+  assert.match(blast.response, /11月11日.*完了/);
 });
 
 test('November 6 follow-ups separate restoration, corrected fields and authentication exposure', () => {
@@ -159,8 +160,8 @@ test('November 7 domestic additions preserve counts, uncertainty and regulator-r
   assert.match(iris.impact_status, /可能性/);
   assert.match(smbc.count, /最大320,118名.*加算しない/);
   assert.match(smbc.impact_status, /外部送信を確認.*調査中/);
-  assert.match(lottery.count, /非公表/);
-  assert.match(lottery.impact_status, /パスワード変更を確認.*閲覧の可能性/);
+  assert.match(lottery.count, /4,436名.*4,133名.*合算しない/);
+  assert.match(lottery.impact_status, /不正ログイン確認.*閲覧可能性/);
   assert.match(docomo.impact, /本人確認書類/);
   assert.match(docomo.count, /30万件.*30万人とはしない/);
   for (const item of [jnsa, iris, smbc, lottery, docomo]) {
@@ -264,7 +265,8 @@ test('November 8 overseas updates distinguish restored products, key exposure an
   const trigger = byId.get('triggerdev-environment-variables-20261101');
   const gnosis = byId.get('gnosis-pay-legacy-cards-20261103');
   assert.match(chain.response, /11月7日13:50 EST.*18:50 UTC.*Reactor.*KYT.*Address Screening.*復帰/);
-  assert.match(chain.response, /Data Solutionsの復旧完了.*記載がない/);
+  assert.match(chain.response, /11月7日の続報にはData Solutionsの復旧完了の記載がなかった/);
+  assert.match(chain.response, /11月10日03:00 EST.*08:00 UTC.*Data Solutions.*復帰/);
   assert.match(trigger.count, /全顧客.*0.66％.*実数.*非公表/);
   assert.match(trigger.impact, /root APIキー取得.*一覧取得.*セルフホスト.*個々の秘密情報.*非公表/);
   assert.match(trigger.response, /DBパスワード.*旧情報の失効/);
@@ -302,7 +304,8 @@ test('new domestic cases retain possibility, independent-event and image exclusi
  assert.match(fca.count,/2,515件/); assert.match(fca.impact,/顔画像.*含まず/);
  const teket=byId.get('teket-ticket-platform-20261108');
  assert.match(teket.count,/調査中/); assert.match(teket.impact,/影響.*確認中/);
- assert.ok(teket.sources.every(s=> /tef.or.jp|kyoto.kenchikusai.jp/.test(new URL(s.url).hostname)));
+ assert.ok(teket.sources.slice(0,2).every(s=> /tef.or.jp|kyoto.kenchikusai.jp/.test(new URL(s.url).hostname)));
+ assert.ok(teket.sources.every(s=>s.type==='official'));
 });
 
 test('Arara third report and Sagawa fifth report preserve scope and chronology',()=>{
@@ -314,7 +317,7 @@ test('Arara third report and Sagawa fifth report preserve scope and chronology',
  const sagawa=byId.get('sagawa-tracking-20260930');
  assert.match(sagawa.count,/5,323万件.*重複.*可能性/);
  assert.match(sagawa.response,/10月23日.*Web.*再開/);
- assert.match(sagawa.response,/同報時点.*API.*停止/);
+ assert.match(sagawa.response,/11月16日.*3機能.*再開.*完了時刻.*明記はなく/);
  assert.ok(sagawa.sources.some(s=>s.url.endsWith('/detail/430/')));
 });
 
@@ -333,10 +336,12 @@ test('new overseas records avoid turning potential scope into confirmed people',
 test('November 10 Cuenote addition separates provider totals, customer categories and ID incident', () => {
   const item=byId.get('ymir-cuenote-fc-20261016');
   assert.equal(item.disclosed, '2026-10-19');
-  assert.equal(item.updated, '2026-11-09');
-  assert.match(item.count, /49システム.*おそれ.*延べ51,628,280件.*約280万人.*約8,000人.*合算せず.*加算しない/);
+  assert.equal(item.updated, '2026-11-11');
+  assert.match(item.count, /49システム.*47,864,147件/);
+  assert.ok(item.timeline.some(event=>event.date==='2026-10-26' && /51,628,280件/.test(event.text)));
+  assert.match(item.count, /約280万人.*約8,000人.*加算しない/);
   assert.match(item.occurred, /6:49.*調査開始.*侵入開始日時ではない/);
-  assert.match(item.response, /一部利用停止.*11月中.*予定.*通知完了.*示すものではない/);
+  assert.match(item.response, /一部利用停止.*11月中.*予定.*通知完了.*示さない/);
   assert.match(item.relevance, /10月26日.*@cosme共通ID.*同一侵害や合計人数に統合しない/);
   const provider=item.sources.find(source=>source.organization==='ユミルリンク');
   assert.equal(provider.date, '2026-10-26');
@@ -358,7 +363,7 @@ test('November 10 followups distinguish partial recovery and classifications fro
 test('November 10 overseas additions distinguish publication dates, access and potential exposure', () => {
   const fire=byId.get('fireworks-ai-credentials-20261006');
   assert.equal(fire.disclosed, '2026-10-09');
-  assert.equal(fire.updated, '2026-11-09');
+  assert.equal(fire.updated, '2026-11-13');
   assert.match(fire.timeline.find(item=>item.date==='2026-10-09').text, /22:00 PDT.*10月10日05:00 UTC/);
   assert.match(fire.count, /非公表.*一部アカウント.*秘密情報・モデル・データセット.*請求情報の対象範囲全体は非公表/);
   assert.match(fire.impact, /未完成モデル重み・データセット.*カード番号.*保存しておらず/);
