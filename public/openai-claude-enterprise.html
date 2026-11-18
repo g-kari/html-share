@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OpenAI EnterpriseとClaude Enterpriseの比較｜セキュリティ・監査・コスト（20〜49人）</title>
+<meta name="description" content="ChatGPT Enterprise／CodexとClaude Enterprise／Claude Codeを20〜49人規模で比較。ソースコード保護、データ保持、ZDR、監査証跡、料金試算を公式資料に基づいて整理。">
+<link rel="canonical" href="https://share.0g0.xyz/openai-claude-enterprise">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenAI × Claude Enterprise 比較｜セキュリティ・監査・コスト">
+<meta property="og:description" content="20〜49人規模向け。コード保護、保持期間、監査範囲、料金の条件を公式資料で比較。">
+<meta property="og:image" content="https://share.0g0.xyz/assets/openai-claude-enterprise-ogp-v1.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1730">
+<meta property="og:image:height" content="909">
+<meta property="og:image:alt" content="OpenAI × Claude Enterprise 比較。セキュリティ・監査・コストを扱う技術記事の表紙">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://share.0g0.xyz/assets/openai-claude-enterprise-ogp-v1.png">
+<meta name="twitter:image:alt" content="OpenAI × Claude Enterprise 比較。セキュリティ・監査・コスト">
+<meta name="theme-color" content="#f8f7f4">
+<style>
+:root{color-scheme:light;--paper:#f8f7f4;--ink:#191e1e;--muted:#54605f;--rule:#d6dad6;--accent:#006759;--soft:#ecf2ef;--max:1000px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;font-size:16px;line-height:1.85;font-feature-settings:"palt" 1}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px;overflow-wrap:anywhere}a:hover{text-decoration-thickness:2px}a:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.skip{position:absolute;top:-100px;left:12px;background:white;padding:8px 12px;z-index:10}.skip:focus{top:12px}
+.wrap{width:min(var(--max),calc(100% - 40px));margin-inline:auto}
+.sitehead{border-bottom:1px solid var(--rule)}.sitehead .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 0;font-size:.82rem;line-height:1.5;color:var(--muted)}.sitehead a{text-decoration:none;font-weight:700;color:var(--ink)}.sitehead small{font-size:inherit}
+.hero{padding:40px 0 30px;border-bottom:2px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.77rem;font-weight:750;letter-spacing:.075em;text-transform:uppercase}
+h1{font-size:clamp(1.9rem,4.5vw,3.2rem);letter-spacing:-.035em;line-height:1.4;margin:0;max-width:20em;font-weight:780}
+.dek{font-size:clamp(1rem,2vw,1.14rem);max-width:65ch;color:#3e4947;margin:16px 0 14px}.byline{font-size:.81rem;color:var(--muted);margin:0}
+.toc{display:flex;flex-wrap:wrap;gap:8px 16px;padding:12px 0;border-bottom:1px solid var(--rule);font-size:.85rem}.toc span{font-weight:750}.toc a{white-space:nowrap}
+main{padding-bottom:60px}.prose{max-width:780px}section{padding-top:38px}section+section{border-top:1px solid var(--rule);margin-top:34px}
+h2{font-size:clamp(1.45rem,2.8vw,1.9rem);line-height:1.45;letter-spacing:-.018em;margin:0 0 15px}h3{font-size:1.1rem;line-height:1.5;margin:26px 0 9px}p{margin:0 0 15px}
+ul,ol{padding-left:1.4em;margin:8px 0 19px}li+li{margin-top:6px}
+.key{border-left:4px solid var(--accent);background:var(--soft);padding:16px 18px 14px;margin:25px 0 20px}.key h2{font-size:1.05rem;margin:0 0 7px}.key ul{margin:0;padding-left:1.3em}.key li{margin-top:5px}
+.note{background:#f0f0ec;border-left:3px solid #858d88;padding:12px 16px;font-size:.91rem;line-height:1.75;margin:18px 0}.note strong{font-weight:700}
+.data-label{display:inline-block;background:var(--ink);color:white;font-size:.68rem;line-height:1.6;padding:1px 6px;margin-right:5px;vertical-align:2px;letter-spacing:.04em}.data-label.infer{background:#52645e}.data-label.unknown{background:#6c6f6b}
+.table-wrap{overflow-x:auto;border-block:1px solid var(--ink);margin:18px 0 16px;max-width:100%}.table-wrap:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+table{width:100%;border-collapse:collapse;line-height:1.65;text-align:left;font-size:.91rem;min-width:670px}caption{text-align:left;font-weight:700;font-size:.87rem;padding:12px 4px;color:var(--muted)}th,td{padding:12px 11px;vertical-align:top;border-bottom:1px solid var(--rule)}thead th{background:#ebece8;font-size:.82rem;border-bottom:2px solid var(--ink)}tbody th{font-weight:700;white-space:nowrap}tbody tr:last-child th,tbody tr:last-child td{border-bottom:0}td strong{color:#0c5f52}.num{font-variant-numeric:tabular-nums;white-space:nowrap}.small{font-size:.84rem;color:var(--muted)}
+figure{margin:22px 0 25px}figure img{display:block;max-width:100%;height:auto;border:1px solid var(--rule);background:white}figcaption{font-size:.82rem;color:var(--muted);padding-top:8px;line-height:1.65}
+hr{border:0;border-top:1px solid var(--rule);margin:24px 0}
+details{border-block:1px solid var(--rule);padding:12px 0;margin:18px 0}details+details{border-top:0;margin-top:-18px}summary{cursor:pointer;color:var(--accent);font-weight:700;min-height:42px}details>div{padding:12px 2px 6px;font-size:.91rem}details ul{margin-bottom:7px}
+.source-list{font-size:.85rem;line-height:1.7;columns:2;column-gap:34px;padding-left:1.8em}.source-list li{break-inside:avoid;margin:0 0 10px}.source-list span{display:block;font-size:.77rem;color:var(--muted)}.footer{border-top:1px solid var(--rule);padding:20px 0 50px;color:var(--muted);font-size:.81rem}
+@media(max-width:700px){.wrap{width:calc(100% - 28px)}.hero{padding:27px 0 22px}.toc{gap:7px 11px;font-size:.8rem}section{padding-top:28px}section+section{margin-top:27px}h1{letter-spacing:-.025em}.key{padding:12px 13px}.source-list{columns:1}table{font-size:.86rem}th,td{padding:9px 8px}.sitehead .wrap{align-items:flex-start;flex-direction:column;gap:2px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">本文へ移動</a>
+<header class="sitehead"><div class="wrap"><a href="/">HTML Share</a><small>企業向けAI比較 / 公式資料レビュー</small></div></header>
+<main id="main" tabindex="-1" class="wrap">
+  <header class="hero">
+    <p class="eyebrow">Enterprise AI / Buyer’s guide</p>
+    <h1>OpenAI EnterpriseとClaude Enterpriseの比較</h1>
+    <p class="dek">20〜49人の組織が、コーディングと全社利用を両立するときの選定材料。セキュリティ、ソースコード保護、データ保持、監査、料金を公式公開資料から整理する。</p>
+    <p class="byline">調査基準日：<time datetime="2026-11-18">2026年11月18日</time>　｜　対象：ChatGPT Enterprise／Codex と Claude Enterprise／Claude Code</p>
+  </header>
+
+  <nav class="toc" aria-label="記事内の目次"><span>目次</span><a href="#conclusion">結論</a><a href="#overview">比較表</a><a href="#code">コード保護</a><a href="#retention">保持・監査</a><a href="#cost">コスト</a><a href="#checklist">確認項目</a><a href="#sources">出典</a></nav>
+
+  <section id="conclusion" class="prose">
+    <h2>結論：20〜49人では契約方式と監査対象が分かれ目</h2>
+    <div class="key">
+      <h2>先に押さえる4点</h2>
+      <ul>
+        <li><strong>導入規模：</strong>Claude Enterpriseは20席からセルフサービス契約ができる。営業経由の契約は50席から。OpenAI Enterpriseの価格・最低席数は公開情報だけでは確定できず、見積もりが必要。<a href="#s1">[1]</a><a href="#s2">[2]</a></li>
+        <li><strong>ソースコード：</strong>両製品とも企業データを原則としてモデル学習に使わない。ただし推論に必要なコードや出力はサービスへ送られ得る。学習除外と機密情報の非送信は別の問題。<a href="#s4">[4]</a><a href="#s5">[5]</a></li>
+        <li><strong>監査：</strong>ClaudeのCompliance APIはローカルClaude Codeのセッション本文を取得できるが、Claude Codeのクラウドセッションは対象外。OpenAIのCompliance Logs Platformもエージェント内の全操作を網羅するものではない。<a href="#s14">[14]</a><a href="#s15">[15]</a></li>
+        <li><strong>料金：</strong>Claude Enterpriseは<strong>1席月額20米ドル相当（年払い）＋全機能のトークン従量課金</strong>。30人・例示した中程度の利用量なら月額<strong>1,580米ドル</strong>という試算。OpenAI Enterpriseの総額は見積もり前には不明。<a href="#s1">[1]</a><a href="#s3">[3]</a></li>
+      </ul>
+    </div>
+    <p><span class="data-label">事実</span>以下は各社の公開仕様。<span class="data-label infer">判断</span>は公開仕様からの実務上の解釈。<span class="data-label unknown">要確認</span>は個別契約・管理画面・試験で確かめる事項と区別する。</p>
+  </section>
+
+  <section id="overview">
+    <h2>1. 企業向けプランを横並びで比較</h2>
+    <div class="table-wrap" tabindex="0" aria-label="Enterpriseプランの比較表。横にスクロールできます">
+      <table>
+        <caption>ChatGPT Enterprise＋Codex / Claude Enterprise＋Claude Code</caption>
+        <thead><tr><th scope="col">項目</th><th scope="col">OpenAI</th><th scope="col">Anthropic</th></tr></thead>
+        <tbody>
+        <tr><th scope="row">全社利用と開発</th><td>ChatGPT WorkとCodexを組織で管理。利用枠・課金はEnterprise契約条件による。</td><td>Enterpriseの1席でClaude Chat・Claude Code・Coworkにアクセス。使用トークンは別課金。</td></tr>
+        <tr><th scope="row">20〜49人の契約</th><td><span class="data-label unknown">要確認</span>公開されている一律席単価・最低契約席数はない。</td><td>20席以上のセルフサービス方式に適合。営業支援付き方式の最低は50席。</td></tr>
+        <tr><th scope="row">学習への利用</th><td>組織の業務データを既定ではモデル学習に使わない。</td><td>商用Claudeの組織データを既定ではモデル学習に使わない。</td></tr>
+        <tr><th scope="row">ID・利用者管理</th><td>SSO、SCIM、ロール／管理設定を備える。適用範囲は製品別に確認。</td><td>SSO、SCIM、役割、監査ログ、個別・組織別費用上限を備える。</td></tr>
+        <tr><th scope="row">送信前の検査</th><td>Codexの管理ポリシー、権限、外部ガードレール統合。Prisma AIRS連携が検査する内容には制限。</td><td>Enterprise Inference hooksでプロンプト・ツール結果・添付テキスト等を顧客側の検査先へ送り、許可／拒否可能。</td></tr>
+        <tr><th scope="row">保持の設定</th><td>チャット、ファイル、スナップショット、API利用など製品・データ種別ごとに別の条件。</td><td>Enterpriseのチャット保持を設定可能。プロジェクトの個別設定やCompliance APIの保存は別に確認。</td></tr>
+        <tr><th scope="row">コードセッション監査</th><td>Compliance Logs Platform＋Codexの追加のテレメトリーや端末・Git操作ログを組み合わせる。</td><td>ローカルClaude Codeのセッション本文をCompliance APIで取得可能。一部クラウド実行は対象外。</td></tr>
+        <tr><th scope="row">ZDR</th><td>API向けの対象機能・適格条件あり。ChatGPT Work全体に自動適用されない。</td><td>適格なAPIと別途承認されたClaude Code Enterpriseが対象になり得る。Claude Chat/Coworkには包括適用されない。</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small">出典：<a href="#s1">[1]</a><a href="#s4">[4]</a><a href="#s9">[9]</a><a href="#s10">[10]</a><a href="#s14">[14]</a><a href="#s15">[15]</a><a href="#s16">[16]</a><a href="#s18">[18]</a>。SSOや監査の契約内の有効化状況は別途確認が必要。</p>
+  </section>
+
+  <section id="code">
+    <h2>2. ソースコードは「学習」より送信範囲を管理する</h2>
+    <div class="prose">
+      <p>両社のEnterprise向け文書は、業務データを既定でモデル学習に利用しないことを明示している。しかしAIがソースを参照して修正するには、必要なテキスト、ツールの応答、差分等が推論処理に渡る場合がある。認証情報や機密リポジトリのファイルを、エージェントがどこまで読めるかを制限する必要がある。<a href="#s4">[4]</a><a href="#s5">[5]</a></p>
+    </div>
+    <figure>
+      <img src="/assets/openai-claude-enterprise-flow-v1.png" width="1672" height="941" loading="lazy" alt="概念図：社内コードから送信・制御を経由してモデルで処理し、その運用ではデータ保存と監査ログを別に検討する構成">
+      <figcaption>概念図。すべてのコードが送信される／すべての内容が保存されるという意味ではない。実際の対象データ、保持、ログ取得は製品・モード・契約条件によって変わる。</figcaption>
+    </figure>
+    <div class="table-wrap" tabindex="0" aria-label="ソースコード保護の比較表。横にスクロールできます">
+      <table>
+        <thead><tr><th scope="col">観点</th><th scope="col">Codex（OpenAI）</th><th scope="col">Claude Code（Anthropic）</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">実行場所</th><td>ローカルまたはクラウド環境。クラウド実行ではリポジトリをチェックアウトする形がある。</td><td>ローカル環境で必要なファイルを参照する構成と、クラウド上の実行セッションがある。</td></tr>
+          <tr><th scope="row">ファイル制御</th><td>サンドボックス、承認ポリシー、ネットワーク、管理設定による制限を設計する。</td><td>Managed settings、ファイルのRead/Deny設定、許可済みツール等を設計する。</td></tr>
+          <tr><th scope="row">検査ポイント</th><td>Prisma AIRS統合はCodexの新規ユーザーテキストを対象にし、ツール応答・ファイル等を網羅しない。別の仕組みと併用する。</td><td>Inference hooksはユーザー入力に加えてツール結果やアップロードされたテキストの検査を支援する。</td></tr>
+          <tr><th scope="row">推奨運用</th><td colspan="2"><span class="data-label infer">判断</span>機密ファイルを読み取り不可にする、トークンや秘密鍵を端末側で検出する、クラウド実行用のリポジトリ権限を分離する、外部接続先を制限する。</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small">出典：<a href="#s6">[6]</a>〜<a href="#s11">[11]</a>。どちらも「リポジトリを自動的に丸ごと学習する」という仕組みではない一方、実行中の送信範囲は実際のツール呼び出しで検証する。</p>
+    <details><summary>コード保護で確認する具体的なテスト</summary><div><ol><li>意図的に置いた模擬秘密情報がAIへ送られないか、禁止ファイルへのReadが拒否されるか。</li><li>エージェントがネットワーク通信、パッケージ実行、外部MCP接続を開始できる条件は何か。</li><li>ローカル作業とクラウド作業で、リポジトリ・作業ログ・一時ファイルの保持先がどう変わるか。</li><li>ツール結果や添付からの間接的な情報流出を制御・監査できるか。</li></ol></div></details>
+  </section>
+
+  <section id="retention">
+    <h2>3. 保持・ZDR・監査は別々に契約確認する</h2>
+    <div class="table-wrap" tabindex="0" aria-label="データ保持と監査の比較表。横にスクロールできます">
+      <table>
+        <thead><tr><th scope="col">対象</th><th scope="col">OpenAI</th><th scope="col">Anthropic</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">通常の会話履歴</th><td>Enterpriseワークスペースの保持設定に従う。ファイル・スナップショット等はそれぞれ別の扱い。</td><td>Enterprise会話は、保持期間を設定しなければ継続保存される。カスタム保持は原則30日以上で設定し、プロジェクト設定による例外もある。</td></tr>
+          <tr><th scope="row">削除時</th><td>チャット削除後、通常30日以内の削除スケジュール。法的・安全上の例外を確認。</td><td>削除した会話は通常30日でバックエンドから削除される。例外あり。</td></tr>
+          <tr><th scope="row">監査ログ</th><td>Compliance Logs Platformのログ提供は30日間。コマンド、ファイル操作、端末操作を一意に復元するには追加ログが必要。</td><td>Compliance APIのActivity Feedは最大6年の保存。ローカルClaude Codeの収集済みセッション本文も既定で6年（保持ポリシーによる変更あり）。</td></tr>
+          <tr><th scope="row">クラウドのCode</th><td>Codexの操作履歴をCompliance APIだけで完全に記録できると考えない。</td><td>Claude Codeのクラウド実行セッションはCompliance APIのローカル／リモートセッション取得対象外。</td></tr>
+          <tr><th scope="row">ZDRの条件</th><td>API向けZDRは審査・対象機能に条件。ChatGPT Workのエージェント実行等への全面適用は想定しない。</td><td>APIと適格なClaude Code Enterprise向けの契約条件があるが、Claude Chat/Cowork全体には適用されない。ZDRセッションはCompliance APIセッション検索から除外。</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small">出典：<a href="#s4">[4]</a><a href="#s12">[12]</a>〜<a href="#s17">[17]</a>。監査ログの保存期間と元データの保存期間は同一ではない。</p>
+    <div class="note"><strong>見落としやすい点：</strong>「チャットを30日で消す」設定があっても、別のコンプライアンス取得基盤に収集済みの履歴がより長く保存されることがある。逆にZDRで保存を抑えると、監査・eDiscoveryで取得できる本文が減ることがある。目的に応じて保持と証跡の両立を設計する。</div>
+    <h3>監査で「何を証明できるか」</h3>
+    <div class="prose">
+      <p>Claude Codeのローカルセッション取得にはユーザー入力、モデル応答、ツール呼び出しと結果が含まれる。ただしそれはAIへ送られたセッションの記録であり、端末上の最終ファイル状態やGit pushの事実を保証するものではない。OpenAI側もCompliance APIだけで実行全操作を網羅できないため、Gitの監査ログ、端末／EDR、CI、OpenTelemetry等と突き合わせる。<a href="#s14">[14]</a><a href="#s15">[15]</a></p>
+    </div>
+    <details><summary>データ所在地と新しいClaude機能の注意点</summary><div>
+      <ul>
+        <li>OpenAIはEnterprise向けのデータ所在地の選択肢を案内しているが、利用可能な地域・対象データ・Codexの実行場所は契約単位で確認する。<a href="#s4">[4]</a></li>
+        <li>Anthropicのネイティブ商用Claudeの保存は米国が既定。米国内での推論固定は対応モデルに対して追加料金（通常10%）を伴う。AWS等の第三者経由の地域提供とネイティブEnterpriseの所在地は同一視しない。<a href="#s19">[19]</a><a href="#s20">[20]</a></li>
+        <li>2026年11月に案内された統合Claude体験はクラウドのサンドボックスを使用し、ZDR／HIPAA／CMEK組織では利用条件が異なる。旧来のローカル利用と同じデータ経路だと決めつけない。<a href="#s21">[21]</a></li>
+      </ul>
+    </div></details>
+  </section>
+
+  <section id="cost">
+    <h2>4. コスト：Claudeの席単価は公開、OpenAIは見積もり</h2>
+    <p class="prose"><span class="data-label">事実</span>Claude Enterpriseは<strong>1人あたり月20米ドル・年契約</strong>で、Claude Chat、Claude Code、Coworkの利用分はすべて標準APIレートで別途計量する。セルフサービス契約は20席から、使用クレジットは前払い。OpenAI Enterpriseの席数・最小金額・利用込み枠は営業提示条件による。<a href="#s1">[1]</a><a href="#s2">[2]</a><a href="#s3">[3]</a></p>
+    <div class="table-wrap" tabindex="0" aria-label="20〜49人での年間席料金の比較表。横にスクロールできます">
+      <table>
+        <caption>Claude Enterpriseの固定席料金（税・従量使用量を除く）</caption>
+        <thead><tr><th scope="col">人数</th><th scope="col">月額換算</th><th scope="col">年間席料金</th><th scope="col">OpenAI Enterprise</th></tr></thead>
+        <tbody>
+          <tr><th scope="row" class="num">20人</th><td class="num">$400</td><td class="num">$4,800</td><td rowspan="4">公開一律価格なし。要見積もり。</td></tr>
+          <tr><th scope="row" class="num">30人</th><td class="num">$600</td><td class="num">$7,200</td></tr>
+          <tr><th scope="row" class="num">40人</th><td class="num">$800</td><td class="num">$9,600</td></tr>
+          <tr><th scope="row" class="num">49人</th><td class="num">$980</td><td class="num">$11,760</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3>30人の利用量別・具体的な試算</h3>
+    <p class="prose">開発担当10人、全社利用20人を仮定。全員がClaude Sonnet 5.5を使い、入力<strong>$2／100万トークン</strong>、出力<strong>$10／100万トークン</strong>で計算する。キャッシュ割引、書き込み課金、ツール追加費用、税、為替、長期契約割引は含めない。<a href="#s3">[3]</a></p>
+    <div class="table-wrap" tabindex="0" aria-label="利用量シナリオ別の月額試算表。横にスクロールできます">
+      <table>
+        <caption>Claude Enterprise月額試算（30席、Sonnet 5.5）</caption>
+        <thead><tr><th scope="col">利用量</th><th scope="col">開発者1人／月</th><th scope="col">一般1人／月</th><th scope="col">従量料金</th><th scope="col">合計／月</th><th scope="col">年間換算</th></tr></thead>
+        <tbody>
+        <tr><th scope="row">少なめ</th><td>入力500万／出力100万</td><td>入力50万／出力12.5万</td><td class="num">$245</td><td class="num"><strong>$845</strong></td><td class="num">$10,140</td></tr>
+        <tr><th scope="row">中程度</th><td>入力2,000万／出力400万</td><td>入力200万／出力50万</td><td class="num">$980</td><td class="num"><strong>$1,580</strong></td><td class="num">$18,960</td></tr>
+        <tr><th scope="row">多め</th><td>入力5,000万／出力1,000万</td><td>入力500万／出力100万</td><td class="num">$2,400</td><td class="num"><strong>$3,000</strong></td><td class="num">$36,000</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small">算式：月額総額＝30席×$20＋各担当の（入力100万単位×$2＋出力100万単位×$10）の合計。月々同じ利用量が12か月続くという例示であり、見積もりや利用予測ではない。</p>
+    <p class="prose"><span class="data-label">事実</span>OpenAI側のGPT-6.2 Solの公開USD従量料金（標準速度）は入力$2／100万、出力$10／100万、キャッシュ入力$0.10／100万である。しかしこれは<strong>Enterprise契約の総額ではない</strong>。利用クレジット、契約上の基本料金、制限、超過利用の扱いを確認する必要がある。<a href="#s2">[2]</a></p>
+    <div class="note"><strong>調達上の注意：</strong>Claudeの$20は「使い放題の席料金」ではない。毎月の予算上限と前払いクレジット不足時の動作を決めること。OpenAIも料金表のトークン単価だけで年間TCOを計算しない。</div>
+  </section>
+
+  <section id="checklist" class="prose">
+    <h2>5. 20〜49人で契約前に確認する8項目</h2>
+    <ol>
+      <li><strong>20〜49席での提供形態：</strong>OpenAIの最小契約・料金、Claudeセルフサービスで使えるSLA・サポート・請求方法。</li>
+      <li><strong>対象製品の一覧：</strong>Chat、Code、Cowork、API、クラウド実行が同一の契約・管理ポリシーで扱われるか。</li>
+      <li><strong>送信の境界：</strong>ソース、添付、ツール結果、MCP連携内容をいつ外部へ送信するか。秘密情報遮断テストを実施できるか。</li>
+      <li><strong>保持の一覧表：</strong>チャット、ファイル、コードセッション、API、ログ、バックアップを別々に保持期間・削除条件まで文書化できるか。</li>
+      <li><strong>ZDRと監査の両立：</strong>どの製品・機能にZDRが適用されるか。ZDR有効時にも欲しい監査証跡を取得できるか。</li>
+      <li><strong>監査の網羅率：</strong>ローカル／クラウドで、誰が何を読み、どのコマンドを実行し、最終的に何をGitへ反映したかを突合できるか。</li>
+      <li><strong>地域と第三者処理：</strong>データ保管・推論・外部DLP先・接続サービスの地域と再委託先を説明できるか。</li>
+      <li><strong>上限付きの実測：</strong>開発者10人＋一般20人で2〜4週間の試用を行い、月間トークン、キャッシュ率、モデルの偏り、実際の削減工数を測る。</li>
+    </ol>
+    <p><span class="data-label infer">判断</span>大人数向けの調達手順をそのまま適用するより、初期の30人程度で<strong>「送信・保持・監査」と「1人当たりの利用量」</strong>を測ってから契約条件を比較するのが実務的。公開仕様だけでは、セキュリティ上の優劣や年間総費用の優劣を断定できない。</p>
+  </section>
+
+  <section id="sources">
+    <h2>公式資料・出典</h2>
+    <p class="prose small">すべて提供元の公式情報。製品仕様・価格は改定され得るため、契約時に最新の記載と個別契約書を確認する。</p>
+    <ol class="source-list">
+      <li id="s1"><a href="https://support.claude.com/en/articles/9797531-what-is-the-enterprise-plan">Anthropic — What is the Enterprise plan?</a><span>席・最小席数・課金・機能</span></li>
+      <li id="s2"><a href="https://learn.chatgpt.com/docs/pricing">OpenAI — Pricing</a><span>Enterprise利用量とUSD価格表</span></li>
+      <li id="s3"><a href="https://claude.com/pricing">Anthropic — Plans &amp; pricing</a> ／ <a href="https://platform.claude.com/docs/en/about-claude/pricing">Claude API Pricing</a><span>席料金とモデル別トークン料金</span></li>
+      <li id="s4"><a href="https://learn.chatgpt.com/docs/enterprise/chatgpt-work-cloud-security">OpenAI — ChatGPT Work cloud security</a><span>企業データ・クラウドセキュリティ</span></li>
+      <li id="s5"><a href="https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training">Anthropic Privacy — Model training</a><span>商用データの学習利用</span></li>
+      <li id="s6"><a href="https://support.claude.com/en/articles/14554922-claude-code-user-faq">Anthropic — Claude Code FAQ</a><span>ローカルコード利用範囲</span></li>
+      <li id="s7"><a href="https://learn.chatgpt.com/docs/cloud">OpenAI — Codex Cloud</a><span>クラウド環境とリポジトリ</span></li>
+      <li id="s8"><a href="https://code.claude.com/docs/en/claude-code-on-the-web">Anthropic — Claude Code on the web</a><span>クラウドセッション</span></li>
+      <li id="s9"><a href="https://learn.chatgpt.com/docs/enterprise/managed-configuration">OpenAI — Managed configuration</a><span>Codexの企業管理</span></li>
+      <li id="s10"><a href="https://support.claude.com/en/articles/16059458-inference-hooks-overview">Anthropic — Inference hooks</a><span>プロンプト・ツール結果等の制御</span></li>
+      <li id="s11"><a href="https://learn.chatgpt.com/docs/enterprise/prisma-airs">OpenAI — Prisma AIRS integration</a><span>送信前検査の対象範囲</span></li>
+      <li id="s12"><a href="https://developers.openai.com/api/docs/guides/your-data">OpenAI API — Your data</a><span>API向けZDRと保持</span></li>
+      <li id="s13"><a href="https://privacy.claude.com/en/articles/10440198-configure-custom-data-retention-controls-for-enterprise-plans">Anthropic — Enterprise retention controls</a><span>会話の保持設定</span></li>
+      <li id="s14"><a href="https://learn.chatgpt.com/docs/enterprise/compliance-api">OpenAI — Compliance API</a><span>ログ提供期間と対象イベント</span></li>
+      <li id="s15"><a href="https://platform.claude.com/docs/en/manage-claude/compliance-sessions">Anthropic — Compliance session transcripts</a><span>ローカル・リモートの監査範囲</span></li>
+      <li id="s16"><a href="https://privacy.claude.com/en/articles/8956058-i-have-a-zero-data-retention-agreement-with-anthropic-what-products-does-it-apply-to">Anthropic — ZDR supported products</a><span>ZDRの製品別適用範囲</span></li>
+      <li id="s17"><a href="https://platform.claude.com/docs/en/manage-claude/api-and-data-retention">Anthropic — API and data retention</a><span>Compliance APIのデータ保持</span></li>
+      <li id="s18"><a href="https://learn.chatgpt.com/docs/enterprise/user-lifecycle">OpenAI — User lifecycle</a><span>SSO・SCIM・管理</span></li>
+      <li id="s19"><a href="https://privacy.claude.com/en/articles/7996890-where-are-your-servers-located-do-you-host-your-models-on-eu-servers">Anthropic — Server locations</a><span>ネイティブClaudeの保管場所</span></li>
+      <li id="s20"><a href="https://support.claude.com/en/articles/15422948-enable-us-only-inference-for-your-organization">Anthropic — US-only inference</a><span>米国内推論の条件</span></li>
+      <li id="s21"><a href="https://support.claude.com/en/articles/17444462-set-up-and-manage-the-new-unified-claude-experience-for-your-enterprise-organization">Anthropic — Unified Claude experience</a><span>2026年11月時点の新しい体験</span></li>
+    </ol>
+  </section>
+</main>
+<footer class="footer"><div class="wrap"><p>掲載内容は公開仕様の調査結果であり、各社の個別契約条件・監査保証・法的助言ではありません。公開価格は米ドル表示。</p><p><a href="/">記事一覧に戻る</a>　·　<a href="/feed.xml">RSS</a></p></div></footer>
+</body>
+</html>
