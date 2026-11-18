@@ -25,14 +25,14 @@ a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px;ov
 .skip{position:absolute;top:-100px;left:12px;background:white;padding:8px 12px;z-index:10}.skip:focus{top:12px}
 .wrap{width:min(var(--max),calc(100% - 40px));margin-inline:auto}
 .sitehead{border-bottom:1px solid var(--rule)}.sitehead .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 0;font-size:.82rem;line-height:1.5;color:var(--muted)}.sitehead a{text-decoration:none;font-weight:700;color:var(--ink)}.sitehead small{font-size:inherit}
-.hero{padding:40px 0 30px;border-bottom:2px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.77rem;font-weight:750;letter-spacing:.075em;text-transform:uppercase}
+.hero{padding:40px 0 30px;border-bottom:2px solid var(--ink)}
 h1{font-size:clamp(1.9rem,4.5vw,3.2rem);letter-spacing:-.035em;line-height:1.4;margin:0;max-width:20em;font-weight:780}
 .dek{font-size:clamp(1rem,2vw,1.14rem);max-width:65ch;color:#3e4947;margin:16px 0 14px}.byline{font-size:.81rem;color:var(--muted);margin:0}
 .toc{display:flex;flex-wrap:wrap;gap:8px 16px;padding:12px 0;border-bottom:1px solid var(--rule);font-size:.85rem}.toc span{font-weight:750}.toc a{white-space:nowrap}
 main{padding-bottom:60px}.prose{max-width:780px}section{padding-top:38px}section+section{border-top:1px solid var(--rule);margin-top:34px}
 h2{font-size:clamp(1.45rem,2.8vw,1.9rem);line-height:1.45;letter-spacing:-.018em;margin:0 0 15px}h3{font-size:1.1rem;line-height:1.5;margin:26px 0 9px}p{margin:0 0 15px}
 ul,ol{padding-left:1.4em;margin:8px 0 19px}li+li{margin-top:6px}
-.key{border-left:4px solid var(--accent);background:var(--soft);padding:16px 18px 14px;margin:25px 0 20px}.key h2{font-size:1.05rem;margin:0 0 7px}.key ul{margin:0;padding-left:1.3em}.key li{margin-top:5px}
+.key{border-left:4px solid var(--accent);background:var(--soft);padding:16px 18px 14px;margin:25px 0 20px}.key h3{font-size:1.05rem;margin:0 0 7px}.key ul{margin:0;padding-left:1.3em}.key li{margin-top:5px}
 .note{background:#f0f0ec;border-left:3px solid #858d88;padding:12px 16px;font-size:.91rem;line-height:1.75;margin:18px 0}.note strong{font-weight:700}
 .data-label{display:inline-block;background:var(--ink);color:white;font-size:.68rem;line-height:1.6;padding:1px 6px;margin-right:5px;vertical-align:2px;letter-spacing:.04em}.data-label.infer{background:#52645e}.data-label.unknown{background:#6c6f6b}
 .table-wrap{overflow-x:auto;border-block:1px solid var(--ink);margin:18px 0 16px;max-width:100%}.table-wrap:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
@@ -44,15 +44,23 @@ details{border-block:1px solid var(--rule);padding:12px 0;margin:18px 0}details+
 @media(max-width:700px){.wrap{width:calc(100% - 28px)}.hero{padding:27px 0 22px}.toc{gap:7px 11px;font-size:.8rem}section{padding-top:28px}section+section{margin-top:27px}h1{letter-spacing:-.025em}.key{padding:12px 13px}.source-list{columns:1}table{font-size:.86rem}th,td{padding:9px 8px}.sitehead .wrap{align-items:flex-start;flex-direction:column;gap:2px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
+  <!-- html-share: social metadata -->
+  <meta property="og:site_name" content="HTML Share">
+  <meta property="og:url" content="https://share.0g0.xyz/openai-claude-enterprise">
+  <meta name="twitter:title" content="OpenAI × Claude Enterprise 比較｜セキュリティ・監査・コスト">
+  <meta name="twitter:description" content="20〜49人規模向け。コード保護、保持期間、監査範囲、料金の条件を公式資料で比較。">
+  <!-- /html-share: social metadata -->
+  <!-- html-share: rss discovery -->
+  <link rel="alternate" type="application/rss+xml" title="HTML Share RSS" href="https://share.0g0.xyz/feed.xml">
+  <!-- /html-share: rss discovery -->
 </head>
 <body>
 <a class="skip" href="#main">本文へ移動</a>
 <header class="sitehead"><div class="wrap"><a href="/">HTML Share</a><small>企業向けAI比較 / 公式資料レビュー</small></div></header>
 <main id="main" tabindex="-1" class="wrap">
   <header class="hero">
-    <p class="eyebrow">Enterprise AI / Buyer’s guide</p>
     <h1>OpenAI EnterpriseとClaude Enterpriseの比較</h1>
-    <p class="dek">20〜49人の組織が、コーディングと全社利用を両立するときの選定材料。セキュリティ、ソースコード保護、データ保持、監査、料金を公式公開資料から整理する。</p>
+    <p class="dek">20〜49人の組織がコーディングと全社利用を両立するときの選定材料。セキュリティ、ソースコード保護、データ保持、監査、料金を公式公開資料から整理する。</p>
     <p class="byline">調査基準日：<time datetime="2026-11-18">2026年11月18日</time>　｜　対象：ChatGPT Enterprise／Codex と Claude Enterprise／Claude Code</p>
   </header>
 
@@ -61,7 +69,7 @@ details{border-block:1px solid var(--rule);padding:12px 0;margin:18px 0}details+
   <section id="conclusion" class="prose">
     <h2>結論：20〜49人では契約方式と監査対象が分かれ目</h2>
     <div class="key">
-      <h2>先に押さえる4点</h2>
+      <h3>先に押さえる4点</h3>
       <ul>
         <li><strong>導入規模：</strong>Claude Enterpriseは20席からセルフサービス契約ができる。営業経由の契約は50席から。OpenAI Enterpriseの価格・最低席数は公開情報だけでは確定できず、見積もりが必要。<a href="#s1">[1]</a><a href="#s2">[2]</a></li>
         <li><strong>ソースコード：</strong>両製品とも企業データを原則としてモデル学習に使わない。ただし推論に必要なコードや出力はサービスへ送られ得る。学習除外と機密情報の非送信は別の問題。<a href="#s4">[4]</a><a href="#s5">[5]</a></li>
@@ -123,7 +131,7 @@ details{border-block:1px solid var(--rule);padding:12px 0;margin:18px 0}details+
       <table>
         <thead><tr><th scope="col">対象</th><th scope="col">OpenAI</th><th scope="col">Anthropic</th></tr></thead>
         <tbody>
-          <tr><th scope="row">通常の会話履歴</th><td>Enterpriseワークスペースの保持設定に従う。ファイル・スナップショット等はそれぞれ別の扱い。</td><td>Enterprise会話は、保持期間を設定しなければ継続保存される。カスタム保持は原則30日以上で設定し、プロジェクト設定による例外もある。</td></tr>
+          <tr><th scope="row">通常の会話履歴</th><td>Enterpriseワークスペースの保持設定に従う。ファイル・スナップショット等はそれぞれ別の扱い。</td><td>Enterprise会話は保持期間を設定しなければ継続保存される。カスタム保持は原則30日以上で設定し、プロジェクト設定による例外もある。</td></tr>
           <tr><th scope="row">削除時</th><td>チャット削除後、通常30日以内の削除スケジュール。法的・安全上の例外を確認。</td><td>削除した会話は通常30日でバックエンドから削除される。例外あり。</td></tr>
           <tr><th scope="row">監査ログ</th><td>Compliance Logs Platformのログ提供は30日間。コマンド、ファイル操作、端末操作を一意に復元するには追加ログが必要。</td><td>Compliance APIのActivity Feedは最大6年の保存。ローカルClaude Codeの収集済みセッション本文も既定で6年（保持ポリシーによる変更あり）。</td></tr>
           <tr><th scope="row">クラウドのCode</th><td>Codexの操作履歴をCompliance APIだけで完全に記録できると考えない。</td><td>Claude Codeのクラウド実行セッションはCompliance APIのローカル／リモートセッション取得対象外。</td></tr>
@@ -191,34 +199,34 @@ details{border-block:1px solid var(--rule);padding:12px 0;margin:18px 0}details+
       <li><strong>地域と第三者処理：</strong>データ保管・推論・外部DLP先・接続サービスの地域と再委託先を説明できるか。</li>
       <li><strong>上限付きの実測：</strong>開発者10人＋一般20人で2〜4週間の試用を行い、月間トークン、キャッシュ率、モデルの偏り、実際の削減工数を測る。</li>
     </ol>
-    <p><span class="data-label infer">判断</span>大人数向けの調達手順をそのまま適用するより、初期の30人程度で<strong>「送信・保持・監査」と「1人当たりの利用量」</strong>を測ってから契約条件を比較するのが実務的。公開仕様だけでは、セキュリティ上の優劣や年間総費用の優劣を断定できない。</p>
+    <p><span class="data-label infer">判断</span>大人数向けの調達手順をそのまま適用するより、初期の30人程度で<strong>「送信・保持・監査」と「1人当たりの利用量」</strong>を測ってから契約条件を比較するのが実務的。公開仕様だけではセキュリティ上の優劣や年間総費用の優劣を断定できない。</p>
   </section>
 
   <section id="sources">
     <h2>公式資料・出典</h2>
     <p class="prose small">すべて提供元の公式情報。製品仕様・価格は改定され得るため、契約時に最新の記載と個別契約書を確認する。</p>
     <ol class="source-list">
-      <li id="s1"><a href="https://support.claude.com/en/articles/9797531-what-is-the-enterprise-plan">Anthropic — What is the Enterprise plan?</a><span>席・最小席数・課金・機能</span></li>
-      <li id="s2"><a href="https://learn.chatgpt.com/docs/pricing">OpenAI — Pricing</a><span>Enterprise利用量とUSD価格表</span></li>
-      <li id="s3"><a href="https://claude.com/pricing">Anthropic — Plans &amp; pricing</a> ／ <a href="https://platform.claude.com/docs/en/about-claude/pricing">Claude API Pricing</a><span>席料金とモデル別トークン料金</span></li>
-      <li id="s4"><a href="https://learn.chatgpt.com/docs/enterprise/chatgpt-work-cloud-security">OpenAI — ChatGPT Work cloud security</a><span>企業データ・クラウドセキュリティ</span></li>
-      <li id="s5"><a href="https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training">Anthropic Privacy — Model training</a><span>商用データの学習利用</span></li>
-      <li id="s6"><a href="https://support.claude.com/en/articles/14554922-claude-code-user-faq">Anthropic — Claude Code FAQ</a><span>ローカルコード利用範囲</span></li>
-      <li id="s7"><a href="https://learn.chatgpt.com/docs/cloud">OpenAI — Codex Cloud</a><span>クラウド環境とリポジトリ</span></li>
-      <li id="s8"><a href="https://code.claude.com/docs/en/claude-code-on-the-web">Anthropic — Claude Code on the web</a><span>クラウドセッション</span></li>
-      <li id="s9"><a href="https://learn.chatgpt.com/docs/enterprise/managed-configuration">OpenAI — Managed configuration</a><span>Codexの企業管理</span></li>
-      <li id="s10"><a href="https://support.claude.com/en/articles/16059458-inference-hooks-overview">Anthropic — Inference hooks</a><span>プロンプト・ツール結果等の制御</span></li>
-      <li id="s11"><a href="https://learn.chatgpt.com/docs/enterprise/prisma-airs">OpenAI — Prisma AIRS integration</a><span>送信前検査の対象範囲</span></li>
-      <li id="s12"><a href="https://developers.openai.com/api/docs/guides/your-data">OpenAI API — Your data</a><span>API向けZDRと保持</span></li>
-      <li id="s13"><a href="https://privacy.claude.com/en/articles/10440198-configure-custom-data-retention-controls-for-enterprise-plans">Anthropic — Enterprise retention controls</a><span>会話の保持設定</span></li>
-      <li id="s14"><a href="https://learn.chatgpt.com/docs/enterprise/compliance-api">OpenAI — Compliance API</a><span>ログ提供期間と対象イベント</span></li>
-      <li id="s15"><a href="https://platform.claude.com/docs/en/manage-claude/compliance-sessions">Anthropic — Compliance session transcripts</a><span>ローカル・リモートの監査範囲</span></li>
-      <li id="s16"><a href="https://privacy.claude.com/en/articles/8956058-i-have-a-zero-data-retention-agreement-with-anthropic-what-products-does-it-apply-to">Anthropic — ZDR supported products</a><span>ZDRの製品別適用範囲</span></li>
-      <li id="s17"><a href="https://platform.claude.com/docs/en/manage-claude/api-and-data-retention">Anthropic — API and data retention</a><span>Compliance APIのデータ保持</span></li>
-      <li id="s18"><a href="https://learn.chatgpt.com/docs/enterprise/user-lifecycle">OpenAI — User lifecycle</a><span>SSO・SCIM・管理</span></li>
-      <li id="s19"><a href="https://privacy.claude.com/en/articles/7996890-where-are-your-servers-located-do-you-host-your-models-on-eu-servers">Anthropic — Server locations</a><span>ネイティブClaudeの保管場所</span></li>
-      <li id="s20"><a href="https://support.claude.com/en/articles/15422948-enable-us-only-inference-for-your-organization">Anthropic — US-only inference</a><span>米国内推論の条件</span></li>
-      <li id="s21"><a href="https://support.claude.com/en/articles/17444462-set-up-and-manage-the-new-unified-claude-experience-for-your-enterprise-organization">Anthropic — Unified Claude experience</a><span>2026年11月時点の新しい体験</span></li>
+      <li id="s1"><a href="https://support.claude.com/en/articles/9797531-what-is-the-enterprise-plan">Anthropic: What is the Enterprise plan?</a><span>席・最小席数・課金・機能</span></li>
+      <li id="s2"><a href="https://learn.chatgpt.com/docs/pricing">OpenAI: Pricing</a><span>Enterprise利用量とUSD価格表</span></li>
+      <li id="s3"><a href="https://claude.com/pricing">Anthropic: Plans &amp; pricing</a> ／ <a href="https://platform.claude.com/docs/en/about-claude/pricing">Claude API Pricing</a><span>席料金とモデル別トークン料金</span></li>
+      <li id="s4"><a href="https://learn.chatgpt.com/docs/enterprise/chatgpt-work-cloud-security">OpenAI: ChatGPT Work cloud security</a><span>企業データ・クラウドセキュリティ</span></li>
+      <li id="s5"><a href="https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training">Anthropic Privacy: Model training</a><span>商用データの学習利用</span></li>
+      <li id="s6"><a href="https://support.claude.com/en/articles/14554922-claude-code-user-faq">Anthropic: Claude Code FAQ</a><span>ローカルコード利用範囲</span></li>
+      <li id="s7"><a href="https://learn.chatgpt.com/docs/cloud">OpenAI: Codex Cloud</a><span>クラウド環境とリポジトリ</span></li>
+      <li id="s8"><a href="https://code.claude.com/docs/en/claude-code-on-the-web">Anthropic: Claude Code on the web</a><span>クラウドセッション</span></li>
+      <li id="s9"><a href="https://learn.chatgpt.com/docs/enterprise/managed-configuration">OpenAI: Managed configuration</a><span>Codexの企業管理</span></li>
+      <li id="s10"><a href="https://support.claude.com/en/articles/16059458-inference-hooks-overview">Anthropic: Inference hooks</a><span>プロンプト・ツール結果等の制御</span></li>
+      <li id="s11"><a href="https://learn.chatgpt.com/docs/enterprise/prisma-airs">OpenAI: Prisma AIRS integration</a><span>送信前検査の対象範囲</span></li>
+      <li id="s12"><a href="https://developers.openai.com/api/docs/guides/your-data">OpenAI API: Your data</a><span>API向けZDRと保持</span></li>
+      <li id="s13"><a href="https://privacy.claude.com/en/articles/10440198-configure-custom-data-retention-controls-for-enterprise-plans">Anthropic: Enterprise retention controls</a><span>会話の保持設定</span></li>
+      <li id="s14"><a href="https://learn.chatgpt.com/docs/enterprise/compliance-api">OpenAI: Compliance API</a><span>ログ提供期間と対象イベント</span></li>
+      <li id="s15"><a href="https://platform.claude.com/docs/en/manage-claude/compliance-sessions">Anthropic: Compliance session transcripts</a><span>ローカル・リモートの監査範囲</span></li>
+      <li id="s16"><a href="https://privacy.claude.com/en/articles/8956058-i-have-a-zero-data-retention-agreement-with-anthropic-what-products-does-it-apply-to">Anthropic: ZDR supported products</a><span>ZDRの製品別適用範囲</span></li>
+      <li id="s17"><a href="https://platform.claude.com/docs/en/manage-claude/api-and-data-retention">Anthropic: API and data retention</a><span>Compliance APIのデータ保持</span></li>
+      <li id="s18"><a href="https://learn.chatgpt.com/docs/enterprise/user-lifecycle">OpenAI: User lifecycle</a><span>SSO・SCIM・管理</span></li>
+      <li id="s19"><a href="https://privacy.claude.com/en/articles/7996890-where-are-your-servers-located-do-you-host-your-models-on-eu-servers">Anthropic: Server locations</a><span>ネイティブClaudeの保管場所</span></li>
+      <li id="s20"><a href="https://support.claude.com/en/articles/15422948-enable-us-only-inference-for-your-organization">Anthropic: US-only inference</a><span>米国内推論の条件</span></li>
+      <li id="s21"><a href="https://support.claude.com/en/articles/17444462-set-up-and-manage-the-new-unified-claude-experience-for-your-enterprise-organization">Anthropic: Unified Claude experience</a><span>2026年11月時点の新しい体験</span></li>
     </ol>
   </section>
 </main>
