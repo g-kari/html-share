@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sam Altman スタンフォード講演まとめ｜Scale, AGI, and the Future of Everything（Stanford CS153）</title>
+<meta name="description" content="Sam Altmanがスタンフォードの授業CS153で行った講演「Scale, AGI, and the Future of Everything」（Stanford Online、2026年6月15日公開、41分）を章立てで要約。Xで拡散した26分の再編集版の元ソースも特定した。">
+<meta property="og:image" content="https://share.0g0.xyz/assets/sam-altman-stanford-cs153-ogp-v1.png">
+<meta property="og:image:alt" content="Sam Altman スタンフォード講演まとめ（Stanford CS153）">
+<style>
+  :root{
+    --ink:#1c1c22; --muted:#5c5c66; --accent:#8c1515; --line:#d8d8e0; --panel:#f4f4f8;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;color:var(--ink);background:#fff;
+    font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",system-ui,sans-serif;
+    line-height:2.0;font-size:17px;-webkit-text-size-adjust:100%;}
+  .wrap{max-width:800px;margin:0 auto;padding:24px 20px 80px}
+  header.top{padding:26px 0 4px}
+  .kicker{color:var(--accent);font-weight:700;letter-spacing:.08em;font-size:.85rem}
+  h1{font-size:1.85rem;line-height:1.45;margin:.35em 0 .4em}
+  .meta{color:var(--muted);font-size:.92rem;line-height:1.8}
+  .meta a{color:var(--accent)}
+  .summary3{border:2px solid var(--ink);padding:18px 22px;margin:28px 0}
+  .summary3 .ttl{font-weight:800;margin-bottom:6px}
+  .summary3 ol{margin:0;padding-left:1.4em}
+  .summary3 li{margin:.25em 0}
+  nav.toc{border:1px solid var(--line);background:var(--panel);padding:16px 22px;margin:26px 0}
+  nav.toc .ttl{font-weight:700;font-size:.92rem;color:var(--muted);margin-bottom:6px}
+  nav.toc ol{margin:0;padding-left:1.4em}
+  nav.toc li{margin:.3em 0}
+  nav.toc a{color:var(--ink);text-decoration:none}
+  nav.toc a:hover{text-decoration:underline}
+  nav.toc .time{color:var(--muted);font-size:.82rem;margin-left:.4em}
+  h2{font-size:1.32rem;margin:2.4em 0 .7em;padding:.15em 0 .15em .55em;border-left:6px solid var(--accent);line-height:1.5;scroll-margin-top:16px}
+  h2 .time{color:var(--muted);font-size:.85rem;font-weight:400;margin-left:.5em;white-space:nowrap}
+  p{margin:.9em 0}
+  ul{margin:.6em 0 1em;padding-left:1.35em}
+  li{margin:.45em 0}
+  .point{background:var(--panel);border-left:6px solid var(--accent);padding:14px 18px;margin:20px 0}
+  .point .ttl{font-weight:700;margin-bottom:4px}
+  .point p{margin:.4em 0}
+  .links{background:var(--panel);padding:16px 20px;margin-top:36px}
+  .links p{margin:.4em 0;font-size:.94rem}
+  a{color:var(--accent)}
+  .note{color:var(--muted);font-size:.85rem;margin-top:28px}
+  footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+  @media (max-width:560px){
+    body{font-size:16px}
+    h1{font-size:1.5rem}
+    .wrap{padding:16px 14px 64px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <div class="kicker">講演まとめ</div>
+  <h1>Sam Altman スタンフォード講演まとめ<br>Scale, AGI, and the Future of Everything</h1>
+  <p class="meta">
+    登壇者：Sam Altman（OpenAI CEO）／講演：Stanford CS153「Frontier Systems」の授業講演<br>
+    公開：2026年6月15日（Stanford Online 公式 YouTube）／長さ：41分<br>
+    元ソース：<a href="https://www.youtube.com/watch?v=F_7M4Hc-usM">公式動画（YouTube）</a>
+  </p>
+</header>
+
+<div class="summary3">
+  <div class="ttl">要点</div>
+  <ol>
+    <li>スタートアップの前提が変わった。手頃なトークン支出が大規模な開発チームの代わりになり、狙える規模と速度が変わった。</li>
+    <li>面白い成果はスケールの先に出る。スケールは技術・資本・文化の3面で壊れるので、分解して1つずつ対処する。</li>
+    <li>知能は電気のようなユーティリティになる。利用者はハードではなくトークンで買い、コンピュート不足は価格次第で続く。</li>
+  </ol>
+</div>
+
+<div class="point">
+  <div class="ttl">このページについて（元ソースの確認）</div>
+  <p>Xで「Sam Altman：『もうプロンプトを書く必要はない』」という投稿とともに26分31秒の動画が拡散した。この動画の元ソースは、Stanford Online が公式に公開した上記の授業講演で、登壇者は Sam Altman 本人であることを公式チャンネルの公開情報で確認した。</p>
+  <p>Xの動画は、中国語字幕が追加され、公式版（41分）より短い再編集版である。また「もうプロンプトを書く必要はない」という文言は、講演内にそのままの形では確認できなかった。拡散した投稿側の要約とみられる。講演の主題はプロンプトの書き方ではなく、スケールとシステムの設計である。</p>
+</div>
+
+<nav class="toc">
+  <div class="ttl">目次</div>
+  <ol>
+    <li><a href="#ch1">スタンフォードへの帰還</a><span class="time">0:09</span></li>
+    <li><a href="#ch2">OpenAIは「逆さまのスタートアップ」</a><span class="time">1:29</span></li>
+    <li><a href="#ch3">最大の変化はトークン支出</a><span class="time">2:25</span></li>
+    <li><a href="#ch4">良い課題は出題できない</a><span class="time">3:11</span></li>
+    <li><a href="#ch5">スケールが生む創発性</a><span class="time">4:59</span></li>
+    <li><a href="#ch6">スケールで壊れるものを分解する</a><span class="time">8:00</span></li>
+    <li><a href="#ch7">人の側をスケールさせる</a><span class="time">10:27</span></li>
+    <li><a href="#ch8">ChatGPTはどう見つかったか</a><span class="time">12:43</span></li>
+    <li><a href="#ch9">Codexと「手足」の考え方</a><span class="time">16:41</span></li>
+    <li><a href="#ch10">学習パイプラインはいずれ書き換わる</a><span class="time">17:31</span></li>
+    <li><a href="#ch11">知能は新しいユーティリティになる</a><span class="time">19:57</span></li>
+    <li><a href="#ch12">買うのはコンピュートではなくトークン</a><span class="time">22:50</span></li>
+    <li><a href="#ch13">Q&amp;A：LLMは行き止まりか</a><span class="time">25:53</span></li>
+    <li><a href="#ch14">Q&amp;A：教育はまだ変わっていない</a><span class="time">29:03</span></li>
+    <li><a href="#ch15">Q&amp;A：今後10年の分岐</a><span class="time">32:17</span></li>
+    <li><a href="#ch16">Q&amp;A：コンピュート不足は続く</a><span class="time">38:45</span></li>
+  </ol>
+</nav>
+
+<h2 id="ch1">スタンフォードへの帰還<span class="time">0:09</span></h2>
+<p>この授業は、Altman が2014年に教えた CS183「How to Start a Startup」に着想を得て設計された。Altman は、スタートアップの作法は当時から根本的に変わっており、誰かがアップデート版を教えるべきだが、自分はたぶんやらないと述べた。OpenAI の創業は2016年で、CS183 で理論を組み立ててから実行に移したように見えるが、実際はそう単純ではなかったという。</p>
+
+<h2 id="ch2">OpenAIは「逆さまのスタートアップ」<span class="time">1:29</span></h2>
+<p>通常のスタートアップは製品会社として始まり、成長が鈍ってから研究所を後付けする。OpenAI は逆で、研究所が先にあり、会社を後付けした。Altman はこの順序を勧めはしないとしつつ、AI がまだ存在しなかった時代には AI 以前の作法で進めるしかなかったと説明した。いまの優れたスタートアップの動き方は数年前とも大きく違う、というのが全体の前提になっている。</p>
+
+<h2 id="ch3">最大の変化はトークン支出<span class="time">2:25</span></h2>
+<p>CS183 を更新する場合の最大の変更点として挙げたのがこれである。手頃な金額のトークン支出で、100人規模の優秀な開発チームが行う仕事ができるようになった。これは以前はスタートアップの選択肢に存在しなかった。結果として、狙える野心の大きさ、動く速度、同時に進められる仕事の量が変わったと述べた。</p>
+
+<h2 id="ch4">良い課題は出題できない<span class="time">3:11</span></h2>
+<p>授業の課題として「取り組むべき問題」を出題する方式は機能しない、という話。自分が思いつける良いアイデアは、大抵ほかの大勢も思いつく。狙うべきは、自動コーディングの時代になって初めて可能になった、非自明で巨大な市場である。OpenAI 創業の時点では、AGI に取り組む組織は世界で4つほどしかなかった、という例を引いた。課題として割り当てられる種類のアイデアは、たいてい本命ではないという。</p>
+
+<h2 id="ch5">スケールが生む創発性<span class="time">4:59</span></h2>
+<p>理論的な説明はできないと断ったうえで、経験則として、面白い成果はスケールを押し上げた先に出ることが多いと述べた。モデルのスケーリング則だけでなく、Y Combinator のバッチ内ネットワーク効果のように、10分の1や100分の1の規模では存在しなかった性質が現れる。小さい規模で面白く動いているものを、誰も試していない規模まで押し上げる試みは、多くの人が十分にやっていないという。</p>
+
+<h2 id="ch6">スケールで壊れるものを分解する<span class="time">8:00</span></h2>
+<p>スケールすると、ものは加速的に、予測できない形で壊れ続ける。AI モデルの大規模化では、1万台・10万台の GPU を使う学習が技術的に可能かという問題、資本をどう集めるかという問題、計算資源を1つのプロジェクトに集中させることへの研究者文化の反発、という3面があった。各面を分けて1つずつ対処することが、システム設計としての要所だという。</p>
+
+<h2 id="ch7">人の側をスケールさせる<span class="time">10:27</span></h2>
+<p>組織の側では、明確な目標、到達までの計画、途中の意思決定の仕方を共有することが重要だという。「スケーリングに賭ける。外れたら失敗するが、これをやる」と決めて理由と到達後の姿を示すことが力になる。一方で人は指数関数的な伸びを想像するのが苦手で、第一原理から一緒に考える時間が必要になる、とも述べた。</p>
+
+<h2 id="ch8">ChatGPTはどう見つかったか<span class="time">12:43</span></h2>
+<p>GPT-3 を作ったが製品が思いつけず、収益化のために2020年夏に API として公開した。しばらく反応はなく、約1か月後に Twitter で広がった。事業として成立したのはコピーライティングだけだったが、開発者が API キーを使ってチャットをしていることが分かり、チャットボットを作ることにした。研究デモのつもりで出した ChatGPT は公開直後から伸び続け、5日目には「当たる」と確信したという。そこから会社と製品を同時に作る緊急事態になり、2か月の大規模な拡張が続いた、という経緯である。</p>
+
+<h2 id="ch9">Codexと「手足」の考え方<span class="time">16:41</span></h2>
+<p>ChatGPT 以前の本命はコードだった。モデルにとってコードはコンピュータを操作する手足であり、ロボットは物理世界を操作する手足だ、というのが当時の考え方である。十分に賢いモデルにこの2つの手足を持たせれば、世界の中で実際に仕事をさせられる。Codex は今年の初めに実用域に入り、5.5 で転換点を迎えたと述べた。</p>
+
+<h2 id="ch10">学習パイプラインはいずれ書き換わる<span class="time">17:31</span></h2>
+<p>事前学習・中間学習・事後学習という現在のパイプラインは現行の形であり、最適解には見えず、いずれ大きく書き換わると予想した。書き換え自体が AI の研究課題になる、という見方も示した。社内目標として、今年9月に50万台の A100 相当 GPU を AI 研究インターンとして使い、2028年3月までに新しいアーキテクチャを自力で考える自律的な研究者を実現することにも触れた。</p>
+
+<h2 id="ch11">知能は新しいユーティリティになる<span class="time">19:57</span></h2>
+<p>いま起きているのは、新しいユーティリティ（電気、水道、インターネットに続く基盤）の生成だという。電気が広まったとき、電力会社は「電気」そのものではなく「夜の明かり」を売った。知能も同じで、トークンのサブスクリプションをあらゆるものに差して使う世界が来ても、「知能を売っている」という説明では利用者に響かない。ユーティリティになるには、利用者が理解できる形で届ける必要があると述べた。</p>
+
+<h2 id="ch12">買うのはコンピュートではなくトークン<span class="time">22:50</span></h2>
+<p>利用者はチップの種類や設置場所を意識せず、トークン、あるいはエージェントが常時動き続ける単位で買うようになる、という見方を示した。携帯電話の料金で基地局のハードウェアを考えないのと同じである。授業の最終課題「一人フロンティアラボ」への助言として、自分なら推論の側、つまり知能を安く大量に届ける仕組みに取り組むと述べた。優れたモデルはどのみち出てくるが、安く豊富な知能の供給は投資が不足しており、フロンティアラボは今後、推論の会社になっていくという。</p>
+
+<h2 id="ch13">Q&amp;A：LLMは行き止まりか<span class="time">25:53</span></h2>
+<p>Yann LeCun らの「LLM は行き止まり」という見方への回答。モデルは人間の能力を一部では大きく超えており、前日にモデルが Erdős の予想を反証した例を引いて、LLM が新しい知識を生めることは示されたと述べた。一方で、長い時間軸と高い判断力が要る仕事はまだ苦手だとも認めた。信念をアイデンティティにしてしまうと、データが出ても真実を見られなくなる、という指摘もした。</p>
+
+<h2 id="ch14">Q&amp;A：教育はまだ変わっていない<span class="time">29:03</span></h2>
+<p>ChatGPT 公開から3年半が経ったが、教育制度に目立った変化は見られず、これは自分の予測の誤りだったと述べた。前 AGI 時代の教え方と評価を続ければ、考える力は衰える。書くことのように、考える力を鍛えるための科目は、機械のほうが上手でも教える意味がある。ただし教え方と評価の多くは全面的に変えるべきだ、という立場である。スタンフォード時代については、入門セミナーで幅広い分野に浅く触れた経験が、振り返ると大きかったと述べた。</p>
+
+<h2 id="ch15">Q&amp;A：今後10年の分岐<span class="time">32:17</span></h2>
+<p>最も大きな分岐は、この技術が広く民主化されるか、少数の企業に集中するかだという。集中は不安定で不公平なだけでなく、アラインメントの失敗でもあるとし、民主化の道に進む確率を80%と見積もった。分配の方法については、ベーシックインカムのような現金の定期給付より、市民が資本の一部を持つ仕組み（市民富ファンドのような形）に期待を示した。もう1つの論点は、UBI や富の分配の前に、コンピュートをどう公平に配るかだという。</p>
+
+<h2 id="ch16">Q&amp;A：コンピュート不足は続く<span class="time">38:45</span></h2>
+<p>巨大なコンピュート不足があることは認めた。需要は価格で決まる面が大きく、電力と同じで価格が10分の1になれば必要な量の見積もりは全く変わる。モデルが賢く安くなるほど使いたい量が増えるため、進歩が続く限り不足は続くかもしれないと述べた。個人エージェントを10個、100個と常時動かす世界では、推論の需要はさらに増える、という見通しである。</p>
+
+<div class="links">
+  <p><strong>出典・リンク</strong></p>
+  <p>公式動画：<a href="https://www.youtube.com/watch?v=F_7M4Hc-usM">Stanford CS153 Frontier Systems | Scale, AGI, and the Future of Everything（YouTube / Stanford Online）</a></p>
+  <p>授業ページ：<a href="https://cs153.stanford.edu">Stanford CS153 Frontier Systems</a></p>
+  <p>拡散した投稿：<a href="https://x.com/0xluffy_eth/status/2122974202009673915">@0xluffy_eth の投稿（X）</a>。添付動画は中国語字幕付きの再編集版（26分31秒）</p>
+</div>
+
+<p class="note">このページは公式動画の字幕トランスクリプトをもとに作成した要約で、発言の逐語転載ではありません。正確な表現は公式動画で確認してください。</p>
+
+<footer>Sam Altman スタンフォード講演まとめ｜出典：Stanford Online 公式動画（2026年6月15日公開）</footer>
+</div>
+</body>
+</html>
