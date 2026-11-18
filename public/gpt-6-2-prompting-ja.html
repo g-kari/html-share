@@ -6,4 +6,79 @@
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://share.0g0.xyz/assets/gpt-6-2-prompting-ja-v1.png"><meta name="twitter:image:alt" content="完了条件を決め、必要な作業を分担し、実物で検証する流れ。">
 <style>
 :root{color-scheme:light;font-family:system-ui,-apple-system,"Noto Sans JP",sans-serif;color:#151515;background:#fff}*{box-sizing:border-box}body{margin:0;font-size:1rem;line-height:1.85;overflow-wrap:anywhere}main,nav{max-width:850px;margin:auto;padding:1rem 1.25rem}nav{border-bottom:1px solid #999}h1{font-size:clamp(1.7rem,5vw,2.5rem);line-height:1.4;margin:.6rem 0 1rem}h2{font-size:1.3rem;line-height:1.5;border-top:2px solid #172d73;padding-top:.65rem;margin:1.8rem 0 .6rem}p{margin:.7rem 0}a{color:#123e96;text-underline-offset:3px}a:focus-visible{outline:3px solid #a94400;outline-offset:4px}figure{margin:1.2rem 0}img{display:block;width:100%;height:auto}figcaption{font-size:.85rem;color:#444;margin-top:.4rem}dl{display:grid;grid-template-columns:max-content 1fr;gap:.45rem 1rem;margin:1rem 0}dt{font-weight:700}dd{margin:0}blockquote{margin:1rem 0;padding:.3rem 1rem;border-left:4px solid #172d73;background:#f3f3f3}footer{border-top:1px solid #999;font-size:.85rem;margin-top:2rem;padding:1rem 0}.skip{position:absolute;top:-5rem}.skip:focus{top:0;background:#fff;padding:.5rem;z-index:2}@media(max-width:420px){dl{grid-template-columns:1fr;gap:.15rem}dd{margin-bottom:.55rem}}@media print{nav{display:none}main{max-width:none}h2{break-after:avoid}figure{break-inside:avoid}}
-</style></head><body><a class="skip" href="#main">本文へ移動</a><nav aria-label="サイト"><a href="/">HTML Share</a></nav><main id="main"><h1>GPT-6.2の指示ガイド 日本語要約</h1><p>Codexで何を完成させ、何を確認するかを具体的に伝える。OpenAIのガイドはこの考え方をGPT-6.2 AstraとSolの両方に勧めています。</p><p>確認日：2026年11月18日。公式記事の要約であり、全文翻訳ではありません。</p><figure><img src="/assets/gpt-6-2-prompting-ja-v1.png" width="1734" height="907" alt="完了条件を決め、必要な作業を分担し、実物で検証する流れ。"><figcaption>AI生成の概念図です。分担は独立して進められる作業に限るという説明を簡略化しています。実際の製品画面ではありません。</figcaption></figure><h2 id="section-1">1. 推論の強さ</h2><p>回答の長さより調査の深さで選びます。高い設定は、長い作業を最後の確認まで続ける助けになる場合があります。</p><dl><dt>Medium</dt><dd>短時間で全体を調べる。</dd><dt>High</dt><dd>一つの原因でも複数のシステムをまたいで追う。</dd><dt>Extra High</dt><dd>複数の原因が絡む可能性を調べる。</dd></dl><h2 id="section-2">2. 並列の分担</h2><p>独立した部分には必要に応じてサブエージェント（分担する別のAI）を使うよう依頼します。繰り返す仕事では適用条件をスキルやAGENTS.mdに記載。Ultraは分担を自ら判断し、明確に分割できる大きな調査向けです。</p><h2 id="section-3">3. 見た目の検証</h2><p>参考画像を渡し、制作・表示・修正を繰り返します。最終的に使う大きさで見え方を確かめ、操作できる成果物は実際の操作も試します。</p><h2 id="section-4">4. AGENTS.md</h2><p>コードや資料から分からないプロジェクト固有の要件を簡潔に残します。共有PCでは他の作業に配慮し、終了時に自分の不要な一時ファイルやバックグラウンド処理を片付けます。</p><h2 id="section-5">指示の例</h2><p>以下は編集側で作成した例です。公式の定型文ではありません。</p><blockquote><p>検索画面を改善してください。変更範囲は検索フォームだけです。スマートフォン幅で横にはみ出さず、キーボードでも検索できることを完了条件にします。実装後は表示と操作を確認し、未確認の点を報告してください。</p></blockquote><h2 id="section-6">出典</h2><p><a href="https://learn.chatgpt.com/guides/prompting-gpt-6-2-astra">OpenAI「Prompting GPT-6.2 in Codex」</a></p><p>このページは独自に作成した日本語要約です。OpenAIの公式翻訳・推奨を意味しません。</p></main></body></html>
+
+/* Instruction workshop: native controls, no network or simulated model response. */
+main{max-width:980px}fieldset{border:0;padding:0;margin:0;min-width:0}legend{font-weight:750;margin-bottom:.6rem}button,input{font:inherit}button{min-height:44px;border:1px solid #123e96;background:#fff;color:#123e96;padding:.45rem .9rem;cursor:pointer}button:hover{background:#123e96;color:#fff}button:focus-visible,input:focus-visible{outline:3px solid #a94400;outline-offset:4px}input{accent-color:#123e96;width:1.2rem;height:1.2rem;flex:none}.workshop{border-top:4px solid #123e96;border-bottom:1px solid #444;padding:1.2rem 0;margin:1.5rem 0 2rem}.workshop h2{border:0;padding:0;margin:0 0 .6rem}.workshop h3{font-size:1rem;margin:1rem 0 .4rem}.demo-note{font-size:.9rem;color:#444}.workbench{display:grid;grid-template-columns:1fr 1.5fr;gap:2rem;margin-top:1rem}.choices{display:flex;flex-direction:column;gap:.3rem}.choice{display:flex;align-items:center;gap:.65rem;min-height:48px;padding:.35rem 0;cursor:pointer}.presets{display:flex;flex-wrap:wrap;gap:.6rem;margin:.8rem 0}.draft{font-size:1.1rem;line-height:2;border-left:4px solid #123e96;padding:.6rem 1rem;margin:0;min-height:9rem;background:repeating-linear-gradient(#fff 0,#fff calc(2.2rem - 1px),#ccc calc(2.2rem - 1px),#ccc 2.2rem)}.draft span{background:#fff}.draft .added{color:#123e96;text-decoration:underline;text-decoration-color:#a94400;text-underline-offset:5px}.feedback{font-weight:650}.scope-list{padding-left:1.25rem}.reason-choices{display:flex;flex-wrap:wrap;gap:.3rem 1.4rem}.reason-view{margin:1rem 0;border-left:4px solid #123e96;padding:.4rem 1rem}.reason-view h3{font-size:1.15rem;margin:.3rem 0}.route{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem;padding:0;margin:.7rem 0;list-style:none}.route li{border-bottom:3px solid #123e96;padding:.25rem .6rem;font-weight:650}.route li+li::before{content:'→ ';color:#a94400}.reason-view[data-mode="extra"] .route{gap:.8rem}.reason-view[data-mode="ultra"] .route{display:grid;grid-template-columns:1fr 1fr}.reason-view[data-mode="ultra"] .route li+li::before{content:''}.reason-view[data-mode="ultra"] .route li:last-child{grid-column:1/-1}.demo-controls[hidden],[hidden]{display:none!important}.read-only-example{border-left:3px solid #a94400;padding-left:1rem}@media(prefers-reduced-motion:no-preference){.draft .added{animation:ink-in .22s ease-out}@keyframes ink-in{from{opacity:.25}to{opacity:1}}}@media(max-width:640px){.workbench{grid-template-columns:1fr;gap:.8rem}.draft{min-height:0}.reason-choices{display:grid;grid-template-columns:1fr 1fr;gap:.3rem}.reason-view[data-mode="ultra"] .route{grid-template-columns:1fr}.route{font-size:.95rem}}@media print{.demo-controls{display:none!important}.read-only-example{display:block!important}}
+</style></head><body><a class="skip" href="#main">本文へ移動</a><nav aria-label="サイト"><a href="/">HTML Share</a></nav><main id="main" tabindex="-1"><h1>GPT-6.2の指示ガイド 日本語要約</h1><p>Codexで何を完成させ、何を確認するかを具体的に伝える。OpenAIのガイドはこの考え方をGPT-6.2 AstraとSolの両方に勧めています。</p><p>確認日：2026年11月18日。公式記事の要約であり、全文翻訳ではありません。</p>
+<section class="workshop" id="prompt-workshop">
+<h2>指示を組み立ててみる</h2>
+<p>チェックを足すと、頼み方と明示した情報が変わります。</p>
+<p class="demo-note" id="demo-limit">編集側が作った説明用の体験です。実際のAIは呼び出さず、回答や成功率も予測しません。入力は送信・保存しません。</p>
+<div class="demo-controls" id="prompt-controls" hidden>
+<div class="presets" role="group" aria-label="指示の例を選ぶ"><button type="button" data-preset="none">ざっくり頼む</button><button type="button" data-preset="scope,goal">条件を決める</button><button type="button" data-preset="scope,goal,verify">検証まで頼む</button></div>
+<div class="workbench"><fieldset aria-describedby="demo-limit"><legend>指示に足すもの</legend><div class="choices">
+<label class="choice" for="add-scope"><input type="checkbox" id="add-scope" data-part="scope">変更する範囲</label>
+<label class="choice" for="add-goal"><input type="checkbox" id="add-goal" data-part="goal">できあがりの条件</label>
+<label class="choice" for="add-verify"><input type="checkbox" id="add-verify" data-part="verify">確かめ方</label>
+</div></fieldset><div><h3>組み立てた指示</h3><p class="draft" id="built-prompt"></p><p class="feedback" id="prompt-status" role="status" aria-atomic="true"></p><ul class="scope-list" id="prompt-feedback"></ul></div></div>
+</div>
+<div class="read-only-example" id="prompt-fallback"><p>「検索画面を改善して」だけでは、範囲や合格条件は未指定です。</p><p>例：検索フォームだけを変更し、スマートフォン幅で横にはみ出さず、キーボードでも検索できることを条件にします。表示と操作を確認し、未確認の点を報告してください。</p></div>
+</section>
+<section class="workshop" id="reason-workshop"><h2>調べ方の違いを切り替える</h2><p class="demo-note">公式説明をもとにした概念図です。実際の処理経路・所要時間・性能を表す図ではありません。高い設定ほど常によい、という比較でもありません。</p>
+<fieldset class="demo-controls" id="reason-controls" hidden><legend>推論の強さを選ぶ</legend><div class="reason-choices">
+<label class="choice" for="reason-medium"><input id="reason-medium" type="radio" name="reason" value="medium" checked>Medium</label>
+<label class="choice" for="reason-high"><input id="reason-high" type="radio" name="reason" value="high">High</label>
+<label class="choice" for="reason-extra"><input id="reason-extra" type="radio" name="reason" value="extra">Extra High</label>
+<label class="choice" for="reason-ultra"><input id="reason-ultra" type="radio" name="reason" value="ultra">Ultra</label>
+</div></fieldset>
+<div class="reason-view" id="reason-view" data-mode="medium"><h3 id="reason-title">Medium：全体を見渡す</h3><ol class="route" id="reason-route" role="list"><li>全体を見る</li><li>手がかりを探す</li></ol><p id="reason-detail">短時間で全体を調べる場面に。</p><p class="demo-note" id="reason-example">編集側の例：初めて開くプロジェクトの構成を把握する。</p></div><p id="reason-status" role="status" aria-atomic="true"></p>
+<p>操作できない場合も、下の要約で各設定の違いを読めます。</p></section>
+<figure><img src="/assets/gpt-6-2-prompting-ja-v1.png" width="1734" height="907" alt="完了条件を決め、必要な作業を分担し、実物で検証する流れ。"><figcaption>AI生成の概念図です。分担は独立して進められる作業に限るという説明を簡略化しています。実際の製品画面ではありません。</figcaption></figure><h2 id="section-1">1. 推論の強さ</h2><p>回答の長さより調査の深さで選びます。高い設定は、長い作業を最後の確認まで続ける助けになる場合があります。</p><dl><dt>Medium</dt><dd>短時間で全体を調べる。</dd><dt>High</dt><dd>一つの原因でも複数のシステムをまたいで追う。</dd><dt>Extra High</dt><dd>複数の原因が絡む可能性を調べる。</dd></dl><h2 id="section-2">2. 並列の分担</h2><p>独立した部分には必要に応じてサブエージェント（分担する別のAI）を使うよう依頼します。繰り返す仕事では適用条件をスキルやAGENTS.mdに記載。Ultraは分担を自ら判断し、明確に分割できる大きな調査向けです。</p><h2 id="section-3">3. 見た目の検証</h2><p>参考画像を渡し、制作・表示・修正を繰り返します。最終的に使う大きさで見え方を確かめ、操作できる成果物は実際の操作も試します。</p><h2 id="section-4">4. AGENTS.md</h2><p>コードや資料から分からないプロジェクト固有の要件を簡潔に残します。共有PCでは他の作業に配慮し、終了時に自分の不要な一時ファイルやバックグラウンド処理を片付けます。</p><h2 id="section-5">指示の例</h2><p>以下は編集側で作成した例です。公式の定型文ではありません。</p><blockquote><p>検索画面を改善してください。変更範囲は検索フォームだけです。スマートフォン幅で横にはみ出さず、キーボードでも検索できることを完了条件にします。実装後は表示と操作を確認し、未確認の点を報告してください。</p></blockquote><h2 id="section-6">出典</h2><p><a href="https://learn.chatgpt.com/guides/prompting-gpt-6-2-astra">OpenAI「Prompting GPT-6.2 in Codex」</a></p><p>このページは独自に作成した日本語要約です。OpenAIの公式翻訳・推奨を意味しません。</p></main>
+<script>
+(() => {
+  const parts = {
+    scope: ['変更するのは検索フォームだけです。', '変更範囲を指定：検索フォームだけ。'],
+    goal: ['スマートフォン幅で横にはみ出さず、キーボードでも検索できることを完了条件にします。', '完了条件を指定：幅とキーボード操作。'],
+    verify: ['実装後は表示と操作を確認し、未確認の点を報告してください。', '確認方法を指定：実際の表示と操作。']
+  };
+  const boxes = [...document.querySelectorAll('[data-part]')];
+  const prompt = document.getElementById('built-prompt');
+  const feedback = document.getElementById('prompt-feedback');
+  function updatePrompt() {
+    prompt.replaceChildren(); feedback.replaceChildren();
+    const base = document.createElement('span'); base.textContent = '検索画面を改善してください。'; prompt.append(base);
+    const selected = boxes.filter(box => box.checked);
+    for (const box of selected) {
+      const span = document.createElement('span'); span.className = 'added'; span.textContent = ' ' + parts[box.dataset.part][0]; prompt.append(span);
+      const li = document.createElement('li'); li.textContent = parts[box.dataset.part][1]; feedback.append(li);
+    }
+    document.getElementById('prompt-status').textContent = selected.length ? 'この例では' + selected.length + '種類の情報を明示しました。' : '範囲・完了条件・確かめ方はまだ指定していません。';
+  }
+  boxes.forEach(box => box.addEventListener('change', updatePrompt));
+  document.querySelectorAll('[data-preset]').forEach(button => button.addEventListener('click', () => {
+    const values = button.dataset.preset.split(','); boxes.forEach(box => { box.checked = values.includes(box.dataset.part); }); updatePrompt();
+  }));
+  const modes = {
+    medium: ['Medium：全体を見渡す', ['全体を見る', '手がかりを探す'], '短時間で全体を調べる場面に。', '編集側の例：初めて開くプロジェクトの構成を把握する。'],
+    high: ['High：一つの原因を追う', ['画面', '通信', 'サーバー'], '一つの原因でも、複数のシステムをまたぐ調査に。', '編集側の例：検索ボタンが反応しない原因を、画面からサーバーまで追う。'],
+    extra: ['Extra High：原因の組み合わせを調べる', ['原因候補A', '関係を確認', '原因候補B'], '複数の原因が絡む可能性を調べる場面に。', '編集側の例：設定とデータの組み合わせで起きる不具合を調べる。'],
+    ultra: ['Ultra：独立した調査を分担する', ['独立した調査A', '独立した調査B', '結果を合わせて確認'], '明確に分割できる大きな調査向け。分担の要否はモデルが判断します。', '編集側の例：互いに依存しない領域を調べ、結果をまとめる。必ず並列になるという意味ではありません。']
+  };
+  function updateReason(value) {
+    const mode = modes[value]; if (!mode) return;
+    document.getElementById('reason-view').dataset.mode = value;
+    document.getElementById('reason-title').textContent = mode[0];
+    const list = document.getElementById('reason-route'); list.replaceChildren();
+    mode[1].forEach(text => { const li = document.createElement('li'); li.textContent = text; list.append(li); });
+    document.getElementById('reason-detail').textContent = mode[2];
+    document.getElementById('reason-example').textContent = mode[3];
+    document.getElementById('reason-status').textContent = mode[0] + '。' + mode[2];
+  }
+  document.querySelectorAll('input[name="reason"]').forEach(radio => radio.addEventListener('change', () => { if (radio.checked) updateReason(radio.value); }));
+  updatePrompt();
+  document.getElementById('prompt-controls').hidden = false;
+  document.getElementById('reason-controls').hidden = false;
+  document.getElementById('prompt-fallback').hidden = true;
+})();
+</script>
+</body></html>
