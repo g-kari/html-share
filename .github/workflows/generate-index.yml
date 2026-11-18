@@ -57,6 +57,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      pull-requests: write
     concurrency:
       group: html-share-generated-main
       cancel-in-progress: false
@@ -68,16 +69,27 @@ jobs:
       - uses: actions/setup-node@v7
         with:
           node-version: "26"
-      - name: Generate and commit current pages
+      - name: Generate pages and merge them through a pull request
         shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # Direct pushes to main are prohibited, so regenerated files reach
+          # main through a pull request that this job opens and merges itself.
+          # Close superseded regeneration pull requests from earlier runs so
+          # at most one of them is open at a time.
+          for old in $(gh pr list --state open --json number,headRefName --jq '.[] | select(.headRefName | startswith("chore/regenerate-pages-")) | .number'); do
+            gh pr close "$old" --delete-branch || true
+          done
           # Regenerate from current main on every retry; never overwrite a newer
           # authored page with output generated from a stale checkout.
           for attempt in 1 2 3; do
             git fetch origin main
             git reset --hard origin/main
+            branch="chore/regenerate-pages-${{ github.run_id }}-$attempt"
+            git switch -C "$branch"
             npm ci --ignore-scripts
             node --test tests/*.test.mjs
             npm install --prefix ui/guardduty --no-package-lock --no-audit --no-fund
@@ -90,9 +102,25 @@ jobs:
             fi
             git add public .feed-state.json .report-feed-state.json
             git commit -m "chore: regenerate page index, RSS and social metadata"
-            if git push origin HEAD:main; then exit 0; fi
+            git push --force-with-lease origin "HEAD:$branch"
+            pr_url=$(gh pr create --base main --head "$branch" --title "chore: regenerate page index, RSS and social metadata" --body "Automated regeneration of the page index, RSS feeds and social metadata. This pull request replaces the former direct push to main, which branch protection now rejects. The generate job merges it once the required checks pass.")
+            if gh pr merge "$pr_url" --merge --delete-branch; then
+              echo "Merged $pr_url"
+              exit 0
+            fi
+            # Pull requests opened with GITHUB_TOKEN do not start workflows on
+            # their own, so dispatch this workflow on the branch to produce the
+            # test check, then keep trying to merge while the checks settle.
+            gh workflow run generate-index.yml --ref "$branch" || true
+            for poll in $(seq 1 30); do
+              sleep 20
+              if gh pr merge "$pr_url" --merge --delete-branch; then
+                echo "Merged $pr_url"
+                exit 0
+              fi
+            done
+            echo "Could not merge $pr_url automatically; leaving it open."
+            exit 1
           done
           echo "main kept changing; rerun generation after the latest edit."
           exit 1
-
-
