@@ -1,0 +1,100 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
+import { JSDOM } from "jsdom";
+
+const html = await readFile(new URL("../public/openai-claude-enterprise.html", import.meta.url), "utf8");
+const { document } = new JSDOM(html).window;
+
+test("Enterprise comparison has accessible structure, canonical and social metadata", () => {
+  assert.equal(document.documentElement.lang, "ja");
+  assert.equal(document.querySelectorAll("h1").length, 1);
+  assert.match(document.title, /OpenAI EnterpriseとClaude Enterprise/);
+  assert.equal(document.querySelector('link[rel="canonical"]')?.href,
+    "https://share.0g0.xyz/openai-claude-enterprise");
+  assert.ok(document.querySelector('meta[name="description"]')?.content.length > 50);
+  assert.equal(document.querySelector('meta[property="og:image:type"]')?.content, "image/png");
+  assert.equal(document.querySelector('meta[property="og:image:width"]')?.content, "1730");
+  assert.equal(document.querySelector('meta[property="og:image:height"]')?.content, "909");
+  assert.equal(document.querySelector('meta[name="twitter:card"]')?.content, "summary_large_image");
+  assert.equal(document.querySelector('a.skip[href="#main"]')?.textContent, "本文へ移動");
+  assert.equal(document.querySelectorAll(".toc a").length, 7);
+  assert.equal(document.querySelectorAll("#checklist > ol > li").length, 8);
+  assert.equal(document.querySelectorAll("#conclusion .key li").length, 4);
+  assert.ok(document.querySelectorAll("details").length >= 2);
+  assert.match(html, /prefers-reduced-motion/);
+
+  const ids = [...document.querySelectorAll("[id]")].map((element) => element.id);
+  assert.equal(new Set(ids).size, ids.length, "duplicate IDs");
+  for (const anchor of document.querySelectorAll('a[href^="#"]')) {
+    assert.ok(document.getElementById(anchor.getAttribute("href").slice(1)),
+      "missing anchor target: " + anchor.getAttribute("href"));
+  }
+  for (const table of document.querySelectorAll("table")) {
+    assert.ok(table.closest(".table-wrap"), "wide table lacks horizontal scroll wrapper");
+    assert.ok(table.querySelectorAll('thead th[scope="col"]').length >= 3);
+  }
+});
+
+test("Enterprise comparison distinguishes evidence, uncertainty and scope", () => {
+  assert.equal(document.querySelectorAll(".source-list > li").length, 21);
+  for (const source of document.querySelectorAll(".source-list > li")) {
+    assert.ok([...source.querySelectorAll("a[href]")].every((a) => a.href.startsWith("https://")));
+    assert.ok(source.querySelector("span")?.textContent.length);
+  }
+  assert.match(document.body.textContent, /要見積もり/);
+  assert.match(document.body.textContent, /前払いクレジット/);
+  assert.match(document.body.textContent, /学習除外と機密情報の非送信は別の問題/);
+  assert.match(document.body.textContent, /ローカルClaude Code/);
+  assert.match(document.body.textContent, /クラウド実行セッションはCompliance API/);
+  assert.match(document.body.textContent, /ZDRで保存を抑えると/);
+  assert.match(document.body.textContent, /公開仕様だけではセキュリティ上の優劣や年間総費用の優劣を断定できない/);
+});
+
+test("Enterprise pricing examples are internally consistent", () => {
+  const annual = [20, 30, 40, 49].map((seats) => ({
+    seats, monthly: seats * 20, annual: seats * 20 * 12,
+  }));
+  const seatRows = [...document.querySelectorAll("#cost table tbody tr")].slice(0, 4);
+  for (const [index, row] of seatRows.entries()) {
+    const values = row.querySelectorAll("th,td");
+    assert.match(values[0].textContent, new RegExp(`^${annual[index].seats}人$`));
+    assert.equal(values[1].textContent, `$${annual[index].monthly.toLocaleString("en-US")}`);
+    assert.equal(values[2].textContent, `$${annual[index].annual.toLocaleString("en-US")}`);
+  }
+  const scenarios = [
+    { dev: [5, 1], general: [0.5, 0.125], total: 845 },
+    { dev: [20, 4], general: [2, 0.5], total: 1580 },
+    { dev: [50, 10], general: [5, 1], total: 3000 },
+  ];
+  const usageRows = [...document.querySelectorAll("#cost table tbody tr")].slice(4);
+  assert.equal(usageRows.length, scenarios.length);
+  for (const [index, { dev, general, total }] of scenarios.entries()) {
+    const usage = 10 * (dev[0] * 2 + dev[1] * 10) +
+      20 * (general[0] * 2 + general[1] * 10);
+    const cells = usageRows[index].querySelectorAll("td");
+    assert.equal(cells[2].textContent, `$${usage.toLocaleString("en-US")}`);
+    assert.equal(cells[3].textContent, `$${total.toLocaleString("en-US")}`);
+    assert.equal(total, 600 + usage);
+    assert.equal(cells[4].textContent, `$${(total * 12).toLocaleString("en-US")}`);
+  }
+});
+
+test("Enterprise OGP and explanatory PNG are complete and dimensioned", async () => {
+  for (const [path, width, height] of [
+    ["../public/assets/openai-claude-enterprise-ogp-v1.png", 1730, 909],
+    ["../public/assets/openai-claude-enterprise-flow-v1.png", 1672, 941],
+  ]) {
+    const png = await readFile(new URL(path, import.meta.url));
+    assert.equal(png.subarray(0, 8).toString("hex"), "89504e470d0a1a0a");
+    assert.equal(png.readUInt32BE(16), width);
+    assert.equal(png.readUInt32BE(20), height);
+    assert.equal(png.subarray(-8, -4).toString(), "IEND");
+  }
+  const image = document.querySelector("#code figure img");
+  assert.equal(image?.getAttribute("src"), "/assets/openai-claude-enterprise-flow-v1.png");
+  assert.equal(image?.getAttribute("width"), "1672");
+  assert.equal(image?.getAttribute("height"), "941");
+  assert.match(image?.getAttribute("alt") ?? "", /社内コード/);
+  assert.match(document.querySelector("#code figcaption")?.textContent ?? "", /概念図/);
+});
