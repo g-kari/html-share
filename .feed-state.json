@@ -6,6 +6,16 @@
       "published": "2026-11-10T02:24:35.000Z",
       "updated": "2026-11-10T02:24:35.000Z"
     },
+    "ai-pentest-orchestrators-cloudflare.html": {
+      "fingerprint": "f37383d486ac4941701ead6b6fc2bbf04be7dd51f39e8cc7fe3e39478f24c3de",
+      "published": "2026-11-15T15:37:27.000Z",
+      "updated": "2026-11-15T18:17:07.000Z"
+    },
+    "all-code-is-slop.html": {
+      "fingerprint": "5b912a1ba4898af964882870cbf7e9e85e0831112eeb30fd05a5922e909e9bde",
+      "published": "2026-11-16T18:21:24.000Z",
+      "updated": "2026-11-18T04:43:32.000Z"
+    },
     "animation-skills-research.html": {
       "fingerprint": "cad7f20a534129cac6d0e324c73af6c499e1306aaaee1bec38a26aeb98b5cf75",
       "published": "2026-10-08T13:44:50.000Z",
@@ -121,6 +131,11 @@
       "published": "2026-10-14T02:24:15.000Z",
       "updated": "2026-10-14T02:24:15.000Z"
     },
+    "java4shell-beginners.html": {
+      "fingerprint": "39ec87d78008d09c54b5c28187a70113a37e40f301045d80fd4184acb2cbe5cf",
+      "published": "2026-11-18T07:18:51.000Z",
+      "updated": "2026-11-18T07:18:51.000Z"
+    },
     "lambda-zip-to-image.html": {
       "fingerprint": "17f4285fb5558ae49b67e52a0844b76fc691ca34464a2bf2e61bf286c2d964fa",
       "published": "2026-10-22T13:52:37.000Z",
@@ -145,6 +160,11 @@
       "fingerprint": "38515659dc838a3b98c99dc2fa41cb7927372985c7eeb42f23ed764c696f44ef",
       "published": "2026-10-30T07:02:31.000Z",
       "updated": "2026-10-30T08:37:53.000Z"
+    },
+    "openai-claude-enterprise.html": {
+      "fingerprint": "474f13b1a53f74c88b187d26643867ef129328e18186281aaca9a349394d5a2d",
+      "published": "2026-11-18T07:25:58.000Z",
+      "updated": "2026-11-18T07:25:58.000Z"
     },
     "openai-devday-tokyo-2026.html": {
       "fingerprint": "52cbf9e96373f85180d57eb89eccd00a757423a4ce1685df067dab61c44d242e",
@@ -192,9 +212,9 @@
       "updated": "2026-10-03T06:21:28.000Z"
     },
     "security-incidents.html": {
-      "fingerprint": "6c88610a1fdca69909e6e132fffd6dbf60038810998630ddeee0984820cf817f",
+      "fingerprint": "bb0f76d6761eac9d4e64430cda147e8ea0e0ef3d9abbeb56479b34efedb5fe1f",
       "published": "2026-10-02T06:08:44.000Z",
-      "updated": "2026-11-10T00:42:40.000Z"
+      "updated": "2026-11-17T00:27:16.000Z"
     },
     "security-lessons.html": {
       "fingerprint": "3999cbaad7e85c2ca13671c6899ee220783415e2acf49558a1a46ff579febb25",
@@ -207,9 +227,9 @@
       "updated": "2026-11-04T17:27:57.000Z"
     },
     "technology-updates.html": {
-      "fingerprint": "b6c1dcdad1c778d9ae9db3b0856e36a1416fbff2247972d581f2f375e91ef5d2",
+      "fingerprint": "fc5a2cc6d9e2bfe7f81aad0b05bdde5c12b7e9069fcd2880abb72bbc0065f9f9",
       "published": "2026-10-08T23:59:03.000Z",
-      "updated": "2026-11-08T23:34:14.000Z"
+      "updated": "2026-11-15T00:01:29.000Z"
     },
     "test.html": {
       "fingerprint": "b6bb2885a5f424938319c4aa6ba0365eb7426845eb4d9a731315b4a29964aad0",

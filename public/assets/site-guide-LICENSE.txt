@@ -1,4 +1,4 @@
-@animate-ui/react 2.4.3
+@animate-ui/react 2.4.6
 MIT + Commons Clause License Condition
 
 Copyright (c) 2025 Elliot Sutton
