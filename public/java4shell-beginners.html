@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ja"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Javaの脆弱性、誰が危ない？ CVE-2026-114938をやさしく解説</title>
+<meta name="description" content="Java4Shell（CVE-2026-114938）の攻撃条件、Confluenceと閲覧者のPCの違い、実際に確認することを初心者向けに説明します。">
+<meta property="og:image" content="https://share.0g0.xyz/assets/java4shell-beginners-ogp-v1.png">
+<meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1734"><meta property="og:image:height" content="907">
+<meta property="og:image:alt" content="Javaの脆弱性、誰が危ない？ CVE-2026-114938の解説">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://share.0g0.xyz/assets/java4shell-beginners-ogp-v1.png"><meta name="twitter:image:alt" content="Javaの脆弱性、誰が危ない？">
+<style>
+:root{color-scheme:light;--ink:#1c2936;--mute:#526170;--line:#dce4e9;--accent:#b65a0d;--bg:#f6f7f5}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.8 system-ui,-apple-system,'Noto Sans JP',sans-serif}main{max-width:850px;margin:auto;background:white;min-height:100vh;padding:28px clamp(18px,5vw,56px) 60px}h1{font-size:clamp(1.75rem,4vw,2.5rem);line-height:1.35;letter-spacing:-.025em;margin:12px 0}h2{font-size:1.32rem;line-height:1.4;margin:38px 0 12px;border-bottom:2px solid var(--line);padding-bottom:8px}p{margin:12px 0}small,.muted{color:var(--mute)}.eyebrow{font-size:.82rem;color:var(--accent);font-weight:750;letter-spacing:.08em}.lead{font-size:1.12rem;font-weight:600}.key{background:#fff5e9;border-left:5px solid #e49d38;padding:15px 18px;border-radius:5px}.figure{margin:22px 0}.figure img{display:block;width:100%;height:auto;border-radius:10px}.figure figcaption{color:var(--mute);font-size:.85rem;line-height:1.6;margin-top:8px}.steps{padding-left:1.5em}.steps li{margin:8px 0}table{border-collapse:collapse;width:100%;font-size:.94rem}td,th{border:1px solid var(--line);padding:10px;text-align:left;vertical-align:top}th{background:#edf3f7}details{margin:12px 0;border:1px solid var(--line);border-radius:8px;padding:11px 15px}summary{cursor:pointer;font-weight:700}a{color:#075b99;overflow-wrap:anywhere}code{background:#edf2f5;padding:2px 5px;border-radius:4px;overflow-wrap:anywhere}ul{padding-left:1.45em}.foot{font-size:.88rem;color:var(--mute);border-top:1px solid var(--line);padding-top:18px;margin-top:38px}
+</style></head><body><main>
+<div class="eyebrow">セキュリティをやさしく理解する</div>
+<h1>Javaの脆弱性、誰が危ない？</h1>
+<p class="muted">CVE-2026-114938（Java4Shell）｜2026年11月18日時点の情報</p>
+<p class="lead">結論：Javaが入っているだけで直ちに攻撃されるわけではありません。ただし、条件のそろったJava製サーバーは、外部から攻撃される可能性があります。</p>
+<div class="key">特に大切なのは、<strong>「誰のパソコンでJavaが動いているか」</strong>です。Confluenceをブラウザで開く人と、Confluenceのサーバーを運用する人では、心配すべき場所が異なります。</div>
+<h2>そもそも何が起きるの？</h2>
+<p>Javaはアプリを動かすための仕組みです。今回の問題は、Javaが特定の形式のデータ（Base64）を読み取る処理にあります。細工されたデータを、条件に合うJavaアプリが処理すると、内部のメモリが壊れ、場合によっては攻撃者の命令が実行されます。これを「リモートコード実行（RCE）」と呼びます。</p>
+<figure class="figure"><img src="/assets/java4shell-beginners-flow-v2.png" alt="Javaアプリが動き、細工したデータが届き、特定のCPUなど条件がそろうと問題が起きるという3段階の図" width="1774" height="887" loading="lazy"><figcaption>仕組みのイメージ図。図は攻撃の成立条件を簡略化したもので、データが届けば必ず成功するという意味ではありません。</figcaption></figure>
+<h2>Javaを起動していなければ大丈夫？</h2>
+<p><strong>そのJava処理が実行されていなければ、この脆弱性の処理を悪用することはできません。</strong> ただし、自分でJavaを起動した覚えがなくても、サーバー製品やアプリにJavaが組み込まれ、自動で動いている場合があります。</p>
+<p>また、Javaが動いているだけで攻撃できるわけでもありません。次の条件が重要です。</p>
+<ol class="steps"><li>影響を受けるJava実行環境でアプリが動いている。</li><li>特定のCPU命令「AVX-512 VBMI」が使える環境である。</li><li>攻撃者が細工したBase64データをアプリに渡し、問題の処理を実行させられる。</li></ol>
+<p>ARM64や、該当するCPU命令に対応しない環境は、今回の問題の影響を受けないとされています。Javaの製品・バージョンによっても判断が変わります。</p>
+<h2>Confluenceを使っている人は危ない？</h2>
+<table><thead><tr><th>利用場面</th><th>考えるべき影響</th></tr></thead><tbody>
+<tr><td>ブラウザでConfluenceのページを見る</td><td>通常、JavaはConfluenceのサーバー側で動きます。ページを開くこと自体が、この脆弱性によって閲覧者のPC上でコードを実行する仕組みではありません。</td></tr>
+<tr><td>自分の会社でConfluence Server／Data Centerなどを運用する</td><td>サーバーのJava、CPU、入力処理を確認してください。条件がそろう場合、Confluence側が攻撃対象になる可能性があります。</td></tr>
+<tr><td>Confluence Cloudを利用する</td><td>基盤のJava更新は基本的に提供事業者が担います。利用者が自分のPCのJavaを更新するだけで対処する話ではありません。個別の影響は提供元の発表を確認してください。</td></tr>
+</tbody></table>
+<p>脆弱性の研究者はConfluence、Jira、Jenkins、Keycloakなどで、認証前の攻撃が成立し得ると報告しています。<strong>製品名が挙がっているからといって、すべての導入環境で攻撃が成功するという意味ではありません。</strong></p>
+<h2>結局、何を確認すればいい？</h2>
+<ul><li><strong>一般の利用者：</strong>Confluenceを閲覧しているという理由だけで、PCが直接この問題の影響を受けると考える必要はありません。端末上でJava製アプリを使っている場合は、その開発元の案内を確認してください。</li><li><strong>サーバー管理者：</strong>稼働中のJavaの種類と詳細なバージョン、CPU機能、外部から届くデータの処理を確認し、開発元が案内する修正版へ更新してください。</li><li><strong>製品を導入している組織：</strong>Javaが製品に同梱されている場合もあります。製品のセキュリティ情報と更新を確認してください。</li></ul>
+<details><summary>管理者向け：もう少し技術的な確認方法</summary><p>Javaの詳細なビルドは稼働している実行環境の <code>java -version</code> などで確認します。ただし、OS標準のJavaと、製品が同梱しているJavaは異なる場合があります。LinuxではCPU機能を <code>grep -o avx512vbmi /proc/cpuinfo | head -1</code> で確認できます。仮想マシンでは、ゲストに公開されたCPU機能を確認してください。</p><p>直ちに修正版を適用できない場合の回避策として、JVM起動オプション <code>-XX:-UseBASE64Intrinsics</code> または <code>-XX:UseAVX=2</code> が案内されています。製品・JVMごとの対応と性能への影響を確認したうえで検討してください。</p></details>
+<h2>参考資料</h2><ul><li><a href="https://www.jpcert.or.jp/newsflash/2026111801.html">JPCERT/CC：OpenJDKにおける脆弱性について（2026年11月18日）</a></li><li><a href="https://openjdk.org/groups/vulnerability/advisories/2026-11-17">OpenJDK：Vulnerability Advisory</a></li><li><a href="https://access.redhat.com/security/vulnerabilities/RHSB-2026-018">Red Hat：CVE-2026-114938の影響と条件</a></li><li><a href="https://www.cyber.gc.ca/en/alerts-advisories/al26-029-critical-vulnerability-impacting-oracle-java-cve-2026-114938">Canadian Centre for Cyber Security：注意喚起</a></li></ul>
+<p class="foot">この記事は2026年11月18日時点で公開された情報に基づきます。実際の影響や修正状況は、利用中のJava配布元および製品ベンダーの最新情報で確認してください。</p>
+</main></body></html>
