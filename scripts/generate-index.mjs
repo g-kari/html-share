@@ -123,53 +123,59 @@ const html = `<!doctype html>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="ChatGPTで生成したHTMLを共有するためのページ一覧です。">
   <title>HTML Share</title>
+  <link rel="stylesheet" href="/assets/site.css">
   <style>
     :root {
-      color-scheme: light dark;
-      --bg: #0f1115;
-      --panel: #171a21;
-      --border: #2b313d;
-      --text: #f2f4f8;
-      --sub: #aeb6c5;
-      --accent: #8eb0ff;
+      --panel: var(--paper);
+      --border: var(--line);
+      --text: var(--ink);
+      --sub: var(--muted);
     }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP", sans-serif;
-      line-height: 1.65;
-    }
+    body { line-height: 1.65; }
     main {
       width: min(900px, calc(100% - 32px));
       margin: 0 auto;
       padding: 56px 0 80px;
     }
     header { margin-bottom: 32px; }
-    h1 { margin: 0 0 8px; font-size: clamp(2rem, 6vw, 3.5rem); }
+    h1 { margin: 0 0 8px; font-size: clamp(2rem, 6vw, 3.5rem); display: flex; align-items: center; gap: .35em; }
+    h1::before { content: ""; width: .34em; height: .34em; flex: none; background: var(--accent); transition: transform .3s ease; }
+    h1:hover::before { transform: rotate(45deg); }
     .lead { margin: 0; color: var(--sub); }
     .count { margin-top: 12px; color: var(--sub); font-size: .95rem; }
     .rss { color: var(--accent); text-underline-offset: .2em; }
     .grid { display: grid; gap: 14px; }
+    @keyframes hs-rise { from { opacity: 0; transform: translateY(10px); } }
     .card {
       border: 1px solid var(--border);
       border-radius: 16px;
       background: var(--panel);
-      transition: transform .12s ease, border-color .12s ease;
+      transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+      animation: hs-rise .45s ease backwards;
     }
-    .card:hover { transform: translateY(-2px); border-color: #46516a; }
+    .card:nth-child(2) { animation-delay: .04s; }
+    .card:nth-child(3) { animation-delay: .08s; }
+    .card:nth-child(4) { animation-delay: .12s; }
+    .card:nth-child(5) { animation-delay: .16s; }
+    .card:nth-child(6) { animation-delay: .2s; }
+    .card:nth-child(7) { animation-delay: .24s; }
+    .card:nth-child(8) { animation-delay: .28s; }
+    .card:nth-child(9) { animation-delay: .32s; }
+    .card:nth-child(10) { animation-delay: .36s; }
+    .card:hover { transform: translateY(-2px); border-color: var(--accent); box-shadow: 0 8px 24px rgb(0 0 0 / .08); }
     .card a {
       display: block;
       padding: 20px;
       color: inherit;
       text-decoration: none;
     }
-    .card h2 { margin: 0 0 8px; font-size: 1.15rem; }
+    .card h2 { margin: 0 0 8px; font-size: 1.15rem; border-left: 0; padding: 0; }
     .card p { margin: 0 0 12px; color: var(--sub); }
     code { color: var(--accent); }
     .empty { color: var(--sub); }
     .site-guide { margin: 20px 0; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+    .site-guide details { border: 0; border-radius: 0; padding: 0; margin: 0; }
+    .site-guide details[open] > summary { margin-bottom: 0; }
     .guide-item + .guide-item { border-top: 1px solid var(--border); }
     .guide-heading { margin: 0; font-size: 1rem; }
     .guide-trigger, .site-guide summary { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 14px 18px; min-height: 48px; border: 0; border-radius: 0; background: var(--panel); text-align: left; cursor: pointer; font-weight: 650; }
@@ -232,6 +238,7 @@ ${cards}
   </main>
   <script type="module" src="/assets/site-search.js"></script>
   <script type="module" src="/assets/site-guide-loader.js"></script>
+  <script type="module" src="/assets/site.js"></script>
 </body>
 </html>
 `;
