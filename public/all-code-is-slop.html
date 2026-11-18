@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>All Code Is Slop (Except Mine) — Lauren Tan講演まとめ｜月11,000 PRを「ゴミ」にしない方法</title>
-<meta name="description" content="SpaceXAIのLauren Tan（poteto）がAI Engineer Code Summitで語った、AIエージェントに大量のPRを出させながらコード品質を上げる方法。lint・型・検証で固める「potetoピラミッド」と手描きスライドとともに要点をまとめた。">
-<meta property="og:image" content="assets/all-code-is-slop/og.jpg">
-<meta property="og:image:alt" content="講演のタイトルスライド「all code is slop」と登壇者Lauren Tan">
+<meta name="description" content="SpaceXSIのLauren Tan（poteto）がAI Engineer Code Summitで語った、AIエージェントに大量のPRを出させながらコード品質を上げる方法。lint・型・検証で固める「potetoピラミッド」と手描きスライドとともに要点をまとめた。">
+<meta property="og:image" content="https://share.0g0.xyz/assets/all-code-is-slop-verification-v2.png"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1734"><meta property="og:image:height" content="907"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://share.0g0.xyz/assets/all-code-is-slop-verification-v2.png">
+<meta property="og:image:alt" content="設計で防ぎ、自動チェックを通し、実際に動かして確かめる3段階の独自図">
 <style>
   :root{
     --ink:#1c1c22; --muted:#5c5c66; --accent:#1e4fd8; --line:#d8d8e0; --panel:#f4f4f8;
@@ -60,6 +60,8 @@
     h1{font-size:1.5rem}
     .wrap{padding:16px 14px 64px}
   }
+
+.recording{border-top:3px solid var(--accent);padding-top:1rem}.recording iframe{display:block;width:100%;aspect-ratio:16/9;border:0}.slide-nav{display:flex;flex-wrap:wrap;gap:.5rem}.slide-nav a{display:inline-block;padding:.45rem .7rem;border:1px solid currentColor;min-height:44px}.recording button{font:inherit;min-height:44px;padding:.5rem 1rem;color:#fff;background:#1646ba;border:0;cursor:pointer}a:focus-visible,button:focus-visible{outline:3px solid #a94400;outline-offset:3px}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
@@ -69,25 +71,36 @@
   <div class="kicker">AI ENGINEER CODE SUMMIT 講演まとめ</div>
   <h1>All Code Is Slop (Except Mine)<br>月11,000 PRを「ゴミ」にしない方法</h1>
   <p class="meta">
-    登壇者：Lauren Tan（poteto）／ Principal Engineer, SpaceXAI（Grok Bot）<br>
+    登壇者：Lauren Tan（poteto）／ Principal Engineer, SpaceXSI（Grok Bot）<br>
     イベント：AI Engineer Code Summit（Presented by Google DeepMind）・講演時間 約17分<br>
-    元動画：<a href="https://www.youtube.com/watch?v=O_zcc6Xl12g">YouTube（AI Engineer）</a> ／ 話題になった投稿：<a href="https://x.com/ecommartinez/status/2122049134660034936">Alejo の X 投稿</a>（35.3万回表示）、<a href="https://x.com/undefinedKi/status/2121706023950090340">Yarchi の X 投稿</a>（約496万回表示）
+    元動画：<a href="https://www.youtube.com/watch?v=O_zcc6Xl12g">YouTube（AI Engineer）</a> ／ 話題になった投稿：<a href="https://x.com/ecommartinez/status/2122049134660034936">Alejo の X 投稿</a>、<a href="https://x.com/undefinedKi/status/2121706023950090340">Yarchi の X 投稿</a>（約496万回表示）
   </p>
 </header>
+
+<figure><img src="assets/all-code-is-slop-verification-v2.png" alt="設計で防ぐ、自動チェック、動かして確かめる、という3段階" width="1734" height="907"><figcaption>編集側が生成した説明図。公式スライドではなく、講演の考え方を簡略化しています。この順番だけで品質を保証するものではありません。</figcaption></figure>
+<section class="recording" aria-labelledby="watch-heading">
+<h2 id="watch-heading">元動画とスライドを見ながら読む</h2>
+<p>公式の個別動画を埋め込みます。スライドは下の本文内にある講演キャプチャを参照できます。配布用のスライド単体ファイルは確認できていません。</p>
+<button id="load-video" type="button" hidden>公式動画プレーヤーを読み込む</button>
+<p id="video-notice" role="status">埋め込みを読み込むとYouTubeへ接続します。自動再生はしません。ボタンが表示されない場合や再生できない場合は<a href="https://www.youtube.com/watch?v=O_zcc6Xl12g">元動画を開いてください</a>。</p>
+<div id="video-slot"></div>
+<nav class="slide-nav" aria-label="本文のスライドへ移動"><a href="#slide-pyramid">逆ピラミッド</a><a href="#slide-dune">Duneの制約</a><a href="#slide-verification">実行時検証</a></nav>
+<p>動画の該当箇所：<a href="https://www.youtube.com/watch?v=O_zcc6Xl12g&amp;t=127s">2:07 逆ピラミッド</a> ／ <a href="https://www.youtube.com/watch?v=O_zcc6Xl12g&amp;t=300s">5:00 Dune</a> ／ <a href="https://www.youtube.com/watch?v=O_zcc6Xl12g&amp;t=636s">10:36 実行時検証</a>。<a href="https://ai.engineer/talks/O_zcc6Xl12g-all-code-is-slop-except-mine">公式のスライド一覧</a>でも原スライドと時刻を確認できます。</p>
+</section>
 
 <figure class="hero">
   <img src="assets/all-code-is-slop/00-hero.jpg" alt="タイトルスライド「all code is slop」と登壇者Lauren Tan。右下に彼女のちびキャラアバター" width="1600" height="900">
   <figcaption>タイトルスライド。右下のちびキャラは彼女のトレードマーク</figcaption>
 </figure>
 
-<p>Lauren Tan（poteto）は SpaceXAI の Principal Engineer で、AIチャットアプリ Grok Bot の開発を率いている。彼女のチームは先月、11,000件のPRを本番に出した。本人も3,000件を出している。</p>
-<p>このページは、AI Engineer Code Summit での彼女の講演の要点を、講演で使われたスライドとともにまとめたもの。テーマは、エージェントに大量のコードを書かせながら、コードの品質をどう保ち、どう上げるかである。</p>
+<p>Lauren Tan（poteto）は SpaceXSI の Principal Engineer で、AIチャットアプリ Grok Bot の開発を率いている。講演では、チームが前月に本番へ出したPRは11,000件、本人はそのうち3,000件と報告している。いずれも登壇者の報告値で、この記事で独立に検証した数字ではない。</p>
+<p>このページはAI Engineer Code Summit での彼女の講演の要点を、講演で使われたスライドとともにまとめたもの。テーマはエージェントに大量のコードを書かせながら、コードの品質をどう保ち、どう上げるかである。</p>
 
 <div class="summary3">
   <div class="ttl">3行で言うと</div>
   <ol>
     <li>エージェントのミスを直すとき、プロンプトに言葉を足すのではなく、lint・型・API設計のような<strong>決定論的なチェック</strong>に落とし込む。</li>
-    <li>検証（実行・スクリーンショット・形式的検証）にトークンの約7割を使い（Cindy の投稿の目安に本人の実感も一致）、レビューは「検証の成果物を見る仕事」にする。</li>
+    <li>検証（実行・スクリーンショット・形式的検証）にトークンの約7割を使い（Cindy Sridharan の自己申告に本人の実感も一致）、レビューは「検証の成果物を見る仕事」にする。</li>
     <li>土台が整えば、月11,000 PRでもリバート率は約0.5%。自動化は土台のあと。</li>
   </ol>
 </div>
@@ -124,11 +137,11 @@
 <p>彼女がその状態に到達するまでにかかった期間は6か月。ただし、道筋が分かれば短縮できるとしている。</p>
 
 <h2 id="ch2">2. 信頼の「potetoピラミッド」<span class="time">2:03〜</span></h2>
-<figure>
+<figure id="slide-pyramid">
   <img src="assets/all-code-is-slop/02-pyramid.jpg" alt="逆ピラミッド図「the poteto pyramid」。上から codebase、static analysis、verification、prose、human review" width="1200" height="607" loading="lazy">
-  <figcaption>信頼を構成する層。土台側ほど面積が大きく、コストは上の層ほど高い</figcaption>
+  <figcaption>逆ピラミッドの上側はコードと静的解析。下端の人間レビューへ向かうほどコストが高くなる</figcaption>
 </figure>
-<p>信頼を構成する層は、土台から順に次の5つ。</p>
+<p>図を上から下へ読むと、次の5つの層になる。</p>
 <ul>
   <li><strong>codebase</strong>：API設計、アーキテクチャ、リファクタリング</li>
   <li><strong>static analysis</strong>：lintルール、型、コンパイラ、テスト、CI</li>
@@ -136,16 +149,17 @@
   <li><strong>prose</strong>：ルール文書、skills、AGENTS.md のような文章の指示</li>
   <li><strong>human review</strong>：人間のレビュー</li>
 </ul>
-<p>上の層ほどコストが高い。したがって方針は、決定論的に効く下の2層（codebase と static analysis）を厚くし、解釈で結果がぶれる prose の層を薄くすることになる。</p>
-<p>エージェントの出力は入力で決まる。コードベースは、その最大の入力のひとつである。</p>
+<p>下端の人間レビューへ向かうほどコストが高い。設計と自動チェックで同じ誤りを防ぎ、文章の注意書きや人の繰り返し確認に頼りすぎない、という考え方だ。</p>
+<p>エージェントの出力は入力で決まる。コードベースはその最大の入力のひとつである。</p>
 <div class="point">彼女はコードベースを庭に例える。悪いパターンや技術的負債が残っていると、次のエージェントがそれをコピーして広げる。逆に、良いパターンだけが残っていれば、コピーされるのも良いパターンになる。エンジニアの仕事は、この意味でガーデニングに近づいているという。</div>
 
 <h2 id="ch3">3. Dune：問題をカテゴリーごと消す<span class="time">5:00〜</span></h2>
-<figure>
+<figure id="slide-dune">
   <img src="assets/all-code-is-slop/03-dune.jpg" alt="「dune: a framework for agents」。app framework + one folder per feature、strict import bans、no comments in code" width="1200" height="607" loading="lazy">
   <figcaption>Dune の主な規則：機能ごとに1フォルダ、厳格なimport禁止、コード内コメントなし</figcaption>
 </figure>
-<p>Dune は、Grok Bot のために作られたクライアントフレームワークである。彼女はこれを「Electron 版の Next.js」と例える。デスクトップアプリ開発の教訓を、制約と lint ルールとして組み込んでいる。代表例は次の3つ。</p>
+<p>以下の制約はこのチームの設計方針で、すべての開発で useEffect やコメントを禁止すべきだという話ではない。</p>
+<p>Dune はGrok Bot のために作られたクライアントフレームワークである。彼女はこれを「Electron 版の Next.js」と例える。デスクトップアプリ開発の教訓を、制約と lint ルールとして組み込んでいる。代表例は次の3つ。</p>
 <ul>
   <li><strong>useEffect の禁止</strong>：誤用が多く、エージェントも使いこなせない。そのため製品コードでは禁止し、Dune の API 内部でのみ許可した。結果として、この種の問題は発生頻度が下がるのではなく、カテゴリーごと発生しなくなった。</li>
   <li><strong>ディレクトリによる分離</strong>：electron-main と electron-renderer を分け、相互の import を依存グラフ解析と lint で禁止した。導入前は、エージェントがメインスレッドのコードをレンダラー側に import し、長時間タスクやカクつきの原因を作っていた。</li>
@@ -168,16 +182,16 @@
 <div class="point">一般原則は次のとおり。<strong>エージェントのミスを直すたびに、プロンプトやルール文書へ文章を足すのではなく、決定論的なチェック（lint・型・API設計）として実装する。</strong>これを続けると、レビューで確認すべき事項が減り、最終的にはエージェントが自分のPRの大部分を自分でマージできるようになる。</div>
 
 <h2 id="ch4">4. 検証にトークンの7割を使う<span class="time">10:10〜</span></h2>
-<figure>
+<figure id="slide-verification">
   <img src="assets/all-code-is-slop/06-verification.jpg" alt="「runtime verification」というスライド" width="1200" height="607" loading="lazy">
   <figcaption>実行時検証。エージェントが自分の変更を自分で実行して確認する</figcaption>
 </figure>
-<p>もうひとつの柱が検証である。基本は、エージェントにコードを自分で実行させ、Chrome DevTools Protocol 経由で挙動を確認させること。</p>
+<p>もうひとつの柱が検証である。基本はエージェントにコードを自分で実行させ、Chrome DevTools Protocol 経由で挙動を確認させること。</p>
 <p>検証用のスキルには「feature map」が含まれる。これはユーザー視点で見た全機能の地図で、アプリの各部分を共通の語彙で指し示すために使う。検証手順にはカスタムCLIも用意し、毎回同じ手順で実行できるようにして、トークン消費を抑えている。</p>
 <p>最近は形式的検証も導入した。TLA+ で通知などの主要フローをモデル検査し、Lean で自作の仮想化ライブラリを証明して、ちらつきやジッターがないことを確認する。UI向けのプロパティベーステストも始めており、Bombadil というライブラリで「常に成り立つ性質」を定義し、UIを自動で操作して反例を探す。すでにUIのバグをいくつか検出している。ただし彼女自身、TLA+ や Lean はまだ実験段階であり、銀の弾丸ではなくピラミッドの層のひとつにすぎないと留保している。</p>
 <p>彼女のプラグイン集 pstack には、コードの状態遷移を図に起こす state chart スキルも入っている。レビューで状態の流れを図として確認するために使う。</p>
 <p>彼女の見立てでは、形式的検証のような手法自体は新しい技術ではない。以前はコストが高くて実務では使いにくかった手法を、エージェントが安く実行できるようになったことが変化であり、その意味でいまは「テストと検証の黄金期」にあるという。</p>
-<p>この結果、コードレビューの対象はコードそのものから、動画・スクリーンショット・図・形式的検証の結果といった検証の成果物へ移った。トークンの約70%を検証に使うという目安は Cindy という人の投稿からの引用で、彼女は自分の使い方とも合っていると述べている。</p>
+<p>この結果、コードレビューの対象はコードそのものから、動画・スクリーンショット・図・形式的検証の結果といった検証の成果物へ移った。トークンの約70%を検証に使うという目安は Cindy Sridharan の投稿にある自己申告からの引用で、彼女は自分の使い方とも合っていると述べている。</p>
 
 <h2 id="ch5">5. 成果：速度と安定性<span class="time">13:32〜</span></h2>
 <figure>
@@ -191,7 +205,7 @@
 <ul>
   <li>チームは先月 <strong>11,000件のPR</strong> を本番に出し、安定版をほぼ毎日リリースしている</li>
   <li>PRを出す人は6月の15人から10月には<strong>227人</strong>に増えた。文脈の少ないカジュアルな寄稿者も含まれる</li>
-  <li>この量でも<strong>リバート率は約0.5%</strong>で安定している</li>
+  <li>登壇者の報告では<strong>PRのリバート率は約0.5%</strong>で安定している。後続PRで直した不具合までは数えないため、不具合率とは異なる</li>
   <li>起動（-39%）、タイピング（中央値-26%、長文-65%）、チャット切替（-44%）など、体感性能も改善した</li>
 </ul>
 <p>リリース時には、アプリ全体に対するファズテストも自動で実行される。実際のユーザーのようにアプリを操作してバグを探し、修正PRを作成して自動マージする仕組みである。</p>
@@ -209,7 +223,7 @@
 <h3>ツール・プロダクト</h3>
 <dl>
   <dt>Grok Bot</dt>
-  <dd>SpaceXAI の AI チャットアプリ。Tan のチームが開発しており、講演の実践の舞台。</dd>
+  <dd>SpaceXSI の AI チャットアプリ。Tan のチームが開発しており、講演の実践の舞台。</dd>
   <dt>Dune</dt>
   <dd>Grok Bot のために作られたクライアントフレームワーク。彼女は「Electron 版の Next.js」と例える。制約と lint ルールを内蔵し、誤用されやすいパターンを API の時点で使えなくしている。</dd>
   <dt>pstack</dt>
@@ -267,16 +281,18 @@
 </ul>
 
 <div class="links">
-  <p><strong>リンク</strong></p>
+  <p><strong>一次資料</strong></p><p><a href="https://ai.engineer/talks/O_zcc6Xl12g-all-code-is-slop-except-mine">主催者の講演ページ・スライド・文字起こし</a> ／ <a href="https://ai.engineer/code/2026/talks/lauren-tan">主催者の別編集版</a></p>
   <p>元動画：<a href="https://www.youtube.com/watch?v=O_zcc6Xl12g">All Code Is Slop (Except Mine) — Lauren Tan（YouTube / AI Engineer）</a></p>
   <p>話題のきっかけ：<a href="https://x.com/ecommartinez/status/2122049134660034936">Alejo（@ecommartinez）の X 投稿</a>／<a href="https://x.com/undefinedKi/status/2121706023950090340">Yarchi（@undefinedKi）の X 投稿</a>（動画付き、約496万回表示）</p>
-  <p>登壇者：Lauren Tan（<a href="https://x.com/poteto">@poteto</a>）／ 彼女のプラグイン集 pstack：<a href="https://github.com/backnotprop/pstack">github.com/backnotprop/pstack</a></p>
+  <p>登壇者：Lauren Tan（<a href="https://x.com/poteto">@poteto</a>）／ 彼女のプラグイン集 pstack：<a href="https://github.com/cursor/plugins/tree/main/pstack">github.com/cursor/plugins/tree/main/pstack</a></p>
 </div>
 
 <p class="note">このページは講演の要点を独自にまとめたもので、逐語の書き起こしではありません。スライド画像は講演動画からのキャプチャです。講演の著作権は登壇者および主催者に帰属します。</p>
 
-<footer>まとめた日：2026-11-17（2026-11-18に公式トランスクリプトと照合して追記／2026-11-19に用語・ツールの補足と「自分のプロジェクトに取り入れるには」を追記）</footer>
+<footer>まとめた日：2026-11-17（2026-11-18に公式トランスクリプトと照合して追記／2026-11-19に公式資料と照合し、コスト方向・数値の帰属を補足、動画を埋め込み、用語・ツールの補足と「自分のプロジェクトに取り入れるには」を追記）</footer>
 
 </div>
-</body>
+<script>
+(()=>{const b=document.getElementById('load-video');b.hidden=false;b.addEventListener('click',()=>{const f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/O_zcc6Xl12g';f.title='All Code Is Slop (Except Mine) — Lauren Tan 公式講演動画';f.allow='encrypted-media; picture-in-picture; fullscreen';f.referrerPolicy='strict-origin-when-cross-origin';f.allowFullscreen=true;document.getElementById('video-slot').replaceChildren(f);b.hidden=true;f.focus();document.getElementById('video-notice').textContent='公式動画プレーヤーを読み込みました。再生操作はプレーヤー内で行えます。';});})();
+</script></body>
 </html>
