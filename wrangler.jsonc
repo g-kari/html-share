@@ -3,7 +3,7 @@
   "compatibility_date": "2026-09-29",
   "previews": {},
   "build": {
-    "command": "npm run build"
+    "command": "npm run build:deploy"
   },
   "observability": {
     "enabled": true

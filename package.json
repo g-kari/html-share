@@ -8,7 +8,8 @@
   "scripts": {
     "build": "npm run build:ui && node scripts/generate-index.mjs",
     "test": "node --test tests/*.test.mjs",
-    "build:ui": "node scripts/build-site-guide.mjs"
+    "build:ui": "node scripts/build-site-guide.mjs",
+    "build:deploy": "node scripts/prepare-deploy-history.mjs && npm run build"
   },
   "dependencies": {
     "@animate-ui/react": "2.4.6",
