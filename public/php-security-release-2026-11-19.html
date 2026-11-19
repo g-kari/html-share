@@ -64,7 +64,7 @@ section[aria-labelledby="impact-detail"] .php-cve>summary{grid-template-columns:
 <main>
 <header>
 <h1 id="top">PHPのセキュリティ更新：修正版と確認手順</h1>
-<p>2026年11月19日公開。配布状況の最終確認は11月20日0時ごろ（日本時間）です。</p>
+<p>2026年11月19日公開。配布状況の最終確認は11月20日1時ごろ（日本時間）です。</p>
 <p><strong>PHP 8.2〜8.5の修正版が公開されました。</strong> 使っている系列の修正版に更新してください。OSのパッケージ、Docker、レンタルサーバーを利用している場合は、提供元ごとの修正状況を確認します。</p>
 </header>
 <section aria-labelledby="versions" id="fix">
@@ -352,7 +352,8 @@ grep -REin '^[[:space:]]*[^#[:space:]].*enablereuse[[:space:]]*=' /etc/apache2 /
 <p>下記は確認時点の状況です。OSが古い版番号のまま修正を取り込むこともあります。版番号の見た目だけで判断せず、利用中のOSとパッケージに対する告知を照合してください。</p>
 <ul>
 <li><a href="https://downloads.php.net/~windows/releases/">Windows公式ZIP</a>：8.2.36、8.3.37、8.4.28、8.5.13が公式の配布一覧にあります。各系列にTS・NTS、x64・x86のZIPがあり、いま使っている方式に合うものを選びます。</li>
-<li><a href="https://security-tracker.debian.org/tracker/source-package/php8.4">Debian</a>：trixieのセキュリティ配布は 8.4.27-1~deb13u1、<a href="https://security-tracker.debian.org/tracker/source-package/php8.2">bookworm</a>は 8.2.35-1~deb12u1 と表示。今回の修正が含まれるかは未確認です。</li>
+<li><strong>Debian 13（trixie）</strong>：セキュリティ配布に <code>8.4.28-1~deb13u1</code> があり、<a href="https://security-tracker.debian.org/tracker/source-package/php8.4">Debianの脆弱性トラッカー</a>では、今回の CVE-2026-115560 などが修正済みです。<a href="https://security.debian.org/debian-security/pool/updates/main/p/php8.4/">公式配布アーカイブ</a>にも実ファイルがあります。</li>
+<li><strong>Debian 12（bookworm）</strong>：<a href="https://security.debian.org/debian-security/pool/updates/main/p/php8.2/">公式配布アーカイブ</a>に <code>8.2.36-1~deb12u1</code> の実ファイルがあります。一方、<a href="https://security-tracker.debian.org/tracker/source-package/php8.2">Debianの脆弱性トラッカー</a>では今回の対象CVEに未修正の表示が残っています。配布は確認済みですが、この版でどのCVEが修正されたかは確認中です。</li>
 <li><a href="https://lists.ubuntu.com/archives/ubuntu-security-announce/2026-November/date.html">Ubuntu</a>、<a href="https://access.redhat.com/security/vulnerabilities/RHSB-2026-013">Red Hat</a>：今回分の修正版は未確認。Red Hatの資料では CVE-2026-115560 の影響を評価中です。</li>
 <li><a href="https://explore.alas.aws.amazon.com/CVE-2026-115560.html">Amazon Linux</a>：CVE-2026-115560 に限ると、AL2023のPHP 8.2〜8.5とAL2 ExtrasのPHP 8.2は修正待ちと表示されています。</li>
 <li><a href="https://dl-cdn.alpinelinux.org/alpine/v3.24/community/x86_64/">Alpine</a>：v3.24のx86_64で確認したPHP 8.5は 8.5.12-r0。今回分の修正入りは未確認です。</li>
