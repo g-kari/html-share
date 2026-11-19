@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LinuxサーバーのソフトウェアをSBOM化する方法｜nginx・PHP・OpenSSL</title>
+  <meta name="description" content="Linuxサーバーにインストールされたnginx・PHP・OpenSSLなどをSyftやTrivyでSBOM化する手順。稼働中のバージョンとの違い、RPM・dpkg、コンテナ、AWSでの一括管理まで解説。">
+  <link rel="canonical" href="https://share.0g0.xyz/linux-host-sbom-inventory">
+  <meta property="og:image" content="https://share.0g0.xyz/assets/linux-host-sbom-ogp-v1.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="LinuxホストのソフトウェアをSyftで検出し、CycloneDXのSBOMと脆弱性管理につなぐ構成図">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://share.0g0.xyz/assets/linux-host-sbom-ogp-v1.png">
+  <meta name="twitter:image:alt" content="LinuxサーバーのソフトウェアをSBOM化する方法">
+  <meta name="theme-color" content="#172b30">
+  <link rel="stylesheet" href="/assets/site.css">
+  <style>
+    :root { --accent: #146573; --accent-dark: #79d9e7; }
+    .skip { position: absolute; left: 12px; top: -100px; background: var(--paper); color: var(--ink); z-index: 100; padding: 9px 12px; }
+    .skip:focus { top: 10px; }
+    .dek { max-width: 42em; }
+    .flow-diagram { margin: 24px 0 30px; border-top: 2px solid var(--ink); border-bottom: 1px solid var(--line); padding: 17px 0 12px; }
+    .flow-title { margin: 0 0 12px; font-weight: 750; font-size: .94rem; }
+    .flow-diagram ol { padding: 0; margin: 0; list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+    .flow-diagram li { min-width: 0; margin: 0; padding: 9px 12px 12px; border-top: 4px solid var(--accent); background: var(--panel); }
+    .flow-diagram .no { display: block; font-size: .76rem; color: var(--muted); font-family: var(--mono); margin-bottom: 3px; }
+    .flow-diagram strong { display: block; font-size: .95rem; line-height: 1.5; }
+    .flow-diagram small { display: block; font-size: .76rem; color: var(--muted); line-height: 1.55; margin-top: 5px; }
+    .flow-diagram figcaption { text-align: left; }
+    .comparison th:first-child { min-width: 10rem; }
+    .comparison td { min-width: 12rem; }
+    .cmd-label { display: block; font-size: .84rem; font-weight: 750; color: var(--muted); margin-top: 1.1em; }
+    pre { margin: 7px 0 16px; }
+    .fact { color: var(--accent); font-weight: 750; }
+    .reading-note { padding: 10px 14px; border-left: 3px solid var(--muted); background: var(--panel); font-size: .91rem; }
+    .refs { font-size: .88rem; overflow-wrap: anywhere; }
+    .refs li { margin: .7em 0; }
+    @media (max-width: 650px) {
+      .flow-diagram ol { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .flow-diagram li { padding: 9px 10px; }
+      .comparison { min-width: 650px; }
+    }
+    @media (max-width: 390px) { .flow-diagram ol { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">本文へ移動</a>
+  <div class="wrap">
+    <div class="sitebar">
+      <a class="brand" href="/">HTML Share</a>
+      <nav aria-label="サイト内ナビゲーション"><a href="/">記事一覧</a><a href="/devsecops-oss">DevSecOps</a></nav>
+    </div>
+    <main id="main">
+      <header class="top">
+        <h1>LinuxサーバーのソフトウェアをSBOM化する方法</h1>
+        <p class="meta">2026年11月19日確認｜nginx・PHP・OpenSSLなどの構成管理</p>
+      </header>
+
+      <p class="lead dek"><strong>結論：</strong>サーバーに入っているソフトウェアを一覧化するなら <strong>Syft</strong>、脆弱性との照合まで行うなら <strong>Trivy</strong> が使える。共通形式の <strong>CycloneDX</strong> に出力すれば、複数サーバーの構成管理にもつなげやすい。</p>
+      <p>ただし、SBOMが示す「検出されたパッケージ」と「現在動作しているプロセス」は別の情報。nginxやPHP-FPMが実際にどのバイナリを使っているかは、別途確認する。</p>
+
+      <figure class="flow-diagram" aria-labelledby="flow-name">
+        <p id="flow-name" class="flow-title">サーバーのSBOMを運用管理につなぐ流れ</p>
+        <ol>
+          <li><span class="no">01 / 対象</span><strong>Linuxホスト</strong><small>RPM・dpkg・各種ライブラリ</small></li>
+          <li><span class="no">02 / 収集</span><strong>Syft / Trivy</strong><small>検出されたパッケージとバージョン</small></li>
+          <li><span class="no">03 / 標準化</span><strong>CycloneDX JSON</strong><small>対象・部品・依存関係の記録</small></li>
+          <li><span class="no">04 / 利用</span><strong>台帳・CVE照合</strong><small>資産別の差分と対応優先度</small></li>
+        </ol>
+        <figcaption>SBOMはインベントリの基礎データ。稼働状態や外部公開状況を自動的に証明するものではない。</figcaption>
+      </figure>
+
+      <nav class="toc" aria-label="記事の目次">
+        <div class="ttl">この記事の内容</div>
+        <ol>
+          <li><a href="#quickstart">まずは1台でSBOMを作る</a></li>
+          <li><a href="#running">本当に動いているバージョンを確認する</a></li>
+          <li><a href="#scope">何を検出できるか・できないか</a></li>
+          <li><a href="#fleet">複数台やAWSで管理する</a></li>
+          <li><a href="#references">公式資料</a></li>
+        </ol>
+      </nav>
+
+      <section id="quickstart">
+        <h2>まずは1台でSBOMを作る</h2>
+        <p>Syftのインストール方法は<a href="https://oss.anchore.com/docs/installation/syft/">公式ガイド</a>を参照する。対象サーバーでSyftを実行できる場合、ルートファイルシステムを指定して収集する。</p>
+        <span class="cmd-label">Syft：インストール済みソフトウェアをCycloneDX JSONで出力</span>
+        <pre tabindex="0"><code class="language-bash">syft dir:/ -o cyclonedx-json=host-sbom.cdx.json</code></pre>
+        <p>出力例は <code>host-sbom.cdx.json</code>。OSのパッケージ管理情報や検出可能なライブラリを収集し、別の分析ツールへ渡せる。権限が足りないファイルは読み取れないため、必要に応じて適切な権限で実行する。<a href="#ref-syft">[1]</a></p>
+        <span class="cmd-label">Trivyでも同じ種類のSBOMを生成できる（上記とは別の選択肢）</span>
+        <pre tabindex="0"><code class="language-bash">trivy rootfs --format cyclonedx \
+  --output host-sbom.cdx.json /</code></pre>
+        <p>Trivyの <code>rootfs</code> はホストや展開済みルートファイルシステムを対象にするモード。通常の開発用ディレクトリを調べる <code>trivy fs</code> とは用途を分ける。<a href="#ref-trivy-rootfs">[3]</a></p>
+        <h3>取得したSBOMを脆弱性と照合する</h3>
+        <pre tabindex="0"><code class="language-bash">trivy sbom --scanners vuln host-sbom.cdx.json</code></pre>
+        <p>生成済みSBOMから既知の脆弱性を調べられる。ただし、SBOMの検出漏れや脆弱性DBの対応範囲は残る。検出結果は「攻撃可能」の証明ではない。<a href="#ref-trivy-sbom">[4]</a></p>
+      </section>
+
+      <section id="running">
+        <h2>本当に動いているバージョンを確認する</h2>
+        <p>例えばPHPのCLIとPHP-FPMで別のバージョンが導入されていたり、OSパッケージとは別にソースからビルドしたnginxが起動している場合がある。SBOMと稼働プロセスの情報を照合する。</p>
+        <pre tabindex="0"><code class="language-bash"># nginxの実行ファイルのバージョン・ビルド設定
+nginx -v 2&gt;&amp;1
+nginx -V 2&gt;&amp;1
+
+# PHP CLIとPHP-FPMは別々に確認
+php -v
+php-fpm -v
+
+# 起動中プロセスとコマンドラインを確認
+ps -eo pid,comm,args</code></pre>
+        <p>ディストリビューションによっては <code>php-fpm8.2</code> のような別名になる。さらに、<code>PATH</code> 上の実行ファイルがサービスの実体と異なることもあるため、systemdの起動設定やプロセスの実行パスを合わせて確認する。</p>
+        <details>
+          <summary>OSパッケージの正確なバージョンを直接取得する</summary>
+          <p>RHEL・Amazon Linux系はRPMの <strong>Epoch / Version / Release / Architecture</strong>、Debian・Ubuntu系はdpkgのパッケージ名・バージョン・アーキテクチャを保存する。</p>
+          <span class="cmd-label">RPM系</span>
+          <pre tabindex="0"><code class="language-bash">rpm -qa --qf '%{NAME}\t%{EPOCHNUM}:%{VERSION}-%{RELEASE}\t%{ARCH}\n'</code></pre>
+          <span class="cmd-label">dpkg系</span>
+          <pre tabindex="0"><code class="language-bash">dpkg-query -W -f='${binary:Package}\t${Version}\t${Architecture}\n'</code></pre>
+          <p>アップストリームの <code>1.2.3</code> だけで更新要否を判断しない。ディストリビューションによる修正のバックポートがあるため、Releaseまで残して提供元のアドバイザリと照合する。<a href="#ref-rpm">[7]</a></p>
+        </details>
+      </section>
+
+      <section id="scope">
+        <h2>何を検出できるか・できないか</h2>
+        <div class="table-wrap" role="region" tabindex="0" aria-label="収集対象と方法の比較。横にスクロールできます">
+          <table class="comparison">
+            <thead><tr><th scope="col">知りたいこと</th><th scope="col">主な取得方法</th><th scope="col">注意点</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">OS標準パッケージの一覧</th><td>Syft / Trivy rootfs、rpm・dpkg</td><td>パッケージDBの検出範囲と権限に依存する。</td></tr>
+              <tr><th scope="row">nginx・PHPの導入版</th><td>SBOMとパッケージDB</td><td>導入済みでも稼働中とは限らない。</td></tr>
+              <tr><th scope="row">nginx・PHP-FPMの稼働版</th><td>プロセス・サービス設定・実行バイナリ</td><td><code>nginx -v</code> や <code>php -v</code> の結果だけでは実プロセスとの一致を保証しない。</td></tr>
+              <tr><th scope="row">Dockerのソフトウェア</th><td>イメージごとにSyft / Trivy</td><td>ホストのSBOMだけで各コンテナ内部を網羅したとは扱わない。イメージのdigestを記録する。</td></tr>
+              <tr><th scope="row">手動ビルド・独自配置</th><td>ファイル検出 + 実行バイナリ確認</td><td>パッケージ管理情報がない場合、名称や正確な版を検出できないことがある。</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Syftのディレクトリ走査は、インストール済みのパッケージだけでなく、manifestに<strong>宣言された依存関係</strong>を検出する場合もある。検出結果を無条件に「そのサーバーで稼働中」と表示しない。<a href="#ref-syft-cataloger">[2]</a></p>
+        <div class="point"><div class="ttl">特に重要な区別</div><p><strong>インストール済み</strong>・<strong>稼働中</strong>・<strong>ネットワークから到達可能</strong>・<strong>CVEの影響を受ける</strong>は4つの別の状態。それぞれに証拠が必要になる。</p></div>
+        <details>
+          <summary>コンテナも収集したい場合</summary>
+          <p>稼働中のコンテナをホストと区別して管理し、使用しているイメージ（可能なら不変のdigest）ごとにSBOMを生成する。</p>
+          <pre tabindex="0"><code class="language-bash"># 例：事前に取得可能なイメージを指定
+syft nginx:stable -o cyclonedx-json=nginx-image.cdx.json
+
+# 代替：Trivyでコンテナイメージをスキャン
+trivy image --format cyclonedx \
+  --output nginx-image.cdx.json nginx:stable</code></pre>
+          <p>上のタグは使用方法を示す例。継続監視では、タグが同名のまま更新される可能性を考慮し、実際に利用したイメージのdigestを保管する。</p>
+        </details>
+      </section>
+
+      <section id="fleet">
+        <h2>複数台やAWSで管理する</h2>
+        <p>複数サーバーを対象にするなら、収集結果を単に上書きせず、<strong>資産IDと取得日時に紐づくスナップショット</strong>として保存する。脆弱性の検出と修正承認は別の状態として扱う。</p>
+        <div class="table-wrap" role="region" tabindex="0" aria-label="運用方式の比較。横にスクロールできます">
+          <table class="comparison">
+            <thead><tr><th scope="col">方式</th><th scope="col">適する場面</th><th scope="col">考慮事項</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Syft + 定期収集</th><td>クラウド・オンプレを混在させたい</td><td>SSH / ジョブ / エージェントの方式、権限、実行負荷を設計する。</td></tr>
+              <tr><th scope="row">SSM Inventory</th><td>AWSの管理対象ノード</td><td>アプリケーション名・版などを収集。標準のSBOMエクスポートと同一ではない。<a href="#ref-ssm">[5]</a></td></tr>
+              <tr><th scope="row">Amazon Inspector</th><td>Inspectorが監視対象としているAWSリソース</td><td>対応するEC2・ECR・Lambda等からSBOMをエクスポート。利用条件、サービス料金、S3・KMSの設定が必要。<a href="#ref-inspector">[6]</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>中央管理するなら残したい項目</h3>
+        <ul>
+          <li>資産ID・ホスト名・OS・取得日時・検出元</li>
+          <li>パッケージ名・バージョン・Release・アーキテクチャ・PURL（取得できる場合）</li>
+          <li>検出対象（ホスト・イメージ・アプリ）とコンテナのdigest</li>
+          <li>稼働状態・実行バイナリ・収集の成否（SBOMと別の証拠として保持）</li>
+          <li>CVE、影響判定の根拠、修正・承認の履歴</li>
+        </ul>
+        <p class="reading-note"><strong>運用案：</strong>定期収集に加え、デプロイやパッケージ更新の直後にも再収集する。収集失敗時は前回のSBOMを最新と表示せず「最終成功日時」を残す。ホストの内部パスやソフトウェア構成が含まれるため、生成したSBOMは原則として非公開で管理する。</p>
+      </section>
+
+      <section id="references">
+        <h2>公式資料</h2>
+        <ol class="refs">
+          <li id="ref-syft"><a href="https://oss.anchore.com/docs/guides/sbom/scan-targets/">Anchore OSS：Syft Supported Scan Targets</a> — ディレクトリ・コンテナのSBOM生成、ファイルシステムの扱い。</li>
+          <li id="ref-syft-cataloger"><a href="https://oss.anchore.com/docs/guides/sbom/catalogers/">Anchore OSS：Package Catalogers</a> — ソースの宣言依存とインストール済みソフトの検出。</li>
+          <li id="ref-trivy-rootfs"><a href="https://trivy.dev/docs/latest/guide/target/rootfs/">Trivy：Rootfs</a> — ホスト・展開済みrootfsのスキャン。</li>
+          <li id="ref-trivy-sbom"><a href="https://trivy.dev/docs/latest/supply-chain/sbom/">Trivy：SBOM</a> — CycloneDX / SPDXの生成と脆弱性照合。</li>
+          <li id="ref-ssm"><a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-inventory.html">AWS Systems Manager Inventory</a> — アプリケーションとバージョンの収集。</li>
+          <li id="ref-inspector"><a href="https://docs.aws.amazon.com/inspector/latest/user/sbom-export.html">Amazon Inspector：Exporting SBOMs</a> — 対応リソース、形式、S3・KMS要件。</li>
+          <li id="ref-rpm"><a href="https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/10/html/packaging_and_distributing_software/packaging-software-with-rpm">Red Hat：Packaging software with RPM</a> — RPMのEpoch / Version / Release。</li>
+        </ol>
+        <p class="note">記載のコマンドは実行例であり、このページの作成時に特定の本番サーバーで実行した結果ではない。製品の機能・対象範囲は2026年11月19日時点の公式資料に基づく。</p>
+      </section>
+    </main>
+    <footer><a href="/">記事一覧へ戻る</a> | <a href="/feed.xml">RSS</a></footer>
+  </div>
+  <script src="/assets/site.js" defer></script>
+</body>
+</html>
