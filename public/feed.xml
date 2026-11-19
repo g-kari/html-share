@@ -7,7 +7,25 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Thu, 19 Nov 2026 16:23:30 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 19 Nov 2026 17:43:36 GMT</lastBuildDate>
+    <item>
+      <title>CVE監視 第1号（2026年11月20日）：FrankenPHP・NGINX・OpenSSL・Next.js・containerd</title>
+      <link>https://share.0g0.xyz/cve-watch-2026-11-20</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/cve-watch-2026-11-20</guid>
+      <description>2026年11月13日から20日に確認したCVEのうち、PHP・NGINX・Next.js・OpenSSL・Dockerの関心技術に関わる11件を、対象版・修正版・成立条件つきで整理した監視の第1号。</description>
+      <pubDate>Thu, 19 Nov 2026 17:43:36 GMT</pubDate>
+      <dcterms:created>2026-11-19T17:43:36.000Z</dcterms:created>
+      <dcterms:modified>2026-11-19T17:43:36.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>GitHub Teamでセキュリティリスク評価が自動実行に｜2026年11月18日の変更点と2種類の評価</title>
+      <link>https://share.0g0.xyz/github-team-security-risk-assessments</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/github-team-security-risk-assessments</guid>
+      <description>GitHub Changelog（2026年11月18日）で、GitHub Teamプランの組織ではセキュリティリスク評価が自動で実行されるようになった。対象プラン、2種類の評価で分かること、費用と再実行の間隔を公式ドキュメントで確認して整理する。</description>
+      <pubDate>Thu, 19 Nov 2026 17:36:57 GMT</pubDate>
+      <dcterms:created>2026-11-19T17:36:57.000Z</dcterms:created>
+      <dcterms:modified>2026-11-19T17:36:57.000Z</dcterms:modified>
+    </item>
     <item>
       <title>PHPのセキュリティ更新：修正版と確認手順（2026年11月19日）</title>
       <link>https://share.0g0.xyz/php-security-release-2026-11-19</link>

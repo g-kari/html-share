@@ -81,6 +81,11 @@
       "published": "2026-10-29T14:53:02.000Z",
       "updated": "2026-10-30T07:18:38.000Z"
     },
+    "cve-watch-2026-11-20.html": {
+      "fingerprint": "406c29c4dfe690623fac77ff3531670ecf070d34a03e797575f04a75a7b0158d",
+      "published": "2026-11-19T17:43:36.000Z",
+      "updated": "2026-11-19T17:43:36.000Z"
+    },
     "devsecops-oss.html": {
       "fingerprint": "7f317107f631f85865de795313404d4abc4cdce28fd3fea2dc40f7832d835d9e",
       "published": "2026-11-05T03:13:34.000Z",
@@ -115,6 +120,11 @@
       "fingerprint": "717292b8f4bedd072947c9f568b184cdbd3e53a056ca6fac511895f6f728e811",
       "published": "2026-10-09T01:43:48.000Z",
       "updated": "2026-10-09T01:43:48.000Z"
+    },
+    "github-team-security-risk-assessments.html": {
+      "fingerprint": "b236742397e2ed92edc7c9a9ec1734dfe8528eed9f5896f15a153046f2cc513f",
+      "published": "2026-11-19T17:36:57.000Z",
+      "updated": "2026-11-19T17:36:57.000Z"
     },
     "go-code-verification.html": {
       "fingerprint": "add16dcf6c555dc85cb859063495bf903ab5151b47f9de01db2dbaede2cc0162",
