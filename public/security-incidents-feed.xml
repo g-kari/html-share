@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Tue, 10 Nov 2026 00:42:40 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 17 Nov 2026 00:27:16 GMT</lastBuildDate>
+    <item>
+      <title>国内外の未掲載公表と重要続報を追加</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#5d559883e864612bf9fc5647e95c1c9b16e47cd4a7ed19202b1a2775becadacb</guid>
+      <description>国内外の未掲載公表と重要続報を追加。理研、ミツモア、アトラスのJpGU利用分、オープンロジ、ソースネクスト、MyAXA、Manulink等を補充し、人数・件数・契約数、確定流出と可能性範囲を区別した。ユミルリンクとRelicの対象精査、無印良品の第4報、宝くじの調査結果、佐川急便・blastmail・アドミリンクの再開実績、TeamSpiritの報告・通知案内訂正を反映。Fireworks・NotionとCursorへの波及、Chainalysis、Apify、ConnectWise等の調査・対策・復旧範囲を更新。提供元と利用企業の内数は加算せず、将来予定を完了と扱わない。原因分類の複合要因表示件数も一覧の集計に合わせた。</description>
+      <pubDate>Tue, 17 Nov 2026 00:27:16 GMT</pubDate>
+      <dcterms:created>2026-11-17T00:27:16.000Z</dcterms:created>
+    </item>
     <item>
       <title>ユミルリンクのCuenote FCとアイスタイル利用分、Fireworks AI、Dorsataの公式公表を追加</title>
       <link>https://share.0g0.xyz/security-incidents</link>

@@ -5,53 +5,59 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="ChatGPTで生成したHTMLを共有するためのページ一覧です。">
   <title>HTML Share</title>
+  <link rel="stylesheet" href="/assets/site.css">
   <style>
     :root {
-      color-scheme: light dark;
-      --bg: #0f1115;
-      --panel: #171a21;
-      --border: #2b313d;
-      --text: #f2f4f8;
-      --sub: #aeb6c5;
-      --accent: #8eb0ff;
+      --panel: var(--paper);
+      --border: var(--line);
+      --text: var(--ink);
+      --sub: var(--muted);
     }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP", sans-serif;
-      line-height: 1.65;
-    }
+    body { line-height: 1.65; }
     main {
       width: min(900px, calc(100% - 32px));
       margin: 0 auto;
       padding: 56px 0 80px;
     }
     header { margin-bottom: 32px; }
-    h1 { margin: 0 0 8px; font-size: clamp(2rem, 6vw, 3.5rem); }
+    h1 { margin: 0 0 8px; font-size: clamp(2rem, 6vw, 3.5rem); display: flex; align-items: center; gap: .35em; }
+    h1::before { content: ""; width: .34em; height: .34em; flex: none; background: var(--accent); transition: transform .3s ease; }
+    h1:hover::before { transform: rotate(45deg); }
     .lead { margin: 0; color: var(--sub); }
     .count { margin-top: 12px; color: var(--sub); font-size: .95rem; }
     .rss { color: var(--accent); text-underline-offset: .2em; }
     .grid { display: grid; gap: 14px; }
+    @keyframes hs-rise { from { opacity: 0; transform: translateY(10px); } }
     .card {
       border: 1px solid var(--border);
       border-radius: 16px;
       background: var(--panel);
-      transition: transform .12s ease, border-color .12s ease;
+      transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+      animation: hs-rise .45s ease backwards;
     }
-    .card:hover { transform: translateY(-2px); border-color: #46516a; }
+    .card:nth-child(2) { animation-delay: .04s; }
+    .card:nth-child(3) { animation-delay: .08s; }
+    .card:nth-child(4) { animation-delay: .12s; }
+    .card:nth-child(5) { animation-delay: .16s; }
+    .card:nth-child(6) { animation-delay: .2s; }
+    .card:nth-child(7) { animation-delay: .24s; }
+    .card:nth-child(8) { animation-delay: .28s; }
+    .card:nth-child(9) { animation-delay: .32s; }
+    .card:nth-child(10) { animation-delay: .36s; }
+    .card:hover { transform: translateY(-2px); border-color: var(--accent); box-shadow: 0 8px 24px rgb(0 0 0 / .08); }
     .card a {
       display: block;
       padding: 20px;
       color: inherit;
       text-decoration: none;
     }
-    .card h2 { margin: 0 0 8px; font-size: 1.15rem; }
+    .card h2 { margin: 0 0 8px; font-size: 1.15rem; border-left: 0; padding: 0; }
     .card p { margin: 0 0 12px; color: var(--sub); }
     code { color: var(--accent); }
     .empty { color: var(--sub); }
     .site-guide { margin: 20px 0; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+    .site-guide details { border: 0; border-radius: 0; padding: 0; margin: 0; }
+    .site-guide details[open] > summary { margin-bottom: 0; }
     .guide-item + .guide-item { border-top: 1px solid var(--border); }
     .guide-heading { margin: 0; font-size: 1rem; }
     .guide-trigger, .site-guide summary { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 14px 18px; min-height: 48px; border: 0; border-radius: 0; background: var(--panel); text-align: left; cursor: pointer; font-weight: 650; }
@@ -111,14 +117,14 @@
       <p class="lead">共有ページ一覧</p>
       <p><a class="rss" href="/feed.xml">RSSで新規公開・更新を購読</a></p>
       <p><a class="rss" href="/vulnerabilities-feed.xml">脆弱性レポート 更新RSSを購読</a> · <a class="rss" href="/security-incidents-feed.xml">漏洩・セキュリティ事案レポート 更新RSSを購読</a></p>
-      <p class="count">47 pages</p>
+      <p class="count">58 pages</p>
     </header>
     <div id="site-guide-fallback" class="site-guide" aria-label="ページの探し方と購読">
       <details class="guide-item" data-guide-section="reports"><summary>よく読むレポートへ</summary><div><p>更新を追いたいページを直接開けます。</p><ul><li><a href="/technology-updates">技術アップデート</a></li><li><a href="/vulnerabilities">重要な脆弱性</a></li><li><a href="/security-incidents">情報流出・セキュリティ事案</a></li></ul></div></details>
       <details class="guide-item" data-guide-section="search"><summary>本文まで探す・更新を受け取る</summary><div><p>下の検索はスペース区切りのAND検索です。RSSは申込みなしで購読アプリに追加できます。</p><ul><li><a href="#site-search">本文を検索する</a></li><li><a href="/feed.xml">全ページの更新RSS</a></li><li><a href="/vulnerabilities-feed.xml">脆弱性の更新RSS</a></li><li><a href="/security-incidents-feed.xml">事案の更新RSS</a></li></ul></div></details>
     </div>
     <div id="site-guide-enhanced" aria-label="ページの探し方と購読" hidden></div>
-    <form id="site-search" class="search" role="search" data-index="/assets/search/index-9c4cd7cba31960aa.json" hidden>
+    <form id="site-search" class="search" role="search" data-index="/assets/search/index-3a635b9a7293c0a3.json" hidden>
       <label for="search-query">タイトル・本文を検索</label>
       <div class="search-controls">
         <input id="search-query" name="q" type="search" placeholder="例：Cloudflare 日本語" maxlength="200" enterkeyhint="search" autocomplete="off" aria-describedby="search-help search-status">
@@ -132,6 +138,118 @@
     <section id="search-results" class="grid" aria-label="検索結果" hidden></section>
     <button id="search-more" type="button" hidden>さらに20件を表示</button>
     <section id="page-list" class="grid" aria-label="共有ページ一覧">
+
+      <article class="card">
+        <a href="/php-security-release-2026-11-19">
+          <h2>PHPのセキュリティ更新：修正版と確認手順（2026年11月19日）</h2>
+          <p>PHP 8.2〜8.5のセキュリティ修正版、重大なセッションの不具合、OSやDockerでの配布状況と更新後の確認をまとめます。</p>
+          <code>/php-security-release-2026-11-19</code>
+        </a>
+      </article>
+
+      <article class="card">
+        <a href="/linux-kernel-cve-roundup-2026-11-19">
+          <h2>LinuxカーネルのCVEを整理：11月16〜19日公表分</h2>
+          <p>Linuxカーネルの脆弱性を公表日と機能別に整理。確認したCVEの全件索引、運用別の確認コマンド、CephFS・PHPの個別記事。</p>
+          <code>/linux-kernel-cve-roundup-2026-11-19</code>
+        </a>
+      </article>
+
+      <article class="card">
+        <a href="/cephfs-cve-2026-99304">
+          <h2>CephFSの脆弱性 CVE-2026-99304：影響を受ける条件と更新方法</h2>
+          <p>LinuxのCephFSカーネルクライアントに影響するCVE-2026-99304。対象ホストの見分け方、OSごとの修正状況、更新後の確認を解説します。</p>
+          <code>/cephfs-cve-2026-99304</code>
+        </a>
+      </article>
+
+      <article class="card">
+        <a href="/nginx2shell">
+          <h2>nginx2shell：NGINXのHTTP/2脆弱性と対処</h2>
+          <p>NGINXのHTTP/2脆弱性2件について、影響を受ける構成、修正版、AWS ALBの確認方法を図解します。</p>
+          <code>/nginx2shell</code>
+        </a>
+      </article>
+
+      <article class="card">
+        <a href="/linux-host-sbom-inventory">
+          <h2>LinuxサーバーのソフトウェアをSBOM化する方法｜nginx・PHP・OpenSSL</h2>
+          <p>Linuxサーバーにインストールされたnginx・PHP・OpenSSLなどをSyftやTrivyでSBOM化する手順。稼働中のバージョンとの違い、RPM・dpkg、コンテナ、AWSでの一括管理まで解説。</p>
+          <code>/linux-host-sbom-inventory</code>
+        </a>
+      </article>
+
+      <article class="card">
+        <a href="/all-code-is-slop">
+          <h2>All Code Is Slop (Except Mine) — Lauren Tan講演まとめ｜月11,000 PRを「ゴミ」にしない方法</h2>
+          <p>SpaceXSIのLauren Tan（poteto）がAI Engineer Code Summitで語った、AIエージェントに大量のPRを出させながらコード品質を上げる方法。lint・型・検証で固める「potetoピラミッド」と手描きスライドとともに要点をまとめた。</p>
+          <code>/all-code-is-slop</code>
+        </a>
+      </article>
+
+      <article class="card">
+        <a href="/pi-durable">
+          <h2>Pi と Pi Durable — 実装者のための選び方</h2>
+          <p>Pi coding agentとPi Durableの違い、永続化と再実行の境界、Cloudflare構成、費用と試験項目を一次資料で整理。2026年10月6日確認。</p>
+          <code>/pi-durable</code>
+        </a>
+      </article>
+
+      <article class="card">
+        <a href="/sam-altman-stanford-cs153">
+          <h2>Sam Altman スタンフォード講演まとめ｜Scale, AGI, and the Future of Everything（Stanford CS153）</h2>
+          <p>Sam Altmanがスタンフォードの授業CS153で行った講演「Scale, AGI, and the Future of Everything」（Stanford Online、2026年6月15日公開、41分）を章立てで要約。Xで拡散した26分の再編集版の元ソースも特定した。</p>
+          <code>/sam-altman-stanford-cs153</code>
+        </a>
+      </article>
+
+      <article class="card">
+        <a href="/gpt-6-2-prompting-ja">
+          <h2>GPT-6.2の指示ガイド 日本語要約</h2>
+          <p>Codex向け公式ガイドの要点。推論の強さ、並列の分担、見た目の検証、AGENTS.mdを簡潔に整理。</p>
+          <code>/gpt-6-2-prompting-ja</code>
+        </a>
+      </article>
+
+      <article class="card">
+        <a href="/openai-claude-enterprise">
+          <h2>OpenAI EnterpriseとClaude Enterpriseの比較｜セキュリティ・監査・コスト（20〜49人）</h2>
+          <p>ChatGPT Enterprise／CodexとClaude Enterprise／Claude Codeを20〜49人規模で比較。ソースコード保護、データ保持、ZDR、監査証跡、料金試算を公式資料に基づいて整理。</p>
+          <code>/openai-claude-enterprise</code>
+        </a>
+      </article>
+
+      <article class="card">
+        <a href="/java4shell-beginners">
+          <h2>Javaの脆弱性、誰が危ない？ CVE-2026-114938をやさしく解説</h2>
+          <p>Java4Shell（CVE-2026-114938）の攻撃条件、Confluenceと閲覧者のPCの違い、実際に確認することを初心者向けに説明します。</p>
+          <code>/java4shell-beginners</code>
+        </a>
+      </article>
+
+      <article class="card">
+        <a href="/security-incidents">
+          <h2>2026年 不正アクセス・情報漏えいウォッチ｜原因・出典・続報</h2>
+          <p>2026年の不正アクセス・情報漏えいを原因・影響・対応・日付・一次資料で整理。全259件。国内外の新規公表、流出範囲の精査、サービス再開と調査の続報を反映。</p>
+          <code>/security-incidents</code>
+        </a>
+      </article>
+
+      <article class="card">
+        <a href="/ai-pentest-orchestrators-cloudflare">
+          <h2>AI侵入テスト・オーケストレーターの拡大と防御設計｜Cloudflare調査を読む</h2>
+          <p>Cloudflareが2026年11月に公表したAIペネトレーションテストの観測を日本語で解説。ARTEXの拡散、資格情報を使った横展開、6つの防御策と実務チェックリスト。</p>
+          <code>/ai-pentest-orchestrators-cloudflare</code>
+        </a>
+      </article>
+
+      <article class="card">
+        <a href="/technology-updates">
+          <h2>重要技術アップデート｜AI・開発ツール・MCP</h2>
+          <p>AIモデル、料金、OSS・ローカル実行、開発エージェント、音声・画像・動画、MCPの重要更新を一次資料で確認。利用条件と再テスト案、訂正履歴をまとめる。</p>
+          <code>/technology-updates</code>
+        </a>
+      </article>
 
       <article class="card">
         <a href="/google-workspace-uem-guide">
@@ -178,22 +296,6 @@
           <h2>AIハーネス新聞 — 知能を動かす仕組み</h2>
           <p>AIは頭脳だけでは働けない。Agent Harnessとは何かを解剖し、Hermes、DeepSeek Harness、Codex、Claude Code、OpenCode、Pi、OpenClawを一次資料に基づき比較する新聞風図解特集。</p>
           <code>/ai-harness-shinbun</code>
-        </a>
-      </article>
-
-      <article class="card">
-        <a href="/security-incidents">
-          <h2>2026年 不正アクセス・情報漏えいウォッチ｜原因・出典・続報</h2>
-          <p>2026年の不正アクセス・情報漏えいを原因・影響・対応・日付・一次資料で整理。全240件。アイスタイルのCuenote FC利用情報、Fireworks AI、Dorsataを追加し、ドコモとTKCの続報を反映。</p>
-          <code>/security-incidents</code>
-        </a>
-      </article>
-
-      <article class="card">
-        <a href="/technology-updates">
-          <h2>重要技術アップデート｜AI・開発ツール・MCP</h2>
-          <p>AIモデル、料金、OSS・ローカル実行、開発エージェント、音声・画像・動画、MCPの重要更新を一次資料で確認。利用条件と再テスト案、訂正履歴をまとめる。</p>
-          <code>/technology-updates</code>
         </a>
       </article>
 
@@ -462,14 +564,6 @@
       </article>
 
       <article class="card">
-        <a href="/pi-durable">
-          <h2>Pi と Pi Durable — 実装者のための選び方</h2>
-          <p>Pi coding agentとPi Durableの違い、永続化と再実行の境界、Cloudflare構成、費用と試験項目を一次資料で整理。2026年10月6日確認。</p>
-          <code>/pi-durable</code>
-        </a>
-      </article>
-
-      <article class="card">
         <a href="/secure-mcp-tunnel-unity-blender">
           <h2>Secure MCP Tunnel｜WindowsのUnity・Blender接続手順</h2>
           <p>WindowsのUnityとBlenderをOpenAI Secure MCP Tunnelで接続する設定ガイド。PowerShellコマンド、2つのTunnel、ChatGPT登録、検証・停止手順を収録。2026年10月3日確認。</p>
@@ -512,5 +606,6 @@
   </main>
   <script type="module" src="/assets/site-search.js"></script>
   <script type="module" src="/assets/site-guide-loader.js"></script>
+  <script type="module" src="/assets/site.js"></script>
 </body>
 </html>
