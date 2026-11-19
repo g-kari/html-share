@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GitHub Teamでセキュリティリスク評価が自動実行に｜2026年11月18日の変更点と2種類の評価</title>
+<meta name="description" content="GitHub Changelog（2026年11月18日）で、GitHub Teamプランの組織ではセキュリティリスク評価が自動で実行されるようになった。対象プラン、2種類の評価で分かること、費用と再実行の間隔を公式ドキュメントで確認して整理する。">
+<link rel="canonical" href="https://share.0g0.xyz/github-team-security-risk-assessments">
+<meta property="og:image" content="https://share.0g0.xyz/assets/github-team-security-risk-assessments-ogp-v1.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="GitHub Teamでセキュリティリスク評価が自動実行に">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://share.0g0.xyz/assets/github-team-security-risk-assessments-ogp-v1.png">
+<meta name="twitter:image:alt" content="GitHub Teamでセキュリティリスク評価が自動実行に">
+<link rel="stylesheet" href="/assets/site.css">
+<style>
+  :root{ --accent:#1f6feb; --accent-dark:#58a6ff; }
+  figure img{ width:100%; height:auto; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="sitebar" aria-label="サイト内"><a class="brand" href="/">HTML Share</a><nav><a href="/">一覧</a><a href="/feed.xml">RSS</a></nav></nav>
+<header class="top">
+  <div class="kicker">GitHub Changelog 解説</div>
+  <h1>GitHub Teamでセキュリティリスク評価が自動実行に</h1>
+  <p class="meta">
+    出典：GitHub Changelog「Security risk assessments run automatically on GitHub Team」（2026年11月18日）<br>
+    あわせて公式ドキュメントと公式FAQで対象と条件を確認した。確認日：2026年11月20日
+  </p>
+</header>
+
+<div class="summary3">
+  <div class="ttl">要点</div>
+  <ol>
+    <li>GitHub Teamプランの組織では、セキュリティリスク評価が自動で実行されるようになった。GitHub Changelogで2026年11月18日に発表された。</li>
+    <li>評価は2種類ある。secret risk assessmentは組織の全リポジトリを対象に漏れた認証情報を調べ、code security risk assessmentは最大20件のリポジトリを対象にコードの脆弱性を調べる。どちらも無料で使える。</li>
+    <li>結果を見られるのは組織の管理者とセキュリティマネージャーである。結果は組織の現在のリスクを把握し、次に対処するものの優先順位を決める材料になる。</li>
+  </ol>
+</div>
+
+<nav class="toc">
+  <div class="ttl">目次</div>
+  <ol>
+    <li><a href="#conclusion">結論：何が変わったか</a></li>
+    <li><a href="#target">対象：プランと見られる人</a></li>
+    <li><a href="#two-types">評価は2種類ある</a></li>
+    <li><a href="#findings">結果で分かること</a></li>
+    <li><a href="#cost">費用・所要時間・再実行の間隔</a></li>
+    <li><a href="#next-steps">結果を見たあとの選択肢</a></li>
+    <li><a href="#notes">注意点</a></li>
+    <li><a href="#sources">出典</a></li>
+  </ol>
+</nav>
+
+<h2 id="conclusion">結論：何が変わったか</h2>
+<p>GitHub Changelogの2026年11月18日の記事は、GitHub Teamプランの組織でセキュリティリスク評価が自動で実行されるようになったと伝えている。発表文の冒頭は次のとおりである。</p>
+<blockquote><p>“GitHub security risk assessments now run automatically for organizations on GitHub Team.”</p></blockquote>
+<p>これまでもリスク評価自体はGitHub TeamとGitHub Enterprise Cloudの組織で使えた。今回の変更で、Teamプランの組織では評価が自動で実行されるようになった。組織の管理者とセキュリティマネージャーは、無料の評価の結果を確認して、漏れた認証情報とコードの脆弱性を見つけ、組織の現在のリスクを把握し、次の手の優先順位を決められる。</p>
+
+<h2 id="target">対象：プランと見られる人</h2>
+<p>対象はGitHub Teamプランの組織である。公式ドキュメントでは、リスク評価を使えるのはGitHub TeamまたはGitHub Enterprise Cloudの組織の管理者（organization owners）とセキュリティマネージャーとされている。code security risk assessmentはGitHub Enterprise Server 3.23にも入っている。</p>
+<p>結果の確認は組織のページの「Security and quality」タブから「Assessments」を開いて行う。再実行はレポート右上の「Rerun scan」から行う。</p>
+
+<h2 id="two-types">評価は2種類ある</h2>
+<figure>
+  <img src="/assets/github-team-security-risk-assessments-figure-v1.png" alt="2種類のリスク評価（認証情報とコード）の結果を管理者とセキュリティマネージャーが確認し、優先順位を決める流れ図" width="1200" height="675">
+  <figcaption>2種類の評価の対象と、結果の使われ方。本文の表とあわせて読めるよう、入口と結果だけを抽象化した図である。</figcaption>
+</figure>
+<p>secret risk assessmentは、組織の全リポジトリを対象に、コードに埋め込まれた認証情報を探す。対象はAPIキー、トークン、パスワードなどの認証情報で、プロバイダーごとのパターンと汎用パターンの両方で検出する。レポートには検出されたシークレットの総数、種類ごとの分布、どのリポジトリに出ているかがまとまる。結果はリポジトリの処理が進むにつれて順次表示される。</p>
+<p>code security risk assessmentは、選んだ最大20件のリポジトリをCodeQLでスキャンし、コードの脆弱性を調べる。対象リポジトリは変更でき、既定では直近90日にコミット活動が最も多いリポジトリが選ばれる。結果には深刻度ごとのリスクがまとまり、Copilot Autofixで修正を速められる箇所も示される。結果はスキャン全体が終わってから表示される。</p>
+<div class="table-wrap">
+<table>
+  <thead>
+    <tr><th>評価</th><th>対象</th><th>調べるもの</th><th>結果の出方</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>secret risk assessment</td><td>組織の全リポジトリ</td><td>漏れた認証情報（APIキー、トークン、パスワードなど）</td><td>処理が進むにつれて順次表示</td></tr>
+    <tr><td>code security risk assessment</td><td>選んだ最大20件のリポジトリ（CodeQLでスキャン）</td><td>コードの脆弱性（深刻度別）</td><td>スキャン全体の終了後に表示</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="findings">結果で分かること</h2>
+<p>2種類の評価を合わせると、組織の状態が点検できる。漏れた認証情報がある場合はその総数と種類、出ているリポジトリが分かる。コードに脆弱性がある場合はその深刻度と対象リポジトリが分かる。あわせて、組織の現在のリスクの全体像と、次に優先して対処すべきものが見える。</p>
+<p>問題が見つからなかった場合は、現在の対策が機能していることの裏付けになる。GitHubは、結果と連絡先が営業チームに共有されるのは本人が同意した場合だけであり、同意しなければアカウントチームには評価を実行したことだけが伝わると説明している。</p>
+
+<h2 id="cost">費用・所要時間・再実行の間隔</h2>
+<p>評価は無料である。コードスキャンに使うGitHub Actionsの分数も課金されない。評価の期間中にGitHub Code SecurityやSecret Protectionのライセンス料も発生しない。</p>
+<p>多くのスキャンは30分以内に終わる。組織が大きい場合はそれ以上かかることがある。レポートの準備ができるとGitHubからメールで通知される。</p>
+<p>再実行は90日に1回までである。再実行のたびに、スキャン対象のリポジトリを選び直せる。</p>
+
+<h2 id="next-steps">結果を見たあとの選択肢</h2>
+<p>結果を確認したあとは、評価の画面からSecret ProtectionやCode Securityを有効化できる。対象の企業管理者は評価からGitHub Advanced Securityの試用を直接始めることもできる。どれも任意であり、評価を受けただけで課金は始まらない。</p>
+
+<h2 id="notes">注意点</h2>
+<ul>
+  <li>リスク評価は既存のコードスキャンのアラートには影響しない。評価は別の経路でアップロードされ、既存のアラートを変更したり妨げたりしないと公式FAQに書かれている。</li>
+  <li>評価は時点のスナップショットである。90日に1回までしか再実行できないため、継続的な検出が必要な場合はSecret ProtectionやCode Securityの有効化が別途必要になる。</li>
+  <li>この記事の内容は2026年11月20日に公式Changelogと公式ドキュメントで確認したものである。自動実行の対象や条件が変わる可能性があるため、実行前に公式ドキュメントを確認してほしい。</li>
+</ul>
+
+<h2 id="sources">出典</h2>
+<ul>
+  <li><a href="https://github.blog/changelog/2026-11-18-security-risk-assessments-run-automatically-on-github-team/">GitHub Changelog「Security risk assessments run automatically on GitHub Team」</a>（2026年11月18日）</li>
+  <li><a href="https://docs.github.com/en/code-security/how-tos/secure-at-scale/configure-organization-security/configure-specific-tools/assess-your-secret-risk">GitHub Docs「Running the secret risk assessment for your organization」</a></li>
+  <li><a href="https://docs.github.com/en/code-security/how-tos/secure-at-scale/configure-organization-security/configure-specific-tools/assess-your-vulnerability-risk">GitHub Docs「Running the code security risk assessment for your organization」</a></li>
+  <li><a href="https://github.com/security/advanced-security/assessments">GitHub Security「GitHub Security Risk Assessments」</a>（FAQを含む）</li>
+</ul>
+<p>いずれも2026年11月20日に確認した。</p>
+
+</div>
+<script type="module" src="/assets/site.js"></script>
+</body>
+</html>
