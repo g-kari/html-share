@@ -1,148 +1,122 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NGINX2Shell まとめ｜NGINX HTTP/2 の RCE 脆弱性 CVE-2026-123007 / CVE-2026-123633</title>
-<meta name="description" content="2026年11月18日に協調公開された NGINX の HTTP/2 実装の脆弱性2件（CVE-2026-123007、CVE-2026-123633）について、影響の条件、修正版、緩和策、ALB 配下での扱いを公式資料に基づいて整理した。">
-<meta property="og:image" content="https://share.0g0.xyz/assets/nginx2shell-ogp-v1.png">
-<meta property="og:image:alt" content="NGINX2Shell まとめ（NGINX HTTP/2 の RCE 脆弱性）">
+<title>nginx2shell：NGINXのHTTP/2脆弱性と対処</title>
+<meta name="description" content="NGINXのHTTP/2脆弱性2件について、影響を受ける構成、修正版、AWS ALBの確認方法を図解します。">
+<link rel="canonical" href="https://share.0g0.xyz/nginx2shell">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="nginx2shell：NGINXのHTTP/2脆弱性と対処">
+<meta property="og:description" content="NGINXのHTTP/2脆弱性2件の修正版と、AWS ALBの後ろにある場合の確認ポイントを図解します。">
+<meta property="og:url" content="https://share.0g0.xyz/nginx2shell">
+<meta property="og:image" content="https://share.0g0.xyz/assets/nginx2shell-ogp-v2.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="628">
+<meta property="og:image:alt" content="nginx2shell。サーバーとシールドを描いた記事のカバー画像">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="nginx2shell：NGINXのHTTP/2脆弱性と対処">
+<meta name="twitter:description" content="影響を受ける構成、修正版、ALBの確認方法を図解します。">
+<meta name="twitter:image" content="https://share.0g0.xyz/assets/nginx2shell-ogp-v2.jpg">
+<meta name="twitter:image:alt" content="nginx2shell。サーバーとシールドを描いた記事のカバー画像">
+<link rel="stylesheet" href="/assets/site.css">
 <style>
-  :root{
-    --ink:#1c1c22; --muted:#5c5c66; --accent:#007a33; --line:#d8d8e0; --panel:#f4f4f8;
-  }
-  *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{margin:0;color:var(--ink);background:#fff;
-    font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",system-ui,sans-serif;
-    line-height:2.0;font-size:17px;-webkit-text-size-adjust:100%;}
-  .wrap{max-width:800px;margin:0 auto;padding:24px 20px 80px}
-  header.top{padding:26px 0 4px}
-  .kicker{color:var(--accent);font-weight:700;letter-spacing:.08em;font-size:.85rem}
-  h1{font-size:1.85rem;line-height:1.45;margin:.35em 0 .4em}
-  .meta{color:var(--muted);font-size:.92rem;line-height:1.8}
-  .meta a{color:var(--accent)}
-  .summary3{border:2px solid var(--ink);padding:18px 22px;margin:28px 0}
-  .summary3 .ttl{font-weight:800;margin-bottom:6px}
-  .summary3 ol{margin:0;padding-left:1.4em}
-  .summary3 li{margin:.25em 0}
-  nav.toc{border:1px solid var(--line);background:var(--panel);padding:16px 22px;margin:26px 0}
-  nav.toc .ttl{font-weight:700;font-size:.92rem;color:var(--muted);margin-bottom:6px}
-  nav.toc ol{margin:0;padding-left:1.4em}
-  nav.toc li{margin:.3em 0}
-  nav.toc a{color:var(--ink);text-decoration:none}
-  nav.toc a:hover{text-decoration:underline}
-  h2{font-size:1.32rem;margin:2.4em 0 .7em;padding:.15em 0 .15em .55em;border-left:6px solid var(--accent);line-height:1.5;scroll-margin-top:16px}
-  p{margin:.9em 0}
-  ul{margin:.6em 0 1em;padding-left:1.35em}
-  li{margin:.45em 0}
-  table{border-collapse:collapse;margin:18px 0;width:100%;font-size:.95rem}
-  th,td{border:1px solid var(--line);padding:8px 12px;text-align:left;line-height:1.7}
-  th{background:var(--panel)}
-  code{background:var(--panel);padding:.1em .35em;font-size:.9em}
-  .point{background:var(--panel);border-left:6px solid var(--accent);padding:14px 18px;margin:20px 0}
-  .point .ttl{font-weight:700;margin-bottom:4px}
-  .point p{margin:.4em 0}
-  .links{background:var(--panel);padding:16px 20px;margin-top:36px}
-  .links p{margin:.4em 0;font-size:.94rem}
-  a{color:var(--accent)}
-  .note{color:var(--muted);font-size:.85rem;margin-top:28px}
-  footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
-  @media (max-width:560px){
-    body{font-size:16px}
-    h1{font-size:1.5rem}
-    .wrap{padding:16px 14px 64px}
-  }
+:root{--accent:#15573f;--accent-dark:#a4dcc2}
+@media(prefers-color-scheme:dark){:root{--accent:var(--accent-dark)}}
+.skip{position:absolute;inset-block-start:.5rem;inset-inline-start:1rem;z-index:5;padding:.4rem .75rem;background:var(--paper);transform:translateY(-200%)}
+.skip:focus{transform:none}
+.sitebar,.sitebar nav{flex-wrap:wrap}
+#article-title{font-size:clamp(1.6rem,5.5vw,2.6rem)}
+article .summary3 h2{margin:0 0 .55rem;padding:0;border:0;font-size:1.14rem}
+article .summary3 p{margin:0}
+.versions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border:1px solid var(--line);border-radius:var(--radius);margin:.85rem 0;background:var(--paper)}
+.versions div{padding:.65rem 1rem}
+.versions div+div{border-inline-start:1px solid var(--line)}
+.versions dt{font-weight:650;color:var(--muted);font-size:.88rem}
+.versions dd{margin:0;font-weight:750;font-variant-numeric:tabular-nums;font-size:1.2rem}
 </style>
 </head>
 <body>
+<a class="skip" href="#main">本文へ移動</a>
 <div class="wrap">
+<header class="sitebar">
+<a class="brand" href="/">HTML Share</a>
+<nav aria-label="サイト"><a href="/">一覧</a><a href="/feed.xml">RSS</a></nav>
+</header>
+<main id="main">
+<article>
 <header class="top">
-  <div class="kicker">脆弱性まとめ</div>
-  <h1>NGINX2Shell<br>NGINX HTTP/2 の RCE 脆弱性2件</h1>
-  <p class="meta">
-    対象：NGINX Open Source / NGINX Plus の ngx_http_v2_module<br>
-    公開：2026年11月18日（F5 セキュリティリリースと協調公開）<br>
-    CVE：CVE-2026-123007 / CVE-2026-123633（いずれも CVSS 4.0 で 9.2）
-  </p>
+<p class="kicker">セキュリティ</p>
+<h1 id="article-title">nginx2shell：NGINXのHTTP/2脆弱性と対処</h1>
+<p class="meta">脆弱性の公表：<time datetime="2026-11-18">2026年11月18日</time> ｜ 記事更新：<time datetime="2026-11-19">2026年11月19日</time></p>
 </header>
 
-<div class="summary3">
-  <div class="ttl">要点</div>
-  <ol>
-    <li>NGINX の HTTP/2 実装に、リモートからコード実行に至りうる脆弱性が2件見つかり、2026年11月18日に協調公開された。</li>
-    <li>影響を受けるのは HTTP/2 を使う構成のみ。修正は Open Source の 1.31.9（mainline）／1.30.7（stable）。当面の緩和は HTTP/2 の無効化。</li>
-    <li>ALB の後ろでバックエンドが HTTP/1.1 の構成は、インターネット側から脆弱なコードに届かない。ただし迂回経路があると崩れる。</li>
-  </ol>
-</div>
+<section class="summary3" aria-labelledby="quick">
+<h2 id="quick">まず確認すること</h2>
+<p><strong>稼働中のNGINXのバージョンと、NGINXがHTTP/2を受ける設定を確認してください。</strong> 影響を受ける構成では、F5によると、処理が止まったり、外部から任意のコードを実行されたりするおそれがあります。修正版への更新が恒久対策です。</p>
+</section>
 
-<nav class="toc">
-  <div class="ttl">目次</div>
-  <ol>
-    <li><a href="#what">何が公開されたか</a></li>
-    <li><a href="#cve633">CVE-2026-123633（use-after-free）</a></li>
-    <li><a href="#cve007">CVE-2026-123007（整数アンダーフロー）</a></li>
-    <li><a href="#scope">影響の条件：モジュールではなく「使っているか」</a></li>
-    <li><a href="#fix">修正版と緩和策</a></li>
-    <li><a href="#alb">ALB の後ろにある場合</a></li>
-    <li><a href="#check">自分の環境の確認観点</a></li>
-  </ol>
+<nav class="toc" aria-label="目次">
+<ul>
+<li><a href="#what">影響を受ける構成</a></li>
+<li><a href="#fix">確認・更新・再確認</a></li>
+<li><a href="#alb">AWS ALBの後ろにある場合</a></li>
+<li><a href="#sources">公式資料</a></li>
+</ul>
 </nav>
 
-<h2 id="what">何が公開されたか</h2>
-<p>2026年11月18日、F5 のセキュリティリリースに合わせて、NGINX の HTTP/2 実装の脆弱性2件が協調公開された。発見は Wiz Research、Ikotas Labs、Metnir、Rapid7、Xint の5チームがそれぞれ独立に行った。Ikotas Labs の Satoki が X で「NGINX2Shell」と名付けて公表し、F5 の公式アドバイザリの謝辞にも Ikotas Labs が明記されている。</p>
-<p>Wiz は公式ビルドの最新版（当時の mainline 1.31.7／1.31.8）で、ASLR のバイパスを含めてリモートコード実行を確認したとしている。ASLR は成立に必要な情報読み取りの前段があるため、防御として当てにできない、というのが Wiz の見立てである。</p>
+<section aria-labelledby="what">
+<h2 id="what">影響を受ける構成</h2>
+<p>今回の2件は、NGINXがHTTP/2を処理する部分の不具合です。HTTP/2を扱えるモジュールが入っていることと、稼働中のNGINXがHTTP/2を受け付けることは別です。スキャナーの検出結果に加え、実際のバージョン、設定、通信経路を確認します。</p>
+<h3 id="cve007">CVE-2026-123007</h3>
+<p>HTTP/2の通信量を調整する処理の不具合です。F5によると、処理の停止や、外部からのコード実行につながるおそれがあります。NGINX公式が示すOpen Sourceの影響範囲は <b>1.9.5～1.31.8</b> ですが、修正済みのバージョンは除きます。</p>
+<h3 id="cve633">CVE-2026-123633</h3>
+<p>HTTP/2の処理中に、解放済みのメモリを参照する不具合です。F5はNGINXのサービス停止やコード実行のおそれを挙げています。NGINX公式が示すOpen Sourceの影響範囲は <b>1.19.7～1.31.8</b> ですが、修正済みのバージョンは除きます。</p>
+</section>
 
-<h2 id="cve633">CVE-2026-123633（use-after-free）</h2>
-<p>HTTP/2 コネクションの処理における use-after-free。混入したのは 1.19.7 で、約6年間存在していた。Wiz によると、リバースプロキシ構成で、アップストリーム側の空きコネクションが逼迫する状況で悪用しやすくなる。深刻度は CVSS 4.0 で 9.2（Critical）。</p>
+<section aria-labelledby="fix">
+<h2 id="fix">確認・更新・再確認</h2>
+<figure>
+<img src="/assets/nginx2shell-check-update-v1.jpg" width="1200" height="628" loading="lazy" decoding="async" alt="確認、更新、再確認の順に対処する。詳しい手順は図の下に記載。">
+<figcaption>稼働中の構成を確認し、修正版に更新したあと、動作を確かめます。</figcaption>
+</figure>
+<p>NGINX Open Sourceで2件とも修正された最初のバージョンは次のとおりです。stableの1.30.7以降とmainlineの1.31.9以降は、どちらも影響範囲に含まれません。</p>
+<dl class="versions">
+<div><dt>stable</dt><dd>1.30.7</dd></div>
+<div><dt>mainline</dt><dd>1.31.9</dd></div>
+</dl>
+<ol id="check">
+<li><strong>確認：</strong> 稼働中のパッケージやコンテナのバージョンを確認します。NGINXの設定に <code>http2 on;</code> や、旧形式の <code>listen</code> の <code>http2</code> 指定がないかも確認します。</li>
+<li><strong>更新：</strong> NGINX PlusはF5、OS付属パッケージは配布元の案内を参照します。配布元によっては、上流と異なるバージョン番号のまま修正が入ることがあります。</li>
+<li><strong>再確認：</strong> すべての稼働先で修正版が動いていることを確認します。通常どおりページを開けるか、ヘルスチェックで正常と判定されるかも点検します。</li>
+</ol>
+<p>すぐに更新できない場合は、HTTP/2が不要な入口で一時的に無効化できるか確認します。業務への影響を確かめたうえで行い、更新の代わりにはしません。</p>
+</section>
 
-<h2 id="cve007">CVE-2026-123007（整数アンダーフロー）</h2>
-<p>HTTP/2 のフロー制御ウィンドウ（send_window）の整数アンダーフローで境界チェックが無効になり、不正なメモリコピーに至る。混入したのは 1.9.5（2015年）で、10年以上存在していた。静的ファイル配信のみの NGINX でも HTTPS 経由でリモートコード実行を確認したと Wiz は述べている。深刻度は CVSS 4.0 で 9.2、F5 の CVSS 3.1 評価では 8.1。</p>
-<p>Rapid7 の Stephen Fewer は公開当日にこの脆弱性の PoC を GitHub で公開した。Rapid7 は悪用には約128GBの HTTP/2 トラフィックの送信が必要と指摘しており、実環境での悪用は確認されていない。</p>
-
-<h2 id="scope">影響の条件：モジュールではなく「使っているか」</h2>
-<p>F5 公式アドバイザリの説明は「HTTP/2 を使う構成」が影響を受ける、という書き方である。モジュールがバイナリに含まれている、あるいはロードされているだけでは、攻撃者は HTTP/2 コネクションを張ることができず、脆弱なコードは実行されない。緩和策として HTTP/2 の無効化が成立すること自体が、その裏付けになっている。</p>
-<p>一方で、F5 の表では脆弱なコンポーネントが ngx_http_v2_module とされ、対象はバージョン範囲で切られている。このため、バージョンやモジュールの有無で判定するスキャナは、HTTP/1.1 のみで運用している構成でも「該当」と出すことがある。実害の線引きは、スキャナの判定ではなく「http2 を有効にした listen があるか」で見るのが正確である。逆に、どこか1か所でも http2 を有効にした listen があれば、その口からは影響を受ける。</p>
-
-<h2 id="fix">修正版と緩和策</h2>
-<table>
-  <tr><th>製品</th><th>CVE-2026-123633 の修正</th><th>CVE-2026-123007 の修正</th></tr>
-  <tr><td>NGINX Open Source（mainline）</td><td colspan="2">1.31.9</td></tr>
-  <tr><td>NGINX Open Source（stable）</td><td colspan="2">1.30.7</td></tr>
-  <tr><td>NGINX Plus 37.x</td><td>37.0.7.1 / 37.2.0.1 以降</td><td>37.0.8.1 / 37.3.0.1 以降</td></tr>
-</table>
-<p>当面の緩和は HTTP/2 の無効化である。1.25.1 以降は <code>http2 off;</code> と書くか、listen ディレクティブの http2 パラメータを外す。なお F5 のアドバイザリは Mitigation を「None」としており、公式の推奨は修正版への更新である。無効化は更新までのつなぎと位置づけるのがよい。</p>
-
-<h2 id="alb">ALB の後ろにある場合</h2>
-<p>AWS の Application Load Balancer（ALB）は、クライアント側の HTTP/2 を終端してリクエスト単位に分解し、バックエンドへは新しいコネクションで組み立て直して送る。ターゲットグループのプロトコルバージョンの既定は HTTP1 で、この場合は HTTP/1.1 に変換されて中継される。AWS 公式ドキュメントにも、既定ではターゲットへ HTTP/1.1 で送ると明記されている。</p>
-<p>今回の2件はどちらも、攻撃者が NGINX に直接 HTTP/2 フレームを送って初めて成立する。バックエンドが HTTP/1.1 なら脆弱なコードが外部トラフィックで実行されることはなく、この経路については緩和が成立する。CDN や WAF が HTTP/2 を終端してもバックエンドへ HTTP/2 で話す構成と違い、プロトコル自体が届かない形になる。</p>
+<section aria-labelledby="alb">
+<h2 id="alb">AWS ALBの後ろにある場合</h2>
+<p>ALB（Application Load Balancer）は、アクセスを受けて裏側のサーバーに振り分けます。<strong>ブラウザーからALBまで</strong>と、<strong>ALBからNGINXまで</strong>は別の通信です。手前がHTTP/2でも、AWSの既定設定ではALBからターゲットへHTTP/1.1で送ります。</p>
 <div class="point">
-  <div class="ttl">緩和が崩れる条件</div>
-  <p>1. ターゲットグループのプロトコルバージョンが HTTP2 または gRPC に設定されている。</p>
-  <p>2. NLB のパススルー、インスタンスへの直接アクセスなど、ALB を迂回して NGINX に届く経路がある。VPC 内部からの攻撃も同様に防げない。</p>
-  <p>3. 将来の構成変更で露出が戻る。緩和はパッチの代わりにはならない。</p>
+<p><strong>例：</strong> ブラウザーからALBへはHTTP/2。ALBのターゲットグループが <code>HTTP1</code> なら、ALBからNGINXへはHTTP/1.1。</p>
 </div>
-<p>したがって、インターネット向けが ALB 経由のみでプロトコルバージョンが HTTP1 の環境では、緊急度を落として計画的に修正版へ上げる進め方が取れる。それ以外の経路が1つでもある場合は、通常どおり優先的に対応する。</p>
+<p>この例では、示した経路でNGINXはHTTP/2を受けません。ただし、ターゲットグループに <code>HTTP2</code> や <code>gRPC</code> が設定されている場合や、ALBを通らずNGINXへ届く経路がある場合は別です。内部向けの入口も含めて確認してください。ALBの有無だけで更新不要とは判断できません。</p>
+</section>
 
-<h2 id="check">自分の環境の確認観点</h2>
+<section aria-labelledby="sources">
+<h2 id="sources">公式資料</h2>
 <ul>
-  <li>NGINX のバージョン（1.31.9 / 1.30.7 未満は対象）</li>
-  <li>http2 を有効にした listen の有無（<code>listen ... http2</code> または <code>http2 on;</code>）</li>
-  <li>インターネットから NGINX へ直接届く経路の有無（ALB 以外の入口、NLB、直接公開）</li>
-  <li>前面の ALB のターゲットグループのプロトコルバージョン設定</li>
-  <li>スキャナが「該当」と出した場合は、バージョン判定か実構成の判定かを確認する</li>
+<li><a href="https://nginx.org/en/security_advisories.html">NGINX公式：影響バージョンと修正版一覧</a> ／ <a href="https://nginx.org/2026.html">2026年11月18日の公開記録</a></li>
+<li><a href="https://my.f5.com/manage/s/article/K000163926">F5：CVE-2026-123007</a> ／ <a href="https://my.f5.com/manage/s/article/K000163928">F5：CVE-2026-123633</a></li>
+<li><a href="https://nginx.org/en/docs/http/ngx_http_v2_module.html">NGINX公式：HTTP/2の設定</a></li>
+<li><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#target-group-protocol-version">AWS公式：ALBターゲットグループのプロトコルバージョン</a></li>
 </ul>
-
-<div class="links">
-  <p><strong>出典・リンク</strong></p>
-  <p>F5 公式アドバイザリ：<a href="https://my.f5.com/manage/s/article/K000163926">K000163926: NGINX ngx_http_v2_module vulnerability CVE-2026-123007</a></p>
-  <p>技術解説：<a href="https://www.wiz.io/blog/nginx-http2-rce-vulnerabilities">Wiz Research — NGINX HTTP/2 RCE vulnerabilities</a></p>
-  <p>ALB の動作：AWS 公式ドキュメント「Target groups for your Application Load Balancers」（既定でターゲットへ HTTP/1.1 で送る旨と、プロトコルバージョンの組み合わせ表を確認）</p>
+</section>
+</article>
+<footer><a href="/">HTML Shareの記事一覧</a></footer>
+</main>
 </div>
-
-<p class="note">このページは2026年11月19日時点の公開情報（F5 公式アドバイザリ、Wiz の技術解説、AWS 公式ドキュメント）に基づいて作成した。対応の要否は自分の環境の構成で判断すること。</p>
-
-<footer>NGINX2Shell まとめ｜CVE-2026-123007 / CVE-2026-123633（2026年11月18日協調公開）</footer>
-</div>
+<script type="module" src="/assets/site.js"></script>
 </body>
 </html>
