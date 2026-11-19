@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PHP セキュリティリリースまとめ（2026年11月19日）｜8.5.13 / 8.4.28 / 8.3.37 / 8.2.36</title>
+<meta name="description" content="2026年11月19日に公開された PHP のセキュリティリリース（8.5.13、8.4.28、8.3.37、8.2.36）で修正された脆弱性18件について、内容、発動条件、影響バージョンと修正バージョン、緩和策を php.net と GitHub Security Advisories に基づいて整理した。">
+<meta property="og:image" content="https://share.0g0.xyz/assets/html-share-card-v1.png">
+<meta property="og:image:alt" content="PHP セキュリティリリースまとめ（2026年11月19日）">
+<style>
+  :root{ --ink:#1c1c22; --muted:#5c5c66; --accent:#6b3fa0; --line:#d8d8e0; --panel:#f4f4f8; }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;color:var(--ink);background:#fff;font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",system-ui,sans-serif;line-height:2.0;font-size:17px;-webkit-text-size-adjust:100%;}
+  .wrap{max-width:800px;margin:0 auto;padding:24px 20px 80px}
+  header.top{padding:26px 0 4px}
+  .kicker{color:var(--accent);font-weight:700;letter-spacing:.08em;font-size:.85rem}
+  h1{font-size:1.85rem;line-height:1.45;margin:.35em 0 .4em}
+  .meta{color:var(--muted);font-size:.92rem;line-height:1.8}
+  .meta a{color:var(--accent)}
+  .summary3{border:2px solid var(--ink);padding:18px 22px;margin:28px 0}
+  .summary3 .ttl{font-weight:800;margin-bottom:6px}
+  .summary3 ol{margin:0;padding-left:1.4em}
+  .summary3 li{margin:.25em 0}
+  nav.toc{border:1px solid var(--line);background:var(--panel);padding:16px 22px;margin:26px 0}
+  nav.toc .ttl{font-weight:700;font-size:.92rem;color:var(--muted);margin-bottom:6px}
+  nav.toc ol{margin:0;padding-left:1.4em}
+  nav.toc li{margin:.3em 0}
+  nav.toc a{color:var(--ink);text-decoration:none}
+  nav.toc a:hover{text-decoration:underline}
+  h2{font-size:1.32rem;margin:2.4em 0 .7em;padding:.15em 0 .15em .55em;border-left:6px solid var(--accent);line-height:1.5;scroll-margin-top:16px}
+  h3{font-size:1.08rem;margin:1.9em 0 .4em;line-height:1.6}
+  p{margin:.9em 0}
+  ul{margin:.6em 0 1em;padding-left:1.35em}
+  li{margin:.45em 0}
+  table{border-collapse:collapse;margin:18px 0;width:100%;font-size:.95rem}
+  th,td{border:1px solid var(--line);padding:8px 12px;text-align:left;line-height:1.7;vertical-align:top}
+  th{background:var(--panel)}
+  code{background:var(--panel);padding:.1em .35em;font-size:.9em}
+  .point{background:var(--panel);border-left:6px solid var(--accent);padding:14px 18px;margin:20px 0}
+  .point .ttl{font-weight:700;margin-bottom:4px}
+  .point p{margin:.4em 0}
+  .links{background:var(--panel);padding:16px 20px;margin-top:36px}
+  .links p{margin:.4em 0;font-size:.94rem}
+  a{color:var(--accent)}
+  .note{color:var(--muted);font-size:.85rem;margin-top:28px}
+  footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+  @media (max-width:560px){ body{font-size:16px} h1{font-size:1.5rem} .wrap{padding:16px 14px 64px} table{font-size:.88rem} }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <div class="kicker">脆弱性まとめ</div>
+  <h1>PHP セキュリティリリース<br>2026年11月19日（8.5.13 / 8.4.28 / 8.3.37 / 8.2.36）</h1>
+  <p class="meta">
+    公開：2026年11月19日 14:00〜14:30 UTC（日本時間 23:00〜23:30）<br>
+    対象：PHP 8.5 / 8.4 / 8.3 / 8.2 の全サポートブランチ<br>
+    修正された脆弱性：CVE 18件（このページで数えた ChangeLog 記載分）<br>
+    最高深刻度：CRITICAL（php.net の事前告知による。CRITICAL とされる問題は、非デフォルト設定または一般的でない構成を必要とする）
+  </p>
+</header>
+
+<div class="summary3">
+  <div class="ttl">要点</div>
+  <ol>
+    <li>2026年11月19日、PHP の全サポートブランチにセキュリティリリースが出た。修正版は 8.5.13、8.4.28、8.3.37、8.2.36。PHP を使っている環境は、ブランチに合った修正版へ上げることが基本対応になる。</li>
+    <li>今回の18件のうち、コード実行に至りうるものは複数あるが、いずれも条件付きである。代表例は、セッションのシリアライザ不一致（CVE-2026-115560。セッションアップロード進捗が有効で、書き込み側と読み取り側で <code>session.serialize_handler</code> が食い違う構成が必要）、PHP-FPM のリクエストスマグリング（CVE-2026-129289。フロントエンドがバックエンド接続を再利用する設定が必要）、タイムゾーンキャッシュの use-after-free（CVE-2026-129496。起動時の診断が PHP のファイル形式エラーログに書かれる構成が必要）である。デフォルト設定のまま単独で届く CRITICAL は、php.net の事前告知でも「非デフォルト設定または一般的でない構成が必要」とされている。</li>
+    <li>今すぐやることは、使っている PHP のブランチとバージョンの確認、修正版への更新、更新後の PHP-FPM / Web サーバーの再起動である。更新できない場合は、脆弱性ごとの緩和策（セッションアップロード進捗の無効化、FPM 接続再利用の無効化など）を節ごとに記載した。</li>
+  </ol>
+</div>
+
+<nav class="toc">
+  <div class="ttl">目次</div>
+  <ol>
+    <li><a href="#versions">修正バージョンと影響バージョン</a></li>
+    <li><a href="#rce">コード実行に至りうる脆弱性</a></li>
+    <li><a href="#other">その他の脆弱性</a></li>
+    <li><a href="#packages">パッチ・パッケージの提供状況</a></li>
+    <li><a href="#mitigation">更新できない場合の緩和策（まとめ）</a></li>
+    <li><a href="#check">自分の環境の確認観点</a></li>
+    <li><a href="#sources">出典</a></li>
+  </ol>
+</nav>
+
+<h2 id="versions">修正バージョンと影響バージョン</h2>
+<table>
+  <tr><th>ブランチ</th><th>修正版（2026年11月19日公開）</th><th>影響を受ける版</th></tr>
+  <tr><td>PHP 8.5</td><td>8.5.13</td><td>8.5.12 以前</td></tr>
+  <tr><td>PHP 8.4</td><td>8.4.28</td><td>8.4.27 以前</td></tr>
+  <tr><td>PHP 8.3</td><td>8.3.37</td><td>8.3.36 以前</td></tr>
+  <tr><td>PHP 8.2</td><td>8.2.36</td><td>8.2.35 以前</td></tr>
+</table>
+<p>PHP 8.1 以前は PHP プロジェクトから修正版が出ない。ディストリビューションや LTS ベンダーがバックポートを提供する場合があるため、使っている場合はベンダーに確認するか、サポート中のブランチへ移行する。なお PHP 8.2 のセキュリティサポートは 2026年12月31日までである。</p>
+<p>深刻度について：公開時点で、各 GHSA アドバイザリ本文と GitHub のアドバイザリデータベースで CVSS の数値を確認できなかった。このページでは数値を推測で書かず、php.net の事前告知にある最高深刻度 CRITICAL と、各アドバイザリの影響記述（コード実行が確認されたか、クラッシュにとどまるか等）で示す。</p>
+
+<h2 id="rce">コード実行に至りうる脆弱性</h2>
+
+<h3>CVE-2026-115560（GHSA-658j-r8rw-q6mx）— セッションのシリアライザ不一致による RCE</h3>
+<p>内容：セッションアップロード進捗の機能が、あるシリアル化形式で攻撃者のデータを書き込み、別の形式で読み戻すことがある。不一致のデコーダがセッションキーの一部をシリアル化されたオブジェクトデータとして解釈し、アプリケーションに利用可能なオブジェクトガジェットチェーンがあると、PHP ワーカーの権限でコード実行に至る。</p>
+<p>発動条件：デフォルトでは届かない。次の組み合わせが必要である。(1) セッションアップロード進捗が有効で、攻撃者が <code>php_binary</code> または <code>php_serialize</code> を使う文脈へ multipart アップロードを送れる。(2) 同じセッション ID の保存済みセッションを、後から <code>php</code> シリアライザで読む処理がある。不一致は、アプリケーションが実行時に <code>session.serialize_handler</code> を <code>php</code> へ切り替える場合のほか、別アプリケーション・別プール・別バーチャルホスト・コマンドライン処理が同じセッション保存先を共有し、形式が食い違う場合にも起きる。実行時切替をしないアプリケーションでも、他方が不一致データを書き込めば影響を受ける。</p>
+<p>実証：PHP 8.2.35、8.3.36、8.4.27、8.5.12 上で Guzzle のガジェットによるコマンド実行が報告されている。Monolog 2.11.1 のガジェットでも再現されている。この問題は 2026年10月23日に情報アドバイザリとして先行公表され、今回正式に修正された。</p>
+<p>修正の内容：セッションアップロード進捗がデフォルトで無効になり、有効な間は <code>session.serialize_handler</code> を含むセッション設定の実行時変更が拒否される。ただし明示的に有効化している設定は新しいデフォルトより優先される。また、修正後も、アップロード進捗を明示的に有効にする場合は、そのセッションデータに触れる全ての読み書き側でシリアライザを揃える必要がある（修正は別設定間の一致までは強制しない）。</p>
+<p>影響 / 修正：全ブランチ。8.2.36 / 8.3.37 / 8.4.28 / 8.5.13 で修正。</p>
+
+<h3>CVE-2026-129289（GHSA-qc49-hpvq-g2w6）— PHP-FPM のリクエストスマグリング</h3>
+<p>内容：PHP が HTTP リクエストボディの未読バイトを破棄しないまま、持続的な PHP-FPM / LSAPI 接続を再利用することがある。FPM では、残ったバイトが別の FastCGI リクエストとして解釈され、フロントエンドのルーティングを迂回して、攻撃者が選んだ PHP コードをワーカー権限で実行できる。偽造リクエストは <code>SCRIPT_FILENAME</code> や <code>PHP_ADMIN_VALUE</code> も制御でき、管理者設定の変更が同じワーカーの後続リクエストに残る場合がある。</p>
+<p>発動条件：フロントエンドがバックエンド接続の再利用を有効にしていること（nginx の <code>fastcgi_keep_conn on</code>、Apache mod_proxy_fcgi の <code>enablereuse=on</code>、HAProxy の FastCGI 接続保持など）と、アプリケーションが <code>php://input</code> を開いて最後まで読まない経路があること。リクエストごとに接続を閉じる標準的な nginx / Apache 構成は、実証された FPM 攻撃の影響を受けない。メモリ破壊やアドレス知識は不要で、単一リクエストで成立する。</p>
+<p>影響 / 修正：全ブランチ。8.2.36 / 8.3.37 / 8.4.28 / 8.5.13 で修正。</p>
+
+<h3>CVE-2026-129496（GHSA-gr4f-wgx5-jpfv）— タイムゾーンキャッシュの use-after-free</h3>
+<p>内容：プロセス起動中に PHP のエラーログファイルへ診断が書かれると、解放済みのタイムゾーンキャッシュへの参照が残ることがある。初回リクエストの早い段階で別の診断が出ると、解放済みメモリへアクセスし、メモリ破壊、ワークラッシュ、条件が揃えばワーカー権限でのコード実行に至る。</p>
+<p>発動条件：デフォルトだけでは届かない。起動時の診断（不正な <code>date.timezone</code>、セッション設定による警告・非推奨など）が PHP のファイル形式 <code>error_log</code> 経路で実際に書かれること、対象が非スレッドセーフ（NTS）ビルドであること、新規または再利用されたワーカーの初回リクエストで早い段階の診断（<code>max_input_vars</code> 超過の警告など）が出ることが重なる必要がある。FPM 自体のエラーログだけでは条件を満たさない。FPM と Apache mod_php でワークラッシュが確認され、コード実行は追加条件付きのローカル実証にとどまる（リモートでの ASLR バイパスは示唆されているが、完全な独立実証はない）。</p>
+<p>影響 / 修正：全ブランチ。8.2.36 / 8.3.37 / 8.4.28 / 8.5.13 で修正。</p>
+
+<h3>CVE-2026-129474（GHSA-8mjj-2r7p-4hg2）— マジックメソッドのバックトレースにおける use-after-free（PHP 8.5 のみ）</h3>
+<p>内容：<code>__call()</code> / <code>__callStatic()</code> で処理されるメソッドの引数をバックトレース用に集める際、解放済みメモリへアクセスすることがある。PHP 8.5 以降では、細工したリクエストで致命的エラーを起こし、未認証でワーカー権限のコード実行に至る可能性がある。</p>
+<p>発動条件：実証されたリモート攻撃には <code>fatal_error_backtraces=1</code>（PHP 8.5 のデフォルトで有効）と <code>zend.exception_ignore_args=0</code> が必要である。<code>php.ini-production</code> は <code>zend.exception_ignore_args=1</code> を設定するため、その構成ではこの攻撃経路は成立しない。加えて、到達可能なマジックメソッド呼び出し、タイミングの合った致命的エラー、メモリ配置への影響力が必要である。PHP 8.2〜8.4 にも土台の不具合はあるが、リモートから攻撃者が制御できるトリガーは確認されておらず、対象範囲外とされている。</p>
+<p>影響 / 修正：PHP 8.5 のみ。8.5.13 で修正。</p>
+
+<h3>CVE-2026-129182（GHSA-2fjv-p558-g82m）— 終了処理後の fatal エラーバックトレース再投入による use-after-free（PHP 8.5 のみ）</h3>
+<p>内容：10月の CVE-2026-109619 への修正で、実行終了時に <code>last_fatal_error_backtrace</code> は消去されるようになったが、終了処理の後段で致命的診断が出ると再び投入され、解放後のメモリを次リクエストが使うことがある。</p>
+<p>発動条件：特定の INI 復元パターンが必要である。例として、グローバルとパス別設定の両方に <code>max_memory_limit</code> がある場合の復元失敗、グローバルで <code>zlib.output_compression=1</code>、パス別で <code>0</code> と出力ハンドラを併記した場合の競合エラーがある。さらに、同じワーカーの後続リクエストで実行初期化前の診断が必要である。この入口からのコード実行自体は実証されていない（ヒープ use-after-free とワークラッシュまで確認）。</p>
+<p>影響 / 修正：PHP 8.5 のみ。8.5.13 で修正。</p>
+
+<h3>CVE-2026-126714（GHSA-fm2m-fjf5-v3cp）— 部分的に上書きされたセッションファイルによる RCE</h3>
+<p>内容：ファイルベースのセッションハンドラが、書き込みの中断により、新旧2つのシリアル化セッションの一部ずつを含むファイルを残すことがある。攻撃者がセッション内容に影響を与え、置換書き込みを中断できると、次回セッション開始時に攻撃者のオブジェクトがデシリアル化され、ガジェットチェーンがあればコード実行に至る。</p>
+<p>発動条件：デフォルトの <code>files</code> ハンドラが対象である点は広いが、成立には、攻撃者がセッションデータに影響できること、有用な位置で書き込みが中断すること、利用可能なガジェットチェーンがあることが必要である。セッションアップロード進捗は入力経路の一つであり、この問題自体はそれに限定されない。</p>
+<p>影響 / 修正：全ブランチ。8.2.36 / 8.3.37 / 8.4.28 / 8.5.13 で修正。</p>
+
+<h3>CVE-2026-129291（GHSA-jm4m-qfqx-967m）— PHP-FPM の epoll use-after-free によるローカル権限昇格</h3>
+<p>内容：ワーカー出力キャプチャが有効な場合、FPM マスターが解放済みワーカー記録への epoll イベントを処理し、use-after-free が起きる。非特権の FPM ワーカーで PHP コードを実行できる攻撃者が、マスター権限（通常 root）でコマンド実行に至る可能性がある。</p>
+<p>発動条件：リモート単独では届かない。ワーカー内でのコード実行が前提で、対象プールで <code>catch_workers_output</code> が有効（デフォルトは無効。公式 PHP-FPM Docker イメージは有効化している）、epoll バックエンド、ワーカーの寿命や継承したパイプ記述子を操作できることが必要である。実証は PHP 8.5.12 の Docker イメージ（arm64 / x86-64）で行われた。</p>
+<p>影響 / 修正：全ブランチ。8.2.36 / 8.3.37 / 8.4.28 / 8.5.13 で修正。</p>
+
+<h3>CVE-2026-129538（GHSA-5j3f-64r7-f564）— PHP-CGI の PATH_INFO 補正における境界外読み書き</h3>
+<p>内容：<code>php-cgi</code> が、Web サーバーから渡されたスクリプトとパスの値の不整合により、バッファ外へ読み書きすることがある。未認証でプロセスのクラッシュ、メモリ情報の露出、メモリ破壊が起こりうる。コード実行は主張があるが確認されていない。</p>
+<p>発動条件：対象は <code>php-cgi</code> の CGI / FastCGI モードで、<code>cgi.fix_pathinfo=1</code>（デフォルト）であること。ただしそれだけでは足りず、除去される接尾辞より短い、または空の <code>PATH_INFO</code> が生じる特定の Web サーバーマッピングが必要である。通常の Apache の Action 構成や通常のリライトでは再現しなかったとアドバイザリは述べている。PHP-FPM と Apache モジュール版は影響を受けない。</p>
+<p>影響 / 修正：全ブランチ。8.2.36 / 8.3.37 / 8.4.28 / 8.5.13 で修正。</p>
+
+<h3>CVE-2026-128090（GHSA-68fq-fh7h-f8gr）— PHAR の OpenSSL 署名バイパス（アルゴリズムダウングレード）</h3>
+<p>内容：OpenSSL 署名付き Phar の署名種別を、鍵なしハッシュ（SHA-256 等）へ差し替えることで、秘密鍵なしに改変したアーカイブを PHP に受け入れさせることができる。アプリケーションがそのアーカイブを実行すると、攻撃者の PHP コードが実行される。</p>
+<p>発動条件：アプリケーションが OpenSSL 署名付き Phar と信頼経路で入れた <code>.pubkey</code> に依存していること、攻撃者が公開鍵ではなくアーカイブ側を改変・差し替えできること、その後にアーカイブが読み込まれることが必要である。</p>
+<p>影響 / 修正：全ブランチ。8.2.36 / 8.3.37 / 8.4.28 / 8.5.13 で修正。</p>
+
+<h3>CVE-2026-129481（GHSA-g3vh-838c-65v7）— 中断されたセッション終了処理後の use-after-free（PHP 8.3 以降）</h3>
+<p>内容：セッション終了処理がコールバック内の致命的エラーで中断されると、スクリプトファイル名への古いポインタが残り、同じワーカーの後続リクエストが解放済みメモリを触る。10月の CVE-2026-109619 への不完全な修正として位置づけられている。この入口からのコード実行は実証されておらず、メモリ破壊とワークラッシュが確認範囲である。</p>
+<p>発動条件：セッション変数の破棄時に呼ばれるコールバック（ユーザー定義ストリームラッパの <code>stream_close()</code> など）で致命的エラーを起こせること、同じワーカーで後続リクエストが処理されることが必要である。実証構成は PHP-FPM で OPcache 無効であった。PHP 8.2 には対象のフィールドがないため影響を受けない。</p>
+<p>影響 / 修正：PHP 8.3 / 8.4 / 8.5。8.3.37 / 8.4.28 / 8.5.13 で修正。</p>
+
+<h2 id="other">その他の脆弱性</h2>
+<table>
+  <tr><th>CVE / GHSA</th><th>内容</th><th>条件・影響範囲</th><th>対象ブランチ</th></tr>
+  <tr><td>CVE-2026-129501<br>GHSA-x8r7-mg3g-74hg</td><td>DOM の XML シリアル化における二重解放</td><td>攻撃者の XML / HTML をモダン DOM API で解析し <code>saveXml()</code> するアプリケーションが対象。実証された影響はメモリ破壊とプロセスのクラッシュ（DoS）。コード実行は実証されていない</td><td>8.3 / 8.4 / 8.5</td></tr>
+  <tr><td>CVE-2026-129506<br>GHSA-4646-p932-gw34</td><td>SOAP の DTD 実体参照処理における use-after-free</td><td>SOAP 拡張で攻撃者の SOAP XML / WSDL / スキーマを処理するエンドポイントが対象。未認証でワークラッシュが可能。情報露出とコード実行は確認されていない</td><td>全ブランチ</td></tr>
+  <tr><td>CVE-2026-15353<br>GHSA-q23r-hr55-xmpg</td><td>SOAP の不正な配列次元による情報露出</td><td>SOAP 拡張を使うアプリケーションが対象。詳細は GHSA を参照</td><td>全ブランチ</td></tr>
+  <tr><td>CVE-2026-129292<br>GHSA-3mg3-cr28-46gc</td><td>PHP-FPM ステータスエンドポイントの XSS</td><td>FPM のフルステータスを HTML で見る運用者が対象。攻撃者はステータスへのアクセスなしに、通常リクエスト（Basic 認証ユーザー名など）経由でスクリプトを仕込める。ステータスエンドポイントが有効であることが前提</td><td>全ブランチ</td></tr>
+  <tr><td>CVE-2026-128064<br>GHSA-f6gg-rchx-xw8j</td><td>大文字混じりの HTTPS / FTPS URL で平文送信になる問題</td><td><code>HTTPS://</code> のようなスキームがストリームラッパに渡る、またはリダイレクト先になる場合に、TLS のつもりが平文で送られ、認証情報や本文がネットワーク上で読まれる。アプリケーション側の大文字小文字を区別しない検証を通過しうる</td><td>全ブランチ</td></tr>
+  <tr><td>CVE-2026-127960<br>GHSA-mmf9-xm3v-hg2x</td><td>折り畳まれた HTTP 応答ヘッダによる DoS</td><td>PHP の HTTP ストリームラッパで外部 URL を取得するアプリケーションが対象。悪意ある応答サーバーが必要で、<code>allow_url_fopen</code> が有効なだけではリモート攻撃にならない。影響は CPU 消費による DoS のみで、機密性・完全性への影響は確認されていない</td><td>全ブランチ</td></tr>
+  <tr><td>CVE-2026-129438<br>GHSA-mg3p-mxj9-g2mm</td><td>RFC 3986 URI のシリアル化が巨大入力で不正になる問題</td><td>PHP 8.5 で導入された <code>Uri\Rfc3986\Uri</code> のみ対象（<code>parse_url()</code> は対象外）。約2GiB 境界の入力が必要で、通常の URI 長制限があれば届かない。不正な文字列の返却やメモリ枯渇が影響で、コード実行は実証されていない</td><td>8.5 のみ</td></tr>
+  <tr><td>CVE-2026-48841</td><td>同梱 uriparser を 1.0.3 へ更新</td><td>PHP 8.5 の URI 拡張が使うライブラリ側の修正。上の CVE-2026-129438 とは別の問題で、uriparser 単体の更新では 129438 は直らないと GHSA は述べている</td><td>8.5 のみ</td></tr>
+</table>
+
+<h2 id="packages">パッチ・パッケージの提供状況</h2>
+<table>
+  <tr><th>提供元</th><th>状況（2026年11月19日確認時点）</th></tr>
+  <tr><td>PHP 公式（ソース / Windows バイナリ）</td><td>提供済み。8.5.13、8.4.28、8.3.37、8.2.36 が php.net のダウンロードページで公開されている</td></tr>
+  <tr><td>Debian / Ubuntu の公式パッケージ</td><td>未確認。このページの確認時点（公開当日）で、今回の CVE 群に対する Debian / Ubuntu のセキュリティ告知を確認できなかった。ディストリビューションは修正をバックポートし、<code>php -v</code> の表示バージョンが上がらないことがあるため、判定はパッケージバージョンと changelog で行う</td></tr>
+  <tr><td>Docker 公式イメージ（php）</td><td>未確認。タグの再ビルド後に取得し直す必要がある。FPM イメージは CVE-2026-129291 の条件（<code>catch_workers_output</code> 有効）に該当する点にも注意する</td></tr>
+  <tr><td>その他のディストリビューション / ホスティング事業者</td><td>未確認。各ベンダーの告知を確認すること</td></tr>
+</table>
+<p>10月のリリース（8.5.12 / 8.4.27 / 8.3.36 / 8.2.35）で修正された CVE-2026-109618 と CVE-2026-109619 は、悪用が確認され CISA の Known Exploited Vulnerabilities にも載っている。10月以降更新していない環境は、今回の更新でそれらもまとめて解消される。</p>
+
+<h2 id="mitigation">更新できない場合の緩和策（まとめ）</h2>
+<p>完全な対策は更新だけである。以下は更新までのつなぎとして各 GHSA が挙げる措置である。</p>
+<ul>
+  <li>セッション（CVE-2026-115560 / CVE-2026-126714）：<code>session.upload_progress.enabled=0</code> を、リクエスト入力が処理される前に効く管理者設定（php.ini、FPM プール、サーバー設定）で指定し、全ワーカーを再起動する。<code>ini_set()</code> や <code>.user.ini</code> では遅すぎる。アップロード進捗を使う場合は、同じセッション保存先に触れる全構成で <code>session.serialize_handler</code> を揃え、形式の異なるアプリケーション同士で保存先を共有しない。セッションに保存する信頼できないデータの量も抑える。</li>
+  <li>PHP-FPM スムグリング（CVE-2026-129289）：フロントエンドのバックエンド接続再利用を無効にする（nginx は <code>fastcgi_keep_conn</code> を無効のまま、Apache は <code>enablereuse</code> を無効にする）。FPM / LSAPI のリスナを信頼できないネットワークへ直接公開しない。</li>
+  <li>PHP-FPM 権限昇格（CVE-2026-129291）：対象プールの <code>catch_workers_output</code> を無効にする。マスターを root で動かさないことは取れる権限を下げるが、修正にはならない。</li>
+  <li>PHP-FPM ステータス XSS（CVE-2026-129292）：ステータスエンドポイントを無効にするか、フル HTML 出力を止める。アクセス制限だけでは、通常リクエスト経由で仕込まれるため完全な対策にならない。</li>
+  <li>タイムゾーンキャッシュ（CVE-2026-129496）：起動時診断の原因（不正な <code>date.timezone</code>、非推奨設定など）を直し、マスターと全ワーカーを再起動する。PHP のエラーを syslog などファイル形式タイムスタンプ経路を使わない宛先へ送ることでも、実証されたトリガーを避けられる。</li>
+  <li>PHP 8.5 のバックトレース系（CVE-2026-129474 / CVE-2026-129182）：<code>zend.exception_ignore_args=1</code>、または <code>fatal_error_backtraces=0</code> をワーカー側の管理者設定で指定し再起動する。<code>display_errors=0</code> では防げない。</li>
+  <li>セッション終了後 UAF（CVE-2026-129481）：セッションクリーンアップ時のコールバックで致命的エラーを出さない。FPM では <code>pm.max_requests=1</code> が実証経路を断つが、性能への影響がある。</li>
+  <li>PHP-CGI（CVE-2026-129538）：<code>cgi.fix_pathinfo=0</code> に設定し、ルーティングが動くことを確認する。または Web サーバーのマッピングを、実在スクリプトと追加パス情報が整合する形に直す。FastCGI リスナへの直接アクセスは信頼できるフロントエンドだけに制限する。</li>
+  <li>PHAR（CVE-2026-128090）：公開鍵を認証済み経路で入手し、<code>&lt;archive&gt;.pubkey</code> をアーカイブの更新・ダウンロード経路から書き換えられない権限で置く。それができない場合は、PHP が読む前に信頼する鍵で検証する別の仕組みを使う。</li>
+  <li>平文送信（CVE-2026-128064）：ストリーム関数へ渡す HTTPS / FTPS のスキームを小文字に統一する。リダイレクトを許可する場合は自動追従を止め、遷移先ごとに検証と正規化を行う。</li>
+  <li>折り畳みヘッダ DoS（CVE-2026-127960）：外部リクエストの宛先とリダイレクト先を信頼できる先に制限する。出口プロキシで応答ヘッダのサイズと件数を制限することも有効である。</li>
+  <li>DOM（CVE-2026-129501）：攻撃者の文書に対して <code>saveXml()</code> を呼ばない。XML 出力が不要な HTML 文書では <code>saveHtml()</code> を使う。</li>
+  <li>SOAP（CVE-2026-129506）：影響を受けるエンドポイントへのアクセスを制限し、WSDL とスキーマは信頼できる入手元だけから読む。DTD を含む文書を SOAP 拡張の前段で弾く場合は、文字コードや変換を正しく扱う必要があり、単純な文字列検索では不十分である。</li>
+</ul>
+
+<h2 id="check">自分の環境の確認観点</h2>
+<ul>
+  <li>PHP のブランチとバージョン（8.5.13 / 8.4.28 / 8.3.37 / 8.2.36 未満は対象）。ディストリビューションのパッケージでは <code>php -v</code> ではなくパッケージバージョンと changelog で判定する</li>
+  <li>更新後に PHP-FPM / Apache などワーカーを再起動したか（パッケージを入れただけでは旧コードが動き続ける）</li>
+  <li><code>session.upload_progress.enabled</code> の実効値と、セッション保存先を共有する構成同士で <code>session.serialize_handler</code> が揃っているか</li>
+  <li>FPM の前面で接続再利用が有効か（nginx <code>fastcgi_keep_conn</code>、Apache <code>enablereuse</code> など）、プールの <code>catch_workers_output</code> とステータスエンドポイントの有効状態</li>
+  <li>PHP 8.5 では <code>fatal_error_backtraces</code> と <code>zend.exception_ignore_args</code> の実効値（<code>php.ini-production</code> かどうか）</li>
+  <li><code>php-cgi</code> を使っている場合は <code>cgi.fix_pathinfo</code> と Web サーバーのマッピング</li>
+  <li>起動時に PHP のエラーログファイルへ診断が出ていないか（不正な <code>date.timezone</code> 等）、エラーログの宛先</li>
+  <li>PHP 8.1 以前を使っている場合は、ベンダーのバックポート有無か、サポート中ブランチへの移行計画</li>
+</ul>
+
+<div class="links" id="sources">
+  <p><strong>出典・リンク</strong></p>
+  <p>php.net News Archive 2026（2026年11月19日の各バージョン「Released!」告知と、11月18日の事前告知「Upcoming Critical PHP Security Release」）：<a href="https://www.php.net/archive/2026.php">https://www.php.net/archive/2026.php</a></p>
+  <p>PHP 8 ChangeLog（8.5.13 / 8.4.28 / 8.3.37 / 8.2.36 の修正一覧）：<a href="https://www.php.net/ChangeLog-8.php">https://www.php.net/ChangeLog-8.php</a></p>
+  <p>GitHub Security Advisories（php/php-src）：<a href="https://github.com/php/php-src/security/advisories/GHSA-658j-r8rw-q6mx">GHSA-658j-r8rw-q6mx</a>、<a href="https://github.com/php/php-src/security/advisories/GHSA-qc49-hpvq-g2w6">GHSA-qc49-hpvq-g2w6</a>、<a href="https://github.com/php/php-src/security/advisories/GHSA-gr4f-wgx5-jpfv">GHSA-gr4f-wgx5-jpfv</a>、<a href="https://github.com/php/php-src/security/advisories/GHSA-8mjj-2r7p-4hg2">GHSA-8mjj-2r7p-4hg2</a>、<a href="https://github.com/php/php-src/security/advisories/GHSA-2fjv-p558-g82m">GHSA-2fjv-p558-g82m</a>、<a href="https://github.com/php/php-src/security/advisories/GHSA-fm2m-fjf5-v3cp">GHSA-fm2m-fjf5-v3cp</a>、<a href="https://github.com/php/php-src/security/advisories/GHSA-jm4m-qfqx-967m">GHSA-jm4m-qfqx-967m</a>、<a href="https://github.com/php/php-src/security/advisories/GHSA-5j3f-64r7-f564">GHSA-5j3f-64r7-f564</a>、<a href="https://github.com/php/php-src/security/advisories/GHSA-68fq-fh7h-f8gr">GHSA-68fq-fh7h-f8gr</a>、<a href="https://github.com/php/php-src/security/advisories/GHSA-g3vh-838c-65v7">GHSA-g3vh-838c-65v7</a>、<a href="https://github.com/php/php-src/security/advisories/GHSA-x8r7-mg3g-74hg">GHSA-x8r7-mg3g-74hg</a>、<a href="https://github.com/php/php-src/security/advisories/GHSA-4646-p932-gw34">GHSA-4646-p932-gw34</a>、<a href="https://github.com/php/php-src/security/advisories/GHSA-3mg3-cr28-46gc">GHSA-3mg3-cr28-46gc</a>、<a href="https://github.com/php/php-src/security/advisories/GHSA-f6gg-rchx-xw8j">GHSA-f6gg-rchx-xw8j</a>、<a href="https://github.com/php/php-src/security/advisories/GHSA-mmf9-xm3v-hg2x">GHSA-mmf9-xm3v-hg2x</a>、<a href="https://github.com/php/php-src/security/advisories/GHSA-mg3p-mxj9-g2mm">GHSA-mg3p-mxj9-g2mm</a></p>
+</div>
+
+<p class="note">このページは2026年11月19日時点の公開情報（php.net の告知と ChangeLog、php/php-src の GitHub Security Advisories）に基づいて作成した。CVSS の数値は公開時点で各アドバイザリとデータベースで確認できなかったため記載していない。対応の要否は自分の環境の構成で判断すること。</p>
+
+<footer>PHP セキュリティリリースまとめ｜2026年11月19日（8.5.13 / 8.4.28 / 8.3.37 / 8.2.36）</footer>
+</div>
+</body>
+</html>
