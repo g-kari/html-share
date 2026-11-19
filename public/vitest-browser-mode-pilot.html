@@ -75,6 +75,7 @@ figure.diagram figcaption{font-size:.88rem;color:var(--muted);margin-top:.5rem}
 <p>なお、現行のテストは <code>vite-plus/test</code> 経由で import しており、上流 Vitest の素の実行系では動きません。試験では試験用設定の <code>resolve.alias</code> で <code>vite-plus/test</code> を <code>vitest</code> に読み替えて実行しました。この読み替え自体は全ファイルで機能しましたが、本導入では import の扱いを決める必要があります。</p>
 
 <h2 id="results">実測結果</h2>
+<div class="table-wrap">
 <table class="data">
 <tr><th>方式</th><th>条件</th><th class="num">Duration</th><th class="num">結果</th></tr>
 <tr><td>現行（node + jsdom）</td><td>2回測定</td><td class="num">32.18秒 / 31.29秒</td><td class="num">283/283 全通過</td></tr>
@@ -82,6 +83,7 @@ figure.diagram figcaption{font-size:.88rem;color:var(--muted);margin-top:.5rem}
 <tr><td>Browser Mode</td><td>既定の並列実行・設定修正後</td><td class="num">83.73秒</td><td class="num">初期化タイムアウトで打ち切り</td></tr>
 <tr><td>Browser Mode</td><td>ファイル逐次実行・キャッシュ温</td><td class="num"><strong>26.20秒</strong></td><td class="num">222/283 通過</td></tr>
 </table>
+</div>
 <p>現行方式の内訳（1回目）は、テスト実行 29.97秒に対し、jsdom の環境構築（environment）が並列合計で 40.11秒、import が 11.76秒でした。テスト本体より、ファイルごとに jsdom 環境を作るコストの方が大きい構成です。Browser Mode 側でこの環境構築は消え、代わりにブラウザ起動とモジュール配信のコストが入ります。</p>
 <p>並列実行がうまくいかなかった点は環境依存です。この VM（共有1.5 CPU）では、既定の並列実行で iframe の初期化が60秒タイムアウトに達し、実行が打ち切られました。同じファイルは単独実行では 4.48秒で全通過しており、ファイル固有の問題ではありません。逐次実行では全ファイルが安定して回りました。CI の CPU 割当によっては並列度の調整が必要です。</p>
 <p>Browser Mode の 26.20秒は、import 失敗で未実行になった1ファイル（26テスト）を除く257テストの実行時間です。未実行分を含む単純比較では現行方式が不利にならないよう注意してください。それでも、並列実行の現行方式と逐次実行の Browser Mode が同等以下に収まりました。</p>
@@ -119,6 +121,7 @@ figure.diagram figcaption{font-size:.88rem;color:var(--muted);margin-top:.5rem}
 <figcaption>ファイル別のテスト実行時間。jsdom の数値は全スイート実行時の参考値です。DOM 系は実ブラウザで概ね3〜10倍速くなりましたが、hash-lifecycle はモックが届かず失敗を繰り返した分、逆に遅くなりました。</figcaption>
 </figure>
 
+<div class="table-wrap">
 <table class="data">
 <tr><th>ファイル</th><th class="num">jsdom（参考）</th><th class="num">Browser</th><th>結果</th></tr>
 <tr><td>csv-sql-early-input（46件）</td><td class="num">5317ms</td><td class="num">715ms</td><td>全通過</td></tr>
@@ -134,6 +137,7 @@ figure.diagram figcaption{font-size:.88rem;color:var(--muted);margin-top:.5rem}
 <tr><td>hash-lifecycle（28件）</td><td class="num">4114ms</td><td class="num">5266ms</td><td>2/28</td></tr>
 <tr><td>use-generated-gif（26件）</td><td class="num">594ms</td><td class="num">—</td><td>import 失敗で未実行</td></tr>
 </table>
+</div>
 <p>全通過は12ファイル・174テストです。DOM 操作、hydration、ライフサイクルを素直に検証するタイプは、jsdom の不完全な DOM 実装より実ブラウザの方が速く、結果もそのまま通りました。</p>
 
 <h2 id="cache">5.1.1 のモジュールキャッシュ再利用</h2>
