@@ -57,6 +57,7 @@ section[aria-labelledby="impact-detail"] .php-cve>summary{grid-template-columns:
 }
 @media(max-width:720px){.php-cve-body{grid-template-columns:minmax(0,1fr);padding-inline-start:0}.php-use-case{grid-template-columns:minmax(0,1fr)}.php-use-case div+div{border-inline-start:0;border-top:1px solid var(--line);padding-inline-start:0}}
 @media(prefers-color-scheme:dark){:root{--accent:#ff9d84;--accent-dark:#ffb4a3}}
+.php-cve dd ul{margin:0;padding-inline-start:1.25rem}.php-cve dd ul li{margin:.25rem 0;line-height:1.65}.php-cve dd p{margin:.45rem 0 0}
 </style>
 </head>
 <body class="php-advisory"><div class="wrap">
@@ -102,14 +103,19 @@ section[aria-labelledby="impact-detail"] .php-cve>summary{grid-template-columns:
 <div><strong>PHP 8.5を運用</strong><p><a href="#cve-2026-129474">呼び出し引数の記録</a>と、<a href="#cve-2026-129182">終了時のエラー記録</a>を確認。</p></div>
 <div><strong>すでに侵入の疑いがある</strong><p><a href="#cve-2026-129291">FPMの権限昇格</a>は、PHP内でコードが動く足掛かりが前提。単独の入口ではありません。</p></div>
 </div>
-<p>重大7件はすべてPHP公式のCVSS v4.0で9.2です。各項目では、対象の機能に外部から届くか、関係する設定やコードがあるか、何が実証されたかを分けています。設定が一致しても、侵害があった証拠にはなりません。</p>
+<p>重大7件はすべてPHP公式のCVSS v4.0で9.2です。各項目では、対象の機能に外部から届くか、関係する設定やコードがあるか、何が実証されたかを分けています。設定が一致しても、侵害があった証拠にはなりません。2026年11月20日に、各項目へ公式アドバイザリ本文に基づく「成立する条件（すべてそろったとき）」の一覧を追記しました。</p>
 <h3 id="critical">重大（Critical）：7件</h3>
 <details class="php-cve" id="cve-2026-115560">
 <summary><span class="php-cve-title">アップロード進捗とセッション</span><span class="php-cve-id">CVE-2026-115560</span><span class="php-score">CVSS 9.2</span></summary>
 <div class="php-cve-body">
 <dl><dt>影響系列</dt><dd>PHP 8.2〜8.5の修正前</dd>
 <dt>自分の環境で確かめること</dt><dd>公開サイトでPHP標準のアップロード進捗を使えるかを確認します。Web側で <code>session.upload_progress.enabled</code> を読み、アプリによる <code>session.serialize_handler</code> の上書きや、複数のアプリが保存先を共有していないかを調べます。</dd>
-<dt>成立条件と悪用しやすさ</dt><dd>PHPがアップロード進捗をセッションへ記録し、同じ保存データを異なる形式設定のアプリやプールから読む構成が関係します。進捗が有効というだけでは、コード実行が成立するとは言えません。</dd><dt>起こり得ること</dt><dd>アプリの構成によってはPHPの権限でコードを実行されるおそれがあります。</dd>
+<dt>成立条件と悪用しやすさ</dt><dd>PHPがアップロード進捗をセッションへ記録し、同じ保存データを異なる形式設定のアプリやプールから読む構成が関係します。進捗が有効というだけでは、コード実行が成立するとは言えません。</dd><dt>成立する条件（すべてそろったとき）</dt><dd><ul>
+<li>セッションのアップロード進捗（<code>session.upload_progress.enabled</code>）が有効で、攻撃者が <code>php_binary</code> または <code>php_serialize</code> を <code>session.serialize_handler</code> に使う文脈へ multipart アップロードを送れる</li>
+<li>後続または同時の処理が、同じセッションIDの保存済みセッションを <code>php</code> シリアライザで読みにいく。アプリが <code>session_start()</code> の前に <code>session.serialize_handler</code> を <code>php</code> へ変更する構成のほか、保存先を共有する別アプリ・別プール・別バーチャルホスト・CLIプロセスが異なる形式で書く構成でも起きる。<code>files</code> ハンドラでは、同じ保存ディレクトリ・同じセッションID・両側からそのファイルにアクセスできる権限が要る</li>
+<li>コード実行まで進むには、読み側のアプリに逆シリアル化で使えるオブジェクトガジェットチェーンがある</li>
+</ul>
+<p>→ そろうと、そろうと、アップロード進捗のキーに含まれる攻撃者由来の区切り文字が <code>php</code> 形式の逆シリアル化に渡り、オブジェクトの生成や破棄のコールバックを経て、PHPワーカーの権限でコードを実行されます。公式の報告では、Guzzle のガジェットで PHP 8.2.35〜8.5.12 のコマンド実行が、Monolog 2.11.1 のガジェットでも再現しています。ファイル改変・セッション破損・サービス停止にとどまる場合もあります。</p></dd><dt>起こり得ること</dt><dd>アプリの構成によってはPHPの権限でコードを実行されるおそれがあります。</dd>
 <dt>対処</dt><dd>不要なら管理設定でアップロード進捗を無効にします。必要なら保存形式を統一するか、保存先を分けます。更新後も、明示的に有効にしていた設定は自動では変わりません。</dd>
 <dt>PHP公式の修正版</dt><dd>8.2.36、8.3.37、8.4.28、8.5.13</dd><dt>設定・コードで見る場所</dt><dd><code>session.upload_progress.enabled</code>、<code>session.serialize_handler</code>、<code>session.save_path</code>。アップロード進捗が不要なら管理設定で <code>session.upload_progress.enabled = 0</code> にします。 <a href="#read-only-checks">PHP設定を読む</a></dd></dl>
 <figure class="php-path"><figcaption>影響が届く経路と止め方（概念図）</figcaption><ol><li><b>入口</b><span>公開アップロードの受付</span></li><li><b>前提</b><span>進捗をセッションに記録し、アプリ側で保存形式が一致しない</span></li><li><b>影響</b><span>PHPの権限でコードを実行される可能性</span></li><li><b>防御</b><span>PHP更新。不要ならアップロード進捗を無効にする</span></li></ol></figure>
@@ -121,7 +127,13 @@ section[aria-labelledby="impact-detail"] .php-cve>summary{grid-template-columns:
 <div class="php-cve-body">
 <dl><dt>影響系列</dt><dd>PHP 8.2〜8.5の修正前</dd>
 <dt>自分の環境で確かめること</dt><dd>Web側の <code>session.save_handler</code> を読みます。<code>files</code> なら、アプリがファイル方式を使っているか、書き込み失敗やセッション破損のログが残っていないかを確認します。</dd>
-<dt>成立条件と悪用しやすさ</dt><dd>セッションをファイルで保存し、壊れた記録をアプリが読み直す経路が関係します。<code>files</code> だけではコード実行や侵害の証拠になりません。</dd><dt>起こり得ること</dt><dd>壊れた記録を読み直すことで、アプリによってはPHPの権限でコードを実行されるおそれがあります。</dd>
+<dt>成立条件と悪用しやすさ</dt><dd>セッションをファイルで保存し、壊れた記録をアプリが読み直す経路が関係します。<code>files</code> だけではコード実行や侵害の証拠になりません。</dd><dt>成立する条件（すべてそろったとき）</dt><dd><ul>
+<li>セッションの保存に <code>files</code> ハンドラ（PHPの既定）を使っている</li>
+<li>攻撃者がセッションの中身に影響を与えられる。アップロード進捗を使う multipart アップロードのほか、アプリが大きなユーザー制御文字列をセッションに保存する経路でもよい</li>
+<li>セッション書き換えの書き込みが、有用な位置で中断される。例として、スレッド版PHPで別スレッドのハードなメモリ上限エラーが書き込み中にプロセスを終了させる経路が示されている</li>
+<li>コード実行まで進むには、読み側のアプリに逆シリアル化で使えるオブジェクトガジェットチェーンがある</li>
+</ul>
+<p>→ そろうと、そろうと、新しいセッションと古いセッションの一部が混ざったファイルが残り、次に <code>session_start()</code> 等で読み直したときに、通常の文字列だったバイト列が直列化オブジェクトとして解釈され、PHPワーカーの権限でコードを実行されるおそれがあります。セッション状態の破損にとどまる場合もあります。</p></dd><dt>起こり得ること</dt><dd>壊れた記録を読み直すことで、アプリによってはPHPの権限でコードを実行されるおそれがあります。</dd>
 <dt>対処</dt><dd>ファイル方式の環境を優先して更新します。アップロード進捗の無効化だけで、この問題全体は解消しません。</dd>
 <dt>PHP公式の修正版</dt><dd>8.2.36、8.3.37、8.4.28、8.5.13</dd><dt>設定・コードで見る場所</dt><dd><code>session.save_handler = files</code> を使っているか確認します。進捗を止めてもファイル方式のこの不具合全体は直りません。 <a href="#read-only-checks">PHP設定を読む</a></dd></dl>
 <figure class="php-path"><figcaption>影響が届く経路と止め方（概念図）</figcaption><ol><li><b>入口</b><span>外部から届くアプリのセッション利用</span></li><li><b>前提</b><span>PHPがファイル方式でセッションを保存し、破損した記録を読む構成</span></li><li><b>影響</b><span>アプリによってはコードを実行される可能性</span></li><li><b>防御</b><span>ファイル方式のホストを優先してPHP更新</span></li></ol></figure>
@@ -133,7 +145,12 @@ section[aria-labelledby="impact-detail"] .php-cve>summary{grid-template-columns:
 <div class="php-cve-body">
 <dl><dt>影響系列</dt><dd>PHP 8.3〜8.5の修正前</dd>
 <dt>自分の環境で確かめること</dt><dd>PHP 8.3〜8.5のアプリで、セッションを片づけるときにアプリ側の独自コードが動くか、PHPログに終了処理中の致命的エラーがないかを確認します。対象を判定できる単独の設定項目はありません。</dd>
-<dt>成立条件と悪用しやすさ</dt><dd>セッションの片づけが途中で止まり、同じPHPの処理役が次のリクエストも受ける場合に影響します。通常のセッション利用と、コード実行の実証は別です。</dd><dt>起こり得ること</dt><dd>長時間動き続けるPHPの処理役が異常終了したり、メモリーが破損したりするおそれがあります。コード実行につながる可能性はありますが、この経路で実証されたわけではありません。</dd>
+<dt>成立条件と悪用しやすさ</dt><dd>セッションの片づけが途中で止まり、同じPHPの処理役が次のリクエストも受ける場合に影響します。通常のセッション利用と、コード実行の実証は別です。</dd><dt>成立する条件（すべてそろったとき）</dt><dd><ul>
+<li>PHP 8.3以降を使っている（PHP 8.2には対象のセッションファイル名フィールドがない）</li>
+<li>セッションの終了処理の中で、アプリ側のコールバックが致命的エラーを起こす。実証例は、セッションに保持したストリームリソースについて、ユーザー定義ストリームラッパーの <code>stream_close()</code> が終了処理中に致命的エラーになる構成</li>
+<li>同じワーカーが後続のリクエストを処理する。実証構成はPHP-FPMでOPcache無効で、記録されるファイル名がリクエストヒープにあることが要る。OPcacheの永続メモリに残るファイル名では同じ問題にならない</li>
+</ul>
+<p>→ そろうと、そろうと、解放済みのファイル名へのポインタがワーカーに残り、次のリクエストのセッション初期化で解放済みメモリの使用（use-after-free）が起きて、メモリ破損やワーカーの異常終了につながります。コード実行の可能性はありますが、この経路では実証されていません。アップロード進捗や診断を出すFastCGIパラメータは、この経路には要りません。</p></dd><dt>起こり得ること</dt><dd>長時間動き続けるPHPの処理役が異常終了したり、メモリーが破損したりするおそれがあります。コード実行につながる可能性はありますが、この経路で実証されたわけではありません。</dd>
 <dt>対処</dt><dd>PHPを更新し、セッション終了時のエラーを調べます。アップロード進捗の無効化やOPcacheの設定だけを対策にしません。</dd>
 <dt>PHP公式の修正版</dt><dd>8.3.37、8.4.28、8.5.13</dd><dt>設定・コードで見る場所</dt><dd>PHP設定名だけでは判断できません。アプリのセッション終了処理と、PHPの終了時エラーログを確認します。 <a href="#read-only-checks">PHP設定を読む</a></dd></dl>
 <figure class="php-path"><figcaption>影響が届く経路と止め方（概念図）</figcaption><ol><li><b>入口</b><span>セッションを利用するアプリ</span></li><li><b>前提</b><span>アプリ独自の終了処理が異常終了する構成</span></li><li><b>影響</b><span>PHP処理役の異常終了・メモリー破損</span></li><li><b>防御</b><span>PHP更新。終了時のエラーを確認</span></li></ol></figure>
@@ -145,7 +162,13 @@ section[aria-labelledby="impact-detail"] .php-cve>summary{grid-template-columns:
 <div class="php-cve-body">
 <dl><dt>影響系列</dt><dd>PHP 8.5の修正前</dd>
 <dt>自分の環境で確かめること</dt><dd>PHP 8.5のWeb側で <code>fatal_error_backtraces</code> と <code>zend.exception_ignore_args</code> を確認します。外部入力を処理するコードやフレームワークに、マジックメソッドとエラー時の呼び出し記録を使う箇所があるかも調べます。</dd>
-<dt>成立条件と悪用しやすさ</dt><dd>致命的エラーの呼び出し履歴に引数を含める処理と、対象のアプリコードが関係します。ログインが必要かは外部入力を受ける機能によります。設定だけではコード実行が成立するとは言えません。</dd><dt>起こり得ること</dt><dd>条件がそろうと、ログインしていない相手からコードを実行されるおそれがあります。</dd>
+<dt>成立条件と悪用しやすさ</dt><dd>致命的エラーの呼び出し履歴に引数を含める処理と、対象のアプリコードが関係します。ログインが必要かは外部入力を受ける機能によります。設定だけではコード実行が成立するとは言えません。</dd><dt>成立する条件（すべてそろったとき）</dt><dd><ul>
+<li>PHP 8.5以降を使っている（致命的エラーのバックトレース自体がPHP 8.5.0で導入された。8.2〜8.4にも元の不具合はあるが、リモートから攻撃者が起こせる経路は確認されていない）</li>
+<li><code>fatal_error_backtraces=1</code> かつ <code>zend.exception_ignore_args=0</code>。PHP本体の既定はこの組み合わせだが、<code>php.ini-production</code> は <code>zend.exception_ignore_args=1</code> で、この経路は成立しない</li>
+<li>アプリのリクエスト処理経路が <code>__call()</code> または <code>__callStatic()</code> のマジックメソッド呼び出しに到達する（ロギングファサード、データベースインターフェース、サービスプロキシなど）</li>
+<li>攻撃者が、割り当て失敗（<code>memory_limit</code> 超過）や実行時間上限などの致命的エラーを、そのマジックメソッドに入る瞬間に起こせるだけのリクエストデータを制御できる</li>
+</ul>
+<p>→ そろうと、そろうと、バックトレースの引数収集が解放済みメモリを参照し、未認証でPHPワーカーの権限の任意コード実行に至ります（実証済み）。実証された実行チェーンには、ASLRを越えるために使用可能なメモリアドレスの知識も要りました。アドレスが分からなければ、ワーカーの異常終了や通常のリソース上限エラーにとどまる場合があります。</p></dd><dt>起こり得ること</dt><dd>条件がそろうと、ログインしていない相手からコードを実行されるおそれがあります。</dd>
 <dt>対処</dt><dd>8.5.13に更新します。すぐに更新できない場合は、公式が案内する引数の記録または致命的エラーの呼び出し記録を無効にし、Web側の実行設定に反映します。画面へのエラー表示を止めるだけでは対策になりません。</dd>
 <dt>PHP公式の修正版</dt><dd>8.5.13</dd><dt>設定・コードで見る場所</dt><dd>PHP 8.5の <code>zend.exception_ignore_args</code> と <code>fatal_error_backtraces</code>。暫定対策は <code>zend.exception_ignore_args = 1</code> または <code>fatal_error_backtraces = 0</code> です。 <a href="#read-only-checks">PHP設定を読む</a></dd></dl>
 <figure class="php-path"><figcaption>影響が届く経路と止め方（概念図）</figcaption><ol><li><b>入口</b><span>PHP 8.5のアプリへの外部アクセス</span></li><li><b>前提</b><span>致命的エラーの呼び出し履歴に引数を記録するアプリ</span></li><li><b>影響</b><span>条件を満たせばPHPの権限でコード実行のおそれ</span></li><li><b>防御</b><span>8.5.13へ更新。不要な引数や呼び出し記録を止める</span></li></ol></figure>
@@ -157,7 +180,12 @@ section[aria-labelledby="impact-detail"] .php-cve>summary{grid-template-columns:
 <div class="php-cve-body">
 <dl><dt>影響系列</dt><dd>PHP 8.2〜8.5の修正前</dd>
 <dt>自分の環境で確かめること</dt><dd>Web側のPHPがNTS版かを確認します。<code>log_errors</code> と <code>error_log</code> を読み、ファイルへ記録する環境では、PHP起動時に警告が残っていないかを調べます。</dd>
-<dt>成立条件と悪用しやすさ</dt><dd>PHP公式が公表した経路には、NTS版の起動時診断とPHPエラーのファイル出力が関係します。公式のコード実行の実証と、任意の公開サイトから悪用できるかは別です。</dd><dt>起こり得ること</dt><dd>PHPの処理役が異常終了したり、条件次第でコードを実行されたりするおそれがあります。起動時警告があるだけで、外部からコードを実行されたとは判断できません。</dd>
+<dt>成立条件と悪用しやすさ</dt><dd>PHP公式が公表した経路には、NTS版の起動時診断とPHPエラーのファイル出力が関係します。公式のコード実行の実証と、任意の公開サイトから悪用できるかは別です。</dd><dt>成立する条件（すべてそろったとき）</dt><dd><ul>
+<li>PHPがNTS（非スレッドセーフ）ビルドである</li>
+<li>プロセス起動時の診断（モジュール初期化中の警告や非推奨）が、PHPのファイルベースの <code>error_log</code> 経路に実際に書き込まれる。FPM自身のエラーログだけでは条件を満たさない。確認済みの例は、不正な <code>date.timezone</code> の値、セッション設定による警告・非推奨など、後段の初期化でキャッシュへの参照が消えないタイミングの診断</li>
+<li>新規に作られた、または再利用されたワーカーが、最初の通常リクエストを完了する前に、リクエスト初期化の早い段階で別の診断を出す。例は入力が <code>max_input_vars</code> を超えたときの警告</li>
+</ul>
+<p>→ そろうと、そろうと、解放済みのタイムゾーンキャッシュを読み書きしてメモリが破損し、ワーカーの異常終了や、PHPワーカーの権限でのコード実行につながります。コード実行はFPMとApache mod_phpでローカル実証があります。その実証チェーンには <code>auto_globals_jit=0</code> と <code>request_order</code> へのCookie含有などの追加条件がありましたが、これは実証チェーンの条件で、欠陥自体の一般条件ではありません。</p></dd><dt>起こり得ること</dt><dd>PHPの処理役が異常終了したり、条件次第でコードを実行されたりするおそれがあります。起動時警告があるだけで、外部からコードを実行されたとは判断できません。</dd>
 <dt>対処</dt><dd>修正版に更新します。待つ間は起動時警告を解消し、PHPを再起動して警告が消えたか確認します。必要なら公式が案内するsyslogなどのログ出力先を検討します。</dd>
 <dt>PHP公式の修正版</dt><dd>8.2.36、8.3.37、8.4.28、8.5.13</dd><dt>設定・コードで見る場所</dt><dd><code>log_errors</code> と <code>error_log</code> に加え、実際のPHPがNTSかどうかを確認します。起動時の警告を直し、PHPを再起動して再確認します。 <a href="#read-only-checks">PHP設定を読む</a></dd></dl>
 <figure class="php-path"><figcaption>影響が届く経路と止め方（概念図）</figcaption><ol><li><b>入口</b><span>Web側のPHPエラー処理</span></li><li><b>前提</b><span>NTS版とファイルへのエラー出力、起動時警告を確認</span></li><li><b>影響</b><span>処理役の異常終了。条件付きでコード実行のおそれ</span></li><li><b>防御</b><span>PHP更新。起動時の警告を直して再確認</span></li></ol></figure>
@@ -169,7 +197,13 @@ section[aria-labelledby="impact-detail"] .php-cve>summary{grid-template-columns:
 <div class="php-cve-body">
 <dl><dt>影響系列</dt><dd>PHP 8.2〜8.5の修正前</dd>
 <dt>自分の環境で確かめること</dt><dd>nginxでは対象サイトの <code>fastcgi_keep_conn</code>、Apacheでは対象プロキシの <code>enablereuse</code> を読み、PHP-FPMへの接続が再利用されるかを確認します。</dd>
-<dt>成立条件と悪用しやすさ</dt><dd>外部から利用できるサイトで、Webサーバーが対象のFastCGI接続を再利用する場合は先に確認します。接続再利用だけで成立するわけではなく、アプリが受信データを最後まで読み取るかも関係します。PHP-FPMとLSAPIでは影響が異なります。</dd><dt>起こり得ること</dt><dd>PHP-FPMでは手前のサーバーの制限をすり抜けられ、条件次第でコード実行につながります。LSAPIで公表されているのは通信の乱れで、同じコード実行が確認されたわけではありません。</dd>
+<dt>成立条件と悪用しやすさ</dt><dd>外部から利用できるサイトで、Webサーバーが対象のFastCGI接続を再利用する場合は先に確認します。接続再利用だけで成立するわけではなく、アプリが受信データを最後まで読み取るかも関係します。PHP-FPMとLSAPIでは影響が異なります。</dd><dt>成立する条件（すべてそろったとき）</dt><dd><ul>
+<li>Webサーバー側が、PHP-FPMへのFastCGI接続を使い回している。nginxで <code>fastcgi_keep_conn on</code>、Apacheの <code>mod_proxy_fcgi</code> で <code>enablereuse=on</code>、HAProxyがバックエンド接続を保持する構成が該当する。PHP-FPM側では <code>FCGI_KEEP_CONN</code> が有効なこと。リクエストごとに接続を閉じる標準的なnginx・Apache構成は、実証された攻撃の対象外</li>
+<li>アプリが <code>php://input</code> を開いたまま、最後まで読んでいない。ルーティングや認証の前にフレームワークが入力ストリームを作るケースを含み、選ばれたエンドポイントがボディを使わない場合も含む</li>
+<li>攻撃者が、PHPのmultipartパーサが予測可能な位置で止まるよう細工した <code>multipart/form-data</code> を送る</li>
+<li>攻撃者が、実在するPHPスクリプトのパスを知っている</li>
+</ul>
+<p>→ そろうと、そろうと、読み残されたボディのバイト列が別のFastCGIリクエストとして受理され、<code>PHP_ADMIN_VALUE</code> で <code>allow_url_include=1</code> と <code>auto_prepend_file=php://input</code> を差し込まれ、未認証でPHPワーカーの権限の任意コード実行に至ります。変更された管理者設定が、同じワーカーの後続リクエストにも残ることがあります。LSAPIでも同じ後片付けの誤りで接続上にバイト列が残り、後続リクエストが乱れますが、<code>PHP_ADMIN_VALUE</code> の経路はLSAPIにはなく、コード実行は確認されていません。</p></dd><dt>起こり得ること</dt><dd>PHP-FPMでは手前のサーバーの制限をすり抜けられ、条件次第でコード実行につながります。LSAPIで公表されているのは通信の乱れで、同じコード実行が確認されたわけではありません。</dd>
 <dt>対処</dt><dd>PHPを更新します。待つ間は、公式の案内に従ってFastCGI接続の再利用を止め、PHP-FPMの待受を必要な接続元に限定します。</dd>
 <dt>PHP公式の修正版</dt><dd>8.2.36、8.3.37、8.4.28、8.5.13</dd><dt>設定・コードで見る場所</dt><dd>nginxでは <code>fastcgi_keep_conn</code>、Apacheでは <code>mod_proxy_fcgi</code> の <code>enablereuse</code> を確認。暫定対策としてnginxでは <code>fastcgi_keep_conn off;</code>、ApacheではFastCGIバックエンドの接続再利用を無効にします。 <a href="#read-only-checks">Webサーバー設定を読む</a></dd></dl>
 <figure class="php-path"><figcaption>影響が届く経路と止め方（概念図）</figcaption><ol><li><b>入口</b><span>外部から公開Webサーバーへ</span></li><li><b>前提</b><span>手前のWebサーバーとPHP-FPMの間で接続を再利用</span></li><li><b>影響</b><span>手前の制限をすり抜けるおそれ。PHP-FPMとLSAPIで影響は別</span></li><li><b>防御</b><span>PHP更新。待つ間はFastCGI接続の再利用を無効化</span></li></ol></figure>
@@ -181,7 +215,12 @@ section[aria-labelledby="impact-detail"] .php-cve>summary{grid-template-columns:
 <div class="php-cve-body">
 <dl><dt>影響系列</dt><dd>PHP 8.5の修正前</dd>
 <dt>自分の環境で確かめること</dt><dd>PHP 8.5のWeb側で <code>fatal_error_backtraces</code> を読みます。同じPHPの処理役をリクエスト間で再利用する環境では、終了時の致命的エラーをログで確認します。</dd>
-<dt>成立条件と悪用しやすさ</dt><dd>リクエスト終了時の致命的エラーと、その後も使われるPHPの処理役が関係します。この経路で確認されたのは破損や異常終了で、コード実行まで実証されたわけではありません。</dd><dt>起こり得ること</dt><dd>メモリー破損や処理役の異常終了が確認されています。コード実行の可能性はありますが、この経路で実証されたわけではありません。</dd>
+<dt>成立条件と悪用しやすさ</dt><dd>リクエスト終了時の致命的エラーと、その後も使われるPHPの処理役が関係します。この経路で確認されたのは破損や異常終了で、コード実行まで実証されたわけではありません。</dd><dt>成立する条件（すべてそろったとき）</dt><dd><ul>
+<li>PHP 8.5を、PHP-FPMまたはApache mod_phpで使っている</li>
+<li>リクエスト終了時のINI設定の復元で致命的エラーが出る設定の組み合わせがある。次のいずれか。(a) グローバル設定とパス別設定の両方に <code>max_memory_limit</code> があり、メモリ使用量がグローバル上限を超えたままで復元に失敗する（管理者による設定が必要で、<code>.user.ini</code> では変更できない）。(b) グローバル設定が <code>zlib.output_compression=1</code>、パス別設定が <code>zlib.output_compression=0</code> かつ <code>output_handler=ob_gzhandler</code> 等で、復元の順序により設定の競合で致命的エラーになる（こちらは <code>.user.ini</code> でも設定できる）</li>
+<li>同じワーカーが処理する後続のリクエストで、executorの初期化前に診断が出る。Apacheのディレクトリ別設定で起こせるほか、FPMではフロントエンドが診断を出す <code>PHP_VALUE</code> または <code>PHP_ADMIN_VALUE</code> のFastCGIパラメータを送る場合に限られる。通常のFPMプール設定や <code>.user.ini</code> では、この早期診断は起きない</li>
+</ul>
+<p>→ そろうと、そろうと、終了処理で作り直された致命的エラーのバックトレースが残り、後続リクエストが解放済みメモリを参照して、メモリ破損やワーカーの異常終了につながります。コード実行の可能性はありますが、この入口では実証されていません。</p></dd><dt>起こり得ること</dt><dd>メモリー破損や処理役の異常終了が確認されています。コード実行の可能性はありますが、この経路で実証されたわけではありません。</dd>
 <dt>対処</dt><dd>8.5.13に更新します。更新を待つ場合は、公式が案内する致命的エラーの呼び出し記録を無効にし、設定を反映します。</dd>
 <dt>PHP公式の修正版</dt><dd>8.5.13</dd><dt>設定・コードで見る場所</dt><dd>PHP 8.5の <code>fatal_error_backtraces</code>。すぐ更新できない場合はPHP公式の案内に従って <code>fatal_error_backtraces = 0</code> にします。 <a href="#read-only-checks">PHP設定を読む</a></dd></dl>
 <figure class="php-path"><figcaption>影響が届く経路と止め方（概念図）</figcaption><ol><li><b>入口</b><span>PHP 8.5のリクエスト終了処理</span></li><li><b>前提</b><span>処理役が使い回され、終了時の診断記録を利用</span></li><li><b>影響</b><span>メモリー破損や処理役の異常終了</span></li><li><b>防御</b><span>8.5.13へ更新。必要なら致命的エラーの呼び出し記録を止める</span></li></ol></figure>
@@ -194,7 +233,13 @@ section[aria-labelledby="impact-detail"] .php-cve>summary{grid-template-columns:
 <div class="php-cve-body">
 <dl><dt>影響系列</dt><dd>PHP 8.2.7以降の8.2、8.3〜8.5の修正前</dd>
 <dt>自分の環境で確かめること</dt><dd>LinuxのPHP-FPMで、処理役の出力をまとめて記録する設定を確認します。この問題だけで外部から侵入できるわけではなく、対象の処理役ですでにコードを動かせることが前提です。</dd>
-<dt>成立条件と悪用しやすさ</dt><dd>先に別の足掛かりが必要です。これだけで外部から侵入できる、またはホストへ脱出できるという根拠はありません。</dd><dt>起こり得ること</dt><dd>処理役より強い親プロセスの権限を取得されるおそれがあります。コンテナの外へ脱出できると確認されたわけではありません。</dd>
+<dt>成立条件と悪用しやすさ</dt><dd>先に別の足掛かりが必要です。これだけで外部から侵入できる、またはホストへ脱出できるという根拠はありません。</dd><dt>成立する条件（すべてそろったとき）</dt><dd><ul>
+<li>LinuxのPHP-FPMで、対象プールの <code>catch_workers_output</code> が有効（公式PHP-FPM Dockerイメージは有効にしている。素のPHP-FPMの既定は <code>catch_workers_output = no</code>）</li>
+<li>FPMのイベントバックエンドがepollである</li>
+<li>攻撃者が、対象プールの非特権ワーカー内ですでにPHPコードを実行できる（この問題単独では外部からの入口にならない）</li>
+<li>攻撃者がワーカーの寿命を操作し、継承したパイプ記述子を保持できる。例として、プールのユーザーへ権限が落ちた後、継承した記述子を閉じる前に新しい兄弟ワーカーを停止させる</li>
+</ul>
+<p>→ そろうと、そろうと、解放済みのワーカーレコードを指すepollイベントが発火し、FPMマスターの権限でコマンドを実行されます。マスターがrootで動いていればrootへの権限昇格になり、非特権ユーザーで動いていればそのユーザーの権限までです。コンテナ内ではマスターの権限が得られるだけで、コンテナの外への脱出が確認されたわけではありません。実証された実行チェーンはメモリ配置とプロセスのタイミングに依存します。</p></dd><dt>起こり得ること</dt><dd>処理役より強い親プロセスの権限を取得されるおそれがあります。コンテナの外へ脱出できると確認されたわけではありません。</dd>
 <dt>対処</dt><dd>PHPを更新します。待つ間は必要のない処理役の出力収集を止め、親プロセスの権限を必要最小限にします。</dd>
 <dt>PHP公式の修正版</dt><dd>8.2.36、8.3.37、8.4.28、8.5.13</dd><dt>設定・コードで見る場所</dt><dd>PHP-FPMプールの <code>catch_workers_output</code> と、親プロセスの実行ユーザーを確認します。出力の集約が不要なら暫定的に <code>catch_workers_output = no</code> を検討します。 <a href="#read-only-checks">FPM設定を読む</a></dd></dl>
 <figure class="php-path"><figcaption>影響が届く経路と止め方（概念図）</figcaption><ol><li><b>入口</b><span>PHP-FPMの処理役ですでにコードが動く</span></li><li><b>前提</b><span>LinuxのFPMで処理役の出力を収集する構成</span></li><li><b>影響</b><span>親プロセスの権限へ昇格するおそれ</span></li><li><b>防御</b><span>PHP更新。出力収集の要否と親の権限を確認</span></li></ol></figure>
@@ -206,7 +251,13 @@ section[aria-labelledby="impact-detail"] .php-cve>summary{grid-template-columns:
 <div class="php-cve-body">
 <dl><dt>影響系列</dt><dd>PHP 8.2〜8.5の修正前</dd>
 <dt>自分の環境で確かめること</dt><dd>PHP標準の通信機能でHTTPSやFTPSを開くアプリが対象です。外部から渡されるURLや自動転送先も確認します。</dd>
-<dt>成立条件と悪用しやすさ</dt><dd>通信機能を使わないアプリは同じ条件ではありません。接続先や転送先を制御できるかで対応順を決めます。</dd><dt>起こり得ること</dt><dd>一部のURL表記で暗号化されず、通信経路上の相手に認証情報や内容が見えるおそれがあります。</dd>
+<dt>成立条件と悪用しやすさ</dt><dd>通信機能を使わないアプリは同じ条件ではありません。接続先や転送先を制御できるかで対応順を決めます。</dd><dt>成立する条件（すべてそろったとき）</dt><dd><ul>
+<li>アプリがPHP標準のストリームラッパー（<code>file_get_contents()</code>、<code>fopen()</code> など）でHTTPSまたはFTPSのURLを開く</li>
+<li>そのURLのスキームに大文字の <code>S</code> が含まれる（<code>HTTPS://</code>、<code>httpS://</code>、<code>FTPS://</code> など）。アプリ側の大文字小文字を区別しない検証は通過する</li>
+<li>リダイレクト経由でも成立する。正規のHTTPS接続からの307リダイレクト先が大文字スキームのURLで、アプリが自動で追従する場合</li>
+<li>攻撃者が、その通信経路を観測できる位置にいる</li>
+</ul>
+<p>→ そろうと、そろうと、TLSで保護されるはずのBasic認証の資格情報、Bearerトークン、Cookie、機密性の高いPOSTデータ、FTPのログイン情報やファイル内容が平文で送られ、経路上の攻撃者に読まれます。宛先が平文接続を拒否しても、送信された時点で漏えいは成立します。</p></dd><dt>起こり得ること</dt><dd>一部のURL表記で暗号化されず、通信経路上の相手に認証情報や内容が見えるおそれがあります。</dd>
 <dt>対処</dt><dd>PHPを更新します。接続先を許可リストで絞り、転送先も検証します。不要な自動転送は止めます。</dd>
 <dt>PHP公式の修正版</dt><dd>8.2.36、8.3.37、8.4.28、8.5.13</dd><dt>設定・コードで見る場所</dt><dd><code>allow_url_fopen</code> は手掛かりです。アプリがPHP標準のストリームで対象の通信を開くか、転送先を検証しているかも確認します。 <a href="#read-only-checks">PHP設定を読む</a></dd></dl>
 <figure class="php-path"><figcaption>影響が届く経路と止め方（概念図）</figcaption><ol><li><b>入口</b><span>PHPアプリから外部の通信先へ</span></li><li><b>前提</b><span>PHP標準の通信機能でHTTPS・FTPSを使用</span></li><li><b>影響</b><span>暗号化されず通信内容が見えるおそれ</span></li><li><b>防御</b><span>PHP更新。URLと転送先を検証</span></li></ol></figure>
@@ -218,7 +269,12 @@ section[aria-labelledby="impact-detail"] .php-cve>summary{grid-template-columns:
 <div class="php-cve-body">
 <dl><dt>影響系列</dt><dd>PHP 8.2.28以降の8.2、8.3.18以降の8.3、8.4.5以降の8.4、8.5の修正前</dd>
 <dt>自分の環境で確かめること</dt><dd>アプリがPHP標準のHTTP通信で外部の応答を読み込む場合が対象です。機能が有効なだけで、アプリが外部へ通信しないなら同じ条件ではありません。</dd>
-<dt>成立条件と悪用しやすさ</dt><dd>公開ページがあるだけでは前提を満たしません。外部応答を処理する機能を先に確認します。公表された影響はサービス停止です。</dd><dt>起こり得ること</dt><dd>応答の処理でCPUを使い続け、Webサイトの処理が待たされるおそれがあります。情報の流出や改ざんは確認されていません。</dd>
+<dt>成立条件と悪用しやすさ</dt><dd>公開ページがあるだけでは前提を満たしません。外部応答を処理する機能を先に確認します。公表された影響はサービス停止です。</dd><dt>成立する条件（すべてそろったとき）</dt><dd><ul>
+<li>アプリがPHP標準のHTTP／HTTPSストリームラッパーで外部のURLを取得する（<code>allow_url_fopen</code> が有効というだけでは不十分）</li>
+<li>攻撃者が、その取得先のHTTP応答を制御できる。取得先サーバー自体を握っている場合のほか、アプリがもともと通信するサーバーへ影響を与えられる、または取得を誘発できる場合を含む</li>
+<li>応答に、多数の継続行に分割された折り返し（folded）ヘッダが含まれる</li>
+</ul>
+<p>→ そろうと、そろうと、継続行ごとにヘッダ値全体のコピーが走ってCPUを使い続け、PHPワーカーが占有されてサービスが遅くなったり使えなくなったりします。実証では、悪性応答2件で2ワーカーのPHP-FPMプールが埋まり、無関係なリクエストが完了しませんでした。機密性や完全性への影響は確認されていません。</p></dd><dt>起こり得ること</dt><dd>応答の処理でCPUを使い続け、Webサイトの処理が待たされるおそれがあります。情報の流出や改ざんは確認されていません。</dd>
 <dt>対処</dt><dd>PHPを更新します。外部通信と転送の行き先を絞り、タイムアウトや負荷制限も併用します。</dd>
 <dt>PHP公式の修正版</dt><dd>8.2.36、8.3.37、8.4.28、8.5.13</dd><dt>設定・コードで見る場所</dt><dd><code>allow_url_fopen</code> と <code>default_socket_timeout</code> は手掛かりです。設定が有効でも、アプリが外部HTTP応答を処理していなければ同じ条件ではありません。 <a href="#read-only-checks">PHP設定を読む</a></dd></dl>
 <figure class="php-path"><figcaption>影響が届く経路と止め方（概念図）</figcaption><ol><li><b>入口</b><span>PHPアプリが外部から応答を受け取る</span></li><li><b>前提</b><span>PHPの標準HTTP通信で外部応答を処理</span></li><li><b>影響</b><span>CPU負荷で処理が詰まるおそれ</span></li><li><b>防御</b><span>PHP更新。外部通信先を絞り負荷を制限</span></li></ol></figure>
@@ -230,7 +286,11 @@ section[aria-labelledby="impact-detail"] .php-cve>summary{grid-template-columns:
 <div class="php-cve-body">
 <dl><dt>影響系列</dt><dd>PHP 8.2〜8.5の修正前</dd>
 <dt>自分の環境で確かめること</dt><dd>PHPの実行用アーカイブ（PHAR）を読み込み、そのファイルが正規のものかをOpenSSL署名で判定している環境が対象です。</dd>
-<dt>成立条件と悪用しやすさ</dt><dd>相手がアーカイブを差し替えられることが影響の前提です。通常のHTTPリクエストが直接の入口ではありません。</dd><dt>起こり得ること</dt><dd>差し替えられたアーカイブを正規品として受け入れ、読み込む場面によっては改ざんコードを動かすおそれがあります。</dd>
+<dt>成立条件と悪用しやすさ</dt><dd>相手がアーカイブを差し替えられることが影響の前提です。通常のHTTPリクエストが直接の入口ではありません。</dd><dt>成立する条件（すべてそろったとき）</dt><dd><ul>
+<li>アプリが、OpenSSL署名付きPharアーカイブの正しさを信頼して読み込む、または実行する。公開鍵は信頼できる経路で入れた <code>&lt;archive&gt;.pubkey</code> ファイルで管理されている</li>
+<li>攻撃者が、その公開鍵は変えられないが、アーカイブ本体は改変または差し替えできる</li>
+</ul>
+<p>→ そろうと、そろうと、アーカイブ内の署名種別をSHA-256などの鍵なしハッシュに書き換え、ダイジェストを合わせ直すだけで検証を通過します（<code>phar.require_hash=1</code> も満たします）。信頼した公開鍵は参照されず、改変されたアーカイブを実行すれば、攻撃者のPHPコードが対象プロセスの権限で動きます。対象はネイティブ形式とtar／zip形式の実行可能Phar、および明示的に署名されたtar／zip形式の <code>PharData</code> です。攻撃者が <code>.pubkey</code> 自体も消したり差し替えたりできる配置は、この問題以前に守れていません。</p></dd><dt>起こり得ること</dt><dd>差し替えられたアーカイブを正規品として受け入れ、読み込む場面によっては改ざんコードを動かすおそれがあります。</dd>
 <dt>対処</dt><dd>PHPを更新します。更新まで入手先を信頼できる配布元に限定し、PHP任せにせず、別途信頼できる方法で署名やハッシュを照合します。</dd>
 <dt>PHP公式の修正版</dt><dd>8.2.36、8.3.37、8.4.28、8.5.13</dd><dt>設定・コードで見る場所</dt><dd><code>php -m</code> で Phar と OpenSSL の利用可否を確認し、アプリが署名付きPHARを検証して読み込むかを確認します。モジュールがあるだけでは判定できません。 <a href="#read-only-checks">機能の有無を読む</a></dd></dl>
 <figure class="php-path"><figcaption>影響が届く経路と止め方（概念図）</figcaption><ol><li><b>入口</b><span>配布元からPHP用アーカイブを受け取る</span></li><li><b>前提</b><span>署名検証を頼りにPHARを読み込む環境</span></li><li><b>影響</b><span>差し替えファイルが検証を通るおそれ</span></li><li><b>防御</b><span>PHP更新。配布元と別手段の署名・ハッシュを照合</span></li></ol></figure>
@@ -243,7 +303,12 @@ section[aria-labelledby="impact-detail"] .php-cve>summary{grid-template-columns:
 <div class="php-cve-body">
 <dl><dt>影響系列</dt><dd>PHP 8.5の修正前</dd>
 <dt>自分の環境で確かめること</dt><dd>外部から受け取ったアドレスを、PHP 8.5のRFC 3986対応URI機能で組み立て直しているアプリを確認します。</dd>
-<dt>成立条件と悪用しやすさ</dt><dd>該当APIを外部由来のデータに使うときに確認します。コード実行や別のリクエストへの漏えいは実証されていません。</dd><dt>起こり得ること</dt><dd>極端に長いデータを処理すると、アドレスが正しく出力されなかったり、処理負荷が上がったりします。コード実行が確認されたわけではありません。</dd>
+<dt>成立条件と悪用しやすさ</dt><dd>該当APIを外部由来のデータに使うときに確認します。コード実行や別のリクエストへの漏えいは実証されていません。</dd><dt>成立する条件（すべてそろったとき）</dt><dd><ul>
+<li>PHP 8.5の <code>Uri\Rfc3986\Uri</code> クラスを使うアプリである（従来の <code>parse_url()</code> と、別の実装である <code>Uri\WhatWg\Url</code> は対象外）</li>
+<li>攻撃者が制御するURIデータを、文字列に戻す操作（<code>toString()</code>、<code>toRawString()</code> など）に渡す</li>
+<li>そのデータが約2GiB（2,147,483,647バイト）の境界に達する大きさで、PHPプロセスにそれを構築・処理できるだけのメモリがある。通常のアプリ側のURI長制限があれば、この大きさには到達しない</li>
+</ul>
+<p>→ そろうと、そろうと、切り捨てられた、またはゼロで埋まった無効なURI文字列が、エラーではなく正常な結果として返ります。その文字列を信頼した比較・検証・ルーティングの誤判定や、不完全なURIの保存につながります。大きな割り当てでリクエストのメモリ上限に達し、PHPプロセスが終了してサービス能力が一時的に下がることもあります。コード実行や、他リクエストの情報漏えいは実証されていません。</p></dd><dt>起こり得ること</dt><dd>極端に長いデータを処理すると、アドレスが正しく出力されなかったり、処理負荷が上がったりします。コード実行が確認されたわけではありません。</dd>
 <dt>対処</dt><dd>8.5.13に更新し、入力と組み立て後のURIの両方に用途に合うバイト数の上限を設けます。</dd>
 <dt>PHP公式の修正版</dt><dd>8.5.13</dd><dt>設定・コードで見る場所</dt><dd>PHP 8.5のURI機能を使うコードを確認します。単独の設定値で影響を判定できません。 <a href="#read-only-checks">PHP設定を読む</a></dd></dl>
 <figure class="php-path"><figcaption>影響が届く経路と止め方（概念図）</figcaption><ol><li><b>入口</b><span>アプリが外部由来のアドレスを取り込む</span></li><li><b>前提</b><span>PHP 8.5のURI機能でアドレスを文字列にする</span></li><li><b>影響</b><span>出力が不正になる、処理負荷が上がる</span></li><li><b>防御</b><span>8.5.13へ更新。入力と出力の長さを制限</span></li></ol></figure>
@@ -255,7 +320,13 @@ section[aria-labelledby="impact-detail"] .php-cve>summary{grid-template-columns:
 <div class="php-cve-body">
 <dl><dt>影響系列</dt><dd>PHP 8.2〜8.5の修正前</dd>
 <dt>自分の環境で確かめること</dt><dd>WebサーバーとPHPのつなぎ方がPHP-CGIの構成を確認します。PHP-FPMとは別の問題です。</dd>
-<dt>成立条件と悪用しやすさ</dt><dd>PHP-FPMの問題ではありません。CGIを使う環境の接続のさせ方とURL処理で影響が変わります。</dd><dt>起こり得ること</dt><dd>処理が止まったり、想定外のメモリーを読み書きしたりします。情報が外部へ出るかは構成によります。</dd>
+<dt>成立条件と悪用しやすさ</dt><dd>PHP-FPMの問題ではありません。CGIを使う環境の接続のさせ方とURL処理で影響が変わります。</dd><dt>成立する条件（すべてそろったとき）</dt><dd><ul>
+<li><code>php-cgi</code> バイナリをCGIモードまたはFastCGIモードで使う（PHP-FPMとApacheモジュール版は対象外）</li>
+<li><code>cgi.fix_pathinfo=1</code> である（既定）</li>
+<li>Webサーバー側のマッピングが、PHPが <code>SCRIPT_FILENAME</code>（リダイレクトされたCGIリクエストでは <code>PATH_TRANSLATED</code>）から取り除く末尾パスより短い <code>PATH_INFO</code> を渡す。存在するが空の <code>PATH_INFO</code> でも起きる。実証例はApacheの <code>Action</code> を使うCGI構成と絶対ファイルパスへの書き換えの組み合わせで、残りパス <code>/content/articles/x</code> が元の <code>/news/x</code> より長くなるケース。通常の <code>Action</code> 構成や <code>index.php</code> への一般的な書き換えでは発生しなかった</li>
+<li><code>php-cgi</code> のFastCGIリスナが信頼できない相手に直接公開されている場合は、その相手がこれらのパラメータを直接渡せる</li>
+</ul>
+<p>→ そろうと、そろうと、バッファの外側の読み書きが起き、未認証の単一リクエストで <code>php-cgi</code> プロセスが異常終了します。条件次第では、無関係なメモリ内容が <code>$_SERVER['PATH_INFO']</code> や <code>PATH_TRANSLATED</code> に現れてアプリの応答やログ経由で漏れたり、メモリが破損したりします。コード実行は主張されていますが、確認はされていません。</p></dd><dt>起こり得ること</dt><dd>処理が止まったり、想定外のメモリーを読み書きしたりします。情報が外部へ出るかは構成によります。</dd>
 <dt>対処</dt><dd>PHPを更新し、PHP-CGIの待受ポートを外部へ公開しないようにします。一時的にパス補正を止める場合は、公式案内を確認し、既存のURLが動くか検証します。</dd>
 <dt>PHP公式の修正版</dt><dd>8.2.36、8.3.37、8.4.28、8.5.13</dd><dt>設定・コードで見る場所</dt><dd>実際にPHP-CGIを使っている場合は <code>cgi.fix_pathinfo</code> を確認します。<code>cgi.fix_pathinfo = 0</code> を暫定採用する前に、既存のURLが動くかを検証してください。 <a href="#read-only-checks">PHP設定を読む</a></dd></dl>
 <figure class="php-path"><figcaption>影響が届く経路と止め方（概念図）</figcaption><ol><li><b>入口</b><span>WebサーバーからPHP-CGIへ</span></li><li><b>前提</b><span>PHP-CGIでURLとファイル名を対応付ける構成</span></li><li><b>影響</b><span>異常終了や、構成によって情報が出るおそれ</span></li><li><b>防御</b><span>PHP更新。PHP-CGIの待受を公開しない</span></li></ol></figure>
@@ -267,7 +338,11 @@ section[aria-labelledby="impact-detail"] .php-cve>summary{grid-template-columns:
 <div class="php-cve-body">
 <dl><dt>影響系列</dt><dd>PHP 8.2〜8.5の修正前</dd>
 <dt>自分の環境で確かめること</dt><dd>SOAPを使い、外部から届くXMLや、外部で管理される定義ファイルを解析する環境を確認します。</dd>
-<dt>成立条件と悪用しやすさ</dt><dd>SOAPを使っていない環境は同じ入口を持ちません。公式が確認したのは主にサービス停止です。</dd><dt>起こり得ること</dt><dd>PHPの処理役が異常終了してサービスが止まるおそれがあります。コード実行や機密情報の流出は確認されていません。</dd>
+<dt>成立条件と悪用しやすさ</dt><dd>SOAPを使っていない環境は同じ入口を持ちません。公式が確認したのは主にサービス停止です。</dd><dt>成立する条件（すべてそろったとき）</dt><dd><ul>
+<li>SOAP拡張を使い、攻撃者が制御できるSOAP XML、WSDL、またはインポートしたスキーマ文書をアプリが処理する。認証前にSOAPリクエストを解析する公開エンドポイントでは、認証があっても防げない</li>
+<li>そのXMLにDTD（文書型定義）と、属性値の中の実体参照が含まれる</li>
+</ul>
+<p>→ そろうと、そろうと、DTDの解放後に属性値が解放済みメモリを参照し、PHPの処理プロセスが異常終了します。繰り返し送ればサービス妨害になります。機密情報の漏えいとコード実行は確認されていません。</p></dd><dt>起こり得ること</dt><dd>PHPの処理役が異常終了してサービスが止まるおそれがあります。コード実行や機密情報の流出は確認されていません。</dd>
 <dt>対処</dt><dd>PHPを更新します。SOAPの公開先を必要な相手に絞り、信頼できる定義ファイルだけを使います。利用不要なら関連機能を止めます。</dd>
 <dt>PHP公式の修正版</dt><dd>8.2.36、8.3.37、8.4.28、8.5.13</dd><dt>設定・コードで見る場所</dt><dd><code>soap</code> 拡張の有無、SOAPの公開範囲、利用するWSDLやXMLの取り込み元を確認します。 <a href="#read-only-checks">機能の有無を読む</a></dd></dl>
 <figure class="php-path"><figcaption>影響が届く経路と止め方（概念図）</figcaption><ol><li><b>入口</b><span>アプリがSOAPのXMLを受け取る</span></li><li><b>前提</b><span>PHPのSOAP機能で外部のXMLや定義を解析</span></li><li><b>影響</b><span>処理役が異常終了するおそれ</span></li><li><b>防御</b><span>PHP更新。公開範囲と定義の入手先を制限</span></li></ol></figure>
@@ -279,7 +354,11 @@ section[aria-labelledby="impact-detail"] .php-cve>summary{grid-template-columns:
 <div class="php-cve-body">
 <dl><dt>影響系列</dt><dd>PHP 8.4〜8.5の修正前</dd>
 <dt>自分の環境で確かめること</dt><dd>新しいDOM機能を使い、外部由来の文書をXMLとして出力し直すアプリを確認します。</dd>
-<dt>成立条件と悪用しやすさ</dt><dd>文書を受け取るだけではなく、対象のDOM処理を実行する構成が必要です。コード実行は実証されていません。</dd><dt>起こり得ること</dt><dd>PHP内のメモリーが破損し、処理役がクラッシュするおそれがあります。コード実行は確認されていません。</dd>
+<dt>成立条件と悪用しやすさ</dt><dd>文書を受け取るだけではなく、対象のDOM処理を実行する構成が必要です。コード実行は実証されていません。</dd><dt>成立する条件（すべてそろったとき）</dt><dd><ul>
+<li>PHP 8.4以降の新しいDOM API（<code>Dom\XMLDocument</code>、<code>Dom\HTMLDocument</code>）を使うアプリである</li>
+<li>攻撃者が制御するXMLまたはHTMLを読み込み、<code>saveXml()</code> でXMLとして出力し直す。入力は不正な形式である必要はなく、名前空間付き属性、入れ子になった名前空間宣言、後続の兄弟要素の組み合わせで対象の状態を作れる。信頼できない文書をXML出力しないアプリは、この経路の対象外</li>
+</ul>
+<p>→ そろうと、そろうと、生成された名前空間接頭辞が二重に解放され、メモリ破損とPHPプロセスの異常終了が起きます。繰り返しのリクエストでワーカープールを使い果たし得ます。コード実行は実証されていません。HTML文書でXML出力が要らない場合は <code>saveHtml()</code> がこの経路を避けます。</p></dd><dt>起こり得ること</dt><dd>PHP内のメモリーが破損し、処理役がクラッシュするおそれがあります。コード実行は確認されていません。</dd>
 <dt>対処</dt><dd>PHPを更新します。待つ間は信頼できない文書のXMLへの再出力を避けます。</dd>
 <dt>PHP公式の修正版</dt><dd>8.4.28、8.5.13</dd><dt>設定・コードで見る場所</dt><dd><code>dom</code> 拡張の有無と、アプリで外部由来の文書をXMLに再出力している箇所を確認します。 <a href="#read-only-checks">機能の有無を読む</a></dd></dl>
 <figure class="php-path"><figcaption>影響が届く経路と止め方（概念図）</figcaption><ol><li><b>入口</b><span>アプリが外部の文書を読み込む</span></li><li><b>前提</b><span>PHP 8.4・8.5で新しいDOM機能からXMLに再出力</span></li><li><b>影響</b><span>メモリー破損や異常終了のおそれ</span></li><li><b>防御</b><span>PHP更新。外部文書のXML再出力を避ける</span></li></ol></figure>
@@ -291,7 +370,12 @@ section[aria-labelledby="impact-detail"] .php-cve>summary{grid-template-columns:
 <div class="php-cve-body">
 <dl><dt>影響系列</dt><dd>PHP 8.2〜8.5の修正前</dd>
 <dt>自分の環境で確かめること</dt><dd>PHP-FPMの状態ページを有効にして、詳細表示をHTMLで開く人や監視ツールがいる環境を確認します。</dd>
-<dt>成立条件と悪用しやすさ</dt><dd>管理者や監視システムが対象の出力を使う場面を確認します。PHPサーバー上のコード実行とは別です。</dd><dt>起こり得ること</dt><dd>監視担当者のブラウザで意図しないスクリプトが動いたり、監視ツールの読み取りに失敗したりするおそれがあります。</dd>
+<dt>成立条件と悪用しやすさ</dt><dd>管理者や監視システムが対象の出力を使う場面を確認します。PHPサーバー上のコード実行とは別です。</dd><dt>成立する条件（すべてそろったとき）</dt><dd><ul>
+<li>PHP-FPMのステータスエンドポイント（プールの <code>pm.status_path</code>）が有効である</li>
+<li>攻撃者が制御するリクエストメタデータが、対象プールのスコアボードに届く経路がある。最も直接的なのは、フロントエンドがHTTP Basic認証ヘッダをPHP-FPMへ転送し、プール内の通常のPHPスクリプトへリクエストする経路で、アプリがBasic認証を使っていなくてもユーザー名は最大31バイトまで残る。攻撃者自身はステータスエンドポイントにアクセスできなくてよい</li>
+<li>運用者または監視ツールが、フルステータスをHTML（<code>full&amp;html</code>）で表示する</li>
+</ul>
+<p>→ そろうと、そろうと、エスケープされていない認証ユーザー名やスクリプトファイル名が、表示した人のブラウザでJavaScriptとして実行されます。ステータスページに表示されるリクエストURIやクエリ文字列などの情報が漏れるほか、ページがアプリと同一オリジンなら、表示者のセッションで操作されたり、<code>HttpOnly</code> のないCookieを読まれたりします。XMLやJSONのフルステータスが壊れて、監視側の読み取りが乱れることもあります。</p></dd><dt>起こり得ること</dt><dd>監視担当者のブラウザで意図しないスクリプトが動いたり、監視ツールの読み取りに失敗したりするおそれがあります。</dd>
 <dt>対処</dt><dd>PHPを更新します。状態ページは非公開とし、不要なら止めます。詳細HTMLの利用を避け、監視画面には取得内容を文字として表示します。</dd>
 <dt>PHP公式の修正版</dt><dd>8.2.36、8.3.37、8.4.28、8.5.13</dd><dt>設定・コードで見る場所</dt><dd>FPMプールの <code>pm.status_path</code> と <code>pm.status_listen</code>、Webサーバー側で状態ページをどこに公開しているか、管理者や監視が詳細HTMLを開くかを確認します。 <a href="#read-only-checks">FPM設定を読む</a></dd></dl>
 <figure class="php-path"><figcaption>影響が届く経路と止め方（概念図）</figcaption><ol><li><b>入口</b><span>FPMの監視画面を管理者が開く</span></li><li><b>前提</b><span>有効なステータスページを詳細HTMLで表示</span></li><li><b>影響</b><span>監視画面でスクリプト実行や監視失敗のおそれ</span></li><li><b>防御</b><span>PHP更新。詳細HTMLを避けて監視画面を非公開にする</span></li></ol></figure>
@@ -303,7 +387,12 @@ section[aria-labelledby="impact-detail"] .php-cve>summary{grid-template-columns:
 <div class="php-cve-body">
 <dl><dt>影響系列</dt><dd>PHP 8.2〜8.5の修正前</dd>
 <dt>自分の環境で確かめること</dt><dd>外部から受け取った配列をPHPのSOAP機能で展開し、その結果を応答や画面に載せるアプリを確認します。</dd>
-<dt>成立条件と悪用しやすさ</dt><dd>受信しただけでは漏えいした証拠ではありません。出力の扱いまで確認します。</dd><dt>起こり得ること</dt><dd>条件によって、PHPが処理中に使っていたメモリーの一部が応答に混ざるおそれがあります。受信したというだけで漏えいしたことにはなりません。</dd>
+<dt>成立条件と悪用しやすさ</dt><dd>受信しただけでは漏えいした証拠ではありません。出力の扱いまで確認します。</dd><dt>成立する条件（すべてそろったとき）</dt><dd><ul>
+<li>SOAP拡張で、攻撃者が制御するSOAPリクエストまたは応答を受け取る。悪意のある、または侵害されたSOAPサーバーから <code>SoapClient</code> が応答を受ける場合も含む。WSDL定義から読まれる配列次元でも起きる</li>
+<li>その中のencoded配列の <code>arraySize</code> が、空、空白のみ、非数値など、次元を持たない値になっている</li>
+<li>アプリが、デコードされた配列を応答に含めるなど、攻撃者から見える形で返す。受け取るだけでは、値は攻撃者に届かない</li>
+</ul>
+<p>→ そろうと、そろうと、未初期化のヒープメモリ4バイトが、想定外の整数キーとしてデコード結果の配列に混入します。アプリがその配列を返せば、その値が攻撃者に漏れます。PHPの既定アロケータでは異常終了やメモリ破損は確認されておらず、コード実行も実証されていません。</p></dd><dt>起こり得ること</dt><dd>条件によって、PHPが処理中に使っていたメモリーの一部が応答に混ざるおそれがあります。受信したというだけで漏えいしたことにはなりません。</dd>
 <dt>対処</dt><dd>PHPを更新し、SOAPを利用できる相手を絞ります。受け取ったデータを検証せず応答に載せないようにします。</dd>
 <dt>PHP公式の修正版</dt><dd>8.2.36、8.3.37、8.4.28、8.5.13</dd><dt>設定・コードで見る場所</dt><dd><code>soap</code> 拡張の有無に加え、受信データを展開し、アプリが応答に載せるかを確認します。 <a href="#read-only-checks">機能の有無を読む</a></dd></dl>
 <figure class="php-path"><figcaption>影響が届く経路と止め方（概念図）</figcaption><ol><li><b>入口</b><span>アプリが外部のSOAPデータを受け取る</span></li><li><b>前提</b><span>PHPが配列を展開し、結果をアプリの応答や画面に載せる</span></li><li><b>影響</b><span>処理中のメモリーの一部が外部へ出るおそれ</span></li><li><b>防御</b><span>PHP更新。展開結果を検証し、不要な返信をしない</span></li></ol></figure>
