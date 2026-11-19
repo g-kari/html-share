@@ -15,7 +15,23 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://share.0g0.xyz/assets/php-security-update-2026-11-19-ogp-v1.jpg">
 <meta name="twitter:image:alt" content="PHP セキュリティ更新、2026年11月19日">
-<style>:root{--accent:#a92e19;--accent-dark:#772312} .php-steps{margin:1.2rem 0}.php-steps img{display:block;width:100%;height:auto;border:1px solid #727272} .php-table{border-collapse:collapse;width:100%;margin:1rem 0}.php-table :is(td,th){padding:.45rem .6rem;border-bottom:1px solid #808080;text-align:left;vertical-align:top}.php-cve{margin:.45rem 0;border-bottom:1px solid #9b9b9b;padding:.55rem 0}.php-cve summary{cursor:pointer;line-height:1.65}.php-cve summary:focus-visible{outline:2px solid var(--accent-dark);outline-offset:4px}.php-cve dt{font-weight:700}.php-cve dd{margin:0 0 .7rem}.php-score{white-space:nowrap;font-size:.88em} </style>
+<style>:root{--accent:#a92e19;--accent-dark:#772312} .php-steps{margin:1.2rem 0}.php-steps img{display:block;width:100%;height:auto;border:1px solid #727272} .php-table{border-collapse:collapse;width:100%;margin:1rem 0}.php-table :is(td,th){padding:.45rem .6rem;border-bottom:1px solid #808080;text-align:left;vertical-align:top}.php-cve{margin:.45rem 0;border-bottom:1px solid #9b9b9b;padding:.55rem 0}.php-cve summary{cursor:pointer;line-height:1.65}.php-cve summary:focus-visible{outline:2px solid var(--accent-dark);outline-offset:4px}.php-cve dt{font-weight:700}.php-cve dd{margin:0 0 .7rem}.php-score{white-space:nowrap;font-size:.88em}
+/* The list is an editorial index, not a stack of cards. */
+#impact-detail .php-cve{margin:0;padding:0;border:0;border-bottom:1px solid var(--line);border-radius:0;min-inline-size:0;background:transparent}
+#impact-detail .php-cve>summary{list-style:none;display:grid;grid-template-columns:1rem minmax(0,1fr) auto;grid-template-areas:"arrow title score" "arrow cve score";gap:.1rem .6rem;align-items:center;margin:0;padding:.75rem 0;line-height:1.35;min-height:44px}
+#impact-detail .php-cve>summary::-webkit-details-marker{display:none}
+#impact-detail .php-cve>summary::before{content:"›";grid-area:arrow;align-self:start;color:var(--accent-dark);font-size:1.35em}
+#impact-detail .php-cve[open]>summary::before{content:"⌄"}
+.php-cve-title{grid-area:title;min-inline-size:0;overflow-wrap:anywhere}
+.php-cve-id{grid-area:cve;font-family:ui-monospace,monospace;font-size:.75rem;font-weight:500}
+.php-cve .php-score{grid-area:score;align-self:center;font-variant-numeric:tabular-nums;font-size:.75rem;font-weight:500}
+.php-cve-body{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(0,1fr);gap:1rem;padding:.55rem 0 1rem 1.6rem;align-items:start}
+.php-cve-body .php-steps{margin:0}.php-cve-body img{border-radius:0}.php-cve-body dl{margin:0}.php-cve-body dd{margin:.15rem 0 .65rem}.php-cve-source{grid-column:1/-1;margin:0}
+.php-cve-jumps{display:flex;flex-wrap:wrap;gap:.3rem 1rem;margin:.5rem 0 1rem}
+.php-check pre{max-inline-size:100%;overflow:auto;font-size:.85em}
+@media(max-width:650px){.php-cve-body{grid-template-columns:minmax(0,1fr);padding-inline-start:0}.php-cve-body .php-steps{max-inline-size:28rem}}
+@media(max-width:380px){#impact-detail .php-cve>summary{column-gap:.35rem}.php-cve .php-score{font-size:.68rem}}
+</style>
 </head>
 <body><div class="wrap">
 <nav class="sitebar" aria-label="サイト内"><a href="/">html-share</a> <a href="/">記事一覧</a> <a href="/feed.xml">RSS</a></nav>
@@ -54,198 +70,238 @@
 <section aria-labelledby="impact-detail">
 <h2 id="impact-detail">17件それぞれの影響条件と対処</h2>
 <p>影響を見分けるには、バージョンに加えて、実際に使う機能と公開範囲を確認します。条件に当てはまっても侵害された証拠ではありません。暫定対策は更新の代わりにはなりません。</p>
+<nav class="php-cve-jumps" aria-label="重大度で移動"><a href="#critical">重大7件</a><a href="#high">高4件</a><a href="#medium">中6件</a><a href="#read-only-checks">確認コマンド</a></nav>
 <p>重大7件はすべてPHP公式のCVSS v4.0で9.2です。コード実行の可能性があるものと、この経路で確認されたのがクラッシュまでのものを区別しています。</p>
 <h3 id="critical">重大（Critical）：7件</h3>
 <details class="php-cve" id="cve-2026-115560">
-<summary><strong>CVE-2026-115560</strong>：アップロード進捗とセッション <span class="php-score">CVSS 9.2</span></summary>
-<div>
-<figure class="php-steps"><img src="/assets/php-cve-2026-115560-v1.jpg" width="800" height="400" loading="lazy" decoding="async" alt="アップロード進捗とセッションを表した概念図"><figcaption>確認対象：アップロード進捗とセッション。実際の画面ではありません。</figcaption></figure>
+<summary><span class="php-cve-title">アップロード進捗とセッション</span><span class="php-cve-id">CVE-2026-115560</span><span class="php-score">CVSS 9.2</span></summary>
+<div class="php-cve-body">
 <dl><dt>影響系列</dt><dd>PHP 8.2〜8.5の修正前</dd>
 <dt>自分の環境で確かめること</dt><dd>アップロード進捗を有効にしている環境は、アプリの動作中にセッションの保存形式を切り替えていないか確認します。保存先を共有する場合は、アプリや設定ごとの保存形式も確認します。</dd>
 <dt>起こり得ること</dt><dd>アプリの構成によってはPHPの権限でコードを実行されるおそれがあります。</dd>
 <dt>対処</dt><dd>不要なら管理設定でアップロード進捗を無効にします。必要なら保存形式を統一するか、保存先を分けます。更新後も、明示的に有効にしていた設定は自動では変わりません。</dd>
-<dt>PHP公式の修正版</dt><dd>8.2.36、8.3.37、8.4.28、8.5.13</dd></dl>
-<p><a href="https://github.com/php/php-src/security/advisories/GHSA-658j-r8rw-q6mx">CVE-2026-115560のPHP公式アドバイザリ</a></p>
+<dt>PHP公式の修正版</dt><dd>8.2.36、8.3.37、8.4.28、8.5.13</dd><dt>設定・コードで見る場所</dt><dd><code>session.upload_progress.enabled</code>、<code>session.serialize_handler</code>、<code>session.save_path</code>。アップロード進捗が不要なら管理設定で <code>session.upload_progress.enabled = 0</code> にします。 <a href="#read-only-checks">PHP設定を読む</a></dd></dl>
+<figure class="php-steps"><img src="/assets/php-cve-2026-115560-v1.jpg" width="800" height="400" loading="lazy" decoding="async" alt="アップロード進捗とセッションを表した概念図"><figcaption>確認対象：アップロード進捗とセッション。実際の画面ではありません。</figcaption></figure>
+
+<p class="php-cve-source"><a href="https://github.com/php/php-src/security/advisories/GHSA-658j-r8rw-q6mx">CVE-2026-115560のPHP公式アドバイザリ</a></p>
 </div></details>
 <details class="php-cve" id="cve-2026-126714">
-<summary><strong>CVE-2026-126714</strong>：ファイルに保存するセッション <span class="php-score">CVSS 9.2</span></summary>
-<div>
-<figure class="php-steps"><img src="/assets/php-cve-2026-126714-v1.jpg" width="800" height="400" loading="lazy" decoding="async" alt="ファイルに保存するセッションを表した概念図"><figcaption>確認対象：ファイルに保存するセッション。実際の画面ではありません。</figcaption></figure>
+<summary><span class="php-cve-title">ファイルに保存するセッション</span><span class="php-cve-id">CVE-2026-126714</span><span class="php-score">CVSS 9.2</span></summary>
+<div class="php-cve-body">
 <dl><dt>影響系列</dt><dd>PHP 8.2〜8.5の修正前</dd>
 <dt>自分の環境で確かめること</dt><dd>ログイン状態などをPHPのファイル方式で保存している環境が対象です。異常終了や書き込みエラーのあとにセッションが壊れた記録がないか確認します。</dd>
 <dt>起こり得ること</dt><dd>壊れた記録を読み直すことで、アプリによってはPHPの権限でコードを実行されるおそれがあります。</dd>
 <dt>対処</dt><dd>ファイル方式の環境を優先して更新します。アップロード進捗の無効化だけで、この問題全体は解消しません。</dd>
-<dt>PHP公式の修正版</dt><dd>8.2.36、8.3.37、8.4.28、8.5.13</dd></dl>
-<p><a href="https://github.com/php/php-src/security/advisories/GHSA-fm2m-fjf5-v3cp">CVE-2026-126714のPHP公式アドバイザリ</a></p>
+<dt>PHP公式の修正版</dt><dd>8.2.36、8.3.37、8.4.28、8.5.13</dd><dt>設定・コードで見る場所</dt><dd><code>session.save_handler = files</code> を使っているか確認します。進捗を止めてもファイル方式のこの不具合全体は直りません。 <a href="#read-only-checks">PHP設定を読む</a></dd></dl>
+<figure class="php-steps"><img src="/assets/php-cve-2026-126714-v1.jpg" width="800" height="400" loading="lazy" decoding="async" alt="ファイルに保存するセッションを表した概念図"><figcaption>確認対象：ファイルに保存するセッション。実際の画面ではありません。</figcaption></figure>
+
+<p class="php-cve-source"><a href="https://github.com/php/php-src/security/advisories/GHSA-fm2m-fjf5-v3cp">CVE-2026-126714のPHP公式アドバイザリ</a></p>
 </div></details>
 <details class="php-cve" id="cve-2026-129481">
-<summary><strong>CVE-2026-129481</strong>：セッションを閉じる処理 <span class="php-score">CVSS 9.2</span></summary>
-<div>
-<figure class="php-steps"><img src="/assets/php-cve-2026-129481-v1.jpg" width="800" height="400" loading="lazy" decoding="async" alt="セッションを閉じる処理を表した概念図"><figcaption>確認対象：セッションを閉じる処理。実際の画面ではありません。</figcaption></figure>
+<summary><span class="php-cve-title">セッションを閉じる処理</span><span class="php-cve-id">CVE-2026-129481</span><span class="php-score">CVSS 9.2</span></summary>
+<div class="php-cve-body">
 <dl><dt>影響系列</dt><dd>PHP 8.3〜8.5の修正前</dd>
 <dt>自分の環境で確かめること</dt><dd>セッションの終了時にアプリ独自の処理を呼ぶ構成で、終了処理中の致命的エラーがないか確認します。</dd>
 <dt>起こり得ること</dt><dd>長時間動き続けるPHPの処理役が異常終了したり、メモリーが破損したりするおそれがあります。コード実行につながる可能性はありますが、この経路で実証されたわけではありません。</dd>
 <dt>対処</dt><dd>PHPを更新し、セッション終了時のエラーを調べます。アップロード進捗の無効化やOPcacheの設定だけを対策にしません。</dd>
-<dt>PHP公式の修正版</dt><dd>8.3.37、8.4.28、8.5.13</dd></dl>
-<p><a href="https://github.com/php/php-src/security/advisories/GHSA-g3vh-838c-65v7">CVE-2026-129481のPHP公式アドバイザリ</a></p>
+<dt>PHP公式の修正版</dt><dd>8.3.37、8.4.28、8.5.13</dd><dt>設定・コードで見る場所</dt><dd>PHP設定名だけでは判断できません。アプリのセッション終了処理と、PHPの終了時エラーログを確認します。 <a href="#read-only-checks">PHP設定を読む</a></dd></dl>
+<figure class="php-steps"><img src="/assets/php-cve-2026-129481-v1.jpg" width="800" height="400" loading="lazy" decoding="async" alt="セッションを閉じる処理を表した概念図"><figcaption>確認対象：セッションを閉じる処理。実際の画面ではありません。</figcaption></figure>
+
+<p class="php-cve-source"><a href="https://github.com/php/php-src/security/advisories/GHSA-g3vh-838c-65v7">CVE-2026-129481のPHP公式アドバイザリ</a></p>
 </div></details>
 <details class="php-cve" id="cve-2026-129474">
-<summary><strong>CVE-2026-129474</strong>：エラー時の呼び出し記録 <span class="php-score">CVSS 9.2</span></summary>
-<div>
-<figure class="php-steps"><img src="/assets/php-cve-2026-129474-v1.jpg" width="800" height="400" loading="lazy" decoding="async" alt="エラー時の呼び出し記録を表した概念図"><figcaption>確認対象：エラー時の呼び出し記録。実際の画面ではありません。</figcaption></figure>
+<summary><span class="php-cve-title">エラー時の呼び出し記録</span><span class="php-cve-id">CVE-2026-129474</span><span class="php-score">CVSS 9.2</span></summary>
+<div class="php-cve-body">
 <dl><dt>影響系列</dt><dd>PHP 8.5の修正前</dd>
 <dt>自分の環境で確かめること</dt><dd>アプリやフレームワークがPHPのマジックメソッドを使い、エラー時に呼び出しの引数も記録する構成を確認します。</dd>
 <dt>起こり得ること</dt><dd>条件がそろうと、ログインしていない相手からコードを実行されるおそれがあります。</dd>
 <dt>対処</dt><dd>8.5.13に更新します。すぐに更新できない場合は、公式が案内する引数の記録または致命的エラーの呼び出し記録を無効にし、Web側の実行設定に反映します。画面へのエラー表示を止めるだけでは対策になりません。</dd>
-<dt>PHP公式の修正版</dt><dd>8.5.13</dd></dl>
-<p><a href="https://github.com/php/php-src/security/advisories/GHSA-8mjj-2r7p-4hg2">CVE-2026-129474のPHP公式アドバイザリ</a></p>
+<dt>PHP公式の修正版</dt><dd>8.5.13</dd><dt>設定・コードで見る場所</dt><dd>PHP 8.5の <code>zend.exception_ignore_args</code> と <code>fatal_error_backtraces</code>。暫定対策は <code>zend.exception_ignore_args = 1</code> または <code>fatal_error_backtraces = 0</code> です。 <a href="#read-only-checks">PHP設定を読む</a></dd></dl>
+<figure class="php-steps"><img src="/assets/php-cve-2026-129474-v1.jpg" width="800" height="400" loading="lazy" decoding="async" alt="エラー時の呼び出し記録を表した概念図"><figcaption>確認対象：エラー時の呼び出し記録。実際の画面ではありません。</figcaption></figure>
+
+<p class="php-cve-source"><a href="https://github.com/php/php-src/security/advisories/GHSA-8mjj-2r7p-4hg2">CVE-2026-129474のPHP公式アドバイザリ</a></p>
 </div></details>
 <details class="php-cve" id="cve-2026-129496">
-<summary><strong>CVE-2026-129496</strong>：タイムゾーンとエラーログ <span class="php-score">CVSS 9.2</span></summary>
-<div>
-<figure class="php-steps"><img src="/assets/php-cve-2026-129496-v1.jpg" width="800" height="400" loading="lazy" decoding="async" alt="タイムゾーンとエラーログを表した概念図"><figcaption>タイムゾーンの概念図です。影響の確認には本文のPHP実行方式とログ設定も必要です。</figcaption></figure>
+<summary><span class="php-cve-title">タイムゾーンとエラーログ</span><span class="php-cve-id">CVE-2026-129496</span><span class="php-score">CVSS 9.2</span></summary>
+<div class="php-cve-body">
 <dl><dt>影響系列</dt><dd>PHP 8.2〜8.5の修正前</dd>
 <dt>自分の環境で確かめること</dt><dd>Web側がスレッド非対応版（NTS）のPHPで動き、PHPのエラーをファイルに出している環境では、起動時の警告とログ設定を確認します。</dd>
 <dt>起こり得ること</dt><dd>PHPの処理役が異常終了したり、条件次第でコードを実行されたりするおそれがあります。公式の実証は追加の前提を置いたもので、すべての公開サイトに当てはまるわけではありません。</dd>
 <dt>対処</dt><dd>修正版に更新します。待つ間は起動時警告を解消し、PHPを再起動して警告が消えたか確認します。必要なら公式が案内するsyslogなどのログ出力先を検討します。</dd>
-<dt>PHP公式の修正版</dt><dd>8.2.36、8.3.37、8.4.28、8.5.13</dd></dl>
-<p><a href="https://github.com/php/php-src/security/advisories/GHSA-gr4f-wgx5-jpfv">CVE-2026-129496のPHP公式アドバイザリ</a></p>
+<dt>PHP公式の修正版</dt><dd>8.2.36、8.3.37、8.4.28、8.5.13</dd><dt>設定・コードで見る場所</dt><dd><code>log_errors</code> と <code>error_log</code> に加え、実際のPHPがNTSかどうかを確認します。起動時の警告を直し、PHPを再起動して再確認します。 <a href="#read-only-checks">PHP設定を読む</a></dd></dl>
+<figure class="php-steps"><img src="/assets/php-cve-2026-129496-v1.jpg" width="800" height="400" loading="lazy" decoding="async" alt="タイムゾーンとエラーログを表した概念図"><figcaption>タイムゾーンの概念図です。影響の確認には本文のPHP実行方式とログ設定も必要です。</figcaption></figure>
+
+<p class="php-cve-source"><a href="https://github.com/php/php-src/security/advisories/GHSA-gr4f-wgx5-jpfv">CVE-2026-129496のPHP公式アドバイザリ</a></p>
 </div></details>
 <details class="php-cve" id="cve-2026-129289">
-<summary><strong>CVE-2026-129289</strong>：PHP-FPMの接続再利用 <span class="php-score">CVSS 9.2</span></summary>
-<div>
-<figure class="php-steps"><img src="/assets/php-cve-2026-129289-v1.jpg" width="800" height="400" loading="lazy" decoding="async" alt="PHP-FPMの接続再利用を表した概念図"><figcaption>確認対象：PHP-FPMの接続再利用。実際の画面ではありません。</figcaption></figure>
+<summary><span class="php-cve-title">PHP-FPMの接続再利用</span><span class="php-cve-id">CVE-2026-129289</span><span class="php-score">CVSS 9.2</span></summary>
+<div class="php-cve-body">
 <dl><dt>影響系列</dt><dd>PHP 8.2〜8.5の修正前</dd>
 <dt>自分の環境で確かめること</dt><dd>PHP-FPMでは、手前のWebサーバーがPHPへのFastCGI接続を使い回しているか確認します。PHP-FPMとLSAPIは影響が同じではありません。</dd>
 <dt>起こり得ること</dt><dd>PHP-FPMでは手前のサーバーの制限をすり抜けられ、条件次第でコード実行につながります。LSAPIで公表されているのは通信の乱れで、同じコード実行が確認されたわけではありません。</dd>
 <dt>対処</dt><dd>PHPを更新します。待つ間は、公式の案内に従ってFastCGI接続の再利用を止め、PHP-FPMの待受を必要な接続元に限定します。</dd>
-<dt>PHP公式の修正版</dt><dd>8.2.36、8.3.37、8.4.28、8.5.13</dd></dl>
-<p><a href="https://github.com/php/php-src/security/advisories/GHSA-qc49-hpvq-g2w6">CVE-2026-129289のPHP公式アドバイザリ</a></p>
+<dt>PHP公式の修正版</dt><dd>8.2.36、8.3.37、8.4.28、8.5.13</dd><dt>設定・コードで見る場所</dt><dd>nginxでは <code>fastcgi_keep_conn</code>、Apacheでは <code>mod_proxy_fcgi</code> の <code>enablereuse</code> を確認。暫定対策としてnginxでは <code>fastcgi_keep_conn off;</code>、ApacheではFastCGIバックエンドの接続再利用を無効にします。 <a href="#read-only-checks">Webサーバー設定を読む</a></dd></dl>
+<figure class="php-steps"><img src="/assets/php-cve-2026-129289-v1.jpg" width="800" height="400" loading="lazy" decoding="async" alt="PHP-FPMの接続再利用を表した概念図"><figcaption>確認対象：PHP-FPMの接続再利用。実際の画面ではありません。</figcaption></figure>
+
+<p class="php-cve-source"><a href="https://github.com/php/php-src/security/advisories/GHSA-qc49-hpvq-g2w6">CVE-2026-129289のPHP公式アドバイザリ</a></p>
 </div></details>
 <details class="php-cve" id="cve-2026-129182">
-<summary><strong>CVE-2026-129182</strong>：終了時のエラー記録 <span class="php-score">CVSS 9.2</span></summary>
-<div>
-<figure class="php-steps"><img src="/assets/php-cve-2026-129182-v1.jpg" width="800" height="400" loading="lazy" decoding="async" alt="終了時のエラー記録を表した概念図"><figcaption>確認対象：終了時のエラー記録。実際の画面ではありません。</figcaption></figure>
+<summary><span class="php-cve-title">終了時のエラー記録</span><span class="php-cve-id">CVE-2026-129182</span><span class="php-score">CVSS 9.2</span></summary>
+<div class="php-cve-body">
 <dl><dt>影響系列</dt><dd>PHP 8.5の修正前</dd>
 <dt>自分の環境で確かめること</dt><dd>PHP 8.5で、リクエストを処理する役が使い回される環境は、終了時の致命的エラーと呼び出し記録の設定を確認します。</dd>
 <dt>起こり得ること</dt><dd>メモリー破損や処理役の異常終了が確認されています。コード実行の可能性はありますが、この経路で実証されたわけではありません。</dd>
 <dt>対処</dt><dd>8.5.13に更新します。更新を待つ場合は、公式が案内する致命的エラーの呼び出し記録を無効にし、設定を反映します。</dd>
-<dt>PHP公式の修正版</dt><dd>8.5.13</dd></dl>
-<p><a href="https://github.com/php/php-src/security/advisories/GHSA-2fjv-p558-g82m">CVE-2026-129182のPHP公式アドバイザリ</a></p>
+<dt>PHP公式の修正版</dt><dd>8.5.13</dd><dt>設定・コードで見る場所</dt><dd>PHP 8.5の <code>fatal_error_backtraces</code>。すぐ更新できない場合はPHP公式の案内に従って <code>fatal_error_backtraces = 0</code> にします。 <a href="#read-only-checks">PHP設定を読む</a></dd></dl>
+<figure class="php-steps"><img src="/assets/php-cve-2026-129182-v1.jpg" width="800" height="400" loading="lazy" decoding="async" alt="終了時のエラー記録を表した概念図"><figcaption>確認対象：終了時のエラー記録。実際の画面ではありません。</figcaption></figure>
+
+<p class="php-cve-source"><a href="https://github.com/php/php-src/security/advisories/GHSA-2fjv-p558-g82m">CVE-2026-129182のPHP公式アドバイザリ</a></p>
 </div></details>
 <h3 id="high">高（High）：4件</h3>
 <details class="php-cve" id="cve-2026-129291">
-<summary><strong>CVE-2026-129291</strong>：PHP-FPMのローカル権限 <span class="php-score">CVSS 8.8</span></summary>
-<div>
-<figure class="php-steps"><img src="/assets/php-cve-2026-129291-v1.jpg" width="800" height="400" loading="lazy" decoding="async" alt="PHP-FPMのローカル権限を表した概念図"><figcaption>権限の概念図です。この問題ではPHPの親プロセスと処理役の権限の差を確認します。</figcaption></figure>
+<summary><span class="php-cve-title">PHP-FPMのローカル権限</span><span class="php-cve-id">CVE-2026-129291</span><span class="php-score">CVSS 8.8</span></summary>
+<div class="php-cve-body">
 <dl><dt>影響系列</dt><dd>PHP 8.2.7以降の8.2、8.3〜8.5の修正前</dd>
 <dt>自分の環境で確かめること</dt><dd>LinuxのPHP-FPMで、処理役の出力をまとめて記録する設定を確認します。この問題だけで外部から侵入できるわけではなく、対象の処理役ですでにコードを動かせることが前提です。</dd>
 <dt>起こり得ること</dt><dd>処理役より強い親プロセスの権限を取得されるおそれがあります。コンテナの外へ脱出できると確認されたわけではありません。</dd>
 <dt>対処</dt><dd>PHPを更新します。待つ間は必要のない処理役の出力収集を止め、親プロセスの権限を必要最小限にします。</dd>
-<dt>PHP公式の修正版</dt><dd>8.2.36、8.3.37、8.4.28、8.5.13</dd></dl>
-<p><a href="https://github.com/php/php-src/security/advisories/GHSA-jm4m-qfqx-967m">CVE-2026-129291のPHP公式アドバイザリ</a></p>
+<dt>PHP公式の修正版</dt><dd>8.2.36、8.3.37、8.4.28、8.5.13</dd><dt>設定・コードで見る場所</dt><dd>PHP-FPMプールの <code>catch_workers_output</code> と、親プロセスの実行ユーザーを確認します。出力の集約が不要なら暫定的に <code>catch_workers_output = no</code> を検討します。 <a href="#read-only-checks">FPM設定を読む</a></dd></dl>
+<figure class="php-steps"><img src="/assets/php-cve-2026-129291-v1.jpg" width="800" height="400" loading="lazy" decoding="async" alt="PHP-FPMのローカル権限を表した概念図"><figcaption>権限の概念図です。この問題ではPHPの親プロセスと処理役の権限の差を確認します。</figcaption></figure>
+
+<p class="php-cve-source"><a href="https://github.com/php/php-src/security/advisories/GHSA-jm4m-qfqx-967m">CVE-2026-129291のPHP公式アドバイザリ</a></p>
 </div></details>
 <details class="php-cve" id="cve-2026-128064">
-<summary><strong>CVE-2026-128064</strong>：HTTPS・FTPSの暗号化 <span class="php-score">CVSS 8.2</span></summary>
-<div>
-<figure class="php-steps"><img src="/assets/php-cve-2026-128064-v1.jpg" width="800" height="400" loading="lazy" decoding="async" alt="HTTPS・FTPSの暗号化を表した概念図"><figcaption>確認対象：HTTPS・FTPSの暗号化。実際の画面ではありません。</figcaption></figure>
+<summary><span class="php-cve-title">HTTPS・FTPSの暗号化</span><span class="php-cve-id">CVE-2026-128064</span><span class="php-score">CVSS 8.2</span></summary>
+<div class="php-cve-body">
 <dl><dt>影響系列</dt><dd>PHP 8.2〜8.5の修正前</dd>
 <dt>自分の環境で確かめること</dt><dd>PHP標準の通信機能でHTTPSやFTPSを開くアプリが対象です。外部から渡されるURLや自動転送先も確認します。</dd>
 <dt>起こり得ること</dt><dd>一部のURL表記で暗号化されず、通信経路上の相手に認証情報や内容が見えるおそれがあります。</dd>
 <dt>対処</dt><dd>PHPを更新します。接続先を許可リストで絞り、転送先も検証します。不要な自動転送は止めます。</dd>
-<dt>PHP公式の修正版</dt><dd>8.2.36、8.3.37、8.4.28、8.5.13</dd></dl>
-<p><a href="https://github.com/php/php-src/security/advisories/GHSA-f6gg-rchx-xw8j">CVE-2026-128064のPHP公式アドバイザリ</a></p>
+<dt>PHP公式の修正版</dt><dd>8.2.36、8.3.37、8.4.28、8.5.13</dd><dt>設定・コードで見る場所</dt><dd><code>allow_url_fopen</code> は手掛かりです。アプリがPHP標準のストリームで対象の通信を開くか、転送先を検証しているかも確認します。 <a href="#read-only-checks">PHP設定を読む</a></dd></dl>
+<figure class="php-steps"><img src="/assets/php-cve-2026-128064-v1.jpg" width="800" height="400" loading="lazy" decoding="async" alt="HTTPS・FTPSの暗号化を表した概念図"><figcaption>確認対象：HTTPS・FTPSの暗号化。実際の画面ではありません。</figcaption></figure>
+
+<p class="php-cve-source"><a href="https://github.com/php/php-src/security/advisories/GHSA-f6gg-rchx-xw8j">CVE-2026-128064のPHP公式アドバイザリ</a></p>
 </div></details>
 <details class="php-cve" id="cve-2026-127960">
-<summary><strong>CVE-2026-127960</strong>：外部HTTP応答の処理 <span class="php-score">CVSS 8.7</span></summary>
-<div>
-<figure class="php-steps"><img src="/assets/php-cve-2026-127960-v1.jpg" width="800" height="400" loading="lazy" decoding="async" alt="外部HTTP応答の処理を表した概念図"><figcaption>確認対象：外部HTTP応答の処理。実際の画面ではありません。</figcaption></figure>
+<summary><span class="php-cve-title">外部HTTP応答の処理</span><span class="php-cve-id">CVE-2026-127960</span><span class="php-score">CVSS 8.7</span></summary>
+<div class="php-cve-body">
 <dl><dt>影響系列</dt><dd>PHP 8.2.28以降の8.2、8.3.18以降の8.3、8.4.5以降の8.4、8.5の修正前</dd>
 <dt>自分の環境で確かめること</dt><dd>アプリがPHP標準のHTTP通信で外部の応答を読み込む場合が対象です。機能が有効なだけで、アプリが外部へ通信しないなら同じ条件ではありません。</dd>
 <dt>起こり得ること</dt><dd>応答の処理でCPUを使い続け、Webサイトの処理が待たされるおそれがあります。情報の流出や改ざんは確認されていません。</dd>
 <dt>対処</dt><dd>PHPを更新します。外部通信と転送の行き先を絞り、タイムアウトや負荷制限も併用します。</dd>
-<dt>PHP公式の修正版</dt><dd>8.2.36、8.3.37、8.4.28、8.5.13</dd></dl>
-<p><a href="https://github.com/php/php-src/security/advisories/GHSA-mmf9-xm3v-hg2x">CVE-2026-127960のPHP公式アドバイザリ</a></p>
+<dt>PHP公式の修正版</dt><dd>8.2.36、8.3.37、8.4.28、8.5.13</dd><dt>設定・コードで見る場所</dt><dd><code>allow_url_fopen</code> と <code>default_socket_timeout</code> は手掛かりです。設定が有効でも、アプリが外部HTTP応答を処理していなければ同じ条件ではありません。 <a href="#read-only-checks">PHP設定を読む</a></dd></dl>
+<figure class="php-steps"><img src="/assets/php-cve-2026-127960-v1.jpg" width="800" height="400" loading="lazy" decoding="async" alt="外部HTTP応答の処理を表した概念図"><figcaption>確認対象：外部HTTP応答の処理。実際の画面ではありません。</figcaption></figure>
+
+<p class="php-cve-source"><a href="https://github.com/php/php-src/security/advisories/GHSA-mmf9-xm3v-hg2x">CVE-2026-127960のPHP公式アドバイザリ</a></p>
 </div></details>
 <details class="php-cve" id="cve-2026-128090">
-<summary><strong>CVE-2026-128090</strong>：PHAR署名の検証 <span class="php-score">CVSS 7.7</span></summary>
-<div>
-<figure class="php-steps"><img src="/assets/php-cve-2026-128090-v1.jpg" width="800" height="400" loading="lazy" decoding="async" alt="PHAR署名の検証を表した概念図"><figcaption>確認対象：PHAR署名の検証。実際の画面ではありません。</figcaption></figure>
+<summary><span class="php-cve-title">PHAR署名の検証</span><span class="php-cve-id">CVE-2026-128090</span><span class="php-score">CVSS 7.7</span></summary>
+<div class="php-cve-body">
 <dl><dt>影響系列</dt><dd>PHP 8.2〜8.5の修正前</dd>
 <dt>自分の環境で確かめること</dt><dd>PHPの実行用アーカイブ（PHAR）を読み込み、そのファイルが正規のものかをOpenSSL署名で判定している環境が対象です。</dd>
 <dt>起こり得ること</dt><dd>差し替えられたアーカイブを正規品として受け入れ、読み込む場面によっては改ざんコードを動かすおそれがあります。</dd>
 <dt>対処</dt><dd>PHPを更新します。更新まで入手先を信頼できる配布元に限定し、PHP任せにせず、別途信頼できる方法で署名やハッシュを照合します。</dd>
-<dt>PHP公式の修正版</dt><dd>8.2.36、8.3.37、8.4.28、8.5.13</dd></dl>
-<p><a href="https://github.com/php/php-src/security/advisories/GHSA-68fq-fh7h-f8gr">CVE-2026-128090のPHP公式アドバイザリ</a></p>
+<dt>PHP公式の修正版</dt><dd>8.2.36、8.3.37、8.4.28、8.5.13</dd><dt>設定・コードで見る場所</dt><dd><code>php -m</code> で Phar と OpenSSL の利用可否を確認し、アプリが署名付きPHARを検証して読み込むかを確認します。モジュールがあるだけでは判定できません。 <a href="#read-only-checks">機能の有無を読む</a></dd></dl>
+<figure class="php-steps"><img src="/assets/php-cve-2026-128090-v1.jpg" width="800" height="400" loading="lazy" decoding="async" alt="PHAR署名の検証を表した概念図"><figcaption>確認対象：PHAR署名の検証。実際の画面ではありません。</figcaption></figure>
+
+<p class="php-cve-source"><a href="https://github.com/php/php-src/security/advisories/GHSA-68fq-fh7h-f8gr">CVE-2026-128090のPHP公式アドバイザリ</a></p>
 </div></details>
 <h3 id="medium">中（Moderate）：6件</h3>
 <details class="php-cve" id="cve-2026-129438">
-<summary><strong>CVE-2026-129438</strong>：URIの文字列化 <span class="php-score">CVSS 6.3</span></summary>
-<div>
-<figure class="php-steps"><img src="/assets/php-cve-2026-129438-v1.jpg" width="800" height="400" loading="lazy" decoding="async" alt="URIの文字列化を表した概念図"><figcaption>確認対象：URIの文字列化。実際の画面ではありません。</figcaption></figure>
+<summary><span class="php-cve-title">URIの文字列化</span><span class="php-cve-id">CVE-2026-129438</span><span class="php-score">CVSS 6.3</span></summary>
+<div class="php-cve-body">
 <dl><dt>影響系列</dt><dd>PHP 8.5の修正前</dd>
 <dt>自分の環境で確かめること</dt><dd>外部から受け取ったアドレスを、PHP 8.5のRFC 3986対応URI機能で組み立て直しているアプリを確認します。</dd>
 <dt>起こり得ること</dt><dd>極端に長いデータを処理すると、アドレスが正しく出力されなかったり、処理負荷が上がったりします。コード実行が確認されたわけではありません。</dd>
 <dt>対処</dt><dd>8.5.13に更新し、入力と組み立て後のURIの両方に用途に合うバイト数の上限を設けます。</dd>
-<dt>PHP公式の修正版</dt><dd>8.5.13</dd></dl>
-<p><a href="https://github.com/php/php-src/security/advisories/GHSA-mg3p-mxj9-g2mm">CVE-2026-129438のPHP公式アドバイザリ</a></p>
+<dt>PHP公式の修正版</dt><dd>8.5.13</dd><dt>設定・コードで見る場所</dt><dd>PHP 8.5のURI機能を使うコードを確認します。単独の設定値で影響を判定できません。 <a href="#read-only-checks">PHP設定を読む</a></dd></dl>
+<figure class="php-steps"><img src="/assets/php-cve-2026-129438-v1.jpg" width="800" height="400" loading="lazy" decoding="async" alt="URIの文字列化を表した概念図"><figcaption>確認対象：URIの文字列化。実際の画面ではありません。</figcaption></figure>
+
+<p class="php-cve-source"><a href="https://github.com/php/php-src/security/advisories/GHSA-mg3p-mxj9-g2mm">CVE-2026-129438のPHP公式アドバイザリ</a></p>
 </div></details>
 <details class="php-cve" id="cve-2026-129538">
-<summary><strong>CVE-2026-129538</strong>：PHP-CGIのパス情報 <span class="php-score">CVSS 6.9</span></summary>
-<div>
-<figure class="php-steps"><img src="/assets/php-cve-2026-129538-v1.jpg" width="800" height="400" loading="lazy" decoding="async" alt="PHP-CGIのパス情報を表した概念図"><figcaption>確認対象：PHP-CGIのパス情報。実際の画面ではありません。</figcaption></figure>
+<summary><span class="php-cve-title">PHP-CGIのパス情報</span><span class="php-cve-id">CVE-2026-129538</span><span class="php-score">CVSS 6.9</span></summary>
+<div class="php-cve-body">
 <dl><dt>影響系列</dt><dd>PHP 8.2〜8.5の修正前</dd>
 <dt>自分の環境で確かめること</dt><dd>WebサーバーとPHPのつなぎ方がPHP-CGIの構成を確認します。PHP-FPMとは別の問題です。</dd>
 <dt>起こり得ること</dt><dd>処理が止まったり、想定外のメモリーを読み書きしたりします。情報が外部へ出るかは構成によります。</dd>
 <dt>対処</dt><dd>PHPを更新し、PHP-CGIの待受ポートを外部へ公開しないようにします。一時的にパス補正を止める場合は、公式案内を確認し、既存のURLが動くか検証します。</dd>
-<dt>PHP公式の修正版</dt><dd>8.2.36、8.3.37、8.4.28、8.5.13</dd></dl>
-<p><a href="https://github.com/php/php-src/security/advisories/GHSA-5j3f-64r7-f564">CVE-2026-129538のPHP公式アドバイザリ</a></p>
+<dt>PHP公式の修正版</dt><dd>8.2.36、8.3.37、8.4.28、8.5.13</dd><dt>設定・コードで見る場所</dt><dd>実際にPHP-CGIを使っている場合は <code>cgi.fix_pathinfo</code> を確認します。<code>cgi.fix_pathinfo = 0</code> を暫定採用する前に、既存のURLが動くかを検証してください。 <a href="#read-only-checks">PHP設定を読む</a></dd></dl>
+<figure class="php-steps"><img src="/assets/php-cve-2026-129538-v1.jpg" width="800" height="400" loading="lazy" decoding="async" alt="PHP-CGIのパス情報を表した概念図"><figcaption>確認対象：PHP-CGIのパス情報。実際の画面ではありません。</figcaption></figure>
+
+<p class="php-cve-source"><a href="https://github.com/php/php-src/security/advisories/GHSA-5j3f-64r7-f564">CVE-2026-129538のPHP公式アドバイザリ</a></p>
 </div></details>
 <details class="php-cve" id="cve-2026-129506">
-<summary><strong>CVE-2026-129506</strong>：SOAPとXMLの処理 <span class="php-score">CVSS 6.3</span></summary>
-<div>
-<figure class="php-steps"><img src="/assets/php-cve-2026-129506-v1.jpg" width="800" height="400" loading="lazy" decoding="async" alt="SOAPとXMLの処理を表した概念図"><figcaption>確認対象：SOAPとXMLの処理。実際の画面ではありません。</figcaption></figure>
+<summary><span class="php-cve-title">SOAPとXMLの処理</span><span class="php-cve-id">CVE-2026-129506</span><span class="php-score">CVSS 6.3</span></summary>
+<div class="php-cve-body">
 <dl><dt>影響系列</dt><dd>PHP 8.2〜8.5の修正前</dd>
 <dt>自分の環境で確かめること</dt><dd>SOAPを使い、外部から届くXMLや、外部で管理される定義ファイルを解析する環境を確認します。</dd>
 <dt>起こり得ること</dt><dd>PHPの処理役が異常終了してサービスが止まるおそれがあります。コード実行や機密情報の流出は確認されていません。</dd>
 <dt>対処</dt><dd>PHPを更新します。SOAPの公開先を必要な相手に絞り、信頼できる定義ファイルだけを使います。利用不要なら関連機能を止めます。</dd>
-<dt>PHP公式の修正版</dt><dd>8.2.36、8.3.37、8.4.28、8.5.13</dd></dl>
-<p><a href="https://github.com/php/php-src/security/advisories/GHSA-4646-p932-gw34">CVE-2026-129506のPHP公式アドバイザリ</a></p>
+<dt>PHP公式の修正版</dt><dd>8.2.36、8.3.37、8.4.28、8.5.13</dd><dt>設定・コードで見る場所</dt><dd><code>soap</code> 拡張の有無、SOAPの公開範囲、利用するWSDLやXMLの取り込み元を確認します。 <a href="#read-only-checks">機能の有無を読む</a></dd></dl>
+<figure class="php-steps"><img src="/assets/php-cve-2026-129506-v1.jpg" width="800" height="400" loading="lazy" decoding="async" alt="SOAPとXMLの処理を表した概念図"><figcaption>確認対象：SOAPとXMLの処理。実際の画面ではありません。</figcaption></figure>
+
+<p class="php-cve-source"><a href="https://github.com/php/php-src/security/advisories/GHSA-4646-p932-gw34">CVE-2026-129506のPHP公式アドバイザリ</a></p>
 </div></details>
 <details class="php-cve" id="cve-2026-129501">
-<summary><strong>CVE-2026-129501</strong>：DOMのXML出力 <span class="php-score">CVSS 6.3</span></summary>
-<div>
-<figure class="php-steps"><img src="/assets/php-cve-2026-129501-v1.jpg" width="800" height="400" loading="lazy" decoding="async" alt="DOMのXML出力を表した概念図"><figcaption>確認対象：DOMのXML出力。実際の画面ではありません。</figcaption></figure>
+<summary><span class="php-cve-title">DOMのXML出力</span><span class="php-cve-id">CVE-2026-129501</span><span class="php-score">CVSS 6.3</span></summary>
+<div class="php-cve-body">
 <dl><dt>影響系列</dt><dd>PHP 8.4〜8.5の修正前</dd>
 <dt>自分の環境で確かめること</dt><dd>新しいDOM機能を使い、外部由来の文書をXMLとして出力し直すアプリを確認します。</dd>
 <dt>起こり得ること</dt><dd>PHP内のメモリーが破損し、処理役がクラッシュするおそれがあります。コード実行は確認されていません。</dd>
 <dt>対処</dt><dd>PHPを更新します。待つ間は信頼できない文書のXMLへの再出力を避けます。</dd>
-<dt>PHP公式の修正版</dt><dd>8.4.28、8.5.13</dd></dl>
-<p><a href="https://github.com/php/php-src/security/advisories/GHSA-x8r7-mg3g-74hg">CVE-2026-129501のPHP公式アドバイザリ</a></p>
+<dt>PHP公式の修正版</dt><dd>8.4.28、8.5.13</dd><dt>設定・コードで見る場所</dt><dd><code>dom</code> 拡張の有無と、アプリで外部由来の文書をXMLに再出力している箇所を確認します。 <a href="#read-only-checks">機能の有無を読む</a></dd></dl>
+<figure class="php-steps"><img src="/assets/php-cve-2026-129501-v1.jpg" width="800" height="400" loading="lazy" decoding="async" alt="DOMのXML出力を表した概念図"><figcaption>確認対象：DOMのXML出力。実際の画面ではありません。</figcaption></figure>
+
+<p class="php-cve-source"><a href="https://github.com/php/php-src/security/advisories/GHSA-x8r7-mg3g-74hg">CVE-2026-129501のPHP公式アドバイザリ</a></p>
 </div></details>
 <details class="php-cve" id="cve-2026-129292">
-<summary><strong>CVE-2026-129292</strong>：PHP-FPMのステータス画面 <span class="php-score">CVSS 5.3</span></summary>
-<div>
-<figure class="php-steps"><img src="/assets/php-cve-2026-129292-v1.jpg" width="800" height="400" loading="lazy" decoding="async" alt="PHP-FPMのステータス画面を表した概念図"><figcaption>確認対象：PHP-FPMのステータス画面。実際の画面ではありません。</figcaption></figure>
+<summary><span class="php-cve-title">PHP-FPMのステータス画面</span><span class="php-cve-id">CVE-2026-129292</span><span class="php-score">CVSS 5.3</span></summary>
+<div class="php-cve-body">
 <dl><dt>影響系列</dt><dd>PHP 8.2〜8.5の修正前</dd>
 <dt>自分の環境で確かめること</dt><dd>PHP-FPMの状態ページを有効にして、詳細表示をHTMLで開く人や監視ツールがいる環境を確認します。</dd>
 <dt>起こり得ること</dt><dd>監視担当者のブラウザで意図しないスクリプトが動いたり、監視ツールの読み取りに失敗したりするおそれがあります。</dd>
 <dt>対処</dt><dd>PHPを更新します。状態ページは非公開とし、不要なら止めます。詳細HTMLの利用を避け、監視画面には取得内容を文字として表示します。</dd>
-<dt>PHP公式の修正版</dt><dd>8.2.36、8.3.37、8.4.28、8.5.13</dd></dl>
-<p><a href="https://github.com/php/php-src/security/advisories/GHSA-3mg3-cr28-46gc">CVE-2026-129292のPHP公式アドバイザリ</a></p>
+<dt>PHP公式の修正版</dt><dd>8.2.36、8.3.37、8.4.28、8.5.13</dd><dt>設定・コードで見る場所</dt><dd>FPMプールの <code>pm.status_path</code> と <code>pm.status_listen</code>、Webサーバー側で状態ページをどこに公開しているか、管理者や監視が詳細HTMLを開くかを確認します。 <a href="#read-only-checks">FPM設定を読む</a></dd></dl>
+<figure class="php-steps"><img src="/assets/php-cve-2026-129292-v1.jpg" width="800" height="400" loading="lazy" decoding="async" alt="PHP-FPMのステータス画面を表した概念図"><figcaption>確認対象：PHP-FPMのステータス画面。実際の画面ではありません。</figcaption></figure>
+
+<p class="php-cve-source"><a href="https://github.com/php/php-src/security/advisories/GHSA-3mg3-cr28-46gc">CVE-2026-129292のPHP公式アドバイザリ</a></p>
 </div></details>
 <details class="php-cve" id="cve-2026-15353">
-<summary><strong>CVE-2026-15353</strong>：SOAPデータと情報漏えい <span class="php-score">CVSS 6.3</span></summary>
-<div>
-<figure class="php-steps"><img src="/assets/php-cve-2026-15353-v1.jpg" width="800" height="400" loading="lazy" decoding="async" alt="SOAPデータと情報漏えいを表した概念図"><figcaption>SOAPの概念図です。この問題では展開したデータを応答に載せているか確認します。</figcaption></figure>
+<summary><span class="php-cve-title">SOAPデータと情報漏えい</span><span class="php-cve-id">CVE-2026-15353</span><span class="php-score">CVSS 6.3</span></summary>
+<div class="php-cve-body">
 <dl><dt>影響系列</dt><dd>PHP 8.2〜8.5の修正前</dd>
 <dt>自分の環境で確かめること</dt><dd>外部から受け取った配列をPHPのSOAP機能で展開し、その結果を応答や画面に載せるアプリを確認します。</dd>
 <dt>起こり得ること</dt><dd>条件によって、PHPが処理中に使っていたメモリーの一部が応答に混ざるおそれがあります。受信したというだけで漏えいしたことにはなりません。</dd>
 <dt>対処</dt><dd>PHPを更新し、SOAPを利用できる相手を絞ります。受け取ったデータを検証せず応答に載せないようにします。</dd>
-<dt>PHP公式の修正版</dt><dd>8.2.36、8.3.37、8.4.28、8.5.13</dd></dl>
-<p><a href="https://github.com/php/php-src/security/advisories/GHSA-q23r-hr55-xmpg">CVE-2026-15353のPHP公式アドバイザリ</a></p>
+<dt>PHP公式の修正版</dt><dd>8.2.36、8.3.37、8.4.28、8.5.13</dd><dt>設定・コードで見る場所</dt><dd><code>soap</code> 拡張の有無に加え、受信データを展開し、アプリが応答に載せるかを確認します。 <a href="#read-only-checks">機能の有無を読む</a></dd></dl>
+<figure class="php-steps"><img src="/assets/php-cve-2026-15353-v1.jpg" width="800" height="400" loading="lazy" decoding="async" alt="SOAPデータと情報漏えいを表した概念図"><figcaption>SOAPの概念図です。この問題では展開したデータを応答に載せているか確認します。</figcaption></figure>
+
+<p class="php-cve-source"><a href="https://github.com/php/php-src/security/advisories/GHSA-q23r-hr55-xmpg">CVE-2026-15353のPHP公式アドバイザリ</a></p>
 </div></details>
 <p>同梱ライブラリの <a href="https://github.com/uriparser/uriparser/blob/uriparser-1.0.3/ChangeLog">uriparser（CVE-2026-48841）</a>はPHP本体の17件とは別です。PHP 8.5.13はこのライブラリを1.0.3に更新しています。このライブラリの不具合がPHPから悪用できるかは、この更新記録だけでは判断できません。</p>
+</section>
+
+<section class="php-check" aria-labelledby="read-only-checks">
+<h2 id="read-only-checks">確認用コマンド</h2>
+<p>管理権限のあるホストやコンテナで、設定を変えずに確認します。<code>php</code> は端末用です。Web側で使うPHP-FPM・CGI・コンテナの設定と一致するとは限りません。Webに <code>phpinfo()</code> を公開する必要はありません。</p>
+<h3>PHPのバージョン・設定ファイル・設定値</h3>
+<pre><code>php -v
+php --ini
+php -i | grep -E '^(Server API|Thread Safety|session\.(upload_progress\.enabled|save_handler|serialize_handler)|zend\.exception_ignore_args|fatal_error_backtraces|log_errors|error_log|cgi\.fix_pathinfo|allow_url_fopen|default_socket_timeout) =&gt;'</code></pre>
+<p>このPHPがどの設定ファイルを読み、各項目がどうなっているかを見ます。FPMでは実際のバイナリ名（例：<code>php-fpm8.4</code>）の <code>-i</code> も確認し、プールやアプリの上書きと照合します。<code>session.save_path</code> は保存先の認証情報を含む場合があるため、このコマンドでは表示しません。比較が必要なときだけ管理者が手元で確認し、認証情報・接続先・内部パスは外部に共有しないでください。</p>
+<h3>PHP-FPMのプール設定</h3>
+<pre><code>grep -REn '^[[:space:]]*(catch_workers_output|pm\.status_path|pm\.status_listen)[[:space:]]*=' /etc/php/*/fpm/pool.d /etc/php-fpm.d</code></pre>
+<p>よくある設定ディレクトリの例です。存在しないパスのエラーが出ることがあります。環境のプール設定が別の場所にある場合はそちらを見ます。値が見つからないことだけで、無効や非公開とは判断できません。</p>
+<h3>nginxとApacheのFastCGI接続再利用</h3>
+<pre><code>nginx -T 2&gt;&amp;1 | grep -nE '^[[:space:]]*fastcgi_keep_conn[[:space:]]'
+apachectl -M 2&gt;&amp;1 | grep proxy_fcgi
+grep -REin '^[[:space:]]*[^#[:space:]].*enablereuse[[:space:]]*=' /etc/apache2 /etc/httpd</code></pre>
+<p>nginxは該当サイトの有効な設定で <code>fastcgi_keep_conn</code> を確認します。ApacheはFastCGIの接続再利用設定を確認します。出力が空であれば、コマンドが成功したかと対象サイトがどの設定を使うかを先に確認してください。</p>
+<p>公式資料：<a href="https://www.php.net/manual/en/features.commandline.options.php">PHPのCLI</a>、<a href="https://www.php.net/manual/en/install.fpm.configuration.php">FPM設定</a>、<a href="https://nginx.org/en/docs/switches.html">nginxの引数</a>、<a href="https://httpd.apache.org/docs/2.4/programs/httpd.html">Apacheの引数</a>。</p>
+<h3>拡張機能を確認する</h3>
+<pre><code>php -m | grep -Ei '^(soap|dom|phar|openssl)$'</code></pre>
+<p>出力にあれば、そのPHPで拡張を読み込んでいます。実際のWeb側でも読み込まれているかと、アプリが該当機能を呼ぶかは別に確認します。</p>
 </section>
 <section aria-labelledby="steps" id="quick">
 <h2 id="steps">今すること</h2>
