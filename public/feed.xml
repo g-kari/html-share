@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Thu, 19 Nov 2026 17:43:36 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 19 Nov 2026 19:11:41 GMT</lastBuildDate>
+    <item>
+      <title>Vitest Browser Mode 試験導入の実測：jsdom 17ファイルで Duration 約32秒→26.20秒、通過は222/283</title>
+      <link>https://share.0g0.xyz/vitest-browser-mode-pilot</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/vitest-browser-mode-pilot</guid>
+      <description>g-kari/tools の jsdom テスト17ファイル（283件）を Vitest 5.1.1 の Browser Mode（Playwright の Chromium）で実行した実測結果。総時間は約32秒から26.20秒に短縮したが、通過は222件だった。失敗の分類と、移行に向く環境・向かない環境の目安を整理した。</description>
+      <pubDate>Thu, 19 Nov 2026 19:11:41 GMT</pubDate>
+      <dcterms:created>2026-11-19T19:11:41.000Z</dcterms:created>
+      <dcterms:modified>2026-11-19T19:11:41.000Z</dcterms:modified>
+    </item>
     <item>
       <title>CVE監視 第1号（2026年11月20日）：FrankenPHP・NGINX・OpenSSL・Next.js・containerd</title>
       <link>https://share.0g0.xyz/cve-watch-2026-11-20</link>
