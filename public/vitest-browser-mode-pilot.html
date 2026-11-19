@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vitest Browser Mode 試験導入の実測：jsdom 17ファイルで Duration 約32秒→26.20秒、通過は222/283</title>
+<meta name="description" content="g-kari/tools の jsdom テスト17ファイル（283件）を Vitest 5.1.1 の Browser Mode（Playwright の Chromium）で実行した実測結果。総時間は約32秒から26.20秒に短縮したが、通過は222件だった。失敗の分類と、移行に向く環境・向かない環境の目安を整理した。">
+<link rel="canonical" href="https://share.0g0.xyz/vitest-browser-mode-pilot">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="Vitest Browser Mode 試験導入の実測">
+<meta property="og:description" content="jsdom 17ファイル・283テストを実ブラウザで実行。Duration は約32秒→26.20秒、通過は222件。速くなる部分と、落ちる理由の分類、移行の目安。">
+<meta property="og:url" content="https://share.0g0.xyz/vitest-browser-mode-pilot">
+<meta property="og:image" content="https://share.0g0.xyz/assets/vitest-browser-mode-pilot-ogp-v1.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Vitest Browser Mode 試験導入の実測。jsdom 約32秒から Browser Mode 26.20秒、通過222/283と書かれた記事のカバー画像">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Vitest Browser Mode 試験導入の実測">
+<meta name="twitter:description" content="jsdom 17ファイル・283テストを実ブラウザで実行した結果と、移行に向く環境の目安。">
+<meta name="twitter:image" content="https://share.0g0.xyz/assets/vitest-browser-mode-pilot-ogp-v1.png">
+<meta name="twitter:image:alt" content="Vitest Browser Mode 試験導入の実測のカバー画像">
+<link rel="stylesheet" href="/assets/site.css">
+<style>
+:root{--accent:#7c3aed;--accent-dark:#c4a5f5}
+@media(prefers-color-scheme:dark){:root{--accent:var(--accent-dark)}}
+#article-title{font-size:clamp(1.55rem,5.2vw,2.4rem)}
+table.data{border-collapse:collapse;width:100%;margin:.7rem 0;font-size:.95rem}
+table.data th,table.data td{border:1px solid var(--line);padding:.45rem .7rem;text-align:left;vertical-align:top}
+table.data th{background:var(--panel);white-space:nowrap}
+table.data td.num,table.data th.num{text-align:right;font-family:var(--mono);white-space:nowrap}
+figure.diagram{margin:1rem 0;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:.8rem}
+figure.diagram svg{width:100%;height:auto;display:block}
+figure.diagram figcaption{font-size:.88rem;color:var(--muted);margin-top:.5rem}
+.tag{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:.05rem .7rem;font-size:.88rem;margin:.2rem .2rem .2rem 0;background:var(--panel)}
+.src{font-size:.9rem;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="sitebar">
+<a class="brand" href="/">HTML Share</a>
+<nav aria-label="サイト"><a href="/">一覧</a><a href="/feed.xml">RSS</a></nav>
+</header>
+<main id="main">
+<article>
+<header class="top">
+<p class="kicker">テスト / Vitest</p>
+<h1 id="article-title">Vitest Browser Mode 試験導入の実測</h1>
+<p class="meta">対象：g-kari/tools の jsdom テスト17ファイル・283テスト / 実施日：2026年11月20日 / 前提：Vitest 5.1.1（tools PR #367、未マージ）</p>
+</header>
+
+<section class="summary3" aria-label="要約">
+<h2>結論</h2>
+<p>jsdom で実行していた重い17ファイル（283テスト）を、Vitest 5.1.1 の Browser Mode（Playwright の Chromium）で実行しました。総時間（Duration）は現行の約32秒から 26.20秒に短くなりましたが、全通過にはならず、通過は 222/283（78%）でした。ファイル単位のテスト実行そのものは実ブラウザの方が概ね3〜10倍速く、遅さの主因は jsdom の環境構築でした。一方で、落ちた61件の大半は実ブラウザの性能ではなく、Node API 前提のモックやタイムゾーン切替など、テスト側の前提が実ブラウザで成立しないことが理由です。素直な DOM・hydration・ライフサイクル系の12ファイルは全通過しました。移行するかどうかは速度よりも「テストが Node の仕組みにどれだけ依存しているか」で決まります。</p>
+</section>
+
+<nav class="toc" aria-label="目次">
+<h2>目次</h2>
+<ul>
+<li><a href="#scope">測った範囲と条件</a></li>
+<li><a href="#results">実測結果</a></li>
+<li><a href="#cache">5.1.1 のモジュールキャッシュ再利用</a></li>
+<li><a href="#failures">失敗の分類</a></li>
+<li><a href="#guide">移行の目安：向く環境、向かない環境</a></li>
+<li><a href="#full">全面移行の見込みと作業量</a></li>
+<li><a href="#sources">出典と測定条件</a></li>
+</ul>
+</nav>
+
+<h2 id="scope">測った範囲と条件</h2>
+<p>対象リポジトリは g-kari/tools です。単体テスト全387ファイルのうち <code>@vitest-environment jsdom</code> を使う36ファイルが DOM 系で、その中から全スイート実行時に重かった上位15ファイルに、性質の異なる代表2ファイル（クリップボード、Canvas/Blob 系）を加えた17ファイル・283テストを対象にしました。対象だけで jsdom 群の実行時間の約68%を占めます。</p>
+<p>この試験は Vitest を 4.0.16 から 5.1.1 へ上げる tools PR #367（未マージ）を前提にしています。</p>Browser Mode は上流 Vitest 5.1.1 と <code>@vitest/browser-playwright</code> 5.1.1 で実行しました。測定環境は共有1.5 CPU の VM で、数値はこの環境とこの対象範囲での実測です。CPU の多い CI や別のプロジェクトでは結果が変わります。</p>
+<p>なお、現行のテストは <code>vite-plus/test</code> 経由で import しており、上流 Vitest の素の実行系では動きません。試験では試験用設定の <code>resolve.alias</code> で <code>vite-plus/test</code> を <code>vitest</code> に読み替えて実行しました。この読み替え自体は全ファイルで機能しましたが、本導入では import の扱いを決める必要があります。</p>
+
+<h2 id="results">実測結果</h2>
+<table class="data">
+<tr><th>方式</th><th>条件</th><th class="num">Duration</th><th class="num">結果</th></tr>
+<tr><td>現行（node + jsdom）</td><td>2回測定</td><td class="num">32.18秒 / 31.29秒</td><td class="num">283/283 全通過</td></tr>
+<tr><td>Browser Mode</td><td>既定の並列実行・設定不完全</td><td class="num">75.34秒</td><td class="num">React 二重解決で大半失敗</td></tr>
+<tr><td>Browser Mode</td><td>既定の並列実行・設定修正後</td><td class="num">83.73秒</td><td class="num">初期化タイムアウトで打ち切り</td></tr>
+<tr><td>Browser Mode</td><td>ファイル逐次実行・キャッシュ温</td><td class="num"><strong>26.20秒</strong></td><td class="num">222/283 通過</td></tr>
+</table>
+<p>現行方式の内訳（1回目）は、テスト実行 29.97秒に対し、jsdom の環境構築（environment）が並列合計で 40.11秒、import が 11.76秒でした。テスト本体より、ファイルごとに jsdom 環境を作るコストの方が大きい構成です。Browser Mode 側でこの環境構築は消え、代わりにブラウザ起動とモジュール配信のコストが入ります。</p>
+<p>並列実行がうまくいかなかった点は環境依存です。この VM（共有1.5 CPU）では、既定の並列実行で iframe の初期化が60秒タイムアウトに達し、実行が打ち切られました。同じファイルは単独実行では 4.48秒で全通過しており、ファイル固有の問題ではありません。逐次実行では全ファイルが安定して回りました。CI の CPU 割当によっては並列度の調整が必要です。</p>
+<p>Browser Mode の 26.20秒は、import 失敗で未実行になった1ファイル（26テスト）を除く257テストの実行時間です。未実行分を含む単純比較では現行方式が不利にならないよう注意してください。それでも、並列実行の現行方式と逐次実行の Browser Mode が同等以下に収まりました。</p>
+
+<figure class="diagram">
+<svg viewBox="0 0 760 300" role="img" aria-label="ファイル別のテスト実行時間の比較。csv-sql は jsdom 5317ミリ秒から Browser 715ミリ秒、検索モーダルは 4203から727、Markdown表は 2812から264、XML変換は 2097から135。一方で hash-lifecycle は 4114から5266へ遅くなったことを示す棒グラフ">
+<g font-size="13" fill="currentColor">
+<text x="5" y="18">ファイル別のテスト実行時間（ミリ秒）。上段が jsdom、下段が Browser Mode</text>
+<text x="5" y="48">csv-sql-early-input</text>
+<rect x="190" y="36" width="531" height="13" fill="#8a8a96"/>
+<rect x="190" y="52" width="72" height="13" fill="#7c3aed"/>
+<text x="726" y="48">5317</text><text x="267" y="64">715</text>
+<text x="5" y="92">search-modal-lifecycle</text>
+<rect x="190" y="80" width="420" height="13" fill="#8a8a96"/>
+<rect x="190" y="96" width="73" height="13" fill="#7c3aed"/>
+<text x="615" y="92">4203</text><text x="268" y="108">727</text>
+<text x="5" y="136">markdown-table-ui</text>
+<rect x="190" y="124" width="281" height="13" fill="#8a8a96"/>
+<rect x="190" y="140" width="26" height="13" fill="#7c3aed"/>
+<text x="476" y="136">2812</text><text x="221" y="152">264</text>
+<text x="5" y="180">xml-json-text-ui</text>
+<rect x="190" y="168" width="210" height="13" fill="#8a8a96"/>
+<rect x="190" y="184" width="14" height="13" fill="#7c3aed"/>
+<text x="405" y="180">2097</text><text x="209" y="196">135</text>
+<text x="5" y="224">world-clock-hydration</text>
+<rect x="190" y="212" width="378" height="13" fill="#8a8a96"/>
+<rect x="190" y="228" width="211" height="13" fill="#7c3aed"/>
+<text x="573" y="224">3780</text><text x="406" y="240">2113</text>
+<text x="5" y="268">hash-lifecycle</text>
+<rect x="190" y="256" width="411" height="13" fill="#8a8a96"/>
+<rect x="190" y="272" width="527" height="13" fill="#7c3aed"/>
+<text x="606" y="268">4114</text><text x="722" y="284">5266</text>
+</g>
+</svg>
+<figcaption>ファイル別のテスト実行時間。jsdom の数値は全スイート実行時の参考値です。DOM 系は実ブラウザで概ね3〜10倍速くなりましたが、hash-lifecycle はモックが届かず失敗を繰り返した分、逆に遅くなりました。</figcaption>
+</figure>
+
+<table class="data">
+<tr><th>ファイル</th><th class="num">jsdom（参考）</th><th class="num">Browser</th><th>結果</th></tr>
+<tr><td>csv-sql-early-input（46件）</td><td class="num">5317ms</td><td class="num">715ms</td><td>全通過</td></tr>
+<tr><td>search-modal-lifecycle（28件）</td><td class="num">4203ms</td><td class="num">727ms</td><td>全通過</td></tr>
+<tr><td>markdown-table-ui（11件）</td><td class="num">2812ms</td><td class="num">264ms</td><td>全通過</td></tr>
+<tr><td>ini-parser-early-input（14件）</td><td class="num">2612ms</td><td class="num">551ms</td><td>全通過</td></tr>
+<tr><td>catalog-search-dom（7件）</td><td class="num">2502ms</td><td class="num">546ms</td><td>全通過</td></tr>
+<tr><td>xml-json-text-ui（5件）</td><td class="num">2097ms</td><td class="num">135ms</td><td>全通過</td></tr>
+<tr><td>ipv6-mixed-ui（4件）</td><td class="num">1998ms</td><td class="num">112ms</td><td>全通過</td></tr>
+<tr><td>nav-category-focus（33件）</td><td class="num">2117ms</td><td class="num">658ms</td><td>32/33</td></tr>
+<tr><td>use-clipboard-dom（14件）</td><td class="num">602ms</td><td class="num">266ms</td><td>12/14</td></tr>
+<tr><td>world-clock-hydration（8件）</td><td class="num">3780ms</td><td class="num">2113ms</td><td>2/8</td></tr>
+<tr><td>hash-lifecycle（28件）</td><td class="num">4114ms</td><td class="num">5266ms</td><td>2/28</td></tr>
+<tr><td>use-generated-gif（26件）</td><td class="num">594ms</td><td class="num">—</td><td>import 失敗で未実行</td></tr>
+</table>
+<p>全通過は12ファイル・174テストです。DOM 操作、hydration、ライフサイクルを素直に検証するタイプは、jsdom の不完全な DOM 実装より実ブラウザの方が速く、結果もそのまま通りました。</p>
+
+<h2 id="cache">5.1.1 のモジュールキャッシュ再利用</h2>
+<p>Vitest 5.1.1 の変更点の一つは、Browser Mode でモジュールキャッシュを再利用し、テストファイルごとにサーバーへ再検証せずブラウザキャッシュから取ることです。実測でも、依存最適化のキャッシュが冷えた初回はファイルごとの import が重く、遅れて最適化される依存があると実行中のリロードも起きましたが、キャッシュが温まった後は import の割合が Duration の 29%まで下がり、単独実行では各ファイルの総 Duration が 2.6〜4.5秒（うちテスト本体は 0.1〜0.6秒台）に収まりました。「2回目以降が速い」という 5.1.1 の説明と整合する挙動です。</p>
+<p>ただし注意点があります。今回の比較は、並列実行から逐次実行への変更とキャッシュの温まりが同時に起きており、キャッシュ効果だけを分離した数値は取れていません。キャッシュ再利用の効果量そのものは、同一条件での再測定が必要です。</p>
+
+<h2 id="failures">失敗の分類</h2>
+<p>通過しなかった61件（未実行26件を含む）は、次の5種類に分類できました。実ブラウザ側の不具合ではなく、テストの前提と実ブラウザの環境の食い違いが中心です。</p>
+
+<h3>1. Node API 前提のモックは実ブラウザに届かない（大）</h3>
+<p>hash-lifecycle（2/28）は、<code>node:crypto</code> の webcrypto と <code>node:util</code> の TextEncoder を import し、<code>subtle.digest</code> を段階制御できるモックに差し替える設計でした。ブラウザのグローバル crypto とは別物のため、アプリ側の digest 呼び出しがモックに届かず、26件が失敗しました。この型はモックの再設計が必要です。</p>
+
+<h3>2. ホストのタイムゾーン切替は実ブラウザで成立しない（中）</h3>
+<p>world-clock-hydration（2/8）は、SSR とクライアントでホストのタイムゾーンをテスト内に切り替える前提でした。実ブラウザのタイムゾーンはインスタンス固定で（この環境では UTC）、6件が失敗しました。Playwright の context の <code>timezoneId</code> をシナリオ別に分ける再構成が必要です。</p>
+
+<h3>3. Node API の import がブラウザで解決できない（小）</h3>
+<p>use-generated-gif（0/26）は <code>node:buffer</code> の Blob を import しており、ブラウザでは externalized されて import 自体が失敗しました。グローバルの Blob への置換で解消できる見込みです。同様に、<code>cloudflare:sockets</code> を import するモジュールに辿り着くスイートはブラウザで解決できないため、Browser Mode の対象外として分離が必要です。</p>
+
+<h3>4. 実ブラウザの実挙動との差（小〜中）</h3>
+<p>use-clipboard-dom の2件は、<code>execCommand</code> フォールバック時の選択範囲の保持が、実ブラウザ（headless Chromium）では jsdom と異なりました。実ブラウザの挙動が本物なので、テストの前提を見直すか、製品コード側が実ブラウザに準拠しているかを確認する対象です。nav-category-focus の1件は、アンマウント時のタイマー掃除のテストで、レイアウト計測（<code>clientHeight</code>）の参照タイミングが実ブラウザと異なり null 参照になりました。</p>
+
+<h3>5. 設定起因（解消可能）</h3>
+<p>password-generator-ui の初回だけのリロード失敗は、<code>optimizeDeps.include</code> の不足でした。React の二重解決を避けるには、<code>react</code>、<code>react-dom</code> の各エントリと <code>react/jsx-runtime</code>、<code>scheduler</code> を揃える必要があり、ファイルごとに遅れて最適化される依存（UI ライブラリ等）も含めて洗い出すことが安定化の要点です。揃えた後はキャッシュが温まれば再発しませんでした。また、Browser Mode では <code>headless: true</code> の明示が必要でした（既定では headed 起動を試み、表示環境のない場所では失敗します）。</p>
+
+<h2 id="guide">移行の目安：向く環境、向かない環境</h2>
+<h3>向いている</h3>
+<ul>
+<li>jsdom の環境構築と DOM 実行がテスト時間の支配的な割合を占めるプロジェクト。今回の対象範囲では environment の並列合計が約40秒と、テスト本体を上回っていました</li>
+<li>テストが実ブラウザの挙動そのものに依存する、または依存すべきプロジェクト。クリップボードやレイアウト計測のように、jsdom と実ブラウザで挙動が違う部分は、実ブラウザで検証する方が正しくなります</li>
+<li>モックが DOM レベルに閉じているスイート。DOM 操作・hydration・ライフサイクル系は、今回12ファイルがそのまま全通過しました</li>
+</ul>
+<h3>向いていない、または追加作業が要る</h3>
+<ul>
+<li>Node API のモックに依存するテストが多いプロジェクト。<code>node:crypto</code> の差し替えのような設計は実ブラウザに届かず、モックの再設計が前提になります</li>
+<li>タイムゾーンや crypto をテスト内で差し替える設計。実ブラウザではインスタンス固定のため、シナリオごとにブラウザ context を分ける再構成が要ります</li>
+<li>CI の CPU が少なく、並列実行が前提の環境。共有1.5 CPU では既定の並列実行が初期化タイムアウトで成立せず、逐次実行に落としました。並列度の調整か CPU の増強が要ります</li>
+</ul>
+<h3>導入の前提作業</h3>
+<ul>
+<li>Vitest 本体を Browser Mode 対応の版にすること。ラッパー経由の場合、そのラッパーが対応版を含むか、上流 Vitest へ切り替えるか（今回の tools では PR #367 が前提）</li>
+<li><code>vite-plus/test</code> のようなラッパー経由の import の扱いを決めること。試験では <code>resolve.alias</code> で読み替えましたが、恒常運用では alias の継続か import の付け替えかを選ぶ必要があります</li>
+<li><code>optimizeDeps.include</code> の洗い出し。React の二重解決を避けるエントリ一式と、遅れて最適化される依存を揃えます</li>
+<li>CI への Chromium の取得（<code>playwright install</code>。Playwright の版に合うブラウザのリビジョン管理を含む）と、並列度の調整</li>
+<li>Browser Mode 用の設定ファイルを分離し、<code>headless: true</code> を明示すること</li>
+</ul>
+
+<h2 id="full">全面移行の見込みと作業量</h2>
+<p>jsdom 群36ファイル全体でも、ファイル単位の実行時間が3〜10倍になる傾向は同様と見込めます。全スイート（387ファイル、Vitest 5.1.1 で 250.87秒）のうち、圧縮対象は jsdom の環境構築（36ファイルで並列合計 128.84秒）と DOM 実行で、数十秒規模の短縮が見込めます。ただし Browser Mode 側の import とワーカーのコスト、並列度の調整次第で最終値は変わるため、総時間は CI での実測が必要です。</p>
+<p>作業量の目安は基盤（上流 Vitest 化のマージ、Browser Mode 用設定の分離、optimizeDeps の洗い出し、CI への Chromium 取得、並列度調整）が1 PR 規模、ファイル別対応は小さいもの（Blob の置換、クリップボードとフォーカスの前提見直し）から大きいもの（crypto の段階モックの再設計）までです。今回未対象の jsdom 群19ファイルは未検証で、同じ分類に収まる見込みですが、1回通しての確認が必要です。</p>
+
+<h2 id="sources">出典と測定条件</h2>
+<ul>
+<li>数値はすべて g-kari/tools での試験導入の実測（2026年11月20日実施）です。前提は Vitest 5.1.1 への更新 PR <a href="https://github.com/g-kari/tools/pull/367">tools PR #367</a>（未マージ）で、Browser Mode の試験設定は本導入ではなく試験用に分離したものです</li>
+<li>測定環境は共有1.5 CPU の VM です。現行方式は2回測定（Duration 32.18秒、31.29秒）、Browser Mode の 26.20秒はファイル逐次実行・キャッシュ温の条件です</li>
+<li>ファイル別の jsdom の数値は、全スイート実行時（Vitest 5.1.1）の参考値です。Browser Mode の数値は対象17ファイルの逐次実行時の値です</li>
+<li>Vitest Browser Mode と 5.1.1 のモジュールキャッシュ再利用については <a href="https://vitest.dev/guide/browser/">Vitest 公式ドキュメント（Browser Mode）</a>を参照してください</li>
+</ul>
+<p class="src">この記事は試験導入の記録です。tools 本体への Browser Mode の導入は未実施で、PR #367 のマージ後に判断します。</p>
+
+</article>
+</main>
+<footer>
+<p><a href="/">HTML Share の一覧へ</a></p>
+</footer>
+</div>
+<script src="/assets/site.js" defer></script>
+</body>
+</html>
