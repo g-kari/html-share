@@ -9,7 +9,20 @@
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://share.0g0.xyz/assets/java4shell-beginners-ogp-v1.png"><meta name="twitter:image:alt" content="Javaの脆弱性、誰が危ない？">
 <style>
 :root{color-scheme:light;--ink:#1c2936;--mute:#526170;--line:#dce4e9;--accent:#b65a0d;--bg:#f6f7f5}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.8 system-ui,-apple-system,'Noto Sans JP',sans-serif}main{max-width:850px;margin:auto;background:white;min-height:100vh;padding:28px clamp(18px,5vw,56px) 60px}h1{font-size:clamp(1.75rem,4vw,2.5rem);line-height:1.35;letter-spacing:-.025em;margin:12px 0}h2{font-size:1.32rem;line-height:1.4;margin:38px 0 12px;border-bottom:2px solid var(--line);padding-bottom:8px}p{margin:12px 0}small,.muted{color:var(--mute)}.eyebrow{font-size:.82rem;color:var(--accent);font-weight:750;letter-spacing:.08em}.lead{font-size:1.12rem;font-weight:600}.key{background:#fff5e9;border-left:5px solid #e49d38;padding:15px 18px;border-radius:5px}.figure{margin:22px 0}.figure img{display:block;width:100%;height:auto;border-radius:10px}.figure figcaption{color:var(--mute);font-size:.85rem;line-height:1.6;margin-top:8px}.steps{padding-left:1.5em}.steps li{margin:8px 0}table{border-collapse:collapse;width:100%;font-size:.94rem}td,th{border:1px solid var(--line);padding:10px;text-align:left;vertical-align:top}th{background:#edf3f7}details{margin:12px 0;border:1px solid var(--line);border-radius:8px;padding:11px 15px}summary{cursor:pointer;font-weight:700}a{color:#075b99;overflow-wrap:anywhere}code{background:#edf2f5;padding:2px 5px;border-radius:4px;overflow-wrap:anywhere}ul{padding-left:1.45em}.foot{font-size:.88rem;color:var(--mute);border-top:1px solid var(--line);padding-top:18px;margin-top:38px}
-</style></head><body><main>
+</style>  <!-- html-share: social metadata -->
+  <link rel="canonical" href="https://share.0g0.xyz/java4shell-beginners">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="HTML Share">
+  <meta property="og:title" content="Javaの脆弱性、誰が危ない？ CVE-2026-114938をやさしく解説">
+  <meta property="og:description" content="Java4Shell（CVE-2026-114938）の攻撃条件、Confluenceと閲覧者のPCの違い、実際に確認することを初心者向けに説明します。">
+  <meta property="og:url" content="https://share.0g0.xyz/java4shell-beginners">
+  <meta name="twitter:title" content="Javaの脆弱性、誰が危ない？ CVE-2026-114938をやさしく解説">
+  <meta name="twitter:description" content="Java4Shell（CVE-2026-114938）の攻撃条件、Confluenceと閲覧者のPCの違い、実際に確認することを初心者向けに説明します。">
+  <!-- /html-share: social metadata -->
+  <!-- html-share: rss discovery -->
+  <link rel="alternate" type="application/rss+xml" title="HTML Share RSS" href="https://share.0g0.xyz/feed.xml">
+  <!-- /html-share: rss discovery -->
+</head><body><main>
 <div class="eyebrow">セキュリティをやさしく理解する</div>
 <h1>Javaの脆弱性、誰が危ない？</h1>
 <p class="muted">CVE-2026-114938（Java4Shell）｜2026年11月18日時点の情報</p>

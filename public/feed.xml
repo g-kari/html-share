@@ -7,7 +7,133 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Fri, 13 Nov 2026 21:05:59 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 19 Nov 2026 16:23:30 GMT</lastBuildDate>
+    <item>
+      <title>PHPのセキュリティ更新：修正版と確認手順（2026年11月19日）</title>
+      <link>https://share.0g0.xyz/php-security-release-2026-11-19</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/php-security-release-2026-11-19</guid>
+      <description>PHP 8.2〜8.5のセキュリティ修正版、重大なセッションの不具合、OSやDockerでの配布状況と更新後の確認をまとめます。</description>
+      <pubDate>Thu, 19 Nov 2026 16:23:30 GMT</pubDate>
+      <dcterms:created>2026-11-19T14:16:03.000Z</dcterms:created>
+      <dcterms:modified>2026-11-19T16:23:30.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>LinuxカーネルのCVEを整理：11月16〜19日公表分</title>
+      <link>https://share.0g0.xyz/linux-kernel-cve-roundup-2026-11-19</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/linux-kernel-cve-roundup-2026-11-19</guid>
+      <description>Linuxカーネルの脆弱性を公表日と機能別に整理。確認したCVEの全件索引、運用別の確認コマンド、CephFS・PHPの個別記事。</description>
+      <pubDate>Thu, 19 Nov 2026 15:12:40 GMT</pubDate>
+      <dcterms:created>2026-11-19T15:12:40.000Z</dcterms:created>
+      <dcterms:modified>2026-11-19T15:12:40.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>CephFSの脆弱性 CVE-2026-99304：影響を受ける条件と更新方法</title>
+      <link>https://share.0g0.xyz/cephfs-cve-2026-99304</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/cephfs-cve-2026-99304</guid>
+      <description>LinuxのCephFSカーネルクライアントに影響するCVE-2026-99304。対象ホストの見分け方、OSごとの修正状況、更新後の確認を解説します。</description>
+      <pubDate>Thu, 19 Nov 2026 14:58:06 GMT</pubDate>
+      <dcterms:created>2026-11-19T14:58:06.000Z</dcterms:created>
+      <dcterms:modified>2026-11-19T14:58:06.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>nginx2shell：NGINXのHTTP/2脆弱性と対処</title>
+      <link>https://share.0g0.xyz/nginx2shell</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/nginx2shell</guid>
+      <description>NGINXのHTTP/2脆弱性2件について、影響を受ける構成、修正版、AWS ALBの確認方法を図解します。</description>
+      <pubDate>Thu, 19 Nov 2026 05:02:58 GMT</pubDate>
+      <dcterms:created>2026-11-18T17:45:48.000Z</dcterms:created>
+      <dcterms:modified>2026-11-19T05:02:58.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>LinuxサーバーのソフトウェアをSBOM化する方法｜nginx・PHP・OpenSSL</title>
+      <link>https://share.0g0.xyz/linux-host-sbom-inventory</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/linux-host-sbom-inventory</guid>
+      <description>Linuxサーバーにインストールされたnginx・PHP・OpenSSLなどをSyftやTrivyでSBOM化する手順。稼働中のバージョンとの違い、RPM・dpkg、コンテナ、AWSでの一括管理まで解説。</description>
+      <pubDate>Thu, 19 Nov 2026 02:30:55 GMT</pubDate>
+      <dcterms:created>2026-11-19T02:30:55.000Z</dcterms:created>
+      <dcterms:modified>2026-11-19T02:30:55.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>All Code Is Slop (Except Mine) — Lauren Tan講演まとめ｜月11,000 PRを「ゴミ」にしない方法</title>
+      <link>https://share.0g0.xyz/all-code-is-slop</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/all-code-is-slop</guid>
+      <description>SpaceXSIのLauren Tan（poteto）がAI Engineer Code Summitで語った、AIエージェントに大量のPRを出させながらコード品質を上げる方法。lint・型・検証で固める「potetoピラミッド」と手描きスライドとともに要点をまとめた。</description>
+      <pubDate>Wed, 18 Nov 2026 19:53:07 GMT</pubDate>
+      <dcterms:created>2026-11-16T18:21:24.000Z</dcterms:created>
+      <dcterms:modified>2026-11-18T19:53:07.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>Pi と Pi Durable — 実装者のための選び方</title>
+      <link>https://share.0g0.xyz/pi-durable</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/pi-durable</guid>
+      <description>Pi coding agentとPi Durableの違い、永続化と再実行の境界、Cloudflare構成、費用と試験項目を一次資料で整理。2026年10月6日確認。</description>
+      <pubDate>Wed, 18 Nov 2026 18:02:55 GMT</pubDate>
+      <dcterms:created>2026-10-06T03:28:19.000Z</dcterms:created>
+      <dcterms:modified>2026-11-18T18:02:55.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>Sam Altman スタンフォード講演まとめ｜Scale, AGI, and the Future of Everything（Stanford CS153）</title>
+      <link>https://share.0g0.xyz/sam-altman-stanford-cs153</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/sam-altman-stanford-cs153</guid>
+      <description>Sam Altmanがスタンフォードの授業CS153で行った講演「Scale, AGI, and the Future of Everything」（Stanford Online、2026年6月15日公開、41分）を章立てで要約。Xで拡散した26分の再編集版の元ソースも特定した。</description>
+      <pubDate>Wed, 18 Nov 2026 18:02:55 GMT</pubDate>
+      <dcterms:created>2026-11-18T17:27:09.000Z</dcterms:created>
+      <dcterms:modified>2026-11-18T18:02:55.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>GPT-6.2の指示ガイド 日本語要約</title>
+      <link>https://share.0g0.xyz/gpt-6-2-prompting-ja</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/gpt-6-2-prompting-ja</guid>
+      <description>Codex向け公式ガイドの要点。推論の強さ、並列の分担、見た目の検証、AGENTS.mdを簡潔に整理。</description>
+      <pubDate>Wed, 18 Nov 2026 17:15:37 GMT</pubDate>
+      <dcterms:created>2026-11-18T14:30:52.000Z</dcterms:created>
+      <dcterms:modified>2026-11-18T17:15:37.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>OpenAI EnterpriseとClaude Enterpriseの比較｜セキュリティ・監査・コスト（20〜49人）</title>
+      <link>https://share.0g0.xyz/openai-claude-enterprise</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/openai-claude-enterprise</guid>
+      <description>ChatGPT Enterprise／CodexとClaude Enterprise／Claude Codeを20〜49人規模で比較。ソースコード保護、データ保持、ZDR、監査証跡、料金試算を公式資料に基づいて整理。</description>
+      <pubDate>Wed, 18 Nov 2026 07:25:58 GMT</pubDate>
+      <dcterms:created>2026-11-18T07:25:58.000Z</dcterms:created>
+      <dcterms:modified>2026-11-18T07:25:58.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>Javaの脆弱性、誰が危ない？ CVE-2026-114938をやさしく解説</title>
+      <link>https://share.0g0.xyz/java4shell-beginners</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/java4shell-beginners</guid>
+      <description>Java4Shell（CVE-2026-114938）の攻撃条件、Confluenceと閲覧者のPCの違い、実際に確認することを初心者向けに説明します。</description>
+      <pubDate>Wed, 18 Nov 2026 07:18:51 GMT</pubDate>
+      <dcterms:created>2026-11-18T07:18:51.000Z</dcterms:created>
+      <dcterms:modified>2026-11-18T07:18:51.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>2026年 不正アクセス・情報漏えいウォッチ｜原因・出典・続報</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/security-incidents</guid>
+      <description>2026年の不正アクセス・情報漏えいを原因・影響・対応・日付・一次資料で整理。全259件。国内外の新規公表、流出範囲の精査、サービス再開と調査の続報を反映。</description>
+      <pubDate>Tue, 17 Nov 2026 00:27:16 GMT</pubDate>
+      <dcterms:created>2026-10-02T06:08:44.000Z</dcterms:created>
+      <dcterms:modified>2026-11-17T00:27:16.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>AI侵入テスト・オーケストレーターの拡大と防御設計｜Cloudflare調査を読む</title>
+      <link>https://share.0g0.xyz/ai-pentest-orchestrators-cloudflare</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/ai-pentest-orchestrators-cloudflare</guid>
+      <description>Cloudflareが2026年11月に公表したAIペネトレーションテストの観測を日本語で解説。ARTEXの拡散、資格情報を使った横展開、6つの防御策と実務チェックリスト。</description>
+      <pubDate>Sun, 15 Nov 2026 18:17:07 GMT</pubDate>
+      <dcterms:created>2026-11-15T15:37:27.000Z</dcterms:created>
+      <dcterms:modified>2026-11-15T18:17:07.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>重要技術アップデート｜AI・開発ツール・MCP</title>
+      <link>https://share.0g0.xyz/technology-updates</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/technology-updates</guid>
+      <description>AIモデル、料金、OSS・ローカル実行、開発エージェント、音声・画像・動画、MCPの重要更新を一次資料で確認。利用条件と再テスト案、訂正履歴をまとめる。</description>
+      <pubDate>Sun, 15 Nov 2026 00:01:29 GMT</pubDate>
+      <dcterms:created>2026-10-08T23:59:03.000Z</dcterms:created>
+      <dcterms:modified>2026-11-15T00:01:29.000Z</dcterms:modified>
+    </item>
     <item>
       <title>Google Workspaceの端末管理：Windows・Androidと契約プラン徹底比較</title>
       <link>https://share.0g0.xyz/google-workspace-uem-guide</link>
@@ -61,24 +187,6 @@
       <pubDate>Tue, 10 Nov 2026 02:24:35 GMT</pubDate>
       <dcterms:created>2026-11-10T02:24:35.000Z</dcterms:created>
       <dcterms:modified>2026-11-10T02:24:35.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>2026年 不正アクセス・情報漏えいウォッチ｜原因・出典・続報</title>
-      <link>https://share.0g0.xyz/security-incidents</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/security-incidents</guid>
-      <description>2026年の不正アクセス・情報漏えいを原因・影響・対応・日付・一次資料で整理。全240件。アイスタイルのCuenote FC利用情報、Fireworks AI、Dorsataを追加し、ドコモとTKCの続報を反映。</description>
-      <pubDate>Tue, 10 Nov 2026 00:42:40 GMT</pubDate>
-      <dcterms:created>2026-10-02T06:08:44.000Z</dcterms:created>
-      <dcterms:modified>2026-11-10T00:42:40.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>重要技術アップデート｜AI・開発ツール・MCP</title>
-      <link>https://share.0g0.xyz/technology-updates</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/technology-updates</guid>
-      <description>AIモデル、料金、OSS・ローカル実行、開発エージェント、音声・画像・動画、MCPの重要更新を一次資料で確認。利用条件と再テスト案、訂正履歴をまとめる。</description>
-      <pubDate>Sun, 08 Nov 2026 23:34:14 GMT</pubDate>
-      <dcterms:created>2026-10-08T23:59:03.000Z</dcterms:created>
-      <dcterms:modified>2026-11-08T23:34:14.000Z</dcterms:modified>
     </item>
     <item>
       <title>PHP緊急更新：OS・Docker・ECR Publicの対応と暫定対策</title>
@@ -376,15 +484,6 @@
       <pubDate>Tue, 06 Oct 2026 06:15:49 GMT</pubDate>
       <dcterms:created>2026-10-06T06:15:49.000Z</dcterms:created>
       <dcterms:modified>2026-10-06T06:15:49.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>Pi と Pi Durable — 実装者のための選び方</title>
-      <link>https://share.0g0.xyz/pi-durable</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/pi-durable</guid>
-      <description>Pi coding agentとPi Durableの違い、永続化と再実行の境界、Cloudflare構成、費用と試験項目を一次資料で整理。2026年10月6日確認。</description>
-      <pubDate>Tue, 06 Oct 2026 03:28:19 GMT</pubDate>
-      <dcterms:created>2026-10-06T03:28:19.000Z</dcterms:created>
-      <dcterms:modified>2026-10-06T03:28:19.000Z</dcterms:modified>
     </item>
     <item>
       <title>Secure MCP Tunnel｜WindowsのUnity・Blender接続手順</title>

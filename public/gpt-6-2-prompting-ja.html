@@ -9,7 +9,20 @@
 
 /* Instruction workshop: native controls, no network or simulated model response. */
 main{max-width:980px}fieldset{border:0;padding:0;margin:0;min-width:0}legend{font-weight:750;margin-bottom:.6rem}button,input{font:inherit}button{min-height:44px;border:1px solid #123e96;background:#fff;color:#123e96;padding:.45rem .9rem;cursor:pointer}button:hover{background:#123e96;color:#fff}button:focus-visible,input:focus-visible{outline:3px solid #a94400;outline-offset:4px}input{accent-color:#123e96;width:1.2rem;height:1.2rem;flex:none}.workshop{border-top:4px solid #123e96;border-bottom:1px solid #444;padding:1.2rem 0;margin:1.5rem 0 2rem}.workshop h2{border:0;padding:0;margin:0 0 .6rem}.workshop h3{font-size:1rem;margin:1rem 0 .4rem}.demo-note{font-size:.9rem;color:#444}.workbench{display:grid;grid-template-columns:1fr 1.5fr;gap:2rem;margin-top:1rem}.choices{display:flex;flex-direction:column;gap:.3rem}.choice{display:flex;align-items:center;gap:.65rem;min-height:48px;padding:.35rem 0;cursor:pointer}.presets{display:flex;flex-wrap:wrap;gap:.6rem;margin:.8rem 0}.draft{font-size:1.1rem;line-height:2;border-left:4px solid #123e96;padding:.6rem 1rem;margin:0;min-height:9rem;background:repeating-linear-gradient(#fff 0,#fff calc(2.2rem - 1px),#ccc calc(2.2rem - 1px),#ccc 2.2rem)}.draft span{background:#fff}.draft .added{color:#123e96;text-decoration:underline;text-decoration-color:#a94400;text-underline-offset:5px}.feedback{font-weight:650}.scope-list{padding-left:1.25rem}.reason-choices{display:flex;flex-wrap:wrap;gap:.3rem 1.4rem}.reason-view{margin:1rem 0;border-left:4px solid #123e96;padding:.4rem 1rem}.reason-view h3{font-size:1.15rem;margin:.3rem 0}.route{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem;padding:0;margin:.7rem 0;list-style:none}.route li{border-bottom:3px solid #123e96;padding:.25rem .6rem;font-weight:650}.route li+li::before{content:'→ ';color:#a94400}.reason-view[data-mode="extra"] .route{gap:.8rem}.reason-view[data-mode="ultra"] .route{display:grid;grid-template-columns:1fr 1fr}.reason-view[data-mode="ultra"] .route li+li::before{content:''}.reason-view[data-mode="ultra"] .route li:last-child{grid-column:1/-1}.demo-controls[hidden],[hidden]{display:none!important}.read-only-example{border-left:3px solid #a94400;padding-left:1rem}@media(prefers-reduced-motion:no-preference){.draft .added{animation:ink-in .22s ease-out}@keyframes ink-in{from{opacity:.25}to{opacity:1}}}@media(max-width:640px){.workbench{grid-template-columns:1fr;gap:.8rem}.draft{min-height:0}.reason-choices{display:grid;grid-template-columns:1fr 1fr;gap:.3rem}.reason-view[data-mode="ultra"] .route{grid-template-columns:1fr}.route{font-size:.95rem}}@media print{.demo-controls{display:none!important}.read-only-example{display:block!important}}
-</style></head><body><a class="skip" href="#main">本文へ移動</a><nav aria-label="サイト"><a href="/">HTML Share</a></nav><main id="main" tabindex="-1"><h1>GPT-6.2の指示ガイド 日本語要約</h1><p>Codexで何を完成させ、何を確認するかを具体的に伝える。OpenAIのガイドはこの考え方をGPT-6.2 AstraとSolの両方に勧めています。</p><p>確認日：2026年11月18日。公式記事の要約であり、全文翻訳ではありません。</p>
+</style>  <!-- html-share: social metadata -->
+  <link rel="canonical" href="https://share.0g0.xyz/gpt-6-2-prompting-ja">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="HTML Share">
+  <meta property="og:title" content="GPT-6.2の指示ガイド 日本語要約">
+  <meta property="og:description" content="Codex向け公式ガイドの要点。推論の強さ、並列の分担、見た目の検証、AGENTS.mdを簡潔に整理。">
+  <meta property="og:url" content="https://share.0g0.xyz/gpt-6-2-prompting-ja">
+  <meta name="twitter:title" content="GPT-6.2の指示ガイド 日本語要約">
+  <meta name="twitter:description" content="Codex向け公式ガイドの要点。推論の強さ、並列の分担、見た目の検証、AGENTS.mdを簡潔に整理。">
+  <!-- /html-share: social metadata -->
+  <!-- html-share: rss discovery -->
+  <link rel="alternate" type="application/rss+xml" title="HTML Share RSS" href="https://share.0g0.xyz/feed.xml">
+  <!-- /html-share: rss discovery -->
+</head><body><a class="skip" href="#main">本文へ移動</a><nav aria-label="サイト"><a href="/">HTML Share</a></nav><main id="main" tabindex="-1"><h1>GPT-6.2の指示ガイド 日本語要約</h1><p>Codexで何を完成させ、何を確認するかを具体的に伝える。OpenAIのガイドはこの考え方をGPT-6.2 AstraとSolの両方に勧めています。</p><p>確認日：2026年11月18日。公式記事の要約であり、全文翻訳ではありません。</p>
 <section class="workshop" id="prompt-workshop">
 <h2>指示を組み立ててみる</h2>
 <p>チェックを足すと、頼み方と明示した情報が変わります。</p>

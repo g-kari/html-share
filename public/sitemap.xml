@@ -2,6 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://share.0g0.xyz/</loc></url>
   <url><loc>https://share.0g0.xyz/ai-harness-shinbun</loc></url>
+  <url><loc>https://share.0g0.xyz/ai-pentest-orchestrators-cloudflare</loc></url>
+  <url><loc>https://share.0g0.xyz/all-code-is-slop</loc></url>
   <url><loc>https://share.0g0.xyz/animation-skills-research</loc></url>
   <url><loc>https://share.0g0.xyz/aws-continuum</loc></url>
   <url><loc>https://share.0g0.xyz/aws-guardduty-2026</loc></url>
@@ -9,6 +11,7 @@
   <url><loc>https://share.0g0.xyz/aws-lambda-web-functions</loc></url>
   <url><loc>https://share.0g0.xyz/aws-waf-ip-reputation</loc></url>
   <url><loc>https://share.0g0.xyz/brotli-security-explained</loc></url>
+  <url><loc>https://share.0g0.xyz/cephfs-cve-2026-99304</loc></url>
   <url><loc>https://share.0g0.xyz/cloudfront-protobuf-maintenance</loc></url>
   <url><loc>https://share.0g0.xyz/comment-prototype</loc></url>
   <url><loc>https://share.0g0.xyz/conversational-ai-history</loc></url>
@@ -23,21 +26,29 @@
   <url><loc>https://share.0g0.xyz/gemini-agent-2026-10</loc></url>
   <url><loc>https://share.0g0.xyz/go-code-verification</loc></url>
   <url><loc>https://share.0g0.xyz/google-workspace-uem-guide</loc></url>
+  <url><loc>https://share.0g0.xyz/gpt-6-2-prompting-ja</loc></url>
   <url><loc>https://share.0g0.xyz/hermes-agent-comparison</loc></url>
   <url><loc>https://share.0g0.xyz/html-form-history</loc></url>
+  <url><loc>https://share.0g0.xyz/java4shell-beginners</loc></url>
   <url><loc>https://share.0g0.xyz/lambda-zip-to-image</loc></url>
   <url><loc>https://share.0g0.xyz/linear-effort-guide</loc></url>
+  <url><loc>https://share.0g0.xyz/linux-host-sbom-inventory</loc></url>
+  <url><loc>https://share.0g0.xyz/linux-kernel-cve-roundup-2026-11-19</loc></url>
   <url><loc>https://share.0g0.xyz/microsoft-ai-video-recreation</loc></url>
   <url><loc>https://share.0g0.xyz/minecraft-mod-server-guide</loc></url>
   <url><loc>https://share.0g0.xyz/multi-tenant-site-hosting</loc></url>
+  <url><loc>https://share.0g0.xyz/nginx2shell</loc></url>
+  <url><loc>https://share.0g0.xyz/openai-claude-enterprise</loc></url>
   <url><loc>https://share.0g0.xyz/openai-devday-tokyo-2026</loc></url>
   <url><loc>https://share.0g0.xyz/personal-ai-agent-comparison</loc></url>
   <url><loc>https://share.0g0.xyz/php-emergency-maintenance</loc></url>
   <url><loc>https://share.0g0.xyz/php-security-os-response</loc></url>
+  <url><loc>https://share.0g0.xyz/php-security-release-2026-11-19</loc></url>
   <url><loc>https://share.0g0.xyz/php2shell-patch-status</loc></url>
   <url><loc>https://share.0g0.xyz/pi-durable</loc></url>
   <url><loc>https://share.0g0.xyz/proton-suite-comparison</loc></url>
   <url><loc>https://share.0g0.xyz/rivet-actors-guide</loc></url>
+  <url><loc>https://share.0g0.xyz/sam-altman-stanford-cs153</loc></url>
   <url><loc>https://share.0g0.xyz/secure-mcp-tunnel-unity-blender</loc></url>
   <url><loc>https://share.0g0.xyz/security-incidents</loc></url>
   <url><loc>https://share.0g0.xyz/security-lessons</loc></url>
@@ -55,6 +66,7 @@
   <url><loc>https://share.0g0.xyz/technology-updates/archive/2026-10-7</loc></url>
   <url><loc>https://share.0g0.xyz/technology-updates/archive/2026-11</loc></url>
   <url><loc>https://share.0g0.xyz/technology-updates/archive/2026-11-2</loc></url>
+  <url><loc>https://share.0g0.xyz/technology-updates/archive/2026-11-3</loc></url>
   <url><loc>https://share.0g0.xyz/technology-updates/history</loc></url>
   <url><loc>https://share.0g0.xyz/test</loc></url>
   <url><loc>https://share.0g0.xyz/vrchat-avatar-skills</loc></url>

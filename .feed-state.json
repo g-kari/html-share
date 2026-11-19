@@ -6,6 +6,16 @@
       "published": "2026-11-10T02:24:35.000Z",
       "updated": "2026-11-10T02:24:35.000Z"
     },
+    "ai-pentest-orchestrators-cloudflare.html": {
+      "fingerprint": "f37383d486ac4941701ead6b6fc2bbf04be7dd51f39e8cc7fe3e39478f24c3de",
+      "published": "2026-11-15T15:37:27.000Z",
+      "updated": "2026-11-15T18:17:07.000Z"
+    },
+    "all-code-is-slop.html": {
+      "fingerprint": "0ebb803435420d3d8b4786cc84676d75f94b98d615afe73c9c40067b2a6230e3",
+      "published": "2026-11-16T18:21:24.000Z",
+      "updated": "2026-11-18T19:53:07.000Z"
+    },
     "animation-skills-research.html": {
       "fingerprint": "cad7f20a534129cac6d0e324c73af6c499e1306aaaee1bec38a26aeb98b5cf75",
       "published": "2026-10-08T13:44:50.000Z",
@@ -40,6 +50,11 @@
       "fingerprint": "19ec64c8f1fe78b554b2c877aba85f26a3c8943cb8b1c8ab727b1a7dcba1aeec",
       "published": "2026-10-24T05:30:44.000Z",
       "updated": "2026-10-28T09:32:08.000Z"
+    },
+    "cephfs-cve-2026-99304.html": {
+      "fingerprint": "f2ad3c224f9b99158b2771a53be924bd38c3f3491a4edc0faf09e53d09a3956b",
+      "published": "2026-11-19T14:58:06.000Z",
+      "updated": "2026-11-19T14:58:06.000Z"
     },
     "cloudfront-protobuf-maintenance.html": {
       "fingerprint": "3ac82cf61b10d53fa300c9ba5c09c2fc6f1395e9abc8cc079309fd56c7d7508e",
@@ -111,6 +126,11 @@
       "published": "2026-11-13T15:05:14.000Z",
       "updated": "2026-11-13T21:05:59.000Z"
     },
+    "gpt-6-2-prompting-ja.html": {
+      "fingerprint": "e2d4f089c64bd03adb57eb379b470a39021f18a05eadb6d7265461f7c465ab61",
+      "published": "2026-11-18T14:30:52.000Z",
+      "updated": "2026-11-18T17:15:37.000Z"
+    },
     "hermes-agent-comparison.html": {
       "fingerprint": "0b593e785bf7821eb37419b40b562a7751a575122d475e9323fcc99e6e9f5573",
       "published": "2026-10-10T07:02:56.000Z",
@@ -121,6 +141,11 @@
       "published": "2026-10-14T02:24:15.000Z",
       "updated": "2026-10-14T02:24:15.000Z"
     },
+    "java4shell-beginners.html": {
+      "fingerprint": "39ec87d78008d09c54b5c28187a70113a37e40f301045d80fd4184acb2cbe5cf",
+      "published": "2026-11-18T07:18:51.000Z",
+      "updated": "2026-11-18T07:18:51.000Z"
+    },
     "lambda-zip-to-image.html": {
       "fingerprint": "17f4285fb5558ae49b67e52a0844b76fc691ca34464a2bf2e61bf286c2d964fa",
       "published": "2026-10-22T13:52:37.000Z",
@@ -130,6 +155,16 @@
       "fingerprint": "54cecde2d5171961f5b44e9e865bd24e1ca6efae7625d45f1fc3bfd81bab073c",
       "published": "2026-11-11T09:45:01.000Z",
       "updated": "2026-11-11T10:36:24.000Z"
+    },
+    "linux-host-sbom-inventory.html": {
+      "fingerprint": "7edd88f9f16ffd142f4ecb606e7b55dc190e30eeb4f97dc70cb2d3ee8891e978",
+      "published": "2026-11-19T02:30:55.000Z",
+      "updated": "2026-11-19T02:30:55.000Z"
+    },
+    "linux-kernel-cve-roundup-2026-11-19.html": {
+      "fingerprint": "c1492dac3e5a5a43600d8da5a7f1aa259eea77ac3393224c9a8dd190ee928566",
+      "published": "2026-11-19T15:12:40.000Z",
+      "updated": "2026-11-19T15:12:40.000Z"
     },
     "microsoft-ai-video-recreation.html": {
       "fingerprint": "1e75441f32d2ea2fbed61d56a91e19a93fd5cb3815977c70d66f7f6d919b30ce",
@@ -145,6 +180,16 @@
       "fingerprint": "38515659dc838a3b98c99dc2fa41cb7927372985c7eeb42f23ed764c696f44ef",
       "published": "2026-10-30T07:02:31.000Z",
       "updated": "2026-10-30T08:37:53.000Z"
+    },
+    "nginx2shell.html": {
+      "fingerprint": "e3681beb0d9fda1e9ed32f0a52165b5d3fa2b0f2c0a457269fb87e71117fd07d",
+      "published": "2026-11-18T17:45:48.000Z",
+      "updated": "2026-11-19T05:02:58.000Z"
+    },
+    "openai-claude-enterprise.html": {
+      "fingerprint": "474f13b1a53f74c88b187d26643867ef129328e18186281aaca9a349394d5a2d",
+      "published": "2026-11-18T07:25:58.000Z",
+      "updated": "2026-11-18T07:25:58.000Z"
     },
     "openai-devday-tokyo-2026.html": {
       "fingerprint": "52cbf9e96373f85180d57eb89eccd00a757423a4ce1685df067dab61c44d242e",
@@ -166,15 +211,20 @@
       "published": "2026-10-21T13:13:10.000Z",
       "updated": "2026-11-06T00:25:52.000Z"
     },
+    "php-security-release-2026-11-19.html": {
+      "fingerprint": "aa6e70a4524e453b6d00d537bc10ba9d8bd4255bb64b65d84da8efc24bb6b6d1",
+      "published": "2026-11-19T14:16:03.000Z",
+      "updated": "2026-11-19T16:23:30.000Z"
+    },
     "php2shell-patch-status.html": {
       "fingerprint": "abd9f40dcd8c55bd9834e790552aedcbb37cd879fbc34bccbf5e20aecadd56b8",
       "published": "2026-10-22T09:26:00.000Z",
       "updated": "2026-10-22T10:18:31.000Z"
     },
     "pi-durable.html": {
-      "fingerprint": "039565db8c00577d70b2fc4f4be5efb31ffe8c0a1ecf6ca4a04075c5b8abe32c",
+      "fingerprint": "b9526127766c791a0e1072a12aa924eb03b9240adae076b0097f1925535cad03",
       "published": "2026-10-06T03:28:19.000Z",
-      "updated": "2026-10-06T03:28:19.000Z"
+      "updated": "2026-11-18T18:02:55.000Z"
     },
     "proton-suite-comparison.html": {
       "fingerprint": "a362391bd1ab4f3e79d730985550d541af6a0bfdaaa1203dd630a32b502a4613",
@@ -186,15 +236,20 @@
       "published": "2026-10-28T16:12:54.000Z",
       "updated": "2026-10-28T16:12:54.000Z"
     },
+    "sam-altman-stanford-cs153.html": {
+      "fingerprint": "aad1921ae0ab7e7e41315db7bc3f6ff87db0b6dd6cbf71fd3e76cf61ab2ac1aa",
+      "published": "2026-11-18T17:27:09.000Z",
+      "updated": "2026-11-18T18:02:55.000Z"
+    },
     "secure-mcp-tunnel-unity-blender.html": {
       "fingerprint": "bf27f02d3803916b0f28da3d19de1bf39d4f3650748aa51fdd7fcbde37a98426",
       "published": "2026-10-03T06:21:28.000Z",
       "updated": "2026-10-03T06:21:28.000Z"
     },
     "security-incidents.html": {
-      "fingerprint": "6c88610a1fdca69909e6e132fffd6dbf60038810998630ddeee0984820cf817f",
+      "fingerprint": "bb0f76d6761eac9d4e64430cda147e8ea0e0ef3d9abbeb56479b34efedb5fe1f",
       "published": "2026-10-02T06:08:44.000Z",
-      "updated": "2026-11-10T00:42:40.000Z"
+      "updated": "2026-11-17T00:27:16.000Z"
     },
     "security-lessons.html": {
       "fingerprint": "3999cbaad7e85c2ca13671c6899ee220783415e2acf49558a1a46ff579febb25",
@@ -207,9 +262,9 @@
       "updated": "2026-11-04T17:27:57.000Z"
     },
     "technology-updates.html": {
-      "fingerprint": "b6c1dcdad1c778d9ae9db3b0856e36a1416fbff2247972d581f2f375e91ef5d2",
+      "fingerprint": "fc5a2cc6d9e2bfe7f81aad0b05bdde5c12b7e9069fcd2880abb72bbc0065f9f9",
       "published": "2026-10-08T23:59:03.000Z",
-      "updated": "2026-11-08T23:34:14.000Z"
+      "updated": "2026-11-15T00:01:29.000Z"
     },
     "test.html": {
       "fingerprint": "b6bb2885a5f424938319c4aa6ba0365eb7426845eb4d9a731315b4a29964aad0",
