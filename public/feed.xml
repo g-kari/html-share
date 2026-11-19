@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Thu, 19 Nov 2026 19:17:51 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 19 Nov 2026 22:30:29 GMT</lastBuildDate>
+    <item>
+      <title>PHPのセキュリティ更新：修正版と確認手順（2026年11月19日）</title>
+      <link>https://share.0g0.xyz/php-security-release-2026-11-19</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/php-security-release-2026-11-19</guid>
+      <description>PHP 8.2〜8.5のセキュリティ修正版、重大なセッションの不具合、OSやDockerでの配布状況と更新後の確認をまとめます。</description>
+      <pubDate>Thu, 19 Nov 2026 22:30:29 GMT</pubDate>
+      <dcterms:created>2026-11-19T14:16:03.000Z</dcterms:created>
+      <dcterms:modified>2026-11-19T22:30:29.000Z</dcterms:modified>
+    </item>
     <item>
       <title>Vitest Browser Mode 試験導入の実測：jsdom 17ファイルで Duration 約32秒→26.20秒、通過は222/283</title>
       <link>https://share.0g0.xyz/vitest-browser-mode-pilot</link>
@@ -34,15 +43,6 @@
       <pubDate>Thu, 19 Nov 2026 17:36:57 GMT</pubDate>
       <dcterms:created>2026-11-19T17:36:57.000Z</dcterms:created>
       <dcterms:modified>2026-11-19T17:36:57.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>PHPのセキュリティ更新：修正版と確認手順（2026年11月19日）</title>
-      <link>https://share.0g0.xyz/php-security-release-2026-11-19</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/php-security-release-2026-11-19</guid>
-      <description>PHP 8.2〜8.5のセキュリティ修正版、重大なセッションの不具合、OSやDockerでの配布状況と更新後の確認をまとめます。</description>
-      <pubDate>Thu, 19 Nov 2026 16:23:30 GMT</pubDate>
-      <dcterms:created>2026-11-19T14:16:03.000Z</dcterms:created>
-      <dcterms:modified>2026-11-19T16:23:30.000Z</dcterms:modified>
     </item>
     <item>
       <title>LinuxカーネルのCVEを整理：11月16〜19日公表分</title>
