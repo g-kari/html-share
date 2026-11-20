@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AWS Systems Managerで複数のEC2を更新する</title>
+<meta name="description" content="nginx、PHP、Apache、OpenSSL、OS・カーネルを複数のEC2で更新する手順。先行1台、段階展開、再起動とWeb稼働の確認。">
+<style>
+:root{color-scheme:light;--paper:#fbfaf6;--ink:#211f1d;--dim:#534c43;--line:#c3bcb0;--accent:#8c2c0e;--code:#241e1b;--code-text:#fcf6ed}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:1rem/1.8 system-ui,-apple-system,"Yu Gothic","Hiragino Kaku Gothic ProN",Meiryo,sans-serif}.wrap{width:min(100% - 2rem,75rem);margin:auto}.mast{border-top:.65rem solid var(--accent);border-bottom:1px solid var(--line);padding:1.7rem 0 1.3rem}main{display:grid;grid-template-columns:minmax(0,1fr) 14rem;gap:3rem;padding:2rem 0 3rem}article,aside{min-width:0}h1{font-size:clamp(1.85rem,4.7vw,3.35rem);line-height:1.27;margin:.25em 0 .4em;max-width:23ch}h2{line-height:1.45;font-size:1.55rem;margin:0 0 .75rem}h3{font-size:1.08rem;margin:1.1rem 0 .35rem}p{margin:.5rem 0 1rem}.eyebrow{font:700 .8rem/1.4 ui-monospace,monospace;letter-spacing:.08em;color:var(--accent)}a{color:var(--accent);text-underline-offset:.22em}a:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--accent);outline-offset:4px}section+section{border-top:1px solid var(--line);padding-top:1.5rem;margin-top:1.8rem}aside nav{position:sticky;top:1rem;border-top:3px solid var(--accent);padding-top:.9rem}aside ol{padding-left:1.5rem;font-size:.9rem}.step{counter-reset:roll;list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));padding:0;margin:0;border-block:1px solid var(--line)}.step li{counter-increment:roll;padding:.75rem .75rem .75rem 0}.step li+li{border-left:1px solid var(--line);padding-left:.75rem}.step li::before{content:"0" counter(roll);display:block;color:var(--accent);font:700 1.13rem/1.4 ui-monospace,monospace}.step strong{display:block}.step span,figcaption,time{color:var(--dim);font-size:.9rem}figure{margin:1.2rem 0}figcaption{margin-top:.4rem}.table{overflow:auto}table{border-collapse:collapse;width:100%;min-width:31rem;font-size:.93rem}caption{text-align:left;margin:0 0 .4rem;color:var(--dim)}th,td{text-align:left;padding:.58rem .72rem .58rem 0;vertical-align:top;border-bottom:1px solid var(--line)}pre{padding:1rem;overflow:auto;background:var(--code);color:var(--code-text);font-size:.86rem;line-height:1.65}code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.9em}pre code{font-size:inherit}p code,td code,li code{overflow-wrap:anywhere}.flag{border-left:.22rem solid var(--accent);padding:.1rem 0 .1rem .9rem}.flag b{color:var(--accent)}.split{display:grid;grid-template-columns:1fr 1fr;gap:.8rem 1.4rem}.split div{border-top:1px solid var(--line);padding-top:.45rem}.split dt{font-weight:700}.split dd{margin:0;color:var(--dim)}footer{border-top:1px solid var(--line);padding:1.1rem 0 1.6rem;color:var(--dim);font-size:.9rem}.skip{position:absolute;top:0;left:-999rem;background:var(--paper);padding:.5rem}.skip:focus{left:1rem;top:.75rem}@media(max-width:55rem){main{display:block}aside nav{position:static;margin-top:2rem}}@media(max-width:36rem){.step{grid-template-columns:1fr 1fr}.step li:nth-child(3){border-left:0;padding-left:0}.step li:nth-child(n+3){border-top:1px solid var(--line)}.split{grid-template-columns:1fr}}
+</style>
+<link rel="canonical" href="https://share.0g0.xyz/aws-ssm-ec2-software-patching">
+<meta property="og:image" content="https://share.0g0.xyz/assets/aws-ssm-ec2-ogp-v1.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="628">
+<meta property="og:image:alt" content="SSMで段階更新。並んだサーバーのうち先行の1台を操作する図">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://share.0g0.xyz/assets/aws-ssm-ec2-ogp-v1.jpg">
+<meta name="twitter:image:alt" content="SSMで段階更新。並んだサーバーのうち先行の1台を操作する図">
+<style>figure img{display:block;width:100%;height:auto}figure{margin:1.2rem 0}figcaption{padding:.5rem 0}</style>
+</head>
+<body>
+<a class="skip" href="#main">本文へ移動</a>
+<header class="mast"><div class="wrap">
+<p class="eyebrow">AWS / EC2 運用手順</p>
+<h1>AWS Systems Managerで複数のEC2を更新する</h1>
+<p>複数台へ一括で指示できます。本番は全台同時ではなく、<strong>同じ構成の1台で確認してから段階展開</strong>します。EC2上のnginx、PHP、Apache、OpenSSLなど、指定したRPMだけなら Run Command、OS全体の定期更新なら Patch Manager を使います。</p>
+<time datetime="2026-11-20">2026年11月20日確認</time>
+</div></header>
+<main class="wrap" id="main">
+<article>
+<section id="route"><h2>1. どこに入れたソフトかで更新方法を選ぶ</h2>
+<div class="table" tabindex="0" role="region" aria-label="更新方法の比較"><table><caption>更新対象と確認ポイント</caption><thead><tr><th scope="col">対象</th><th scope="col">選ぶ方法</th><th scope="col">注意点</th></tr></thead><tbody>
+<tr><th scope="row">EC2の指定パッケージだけ</th><td>Run Command → <code>AWS-RunShellScript</code></td><td>OS、配布元、パッケージ系列、必要ならCPUアーキテクチャを分ける。</td></tr>
+<tr><th scope="row">EC2のOSパッチを定期適用</th><td>Patch Manager → <code>AWS-RunPatchBaseline</code></td><td>パッチベースラインで対象を確認。PHPだけに固定されるわけではない。</td></tr>
+<tr><th scope="row">Docker／ECS内のPHP</th><td>修正版でイメージを再ビルドし、コンテナを再配備</td><td>EC2側のPHP更新ではコンテナ内のPHPは変わらない。再配備後に稼働中タスクを確認する。</td></tr>
+<tr><th scope="row">Auto Scalingグループの新規・交換インスタンス</th><td>修正版を含むAMIを作成 → 起動テンプレート更新 → Instance Refresh</td><td>手動で既存機だけ更新すると、スケールアウトや交換先に旧版が戻り得る。起動時の導入処理も修正版を使うよう確認する。</td></tr>
+</tbody></table></div>
+<figure><img src="assets/aws-ssm-ec2-package-container-v1.webp" width="1200" height="614" alt="左は同じサーバー内のパッケージを更新。右はホストを残してコンテナを新しいイメージに置き換える。" loading="lazy" decoding="async"><figcaption>左はEC2上のパッケージ更新。右は新しいイメージで再配備。ホストOSとコンテナ内の更新は別です。</figcaption></figure>
+<figure><img src="assets/aws-ssm-ec2-rollout-v1.webp" width="1200" height="600" alt="先行1台、動作確認、小グループへの展開。動作確認に失敗した場合はそこで停止。" loading="lazy" decoding="async"><figcaption>先行の1台が合格した構成だけ、少数ずつ広げます。停止は自動で元に戻すことを意味しません。</figcaption></figure>
+<figure aria-labelledby="flow"><ol class="step"><li><strong>構成を分ける</strong><span>OS・配布元・導入方式</span></li><li><strong>1台で試す</strong><span>同じ構成の先行機</span></li><li><strong>動作を確認</strong><span>サービス・応答・ログ</span></li><li><strong>対象へ展開</strong><span>並列数と失敗数を制限</span></li></ol><figcaption id="flow">図1. 先行機でWebまで通った構成だけを、次のバッチへ広げる。</figcaption></figure>
+</section>
+<section id="preflight"><h2>2. 先に読み取りだけで確認する</h2>
+<p>各EC2がSSMの管理対象で、SSM Agentがオンライン、ノードに必要なIAM権限とサービスへの通信経路があることを確認します。実行者にも Run Command の権限が必要です。リージョンとAWSアカウントを取り違えず、タグだけでなく対象台数とIDも確認します。</p>
+<h3>EC2内でOS・RPM・サービス名を見る</h3>
+<pre tabindex="0" aria-label="OSとパッケージの読み取りコマンド"><code>cat /etc/os-release
+uname -m
+rpm -qa --qf '%{NAME} %{VERSION}-%{RELEASE}.%{ARCH}\n' 'nginx*' 'php*' 'httpd*' 'openssl*' 'kernel*' | sort
+systemctl list-units --type=service --all nginx.service httpd.service 'php*fpm*'
+uname -r</code></pre>
+<p><code>php -v</code> はCLIの版です。Webが別バイナリやコンテナのPHP-FPMを使っていないか、構成管理やサービスの定義で確認します。RPMが出なければ、独自ビルドやコンテナも候補です。</p>
+<h3>修正版がそのノードのリポジトリに見えるか</h3>
+<pre tabindex="0" aria-label="修正版候補を確認するコマンド"><code># AL2: PHP 8.2 Extrasを利用している場合
+yum --showduplicates list php php-cli php-fpm
+
+# AL2023: 下記はPHP 8.2、今回の固定リリースの例
+dnf --releasever=2023.12.20261119.0 --showduplicates list php8.2 php8.2-cli php8.2-fpm</code></pre>
+<p>この照会ではパッケージはインストールされませんが、リポジトリに接続してメタデータを更新する場合があります。AL2023の固定先がすでに新しい場合は古い番号に戻さず、組織が承認した修正済みリリースを使用します。</p>
+</section>
+<section id="versions"><h2>3. 実例：Amazon LinuxのPHP修正版</h2>
+<div class="table" tabindex="0" role="region" aria-label="Amazon Linuxの修正版"><table><caption>2026年11月19日のPHPセキュリティ更新</caption><thead><tr><th scope="col">OS・配布元</th><th scope="col">修正版の例</th><th scope="col">公式情報</th></tr></thead><tbody>
+<tr><th scope="row">AL2 PHP 8.2 Extras</th><td><code>php-8.2.36-1.amzn2.0.1</code></td><td><a href="https://alas.aws.amazon.com/AL2/ALAS2PHP8.2-2026-016.html">ALAS2PHP8.2-2026-016</a></td></tr>
+<tr><th scope="row">AL2023</th><td><code>8.2.36</code>、<code>8.3.37</code>、<code>8.4.28</code>、<code>8.5.13</code>（各 <code>-1.amzn2023.0.1</code>）</td><td><a href="https://aws.amazon.com/security/security-bulletins/2026-190-aws/">2026-190-AWS</a></td></tr>
+</tbody></table></div>
+<p>AL2の修正版は<strong>PHP 8.2 Extras</strong>用です。AL2 Coreや別の配布元とは分けて確認してください。AL2023でリリースを固定している場合、AWSは <code>2023.12.20261119.0</code> 以降を案内しています。AWSの配布告知は、個々のEC2に適用済みという意味ではありません。</p>
+</section>
+<section id="single"><h2>4. 指定パッケージだけ更新する場合：Run Command</h2>
+<ol><li>Systems Manager → Run Command → Run command。ドキュメントは <code>AWS-RunShellScript</code> を選びます。</li><li>先行EC2の<strong>インスタンスIDを1台だけ</strong>指定します。ロードバランサー配下で必要なら、承認済み手順でトラフィックを外して実施します。</li><li>導入済みの対象パッケージと承認済みの修正版を指定します。PHPならCLI、FPM、拡張も含めて依存関係を確認し、意図しない別系列の導入や削除を認めません。</li><li>先行機が合格したら、同じ構成のEC2を運用タグで選択します。例：<code>PatchRing=php82-al2023</code>。最初の本番バッチは <code>MaxConcurrency=1</code>、<code>MaxErrors=0</code>。</li></ol>
+<p>次は<strong>例示</strong>です。対象OSの片方だけ選びます。例のパッケージがすべて導入済みで、この版が承認済みの場合に限ります。すでに新しい修正版の場合は実施不要です。本番へそのまま貼らず、対象に合わせて確定してください。</p>
+<pre tabindex="0" aria-label="PHPパッケージの更新例"><code># AL2 PHP 8.2 Extras
+sudo yum update php-8.2.36-1.amzn2.0.1 \
+  php-cli-8.2.36-1.amzn2.0.1 php-fpm-8.2.36-1.amzn2.0.1
+
+# AL2023 PHP 8.2（承認済み固定リリースの例）
+sudo dnf --releasever=2023.12.20261119.0 upgrade \
+  php8.2-8.2.36-1.amzn2023.0.1 \
+  php8.2-cli-8.2.36-1.amzn2023.0.1 php8.2-fpm-8.2.36-1.amzn2023.0.1</code></pre>
+<p>Run Commandは対話ができません。まず別途、先行機で変更予定をレビューしてから、自動実行で承認済みトランザクションにだけ <code>-y</code> を付けます。<code>MaxErrors=0</code> は最初のカウント対象のエラー後に新規配布を止める設定で、実行中の処理の中断やロールバックは行いません。未到達のノードなどもあるため、親Commandの表示だけでなく<strong>対象全台の個別実行結果</strong>を確認します。</p>
+</section>
+<section id="baseline"><h2>5. 定期更新の場合：Patch Manager</h2>
+<dl class="split"><div><dt><code>Operation=Scan</code></dt><dd>ベースラインに沿って不足パッチを確認する。インストールは行わない。</dd></div><div><dt><code>Operation=Install</code></dt><dd>承認パッチを適用。対象OSとベースラインの内容を先に確認する。</dd></div><div><dt><code>RebootOption=NoReboot</code></dt><dd>Patch ManagerによるOS再起動を抑える。パッケージ更新時のサービス再起動は別。</dd></div><div><dt><code>Snapshot-ID</code></dt><dd>メンテナンスウィンドウ外の複数台適用では、同じ作業回に同じUUIDを指定することをAWSが推奨。</dd></div></dl>
+<p>カーネルは新しいRPMが入っても、起動中のカーネルは切り替わりません。承認済みの再起動手順を設け、更新前後の <code>uname -r</code> を比較します。再起動を後回しにした状態を「対処完了」にしません。</p>
+<p>パッケージの範囲を限定したい場合は、専用ベースラインか、利用条件を確認したうえで <code>InstallOverrideList</code> を使います。Linuxではリストで指定したもののうち、既に導入済みで有効なリポジトリから取得できるものを更新します。依存パッケージの影響は確認してください。定期実行にはメンテナンスウィンドウを使えます。</p>
+</section>
+<section id="verify"><h2>6. 稼働中のプロセスとサービスを確認する</h2>
+<div class="table" tabindex="0" role="region" aria-label="更新後の確認方法"><table><caption>インストール済みの版だけでは判断しない</caption><thead><tr><th scope="col">対象</th><th scope="col">確認するもの</th></tr></thead><tbody>
+<tr><th scope="row">nginx／Apache</th><td>構成チェック（<code>nginx -t</code>／<code>apachectl configtest</code>）、稼働プロセスとWeb応答。バイナリ更新は設定の再読込だけで済むと決めつけない。</td></tr>
+<tr><th scope="row">PHP-FPM</th><td>実際のFPMユニットが稼働し、PHPを通る既存の確認用URLが期待どおり。静的ファイルの200だけでは不十分。</td></tr>
+<tr><th scope="row">OpenSSL</th><td>コマンドの版だけでなくライブラリパッケージも確認。旧ライブラリを読み込んだサービスを特定し、必要な再起動とTLS疎通確認を行う。</td></tr>
+<tr><th scope="row">カーネル</th><td>計画した再起動後の <code>uname -r</code> と、ロードバランサー・アプリ・監視の回復確認。</td></tr>
+</tbody></table></div>
+<pre tabindex="0" aria-label="サービスとログの読み取り例"><code># 実際に確認したユニット名に置き換える
+systemctl is-active php-fpm.service
+journalctl -u php-fpm.service --since "10 minutes ago" --no-pager
+# 対象RPMの版と、必要に応じ承認済みの再起動後に実行中カーネルを確認
+rpm -q openssl openssl-libs
+uname -r</code></pre>
+<p>ロードバランサーの対象が正常に戻り、5xxやログのエラーが増えていないことも確認します。失敗時は残りへ広げず、事前に決めた復旧手順を使います。</p>
+<p class="flag"><b>合格条件：</b>修正版が入り、実プロセスが更新版を使い、代表処理が通り、監視指標が悪化していないこと。この4つがそろってから次のバッチへ進みます。</p>
+</section>
+<section id="sources"><h2>公式資料</h2>
+<ul><li><a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up-nodes.html">Systems Manager管理ノードの前提</a></li><li><a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html">Run Commandのターゲット・同時実行数・失敗しきい値</a>、<a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html">コマンド結果の読み方</a></li><li><a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-aws-runpatchbaseline.html">AWS-RunPatchBaselineのパラメータ</a>、<a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-override-lists.html">InstallOverrideList</a></li><li><a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">Auto ScalingのInstance Refresh</a>、<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/update-service-parameters.html">Amazon ECSサービスの更新</a></li><li><a href="https://docs.aws.amazon.com/linux/al2023/ug/deterministic-upgrades.html">AL2023のリリース固定</a>、<a href="https://aws.amazon.com/security/security-bulletins/2026-190-aws/">PHPのAWSセキュリティ告知</a></li></ul>
+</section>
+</article>
+<aside><nav aria-label="記事内の目次"><b>手順の目次</b><ol><li><a href="#route">更新方法を選ぶ</a></li><li><a href="#preflight">事前の読み取り</a></li><li><a href="#versions">今回の修正版</a></li><li><a href="#single">指定パッケージを更新</a></li><li><a href="#baseline">定期更新</a></li><li><a href="#verify">更新後の確認</a></li></ol></nav></aside>
+</main>
+<footer class="wrap">手順とコマンドは説明用です。実環境への適用・動作検証は行っていません。</footer>
+</body>
+</html>
