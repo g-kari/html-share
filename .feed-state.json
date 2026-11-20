@@ -42,9 +42,9 @@
       "updated": "2026-10-14T02:32:43.000Z"
     },
     "aws-ssm-ec2-software-patching.html": {
-      "fingerprint": "813115642935b6fe03df307d68e64b8f2214e1e80ad739bf73a2e850bcbd1a93",
+      "fingerprint": "8f034f7824f1ccc600c7440c680424f75836631fba507d8d86dceb569f639ce0",
       "published": "2026-11-20T02:49:22.000Z",
-      "updated": "2026-11-20T02:49:22.000Z"
+      "updated": "2026-11-20T07:51:41.000Z"
     },
     "aws-waf-ip-reputation.html": {
       "fingerprint": "4e4f01e455d8b5dc93e47b8bc56260c69f0878155cb591be19aa0a84ce7ddc38",
