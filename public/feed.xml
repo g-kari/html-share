@@ -7,15 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Fri, 20 Nov 2026 02:49:22 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 20 Nov 2026 07:51:41 GMT</lastBuildDate>
     <item>
       <title>AWS Systems Managerで複数のEC2を更新する</title>
       <link>https://share.0g0.xyz/aws-ssm-ec2-software-patching</link>
       <guid isPermaLink="true">https://share.0g0.xyz/aws-ssm-ec2-software-patching</guid>
       <description>nginx、PHP、Apache、OpenSSL、OS・カーネルを複数のEC2で更新する手順。先行1台、段階展開、再起動とWeb稼働の確認。</description>
-      <pubDate>Fri, 20 Nov 2026 02:49:22 GMT</pubDate>
+      <pubDate>Fri, 20 Nov 2026 07:51:41 GMT</pubDate>
       <dcterms:created>2026-11-20T02:49:22.000Z</dcterms:created>
-      <dcterms:modified>2026-11-20T02:49:22.000Z</dcterms:modified>
+      <dcterms:modified>2026-11-20T07:51:41.000Z</dcterms:modified>
     </item>
     <item>
       <title>PHPのセキュリティ更新：修正版と確認手順（2026年11月19日）</title>
