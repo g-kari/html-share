@@ -91,6 +91,11 @@
       "published": "2026-11-19T17:43:36.000Z",
       "updated": "2026-11-19T17:43:36.000Z"
     },
+    "cve-watch-2026-11-22.html": {
+      "fingerprint": "883331248ea091d8376c39baf8fb5294a16c262cf85f40ab97e09cf2b3b5f80d",
+      "published": "2026-11-22T00:55:59.000Z",
+      "updated": "2026-11-22T00:55:59.000Z"
+    },
     "devsecops-oss.html": {
       "fingerprint": "7f317107f631f85865de795313404d4abc4cdce28fd3fea2dc40f7832d835d9e",
       "published": "2026-11-05T03:13:34.000Z",
