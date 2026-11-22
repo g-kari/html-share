@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Fri, 20 Nov 2026 07:51:41 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 22 Nov 2026 00:55:59 GMT</lastBuildDate>
+    <item>
+      <title>CVE監視 第2号（2026年11月22日）：NGINX HTTP/3 の use-after-free</title>
+      <link>https://share.0g0.xyz/cve-watch-2026-11-22</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/cve-watch-2026-11-22</guid>
+      <description>2026年11月21日から22日に確認したCVEのうち、関心技術に関わる High 以上で未掲載の1件、NGINX HTTP/3 の use-after-free（CVE-2026-121810、CVSS 8.1）を、対象版・修正版・成立条件つきで整理した監視の第2号。</description>
+      <pubDate>Sun, 22 Nov 2026 00:55:59 GMT</pubDate>
+      <dcterms:created>2026-11-22T00:55:59.000Z</dcterms:created>
+      <dcterms:modified>2026-11-22T00:55:59.000Z</dcterms:modified>
+    </item>
     <item>
       <title>AWS Systems Managerで複数のEC2を更新する</title>
       <link>https://share.0g0.xyz/aws-ssm-ec2-software-patching</link>
