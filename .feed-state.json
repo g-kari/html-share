@@ -57,9 +57,9 @@
       "updated": "2026-10-28T09:32:08.000Z"
     },
     "cephfs-cve-2026-99304.html": {
-      "fingerprint": "f2ad3c224f9b99158b2771a53be924bd38c3f3491a4edc0faf09e53d09a3956b",
+      "fingerprint": "0405fa3b0ca6225f59aa6a16ebc69420f183ba0842d5d47fcb20995351056c33",
       "published": "2026-11-19T14:58:06.000Z",
-      "updated": "2026-11-19T14:58:06.000Z"
+      "updated": "2026-11-23T05:06:11.000Z"
     },
     "cloudfront-protobuf-maintenance.html": {
       "fingerprint": "3ac82cf61b10d53fa300c9ba5c09c2fc6f1395e9abc8cc079309fd56c7d7508e",
