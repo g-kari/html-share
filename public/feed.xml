@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Sun, 22 Nov 2026 00:55:59 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 23 Nov 2026 05:06:11 GMT</lastBuildDate>
+    <item>
+      <title>CephFSの脆弱性 CVE-2026-99304：影響を受ける条件と更新方法</title>
+      <link>https://share.0g0.xyz/cephfs-cve-2026-99304</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/cephfs-cve-2026-99304</guid>
+      <description>LinuxのCephFSカーネルクライアントに影響するCVE-2026-99304。対象ホストの見分け方、OSごとの修正状況、更新後の確認を解説します。</description>
+      <pubDate>Mon, 23 Nov 2026 05:06:11 GMT</pubDate>
+      <dcterms:created>2026-11-19T14:58:06.000Z</dcterms:created>
+      <dcterms:modified>2026-11-23T05:06:11.000Z</dcterms:modified>
+    </item>
     <item>
       <title>CVE監視 第2号（2026年11月22日）：NGINX HTTP/3 の use-after-free</title>
       <link>https://share.0g0.xyz/cve-watch-2026-11-22</link>
@@ -70,15 +79,6 @@
       <pubDate>Thu, 19 Nov 2026 15:12:40 GMT</pubDate>
       <dcterms:created>2026-11-19T15:12:40.000Z</dcterms:created>
       <dcterms:modified>2026-11-19T15:12:40.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>CephFSの脆弱性 CVE-2026-99304：影響を受ける条件と更新方法</title>
-      <link>https://share.0g0.xyz/cephfs-cve-2026-99304</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/cephfs-cve-2026-99304</guid>
-      <description>LinuxのCephFSカーネルクライアントに影響するCVE-2026-99304。対象ホストの見分け方、OSごとの修正状況、更新後の確認を解説します。</description>
-      <pubDate>Thu, 19 Nov 2026 14:58:06 GMT</pubDate>
-      <dcterms:created>2026-11-19T14:58:06.000Z</dcterms:created>
-      <dcterms:modified>2026-11-19T14:58:06.000Z</dcterms:modified>
     </item>
     <item>
       <title>nginx2shell：NGINXのHTTP/2脆弱性と対処</title>
