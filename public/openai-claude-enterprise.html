@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>OpenAI EnterpriseとClaude Enterpriseの比較｜セキュリティ・監査・コスト（20〜49人）</title>
-<meta name="description" content="ChatGPT Enterprise／CodexとClaude Enterprise／Claude Codeを20〜49人規模で比較。ソースコード保護、データ保持、ZDR、監査証跡、料金試算を公式資料に基づいて整理。">
+<title>OpenAI EnterpriseとClaude Enterpriseの比較｜セキュリティ・監査・コスト（2〜200席の導入目安）</title>
+<meta name="description" content="2〜200席の規模別にChatGPT Business／EnterpriseとClaude Team／Enterpriseを比較。Codex・Claude Code、データ保持、ZDR、EDRと監査、契約席数と費用の目安を整理。">
 <link rel="canonical" href="https://share.0g0.xyz/openai-claude-enterprise">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OpenAI × Claude Enterprise 比較｜セキュリティ・監査・コスト">
-<meta property="og:description" content="20〜49人規模向け。コード保護、保持期間、監査範囲、料金の条件を公式資料で比較。">
+<meta property="og:description" content="2〜200席の規模別に、AIコーディングと全社利用の契約候補、コード保護、データ保持、監査と費用を比較。">
 <meta property="og:image" content="https://share.0g0.xyz/assets/openai-claude-enterprise-ogp-v1.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1730">
@@ -44,6 +44,7 @@ details{border-block:1px solid var(--rule);padding:12px 0;margin:18px 0}details+
 @media(max-width:700px){.wrap{width:calc(100% - 28px)}.hero{padding:27px 0 22px}.toc{gap:7px 11px;font-size:.8rem}section{padding-top:28px}section+section{margin-top:27px}h1{letter-spacing:-.025em}.key{padding:12px 13px}.source-list{columns:1}table{font-size:.86rem}th,td{padding:9px 8px}.sitehead .wrap{align-items:flex-start;flex-direction:column;gap:2px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 .efs-flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;list-style:none;padding:0;margin:0}.efs-flow li{margin:0;padding:12px 14px;background:var(--soft);border-top:3px solid var(--accent);font-size:.9rem}@media(max-width:620px){.efs-flow{grid-template-columns:1fr}}
+.size-bands{margin:18px 0 14px;border-top:1px solid var(--ink)}.size-bands>div{display:grid;grid-template-columns:7rem minmax(0,1fr);gap:1rem;padding:10px 0;border-bottom:1px solid var(--rule)}.size-bands dt{margin:0;font-weight:740;color:var(--accent);white-space:nowrap}.size-bands dd{margin:0;font-size:.94rem}@media(max-width:580px){.size-bands>div{grid-template-columns:1fr;gap:2px}}
 </style>
   <!-- html-share: social metadata -->
   <meta property="og:site_name" content="HTML Share">
@@ -61,18 +62,18 @@ details{border-block:1px solid var(--rule);padding:12px 0;margin:18px 0}details+
 <main id="main" tabindex="-1" class="wrap">
   <header class="hero">
     <h1>OpenAI EnterpriseとClaude Enterpriseの比較</h1>
-    <p class="dek">20〜49人の組織がコーディングと全社利用を両立するときの選定材料。セキュリティ、ソースコード保護、データ保持、監査、料金を公式公開資料から整理する。</p>
-    <p class="byline">調査基準日：<time datetime="2026-11-18">2026年11月18日</time>　｜　EFS追記：<time datetime="2026-11-24">2026年11月24日</time>　｜　対象：ChatGPT Enterprise／Codex と Claude Enterprise／Claude Code</p>
+    <p class="dek">2〜200席を想定して、全社利用とコーディングをどう契約するか。小規模向けのBusiness／Teamも含め、席数、セキュリティ、監査、費用を人数帯ごとに比較する。</p>
+    <p class="byline">調査基準日：<time datetime="2026-11-18">2026年11月18日</time>　｜　EFS・人数別ガイド追記：<time datetime="2026-11-24">2026年11月24日</time>　｜　対象：ChatGPT Enterprise／Codex と Claude Enterprise／Claude Code</p>
   </header>
 
-  <nav class="toc" aria-label="記事内の目次"><span>目次</span><a href="#conclusion">結論</a><a href="#overview">比較表</a><a href="#code">コード保護</a><a href="#retention">保持・監査</a><a href="#efs">Claude EFS</a><a href="#cost">コスト</a><a href="#checklist">確認項目</a><a href="#sources">出典</a></nav>
+  <nav class="toc" aria-label="記事内の目次"><span>目次</span><a href="#conclusion">結論</a><a href="#size">人数別の選び方</a><a href="#overview">比較表</a><a href="#code">コード保護</a><a href="#retention">保持・監査</a><a href="#efs">Claude EFS</a><a href="#cost">コスト</a><a href="#checklist">確認項目</a><a href="#sources">出典</a></nav>
 
   <section id="conclusion" class="prose">
-    <h2>結論：20〜49人では契約方式と監査対象が分かれ目</h2>
+    <h2>結論：席数と、必要な監査を分けて決める</h2>
     <div class="key">
       <h3>先に押さえる5点</h3>
       <ul>
-        <li><strong>導入規模：</strong>Claude Enterpriseは20席からセルフサービス契約ができる。営業経由の契約は50席から。OpenAI Enterpriseの価格・最低席数は公開情報だけでは確定できず、見積もりが必要。<a href="#s1">[1]</a><a href="#s2">[2]</a></li>
+        <li><strong>導入規模：</strong>小規模ならBusiness／Teamを比較。Claude Enterpriseの公式最低はセルフサービス20席、営業支援付き50席。OpenAI Enterpriseの価格・最低席数は要見積もり。<a href="#size">人数別の選び方</a>で、自社の人数と使う機能を照らし合わせる。<a href="#s1">[1]</a><a href="#s2">[2]</a></li>
         <li><strong>ソースコード：</strong>両製品とも企業データを原則としてモデル学習に使わない。ただし推論に必要なコードや出力はサービスへ送られ得る。学習除外と機密情報の非送信は別の問題。<a href="#s4">[4]</a><a href="#s5">[5]</a></li>
         <li><strong>監査：</strong>ClaudeのCompliance APIはローカルClaude Codeのセッション本文を取得できるが、Claude Codeのクラウドセッションは対象外。OpenAIのCompliance Logs Platformもエージェント内の全操作を網羅するものではない。<a href="#s14">[14]</a><a href="#s15">[15]</a></li>
         <li><strong>Claudeの新しいZDRオプション：</strong>一部顧客向けのEFSは、対象APIのデータを自社クラウドに保存する。提供元にコピーを残さず、自動で安全性を検査できる。<a href="#efs">適用範囲と監査の違い</a>を確認したい。</li>
@@ -80,6 +81,23 @@ details{border-block:1px solid var(--rule);padding:12px 0;margin:18px 0}details+
       </ul>
     </div>
     <p><span class="data-label">事実</span>以下は各社の公開仕様。<span class="data-label infer">判断</span>は公開仕様からの実務上の解釈。<span class="data-label unknown">要確認</span>は個別契約・管理画面・試験で確かめる事項と区別する。</p>
+  </section>
+
+  <section id="size" class="prose">
+    <h2>人数別：最初に比較するプランと、次に確かめること</h2>
+    <p>以下は<strong>最初に契約予定の有料席数</strong>で選ぶ。会社の全社員数、AIの利用候補者数、毎月実際に使う人数、コード作業をする人数とは区別する。以下の区分は導入計画の目安で、公式の契約条件は各行で区別する。</p>
+    <dl class="size-bands">
+      <div><dt>2〜19席</dt><dd><strong>ChatGPT Business／Claude Teamから比較する。</strong>人を絞って一般利用と開発を試し、開発者もまず標準席で計測する。業務コードを送る前に、管理者が利用者を外せるか、端末とリポジトリのログを残せるかを見る。必須要件を満たさないなら、人数が少なくてもEnterpriseの条件を照会する。</dd></div>
+      <div><dt>20〜49席</dt><dd><strong>Claude Enterpriseのセルフサービスが候補に入る。</strong>公式の最低は20席。Business／Teamとの差は機能だけでなく料金体系にもある。Claudeの営業支援付きの公式最低は50席、OpenAI Enterpriseの最低席数と価格は要見積もり。</dd></div>
+      <div><dt>50〜99席</dt><dd><strong>営業支援付きも見積もる。</strong>Claudeは50席以上で営業支援付き方式の候補。請求書払い・現地通貨・サポート条件が必要なら、OpenAI Enterpriseと同じ席数・部署構成で比較する。不要ならセルフサービスやBusiness／Teamも残す。</dd></div>
+      <div><dt>100〜150席</dt><dd><strong>部門ごとに展開し、運用負荷を測る。</strong>Claude Teamは公式に150席まで。全員分を買う前に、入退社時の席の回収、監査出力、保持期間、EDRとの照合を複数部門で試す。自動アカウント管理や全社監査が必須ならEnterpriseを比較する。</dd></div>
+      <div><dt>151〜200席</dt><dd><strong>Claudeで全員に席を出すならEnterprise。</strong>Claude Teamの上限は契約席数なので、対象が180人でも初期契約が60席なら別の判断になる。OpenAIのBusiness料金ページは従業員2〜200人を想定。課金ヘルプでは、2026年8月24日以降のBusiness契約は標準・上位合わせて最大200席（未割当も含む）。それ以前のワークスペースは以前の上限を維持する。Enterpriseの見積もりも並べる。<a href="#s27">[27]</a></dd></div>
+    </dl>
+    <p class="small">公式条件：<a href="#s1">Claude Enterprise [1]</a>、<a href="#s3">Claude料金 [3]</a>、<a href="#s26">OpenAI法人向け比較 [26]</a>。OpenAI Businessの公開料金表は従業員2人からを想定する一方、課金ヘルプには有料1席から始める記載がある。単独利用で法人ワークスペースが必要なら契約画面で最小席数を確かめる。<a href="#s2">[2]</a><a href="#s27">[27]</a></p>
+    <h3>全社利用と開発者用の席をどう分けるか</h3>
+    <p>例えば全社員100人で、初期は一般30人・開発10人なら、比較するのはまず<strong>40席</strong>。Business／Teamの標準席でもCodex／Claude Codeを使える。上位席は、標準席では継続的に容量が足りない人を特定してから割り当てる。Claudeの現行従量型Enterpriseは単一席種で、開発も一般利用も同じ固定席単価。利用分は別料金になる。<a href="#s1">[1]</a><a href="#s3">[3]</a><a href="#s26">[26]</a></p>
+    <p class="small">Business／Teamの席料例（米国向け公開価格、年払い）：100席を標準90席・上位10席にすると、月額換算は90×$20＋10×$100＝<strong>$2,800</strong>、年間$33,600。税・追加クレジット・APIの別課金は含まない。利用上限や機能が両社で同じという意味ではない。<a href="#s3">[3]</a><a href="#s26">[26]</a></p>
+    <p class="note"><strong>人数より先に見る条件：</strong>本番コードの送信制御、退職時の停止、監査ログの取得や保持、端末監視（EDR）が必須なら、席数や席単価より先に合格条件を決める。AIの監査だけでは端末の操作を網羅できない。逆にEDRでもクラウド上のAI操作は別証拠が必要。<a href="#retention">保持・監査の比較</a>を見て、Git・端末・CIと突き合わせる。APIキーで動かす自動処理は、アプリの席数や料金と分けて見積もる。クレジット特典があっても、API契約・適用範囲・保持条件まで同一とは限らない。<a href="#s2">[2]</a><a href="#s12">[12]</a></p>
   </section>
 
   <section id="overview">
@@ -90,7 +108,7 @@ details{border-block:1px solid var(--rule);padding:12px 0;margin:18px 0}details+
         <thead><tr><th scope="col">項目</th><th scope="col">OpenAI</th><th scope="col">Anthropic</th></tr></thead>
         <tbody>
         <tr><th scope="row">全社利用と開発</th><td>ChatGPT WorkとCodexを組織で管理。利用枠・課金はEnterprise契約条件による。</td><td>Enterpriseの1席でClaude Chat・Claude Code・Coworkにアクセス。使用トークンは別課金。</td></tr>
-        <tr><th scope="row">20〜49人の契約</th><td><span class="data-label unknown">要確認</span>公開されている一律席単価・最低契約席数はない。</td><td>20席以上のセルフサービス方式に適合。営業支援付き方式の最低は50席。</td></tr>
+        <tr><th scope="row">Enterpriseの契約条件</th><td><span class="data-label unknown">要確認</span>公開されている一律席単価・最低契約席数はない。</td><td>セルフサービス方式は最低20席、営業支援付き方式は最低50席。対象人数でなく契約席数で判定。</td></tr>
         <tr><th scope="row">学習への利用</th><td>組織の業務データを既定ではモデル学習に使わない。</td><td>商用Claudeの組織データを既定ではモデル学習に使わない。</td></tr>
         <tr><th scope="row">ID・利用者管理</th><td>SSO、SCIM、ロール／管理設定を備える。適用範囲は製品別に確認。</td><td>SSO、SCIM、役割、監査ログ、個別・組織別費用上限を備える。</td></tr>
         <tr><th scope="row">送信前の検査</th><td>Codexの管理ポリシー、権限、外部ガードレール統合。Prisma AIRS連携が検査する内容には制限。</td><td>Enterprise Inference hooksでプロンプト・ツール結果・添付テキスト等を顧客側の検査先へ送り、許可／拒否可能。</td></tr>
@@ -177,15 +195,19 @@ details{border-block:1px solid var(--rule);padding:12px 0;margin:18px 0}details+
   <section id="cost">
     <h2>4. コスト：Claudeの席単価は公開、OpenAIは見積もり</h2>
     <p class="prose"><span class="data-label">事実</span>Claude Enterpriseは<strong>1人あたり月20米ドル・年契約</strong>で、Claude Chat、Claude Code、Coworkの利用分はすべて標準APIレートで別途計量する。セルフサービス契約は20席から、使用クレジットは前払い。OpenAI Enterpriseの席数・最小金額・利用込み枠は営業提示条件による。<a href="#s1">[1]</a><a href="#s2">[2]</a><a href="#s3">[3]</a></p>
-    <div class="table-wrap" tabindex="0" aria-label="20〜49人での年間席料金の比較表。横にスクロールできます">
+    <div class="table-wrap" tabindex="0" aria-label="規模別の年間席料金の比較表。横にスクロールできます">
       <table>
-        <caption>Claude Enterpriseの固定席料金（税・従量使用量を除く）</caption>
-        <thead><tr><th scope="col">人数</th><th scope="col">月額換算</th><th scope="col">年間席料金</th><th scope="col">OpenAI Enterprise</th></tr></thead>
+        <caption>Claude Enterpriseの固定席料金（契約席数、税・従量使用量を除く）</caption>
+        <thead><tr><th scope="col">契約席数</th><th scope="col">月額換算</th><th scope="col">年間席料金</th><th scope="col">OpenAI Enterprise</th></tr></thead>
         <tbody>
-          <tr><th scope="row" class="num">20人</th><td class="num">$400</td><td class="num">$4,800</td><td rowspan="4">公開一律価格なし。要見積もり。</td></tr>
-          <tr><th scope="row" class="num">30人</th><td class="num">$600</td><td class="num">$7,200</td></tr>
-          <tr><th scope="row" class="num">40人</th><td class="num">$800</td><td class="num">$9,600</td></tr>
-          <tr><th scope="row" class="num">49人</th><td class="num">$980</td><td class="num">$11,760</td></tr>
+          <tr><th scope="row" class="num">20席</th><td class="num">$400</td><td class="num">$4,800</td><td rowspan="8">公開一律価格なし。要見積もり。</td></tr>
+          <tr><th scope="row" class="num">30席</th><td class="num">$600</td><td class="num">$7,200</td></tr>
+          <tr><th scope="row" class="num">49席</th><td class="num">$980</td><td class="num">$11,760</td></tr>
+          <tr><th scope="row" class="num">50席</th><td class="num">$1,000</td><td class="num">$12,000</td></tr>
+          <tr><th scope="row" class="num">100席</th><td class="num">$2,000</td><td class="num">$24,000</td></tr>
+          <tr><th scope="row" class="num">150席</th><td class="num">$3,000</td><td class="num">$36,000</td></tr>
+          <tr><th scope="row" class="num">151席</th><td class="num">$3,020</td><td class="num">$36,240</td></tr>
+          <tr><th scope="row" class="num">200席</th><td class="num">$4,000</td><td class="num">$48,000</td></tr>
         </tbody>
       </table>
     </div>
@@ -208,18 +230,18 @@ details{border-block:1px solid var(--rule);padding:12px 0;margin:18px 0}details+
   </section>
 
   <section id="checklist" class="prose">
-    <h2>5. 20〜49人で契約前に確認する8項目</h2>
+    <h2>5. 人数にかかわらず契約前に確認する8項目</h2>
     <ol>
-      <li><strong>20〜49席での提供形態：</strong>OpenAIの最小契約・料金、Claudeセルフサービスで使えるSLA・サポート・請求方法。</li>
+      <li><strong>契約席と利用予定者：</strong>初期の有料席数、部署別の利用者、開発者数を別々に数える。最小席数、請求方法、SLA・サポートは両社で確認。</li>
       <li><strong>対象製品の一覧：</strong>Chat、Code、Cowork、API、クラウド実行が同一の契約・管理ポリシーで扱われるか。</li>
       <li><strong>送信の境界：</strong>ソース、添付、ツール結果、MCP連携内容をいつ外部へ送信するか。秘密情報遮断テストを実施できるか。</li>
       <li><strong>保持の一覧表：</strong>チャット、ファイル、コードセッション、API、ログ、バックアップを別々に保持期間・削除条件まで文書化できるか。</li>
       <li><strong>ZDRと監査の両立：</strong>どの製品・機能にZDRが適用されるか。ZDR有効時にも欲しい監査証跡を取得できるか。EFSを使うなら、対象API・ワークスペース・契約経路、保存先と鍵の管理者、安全性ケースで受け取れる項目を確認する。</li>
       <li><strong>監査の網羅率：</strong>ローカル／クラウドで、誰が何を読み、どのコマンドを実行し、最終的に何をGitへ反映したかを突合できるか。</li>
       <li><strong>地域と第三者処理：</strong>データ保管・推論・外部DLP先・接続サービスの地域と再委託先を説明できるか。</li>
-      <li><strong>上限付きの実測：</strong>開発者10人＋一般20人で2〜4週間の試用を行い、月間トークン、キャッシュ率、モデルの偏り、実際の削減工数を測る。</li>
+      <li><strong>上限付きの実測：</strong>小さな試用グループで2〜4週間使い、一般利用と開発を分けて、月間トークン、キャッシュ率、モデルの偏り、実際の削減工数を測る。</li>
     </ol>
-    <p><span class="data-label infer">判断</span>大人数向けの調達手順をそのまま適用するより、初期の30人程度で<strong>「送信・保持・監査」と「1人当たりの利用量」</strong>を測ってから契約条件を比較するのが実務的。公開仕様だけではセキュリティ上の優劣や年間総費用の優劣を断定できない。</p>
+    <p><span class="data-label infer">判断</span>全員分を先に契約するより、初期の試用グループで<strong>「送信・保持・監査」と「1人当たりの利用量」</strong>を測ってから契約条件を比較するのが実務的。公開仕様だけではセキュリティ上の優劣や年間総費用の優劣を断定できない。</p>
   </section>
 
   <section id="sources">
@@ -251,6 +273,8 @@ details{border-block:1px solid var(--rule);padding:12px 0;margin:18px 0}details+
       <li id="s23"><a href="https://platform.claude.com/docs/en/manage-claude/enterprise-frontier-safeguards/overview">Anthropic：Enterprise Frontier Safeguardsの概要</a><span>保存方式、対象API、安全性ケース、費用</span></li>
       <li id="s24"><a href="https://platform.claude.com/docs/en/manage-claude/enterprise-frontier-safeguards/flagged-cases">Anthropic：Review Safety Cases</a><span>検出ケースの取得と、本文の参照範囲</span></li>
       <li id="s25"><a href="https://platform.claude.com/docs/ja/manage-claude/enterprise-frontier-safeguards/setup-console">Anthropic：Claude PlatformのEFS設定ガイド</a><span>利用規約への同意が及ぼす影響と移行手順</span></li>
+      <li id="s26"><a href="https://openai.com/business/pricing/">OpenAI：BusinessとEnterpriseの料金比較</a><span>Businessの案内対象、席種、Enterpriseの見積もり</span></li>
+      <li id="s27"><a href="https://help.openai.com/en/articles/8792536-managing-billing-and-seats-in-chatgpt-business">OpenAI：Businessの席・課金管理</a><span>有料席の開始条件と標準・上位席</span></li>
     </ol>
   </section>
 </main>
