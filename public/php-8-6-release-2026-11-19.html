@@ -20,6 +20,18 @@ table.php86{border-collapse:collapse;width:100%;margin:1rem 0}
 table.php86 :is(td,th){padding:.45rem .6rem;border-bottom:1px solid #808080;text-align:left;vertical-align:top}
 .check pre{max-inline-size:100%;overflow:auto;font-size:.9em}
 </style>
+  <!-- html-share: social metadata -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="HTML Share">
+  <meta property="og:title" content="PHP 8.6の変更点：セッション既定値の厳格化と、自分のリポジトリへの影響">
+  <meta property="og:description" content="PHP 8.6.0（2026年11月19日）の新機能と互換性変更、セッション既定値の厳格化、PHP 8.2のサポート終了（2026年12月31日）と、自分のGitHubリポジトリの走査結果をまとめます。">
+  <meta property="og:url" content="https://share.0g0.xyz/php-8-6-release-2026-11-19">
+  <meta name="twitter:title" content="PHP 8.6の変更点：セッション既定値の厳格化と、自分のリポジトリへの影響">
+  <meta name="twitter:description" content="PHP 8.6.0（2026年11月19日）の新機能と互換性変更、セッション既定値の厳格化、PHP 8.2のサポート終了（2026年12月31日）と、自分のGitHubリポジトリの走査結果をまとめます。">
+  <!-- /html-share: social metadata -->
+  <!-- html-share: rss discovery -->
+  <link rel="alternate" type="application/rss+xml" title="HTML Share RSS" href="https://share.0g0.xyz/feed.xml">
+  <!-- /html-share: rss discovery -->
 </head>
 <body>
 <div class="wrap">
@@ -33,7 +45,7 @@ table.php86 :is(td,th){padding:.45rem .6rem;border-bottom:1px solid #808080;text
 <div class="summary3">
 <div class="ttl">要点</div>
 <ol>
-<li>PHP 8.6.0 が2026年11月19日に公開されました。新機能の中心は部分関数適用、<code>\Time\Duration</code> クラス、ポーリングAPI <code>Io\Poll</code>、<code>clamp()</code> 関数です。</li>
+<li>PHP 8.6.0 が2026年11月19日に公開されました。新機能の中心は<a class="gloss" href="/glossary#term-partial-function-application" title="関数の引数の一部を先に固定し、残りの引数を受け取る新しい関数（クロージャ）を作る書き方。PHP 8.6ではプレースホルダ ? と ... で書ける。">部分関数適用</a>、<code>\Time\Duration</code> クラス、<a class="gloss" href="/glossary#term-polling" title="複数の入出力先をまとめて監視し、読み書きできるようになったものを通知する仕組み。OSの epoll や kqueue を使うと、多数の接続を効率よく扱える。">ポーリング</a>API <code>Io\Poll</code>、<code>clamp()</code> 関数です。</li>
 <li>既存アプリへの影響が一番大きいのは新機能ではなく、セッションの既定値の変更です。<code>session.use_strict_mode</code> と <code>session.cookie_httponly</code> が 1 になり、<code>session.cookie_samesite</code> の既定が <code>Lax</code> になります。SSOや決済サイトから戻るPOSTでログインが切れるのが典型的な壊れ方です。</li>
 <li>PHP 8.2 のセキュリティサポートは2026年12月31日で終了します。8.2 のまま年を越すと、新しい脆弱性が出てもPHP公式の修正が届きません。</li>
 <li>自分のGitHubリポジトリを走査した結果（対象はアーカイブ済みを除く109件）、PHP 8.2 に固定されていたのは <code>php-base</code> の1件だけでした。もう1件のPHP関連リポジトリ <code>phalcon-queue</code> はバージョン固定ではありません。</li>
@@ -101,9 +113,9 @@ table.php86 :is(td,th){padding:.45rem .6rem;border-bottom:1px solid #808080;text
 <tr><td><code>session.cookie_samesite</code></td><td>未設定</td><td>Lax</td><td>SSOや決済サイトから自サイトへ戻るクロスサイトPOST</td></tr>
 </tbody>
 </table>
-<p><strong>strict mode</strong> が有効になると、PHPが発行していないセッションIDは拒否され、新しいIDが発行されます。セッションフィクセーションへの対策ですが、外部の認証基盤やモバイルアプリからセッションIDを引き渡す構成では、ログイン状態が引き継げなくなります。カスタムのセッションハンドラは <code>validateId()</code> と <code>create_sid()</code> の実装が要ります。この2つを持たないハンドラを <code>session_set_save_handler()</code> に渡すことも 8.6 で非推奨になりました。どうしても旧来の動きが必要な場合は、影響を理解したうえで明示的に <code>0</code> へ戻す選択肢があります。</p>
+<p><strong>strict mode</strong> が有効になると、PHPが発行していないセッションIDは拒否され、新しいIDが発行されます。<a class="gloss" href="/glossary#term-session-fixation" title="攻撃者が用意したセッションIDを被害者に使わせ、そのIDのままログインさせることでセッションを乗っ取る攻撃。サーバーが発行していないIDを拒否する strict mode が対策になる。">セッションフィクセーション</a>への対策ですが、外部の認証基盤やモバイルアプリからセッションIDを引き渡す構成では、ログイン状態が引き継げなくなります。カスタムのセッションハンドラは <code>validateId()</code> と <code>create_sid()</code> の実装が要ります。この2つを持たないハンドラを <code>session_set_save_handler()</code> に渡すことも 8.6 で非推奨になりました。どうしても旧来の動きが必要な場合は、影響を理解したうえで明示的に <code>0</code> へ戻す選択肢があります。</p>
 <p><strong>HttpOnly</strong> が有効になると、セッションCookieは JavaScript から読めなくなります。XSS でセッションIDを盗まれる経路を塞ぐ変更で、通常のアプリは影響を受けません。<code>document.cookie</code> からセッションIDを読んでAPIリクエストに付けているような作りの場合だけ、別の受け渡し方法への変更が必要です。</p>
-<p><strong>SameSite の Lax</strong> が一番影響が出やすい変更です。Lax では、別のサイトから来るPOSTリクエストにはセッションCookieが付きません。決済サイトや SSO の認証先で処理を終えたあと、結果をPOSTで自サイトへ戻す流れでは、戻り先でCookieが送られず、セッションが見つからないため、決済や認証が完了したのにログイン画面へ戻される、という症状になります。</p>
+<p><strong><a class="gloss" href="/glossary#term-samesite" title="Cookieに付ける属性で、別のサイトからのリクエストにそのCookieを送る範囲を決める。Laxでは通常のクロスサイトPOSTにCookieが付かず、Strictでは別サイトからの遷移でも送られない。">SameSite</a> の Lax</strong> が一番影響が出やすい変更です。Lax では、別のサイトから来るPOSTリクエストにはセッションCookieが付きません。決済サイトや SSO の認証先で処理を終えたあと、結果をPOSTで自サイトへ戻す流れでは、戻り先でCookieが送られず、セッションが見つからないため、決済や認証が完了したのにログイン画面へ戻される、という症状になります。</p>
 <figure class="fig"><img src="/assets/php86-session-samesite-flow-v1.jpg" width="1600" height="1020" loading="lazy" alt="SameSite=Laxで決済・SSOの戻りPOSTが切れる流れ。外部サイトから結果をPOSTで戻すときセッションCookieが送られず、戻り先でセッションが見つからずログイン画面に戻される"><figcaption>図：戻りPOSTが切れる仕組み。対処は、戻り先をセッションに依存させない作りにするか、そのフローだけ SameSite=None と Secure を組み合わせます。</figcaption></figure>
 <div class="check">
 <p><strong>移行前に確認すること</strong>（設定を変えずに読むだけの確認です）</p>

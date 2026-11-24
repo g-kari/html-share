@@ -211,7 +211,7 @@ custom-domain.example
       <li>WAF、監査ログ、通報・公開停止、ロールバックを用意する</li>
     </ul>
     <details><summary>もっと詳しく：S3のOAC・キャッシュ・認可</summary><div class="inner"><p>S3オリジンは通常のS3エンドポイントとCloudFront OACを利用し、S3公開アクセスを遮断する。公開コンテンツの読み取り権限と、企業のアップロード権限は分ける。署名付きアップロードURLや短命の限定権限を使い、アップロード先のキーが会社の領域から逸脱しないようサーバーで固定する。</p><p>動的・個人化された応答は安易にキャッシュせず、認証情報やCookieの転送・キャッシュキーを確認する。企業IDをクエリ文字列や任意ヘッダーだけから信用しない。<a href="#sources">[9][12]</a></p></div></details>
-    <details><summary>もっと詳しく：同一親ドメインでも認証は別途設計</summary><div class="inner"><p><code>a.sites.example.com</code> と <code>b.sites.example.com</code> は別オリジンだが、ブラウザーCookieのDomainやSameSiteの設定次第で企業間の影響が生じる。ホスト限定Cookie、適切なCSRF対策、CORS制限、CSP、認証サーバーの分離が必要。アプリのSSOと企業サイトの任意JavaScriptを同じ信頼領域に置かない。</p></div></details>
+    <details><summary>もっと詳しく：同一親ドメインでも認証は別途設計</summary><div class="inner"><p><code>a.sites.example.com</code> と <code>b.sites.example.com</code> は別オリジンだが、ブラウザーCookieのDomainや<a class="gloss" href="/glossary#term-samesite" title="Cookieに付ける属性で、別のサイトからのリクエストにそのCookieを送る範囲を決める。Laxでは通常のクロスサイトPOSTにCookieが付かず、Strictでは別サイトからの遷移でも送られない。">SameSite</a>の設定次第で企業間の影響が生じる。ホスト限定Cookie、適切なCSRF対策、CORS制限、CSP、認証サーバーの分離が必要。アプリのSSOと企業サイトの任意JavaScriptを同じ信頼領域に置かない。</p></div></details>
   </section>
 
   <section class="section" id="roadmap">
