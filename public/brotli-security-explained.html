@@ -59,7 +59,7 @@ pre{overflow:auto;padding:18px;background:var(--wash);font-size:.84rem;line-heig
 <nav class="toc" aria-label="目次"><p>この記事でわかること</p><ol><li><a href="#infra-runbook">インフラ担当が最初にやる5段階</a></li><li><a href="#inventory">OS・アプリ・イメージの棚卸し</a></li><li><a href="#vendor-updates">10月26日の修正情報とLinuxの扱い</a></li><li><a href="#temporary-controls">暫定策の落とし穴</a></li><li><a href="#basics">Brotliは「小さくして、元に戻す」仕組み</a></li><li><a href="#bug">今回は何が壊れたのか</a></li><li><a href="#reachability">配信する側と、展開する側を分ける</a></li><li><a href="#beyond-node">追記：Node.js以外と「HTTP2Shell」</a></li><li><a href="#versions">公式に確認できる修正版</a></li><li><a href="#action">更新を「やったつもり」にしない確認手順</a></li><li><a href="#sources">出典と確認範囲</a></li></ol></nav>
 <section id="infra-runbook"><h2>バックエンド／インフラ担当は、何からやる？</h2>
 <p>影響製品をすべて暗記する必要はありません。<strong>「サービスごとに、どのBrotliが、誰のデータを展開するか」</strong>を一行ずつ埋めます。以下は公式の成立条件から組み立てた運用上の優先順位です。組織の変更管理・保守手順に合わせて使ってください。</p>
-<ol class="proof"><li><h3>担当サービスと実行場所を一枚にする</h3><p>VMだけでなく、コンテナー、sidecar、バッチ、CI runner、サーバーレスのカスタムイメージを列挙。各行に担当者、OS／ランタイム、イメージdigest、Brotliの供給元、外部通信・アップロードの有無を記録します。全社の調査完了を待たず、分かった行から更新計画を進めます。</p></li>
+<ol class="proof"><li><h3>担当サービスと実行場所を一枚にする</h3><p>VMだけでなく、コンテナー、sidecar、バッチ、CI runner、サーバーレスのカスタムイメージを列挙。各行に担当者、OS／<a class="gloss" href="/glossary#term-runtime" title="プログラムを実行する土台となるソフトウェアや実行環境のこと。">ランタイム</a>、イメージdigest、Brotliの供給元、外部通信・アップロードの有無を記録します。全社の調査完了を待たず、分かった行から更新計画を進めます。</p></li>
 <li><h3>「外から受ける」と「外へ取りに行く」を両方調べる</h3><p>APIの圧縮リクエストだけでなく、URLプレビュー、クローラー、画像取得、Webhook後のURL取得、外部API応答、取り込みファイルも対象候補です。公開ポートがないジョブでも外部応答を自動展開していれば確認が必要。機能名だけで到達ありとは断定せず、実際のライブラリ・設定・データ経路で判定します。</p></li>
 <li><h3>到達性と権限で順番をつける</h3><p><strong>優先A：</strong>未修正で、攻撃者が内容を制御できるデータを展開する経路が確認できたもの。認証前の入力や任意URL取得、秘密情報や本番権限を持つworkerは特に優先。<strong>優先B：</strong>未修正だが到達性が未調査のもの。「不明」は「対象外」にせず、担当と確認期限を置きます。<strong>優先C：</strong>修正済みを証明できるもの／当該デコーダーを使わないと証明できる経路。判断根拠と対象範囲を残します。</p></li>
 <li><h3>供給元ごとに修正し、小さく展開する</h3><p>OSパッケージはディストリビューションの修正リビジョン、同梱ランタイムやwheelはその配布物、コンテナーは修正を含むイメージへ更新します。ステージングで正常なbr／gzip／非圧縮応答と通常のAPIを確認し、少数台から展開。更新失敗時の戻し先が脆弱版なら、戻す際の経路制限もあらかじめ決めます。</p></li>
@@ -85,7 +85,7 @@ curl --version
 python -m pip show Brotli brotlicffi
 # .NET：framework-dependent アプリが使う候補ランタイム
 dotnet --list-runtimes</code></pre>
-<p>未導入エラー、コマンド不在、探索権限不足は「全体に影響なし」ではありません。<code>curl --version</code> はPHPや別プロセスがロードするlibcurlまで証明しません。<code>pip show</code> は別venv・コンテナー・同梱ライブラリを網羅せず、.NETの一覧は自己完結型やNativeAOT成果物を網羅しません。SBOM、lockfile、ビルド定義と稼働サービスを対応付けてください。</p>
+<p>未導入エラー、コマンド不在、探索権限不足は「全体に影響なし」ではありません。<code>curl --version</code> はPHPや別プロセスがロードするlibcurlまで証明しません。<code>pip show</code> は別venv・コンテナー・同梱ライブラリを網羅せず、.NETの一覧は自己完結型やNativeAOT成果物を網羅しません。<a class="gloss" href="/glossary#term-sbom" title="ソフトウェアを構成する部品（ライブラリ等）の一覧表。脆弱性の影響範囲を調べるために使います。">SBOM</a>、lockfile、ビルド定義と稼働サービスを対応付けてください。</p>
 <pre><code># Node：アプリが実際に使う Node のパスで確認する
 node -p 'JSON.stringify({node:process.version,brotli:process.versions.brotli})'
 # Kubernetes：許可された namespace の稼働 image ID を取得

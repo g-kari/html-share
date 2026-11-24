@@ -141,7 +141,7 @@
 <div class="flow"><div class="node"><b>ブラウザ</b><p>Webページを見る</p></div><div class="arrow" aria-hidden="true">→</div><div class="node good"><b>ブラウザ側の確認</b><p>ブラウザ・OSの信頼情報や緊急拒否情報</p></div></div>
 <div class="flow"><div class="node"><b>Go / Node / Python</b><p>APIを呼ぶ・部品を取得する</p></div><div class="arrow" aria-hidden="true">→</div><div class="node"><b>各ソフト側の確認</b><p>ソフト内の検証プログラム・同梱CA一覧・OSのCA一覧など</p></div></div>
 <div class="flow"><div class="node"><b>PHP / Composer</b><p>外部サービスへつなぐ</p></div><div class="arrow" aria-hidden="true">→</div><div class="node"><b>実際に参照するCA一覧</b><p>OSの一覧か、設定した別ファイルか。使う通信機能でも違う</p></div></div>
-<p class="note">概念図。「必ず1種類だけを参照する」という意味ではない。複数の一覧を併用する製品もある。ランタイムは「プログラムを動かす土台」、CA一覧は「信用する発行元の名簿」、拒否情報は「例外的に信用しない対象の情報」と考えるとよい。</p>
+<p class="note">概念図。「必ず1種類だけを参照する」という意味ではない。複数の一覧を併用する製品もある。<a class="gloss" href="/glossary#term-runtime" title="プログラムを実行する土台となるソフトウェアや実行環境のこと。">ランタイム</a>は「プログラムを動かす土台」、CA一覧は「信用する発行元の名簿」、拒否情報は「例外的に信用しない対象の情報」と考えるとよい。</p>
 </div>
 <div class="keyline"><p><strong>更新で変える場所は、大きく2つ。</strong><br>① 確認するプログラム自体を直して、対象を拒否する。<br>② 信用する発行元の名簿・拒否情報を更新する。</p><p>その届き方が違うから、<strong>GoはGo、PHPはPHPが使うCA一覧、という確認が必要</strong>になる。</p></div>
 </section>
@@ -264,7 +264,7 @@ PY=&#x27;/PATH/TO/VENV/bin/python&#x27;
 # 古い信頼状態のままこの通常通信を安全と仮定しない
 &quot;$PY&quot; -m pip install --upgrade &#x27;pip&gt;=26.2.2&#x27; &#x27;certifi&gt;=2026.10.19&#x27;
 &quot;$PY&quot; -m pip check</code></pre><p>上はvenvの変更で、<strong>CPython本体は更新しません</strong>。古いCA状態からの初回更新は<a href="https://discuss.python.org/t/information-for-python-users-regarding-emudhra-emsign-ca-certificate-security-incident/109576">Python公式のハッシュ固定bootstrap手順</a>を確認するか、検証済み経路で修正済みCPythonを配備してから進めます。Brotli/BrotliCFFIは利用している方の修正版をロックファイルに取り込み、通常の再現可能な依存更新手順で更新。<code>pip check</code>は依存整合だけで脆弱性検査ではありません。既存venvに加え、新規venv用テンプレート・ensurepip・CIも確認し、アプリを再起動します。<a href="https://docs.python.org/3/library/ssl.html#ssl.get_default_verify_paths">ssl公式</a></p></details><details class="command-card" id="cmd-go"><summary>Go：開発用Goと配布済みバイナリーを別に確認</summary><p class="command-kind read"><strong>確認：Goコマンドはビルド情報を読むだけ</strong></p><pre tabindex="0" aria-label="コマンド例。長い行は横にスクロールできます"><code>GOTOOLCHAIN=local go version
-GOTOOLCHAIN=local go version -m /PATH/TO/DEPLOYED_BINARY</code></pre><p><code>GOTOOLCHAIN=local</code>で確認時の自動ツールチェーン取得を抑止しています。後者のビルド情報を本文の修正Goと照合。読めない場合はSBOM/ビルド記録を確認し、非該当と判定しません。</p><p class="command-kind change"><strong>変更：ビルド環境でのみ。ネットワーク・出力ファイル更新を伴う</strong></p><pre tabindex="0" aria-label="コマンド例。長い行は横にスクロールできます"><code># 修正済みGoを既存の方法で導入し、対象リポジトリの手順に従う
+GOTOOLCHAIN=local go version -m /PATH/TO/DEPLOYED_BINARY</code></pre><p><code>GOTOOLCHAIN=local</code>で確認時の自動ツールチェーン取得を抑止しています。後者のビルド情報を本文の修正Goと照合。読めない場合は<a class="gloss" href="/glossary#term-sbom" title="ソフトウェアを構成する部品（ライブラリ等）の一覧表。脆弱性の影響範囲を調べるために使います。">SBOM</a>/ビルド記録を確認し、非該当と判定しません。</p><p class="command-kind change"><strong>変更：ビルド環境でのみ。ネットワーク・出力ファイル更新を伴う</strong></p><pre tabindex="0" aria-label="コマンド例。長い行は横にスクロールできます"><code># 修正済みGoを既存の方法で導入し、対象リポジトリの手順に従う
 # 以下は構成に合わせて置換するビルド例。既存成果物は別途保存
 go build -o ./out/app-patched ./cmd/REPLACE_APP
 go version -m ./out/app-patched</code></pre><p>通常テスト後に既存配布手順で切り替え、実際に起動されたバイナリーの情報と全配置先を再確認します。ビルド完了はデプロイ完了ではありません。<a href="https://pkg.go.dev/cmd/go#hdr-Print_Go_version">Go公式</a></p></details><details class="command-card" id="cmd-service"><summary>systemdサービス：対象を確定して再起動し、稼働実体を確認</summary><p class="command-kind read"><strong>確認：systemdを使うLinuxのみ</strong></p><pre tabindex="0" aria-label="コマンド例。長い行は横にスクロールできます"><code>SERVICE=&#x27;REPLACE_SERVICE.service&#x27;

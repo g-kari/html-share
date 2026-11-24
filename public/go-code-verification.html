@@ -166,7 +166,7 @@
             <tr><td><strong>05 プロパティベーステスト</strong></td><td><span class="tag">標準</span><code>testing/quick</code> <span class="tag ext">追加</span>Rapid<small>多様な入力に対して性質が保たれるかを検証。testing/quickは機能追加が凍結されている。</small></td></tr>
             <tr><td><strong>06 ファジング</strong></td><td><span class="tag">標準</span><code>go test -fuzz</code><small>境界値・異常入力・クラッシュを探索。Go 1.18以降の標準機能。OSS-Fuzzとの連携も可能。</small></td></tr>
             <tr><td><strong>07 ミューテーションテスト</strong></td><td><span class="tag ext">追加</span>Gremlins / go-mutesting<small>コードを小さく変え、既存テストが欠陥を検出するかを評価。ツールの保守状況と対象演算子は導入前に確認。</small></td></tr>
-            <tr><td><strong>08 実行時チェック</strong></td><td><span class="tag">標準</span>境界検査 / nil参照時のpanic / 明示的な検証<small>Goランタイムが一部を検査。業務上の不変条件や入力妥当性はアプリケーションで定義する。</small></td></tr>
+            <tr><td><strong>08 実行時チェック</strong></td><td><span class="tag">標準</span>境界検査 / nil参照時のpanic / 明示的な検証<small>Go<a class="gloss" href="/glossary#term-runtime" title="プログラムを実行する土台となるソフトウェアや実行環境のこと。">ランタイム</a>が一部を検査。業務上の不変条件や入力妥当性はアプリケーションで定義する。</small></td></tr>
             <tr><td><strong>09 DAST</strong></td><td><span class="tag ext">追加</span>OWASP ZAP / Burp Suite<small>起動中のWeb APIを外部から調べる。対象・認証・テスト環境を制限して実施する。</small></td></tr>
             <tr><td><strong>10 性能テスト</strong></td><td><span class="tag">標準</span><code>go test -bench</code> / pprof<small>処理時間、割当、CPU・メモリ使用量。システム負荷試験には別途負荷生成ツールを使う。</small></td></tr>
             <tr><td><strong>11 メモリ安全性</strong></td><td><span class="tag">標準</span><code>go test -race</code> / pprof<small>データ競合の検出とメモリ診断。cgo・unsafe使用時は追加の検証が必要。raceとpprofだけでメモリ安全性の全体を証明できない。</small></td></tr>

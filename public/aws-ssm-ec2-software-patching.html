@@ -145,7 +145,7 @@ listen.group = webfastcgi
 listen.mode = 0660</code></pre>
 <ol>
 <li>専用グループを用意し、このソケットへ接続するnginxユーザーだけを加えます。すでに <code>listen.acl_users</code> や <code>listen.acl_groups</code> で管理している場合は、設定済みの許可先を保ったうえで該当ユーザーをACLへ追加します。ACLが設定されていると <code>listen.owner</code>／<code>listen.group</code> は効きません。</li>
-<li>親ディレクトリにも、接続側が通過できる権限を用意します。<code>/run</code> 以下は再起動で作り直されるので、手で <code>chown</code> して終わりにせず、作成元のユニット設定やtmpfiles設定を確認して必要な箇所にだけ反映します。既存の共有ランタイムディレクトリを別ユーザーの <code>RuntimeDirectory</code> に安易に指定しないでください。</li>
+<li>親ディレクトリにも、接続側が通過できる権限を用意します。<code>/run</code> 以下は再起動で作り直されるので、手で <code>chown</code> して終わりにせず、作成元のユニット設定やtmpfiles設定を確認して必要な箇所にだけ反映します。既存の共有<a class="gloss" href="/glossary#term-runtime" title="プログラムを実行する土台となるソフトウェアや実行環境のこと。">ランタイム</a>ディレクトリを別ユーザーの <code>RuntimeDirectory</code> に安易に指定しないでください。</li>
 <li>設定は更新で置き換わるサービスユニット本体へ直接書かず、必要なら <code>systemctl edit</code> のドロップインに保持します。nginxの <code>user</code> とsystemdの <code>User=</code> は別物です。今回のためだけにサービス全体の実行ユーザーを変える必要はありません。<code>.rpmnew</code>／<code>.rpmsave</code> があれば差分を確認して必要な設定だけ取り込み、上書きはしません。</li>
 </ol>
 <p>所有者とモードが合っていても拒否されるなら、<code>getenforce</code>、<code>ls -Zd</code>、<code>matchpathcon -V</code>、監査ログの <code>sudo ausearch -m AVC,USER_AVC -ts recent</code> でSELinuxを切り分けます。正規のラベルが分かっているなら対象パスだけ <code>restorecon</code>。独自パスの永続ラベルが必要なら、稼働中のポリシーで正しいタイプを確かめて <code>semanage fcontext</code> と <code>restorecon</code> を使います。<code>chmod -R 777</code> やSELinux無効化で通さないでください。</p>

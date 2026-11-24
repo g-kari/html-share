@@ -209,7 +209,7 @@ html[data-motion="off"]{scroll-behavior:auto}html[data-motion="off"] *,html[data
 <p class="footnote">利用時はSnapStart設定を有効化してバージョンを発行し、そのバージョンまたはエイリアスを呼び出す。<code>$LATEST</code>は対象外。同じバージョンでProvisioned Concurrencyとは併用できない。<sup><a href="#source-15" aria-label="出典15">[15]</a><a href="#source-16" aria-label="出典16">[16]</a></sup></p></div>
 <div class="notice"><strong>「DB接続が遅いから、その接続ごと保存」で完了ではない。</strong><br>初期化で作った一意ID、時刻に依存する状態、認証情報、ネットワーク接続は復元後の扱いを検証する。復元時の再接続や再取得の時間も応答時間に含める。<sup><a href="#source-6" aria-label="出典6">[6]</a><a href="#source-15" aria-label="出典15">[15]</a></sup></div>
 <details><summary>フック・ラベル・料金と、古い資料との読み分け</summary><div class="detail-body">
-<p>独自ランタイムで復元前後の処理が必要なら、公式のライフサイクルAPIを実装する。フックが不要だと検証できた場合は、次のラベルで対応を明示できる。ラベルは安全性を自動検証するものではない。<sup><a href="#source-6" aria-label="出典6">[6]</a></sup></p>
+<p>独自<a class="gloss" href="/glossary#term-runtime" title="プログラムを実行する土台となるソフトウェアや実行環境のこと。">ランタイム</a>で復元前後の処理が必要なら、公式のライフサイクルAPIを実装する。フックが不要だと検証できた場合は、次のラベルで対応を明示できる。ラベルは安全性を自動検証するものではない。<sup><a href="#source-6" aria-label="出典6">[6]</a></sup></p>
 <pre><code># 復元後の状態の安全性を確認し、フックが不要な場合だけ
 LABEL com.amazonaws.lambda.feature.snapstart="Allow"</code></pre>
 <p>コンテナのSnapStartにはスナップショットのキャッシュと復元の追加課金がある。料金はメモリ量・バージョン・復元回数などに依存するため、「Javaの一部構成で追加料金なし」をGoコンテナへ一般化しない。正確な対象リージョン・単価は料金表で確認する。<sup><a href="#source-12" aria-label="出典12">[12]</a><a href="#source-16" aria-label="出典16">[16]</a></sup></p>

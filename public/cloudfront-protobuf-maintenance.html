@@ -90,7 +90,7 @@
 
 
   <p>どの案も「切替が全エッジへ反映済み」「通常キャッシュを返さない」「既存の処理中リクエストを扱う」「CloudFront以外の入口を塞ぐ」がそろって初めて、遮断対象への到達を止められます。指定パスを通常経路へ通す要件は次節で扱い、その場合の停止対象は非例外の機能・backendに限定します。</p>
-  <p class="sources">根拠: <a href="#s1">Functionsイベント仕様</a>、<a href="#s2">origin変更</a>、<a href="#s7">ALB fixed-response</a>、<a href="#s12">CloudFront gRPC</a>。これらを組み合わせた構成は設計提案であり、特定環境での動作保証ではありません。</p><section class="detail-section" id="compare"><h3>構成比較</h3><div class="table-wrap"><table><caption>アプリへのforwardを止め、raw protobufを返す候補</caption><thead><tr><th scope="col">案</th><th scope="col">適する通信</th><th scope="col">関数内Base64</th><th scope="col">判断</th></tr></thead><tbody>
+  <p class="sources">根拠: <a href="#s1">Functionsイベント仕様</a>、<a href="#s2">origin変更</a>、<a href="#s7">ALB fixed-response</a>、<a href="#s12">CloudFront gRPC</a>。これらを組み合わせた構成は設計提案であり、特定環境での動作保証ではありません。</p><section class="detail-section" id="compare"><h3>構成比較</h3><div class="table-wrap"><table><caption>アプリへのforwardを止め、raw protobufを返す候補</caption><thead><tr><th scope="col">案</th><th scope="col">適する通信</th><th scope="col">関数内<a class="gloss" href="/glossary#term-base64" title="バイナリデータを英数字などの文字列で表す変換方式。">Base64</a></th><th scope="col">判断</th></tr></thead><tbody>
   <tr><th scope="row">S3 + Functions request/response</th><td>GET / HEAD。OPTIONSは別処理。</td><td>不要。本文に触らない。</td><td><span class="pill ok">GETの第一候補</span><br>S3は200を返す必要あり。methodは変更不可。</td></tr>
   <tr><th scope="row">ALB固定503 + CFカスタムエラー + S3</th><td>通常HTTP。POSTは実証を条件に採用。</td><td>不要。関数不要。</td><td><span class="pill check">既存ALB向け候補</span><br>キャッシュ回避、専用error path、ヘッダーを検証。</td></tr>
   <tr><th scope="row">WAF標準Block403 + CFカスタムエラー + S3</th><td>通常HTTP。POSTは実証を条件に採用。</td><td>不要。</td><td><span class="pill check">403の副作用に注意</span><br>originの403も同じ置換になる。</td></tr>
