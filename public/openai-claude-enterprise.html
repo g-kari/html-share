@@ -45,6 +45,7 @@ details{border-block:1px solid var(--rule);padding:12px 0;margin:18px 0}details+
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 .efs-flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;list-style:none;padding:0;margin:0}.efs-flow li{margin:0;padding:12px 14px;background:var(--soft);border-top:3px solid var(--accent);font-size:.9rem}@media(max-width:620px){.efs-flow{grid-template-columns:1fr}}
 .size-bands{margin:18px 0 14px;border-top:1px solid var(--ink)}.size-bands>div{display:grid;grid-template-columns:7rem minmax(0,1fr);gap:1rem;padding:10px 0;border-bottom:1px solid var(--rule)}.size-bands dt{margin:0;font-weight:740;color:var(--accent);white-space:nowrap}.size-bands dd{margin:0;font-size:.94rem}@media(max-width:580px){.size-bands>div{grid-template-columns:1fr;gap:2px}}
+.cost-crossover svg{display:block;width:100%;height:auto;max-width:680px}.cost-legend{margin:0;padding-left:1.4rem;font-size:.86rem;color:var(--muted)}.cost-legend li+li{margin-top:0}
 </style>
   <!-- html-share: social metadata -->
   <meta property="og:site_name" content="HTML Share">
@@ -66,7 +67,7 @@ details{border-block:1px solid var(--rule);padding:12px 0;margin:18px 0}details+
     <p class="byline">調査基準日：<time datetime="2026-11-18">2026年11月18日</time>　｜　EFS・人数別ガイド追記：<time datetime="2026-11-24">2026年11月24日</time>　｜　対象：ChatGPT Enterprise／Codex と Claude Enterprise／Claude Code</p>
   </header>
 
-  <nav class="toc" aria-label="記事内の目次"><span>目次</span><a href="#conclusion">結論</a><a href="#size">人数別の選び方</a><a href="#overview">比較表</a><a href="#code">コード保護</a><a href="#retention">保持・監査</a><a href="#efs">Claude EFS</a><a href="#cost">コスト</a><a href="#checklist">確認項目</a><a href="#sources">出典</a></nav>
+  <nav class="toc" aria-label="記事内の目次"><span>目次</span><a href="#conclusion">結論</a><a href="#size">人数別の選び方</a><a href="#overview">比較表</a><a href="#code">コード保護</a><a href="#retention">保持・監査</a><a href="#efs">Claude EFS</a><a href="#cost">コスト</a><a href="#token-crossover">損益分岐点</a><a href="#checklist">確認項目</a><a href="#sources">出典</a></nav>
 
   <section id="conclusion" class="prose">
     <h2>結論：席数と、必要な監査を分けて決める</h2>
@@ -227,6 +228,51 @@ details{border-block:1px solid var(--rule);padding:12px 0;margin:18px 0}details+
     <p class="small">算式：月額総額＝30席×$20＋各担当の（入力100万単位×$2＋出力100万単位×$10）の合計。月々同じ利用量が12か月続くという例示であり、見積もりや利用予測ではない。</p>
     <p class="prose"><span class="data-label">事実</span>OpenAI側のGPT-6.2 Solの公開USD従量料金（標準速度）は入力$2／100万、出力$10／100万、キャッシュ入力$0.10／100万である。しかしこれは<strong>Enterprise契約の総額ではない</strong>。利用クレジット、契約上の基本料金、制限、超過利用の扱いを確認する必要がある。<a href="#s2">[2]</a></p>
     <div class="note"><strong>調達上の注意：</strong>Claudeの$20は「使い放題の席料金」ではない。毎月の予算上限と前払いクレジット不足時の動作を決めること。OpenAIも料金表のトークン単価だけで年間TCOを計算しない。</div>
+    <h3 id="token-crossover">トークン数で見る定額と従量の損益分岐点</h3>
+    <p class="prose">Claudeの年払いを月額に換算し、<strong>1契約席あたり</strong>で比較する。Sonnet 5.5の通常料金は100万トークンあたり入力$2、出力$10。入力80％・出力20％なら、入力と出力を合わせた100万トークンで<strong>$3.60</strong>。Claude Enterpriseは「$20＋従量料金」、Claude Teamは追加クレジットを買わず席の利用枠で足りる間だけ「Standard $20／Premium $100」とする。<a href="#s1">[1]</a><a href="#s3">[3]</a><a href="#s28">[28]</a></p>
+    <figure class="prose cost-crossover">
+      <svg viewBox="0 0 620 364" role="img" aria-labelledby="token-plot-title token-plot-desc">
+        <title id="token-plot-title">Claudeの年払い料金を月額換算した、トークン数と1契約席の料金</title>
+        <desc id="token-plot-desc">Teamの定額はStandardが20ドル、Premiumが100ドル。Enterpriseは20ドルから100万トークンあたり3.60ドルずつ上がる。Standardとは利用ゼロで同額、Premiumとは月2,222万トークン付近で同額。</desc>
+        <g fill="none" stroke="#7b8884" stroke-width="1.5"><path d="M70 26V291H580"/><path opacity=".5" d="M70 251h510M70 91h510M70 51h510"/></g>
+        <g fill="#293b38" font-size="22" text-anchor="end"><text x="60" y="56">$120</text><text x="60" y="96">$100</text><text x="60" y="256">$20</text><text x="60" y="296">$0</text></g>
+        <path d="M70 251h510" stroke="#596262" stroke-width="3" stroke-dasharray="7 6"/>
+        <path d="M70 91h510" stroke="#805619" stroke-width="3" stroke-dasharray="12 5"/>
+        <path d="M70 251 580 35" stroke="#006759" stroke-width="5"/>
+        <path d="M447.78 91V291" stroke="#805619" stroke-width="1.5" stroke-dasharray="5 5"/>
+        <circle cx="447.78" cy="91" r="6" fill="#805619" stroke="#fff" stroke-width="2"/>
+        <g fill="#293b38" font-size="21" text-anchor="middle"><text x="70" y="316">0</text><text x="240" y="316">10</text><text x="447.78" y="316">22.22</text><text x="580" y="316">30</text><text x="325" y="345">月間トークン（百万・入力＋出力）</text></g>
+      </svg>
+      <ul class="cost-legend" aria-hidden="true"><li>実線：Enterprise $20＋従量</li><li>長破線：Team Premium $100</li><li>短破線：Team Standard $20</li></ul>
+      <figcaption>1契約席・米ドル・年払い換算。交点は同額になる量で、Teamがそのトークン数まで使えることを示さない。Enterpriseは組織全体で最低席数の条件がある。</figcaption>
+    </figure>
+    <dl class="size-bands prose" aria-label="課金方式別の損益分岐点">
+      <div><dt>Standard</dt><dd><strong>0トークンのときだけ同額。</strong>Enterpriseの席料も$20なので、有料のトークンを使い始めるとEnterpriseの試算が上回る。Standardで追加購入したクレジットはこの比較に含めない。</dd></div>
+      <div><dt>Premium</dt><dd><strong>月約2,222万トークン。</strong>価格差$80÷$3.60。試算どおりの入出力比なら約1,778万入力＋444万出力。交点より少なければEnterpriseの1席あたり試算が低く、多ければTeam Premiumの席料が低い。ただしTeam側の追加クレジットが不要な場合に限る。</dd></div>
+      <div><dt>100席の例</dt><dd><strong>全員の合計で月約2億2,222万トークン。</strong>Teamは標準90席・上位10席で$2,800。Enterpriseは100席で$2,000＋従量。差額$800を埋めるのがこの量で、100席で割った平均は月約222万トークン。全員がPremiumの場合の1席交点とは別。</dd></div>
+    </dl>
+    <p class="small">月額換算＝$20＋（入力100万単位×$2＋出力100万単位×$10）。モデル、入出力比、キャッシュ、追加クレジット、ツール料金、税・割引で交点は変わる。Teamの利用上限は固定トークン数ではない。OpenAI Enterpriseは固定席料の公開一律価格がなく、このグラフでは計算しない。<a href="#s2">[2]</a><a href="#s3">[3]</a><a href="#s28">[28]</a></p>
+    <h3 id="non-token-tco">EDR・監査・サポートを足すと、分岐点はどれだけ動くか</h3>
+    <p class="prose">100席（Teamは標準90＋上位10、Enterpriseは100）の例で、<strong>D＝Teamの月間追加運用費－Enterpriseの月間追加運用費</strong>と置く。Dがプラスなら、同じ管理水準を満たすのにEnterpriseの方が運用費を抑えられる。Sonnet 5.5・入力80％の例では、<strong>損益分岐点＝（$800＋D）÷$3.60</strong>（全100席合計、月間100万トークン単位）。</p>
+    <div class="table-wrap" tabindex="0" aria-label="トークン外の月間費用差による分岐点の比較。横にスクロールできます">
+      <table>
+        <caption>仮の運用費差で見る感度表。製品価格や工数の見積もりではない</caption>
+        <thead><tr><th scope="col">月間運用費差 D</th><th scope="col">分岐点・月間総トークン</th><th scope="col">月3億トークンなら</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">−$400</th><td>約1億1,111万</td><td>Enterpriseが$680高い</td></tr>
+          <tr><th scope="row">$0</th><td>約2億2,222万</td><td>Enterpriseが$280高い</td></tr>
+          <tr><th scope="row">＋$400</th><td>約3億3,333万</td><td>Enterpriseが$120安い</td></tr>
+          <tr><th scope="row">＋$800</th><td>約4億4,444万</td><td>Enterpriseが$520安い</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="prose">たとえば月3億トークンでは、利用料込みのEnterpriseはTeamより月$280高い。同じ管理水準を満たすのにEnterpriseが<strong>月$280を超える運用費を減らせる</strong>なら、比較上の総額は逆転する。$280で同額。</p>
+    <ul class="prose">
+      <li><strong>EDR・DLP：</strong>製品やセンサーの追加契約、対象端末・仮想環境、導入運用工数の差だけを入れる。両案で同じ既存EDR費用は相殺する。Anthropicが案内する対応センサーの連携は既存製品を使い、Teamも対象。EDR本体がEnterprise席に含まれるとは見なさない。<a href="#s21">[21]</a><a href="#s29">[29]</a></li>
+      <li><strong>監査・ID管理：</strong>SIEMの取り込み・保持料、監査報告の抽出、SSO・SCIMの導入と入退社対応の工数を比較する。運用工数は「月の削減時間×諸経費込みの時間単価」で換算し、設定費は比較期間に配分する。<a href="#s1">[1]</a><a href="#s26">[26]</a></li>
+      <li><strong>サポート・契約：</strong>OpenAIはEnterpriseで24時間365日の優先サポートやSLAを案内し、Claudeは営業支援付き契約で専任のカスタマーサクセスを案内する。実際の対象・対応時間・別料金は見積書で確認し、外部委託費や社内対応時間を本当に減らせる分だけ数える。<a href="#s1">[1]</a><a href="#s26">[26]</a></li>
+    </ul>
+    <p class="small">同じ端末・クラウド範囲、保持期間、応答体制で比較する。必須条件を満たさない案は安くても候補外。見積もりや実測がない項目を値引き扱いせず、共通費や同じ工数を二重に数えない。</p>
   </section>
 
   <section id="checklist" class="prose">
@@ -275,6 +321,8 @@ details{border-block:1px solid var(--rule);padding:12px 0;margin:18px 0}details+
       <li id="s25"><a href="https://platform.claude.com/docs/ja/manage-claude/enterprise-frontier-safeguards/setup-console">Anthropic：Claude PlatformのEFS設定ガイド</a><span>利用規約への同意が及ぼす影響と移行手順</span></li>
       <li id="s26"><a href="https://openai.com/business/pricing/">OpenAI：BusinessとEnterpriseの料金比較</a><span>Businessの案内対象、席種、Enterpriseの見積もり</span></li>
       <li id="s27"><a href="https://help.openai.com/en/articles/8792536-managing-billing-and-seats-in-chatgpt-business">OpenAI：Businessの席・課金管理</a><span>有料席の開始条件と標準・上位席</span></li>
+      <li id="s28"><a href="https://support.claude.com/en/articles/12005970-manage-usage-credits-for-team-and-seat-based-enterprise-plans">Anthropic：Teamの追加利用クレジット</a><span>席の利用枠を超えた場合の料金</span></li>
+      <li id="s29"><a href="https://claude.com/resources/articles/claude-enterprise-security-updates">Anthropic：Claudeの企業向けセキュリティ更新</a><span>対応するEDR製品の連携と対象プラン</span></li>
     </ol>
   </section>
 </main>
