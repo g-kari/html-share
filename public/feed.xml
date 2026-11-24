@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Tue, 24 Nov 2026 00:52:20 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 24 Nov 2026 00:59:54 GMT</lastBuildDate>
+    <item>
+      <title>embargo：Goのログに出る秘密を伏せる</title>
+      <link>https://share.0g0.xyz/embargo-log-redaction</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/embargo-log-redaction</guid>
+      <description>Go向けのembargoを使い、ダミーのログでマスクを試す。隠せる値と、そもそもログに出さない情報を分ける。</description>
+      <pubDate>Tue, 24 Nov 2026 00:59:54 GMT</pubDate>
+      <dcterms:created>2026-11-24T00:59:54.000Z</dcterms:created>
+      <dcterms:modified>2026-11-24T00:59:54.000Z</dcterms:modified>
+    </item>
     <item>
       <title>Shirudo：パッチが届くまでの間、サービスを止めずに脆弱性を塞ぐ</title>
       <link>https://share.0g0.xyz/shirudo</link>

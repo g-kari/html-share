@@ -20,7 +20,19 @@
 .embargo summary{cursor:pointer;font-weight:700} .embargo nav a{display:inline-block;margin:.25rem .9rem .25rem 0}
 .embargo a:focus-visible,.embargo summary:focus-visible,.embargo pre:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
 @media(max-width:720px){.embargo .entry{grid-template-columns:minmax(0,1fr)}}
-</style></head><body><div class="wrap embargo">
+</style>  <!-- html-share: social metadata -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="HTML Share">
+  <meta property="og:title" content="embargo：Goのログに出る秘密を伏せる">
+  <meta property="og:description" content="Go向けのembargoを使い、ダミーのログでマスクを試す。隠せる値と、そもそもログに出さない情報を分ける。">
+  <meta property="og:url" content="https://share.0g0.xyz/embargo-log-redaction">
+  <meta name="twitter:title" content="embargo：Goのログに出る秘密を伏せる">
+  <meta name="twitter:description" content="Go向けのembargoを使い、ダミーのログでマスクを試す。隠せる値と、そもそもログに出さない情報を分ける。">
+  <!-- /html-share: social metadata -->
+  <!-- html-share: rss discovery -->
+  <link rel="alternate" type="application/rss+xml" title="HTML Share RSS" href="https://share.0g0.xyz/feed.xml">
+  <!-- /html-share: rss discovery -->
+</head><body><div class="wrap embargo">
 <div class="sitebar"><a class="brand" href="/">HTML Share</a><a href="/">記事一覧</a><a href="/feed.xml">RSS</a></div>
 <main><article><header class="top"><h1 id="top">embargo：Goのログに出る秘密を伏せる</h1></header>
 <div class="entry"><p class="lede">ログは障害の原因を調べるための記録です。パスワードやトークンまで書き出す必要はありません。embargoはGoのログやテキストを調べ、検出した値を伏せるライブラリ兼コマンドです。まず秘密をログに渡さず、それでも混ざった場合の予備の防御に使います。</p>
