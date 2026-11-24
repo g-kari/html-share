@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Notionにワークスペース容量上限：フリーは512MB、プラン別の上限と確認方法</title>
+<meta name="description" content="Notionのファイルストレージにワークスペース単位の容量上限が明記されました。公式ヘルプと料金ページで確認したプラン別の上限（フリー512MB〜エンタープライズ1TB）、数えられるファイルの範囲、使用量の確認方法、上限に達したときの動きをまとめます。">
+<link rel="canonical" href="https://share.0g0.xyz/notion-storage-limits">
+<link rel="stylesheet" href="/assets/site.css">
+<meta property="og:image" content="https://share.0g0.xyz/assets/notion-storage-limits-ogp-v1.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Notionのワークスペースに容量上限。フリーは合計512MB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://share.0g0.xyz/assets/notion-storage-limits-ogp-v1.jpg">
+<meta name="twitter:image:alt" content="Notionのワークスペースに容量上限。フリーは合計512MB">
+<style>:root{--accent:#37352f;--accent-dark:#1f1e1c}
+table.limits{border-collapse:collapse;width:100%;margin:1rem 0}
+table.limits :is(td,th){padding:.45rem .6rem;border-bottom:1px solid #808080;text-align:left;vertical-align:top}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="sitebar" aria-label="サイト内"><a class="brand" href="/">HTML Share</a><nav><a href="/">一覧</a><a href="/feed.xml">RSS</a></nav></nav>
+<header class="top">
+<div class="kicker">Notion · 料金と制限</div>
+<h1>Notionにワークスペース容量上限：フリーは512MB、プラン別の上限と確認方法</h1>
+<p class="meta">公開日：2026年11月25日<br>一次資料：Notion公式ヘルプ「File storage limits in Notion」と公式料金ページ。いずれも2026年11月25日に確認しました。発端は Notion アンバサダーの mori 氏の<a href="https://x.com/morio_aa/status/2125152567206494220">X投稿</a>（2026年11月24日）で、数値と仕様は公式側で裏取りしています。</p>
+</header>
+
+<div class="summary3">
+<div class="ttl">要点</div>
+<ol>
+<li>Notion のファイルストレージに、ワークスペース単位の合計上限が公式ヘルプに明記されました。フリー 512 MB、プラス 256 GB ＋ メンバー1人あたり 5 GB、ビジネス 512 GB ＋ 10 GB、エンタープライズ 1 TB ＋ 20 GB です。</li>
+<li>1ファイルあたりの上限（フリー 5 MB、有料 5 GB）はこれまでどおり別枠で残ります。変わったのは「合計も数えられる」ようになった点です。</li>
+<li>使用量は Settings → Usage で確認できます。集計は1日1回で、使用率80%で警告とメール、上限到達時は次の日次チェックで新規アップロードだけが止まります。既存ファイルは使い続けられます。</li>
+<li>フリーの 512 MB は動画数本で埋まる計算です。動画は外部サービスに置いて埋め込む運用が現実的で、有料プランは当面の余裕が大きい構成です。</li>
+</ol>
+</div>
+
+<nav class="toc" aria-label="目次">
+<div class="ttl">目次</div>
+<ol>
+<li><a href="#change">何が変わったか</a></li>
+<li><a href="#plans">プラン別の上限</a></li>
+<li><a href="#counts">容量に数えられるもの・数えられないもの</a></li>
+<li><a href="#usage">使用量の確認方法</a></li>
+<li><a href="#full">上限に近づいたら・達したら</a></li>
+<li><a href="#impact">実務への影響</a></li>
+<li><a href="#unknown">まだ確認できていないこと</a></li>
+<li><a href="#terms">用語補足</a></li>
+<li><a href="#sources">出典</a></li>
+</ol>
+</nav>
+
+<h2 id="change">何が変わったか</h2>
+<p>これまでの Notion のファイル制限は、1ファイルあたりのアップロードサイズだけでした。フリーは1ファイル 5 MB まで、有料プランは1ファイル 5 GB までで、ファイルの合計サイズには上限がありませんでした。容量を気にせずファイルを置けることが、Notion の使い勝手の一部でした。</p>
+<p>公式ヘルプに「File storage limits in Notion」というページが用意され、ワークスペースに含まれるファイルストレージの量がプランごとに示されました。上限はワークスペース全体で数え、メンバー全員で共有します。1ファイルあたりの上限は別枠として残るため、制限は「1ファイルの大きさ」と「合計」の二重構造になります。</p>
+<figure class="fig"><img src="/assets/notion-storage-before-after-v1.jpg" width="1600" height="880" loading="lazy" alt="制限の形の変化。これまでは1ファイルあたりの上限だけで合計は無制限だったが、今後はワークスペースの合計にも上限が加わる"><figcaption>図：制限の形の変化。1ファイルあたりの上限は残り、合計の上限が追加されます。</figcaption></figure>
+
+<h2 id="plans">プラン別の上限</h2>
+<p>公式ヘルプに載っているプラン別のファイルストレージは次のとおりです。有料プランは基本量に加えて、メンバーを追加するごとに1人あたりの追加分が付きます。</p>
+<table class="limits">
+<thead><tr><th>プラン</th><th>ファイルストレージ（ワークスペース合計）</th><th>1ファイルあたりの上限</th></tr></thead>
+<tbody>
+<tr><td>フリー</td><td>512 MB</td><td>5 MB</td></tr>
+<tr><td>プラス</td><td>256 GB ＋ メンバー1人あたり 5 GB</td><td>5 GB</td></tr>
+<tr><td>ビジネス</td><td>512 GB ＋ メンバー1人あたり 10 GB</td><td>5 GB</td></tr>
+<tr><td>エンタープライズ</td><td>1 TB ＋ メンバー1人あたり 20 GB</td><td>5 GB</td></tr>
+</tbody>
+</table>
+<p>合計の上限は公式ヘルプ、1ファイルあたりの上限は公式料金ページの File uploads 行で確認しました。料金ページの File storage 行でもフリー 512 MB、プラス 256 GB ＋ 5 GB / added seat、ビジネス 512 GB ＋ 10 GB / added seat が並んでいます。エンタープライズの数値（1 TB ＋ 20 GB）は料金ページでは Custom とだけ表示されるため、ヘルプ側の表が根拠です。</p>
+<figure class="fig"><img src="/assets/notion-storage-plans-v1.jpg" width="1600" height="980" loading="lazy" alt="プラン別のファイルストレージ上限のバー図（対数スケール）。フリー512MB、プラス256GB、ビジネス512GB、エンタープライズ1TB"><figcaption>図：プラン別の上限。フリーと有料プランでは桁が違います（バーは対数スケール）。</figcaption></figure>
+<p>ヘルプには、もう1つ注記があります。「2026年11月23日より後に作成したワークスペースでは、フリープランの制限が適用される場合がある」という内容です。既存のワークスペースへいつ・どの範囲で適用されるかは、この注記からは読み取れません。この点は<a href="#unknown">未確認の節</a>に分けています。</p>
+
+<h2 id="counts">容量に数えられるもの・数えられないもの</h2>
+<p>容量として数えられるのは、ワークスペースにアップロードされ、現在見えているファイルの合計サイズです。ページやブロックそのものは数えられません。</p>
+<figure class="fig"><img src="/assets/notion-storage-counts-v1.jpg" width="1600" height="920" loading="lazy" alt="容量に数えられるものと数えられないものの一覧。数えられるのはページやデータベースに追加したファイル、Web Clipperやインポートで取り込んだファイルなど。数えられないのはページ・ブロック自体、差し替え後の旧ファイル、ゴミ箱の中身など"><figcaption>図：容量の数え方。ファイル実体だけが対象で、ページやブロックは対象外です。</figcaption></figure>
+<p>数えられるものは、ページに追加したファイル・画像・PDF・動画・音声のブロック、データベースの「Files &amp; media」プロパティに入れたファイル、Web Clipper で保存したページ、インポートで取り込んだファイル、Notion AI が生成してページに保存した画像です。同じファイルを1つのワークスペース内で2回使っても、数えられるのは1回分です。</p>
+<p>数えられないものは、ページ・ブロック・データベースそのもの、新しいファイルに差し替えた後の旧ファイル、バージョン履歴の中だけに残っている旧ファイル、ゴミ箱の中身と削除・アーカイブ済みページのファイル、Notion AI にコンテキストとして渡したファイル、埋め込みのプレビュー画像のような裏側のファイルです。</p>
+
+<h2 id="usage">使用量の確認方法</h2>
+<p>使用量の確認場所は2か所あります。基本は Settings → Usage で、使用量が一覧表示されます。もう1つは左下のワークスペース切替の場所に出るストレージメーターで、こちらは使用率が80%以上になったときだけ表示され、80%未満では隠れています。</p>
+<figure class="fig"><img src="/assets/notion-storage-usage-check-v1.jpg" width="1600" height="860" loading="lazy" alt="使用量の確認場所は2か所。Settings → Usage はいつでも見られ、左下のストレージメーターは使用率80%以上でのみ表示される。集計は1日1回"><figcaption>図：確認場所は2か所。集計が1日1回のため、表示は直近の日次チェック時点の値です。</figcaption></figure>
+<p>集計は1日1回行われます。どちらの表示も、今この瞬間ではなく直近の日次チェック時点の使用量です。ファイルを削除しても表示と制限への反映は次の日次チェックまでずれます。</p>
+<p>なお、発端の投稿をした mori 氏は、自分の環境では Settings → Usage の表示がまだ見当たらなかったと報告しています。表示の出方は環境によって順次適用の途中である可能性があります。見当たらない場合は、表示がまだ来ていないだけかもしれない、という前提で見るのが安全です。</p>
+
+<h2 id="full">上限に近づいたら・達したら</h2>
+<p>使用率が80%に達すると、警告バナーとストレージメーターが表示され、ワークスペースのオーナーと管理者にメールが届きます。上限に達した場合は、次の日次チェックで新規アップロードが止まります。</p>
+<figure class="fig"><img src="/assets/notion-storage-full-flow-v1.jpg" width="1600" height="940" loading="lazy" alt="上限に近づいたら起きることの流れ。使用率80%で警告バナーとメール、上限到達で次の日次チェックから新規アップロードだけが停止、既存ファイルは閲覧・編集・ダウンロード・削除が可能。空ける方法は有料プランへの移行（即時）とファイル削除（次の日次チェックで反映）"><figcaption>図：80%で警告、上限で止まるのは新規アップロードだけです。既存ファイルの閲覧・編集・ダウンロード・削除は続きます。</figcaption></figure>
+<p>止まるのは新規アップロードだけです。既にアップロードしたファイルは、閲覧・編集・ダウンロード・削除がこれまでどおりできます。立場によって見える案内は違い、オーナーと管理者はアップグレードや空きを作る操作へ、メンバーは管理者へ依頼する選択肢へ、ゲストはアップグレードに関する一般的な案内へ進みます。公開フォームのファイル添付は、必須でない設問ならファイルなしで送信できる形になります。インポートと Web Clipper は、取り込めなかったファイルを一覧で示します。</p>
+<p>空ける方法は2つです。有料プランへ移行するとアップロードはすぐに再開します。不要なファイルを削除する方法は、反映が次の日次チェックになるため即時ではありません。ファイルの一覧画面はないので、削除はファイルを置いたページを開いて行います。</p>
+
+<h2 id="impact">実務への影響</h2>
+<p>影響が一番大きいのはフリープランです。512 MB は、動画1本を100 MB とすると約5本で上限に届く計算です。画像やPDF中心の使い方なら当面は収まりますが、動画をそのまま置く運用は成り立ちません。動画は Google Drive や YouTube に置いて埋め込む形に寄せるのが現実的です。</p>
+<figure class="fig"><img src="/assets/notion-storage-free-scale-v1.jpg" width="1600" height="860" loading="lazy" alt="フリー512MBの目安。動画1本100MBなら約5本、PDF1件5MBなら約100件、画像1枚2MBなら約250枚、画像1枚0.5MBなら約1000枚で上限に届く単純計算"><figcaption>図：フリー 512 MB の目安（単純計算）。重いのは動画です。</figcaption></figure>
+<p>利用者の一例として、mori 氏が Notion API 経由で集計した自分のワークスペースは約1.3 GB で、その約84%はデモ用に上げた動画13本でした。本人はビジネスプランのため容量には余裕があったとしています。1件の実測ですが、「容量を食うのはテキストではなく動画」という構図は目安の計算とも合います。</p>
+<p>有料プランは基本量が256 GB からで、メンバー追加分の上乗せもあります。通常のドキュメント運用で直ちに問題になる大きさではありません。ただし、今後は AI のクレジット消費に加えて保存容量も気にする対象が増えた、というのが mori 氏の見立てです。プランを選ぶときの比較項目に、容量が表として加わった点は押さえておく価値があります。</p>
+
+<h2 id="unknown">まだ確認できていないこと</h2>
+<ul>
+<li>「エンタープライズ リミテッド」というプランに、ビジネスとエンタープライズのどちらの容量が適用されるかは、公式料金ページと公式ヘルプのどちらにも該当する記載がなく、未確認です。発端の mori 氏も確認中としていました。</li>
+<li>既存ワークスペース（2026年11月23日以前に作成）への適用時期と範囲は、公式ヘルプの注記（2026年11月23日より後に作成したワークスペースではフリープランの制限が適用される場合がある）以上のことは公式に明記されていません。</li>
+<li>Settings → Usage の表示が全環境に出そろったかどうかは未確認です。mori 氏の環境ではまだ表示がなかったという報告があります。</li>
+</ul>
+
+<h2 id="terms">用語補足</h2>
+<dl>
+<dt>ファイルストレージ</dt>
+<dd>サービス内にファイルを保存できる容量の枠。この記事では Notion のワークスペース単位の枠を指します。用語集の<a href="/glossary#term-file-storage">ファイルストレージ</a>も参照してください。</dd>
+<dt>ワークスペース</dt>
+<dd>Notion の管理単位。ページやデータベース、メンバー、料金プランと容量の枠はワークスペースごとに決まります。</dd>
+</dl>
+
+<h2 id="sources">出典</h2>
+<ul>
+<li>Notion公式ヘルプ「File storage limits in Notion」 https://www.notion.com/help/file-storage-limits-in-notion （プラン別の容量、数えられる範囲、確認方法、80%警告と上限時の動き。2026年11月25日確認）</li>
+<li>Notion公式料金ページ「Notion Pricing Plans: Free, Plus, Business, &amp; Enterprise.」 https://www.notion.com/pricing （File storage 行と File uploads 行。2026年11月25日確認）</li>
+<li>mori（@morio_aa、Notionアンバサダー）のX投稿 https://x.com/morio_aa/status/2125152567206494220 （2026年11月24日。発端の報告、使用量表示がまだ出ていなかったこと、約1.3 GB の実測）</li>
+</ul>
+
+</div>
+<script type="module" src="/assets/site.js"></script>
+</body>
+</html>
