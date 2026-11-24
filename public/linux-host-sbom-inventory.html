@@ -131,7 +131,7 @@ ps -eo pid,comm,args</code></pre>
           <pre tabindex="0"><code class="language-bash">rpm -qa --qf '%{NAME}\t%{EPOCHNUM}:%{VERSION}-%{RELEASE}\t%{ARCH}\n'</code></pre>
           <span class="cmd-label">dpkg系</span>
           <pre tabindex="0"><code class="language-bash">dpkg-query -W -f='${binary:Package}\t${Version}\t${Architecture}\n'</code></pre>
-          <p>アップストリームの <code>1.2.3</code> だけで更新要否を判断しない。ディストリビューションによる修正のバックポートがあるため、Releaseまで残して提供元のアドバイザリと照合する。<a href="#ref-rpm">[7]</a></p>
+          <p>アップストリームの <code>1.2.3</code> だけで更新要否を判断しない。ディストリビューションによる修正の<a class="gloss" href="/glossary#term-backport" title="新しい版に入った修正を、古い版のソフトウェアに取り込んで直すこと。版番号は変わらないまま、特定の不具合や脆弱性への修正だけが反映されます。">バックポート</a>があるため、Releaseまで残して提供元のアドバイザリと照合する。<a href="#ref-rpm">[7]</a></p>
         </details>
       </section>
 
