@@ -1,6 +1,11 @@
 {
   "version": 1,
   "pages": {
+    "ai-bot-agents-2026.html": {
+      "fingerprint": "1485f55ac8d05a29007a5959c225d26912f541963df1213932a334267c7bbb12",
+      "published": "2026-11-24T22:58:28.000Z",
+      "updated": "2026-11-24T22:58:28.000Z"
+    },
     "ai-harness-shinbun.html": {
       "fingerprint": "c39993299359fdbad4ca5a6a751ae1dd3825bd4537cf642c0ba3df87cc8cf4a5",
       "published": "2026-11-10T02:24:35.000Z",
@@ -237,9 +242,9 @@
       "updated": "2026-11-19T17:36:57.000Z"
     },
     "glossary.html": {
-      "fingerprint": "50aaa0899b3f40dd7d60c8fc8cb50b55b67d38972424deb9b11e43ce1a65fb02",
+      "fingerprint": "f024da22ba231d8ea7663e91ca072fa735066080fb5f4b7b7bb6074341ff39e1",
       "published": "2026-11-24T01:37:31.000Z",
-      "updated": "2026-11-24T17:03:24.000Z"
+      "updated": "2026-11-24T22:42:29.000Z"
     },
     "go-code-verification.html": {
       "fingerprint": "add16dcf6c555dc85cb859063495bf903ab5151b47f9de01db2dbaede2cc0162",

@@ -7,7 +7,25 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Tue, 24 Nov 2026 22:37:52 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 24 Nov 2026 22:58:28 GMT</lastBuildDate>
+    <item>
+      <title>AIボット系エージェント 2026年秋の比較：Grok Bot、2つのOpenBot、MausBot、Hermes Agent</title>
+      <link>https://share.0g0.xyz/ai-bot-agents-2026</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/ai-bot-agents-2026</guid>
+      <description>チャットから仕事を任せるAIコワーカー／エージェント管理ボットの5製品（Grok Bot、OpenBot（CopilotKit）、OpenBot（nightly-labs）、MausBot、Hermes Agent）を、公式資料と第三者の評価で比較。殻自体のベンチマークが存在しないこと、止め方の違い、用途別の向き不向きまで整理します。</description>
+      <pubDate>Tue, 24 Nov 2026 22:58:28 GMT</pubDate>
+      <dcterms:created>2026-11-24T22:58:28.000Z</dcterms:created>
+      <dcterms:modified>2026-11-24T22:58:28.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>用語集：HTML Shareの記事に出てくる専門用語</title>
+      <link>https://share.0g0.xyz/glossary</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/glossary</guid>
+      <description>HTML Shareの記事に出てくる専門用語の短い説明の一覧です。記事本文では、辞書に登録された用語の初出が自動でこの用語集へリンクされます。</description>
+      <pubDate>Tue, 24 Nov 2026 22:42:29 GMT</pubDate>
+      <dcterms:created>2026-11-24T01:37:31.000Z</dcterms:created>
+      <dcterms:modified>2026-11-24T22:42:29.000Z</dcterms:modified>
+    </item>
     <item>
       <title>Amazon API Gateway 2026年11月の発表まとめ：REST APIのJWTオーソライザーとAPI Portal</title>
       <link>https://share.0g0.xyz/aws-apigateway-november-2026</link>
@@ -34,15 +52,6 @@
       <pubDate>Tue, 24 Nov 2026 22:37:52 GMT</pubDate>
       <dcterms:created>2026-11-24T11:47:34.000Z</dcterms:created>
       <dcterms:modified>2026-11-24T22:37:52.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>用語集：HTML Shareの記事に出てくる専門用語</title>
-      <link>https://share.0g0.xyz/glossary</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/glossary</guid>
-      <description>HTML Shareの記事に出てくる専門用語の短い説明の一覧です。記事本文では、辞書に登録された用語の初出が自動でこの用語集へリンクされます。</description>
-      <pubDate>Tue, 24 Nov 2026 17:03:24 GMT</pubDate>
-      <dcterms:created>2026-11-24T01:37:31.000Z</dcterms:created>
-      <dcterms:modified>2026-11-24T17:03:24.000Z</dcterms:modified>
     </item>
     <item>
       <title>AWS コンピュート・ストレージ 2026年11月の変更まとめ：EC2、S3、FSx、ECS</title>
