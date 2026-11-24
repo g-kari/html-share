@@ -30,6 +30,14 @@ table.aws-table th,table.aws-table td{border:1px solid var(--line);padding:.45re
 table.aws-table td.date{white-space:nowrap}
 table.aws-table td.svc{white-space:nowrap}
 </style>
+  <!-- html-share: social metadata -->
+  <meta property="og:site_name" content="HTML Share">
+  <meta name="twitter:title" content="Strands 2026年11月の発表：判断モデルDecider v2とサンドボックスBox">
+  <meta name="twitter:description" content="Strands Agentsの2026年11月23日の発表。Gemma 4ベースの判断専用オープンモデル「Strands Decider v2」（5サイズ、Apache-2.0）と、Claude Code／Codex／Kiro CLIをOSサンドボックスで動かすStrands BoxのCLI対応を、公式ブログと出典つきで整理します。">
+  <!-- /html-share: social metadata -->
+  <!-- html-share: rss discovery -->
+  <link rel="alternate" type="application/rss+xml" title="HTML Share RSS" href="https://share.0g0.xyz/feed.xml">
+  <!-- /html-share: rss discovery -->
 </head>
 <body>
 <div class="wrap">
@@ -42,7 +50,7 @@ table.aws-table td.svc{white-space:nowrap}
 
 <div class="summary3">
   <div class="ttl">要点</div>
-  <ol><li>Decider v2は、テキストを生成せず選択肢ごとの確率を返す判断専用モデルです。Gemma 4ベースの5サイズ（E2B〜31B）、Apache-2.0で、ルーティングやツール選択、ガードレールに使います。</li><li>Strands BoxのCLIがClaude Code、Codex、Kiro CLIにネイティブ対応しました。<code>box run claude</code> で、自分のマシンのエージェントをOSサンドボックスの中で起動できます。</li><li>Boxはファイル・コマンド・ネットワーク・MCPをポリシーで検査し、判定はモデルの外で行います。認証情報は箱の外に置かれ、出口で実キーに差し替わります。</li></ol>
+  <ol><li>Decider v2は、テキストを生成せず選択肢ごとの確率を返す判断専用モデルです。Gemma 4ベースの5サイズ（E2B〜31B）、Apache-2.0で、ルーティングやツール選択、ガードレールに使います。</li><li><a class="gloss" href="/glossary#term-strands-box" title="コーディングエージェントをOSレベルのサンドボックスで動かすオープンソース。ファイル、コマンド、ネットワーク、MCPの呼び出しをポリシーで検査します。">Strands Box</a>のCLIがClaude Code、Codex、Kiro CLIにネイティブ対応しました。<code>box run claude</code> で、自分のマシンのエージェントをOSサンドボックスの中で起動できます。</li><li>Boxはファイル・コマンド・ネットワーク・MCPをポリシーで検査し、判定はモデルの外で行います。認証情報は箱の外に置かれ、出口で実キーに差し替わります。</li></ol>
 </div>
 
 <nav class="toc">
@@ -52,7 +60,7 @@ table.aws-table td.svc{white-space:nowrap}
 
 
 <h2 id="about">概要</h2>
-<p>Strands Agentsは、AWSがオープンソースで開発するエージェント向けSDKです。2026年11月23日に、判断専用モデル「Strands Decider v2」と、コーディングエージェント用サンドボックス「Strands Box」のCLI対応が、Strands公式ブログで発表されました。どちらもWhat's Newの投稿はなく、AWSのサービスとしてではなくオープンソースとして出ています。</p>
+<p>Strands Agentsは、AWSがオープンソースで開発するエージェント向けSDKです。2026年11月23日に、判断専用モデル「<a class="gloss" href="/glossary#term-strands-decider" title="テキストを生成せず、選択肢ごとの確率を返す判断専用のオープンモデル。ルーティング、ツール選択、ガードレールのような細かい判断に使います。">Strands Decider</a> v2」と、<a class="gloss" href="/glossary#term-coding-agent" title="コードの読み書きやコマンド実行を自律的に進めるAIツール。Claude CodeやCodexなどが該当し、利用はモデルの提供元の契約に基づきます。">コーディングエージェント</a>用サンドボックス「Strands Box」のCLI対応が、Strands公式ブログで発表されました。どちらもWhat's Newの投稿はなく、AWSのサービスとしてではなくオープンソースとして出ています。</p>
 <figure class="fig"><img src="/assets/aws-strands-fig-v1.png" width="1600" height="900" loading="lazy" alt="Strands Decider v2とStrands Boxの概要"><figcaption>図：11月のStrandsの2つの発表。判断のコストを下げるモデルと、実行の境界を守るサンドボックスです。</figcaption></figure>
 
 <h2 id="decider">Strands Decider v2：判断専用のオープンモデル</h2>

@@ -30,6 +30,14 @@ table.aws-table th,table.aws-table td{border:1px solid var(--line);padding:.45re
 table.aws-table td.date{white-space:nowrap}
 table.aws-table td.svc{white-space:nowrap}
 </style>
+  <!-- html-share: social metadata -->
+  <meta property="og:site_name" content="HTML Share">
+  <meta name="twitter:title" content="AWS 業務アプリ・その他 2026年11月の変更まとめ：Marketplace、WorkSpaces、MWAA、メディア">
+  <meta name="twitter:description" content="AWSの業務アプリケーションとその他の分野の2026年11月の発表53件。AWS Marketplaceのエージェントモードと決済まわり、AIエージェント向けWorkSpaces、Amazon MWAA、SES、メディアサービス、Partner Centralなどをサービス別に整理します。">
+  <!-- /html-share: social metadata -->
+  <!-- html-share: rss discovery -->
+  <link rel="alternate" type="application/rss+xml" title="HTML Share RSS" href="https://share.0g0.xyz/feed.xml">
+  <!-- /html-share: rss discovery -->
 </head>
 <body>
 <div class="wrap">
@@ -51,7 +59,7 @@ table.aws-table td.svc{white-space:nowrap}
 </nav>
 
 <h2 id="about">概要</h2><p>業務アプリケーションと、その他の分野の発表は53件です。Marketplace、WorkSpaces、MWAA、SES、メディアサービス（Elemental、IVS）、GameLift、Braket、Device Farm、Partner Centralなどを扱います。</p>
-<h2 id="highlights">目立つ変更</h2><ul><li><strong>Marketplace</strong>：エージェントモードがソリューションの評価・購入・デプロイを支援し、Express CheckoutでAWSアカウントを持たない購入者も買えるように。SaaS無料トライアルの自動有料移行、購入者承認ワークフロー、Data as a Serviceも発表されました。エージェント決済（AgentCore Payments）は<a href="/aws-agentcore-november-2026">AgentCoreの記事</a>に入れています。</li><li><strong>WorkSpaces</strong>：AIエージェント向けにLinuxとWindows 11のクラウドデスクトップ対応、開発者向けの入れ子仮想化、Advisor（パブリックプレビュー）。バンドルはRHEL 10、Rocky 10、Ubuntu 26.04が追加されました。</li><li><strong>MWAA</strong>：ServerlessでApache Airflow UI、コネクションと変数、カスタム／プロバイダパッケージのオペレータ、DuckDBオペレータに対応。通常版はコスト配分タグと、IAM Identity Centerによるきめ細かいアクセス制御が入りました。</li><li><strong>その他</strong>：SESの上限引き上げと6リージョン追加、CDK Blocksの一般提供、Device FarmのDevice ConnectとTest Insights、BraketのPAUSEDステータス、Elemental Inferenceのカスタマイズなど。</li></ul>
+<h2 id="highlights">目立つ変更</h2><ul><li><strong>Marketplace</strong>：エージェントモードがソリューションの評価・購入・デプロイを支援し、Express CheckoutでAWSアカウントを持たない購入者も買えるように。SaaS無料トライアルの自動有料移行、購入者承認ワークフロー、Data as a Serviceも発表されました。エージェント決済（<a class="gloss" href="/glossary#term-agentcore" title="AIエージェントの実行環境、メモリ、ID、ツールをまとめたAWSのマネージド基盤。エージェントを本番で動かすための土台を提供します。">AgentCore</a> Payments）は<a href="/aws-agentcore-november-2026">AgentCoreの記事</a>に入れています。</li><li><strong>WorkSpaces</strong>：AIエージェント向けにLinuxとWindows 11のクラウドデスクトップ対応、開発者向けの入れ子仮想化、Advisor（パブリックプレビュー）。バンドルはRHEL 10、Rocky 10、Ubuntu 26.04が追加されました。</li><li><strong>MWAA</strong>：ServerlessでApache Airflow UI、コネクションと変数、カスタム／プロバイダパッケージのオペレータ、DuckDBオペレータに対応。通常版はコスト配分タグと、IAM Identity Centerによるきめ細かいアクセス制御が入りました。</li><li><strong>その他</strong>：SESの上限引き上げと6リージョン追加、CDK Blocksの一般提供、Device FarmのDevice ConnectとTest Insights、BraketのPAUSEDステータス、Elemental Inferenceのカスタマイズなど。</li></ul>
 <figure class="fig"><img src="/assets/aws-biz-chart-v1.png" width="1600" height="720" loading="lazy" alt="AWS発表まとめ · 業務アプリ・その他の日別発表件数"><figcaption>図：日別の発表件数（2026年11月1日〜24日）。</figcaption></figure>
 <h2 id="list">発表一覧（53件）</h2>
 <h3>Amazon WorkSpaces（6件）</h3><table class="aws-table"><thead><tr><th>日付</th><th>変更の要点</th></tr></thead><tbody><tr><td class="date">11月3日</td><td>AIエージェント向けWorkSpacesがLinuxとWindows 11のクラウドデスクトップに対応 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/workspaces-ai-agents-linux-windows-11">公式発表</a></td></tr><tr><td class="date">11月4日</td><td>WorkSpacesにRHEL 10、Rocky 10、Ubuntu 26.04のバンドル <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/rhel-10-rocky-10-ubuntu-26-04-workspaces/">公式発表</a></td></tr><tr><td class="date">11月16日</td><td>WorkSpacesでAIエージェントのセットアップ・接続・ガバナンスを高速化 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-workspaces-AI-agents-connect-govern">公式発表</a></td></tr><tr><td class="date">11月17日</td><td>新しいWindowsクライアント体験を提供 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/workspaces-new-windows-client">公式発表</a></td></tr><tr><td class="date">11月17日</td><td>WorkSpaces Advisorがユーザーが気づく前に問題を発見（パブリックプレビュー） <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/workspaces-advisor-proactive-troubleshooting-preview">公式発表</a></td></tr><tr><td class="date">11月19日</td><td>開発者が入れ子仮想化を有効化可能に <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/workspaces-nested-virtualization/">公式発表</a></td></tr></tbody></table>

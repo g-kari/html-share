@@ -30,12 +30,20 @@ table.aws-table th,table.aws-table td{border:1px solid var(--line);padding:.45re
 table.aws-table td.date{white-space:nowrap}
 table.aws-table td.svc{white-space:nowrap}
 </style>
+  <!-- html-share: social metadata -->
+  <meta property="og:site_name" content="HTML Share">
+  <meta name="twitter:title" content="Amazon EKSとNitro Sandboxes 2026年11月の変更：PodごとにmicroVMで分離">
+  <meta name="twitter:description" content="Amazon EKS関連の2026年11月の発表13件。Pod・タスク・VMをそれぞれ専用のFirecracker microVMでハードウェア分離するAWS Nitro Sandboxesと、EKS Auto Modeの強化、Provisioned Control Planeなどを公式発表と出典つきで整理します。">
+  <!-- /html-share: social metadata -->
+  <!-- html-share: rss discovery -->
+  <link rel="alternate" type="application/rss+xml" title="HTML Share RSS" href="https://share.0g0.xyz/feed.xml">
+  <!-- /html-share: rss discovery -->
 </head>
 <body>
 <div class="wrap">
 <nav class="sitebar" aria-label="サイト内"><a class="brand" href="/">HTML Share</a><nav><a href="/">一覧</a><a href="/feed.xml">RSS</a></nav></nav>
 <header class="top">
-  <div class="kicker">AWS発表まとめ · Amazon EKS／Nitro Sandboxes</div>
+  <div class="kicker">AWS発表まとめ · Amazon EKS／<a class="gloss" href="/glossary#term-nitro-sandboxes" title="EKSのPodやECSタスクなどを、それぞれ専用の軽量仮想マシンでハードウェア分離して動かすAWSの仕組み。1台のインスタンスを共有しながら分離境界を保ちます。">Nitro Sandboxes</a></div>
   <h1>Amazon EKSとNitro Sandboxes 2026年11月の変更：PodごとにmicroVMで分離</h1>
   <p class="meta">確認日：2026年11月24日<br>一次資料：<a href="https://aws.amazon.com/about-aws/whats-new/">AWS公式 What's New</a>（2026年11月1日〜24日の投稿を全件取得）。各項目の見出しは公式発表へのリンクです。全体の索引は<a href="/aws-november-2026">AWS 2026年11月の発表まとめ【索引】</a>。</p>
 </header>
@@ -62,7 +70,7 @@ table.aws-table td.svc{white-space:nowrap}
 <h2 id="eks">EKS本体の変更</h2>
 <ul>
 <li><strong>Auto Mode</strong>：Pod向けセキュリティグループ対応、Dynamic Resource Allocation対応（Karpenterも）、Podの適正サイジングによるコスト削減（プレビュー）が入りました。</li>
-<li><strong>コントロールプレーン</strong>：Provisioned Control Planeの4XL／8XL階層でetcdが24GBに。Hybrid Nodesは大規模ホストの料金引き下げ。</li>
+<li><strong><a class="gloss" href="/glossary#term-control-plane" title="実際に処理を行う部分に対して、何をどう動かすかを決める部分のこと。">コントロールプレーン</a></strong>：Provisioned Control Planeの4XL／8XL階層でetcdが24GBに。Hybrid Nodesは大規模ホストの料金引き下げ。</li>
 <li><strong>周辺</strong>：EKS CapabilitiesのArgo CD Notifications対応、BackupのEKSリストア用リソースモディファイア、VPC Flow LogsのEKSメタデータ対応、Fluent Bit 3.0.0など。</li>
 </ul>
 <figure class="fig"><img src="/assets/aws-eks-chart-v1.png" width="1600" height="720" loading="lazy" alt="EKS関連の日別発表件数"><figcaption>図：日別の発表件数。</figcaption></figure>

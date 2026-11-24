@@ -30,19 +30,27 @@ table.aws-table th,table.aws-table td{border:1px solid var(--line);padding:.45re
 table.aws-table td.date{white-space:nowrap}
 table.aws-table td.svc{white-space:nowrap}
 </style>
+  <!-- html-share: social metadata -->
+  <meta property="og:site_name" content="HTML Share">
+  <meta name="twitter:title" content="AWS Emulatorとは：200以上のAWSサービスをローカルで再現する無料エミュレータ">
+  <meta name="twitter:description" content="2026年11月11日に提供開始したAWS Emulatorの概要。既存のSDK／CLI呼び出しをローカルで受けてミリ秒で応答し、デプロイもアカウントも不要。インメモリの状態、コピーごとの独立性、APIモデルからの生成、CC0公開と追加料金なしを、公式発表と出典つきで整理します。">
+  <!-- /html-share: social metadata -->
+  <!-- html-share: rss discovery -->
+  <link rel="alternate" type="application/rss+xml" title="HTML Share RSS" href="https://share.0g0.xyz/feed.xml">
+  <!-- /html-share: rss discovery -->
 </head>
 <body>
 <div class="wrap">
 <nav class="sitebar" aria-label="サイト内"><a class="brand" href="/">HTML Share</a><nav><a href="/">一覧</a><a href="/feed.xml">RSS</a></nav></nav>
 <header class="top">
-  <div class="kicker">AWS発表まとめ · AWS Emulator</div>
+  <div class="kicker">AWS発表まとめ · <a class="gloss" href="/glossary#term-aws-emulator" title="AWSのサービスを自分のコンピュータやCI環境で再現するローカルエミュレータ。SDKやCLIの呼び出し先を変えるだけで、デプロイなしにテストできます。">AWS Emulator</a></div>
   <h1>AWS Emulatorとは：200以上のAWSサービスをローカルで再現する無料エミュレータ</h1>
   <p class="meta">確認日：2026年11月24日<br>一次資料：<a href="https://aws.amazon.com/about-aws/whats-new/">AWS公式 What's New</a>（2026年11月1日〜24日の投稿を全件取得）。各項目の見出しは公式発表へのリンクです。全体の索引は<a href="/aws-november-2026">AWS 2026年11月の発表まとめ【索引】</a>。</p>
 </header>
 
 <div class="summary3">
   <div class="ttl">要点</div>
-  <ol><li>AWS Emulatorは、200以上のAWSサービスをローカルで再現するエミュレータです。SDK／CLIの向き先を変えるだけで、デプロイなし・アカウントなしでテストできます。</li><li>状態はインメモリで、起動したコピーごとにポート・鍵・状態が独立します。エージェントやCIが互いのリソースを見ない設計です。</li><li>追加料金はなく、ソースはCC0で公開。公式はコーディングエージェントのローカルテストを主な使い方に挙げています。</li></ol>
+  <ol><li>AWS Emulatorは、200以上のAWSサービスをローカルで再現するエミュレータです。SDK／CLIの向き先を変えるだけで、デプロイなし・アカウントなしでテストできます。</li><li>状態はインメモリで、起動したコピーごとにポート・鍵・状態が独立します。エージェントやCIが互いのリソースを見ない設計です。</li><li>追加料金はなく、ソースはCC0で公開。公式は<a class="gloss" href="/glossary#term-coding-agent" title="コードの読み書きやコマンド実行を自律的に進めるAIツール。Claude CodeやCodexなどが該当し、利用はモデルの提供元の契約に基づきます。">コーディングエージェント</a>のローカルテストを主な使い方に挙げています。</li></ol>
 </div>
 
 <nav class="toc">

@@ -7,7 +7,160 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Tue, 24 Nov 2026 09:51:47 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 24 Nov 2026 11:47:34 GMT</lastBuildDate>
+    <item>
+      <title>Amazon Connect 2026年11月の変更：ケース管理とResolutions</title>
+      <link>https://share.0g0.xyz/amazon-connect-november-2026</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/amazon-connect-november-2026</guid>
+      <description>Amazon Connectの2026年11月の発表20件。大量業務を処理するエージェント型ソリューションResolutions、ケース管理の拡充、AIチャット要約や自動評価の言語拡大、フローでのMCPツール利用などを公式発表と出典つきで整理します。</description>
+      <pubDate>Tue, 24 Nov 2026 11:47:34 GMT</pubDate>
+      <dcterms:created>2026-11-24T11:47:34.000Z</dcterms:created>
+      <dcterms:modified>2026-11-24T11:47:34.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>Amazon Bedrock AgentCore 2026年11月の変更：次世代ランタイムが既定に</title>
+      <link>https://share.0g0.xyz/aws-agentcore-november-2026</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/aws-agentcore-november-2026</guid>
+      <description>Amazon Bedrock AgentCoreの2026年11月の発表14件。次世代ランタイムの既定化、ランタイムインスタンスの拡張、Memoryの10年保持、Identity、Web Search／Web Answer、Marketplaceのエージェント決済を公式発表と出典つきで整理します。</description>
+      <pubDate>Tue, 24 Nov 2026 11:47:34 GMT</pubDate>
+      <dcterms:created>2026-11-24T11:47:34.000Z</dcterms:created>
+      <dcterms:modified>2026-11-24T11:47:34.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>AWS AI・機械学習 2026年11月の変更まとめ：Bedrockの新モデルとSageMaker、AWS Quick</title>
+      <link>https://share.0g0.xyz/aws-ai-november-2026</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/aws-ai-november-2026</guid>
+      <description>AWSのAI・機械学習分野の2026年11月の発表47件。Amazon BedrockへのClaude Fable 5.2、GPT-6.2、Kimi K3.1 Proの追加、SageMaker HyperPodの推論基盤、AWS Quickの改称と機能追加、Textract Insightsなどをサービス別に整理します。</description>
+      <pubDate>Tue, 24 Nov 2026 11:47:34 GMT</pubDate>
+      <dcterms:created>2026-11-24T11:47:34.000Z</dcterms:created>
+      <dcterms:modified>2026-11-24T11:47:34.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>AWS 業務アプリ・その他 2026年11月の変更まとめ：Marketplace、WorkSpaces、MWAA、メディア</title>
+      <link>https://share.0g0.xyz/aws-business-november-2026</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/aws-business-november-2026</guid>
+      <description>AWSの業務アプリケーションとその他の分野の2026年11月の発表53件。AWS Marketplaceのエージェントモードと決済まわり、AIエージェント向けWorkSpaces、Amazon MWAA、SES、メディアサービス、Partner Centralなどをサービス別に整理します。</description>
+      <pubDate>Tue, 24 Nov 2026 11:47:34 GMT</pubDate>
+      <dcterms:created>2026-11-24T11:47:34.000Z</dcterms:created>
+      <dcterms:modified>2026-11-24T11:47:34.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>AWS コンピュート・ストレージ 2026年11月の変更まとめ：EC2、S3、FSx、ECS</title>
+      <link>https://share.0g0.xyz/aws-compute-storage-november-2026</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/aws-compute-storage-november-2026</guid>
+      <description>AWSのコンピュート・ストレージ分野の2026年11月の発表55件。Graviton5ベースのEC2 T9g、S3の読み取りレート2倍とVectorsのハイブリッド検索、FSx for NetApp ONTAPの新世代、ECS Action Logsなどをサービス別に整理します。</description>
+      <pubDate>Tue, 24 Nov 2026 11:47:34 GMT</pubDate>
+      <dcterms:created>2026-11-24T11:47:34.000Z</dcterms:created>
+      <dcterms:modified>2026-11-24T11:47:34.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>AWS データベース・分析 2026年11月の変更まとめ：RDS、Aurora DSQL、OpenSearch、MSK</title>
+      <link>https://share.0g0.xyz/aws-database-november-2026</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/aws-database-november-2026</guid>
+      <description>AWSのデータベース・分析分野の2026年11月の発表76件。Amazon RDSとAuroraの版数更新、Aurora DSQLの機能追加、OpenSearchの災害復旧とMemory、MSKのKafka 4.2対応、DynamoDBの一括投入などをサービス別に整理します。</description>
+      <pubDate>Tue, 24 Nov 2026 11:47:34 GMT</pubDate>
+      <dcterms:created>2026-11-24T11:47:34.000Z</dcterms:created>
+      <dcterms:modified>2026-11-24T11:47:34.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>AWS DevOps Agent 2026年11月の変更：サンドボックスとチャット連携</title>
+      <link>https://share.0g0.xyz/aws-devops-agent-november-2026</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/aws-devops-agent-november-2026</guid>
+      <description>AWS DevOps Agentの2026年11月の発表10件。エージェントがスクリプトを実行するサンドボックス、Slack／Microsoft Teams連携、メモリ管理、GovCloud提供とFedRAMP認証、調査レイテンシ短縮を公式発表と出典つきで整理します。</description>
+      <pubDate>Tue, 24 Nov 2026 11:47:34 GMT</pubDate>
+      <dcterms:created>2026-11-24T11:47:34.000Z</dcterms:created>
+      <dcterms:modified>2026-11-24T11:47:34.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>Amazon EKSとNitro Sandboxes 2026年11月の変更：PodごとにmicroVMで分離</title>
+      <link>https://share.0g0.xyz/aws-eks-nitro-november-2026</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/aws-eks-nitro-november-2026</guid>
+      <description>Amazon EKS関連の2026年11月の発表13件。Pod・タスク・VMをそれぞれ専用のFirecracker microVMでハードウェア分離するAWS Nitro Sandboxesと、EKS Auto Modeの強化、Provisioned Control Planeなどを公式発表と出典つきで整理します。</description>
+      <pubDate>Tue, 24 Nov 2026 11:47:34 GMT</pubDate>
+      <dcterms:created>2026-11-24T11:47:34.000Z</dcterms:created>
+      <dcterms:modified>2026-11-24T11:47:34.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>AWS Emulatorとは：200以上のAWSサービスをローカルで再現する無料エミュレータ</title>
+      <link>https://share.0g0.xyz/aws-emulator-november-2026</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/aws-emulator-november-2026</guid>
+      <description>2026年11月11日に提供開始したAWS Emulatorの概要。既存のSDK／CLI呼び出しをローカルで受けてミリ秒で応答し、デプロイもアカウントも不要。インメモリの状態、コピーごとの独立性、APIモデルからの生成、CC0公開と追加料金なしを、公式発表と出典つきで整理します。</description>
+      <pubDate>Tue, 24 Nov 2026 11:47:34 GMT</pubDate>
+      <dcterms:created>2026-11-24T11:47:34.000Z</dcterms:created>
+      <dcterms:modified>2026-11-24T11:47:34.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>AWS Lambda 2026年11月の変更：GPU対応とdurable functions、MicroVMsの拡張</title>
+      <link>https://share.0g0.xyz/aws-lambda-november-2026</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/aws-lambda-november-2026</guid>
+      <description>AWS Lambdaの2026年11月の発表18件。Managed InstancesでのGPU推論、durable functionsの一時停止・OTel・Rust SDK GAとクォータ拡大、MicroVMsのx86対応、カスタマーマネージドランタイム、30分タイムアウトなどを公式発表と出典つきで整理します。</description>
+      <pubDate>Tue, 24 Nov 2026 11:47:34 GMT</pubDate>
+      <dcterms:created>2026-11-24T11:47:34.000Z</dcterms:created>
+      <dcterms:modified>2026-11-24T11:47:34.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>AWS ネットワーク・CDN 2026年11月の変更まとめ：CloudFront、Route 53、Interconnect</title>
+      <link>https://share.0g0.xyz/aws-network-november-2026</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/aws-network-november-2026</guid>
+      <description>AWSのネットワーク・CDN分野の2026年11月の発表37件。Microsoft Azureとのマルチクラウド接続AWS Interconnectの一般提供、CloudFrontのオリジン相互TLSとFunctionsのネットワーク呼び出し、Route 53の新機能、Transit Gatewayのファイアウォール連携などをサービス別に整理します。</description>
+      <pubDate>Tue, 24 Nov 2026 11:47:34 GMT</pubDate>
+      <dcterms:created>2026-11-24T11:47:34.000Z</dcterms:created>
+      <dcterms:modified>2026-11-24T11:47:34.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>AWS 2026年11月の発表まとめ：全442件をサービス別に整理</title>
+      <link>https://share.0g0.xyz/aws-november-2026</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/aws-november-2026</guid>
+      <description>2026年11月1日〜24日のAWS公式発表442件を、サービス・分野別の15記事に整理した索引。AgentCore、WAF、Lambda、Nitro Sandboxes、AWS Emulator、Strandsなど単独記事への入口と、期間・総件数・サービス別件数を明記します。</description>
+      <pubDate>Tue, 24 Nov 2026 11:47:34 GMT</pubDate>
+      <dcterms:created>2026-11-24T11:47:34.000Z</dcterms:created>
+      <dcterms:modified>2026-11-24T11:47:34.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>AWS 運用・移行・コスト 2026年11月の変更まとめ：CloudWatch、Transform、課金、GovCloud</title>
+      <link>https://share.0g0.xyz/aws-operations-november-2026</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/aws-operations-november-2026</guid>
+      <description>AWSの運用・移行・コスト分野の2026年11月の発表51件。CloudWatchのPromQL拡大とQuery Studio、AWS Transformの移行自動化、EventBridgeの拡張、クレジット分割などの課金まわり、GovCloudでの提供開始をサービス別に整理します。</description>
+      <pubDate>Tue, 24 Nov 2026 11:47:34 GMT</pubDate>
+      <dcterms:created>2026-11-24T11:47:34.000Z</dcterms:created>
+      <dcterms:modified>2026-11-24T11:47:34.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>AWS セキュリティ 2026年11月の変更まとめ：Cognito、IAM、STS、Security Hub、Network Firewall</title>
+      <link>https://share.0g0.xyz/aws-security-november-2026</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/aws-security-november-2026</guid>
+      <description>AWSのセキュリティ・アイデンティティ分野の2026年11月の発表38件。STS GetScopedCredentials、CognitoのOAuth 2.0トークン交換とセッション管理、Security HubのSBOMインベントリ、Network Firewallの次世代ポリシーなどをサービス別に整理します。WAFは単独記事です。</description>
+      <pubDate>Tue, 24 Nov 2026 11:47:34 GMT</pubDate>
+      <dcterms:created>2026-11-24T11:47:34.000Z</dcterms:created>
+      <dcterms:modified>2026-11-24T11:47:34.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>Strands 2026年11月の発表：判断モデルDecider v2とサンドボックスBox</title>
+      <link>https://share.0g0.xyz/aws-strands-november-2026</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/aws-strands-november-2026</guid>
+      <description>Strands Agentsの2026年11月23日の発表。Gemma 4ベースの判断専用オープンモデル「Strands Decider v2」（5サイズ、Apache-2.0）と、Claude Code／Codex／Kiro CLIをOSサンドボックスで動かすStrands BoxのCLI対応を、公式ブログと出典つきで整理します。</description>
+      <pubDate>Tue, 24 Nov 2026 11:47:34 GMT</pubDate>
+      <dcterms:created>2026-11-24T11:47:34.000Z</dcterms:created>
+      <dcterms:modified>2026-11-24T11:47:34.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>AWS WAF 2026年11月の変更：料金体系の簡素化とAI／APIの自動保護</title>
+      <link>https://share.0g0.xyz/aws-waf-november-2026</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/aws-waf-november-2026</guid>
+      <description>AWS WAFの2026年11月の発表9件（＋秋の関連2件）。料金体系の3軸への組み替えと無料WCU拡大、AI Security／API Securityマネージドルール、Security Analytics Dashboard、Bot Controlの導入簡素化とWebBotAuth連携を、公式発表と出典つきで詳しく整理します。</description>
+      <pubDate>Tue, 24 Nov 2026 11:47:34 GMT</pubDate>
+      <dcterms:created>2026-11-24T11:47:34.000Z</dcterms:created>
+      <dcterms:modified>2026-11-24T11:47:34.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>用語集：HTML Shareの記事に出てくる専門用語</title>
+      <link>https://share.0g0.xyz/glossary</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/glossary</guid>
+      <description>HTML Shareの記事に出てくる専門用語の短い説明の一覧です。記事本文では、辞書に登録された用語の初出が自動でこの用語集へリンクされます。</description>
+      <pubDate>Tue, 24 Nov 2026 09:56:35 GMT</pubDate>
+      <dcterms:created>2026-11-24T01:37:31.000Z</dcterms:created>
+      <dcterms:modified>2026-11-24T09:56:35.000Z</dcterms:modified>
+    </item>
     <item>
       <title>Orcaとは：Claude CodeやCodexをワークツリーごとに並行実行する無料のエージェント開発環境（ADE）</title>
       <link>https://share.0g0.xyz/orca</link>
@@ -25,15 +178,6 @@
       <pubDate>Tue, 24 Nov 2026 09:51:47 GMT</pubDate>
       <dcterms:created>2026-11-24T08:58:19.000Z</dcterms:created>
       <dcterms:modified>2026-11-24T09:51:47.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>用語集：HTML Shareの記事に出てくる専門用語</title>
-      <link>https://share.0g0.xyz/glossary</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/glossary</guid>
-      <description>HTML Shareの記事に出てくる専門用語の短い説明の一覧です。記事本文では、辞書に登録された用語の初出が自動でこの用語集へリンクされます。</description>
-      <pubDate>Tue, 24 Nov 2026 09:03:48 GMT</pubDate>
-      <dcterms:created>2026-11-24T01:37:31.000Z</dcterms:created>
-      <dcterms:modified>2026-11-24T09:03:48.000Z</dcterms:modified>
     </item>
     <item>
       <title>T3 Chatとは：複数モデルを1つの画面で切り替えるAIチャット。Proは月8ドル、利用量はメーター制</title>
