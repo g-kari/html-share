@@ -159,6 +159,7 @@ details{border-block:1px solid var(--rule);padding:12px 0;margin:18px 0}details+
         <li><strong>監査・EDRとの違い：</strong>顧客側は保存先の監視かSafety Cases APIの定期取得で新規ケースを把握する。ケースのJSONにはID、分類、状態、会話記録の識別子などが入り、入出力本文や抜粋は入らない。調査に必要な関連メッセージは別の読める会話記録（Transcripts）またはSafety Cases APIで確認できる。これは自社クラウドに置く暗号化済みの安全性データを直接読めるという意味ではない。EFSは端末監視（EDR）、全操作の監査、データ送信を止めるDLPの代わりにはならない。<a href="#s22">[22]</a><a href="#s23">[23]</a><a href="#s24">[24]</a></li>
         <li><strong>契約と費用：</strong>公開ベータは対象顧客に案内される。見積もり時に、提供経路と対象ワークスペースを確認する。自社側の保存先・鍵・アクセス権・保持期間も決めておく。AnthropicのEFS利用料やモデル料金の上乗せはないが、顧客には保管、読み書き、鍵操作、該当する場合はデータ転送のクラウド費用が発生する。提供元が暗号化済みコピーを保持する方式は、顧客管理鍵を使っていてもZDRではない。<a href="#s22">[22]</a><a href="#s23">[23]</a></li>
       </ul>
+      <div class="note"><strong>利用規約に同意する前に：</strong>Claude Platformでは同意するとCompliance APIが有効になり、活動の記録が始まる。親組織がある場合は配下すべての組織に及び、購読プランで使うClaude CodeやCoworkの対象セッションでは本文も保存される。Access Transparency（Anthropic担当者のアクセス記録）はバケット接続開始などで作動し、一度有効になると自社では解除できない。規約への同意だけではEFSは有効にならない。既定のワークスペースは対象外で、従来のZDRから移る場合は新しいワークスペースで設定を検証してから通信を切り替える。<a href="#s25">[25]</a></div>
     </div>
     <h3>監査で「何を証明できるか」</h3>
     <div class="prose">
@@ -249,6 +250,7 @@ details{border-block:1px solid var(--rule);padding:12px 0;margin:18px 0}details+
       <li id="s22"><a href="https://claude.com/ja/resources/articles/zero-data-retention-with-enterprise-frontier-safeguards">Anthropic：Enterprise Frontier Safeguardsによるゼロデータ保持</a><span>2026年11月23日の公開ベータ発表</span></li>
       <li id="s23"><a href="https://platform.claude.com/docs/en/manage-claude/enterprise-frontier-safeguards/overview">Anthropic：Enterprise Frontier Safeguardsの概要</a><span>保存方式、対象API、安全性ケース、費用</span></li>
       <li id="s24"><a href="https://platform.claude.com/docs/en/manage-claude/enterprise-frontier-safeguards/flagged-cases">Anthropic：Review Safety Cases</a><span>検出ケースの取得と、本文の参照範囲</span></li>
+      <li id="s25"><a href="https://platform.claude.com/docs/ja/manage-claude/enterprise-frontier-safeguards/setup-console">Anthropic：Claude PlatformのEFS設定ガイド</a><span>利用規約への同意が及ぼす影響と移行手順</span></li>
     </ol>
   </section>
 </main>
