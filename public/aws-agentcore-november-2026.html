@@ -30,19 +30,27 @@ table.aws-table th,table.aws-table td{border:1px solid var(--line);padding:.45re
 table.aws-table td.date{white-space:nowrap}
 table.aws-table td.svc{white-space:nowrap}
 </style>
+  <!-- html-share: social metadata -->
+  <meta property="og:site_name" content="HTML Share">
+  <meta name="twitter:title" content="Amazon Bedrock AgentCore 2026年11月の変更：次世代ランタイムが既定に">
+  <meta name="twitter:description" content="Amazon Bedrock AgentCoreの2026年11月の発表14件。次世代ランタイムの既定化、ランタイムインスタンスの拡張、Memoryの10年保持、Identity、Web Search／Web Answer、Marketplaceのエージェント決済を公式発表と出典つきで整理します。">
+  <!-- /html-share: social metadata -->
+  <!-- html-share: rss discovery -->
+  <link rel="alternate" type="application/rss+xml" title="HTML Share RSS" href="https://share.0g0.xyz/feed.xml">
+  <!-- /html-share: rss discovery -->
 </head>
 <body>
 <div class="wrap">
 <nav class="sitebar" aria-label="サイト内"><a class="brand" href="/">HTML Share</a><nav><a href="/">一覧</a><a href="/feed.xml">RSS</a></nav></nav>
 <header class="top">
-  <div class="kicker">AWS発表まとめ · Amazon Bedrock AgentCore</div>
+  <div class="kicker">AWS発表まとめ · <a class="gloss" href="/glossary#term-agentcore" title="AIエージェントの実行環境、メモリ、ID、ツールをまとめたAWSのマネージド基盤。エージェントを本番で動かすための土台を提供します。">Amazon Bedrock AgentCore</a></div>
   <h1>Amazon Bedrock AgentCore 2026年11月の変更：次世代ランタイムが既定に</h1>
   <p class="meta">確認日：2026年11月24日<br>一次資料：<a href="https://aws.amazon.com/about-aws/whats-new/">AWS公式 What's New</a>（2026年11月1日〜24日の投稿を全件取得）。各項目の見出しは公式発表へのリンクです。全体の索引は<a href="/aws-november-2026">AWS 2026年11月の発表まとめ【索引】</a>。</p>
 </header>
 
 <div class="summary3">
   <div class="ttl">要点</div>
-  <ol><li>中心は次世代ランタイムの既定化（11月12日）。起動は最大15倍、セッションは最大8 vCPU／32GB、アイドル時はゼロへ縮小します。</li><li>ランタイムインスタンスは特権モード、入れ子仮想化、G7 GPUに対応し、GovCloud（US-West）でも一般提供になりました。</li><li>Memoryは短期メモリの保持が最大10年に延び、セッション要約が入りました。IdentityはOAuthディスカバリURLとPrivate CAに対応しました。</li><li>Web Search APIとWeb Answerが出て、Web Searchには月5,000クエリの無料枠。Marketplaceではエージェント決済が始まりました。</li></ol>
+  <ol><li>中心は次世代<a class="gloss" href="/glossary#term-runtime" title="プログラムを実行する土台となるソフトウェアや実行環境のこと。">ランタイム</a>の既定化（11月12日）。起動は最大15倍、セッションは最大8 vCPU／32GB、アイドル時はゼロへ縮小します。</li><li>ランタイムインスタンスは特権モード、入れ子仮想化、G7 GPUに対応し、GovCloud（US-West）でも一般提供になりました。</li><li>Memoryは短期メモリの保持が最大10年に延び、セッション要約が入りました。IdentityはOAuthディスカバリURLとPrivate CAに対応しました。</li><li>Web Search APIとWeb Answerが出て、Web Searchには月5,000クエリの無料枠。Marketplaceではエージェント決済が始まりました。</li></ol>
 </div>
 
 <nav class="toc">

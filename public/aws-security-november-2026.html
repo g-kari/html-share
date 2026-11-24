@@ -30,6 +30,14 @@ table.aws-table th,table.aws-table td{border:1px solid var(--line);padding:.45re
 table.aws-table td.date{white-space:nowrap}
 table.aws-table td.svc{white-space:nowrap}
 </style>
+  <!-- html-share: social metadata -->
+  <meta property="og:site_name" content="HTML Share">
+  <meta name="twitter:title" content="AWS セキュリティ 2026年11月の変更まとめ：Cognito、IAM、STS、Security Hub、Network Firewall">
+  <meta name="twitter:description" content="AWSのセキュリティ・アイデンティティ分野の2026年11月の発表38件。STS GetScopedCredentials、CognitoのOAuth 2.0トークン交換とセッション管理、Security HubのSBOMインベントリ、Network Firewallの次世代ポリシーなどをサービス別に整理します。WAFは単独記事です。">
+  <!-- /html-share: social metadata -->
+  <!-- html-share: rss discovery -->
+  <link rel="alternate" type="application/rss+xml" title="HTML Share RSS" href="https://share.0g0.xyz/feed.xml">
+  <!-- /html-share: rss discovery -->
 </head>
 <body>
 <div class="wrap">
@@ -42,7 +50,7 @@ table.aws-table td.svc{white-space:nowrap}
 
 <div class="summary3">
   <div class="ttl">要点</div>
-  <ol><li>STSが「GetScopedCredentials」を発表。既存の一時認証情報を持つエージェントやワークロードが、実行時に権限を絞った認証情報を取れる仕組みです。</li><li>Cognitoは9件と多く、OAuth 2.0トークン交換、セッション管理、ポイントインタイムリカバリ、動的クライアント登録などが入りました。</li><li>Security HubはコンピュートリソースのSBOMインベントリを提供開始。Network Firewallは次世代ポリシーと明示的プロキシ、自動インターネットファイアウォールを打ち出しました。</li></ol>
+  <ol><li>STSが「GetScopedCredentials」を発表。既存の一時認証情報を持つエージェントやワークロードが、実行時に権限を絞った認証情報を取れる仕組みです。</li><li>Cognitoは9件と多く、OAuth 2.0トークン交換、セッション管理、ポイントインタイムリカバリ、動的クライアント登録などが入りました。</li><li>Security Hubはコンピュートリソースの<a class="gloss" href="/glossary#term-sbom" title="ソフトウェアを構成する部品（ライブラリ等）の一覧表。脆弱性の影響範囲を調べるために使います。">SBOM</a>インベントリを提供開始。Network Firewallは次世代ポリシーと明示的プロキシ、自動インターネットファイアウォールを打ち出しました。</li></ol>
 </div>
 
 <nav class="toc">
@@ -50,7 +58,7 @@ table.aws-table td.svc{white-space:nowrap}
   <ol><li><a href="#about">概要</a></li><li><a href="#highlights">目立つ変更</a></li><li><a href="#list">発表一覧（38件）</a></li><li><a href="#sources">資料と出典</a></li></ol>
 </nav>
 
-<h2 id="about">概要</h2><p>セキュリティ・アイデンティティ分野の発表は38件です。WAF（<a href="/aws-waf-november-2026">単独記事</a>）を除く、IAM／STS／Cognito、Security Hub、Inspector、Network Firewall、Secrets Managerなどを扱います。エージェントのIDまわりはAgentCore Identity（<a href="/aws-agentcore-november-2026">単独記事</a>）も関係します。</p>
+<h2 id="about">概要</h2><p>セキュリティ・アイデンティティ分野の発表は38件です。WAF（<a href="/aws-waf-november-2026">単独記事</a>）を除く、IAM／STS／Cognito、Security Hub、Inspector、Network Firewall、Secrets Managerなどを扱います。エージェントのIDまわりは<a class="gloss" href="/glossary#term-agentcore" title="AIエージェントの実行環境、メモリ、ID、ツールをまとめたAWSのマネージド基盤。エージェントを本番で動かすための土台を提供します。">AgentCore</a> Identity（<a href="/aws-agentcore-november-2026">単独記事</a>）も関係します。</p>
 <h2 id="highlights">目立つ変更</h2><ul><li><strong>STS GetScopedCredentials（11月19日）</strong>：一時認証情報をすでに持つ主体が、実行時に権限を絞り込んだ認証情報を取得するAPIです。エージェントに広い権限を渡しっぱなしにしないための部品として、AgentCoreまわりとあわせて注目されます。</li><li><strong>サインインと認可</strong>：AWS Sign-InのOAuth 2.0トークン交換、AIエージェント向けエンタープライズ管理認可、最大90日のサインイン期間設定。IAMにはアクセス拒否を調べるAccess Troubleshooterが出ました。</li><li><strong>Cognito</strong>：トークン交換、ユーザープールのセッション管理、ポイントインタイムリカバリ、動的クライアント登録、Secrets Managerでのクライアントシークレット保管など9件。</li><li><strong>検出と防御</strong>：Security HubのSBOMインベントリとリソース重要度の推定、Inspector Code SecurityのGitHub Enterprise Server対応、Network Firewallの次世代ポリシー／明示的プロキシ／自動インターネットファイアウォール（プレビュー）。</li><li><strong>シークレットと証明書</strong>：Secrets Managerのクロスアカウント複製と外部シークレット（Auth0、Okta、Palo Alto Networks）対応、KMSのRAM経由キー共有、Private CAのX.509条件キー。</li></ul>
 <figure class="fig"><img src="/assets/aws-security-chart-v1.png" width="1600" height="720" loading="lazy" alt="AWS発表まとめ · セキュリティ・アイデンティティの日別発表件数"><figcaption>図：日別の発表件数（2026年11月1日〜24日）。</figcaption></figure>
 <h2 id="list">発表一覧（38件）</h2>
@@ -61,7 +69,7 @@ table.aws-table td.svc{white-space:nowrap}
 <h3>AWS STS（2件）</h3><table class="aws-table"><thead><tr><th>日付</th><th>変更の要点</th></tr></thead><tbody><tr><td class="date">11月9日</td><td>AWS IDのクロスパーティションフェデレーションに対応 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/aws-sts-cross-partition">公式発表</a></td></tr><tr><td class="date">11月19日</td><td>実行時に権限を絞り込む「GetScopedCredentials」を発表。既存の一時認証情報を持つエージェントやワークロード向け <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/sts-getscopedcredentials/">公式発表</a></td></tr></tbody></table>
 <h3>AWS Network Firewall（4件）</h3><table class="aws-table"><thead><tr><th>日付</th><th>変更の要点</th></tr></thead><tbody><tr><td class="date">11月10日</td><td>次世代ファイアウォールポリシーを開始 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/network-firewall-launches-ngfw-policy/">公式発表</a></td></tr><tr><td class="date">11月16日</td><td>Transit Gateway接続ファイアウォールでコンテキスト対応ルールに対応 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/network-firewall-context-aware-rules/">公式発表</a></td></tr><tr><td class="date">11月19日</td><td>明示的プロキシ機能とNATゲートウェイ関連付けを開始 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/network-firewall-proxy-nat-gateway/">公式発表</a></td></tr><tr><td class="date">11月20日</td><td>自動インターネットファイアウォールをパブリックプレビューで導入 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/network-firewall-automated-internet/">公式発表</a></td></tr></tbody></table>
 <h3>AWS Control Tower（1件）</h3><table class="aws-table"><thead><tr><th>日付</th><th>変更の要点</th></tr></thead><tbody><tr><td class="date">11月11日</td><td>Control Tower AFTがService Catalogなしのアカウント発行に対応 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/aws-control-tower-aft/">公式発表</a></td></tr></tbody></table>
-<h3>AWS Organizations（2件）</h3><table class="aws-table"><thead><tr><th>日付</th><th>変更の要点</th></tr></thead><tbody><tr><td class="date">11月13日</td><td>Security Hub CSPMがOrganizations宣言型ポリシーによる一元設定に対応 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/security-hub-cspm-org-policies/">公式発表</a></td></tr><tr><td class="date">11月17日</td><td>エージェント型コーディングハーネス向けのエージェント型アカウント作成を発表 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/agentic-account-creation/">公式発表</a></td></tr></tbody></table>
+<h3>AWS Organizations（2件）</h3><table class="aws-table"><thead><tr><th>日付</th><th>変更の要点</th></tr></thead><tbody><tr><td class="date">11月13日</td><td>Security Hub CSPMがOrganizations宣言型ポリシーによる一元設定に対応 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/security-hub-cspm-org-policies/">公式発表</a></td></tr><tr><td class="date">11月17日</td><td>エージェント型コーディング<a class="gloss" href="/glossary#term-harness" title="LLMに道具の呼び出しや結果の受け渡しを担わせ、エージェントとして動かすための実行基盤。Claude CodeやCodexの中核部分を指します。">ハーネス</a>向けのエージェント型アカウント作成を発表 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/agentic-account-creation/">公式発表</a></td></tr></tbody></table>
 <h3>AWS Secrets Manager（2件）</h3><table class="aws-table"><thead><tr><th>日付</th><th>変更の要点</th></tr></thead><tbody><tr><td class="date">11月13日</td><td>クロスアカウントレプリケーションに対応 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/secrets-manager-cross-account/">公式発表</a></td></tr><tr><td class="date">11月16日</td><td>Auth0、Okta、Palo Alto Networks向けのマネージド外部シークレットに対応 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/secrets-manager-managed-external-secrets-auth0-okta-palo-alto/">公式発表</a></td></tr></tbody></table>
 <h3>AWS IAM Identity Center（1件）</h3><table class="aws-table"><thead><tr><th>日付</th><th>変更の要点</th></tr></thead><tbody><tr><td class="date">11月16日</td><td>SAMLリクエストのForceAuthnに対応 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/iam-identity-center-reauth/">公式発表</a></td></tr></tbody></table>
 <h3>AWS KMS（1件）</h3><table class="aws-table"><thead><tr><th>日付</th><th>変更の要点</th></tr></thead><tbody><tr><td class="date">11月16日</td><td>Resource Access Managerによるキー共有に対応 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/kms-key-sharing-resource-access-manager/">公式発表</a></td></tr></tbody></table>
