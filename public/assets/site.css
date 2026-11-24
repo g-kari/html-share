@@ -60,6 +60,8 @@ body {
 
 a { color: var(--accent); text-underline-offset: .22em; }
 a:hover { text-decoration-thickness: 2px; }
+a.gloss { color: inherit; text-decoration: underline dotted var(--accent) 1px; text-underline-offset: .25em; }
+a.gloss:hover { color: var(--accent); }
 
 /* ---- layout ---- */
 .wrap { max-width: 800px; margin: 0 auto; padding: 24px 20px 80px; }

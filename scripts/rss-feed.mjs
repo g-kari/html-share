@@ -4,6 +4,7 @@ import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { addSocialMetadata, escapeHtml, headTags, SITE_NAME, SITE_URL } from "./social-metadata.mjs";
 import { committedReportSource, reportSourcePaths } from "./report-source.mjs";
+import { unwrapGlossaryLinks } from "./glossary.mjs";
 
 export const FEED_PATH = "/feed.xml";
 export const STATE_FILE = ".feed-state.json";
@@ -53,7 +54,9 @@ export function addFeedDiscovery(source, extraFeeds = []) {
 export function contentFingerprint(source, relativePath) {
   // Social URL normalization is also applied before hashing so its first build
   // cannot masquerade as a page edit. Generated blocks do not affect dates.
-  const normalized = stripBlock(stripBlock(addSocialMetadata(source, relativePath),
+  // Glossary auto-links are generated too: unwrap them before hashing so
+  // a dictionary change never masquerades as a page edit either.
+  const normalized = stripBlock(stripBlock(addSocialMetadata(unwrapGlossaryLinks(source), relativePath),
     "<!-- html-share: social metadata -->", "<!-- /html-share: social metadata -->"), START, END);
   return createHash("sha256").update(normalized).digest("hex");
 }

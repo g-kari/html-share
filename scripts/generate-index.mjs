@@ -7,6 +7,7 @@ import { authoredReportSource } from "./report-source.mjs";
 import { generateSplitVulnerabilities, isReportArchive } from "./split-vulnerabilities.mjs";
 import { generateSplitTechnologyUpdates, isTechnologyArchive } from "./split-technology-updates.mjs";
 import { writeSearchIndex } from "./search-index.mjs";
+import { GLOSSARY_PAGE, linkifyHtml, loadGlossaryTerms, updateGlossaryPage } from "./glossary.mjs";
 
 const publicDir = path.resolve("public");
 const outputFile = path.join(publicDir, "index.html");
@@ -211,6 +212,7 @@ const html = `<!doctype html>
       <h1>HTML Share</h1>
       <p class="lead">共有ページ一覧</p>
       <p><a class="rss" href="/feed.xml">RSSで新規公開・更新を購読</a></p>
+      <p><a class="rss" href="/glossary">用語集</a> — 記事に出てくる専門用語の短い説明</p>
       <p>${REPORT_FEEDS.map((feed) => `<a class="rss" href="${feed.path}">${escapeHtml(feed.title)}を購読</a>`).join(" · ")}</p>
       <p class="count">${pages.length} page${pages.length === 1 ? "" : "s"}</p>
     </header>
@@ -252,10 +254,19 @@ if (!image.subarray(0, 8).equals(Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]))
 await writeReportFeeds(path.resolve("."), pages);
 await writeFeed(path.resolve("."), pages);
 await writeFile(outputFile, addFeedDiscovery(addSocialMetadata(html, "index.html"), REPORT_FEEDS), "utf8");
+// Pages generated from the report sources keep their own generation
+// contract; glossary auto-links are applied to authored pages only.
+const GLOSSARY_LINK_EXCLUDED = new Set([GLOSSARY_PAGE, "vulnerabilities.html", "technology-updates.html"]);
+const glossaryTerms = await loadGlossaryTerms(path.resolve("."));
 for (const file of files) {
   const source = await readFile(file, "utf8");
   const relativePath = path.relative(publicDir, file).split(path.sep).join("/");
-  const generated = addFeedDiscovery(addSocialMetadata(source, relativePath), REPORT_FEEDS.filter((feed) => feed.relativePath === relativePath));
+  let generated = addFeedDiscovery(addSocialMetadata(source, relativePath), REPORT_FEEDS.filter((feed) => feed.relativePath === relativePath));
+  if (relativePath === GLOSSARY_PAGE) {
+    generated = updateGlossaryPage(generated, glossaryTerms);
+  } else if (!GLOSSARY_LINK_EXCLUDED.has(relativePath)) {
+    generated = linkifyHtml(generated, glossaryTerms);
+  }
   if (generated !== source) await writeFile(file, generated, "utf8");
 }
 console.log(`Generated index, lazy full-text search, general/report RSS feeds and social metadata for ${pages.length} page(s).`);
