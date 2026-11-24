@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amazon Bedrock AgentCore 2026年11月の変更：次世代ランタイムが既定に</title>
+<meta name="description" content="Amazon Bedrock AgentCoreの2026年11月の発表14件。次世代ランタイムの既定化、ランタイムインスタンスの拡張、Memoryの10年保持、Identity、Web Search／Web Answer、Marketplaceのエージェント決済を公式発表と出典つきで整理します。">
+<link rel="canonical" href="https://share.0g0.xyz/aws-agentcore-november-2026">
+<link rel="stylesheet" href="/assets/site.css">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="Amazon Bedrock AgentCore 2026年11月の変更：次世代ランタイムが既定に">
+<meta property="og:description" content="Amazon Bedrock AgentCoreの2026年11月の発表14件。次世代ランタイムの既定化、ランタイムインスタンスの拡張、Memoryの10年保持、Identity、Web Search／Web Answer、Marketplaceのエージェント決済を公式発表と出典つきで整理します。">
+<meta property="og:url" content="https://share.0g0.xyz/aws-agentcore-november-2026">
+<meta property="og:image" content="https://share.0g0.xyz/assets/aws-agentcore-ogp-v1.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Amazon Bedrock AgentCore 2026年11月の変更：次世代ランタイムが既定に">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://share.0g0.xyz/assets/aws-agentcore-ogp-v1.png">
+<meta name="twitter:image:alt" content="Amazon Bedrock AgentCore 2026年11月の変更：次世代ランタイムが既定に">
+<style>
+:root{--accent:#0e5a6d;--accent-dark:#7ea6d8}
+.fig{margin:1.25rem 0;max-inline-size:46rem}
+.fig img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:0}
+.fig figcaption{font-size:.9rem;margin-top:.55rem}
+table.aws-table{border-collapse:collapse;margin:1rem 0;width:100%}
+table.aws-table th,table.aws-table td{border:1px solid var(--line);padding:.45rem .7rem;text-align:left;vertical-align:top}
+table.aws-table td.date{white-space:nowrap}
+table.aws-table td.svc{white-space:nowrap}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="sitebar" aria-label="サイト内"><a class="brand" href="/">HTML Share</a><nav><a href="/">一覧</a><a href="/feed.xml">RSS</a></nav></nav>
+<header class="top">
+  <div class="kicker">AWS発表まとめ · Amazon Bedrock AgentCore</div>
+  <h1>Amazon Bedrock AgentCore 2026年11月の変更：次世代ランタイムが既定に</h1>
+  <p class="meta">確認日：2026年11月24日<br>一次資料：<a href="https://aws.amazon.com/about-aws/whats-new/">AWS公式 What's New</a>（2026年11月1日〜24日の投稿を全件取得）。各項目の見出しは公式発表へのリンクです。全体の索引は<a href="/aws-november-2026">AWS 2026年11月の発表まとめ【索引】</a>。</p>
+</header>
+
+<div class="summary3">
+  <div class="ttl">要点</div>
+  <ol><li>中心は次世代ランタイムの既定化（11月12日）。起動は最大15倍、セッションは最大8 vCPU／32GB、アイドル時はゼロへ縮小します。</li><li>ランタイムインスタンスは特権モード、入れ子仮想化、G7 GPUに対応し、GovCloud（US-West）でも一般提供になりました。</li><li>Memoryは短期メモリの保持が最大10年に延び、セッション要約が入りました。IdentityはOAuthディスカバリURLとPrivate CAに対応しました。</li><li>Web Search APIとWeb Answerが出て、Web Searchには月5,000クエリの無料枠。Marketplaceではエージェント決済が始まりました。</li></ol>
+</div>
+
+<nav class="toc">
+  <div class="ttl">目次</div>
+  <ol><li><a href="#about">概要</a></li><li><a href="#runtime">ランタイム</a></li><li><a href="#memory-identity">MemoryとIdentity</a></li><li><a href="#tools-payments">ツールと決済</a></li><li><a href="#list">発表一覧（14件）</a></li><li><a href="#sources">資料と出典</a></li></ol>
+</nav>
+
+
+<h2 id="about">概要</h2>
+<p>Amazon Bedrock AgentCoreは、AIエージェントの実行・メモリ・ID・ツールをまとめたマネージド基盤です。2026年11月は関連発表が14件あり、中心は11月12日の「次世代ランタイムが既定化」です。起動の高速化と大きなセッション、アイドル時のコスト削減が打ち出され、周辺ではMemoryの長期保持、Identityの認証まわり、ウェブ検索、エージェント決済がそろって更新されました。</p>
+<figure class="fig"><img src="/assets/aws-agentcore-fig-v1.png" width="1600" height="900" loading="lazy" alt="次世代AgentCoreランタイムの構成。ランタイム本体とMemory、Identity、Gateway、Paymentsの関係"><figcaption>図：次世代AgentCoreランタイムと周辺機能。セッションはFirecracker microVMで分離されます。</figcaption></figure>
+
+<h2 id="runtime">ランタイム：次世代が既定に、インスタンス実行も拡張</h2>
+<p>次世代ランタイムは、セッション起動が最大15倍、セッション規模は最大8 vCPU／32GB（従来の4倍）で、アイドル中のエージェントはゼロまで縮小し、S3ファイルシステムのマウントにも対応します（いずれもAWSの説明）。各セッションがハードウェア分離された専用microVMで動く点は変わりません。</p>
+<p>EC2容量をAgentCoreが管理する「ランタイムインスタンス」も拡張が続きました。特権モード（システムレベルのソフト導入や入れ子コンテナ）、入れ子仮想化（KVMでVMやエミュレータを実行）、G7インスタンス（NVIDIA RTX PRO 4500 Blackwell GPU）の対応が入り、提供リージョンは6リージョン追加とGovCloud（US-West）での一般提供まで広がりました。</p>
+
+<h2 id="memory-identity">MemoryとIdentity</h2>
+<p>Memoryは、短期メモリの保持期間が最大10年（従来1年）に延び、全セッションの要約を保持する「セッションサマリー」が入りました。IdentityはOAuth 2.0ディスカバリURLとプライベート認証局（Private CA）に対応しました。あわせてセキュリティ側では、STSのGetScopedCredentials（実行時に権限を絞り込むAPI）が<a href="/aws-security-november-2026">セキュリティまとめ</a>に入っています。</p>
+
+<h2 id="tools-payments">ツールと決済</h2>
+<p>ツール面では、自然言語の質問に出典つきで答える「Web Answer」（11月5日）とWeb Search API（11月10日）が出て、Web Searchには月5,000クエリの無料枠が付きました。決済では、AWS MarketplaceがAgentCoreによるエージェント決済に対応し、エージェントがリクエスト単位で支払ってAWSの請求に集約できるようになりました。</p>
+<figure class="fig"><img src="/assets/aws-agentcore-chart-v1.png" width="1600" height="720" loading="lazy" alt="AgentCore関連の日別発表件数"><figcaption>図：日別の発表件数。11月16日〜20日に集中しています。</figcaption></figure>
+
+<h2 id="list">発表一覧（14件）</h2>
+<table class="aws-table"><thead><tr><th>日付</th><th>変更の要点</th></tr></thead><tbody><tr><td class="date">11月5日</td><td>AgentCoreに「Web Answer」を発表。検索・取得・引用の仕組みを自作せず、自然言語の質問へ出典つき回答を返すツール呼び出し <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/web-answer-amazon-bedrock/">公式発表</a></td></tr><tr><td class="date">11月10日</td><td>Web Search APIを提供開始。エージェントからウェブ検索を呼び出せる <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-bedrock-agentcore-web-search-api/">公式発表</a></td></tr><tr><td class="date">11月12日</td><td>次世代AgentCoreランタイムが既定に。起動は最大15倍、セッションは最大8 vCPU／32GB、アイドル時はゼロへ縮小 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/new-agentcore-runtime-default/">公式発表</a></td></tr><tr><td class="date">11月13日</td><td>AgentCore IdentityがOAuth 2.0ディスカバリURLに対応 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/bedrock-agentcore-oauth2-discovery/">公式発表</a></td></tr><tr><td class="date">11月16日</td><td>AgentCoreランタイムインスタンスが6リージョンで追加提供 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/agentcore-aws-regions/">公式発表</a></td></tr><tr><td class="date">11月17日</td><td>AgentCore Memoryの短期メモリ保持期間が最大10年に延長（従来1年） <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-bedrock-agentcore-memory-10-year-retention">公式発表</a></td></tr><tr><td class="date">11月17日</td><td>AgentCore Memoryが全セッションの要約（セッションサマリー）を保持するように <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-bedrock-agentcore-memory-full-session-summaries">公式発表</a></td></tr><tr><td class="date">11月17日</td><td>Web Searchに月5,000クエリの無料枠 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/bedrock-agentcore-free-web-search-queries/">公式発表</a></td></tr><tr><td class="date">11月18日</td><td>ランタイムインスタンスが特権モードに対応。システムレベルのソフト導入や入れ子コンテナが可能に <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/agentcore-elevated-privileges/">公式発表</a></td></tr><tr><td class="date">11月19日</td><td>AWS MarketplaceがAgentCoreによるエージェント決済に対応。エージェントがリクエスト単位で支払い、AWSの請求に集約 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/marketplace-agentic-payments-agentcore/">公式発表</a></td></tr><tr><td class="date">11月19日</td><td>ランタイムインスタンスが入れ子仮想化（KVM）に対応。セッション内でVMやエミュレータを実行可能 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/agentcore-nested-virtualization/">公式発表</a></td></tr><tr><td class="date">11月19日</td><td>AgentCore Identityがプライベート認証局（Private CA）に対応 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/bedrock-agentcore-identity-private-ca/">公式発表</a></td></tr><tr><td class="date">11月20日</td><td>ランタイムインスタンスがEC2 G7（NVIDIA RTX PRO 4500 Blackwell GPU）に対応 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/agentcore-ec2-g7/">公式発表</a></td></tr><tr><td class="date">11月23日</td><td>ランタイムインスタンスがGovCloud（US-West）で一般提供 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/agentcore-runtime-instances-govcloud">公式発表</a></td></tr></tbody></table>
+<h2 id="sources">資料と出典</h2><p>各項目の「公式発表」リンクが一次資料です。件数と期間の数え方は<a href="/aws-november-2026">索引ページ</a>にまとめています。要点は公式見出しと本文をもとに日本語で要約したもので、料金や提供条件の正確な内容は各公式発表を確認してください。</p>
+
+</div>
+<script type="module" src="/assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Strands 2026年11月の発表：判断モデルDecider v2とサンドボックスBox</title>
+<meta name="description" content="Strands Agentsの2026年11月23日の発表。Gemma 4ベースの判断専用オープンモデル「Strands Decider v2」（5サイズ、Apache-2.0）と、Claude Code／Codex／Kiro CLIをOSサンドボックスで動かすStrands BoxのCLI対応を、公式ブログと出典つきで整理します。">
+<link rel="canonical" href="https://share.0g0.xyz/aws-strands-november-2026">
+<link rel="stylesheet" href="/assets/site.css">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="Strands 2026年11月の発表：判断モデルDecider v2とサンドボックスBox">
+<meta property="og:description" content="Strands Agentsの2026年11月23日の発表。Gemma 4ベースの判断専用オープンモデル「Strands Decider v2」（5サイズ、Apache-2.0）と、Claude Code／Codex／Kiro CLIをOSサンドボックスで動かすStrands BoxのCLI対応を、公式ブログと出典つきで整理します。">
+<meta property="og:url" content="https://share.0g0.xyz/aws-strands-november-2026">
+<meta property="og:image" content="https://share.0g0.xyz/assets/aws-strands-ogp-v1.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Strands 2026年11月の発表：判断モデルDecider v2とサンドボックスBox">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://share.0g0.xyz/assets/aws-strands-ogp-v1.png">
+<meta name="twitter:image:alt" content="Strands 2026年11月の発表：判断モデルDecider v2とサンドボックスBox">
+<style>
+:root{--accent:#3c3c78;--accent-dark:#9a9ad8}
+.fig{margin:1.25rem 0;max-inline-size:46rem}
+.fig img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:0}
+.fig figcaption{font-size:.9rem;margin-top:.55rem}
+table.aws-table{border-collapse:collapse;margin:1rem 0;width:100%}
+table.aws-table th,table.aws-table td{border:1px solid var(--line);padding:.45rem .7rem;text-align:left;vertical-align:top}
+table.aws-table td.date{white-space:nowrap}
+table.aws-table td.svc{white-space:nowrap}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="sitebar" aria-label="サイト内"><a class="brand" href="/">HTML Share</a><nav><a href="/">一覧</a><a href="/feed.xml">RSS</a></nav></nav>
+<header class="top">
+  <div class="kicker">AWS発表まとめ · Strands</div>
+  <h1>Strands 2026年11月の発表：判断モデルDecider v2とサンドボックスBox</h1>
+  <p class="meta">確認日：2026年11月24日<br>一次資料：<a href="https://strandsagents.com/blog/">Strands公式ブログ</a>（2026年11月23日）。What's Newへの投稿はありません。全体の索引は<a href="/aws-november-2026">AWS 2026年11月の発表まとめ【索引】</a>。</p>
+</header>
+
+<div class="summary3">
+  <div class="ttl">要点</div>
+  <ol><li>Decider v2は、テキストを生成せず選択肢ごとの確率を返す判断専用モデルです。Gemma 4ベースの5サイズ（E2B〜31B）、Apache-2.0で、ルーティングやツール選択、ガードレールに使います。</li><li>Strands BoxのCLIがClaude Code、Codex、Kiro CLIにネイティブ対応しました。<code>box run claude</code> で、自分のマシンのエージェントをOSサンドボックスの中で起動できます。</li><li>Boxはファイル・コマンド・ネットワーク・MCPをポリシーで検査し、判定はモデルの外で行います。認証情報は箱の外に置かれ、出口で実キーに差し替わります。</li></ol>
+</div>
+
+<nav class="toc">
+  <div class="ttl">目次</div>
+  <ol><li><a href="#about">概要</a></li><li><a href="#decider">Strands Decider v2</a></li><li><a href="#box">Strands Box</a></li><li><a href="#sources">資料と出典</a></li></ol>
+</nav>
+
+
+<h2 id="about">概要</h2>
+<p>Strands Agentsは、AWSがオープンソースで開発するエージェント向けSDKです。2026年11月23日に、判断専用モデル「Strands Decider v2」と、コーディングエージェント用サンドボックス「Strands Box」のCLI対応が、Strands公式ブログで発表されました。どちらもWhat's Newの投稿はなく、AWSのサービスとしてではなくオープンソースとして出ています。</p>
+<figure class="fig"><img src="/assets/aws-strands-fig-v1.png" width="1600" height="900" loading="lazy" alt="Strands Decider v2とStrands Boxの概要"><figcaption>図：11月のStrandsの2つの発表。判断のコストを下げるモデルと、実行の境界を守るサンドボックスです。</figcaption></figure>
+
+<h2 id="decider">Strands Decider v2：判断専用のオープンモデル</h2>
+<p>Deciderは「システム1」型のモデルで、テキストを生成するのではなく、与えた選択肢ごとに確率を1回の推論で返します。用途はモデルルーティング、ツール選択、ガードレール、分類のような、エージェントの細かい判断です。v2はGoogleのGemma 4をベースにした5サイズ（E2B、E4B、12B、26B-A4B、31B）で、ライセンスはApache-2.0、重みはHugging Face、コードはオープンソースのStrands Deciderリポジトリにあります。</p>
+<p>変更点は、v1のポインタヘッドをやめて選択肢トークンを直接読み取る方式にしたこと、学習データを1,748万件に増やしたこと、エージェントのトレースのような長い入力に合わせた調整です。公開ベンチマーク6件の平均は31Bで82.1（v1の26B-A4Bは70.0）とAWSは報告しています。実例として、Amazon社内の大規模チケットシステムでラベル付けをClaude Sonnet 4.6からDeciderに置き換え、コスト98%減・応答78%高速化という数字も挙げられています（いずれもAWSの発表値）。</p>
+
+<h2 id="box">Strands Box：エージェントを箱の中で走らせる</h2>
+<p>Strands Boxは2026年10月に出たオープンソースのOSサンドボックスで、11月23日にBox CLIがClaude Code、Codex、Kiro CLIにネイティブ対応しました。<code>box run claude</code> のように、自分のマシンに入っているエージェントをそのまま箱の中で起動できます。狙いは、承認を毎回求めるか、権限を全部渡す（いわゆるYOLOモード）かの二択をやめ、「箱の中では自由に動けるが、届く範囲は先に決めた境界まで」にすることです。</p>
+<p>仕組みは、エージェントをOSサンドボックス内で動かし、ファイルアクセス、シェルコマンド、ネットワークリクエスト、MCP呼び出しのすべてをBoxがポリシー（Dogwoodというポリシー言語で記述）と照合します。判定はモデルの外で行われるため、エージェントが読んだ内容で判定が変わることはありません。APIキーなどの認証情報は箱の外に置かれ、エージェントにはプレースホルダが見え、出口のゲートウェイが実キーに差し替えます。対応環境はAppleシリコンMac（macOS 15以降）とLinux（ARM64／x86-64）で、Box自体はプレビューです。</p>
+<p>ハイパーバイザ層で分離する<a href="/aws-eks-nitro-november-2026">Nitro Sandboxes</a>とは層が異なり、Boxは自分のマシン上のエージェントにOSレベルの境界を付けるものです。</p>
+
+<h2 id="sources">資料と出典</h2>
+<ul>
+<li><a href="https://strandsagents.com/blog/introducing-strands-decider-v2/">Introducing Strands Decider v2（Strands公式ブログ）</a></li>
+<li><a href="https://strandsagents.com/blog/strands-box-cli/">Strands Box adds native support for Claude Code, Codex, and Kiro CLI（Strands公式ブログ）</a></li>
+<li><a href="https://github.com/strands-agents/box">strands-agents/box（GitHub）</a></li>
+</ul>
+<p>件数の数え方と全体の索引は<a href="/aws-november-2026">索引ページ</a>にあります。</p>
+
+</div>
+<script type="module" src="/assets/site.js"></script>
+</body>
+</html>

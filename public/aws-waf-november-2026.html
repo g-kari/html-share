@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AWS WAF 2026年11月の変更：料金体系の簡素化とAI／APIの自動保護</title>
+<meta name="description" content="AWS WAFの2026年11月の発表9件（＋秋の関連2件）。料金体系の3軸への組み替えと無料WCU拡大、AI Security／API Securityマネージドルール、Security Analytics Dashboard、Bot Controlの導入簡素化とWebBotAuth連携を、公式発表と出典つきで詳しく整理します。">
+<link rel="canonical" href="https://share.0g0.xyz/aws-waf-november-2026">
+<link rel="stylesheet" href="/assets/site.css">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="AWS WAF 2026年11月の変更：料金体系の簡素化とAI／APIの自動保護">
+<meta property="og:description" content="AWS WAFの2026年11月の発表9件（＋秋の関連2件）。料金体系の3軸への組み替えと無料WCU拡大、AI Security／API Securityマネージドルール、Security Analytics Dashboard、Bot Controlの導入簡素化とWebBotAuth連携を、公式発表と出典つきで詳しく整理します。">
+<meta property="og:url" content="https://share.0g0.xyz/aws-waf-november-2026">
+<meta property="og:image" content="https://share.0g0.xyz/assets/aws-waf-ogp-v1.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="AWS WAF 2026年11月の変更：料金体系の簡素化とAI／APIの自動保護">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://share.0g0.xyz/assets/aws-waf-ogp-v1.png">
+<meta name="twitter:image:alt" content="AWS WAF 2026年11月の変更：料金体系の簡素化とAI／APIの自動保護">
+<style>
+:root{--accent:#78281e;--accent-dark:#d88a7e}
+.fig{margin:1.25rem 0;max-inline-size:46rem}
+.fig img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:0}
+.fig figcaption{font-size:.9rem;margin-top:.55rem}
+table.aws-table{border-collapse:collapse;margin:1rem 0;width:100%}
+table.aws-table th,table.aws-table td{border:1px solid var(--line);padding:.45rem .7rem;text-align:left;vertical-align:top}
+table.aws-table td.date{white-space:nowrap}
+table.aws-table td.svc{white-space:nowrap}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="sitebar" aria-label="サイト内"><a class="brand" href="/">HTML Share</a><nav><a href="/">一覧</a><a href="/feed.xml">RSS</a></nav></nav>
+<header class="top">
+  <div class="kicker">AWS発表まとめ · AWS WAF</div>
+  <h1>AWS WAF 2026年11月の変更：料金体系の簡素化とAI／APIの自動保護</h1>
+  <p class="meta">確認日：2026年11月24日<br>一次資料：<a href="https://aws.amazon.com/about-aws/whats-new/">AWS公式 What's New</a>（2026年11月1日〜24日の投稿を全件取得）。各項目の見出しは公式発表へのリンクです。全体の索引は<a href="/aws-november-2026">AWS 2026年11月の発表まとめ【索引】</a>。</p>
+</header>
+
+<div class="summary3">
+  <div class="ttl">要点</div>
+  <ol><li>料金体系が組み替わりました（11月23日）。リソース料金＋基本リクエスト料金＋高度な保護だけのプレミアム料金の3軸で、ルールを足しても料金は変わりません。無料枠は2,500 WCUに拡大。</li><li>LLM／MCP／A2AエンドポイントとAPIの自動発見・保護が一般提供に。新マネージドルール「AI Security」（Bedrock Guardrails連携）と「API Security」（BOLA等に対応）が出ました。</li><li>Security Analytics Dashboardが始まり、全Web ACL横断の分析とコンソール内ログ検索、21日分の全件データが追加料金なしで使えます。</li><li>Bot Control標的型保護の導入が一括設定になり、ボット信頼度レベルとLATEST自動追随が入りました。WebBotAuthの検証状態もルールに使えます。</li></ol>
+</div>
+
+<nav class="toc">
+  <div class="ttl">目次</div>
+  <ol><li><a href="#about">概要</a></li><li><a href="#pricing">料金体系</a></li><li><a href="#ai-api">AIエンドポイントとAPIの自動発見・保護</a></li><li><a href="#dashboard">Security Analytics Dashboard</a></li><li><a href="#bot">Bot Controlまわり</a></li><li><a href="#other">その他の変更</a></li><li><a href="#list">発表一覧（11月・9件）</a></li><li><a href="#autumn">秋の関連発表（9〜10月・2件）</a></li><li><a href="#sources">資料と出典</a></li></ol>
+</nav>
+
+
+<h2 id="about">概要</h2>
+<p>AWS WAFは2026年11月に9件の発表があり、うち11月23日に3件が集中しました。内容は料金体系の組み替え、AIエンドポイントとAPIの自動発見・保護、分析ダッシュボード、Bot Controlの導入簡素化と、基盤に手を入れる変更がそろっています。9〜10月のWAF関連発表は2件だけで、変更は11月に集中しました。</p>
+
+<h2 id="pricing">料金体系：ルールを足しても料金が変わらない設計に（11月23日）</h2>
+<p>新しい料金は「何を守るか」に従います。従来はWeb ACL、ルール、ルールグループのサブスクリプション、キャパシティ階層ごとに別料金で、セキュリティの判断がそのまま請求の計算になっていました。新体系は3つの軸です。保護するリソースへの<strong>リソース料金</strong>、WAFが検査する全リクエストへの<strong>基本リクエスト料金</strong>、Bot Control標的型保護・Fraud Control・API Security・AI Securityといった高度な保護が評価したトラフィックだけへの<strong>プレミアムリクエスト料金</strong>です。</p>
+<p>各Web ACLに含まれる無料枠は2,500 WCU（従来1,500）に増え、Bot Control共通保護やAnti-DDoSルールグループは追加料金なしで足せます。導入前にコストを見積もりやすくなった、というのが公式の打ち出しです。</p>
+<figure class="fig"><img src="/assets/aws-waf-pricing-v1.png" width="1600" height="860" loading="lazy" alt="AWS WAFの新しい料金体系。リソース料金、基本リクエスト料金、プレミアムリクエスト料金の3軸"><figcaption>図：新しい料金体系の3軸。ルールの追加や変更で料金は変わりません。</figcaption></figure>
+
+<h2 id="ai-api">AIエンドポイントとAPIの自動発見・保護（11月23日）</h2>
+<p>API Gateway、Application Load Balancer、CloudFrontの背後にあるAPIとAIエンドポイントを、AWS Organization全体で自動発見する仕組みが一般提供になりました。発見は新しいAPI Gateway API Portalが担い、トラフィックログとサービス設定から自動で識別するため、エージェントの導入やログ転送は不要です。文書化されていない公開MCPサーバーは「シャドウAPI」として現れます。</p>
+<p>保護側は2つの新しいマネージドルールグループです。<strong>AI Security</strong>はLLM／MCP／A2Aエンドポイント向けで、プロトコル認識と準拠チェックで不正なMCP・A2Aメッセージを止め、コンテンツ検査を有効にするとAmazon Bedrock Guardrailsを呼んで、プロンプトインジェクション、ジェイルブレイク試行、有害コンテンツ、応答内の機微情報を検出します。<strong>API Security</strong>は、BOLA（オブジェクトレベルの認可不備）、認証破りとクレデンシャルスタッフィング、APIの偵察と列挙という、悪用されやすいAPI攻撃カテゴリに対応します。どちらも追加料金の対象で、Guardrailsの呼び出しは別途Bedrock側の課金です。</p>
+
+<h2 id="dashboard">Security Analytics Dashboard（11月19日）</h2>
+<p>アカウント内の全アプリケーションを横断して不要なトラフィックを見つけて止めるための、新しい分析ダッシュボードが始まりました。全プロテクションパック（Web ACL）のトラフィックを1つの画面に集約し、IPアドレス、国、ASN、ユーザーエージェント、JA4フィンガープリント、ホスト、パス、発火したルール、ラベルで絞り込みと集計ができます。データはサンプリングではなく全件で、コンソール内でリクエストログを直接検索でき、21日分の全件データが追加料金なしで含まれます。従来はWeb ACLごとに画面を開くか、ログをCloudWatch LogsやS3へ出してクエリする必要がありました。</p>
+
+<h2 id="bot">Bot Controlまわり（11月17日・20日）</h2>
+<p>標的型保護の導入が簡素化されました。コンソールの「Targeted bot control」設定を入れると、推奨構成でルールグループの追加、各信頼度レベルの推奨アクション、LATEST版への自動追随、JavaScript SDKの自動統合までが一括で入ります。検出結果はリクエストごとにHigh／Medium／Lowの「ボット信頼度レベル」に集約され、ラベルマッチルールを書かずに扱えます。</p>
+<p>また、AWS Agent RegistryがWebBotAuth（WBA）ボットの登録に対応し、検証済みボットかどうかとボットのIDを組み合わせたBot Controlのルールが書けるようになりました。正規のクローラーを通し、未検証のトラフィックを止める、といった出し分けができます。</p>
+
+<h2 id="other">その他の変更</h2>
+<ul>
+<li><strong>高度なレートベースルールの提供拡大（11月16日）</strong>：GovCloud（US）、タイ、メキシコで提供。カスタムキー（ヘッダー、Cookie、クエリ文字列、URIパス、メソッド、ラベル名前空間を最大5つまで複合）で集計でき、評価ウィンドウは従来の5分・10分に加えて1分・2分が選べます。追加料金はありません。</li>
+<li><strong>AIトラフィック収益化のStripe対応（11月5日）</strong>：AIボットやエージェントからの支払いを、ステーブルコインのままではなくStripe経由で現地通貨で受け取れるようになりました。WAFがHTTP 402を返し、有効な支払い資格情報で再リクエストされるとコンテンツを返す仕組みは従来どおりです。</li>
+<li><strong>Network Security Managerの拡大（11月11日）</strong>：WAFとShield Advancedのポリシーを自動適用するNetwork Security Managerが、欧州ソブリンクラウドと多数の商用リージョンで一般提供になりました。</li>
+</ul>
+<figure class="fig"><img src="/assets/aws-waf-chart-v1.png" width="1600" height="720" loading="lazy" alt="AWS WAF関連の日別発表件数"><figcaption>図：日別の発表件数。11月23日に3件が集中しています。</figcaption></figure>
+
+<h2 id="list">発表一覧（11月・9件）</h2>
+<table class="aws-table"><thead><tr><th>日付</th><th>変更の要点</th></tr></thead><tbody><tr><td class="date">11月5日</td><td>AIトラフィック収益化がStripe経由の法定通貨払い出しに対応。ステーブルコインをウォレットなしで現地通貨で受け取れる <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/aws-waf-stripe-fiat-payouts/">公式発表</a></td></tr><tr><td class="date">11月11日</td><td>Network Security Managerが欧州ソブリンクラウドと多数の商用リージョンで一般提供。WAF／Shield Advancedのポリシーを自動適用 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/network-security-mgr-eu-sovereign-cloud/">公式発表</a></td></tr><tr><td class="date">11月16日</td><td>高度なレートベースルールがGovCloud（US）、タイ、メキシコで提供。カスタムキー集計と1分・2分の評価ウィンドウ <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/waf-advanced-rate-rules-available/">公式発表</a></td></tr><tr><td class="date">11月17日</td><td>Bot Controlの標的型保護の導入を簡素化。推奨設定を一括適用する「Targeted bot control」、ボット信頼度レベル、LATEST版の自動追随 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/aws-waf-bot-control-onboarding/">公式発表</a></td></tr><tr><td class="date">11月19日</td><td>Security Analytics Dashboardを開始。全プロテクションパック横断の分析、コンソール内ログ検索、21日分の全件データを追加料金なしで提供 <a href="https://aws.amazon.com/about-aws/whats-new/2026/02/aws-waf-security-analytics-dashboard/">公式発表</a></td></tr><tr><td class="date">11月20日</td><td>AWS Agent RegistryがWebBotAuthボット登録に対応。検証状態とボットIDを組み合わせたWAF Bot Controlのルールが書ける <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/agent-registry-webbotauth-support/">公式発表</a></td></tr><tr><td class="date">11月23日</td><td>料金体系を簡素化。保護リソース・検査トラフィック・保護レベルの3軸に再編し、Web ACLあたりの無料WCUが1,500→2,500に拡大 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/aws-waf-introduces-simplified-pricing/">公式発表</a></td></tr><tr><td class="date">11月23日</td><td>LLM／MCP／A2Aエンドポイントの自動発見と保護が一般提供。新マネージドルール「AI Security」がBedrock Guardrailsと連携し、プロンプトインジェクション等を検査 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/waf-ai-endpoint-discovery-protection/">公式発表</a></td></tr><tr><td class="date">11月23日</td><td>APIの自動発見と保護が一般提供。新マネージドルール「API Security」がBOLA、認証破り・クレデンシャルスタッフィング、偵察・列挙に対応 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/api-security-with-waf/">公式発表</a></td></tr></tbody></table>
+
+<h2 id="autumn">秋の関連発表（9〜10月・2件）</h2>
+<p>11月の変更の前提になった、9〜10月のWAF関連発表です。10月30日のSDK自動統合は、11月17日のBot Control導入簡素化で前提として使われています。</p>
+<table class="aws-table"><thead><tr><th>日付</th><th>変更の要点</th></tr></thead><tbody><tr><td class="date">9月24日</td><td>Network Security Managerがバージニア北部で一般提供。WAFとShield Advancedのポリシーを組織全体へ自動適用し、設定ドリフトを検出 <a href="https://aws.amazon.com/about-aws/whats-new/2026/09/network-security-manager-us-east-va/">公式発表</a></td></tr><tr><td class="date">10月30日</td><td>CloudFront向けにJavaScript SDKの自動統合を発表。CloudFrontがHTMLへスクリプトタグを差し込み、アプリ変更なしでBot Control標的型保護やFraud Controlのクライアント信号を供給 <a href="https://aws.amazon.com/about-aws/whats-new/2026/10/aws-waf-automatic-sdk-integration-amazon-cloudfront/">公式発表</a></td></tr></tbody></table>
+<h2 id="sources">資料と出典</h2><p>各項目の「公式発表」リンクが一次資料です。件数と期間の数え方は<a href="/aws-november-2026">索引ページ</a>にまとめています。要点は公式見出しと本文をもとに日本語で要約したもので、料金や提供条件の正確な内容は各公式発表を確認してください。</p>
+
+</div>
+<script type="module" src="/assets/site.js"></script>
+</body>
+</html>

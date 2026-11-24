@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amazon EKSとNitro Sandboxes 2026年11月の変更：PodごとにmicroVMで分離</title>
+<meta name="description" content="Amazon EKS関連の2026年11月の発表13件。Pod・タスク・VMをそれぞれ専用のFirecracker microVMでハードウェア分離するAWS Nitro Sandboxesと、EKS Auto Modeの強化、Provisioned Control Planeなどを公式発表と出典つきで整理します。">
+<link rel="canonical" href="https://share.0g0.xyz/aws-eks-nitro-november-2026">
+<link rel="stylesheet" href="/assets/site.css">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="Amazon EKSとNitro Sandboxes 2026年11月の変更：PodごとにmicroVMで分離">
+<meta property="og:description" content="Amazon EKS関連の2026年11月の発表13件。Pod・タスク・VMをそれぞれ専用のFirecracker microVMでハードウェア分離するAWS Nitro Sandboxesと、EKS Auto Modeの強化、Provisioned Control Planeなどを公式発表と出典つきで整理します。">
+<meta property="og:url" content="https://share.0g0.xyz/aws-eks-nitro-november-2026">
+<meta property="og:image" content="https://share.0g0.xyz/assets/aws-eks-ogp-v1.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Amazon EKSとNitro Sandboxes 2026年11月の変更：PodごとにmicroVMで分離">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://share.0g0.xyz/assets/aws-eks-ogp-v1.png">
+<meta name="twitter:image:alt" content="Amazon EKSとNitro Sandboxes 2026年11月の変更：PodごとにmicroVMで分離">
+<style>
+:root{--accent:#1e508c;--accent-dark:#7ea6d8}
+.fig{margin:1.25rem 0;max-inline-size:46rem}
+.fig img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:0}
+.fig figcaption{font-size:.9rem;margin-top:.55rem}
+table.aws-table{border-collapse:collapse;margin:1rem 0;width:100%}
+table.aws-table th,table.aws-table td{border:1px solid var(--line);padding:.45rem .7rem;text-align:left;vertical-align:top}
+table.aws-table td.date{white-space:nowrap}
+table.aws-table td.svc{white-space:nowrap}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="sitebar" aria-label="サイト内"><a class="brand" href="/">HTML Share</a><nav><a href="/">一覧</a><a href="/feed.xml">RSS</a></nav></nav>
+<header class="top">
+  <div class="kicker">AWS発表まとめ · Amazon EKS／Nitro Sandboxes</div>
+  <h1>Amazon EKSとNitro Sandboxes 2026年11月の変更：PodごとにmicroVMで分離</h1>
+  <p class="meta">確認日：2026年11月24日<br>一次資料：<a href="https://aws.amazon.com/about-aws/whats-new/">AWS公式 What's New</a>（2026年11月1日〜24日の投稿を全件取得）。各項目の見出しは公式発表へのリンクです。全体の索引は<a href="/aws-november-2026">AWS 2026年11月の発表まとめ【索引】</a>。</p>
+</header>
+
+<div class="summary3">
+  <div class="ttl">要点</div>
+  <ol><li>Nitro Sandboxes（11月9日）が中心です。EKSのPod、ECSタスク、EC2ワークロードを、それぞれ専用のmicroVMと専用カーネルでハードウェア分離し、追加料金なしで使えます。</li><li>想定は、信頼できないコードやLLM生成コードの隔離実行、マルチテナント、規制対象ワークロードです。暗号学的証明で完全性を確認してからシークレットを渡す使い方も示されました。</li><li>EKS本体はAuto Modeの強化（Pod向けセキュリティグループ、Dynamic Resource Allocation、適正サイジング）が続きます。</li></ol>
+</div>
+
+<nav class="toc">
+  <div class="ttl">目次</div>
+  <ol><li><a href="#about">概要</a></li><li><a href="#nitro">Nitro Sandboxes</a></li><li><a href="#eks">EKS本体の変更</a></li><li><a href="#list">発表一覧（13件）</a></li><li><a href="#sources">資料と出典</a></li></ol>
+</nav>
+
+
+<h2 id="about">概要</h2>
+<p>2026年11月のAmazon EKS関連は13件で、中心は11月9日の「AWS Nitro Sandboxes」です。EKSのPodをそれぞれ専用の仮想マシンで分離する仕組みで、コンテナの手軽さとVMの分離境界を両立させる発表でした。EKS自体はAuto Modeの強化が続きます。</p>
+
+<h2 id="nitro">Nitro Sandboxes：Podごとに専用microVM（11月9日）</h2>
+<p>Nitro Sandboxesは、Nitro Hypervisorが管理する軽量VMです。EKSのPod、ECSのタスク、EC2上の軽量VM（その中で動くAIエージェントを含む）を、それぞれハードウェア分離された専用VMで動かせます。1台のEC2インスタンスのリソースを共有しながら、ワークロードごとにNitroの分離境界を持てるため、信頼できないコードやマルチテナント、規制対象のワークロードを安全に載せられます。</p>
+<p>性能はネイティブに近いEC2性能とされ、暗号学的証明（アテステーション）で完全性を確かめたサンドボックスにだけシークレットを渡す、といった使い方も示されています。LLMが生成したコードを隔離環境で実行しつつ、1台のインスタンスを複数のエージェントワークロードで共有して利用率を上げる、というのが公式の想定です。有効化はEKSではRuntimeClassの指定で、追加料金はありません。分離の考え方は<a href="/aws-strands-november-2026">Strands Box</a>（OSレベルのサンドボックス）とは層が違い、こちらはハイパーバイザ層の分離です。</p>
+<figure class="fig"><img src="/assets/aws-eks-nitro-fig-v1.png" width="1600" height="880" loading="lazy" alt="Nitro Sandboxesの分離。ホスト上の各Podが専用Firecracker microVMと専用カーネルを持つ"><figcaption>図：Nitro Sandboxesの分離単位。PodごとにmicroVMと専用カーネルを持ちます。</figcaption></figure>
+
+<h2 id="eks">EKS本体の変更</h2>
+<ul>
+<li><strong>Auto Mode</strong>：Pod向けセキュリティグループ対応、Dynamic Resource Allocation対応（Karpenterも）、Podの適正サイジングによるコスト削減（プレビュー）が入りました。</li>
+<li><strong>コントロールプレーン</strong>：Provisioned Control Planeの4XL／8XL階層でetcdが24GBに。Hybrid Nodesは大規模ホストの料金引き下げ。</li>
+<li><strong>周辺</strong>：EKS CapabilitiesのArgo CD Notifications対応、BackupのEKSリストア用リソースモディファイア、VPC Flow LogsのEKSメタデータ対応、Fluent Bit 3.0.0など。</li>
+</ul>
+<figure class="fig"><img src="/assets/aws-eks-chart-v1.png" width="1600" height="720" loading="lazy" alt="EKS関連の日別発表件数"><figcaption>図：日別の発表件数。</figcaption></figure>
+
+<h2 id="list">発表一覧（13件）</h2>
+<table class="aws-table"><thead><tr><th>日付</th><th>サービス</th><th>変更の要点</th></tr></thead><tbody><tr><td class="date">11月2日</td><td class="svc">Amazon EKS</td><td>AWS for Fluent Bit 3.0.0（Fluent Bit 4.1.1ベース）を発表 <a href="https://aws.amazon.com/about-aws/whats-new/2025/10/aws-fluent-bit-3-0-0-based-4-1-1">公式発表</a></td></tr><tr><td class="date">11月3日</td><td class="svc">Amazon EKS</td><td>EKS CapabilitiesがArgo CD Notificationsに対応 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-eks-argo-cd-notifications">公式発表</a></td></tr><tr><td class="date">11月9日</td><td class="svc">AWS Nitro Sandboxes</td><td>AWS Nitro Sandboxesを発表。EKSのPod、ECSタスク、EC2ワークロードをそれぞれ専用のFirecracker microVMでハードウェア分離。追加料金なし <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/nitro-sandboxes-eks-ecs-ec2/">公式発表</a></td></tr><tr><td class="date">11月9日</td><td class="svc">Amazon EKS</td><td>EKS Auto ModeとKarpenterがDynamic Resource Allocationに対応 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-eks-auto-mode-karpenter-dra/">公式発表</a></td></tr><tr><td class="date">11月10日</td><td class="svc">Amazon EKS</td><td>CloudWatchに「Accelerated Compute Insights」を発表（高速コンピュート向けの可観測性） <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/accelerated-compute-insights-cloudwatch/">公式発表</a></td></tr><tr><td class="date">11月11日</td><td class="svc">Amazon EKS</td><td>EKS Provisioned Control Planeの4XL／8XL階層でetcdデータベースが24GBに <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-eks-provisioned-control-plane-larger-etcd-database/">公式発表</a></td></tr><tr><td class="date">11月11日</td><td class="svc">Amazon EKS</td><td>EKS Auto ModeがPod向けセキュリティグループに対応 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-eks-auto-mode-security-groups-for-pods/">公式発表</a></td></tr><tr><td class="date">11月12日</td><td class="svc">Amazon EKS</td><td>AWS BackupがEKSリストアのリソースモディファイアに対応 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/aws-backup-resource-modifiers-eks/">公式発表</a></td></tr><tr><td class="date">11月17日</td><td class="svc">Amazon EKS</td><td>EKS Auto ModeがPodの適正サイジングによるコンピュートコスト削減に対応（プレビュー） <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/eks-auto-mode-pod-rightsizing-preview/">公式発表</a></td></tr><tr><td class="date">11月17日</td><td class="svc">Amazon EKS</td><td>AWS Workload Credentials ProviderがACM証明書のコンテナ対応を追加 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/acm-certificates-container-support/">公式発表</a></td></tr><tr><td class="date">11月18日</td><td class="svc">Amazon EKS</td><td>EKS Hybrid Nodesの大規模ホスト向け料金を引き下げ <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-eks-hybrid-nodes-pricing-change/">公式発表</a></td></tr><tr><td class="date">11月19日</td><td class="svc">Amazon EKS</td><td>VPC Flow LogsがEKSメタデータに対応 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-vpc-flow-logs-amazon-eks-metadata/">公式発表</a></td></tr><tr><td class="date">11月20日</td><td class="svc">Amazon EKS</td><td>Secrets Store CSI Driver Providerが、クロスアカウントのシークレットアクセス用AssumeRoleに対応 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/secrets-store-csi-driver-assumerole/">公式発表</a></td></tr></tbody></table>
+<h2 id="sources">資料と出典</h2><p>各項目の「公式発表」リンクが一次資料です。件数と期間の数え方は<a href="/aws-november-2026">索引ページ</a>にまとめています。要点は公式見出しと本文をもとに日本語で要約したもので、料金や提供条件の正確な内容は各公式発表を確認してください。</p>
+
+</div>
+<script type="module" src="/assets/site.js"></script>
+</body>
+</html>

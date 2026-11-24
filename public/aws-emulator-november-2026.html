@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AWS Emulatorとは：200以上のAWSサービスをローカルで再現する無料エミュレータ</title>
+<meta name="description" content="2026年11月11日に提供開始したAWS Emulatorの概要。既存のSDK／CLI呼び出しをローカルで受けてミリ秒で応答し、デプロイもアカウントも不要。インメモリの状態、コピーごとの独立性、APIモデルからの生成、CC0公開と追加料金なしを、公式発表と出典つきで整理します。">
+<link rel="canonical" href="https://share.0g0.xyz/aws-emulator-november-2026">
+<link rel="stylesheet" href="/assets/site.css">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="AWS Emulatorとは：200以上のAWSサービスをローカルで再現する無料エミュレータ">
+<meta property="og:description" content="2026年11月11日に提供開始したAWS Emulatorの概要。既存のSDK／CLI呼び出しをローカルで受けてミリ秒で応答し、デプロイもアカウントも不要。インメモリの状態、コピーごとの独立性、APIモデルからの生成、CC0公開と追加料金なしを、公式発表と出典つきで整理します。">
+<meta property="og:url" content="https://share.0g0.xyz/aws-emulator-november-2026">
+<meta property="og:image" content="https://share.0g0.xyz/assets/aws-emulator-ogp-v1.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="AWS Emulatorとは：200以上のAWSサービスをローカルで再現する無料エミュレータ">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://share.0g0.xyz/assets/aws-emulator-ogp-v1.png">
+<meta name="twitter:image:alt" content="AWS Emulatorとは：200以上のAWSサービスをローカルで再現する無料エミュレータ">
+<style>
+:root{--accent:#0e6e5a;--accent-dark:#7ed8bc}
+.fig{margin:1.25rem 0;max-inline-size:46rem}
+.fig img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:0}
+.fig figcaption{font-size:.9rem;margin-top:.55rem}
+table.aws-table{border-collapse:collapse;margin:1rem 0;width:100%}
+table.aws-table th,table.aws-table td{border:1px solid var(--line);padding:.45rem .7rem;text-align:left;vertical-align:top}
+table.aws-table td.date{white-space:nowrap}
+table.aws-table td.svc{white-space:nowrap}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="sitebar" aria-label="サイト内"><a class="brand" href="/">HTML Share</a><nav><a href="/">一覧</a><a href="/feed.xml">RSS</a></nav></nav>
+<header class="top">
+  <div class="kicker">AWS発表まとめ · AWS Emulator</div>
+  <h1>AWS Emulatorとは：200以上のAWSサービスをローカルで再現する無料エミュレータ</h1>
+  <p class="meta">確認日：2026年11月24日<br>一次資料：<a href="https://aws.amazon.com/about-aws/whats-new/">AWS公式 What's New</a>（2026年11月1日〜24日の投稿を全件取得）。各項目の見出しは公式発表へのリンクです。全体の索引は<a href="/aws-november-2026">AWS 2026年11月の発表まとめ【索引】</a>。</p>
+</header>
+
+<div class="summary3">
+  <div class="ttl">要点</div>
+  <ol><li>AWS Emulatorは、200以上のAWSサービスをローカルで再現するエミュレータです。SDK／CLIの向き先を変えるだけで、デプロイなし・アカウントなしでテストできます。</li><li>状態はインメモリで、起動したコピーごとにポート・鍵・状態が独立します。エージェントやCIが互いのリソースを見ない設計です。</li><li>追加料金はなく、ソースはCC0で公開。公式はコーディングエージェントのローカルテストを主な使い方に挙げています。</li></ol>
+</div>
+
+<nav class="toc">
+  <div class="ttl">目次</div>
+  <ol><li><a href="#about">AWS Emulatorとは</a></li><li><a href="#how">仕組みと性質</a></li><li><a href="#list">発表（1件）</a></li><li><a href="#sources">資料と出典</a></li></ol>
+</nav>
+
+
+<h2 id="about">AWS Emulatorとは</h2>
+<p>AWS Emulatorは、AWSのサービスを自分のコンピュータやCI環境で再現するローカルエミュレータです。2026年11月11日にWhat's Newで提供開始が発表されました。既存のAWS SDKやCLIの呼び出し先をエミュレータに向けるだけで、応答はミリ秒で返り、デプロイもAWSアカウントも不要です。200以上のサービスが対象とされています。</p>
+<figure class="fig"><img src="/assets/aws-emulator-fig-v1.png" width="1600" height="860" loading="lazy" alt="AWS Emulatorの仕組み。SDK／CLIの呼び出しをローカルで受け、インメモリの状態で応答する"><figcaption>図：AWS Emulatorの動き。呼び出しはローカルで完結し、状態は停止するまでメモリに保持されます。</figcaption></figure>
+
+<h2 id="how">仕組みと性質</h2>
+<ul>
+<li><strong>互換性</strong>：対応している操作については、正しい呼び出しにはAWSと同じ結果を、誤った呼び出しには同じエラーを返します。未対応の操作は501 Not Implementedを返します。</li>
+<li><strong>状態</strong>：リソースの状態はメモリ上に保持され、エミュレータを止めると消えます。起動したコピーごとにポート、鍵、状態が独立するため、エージェント、テストスイート、CIジョブが互いのリソースを見ることはありません。</li>
+<li><strong>生成方法</strong>：サービスはAWSが公開するAPIモデル（SDKの基になるモデル）から生成されます。AWSがサービスやAPIを足すとエミュレータにも現れ、挙動はリリースごとに詰めて検証されます。AWSとの応答の差は「fidelity report」で確認できます。</li>
+<li><strong>料金とライセンス</strong>：追加のサービス料金はありません（AWSへデプロイした分の料金は通常どおり）。ソースコードはCC0 1.0で公開されています。リージョンには依存しません。</li>
+</ul>
+<p>公式が挙げる使い方は、コーディングエージェントのローカルテストです。たとえばエージェントがDynamoDBテーブルを作り、オフラインでテストし、デプロイ前にコードを直す、という流れが示されています。エージェントに本番アカウントを触らせずに試行錯誤させる道具として、<a href="/aws-strands-november-2026">Strands Box</a>（実行の境界）や<a href="/aws-eks-nitro-november-2026">Nitro Sandboxes</a>（分離）と並ぶ位置づけです。</p>
+
+<h2 id="list">発表（1件）</h2>
+<table class="aws-table"><thead><tr><th>日付</th><th>変更の要点</th></tr></thead><tbody><tr><td class="date">11月11日</td><td>ローカルでAWSアプリを構築・テストできる「AWS Emulator」が提供開始。200以上のサービスを再現し、追加料金なし、ソースはCC0で公開 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/aws-emulator-now-available/">公式発表</a></td></tr></tbody></table>
+<h2 id="sources">資料と出典</h2><p>各項目の「公式発表」リンクが一次資料です。件数と期間の数え方は<a href="/aws-november-2026">索引ページ</a>にまとめています。要点は公式見出しと本文をもとに日本語で要約したもので、料金や提供条件の正確な内容は各公式発表を確認してください。</p>
+
+</div>
+<script type="module" src="/assets/site.js"></script>
+</body>
+</html>
