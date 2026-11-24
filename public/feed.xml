@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Mon, 23 Nov 2026 05:06:11 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 24 Nov 2026 00:52:20 GMT</lastBuildDate>
+    <item>
+      <title>Shirudo：パッチが届くまでの間、サービスを止めずに脆弱性を塞ぐ</title>
+      <link>https://share.0g0.xyz/shirudo</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/shirudo</guid>
+      <description>OpenAIとCiscoが公開したOSS「Shirudo」を解説します。eBPFの一時的な保護「shield」で、恒久パッチの適用までの期間をサービス無停止で守る仕組み、Java4Shellの実証で確認できた範囲、導入の前提条件を整理します。</description>
+      <pubDate>Tue, 24 Nov 2026 00:52:20 GMT</pubDate>
+      <dcterms:created>2026-11-24T00:52:20.000Z</dcterms:created>
+      <dcterms:modified>2026-11-24T00:52:20.000Z</dcterms:modified>
+    </item>
     <item>
       <title>CephFSの脆弱性 CVE-2026-99304：影響を受ける条件と更新方法</title>
       <link>https://share.0g0.xyz/cephfs-cve-2026-99304</link>
