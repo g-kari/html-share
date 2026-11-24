@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amazon Inspector 2026年11月の変更：AMIスキャン、ランタイム到達性分析、Code Securityの拡張</title>
+<meta name="description" content="Amazon Inspectorの2026年11月の発表4件。EC2のAMIスキャン、ECR／EC2の検出結果へのランタイム到達性分析、Inspector Code SecurityのGitHub Enterprise Server対応とプライベート接続、Security HubのGoogle Cloud Platform拡張を、公式発表と公式ドキュメントで詳しく整理します。">
+<link rel="canonical" href="https://share.0g0.xyz/aws-inspector-november-2026">
+<link rel="stylesheet" href="/assets/site.css">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="Amazon Inspector 2026年11月の変更：AMIスキャン、ランタイム到達性分析、Code Securityの拡張">
+<meta property="og:description" content="Amazon Inspectorの2026年11月の発表4件。EC2のAMIスキャン、ECR／EC2の検出結果へのランタイム到達性分析、Inspector Code SecurityのGitHub Enterprise Server対応とプライベート接続、Security HubのGoogle Cloud Platform拡張を、公式発表と公式ドキュメントで詳しく整理します。">
+<meta property="og:url" content="https://share.0g0.xyz/aws-inspector-november-2026">
+<meta property="og:image" content="https://share.0g0.xyz/assets/aws-inspector-ogp-v1.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Amazon Inspector 2026年11月の変更：AMIスキャン、ランタイム到達性分析、Code Securityの拡張">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://share.0g0.xyz/assets/aws-inspector-ogp-v1.png">
+<meta name="twitter:image:alt" content="Amazon Inspector 2026年11月の変更：AMIスキャン、ランタイム到達性分析、Code Securityの拡張">
+<style>
+:root{--accent:#5b2a86;--accent-dark:#c9a0e8}
+.fig{margin:1.25rem 0;max-inline-size:46rem}
+.fig img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:0}
+.fig figcaption{font-size:.9rem;margin-top:.55rem}
+table.aws-table{border-collapse:collapse;margin:1rem 0;width:100%}
+table.aws-table th,table.aws-table td{border:1px solid var(--line);padding:.45rem.7rem;text-align:left;vertical-align:top}
+table.aws-table td.date{white-space:nowrap}
+table.aws-table td.svc{white-space:nowrap}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="sitebar" aria-label="サイト内"><a class="brand" href="/">HTML Share</a><nav><a href="/">一覧</a><a href="/feed.xml">RSS</a></nav></nav>
+<header class="top">
+<div class="kicker">AWS発表まとめ · Amazon Inspector</div>
+<h1>Amazon Inspector 2026年11月の変更：AMIスキャン、ランタイム到達性分析、Code Securityの拡張</h1>
+<p class="meta">確認日：2026年11月25日<br>一次資料：<a href="https://aws.amazon.com/about-aws/whats-new/">AWS公式 What's New</a>（2026年11月1日〜24日の投稿）と、Amazon Inspector User Guideなどの公式ドキュメント。各項目の詳細は公式発表とドキュメントへのリンクつきです。全体の索引は<a href="/aws-november-2026">AWS 2026年11月の発表まとめ</a>。</p>
+</header>
+
+<div class="summary3">
+<div class="ttl">要点</div>
+<ol><li>11月2日、EC2のAMI（マシンイメージ）がInspectorのスキャン対象に加わりました。インスタンスを起動せず、裏付けのEBSスナップショットから検査します。</li><li>11月23日、ECRとEC2の検出結果にランタイム到達性分析が付きました。脆弱なパッケージが実際に使われる場所にあるか、動いているかで優先付けできます。</li><li>11月19日、Inspector Code SecurityがGitHub Enterprise Serverに対応し、GHESとGitLab Self-Managedへのプライベート接続も入りました。自動修正プルリクエストもパブリックプレビューで始まっています。</li><li>11月17日、Security Hubの監視対象がGoogle Cloud Platformへ広がりました。脆弱性管理を担うAmazon Inspectorでも、GCPへの統合を単独で作れます。</li></ol>
+</div>
+
+<nav class="toc">
+<div class="ttl">目次</div>
+<ol><li><a href="#about">概要</a></li><li><a href="#ami">AMIスキャン</a></li><li><a href="#reachability">ランタイム到達性分析</a></li><li><a href="#code">Code Security</a></li><li><a href="#gcp">Security HubのGCP拡張</a></li><li><a href="#list">発表一覧（11月・4件）</a></li><li><a href="#sources">資料と出典</a></li></ol>
+</nav>
+
+<h2 id="about">概要</h2>
+<p>Amazon Inspectorは、ワークロードを自動で発見し、ソフトウェアの脆弱性と意図しないネットワーク露出を継続的にスキャンする脆弱性管理サービスです。対象はEC2インスタンス、ECRのコンテナイメージ、Lambda関数などで、検出結果（finding）には、その環境に合わせてNVDのCVSS基本値を調整したInspectorスコアが付きます。</p>
+<p>2026年11月のInspector関連の発表は4件です。スキャン対象にAMIが加わり（11月2日）、検出結果の優先付けにランタイム到達性が入り（11月23日）、コード側のCode SecurityがGitHub Enterprise Serverとプライベート接続に対応し（11月19日）、管理面ではSecurity Hubの監視対象がGoogle Cloud Platformへ広がりました（11月17日）。分野別のまとめでは、AMIスキャンと到達性分析は<a href="/aws-compute-storage-november-2026">コンピュート・ストレージ記事</a>、残りの2件は<a href="/aws-security-november-2026">セキュリティ記事</a>に分かれて載っていたため、この記事に4件を集約し、公式ドキュメントで補って詳しくします。</p>
+<figure class="fig"><img src="/assets/aws-inspector-overview-v1.png" width="1600" height="900" loading="lazy" alt="Amazon Inspectorのスキャン対象。EC2インスタンス、ECRコンテナイメージ、Lambda関数、コードリポジトリに、11月2日からAMIが加わった"><figcaption>図：Inspectorのスキャン対象と11月の拡張。対象の追加、優先付け、管理面の3方向に広がりました。</figcaption></figure>
+
+<h2 id="ami">AMIスキャン：起動前のイメージを検査する（11月2日）</h2>
+<p><a href="https://aws.amazon.com/about-aws/whats-new/2026/11/ec2-amis-scanned-through-inspector/">公式発表</a>。Inspectorの脆弱性スキャンがEC2のAMI（マシンイメージ）へ広がりました。インスタンスを起動しなくても、追加のソフトウェアを入れなくても、AMIの段階でソフトウェアの脆弱性を見つけられます。脆弱なイメージからインスタンスを大量に起動する前に、元側で直すための仕組みです。</p>
+<p>仕組みはイメージを裏付けるEBSスナップショットを読む形です。Inspectorは対象イメージのすべてのEBSスナップショットからソフトウェアインベントリを集め、50以上のデータフィードから得た脆弱性データと照合します。検出結果はPackage Vulnerability型で、リソース種別は <code>MACHINE_IMAGE</code> になります。</p>
+<p>使い方には2つの方式があります。</p>
+<p><strong>継続スキャン（既定）</strong>：アカウント単位、または組織全体でAMIスキャンを有効化します。Security Hubの利用者は、アドオンとして組織全体へ有効化でき、検出結果はSecurity Hubにも届きます。有効化すると、対象のイメージを作成・コピー・登録・有効化するたびにスキャンし、そのイメージに関係する新しいCVEがInspectorのデータベースに加わると再スキャンします。範囲はタグで制御でき、除外するイメージにタグを付ける除外モードが既定で、対象にするイメージだけにタグを付ける対象指定モード（inclusion mode）も選べます。</p>
+<p><strong>オンデマンドスキャン</strong>：EC2コンソールから特定のAMIを指定する単発のスキャンです。Inspectorを有効化していなくても実行でき、同時に進められるのは20件までです。結果の受け取りはEventBridgeだけで、InspectorのコンソールやListFindings APIには出ません。要約と詳細はEC2コンソールのAMIのSecurityタブで見ます。APIでは、要約が <code>describe-images</code> の <code>ScanResults</code>、詳細が <code>get-image-findings</code> で返ります。AMIを共有するとスキャン結果も共有先で見られ、AMIをコピーすると要約と上位50件の検出結果がコピー先へ引き継がれます。</p>
+<p>スキャンの対象になるのは、自アカウントが所有するイメージだけです。条件は、裏付けのEBSスナップショットも自アカウントが所有すること、EBS backedで状態が <code>available</code> であること、対応OSであること、単一のOSで構成されること、スナップショットのファイルシステムがext3／ext4／ntfs／xfsのいずれかであることです。LVMを使ったイメージはスキャンできず、状態は <code>UNSUPPORTED_OS</code> になります。共有イメージや公開イメージを調べたい場合は、先に自アカウントへコピーします。</p>
+<p>スキャン結果は起動の制御にも使えます。Allowed AMIsの設定にスキャン結果の条件（<code>ScanResultCondition</code>）を入れると、セキュリティ基準を満たすAMIだけをアカウントで使えるようにでき、この設定は宣言型ポリシー（Declarative Policies）で組織全体へ強制できます。AMIを作る側では、EC2 Image Builderのパイプラインにスキャンを組み込み、基準を満たさないAMIの配布を止めることもできます。</p>
+<p>料金は継続スキャンとオンデマンドスキャンのどちらも課金対象です（金額は<a href="https://aws.amazon.com/inspector/pricing/">Inspectorの料金ページ</a>参照）。提供範囲はInspectorが利用できるすべての商用リージョンです。</p>
+<figure class="fig"><img src="/assets/aws-inspector-ami-v1.png" width="1600" height="940" loading="lazy" alt="AMIスキャンの流れ。AMIのEBSスナップショットからインベントリを集め、脆弱性データと照合して検出結果にする。継続スキャンとオンデマンドスキャンの2方式がある"><figcaption>図：AMIスキャンの仕組み。スナップショットを読むため、インスタンスを起動せずに検査できます。</figcaption></figure>
+
+<h2 id="reachability">ランタイム到達性分析：検出結果の優先付け（11月23日）</h2>
+<p><a href="https://aws.amazon.com/about-aws/whats-new/2026/11/inspector-runtime-reachability/">公式発表</a>。ECRのコンテナイメージとEC2インスタンスを対象に、検出結果へランタイム到達性分析が付きました。従来は、リソースで見つかった脆弱性をすべて報告していたため、アプリケーションが使っていないパッケージの脆弱性も同じ列に並び、どれが実際に危ないかの見極めは人手でした。今回の分析は、脆弱なパッケージが実行時に届く場所にあるかを自動で判定し、優先付けの材料にします。</p>
+<p>判定の根拠は対象ごとに異なります。コンテナイメージでは、脆弱なパッケージのファイルパスと、イメージのDockerfileにある <code>WORKDIR</code>／<code>ENTRYPOINT</code>／<code>CMD</code> が指すディレクトリを比べます。パスの内側にあれば <code>REACHABLE</code>、外側にあれば <code>NOT_REACHABLE</code> です。コンテナを実行して確認するわけではないため、公式ドキュメントは、パス内にあることが実際に読み込まれることの証明にはならないと明記しています。</p>
+<p>EC2インスタンスでは、スキャンした時点で、脆弱なパッケージがプロセスまたはサービスとして動いているかを見ます。観測されれば <code>REACHABLE</code>、されなければ <code>NOT_REACHABLE</code> で、判定はスキャンのたびに付け直されるため、値が変わることもあります。この判定を使うには、Inspector VM Scannerによるエージェント型スキャンが必要です。VM ScannerはInspector SBOM Generatorでインベントリを集める方式で、Enhanced EC2 Scanningを有効にするとSystems Manager経由で自動導入され、手動インストールもできます。</p>
+<p>結果は検出結果の <code>vulnerablePackages</code> にあるパッケージごとに、状態を示す <code>runtimeReachability</code>（<code>REACHABLE</code>／<code>NOT_REACHABLE</code>／<code>UNKNOWN</code>）と、根拠を示す <code>runtimeReachabilityReason</code> として付きます。同じ検出結果の中でもパッケージごとに値が違うことがあります。両フィールドは検出結果のフィルタと抑制ルールに使えます。ただし評価の仕方は同じではありません。フィルタは1つでも一致するパッケージがあればその検出結果を返しますが、抑制ルールの <code>NOT_REACHABLE</code> は、すべてのパッケージが <code>NOT_REACHABLE</code> のときにだけ抑制します。</p>
+<p>公式ドキュメントも、この状態は根拠に基づく目安であり、決定的な信号ではないと注意しています。<code>NOT_REACHABLE</code> でも、そのパッケージが動かないことや、脆弱性が悪用できないことを意味しません。検出結果の重要度そのものも変わりません。</p>
+<p>対象は <code>AWS_ECR_CONTAINER_IMAGE</code> と <code>AWS_EC2_INSTANCE</code> の2種だけです。Lambda関数、AMI（<code>MACHINE_IMAGE</code>）、ECRリポジトリ、コードリポジトリ、AzureとGCPのリソースの検出結果には付きません。新しく作られる検出結果には最初から含まれ、既存の検出結果へは時間をかけて順次付きます（バックフィル）。追加料金はなく、Inspectorが利用できるすべてのリージョンで使えます。</p>
+<figure class="fig"><img src="/assets/aws-inspector-reachability-v1.png" width="1600" height="940" loading="lazy" alt="ランタイム到達性分析の判定。ECRイメージではDockerfileのパス内か、EC2ではスキャン時にプロセスとして動いていたかで、REACHABLEとNOT_REACHABLEを分ける"><figcaption>図：到達性分析の判定方法。対象ごとに根拠が異なり、結果は検出結果のフィールドとして付きます。</figcaption></figure>
+
+<h2 id="code">Code Security：GHES対応とプライベート接続（11月19日）</h2>
+<p><a href="https://aws.amazon.com/about-aws/whats-new/2026/11/inspector-code-ghes-private-network/">公式発表</a>。Inspector Code Securityは、自社（ファーストパーティ）のアプリケーションコード、サードパーティの依存関係、IaCの脆弱性を、コードリポジトリ単位でスキャンする機能です。対応するリポジトリはGitHubとGitLab Self-Managedでしたが、今回GitHub Enterprise Server（GHES）が加わりました。</p>
+<p>あわせて、GHESとGitLab Self-Managedへのプライベートネットワーク接続が入りました。プライベートネットワークに置いたGHESやGitLab Self-Managedへ、VPC構成（VPC、サブネット、セキュリティグループ、GHESのURLを指定）またはAWS CodeConnections（CodeConnectionsホストとVPCエンドポイント経由）で接続します。AWSのIPアドレス範囲全体へファイアウォールを開けずにスキャンできる点が、公式の打ち出しです。プライベート接続には、ネットワークリソースとCodeConnectionsを扱う権限を持つ専用のIAMロールが要ります。公式ドキュメントにはCloudFormationテンプレートも用意されています。接続の設定後は、GHES側にGitHub Enterprise Server Appを作成してインストールし、統合を完了させます。</p>
+<p>もう1つ、自動修正プルリクエストがパブリックプレビューで始まりました。SAST（静的アプリケーションセキュリティテスト）の検出結果について、Inspectorが提案する修正を、そのままプルリクエストとして作成します。対象は、自分で設定した重大度以上で、信頼度の高い修正だけです。マージするかどうかは開発者がレビューして決めます。</p>
+<p>提供範囲はCode Securityが利用できる10リージョンです。米国東部（バージニア、オハイオ）、米国西部（オレゴン）、欧州（フランクフルト、アイルランド、ロンドン、ストックホルム）、アジアパシフィック（東京、シドニー、シンガポール）で、日本からも東京リージョンで使えます。</p>
+<figure class="fig"><img src="/assets/aws-inspector-code-v1.png" width="1600" height="940" loading="lazy" alt="Code Securityの接続。GitHub、GitHub Enterprise Server、GitLab Self-Managedから、公開接続、VPC構成、AWS CodeConnectionsのいずれかでInspectorへ接続する"><figcaption>図：Code Securityの接続方式。自己管理のリポジトリも、プライベートネットワークのまま接続できます。</figcaption></figure>
+
+<h2 id="gcp">Security HubのGCP拡張：Inspectorでも単独に統合できる（11月17日）</h2>
+<p><a href="https://aws.amazon.com/about-aws/whats-new/2026/11/security-hub-gcp/">公式発表</a>。この発表はWhat's NewでInspector側のタグが付いていたもので、内容の主役はAWS Security Hubです。Security HubがGoogle Cloud Platform（GCP）のリソースを監視するようになり、リスク分析、クラウドセキュリティ姿勢管理、脆弱性管理、セキュリティ対応の管理を、AWSとGCPの両方に広げました。すでにあったMicrosoft Azureの監視に続く、マルチクラウド方向の拡張です。</p>
+<p>Security HubはGCPのリソースを自動で発見します。対象はGCPのVM、Google Artifact Registryのコンテナイメージ、Cloud Run関数、IDです。設定ミス、インターネットへの露出、ソフトウェアの脆弱性を評価し、CISベンチマーク（Google Cloud Platform Foundations）などのセキュリティ基準で姿勢チェックを行います。検出結果はAWS側と同じ形式と優先付けで同じ画面に並び、EventBridge連携による自動応答の仕組みもそのまま使えます。</p>
+<p>Inspectorとの関係は、統合の作り方にあります。GCPへの統合は、姿勢管理チェックを行うSecurity Hub CSPMと、脆弱性管理を行うAmazon Inspectorで、それぞれ単独にも作れます。つまり、Security Hub全体を入れなくても、Inspector側だけの統合でGCPリソースの脆弱性管理を始めることができます。</p>
+<p>料金はGCPリソースの監視に30日間の無料トライアルがあり、統合を作ると始まります。終了後は同等のAWSリソースと同じ価格です。統合を作れるのはSecurity Hubが利用できるリージョンのうち、中東（UAE）、中東（バーレーン）、アジアパシフィック（台北）、アジアパシフィック（ニュージーランド）を除く全リージョンです。</p>
+<figure class="fig"><img src="/assets/aws-inspector-gcp-v1.png" width="1600" height="900" loading="lazy" alt="Security HubのGCP拡張。AWS環境とGoogle Cloud Platformのリソースを、同じ形式の検出結果としてSecurity Hubに集約する"><figcaption>図：Security Hubの監視範囲。GCPのリソースも、AWSと同じ形式の検出結果として集約されます。</figcaption></figure>
+
+<h2 id="list">発表一覧（11月・4件）</h2>
+<table class="aws-table"><thead><tr><th>日付</th><th>変更の要点</th></tr></thead><tbody><tr><td class="date">11月2日</td><td>EC2のAMIをInspectorで脆弱性スキャン可能に <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/ec2-amis-scanned-through-inspector/">公式発表</a></td></tr><tr><td class="date">11月17日</td><td>Security Hubの統合セキュリティ管理をGoogle Cloud Platformへ拡張（発表はInspector側タグ） <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/security-hub-gcp/">公式発表</a></td></tr><tr><td class="date">11月19日</td><td>Inspector Code SecurityがGitHub Enterprise Serverとプライベート接続を追加。自動修正プルリクエストもパブリックプレビューで開始 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/inspector-code-ghes-private-network/">公式発表</a></td></tr><tr><td class="date">11月23日</td><td>ECRとEC2の検出結果に対するランタイム到達性分析を拡大 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/inspector-runtime-reachability/">公式発表</a></td></tr></tbody></table>
+
+<h2 id="sources">資料と出典</h2>
+<p>各項目の「公式発表」リンクが一次資料です。件数と期間の数え方は<a href="/aws-november-2026">索引ページ</a>にまとめています。本文の詳細は、次の公式ドキュメントで補いました。</p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/inspector/latest/user/scanning-machine-images.html">Scanning machine images with Amazon Inspector</a>（AMIスキャンの対象条件とスキャンの挙動）</li>
+<li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-scanning.html">Scan an Amazon EC2 AMI for software vulnerabilities with Amazon Inspector</a>（EC2コンソールでの見方と料金）</li>
+<li><a href="https://docs.aws.amazon.com/inspector/latest/user/findings-understanding-runtime-reachability.html">Understanding runtime reachability for your Amazon Inspector findings</a>（到達性の判定値とフィルタ／抑制ルールの評価）</li>
+<li><a href="https://docs.aws.amazon.com/inspector/latest/user/inspector-vm-scanner.html">Amazon Inspector VM Scanner</a>（EC2のエージェント型スキャン）</li>
+<li><a href="https://docs.aws.amazon.com/inspector/latest/user/code-security-assessments.html">Amazon Inspector Code Security</a>（スキャン対象とプライベート接続の概要）</li>
+</ul>
+
+</div>
+<script type="module" src="/assets/site.js"></script>
+</body>
+</html>
