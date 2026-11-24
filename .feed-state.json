@@ -302,9 +302,14 @@
       "updated": "2026-11-24T01:24:25.000Z"
     },
     "t3-chat.html": {
-      "fingerprint": "108fcc91463ac782e1465cd4d4ed3f8ddbed7bcd0f6278336017936a44d0f5df",
+      "fingerprint": "f23873f069572b2304c0358efc02ff28c19b2d8498b0fecf9f07a76c91066f96",
       "published": "2026-11-24T05:35:56.000Z",
-      "updated": "2026-11-24T05:35:56.000Z"
+      "updated": "2026-11-24T08:58:19.000Z"
+    },
+    "t3-code.html": {
+      "fingerprint": "bbea7c49455dd8c124a4523c2551425b5b38f5cb4fd18bb9837008e20eb7454b",
+      "published": "2026-11-24T08:58:19.000Z",
+      "updated": "2026-11-24T08:58:19.000Z"
     },
     "technology-updates.html": {
       "fingerprint": "fc5a2cc6d9e2bfe7f81aad0b05bdde5c12b7e9069fcd2880abb72bbc0065f9f9",

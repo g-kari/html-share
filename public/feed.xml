@@ -7,7 +7,25 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Tue, 24 Nov 2026 06:02:17 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 24 Nov 2026 08:58:19 GMT</lastBuildDate>
+    <item>
+      <title>T3 Chatとは：複数モデルを1つの画面で切り替えるAIチャット。Proは月8ドル、利用量はメーター制</title>
+      <link>https://share.0g0.xyz/t3-chat</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/t3-chat</guid>
+      <description>T3 Chat（t3.chat）の概要、対応モデル、料金プラン（Free／Pro月8ドル／Premier月50ドル）、4時間で回復する利用量メーター、学習に使わないデータ方針、公開直後の急成長の経緯を、公式FAQ・プライバシーポリシーと出典つきで整理します。</description>
+      <pubDate>Tue, 24 Nov 2026 08:58:19 GMT</pubDate>
+      <dcterms:created>2026-11-24T05:35:56.000Z</dcterms:created>
+      <dcterms:modified>2026-11-24T08:58:19.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>T3 Codeとは：Claude CodeやCodexを1つの画面で操る無料のオープンソース。T3 Chatとは別物</title>
+      <link>https://share.0g0.xyz/t3-code</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/t3-code</guid>
+      <description>T3 Code（t3.codes）の概要、T3 Chatとの違い、対応するコーディングエージェント、仕組み、リモート利用、料金（本体は無料、T3 Connectの上限だけT3 Chatプランと連動）、データの扱いを、公式サイト・GitHub・公式FAQと出典つきで整理します。</description>
+      <pubDate>Tue, 24 Nov 2026 08:58:19 GMT</pubDate>
+      <dcterms:created>2026-11-24T08:58:19.000Z</dcterms:created>
+      <dcterms:modified>2026-11-24T08:58:19.000Z</dcterms:modified>
+    </item>
     <item>
       <title>OpenAI EnterpriseとClaude Enterpriseの比較｜セキュリティ・監査・コスト（2〜200席の導入目安）</title>
       <link>https://share.0g0.xyz/openai-claude-enterprise</link>
@@ -25,15 +43,6 @@
       <pubDate>Tue, 24 Nov 2026 05:40:55 GMT</pubDate>
       <dcterms:created>2026-11-24T01:37:31.000Z</dcterms:created>
       <dcterms:modified>2026-11-24T05:40:55.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>T3 Chatとは：複数モデルを1つの画面で切り替えるAIチャット。Proは月8ドル、利用量はメーター制</title>
-      <link>https://share.0g0.xyz/t3-chat</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/t3-chat</guid>
-      <description>T3 Chat（t3.chat）の概要、対応モデル、料金プラン（Free／Pro月8ドル／Premier月50ドル）、4時間で回復する利用量メーター、学習に使わないデータ方針、公開直後の急成長の経緯を、公式FAQ・プライバシーポリシーと出典つきで整理します。</description>
-      <pubDate>Tue, 24 Nov 2026 05:35:56 GMT</pubDate>
-      <dcterms:created>2026-11-24T05:35:56.000Z</dcterms:created>
-      <dcterms:modified>2026-11-24T05:35:56.000Z</dcterms:modified>
     </item>
     <item>
       <title>ChatGPT Sitesの料金：無料ホスティングは2026年12月31日まで、2027年からはクレジット枠制</title>
