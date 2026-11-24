@@ -28,12 +28,20 @@
 table.t3-table{border-collapse:collapse;margin:1rem 0}
 table.t3-table th,table.t3-table td{border:1px solid var(--line);padding:.45rem .8rem;text-align:left}
 </style>
+  <!-- html-share: social metadata -->
+  <meta property="og:site_name" content="HTML Share">
+  <meta name="twitter:title" content="T3 Chatとは：複数モデルを1つの画面で切り替えるAIチャット。Proは月8ドル、利用量はメーター制">
+  <meta name="twitter:description" content="複数社のAIモデルを1つの画面で切り替えて使えるT3 Chat。料金プラン、利用量メーターの仕組み、データの扱い、急成長の経緯を公式資料と出典つきで整理します。">
+  <!-- /html-share: social metadata -->
+  <!-- html-share: rss discovery -->
+  <link rel="alternate" type="application/rss+xml" title="HTML Share RSS" href="https://share.0g0.xyz/feed.xml">
+  <!-- /html-share: rss discovery -->
 </head>
 <body>
 <div class="wrap">
 <nav class="sitebar" aria-label="サイト内"><a class="brand" href="/">HTML Share</a><nav><a href="/">一覧</a><a href="/feed.xml">RSS</a></nav></nav>
 <header class="top">
-  <div class="kicker">AIサービス解説 · T3 Chat</div>
+  <div class="kicker">AIサービス解説 · <a class="gloss" href="/glossary#term-t3-chat" title="OpenAIやAnthropic、Googleなど複数社のAIモデルを、1つの画面で切り替えて使えるチャットサービス。運営は米国のT3 Tools。">T3 Chat</a></div>
   <h1>T3 Chatとは：複数モデルを1つの画面で切り替えるAIチャット。Proは月8ドル、利用量はメーター制</h1>
   <p class="meta">
     確認日：2026年11月24日<br>
@@ -102,7 +110,7 @@ table.t3-table th,table.t3-table td{border:1px solid var(--line);padding:.45rem 
 <li>プロフィール：応答の傾向などを保存して、会話に反映させる仕組みがあります。</li>
 <li>一時チャット：履歴に残さない一時的なチャットを作れます。</li>
 <li>共有URLで新規チャット：<code>/new</code> にクエリパラメータを付けると、モデル、最初の質問、検索の有無、推論の強さなどを指定した状態で新しいチャットを開けます。公式FAQにパラメータの仕様があり、ブラウザのカスタム検索エンジンに登録して使う方法が案内されています。</li>
-<li>BYOK：自分のOpenRouterキーを持ち込むと、利用料を提供元へ直接払う形でも使えます。枠の制限を受けにくくなる一方、コスト管理は自分で行います。</li>
+<li><a class="gloss" href="/glossary#term-byok" title="サービス側の利用枠ではなく、利用者自身のAPIキーを持ち込んで使う方式。料金はキーの発行元へ直接支払います。">BYOK</a>：自分のOpenRouterキーを持ち込むと、利用料を提供元へ直接払う形でも使えます。枠の制限を受けにくくなる一方、コスト管理は自分で行います。</li>
 </ul>
 <figure class="t3-figure">
 <img src="/assets/t3chat-features-v1.png" width="1600" height="720" loading="lazy" alt="T3 Chatの主な機能。モデルの途中切替、会話の分岐、Web検索、添付ファイル、画像生成、共有URLでの新規チャット">
@@ -110,7 +118,7 @@ table.t3-table th,table.t3-table td{border:1px solid var(--line);padding:.45rem 
 </figure>
 
 <h2 id="speed">速さと同期の仕組み</h2>
-<p>T3 Chatが売りにしているのは速さです。会話の表示や画面の切り替えで待たされないことを重視し、裏側では「入力したらまず手元の画面に反映し、変更分をサーバと同期する」形の同期エンジンが使われています。どの端末で開いても同じ会話が続きから使えるのは、この同期があるためです。</p>
+<p>T3 Chatが売りにしているのは速さです。会話の表示や画面の切り替えで待たされないことを重視し、裏側では「入力したらまず手元の画面に反映し、変更分をサーバと同期する」形の<a class="gloss" href="/glossary#term-sync-engine" title="複数の端末や画面の間で、データの状態をそろえ続けるための仕組み。表示を手元で先に反映し、裏側でサーバと同期する形がよく使われます。">同期エンジン</a>が使われています。どの端末で開いても同じ会話が続きから使えるのは、この同期があるためです。</p>
 <p>当初、この同期エンジンは創業者のTheo Browneが自作していました。後にチームの拡大に伴ってボトルネックになり、バックエンドをConvexへ移行したと、2026年11月の創業者自身の動画で語られています（二次報道による）。速さのための仕組みを自作し、規模に合わせて定番の基盤へ載せ替えたという経緯です。</p>
 <figure class="t3-figure">
 <img src="/assets/t3chat-sync-v1.png" width="1600" height="600" loading="lazy" alt="同期の仕組みの概念図。入力する、まず手元で反映、同期エンジン、どの端末でも同じ、の4段階">
