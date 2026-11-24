@@ -247,9 +247,9 @@
       "updated": "2026-11-19T17:36:57.000Z"
     },
     "glossary.html": {
-      "fingerprint": "5e0a20fe35ea814a6bd3fd8a8a49719047700ef4baae136f4fbbc6311f5208ae",
+      "fingerprint": "93a38319834b815283d8fcc8b87fd36b6649fef7e24d39e93f4c05464bfb5bc5",
       "published": "2026-11-24T01:37:31.000Z",
-      "updated": "2026-11-24T23:18:09.000Z"
+      "updated": "2026-11-24T23:32:53.000Z"
     },
     "go-code-verification.html": {
       "fingerprint": "add16dcf6c555dc85cb859063495bf903ab5151b47f9de01db2dbaede2cc0162",
@@ -320,6 +320,11 @@
       "fingerprint": "e3681beb0d9fda1e9ed32f0a52165b5d3fa2b0f2c0a457269fb87e71117fd07d",
       "published": "2026-11-18T17:45:48.000Z",
       "updated": "2026-11-19T05:02:58.000Z"
+    },
+    "notion-storage-limits.html": {
+      "fingerprint": "6e2a5e6b9b9f316d84f47cb457f5f2022767b0215b78e6849dd203dd3b40694f",
+      "published": "2026-11-24T23:40:59.000Z",
+      "updated": "2026-11-24T23:40:59.000Z"
     },
     "openai-claude-enterprise.html": {
       "fingerprint": "ea0efa79a910ec22c07678fa428c824b5667a1336f1b847f7e8ffd26f28c78b0",
