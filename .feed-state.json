@@ -242,9 +242,9 @@
       "updated": "2026-11-19T17:36:57.000Z"
     },
     "glossary.html": {
-      "fingerprint": "a2771e253b2a95c6e3afc3a78246e5d6578ce0534dd1101a88449a3289724723",
+      "fingerprint": "8ddb7d891d19ad1d3ff9b91ac2196139f551f2ddbfc95cb4e6f31e59e2467b84",
       "published": "2026-11-24T01:37:31.000Z",
-      "updated": "2026-11-24T23:03:49.000Z"
+      "updated": "2026-11-24T23:09:22.000Z"
     },
     "go-code-verification.html": {
       "fingerprint": "add16dcf6c555dc85cb859063495bf903ab5151b47f9de01db2dbaede2cc0162",
@@ -336,6 +336,11 @@
       "published": "2026-10-07T16:46:20.000Z",
       "updated": "2026-10-08T16:08:38.000Z"
     },
+    "php-8-6-release-2026-11-19.html": {
+      "fingerprint": "5f29b7c1bd9e4c944644c2c1be4ac9539c6660836eb32fc6ebf9d38649d05430",
+      "published": "2026-11-24T23:14:49.000Z",
+      "updated": "2026-11-24T23:14:49.000Z"
+    },
     "php-emergency-maintenance.html": {
       "fingerprint": "6c47d3015b80b45ae71ca2f0545bbccbf87a4f366d1cd3c81e730756bb05fc88",
       "published": "2026-10-21T12:51:32.000Z",
@@ -347,9 +352,9 @@
       "updated": "2026-11-06T00:25:52.000Z"
     },
     "php-security-release-2026-11-19.html": {
-      "fingerprint": "f9a084bb96b583b34203ccf09c255131de03605965ac956ac6f3d475fa595e80",
+      "fingerprint": "2207665923462b733b4e980c494747dd426484ffea732215e35ef7c41f9be43b",
       "published": "2026-11-19T14:16:03.000Z",
-      "updated": "2026-11-24T23:03:16.000Z"
+      "updated": "2026-11-24T23:14:49.000Z"
     },
     "php2shell-patch-status.html": {
       "fingerprint": "abd9f40dcd8c55bd9834e790552aedcbb37cd879fbc34bccbf5e20aecadd56b8",

@@ -7,24 +7,33 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Tue, 24 Nov 2026 23:03:49 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 24 Nov 2026 23:14:49 GMT</lastBuildDate>
     <item>
-      <title>用語集：HTML Shareの記事に出てくる専門用語</title>
-      <link>https://share.0g0.xyz/glossary</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/glossary</guid>
-      <description>HTML Shareの記事に出てくる専門用語の短い説明の一覧です。記事本文では、辞書に登録された用語の初出が自動でこの用語集へリンクされます。</description>
-      <pubDate>Tue, 24 Nov 2026 23:03:49 GMT</pubDate>
-      <dcterms:created>2026-11-24T01:37:31.000Z</dcterms:created>
-      <dcterms:modified>2026-11-24T23:03:49.000Z</dcterms:modified>
+      <title>PHP 8.6の変更点：セッション既定値の厳格化と、自分のリポジトリへの影響</title>
+      <link>https://share.0g0.xyz/php-8-6-release-2026-11-19</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/php-8-6-release-2026-11-19</guid>
+      <description>PHP 8.6.0（2026年11月19日）の新機能と互換性変更、セッション既定値の厳格化、PHP 8.2のサポート終了（2026年12月31日）と、自分のGitHubリポジトリの走査結果をまとめます。</description>
+      <pubDate>Tue, 24 Nov 2026 23:14:49 GMT</pubDate>
+      <dcterms:created>2026-11-24T23:14:49.000Z</dcterms:created>
+      <dcterms:modified>2026-11-24T23:14:49.000Z</dcterms:modified>
     </item>
     <item>
       <title>PHPのセキュリティ更新：修正版と確認手順（2026年11月19日）</title>
       <link>https://share.0g0.xyz/php-security-release-2026-11-19</link>
       <guid isPermaLink="true">https://share.0g0.xyz/php-security-release-2026-11-19</guid>
       <description>PHP 8.2〜8.5のセキュリティ修正版、重大なセッションの不具合、OSやDockerでの配布状況と更新後の確認をまとめます。</description>
-      <pubDate>Tue, 24 Nov 2026 23:03:16 GMT</pubDate>
+      <pubDate>Tue, 24 Nov 2026 23:14:49 GMT</pubDate>
       <dcterms:created>2026-11-19T14:16:03.000Z</dcterms:created>
-      <dcterms:modified>2026-11-24T23:03:16.000Z</dcterms:modified>
+      <dcterms:modified>2026-11-24T23:14:49.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>用語集：HTML Shareの記事に出てくる専門用語</title>
+      <link>https://share.0g0.xyz/glossary</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/glossary</guid>
+      <description>HTML Shareの記事に出てくる専門用語の短い説明の一覧です。記事本文では、辞書に登録された用語の初出が自動でこの用語集へリンクされます。</description>
+      <pubDate>Tue, 24 Nov 2026 23:09:22 GMT</pubDate>
+      <dcterms:created>2026-11-24T01:37:31.000Z</dcterms:created>
+      <dcterms:modified>2026-11-24T23:09:22.000Z</dcterms:modified>
     </item>
     <item>
       <title>AIボット系エージェント 2026年秋の比較：Grok Bot、2つのOpenBot、MausBot、Hermes Agent</title>
