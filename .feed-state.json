@@ -161,6 +161,11 @@
       "published": "2026-11-24T05:09:52.000Z",
       "updated": "2026-11-24T05:09:52.000Z"
     },
+    "cloudflare-code-mode-mcp.html": {
+      "fingerprint": "d65a85b21ac370896fe9534851743d3d0b33bdf335910ddc6390f1e360ebd23a",
+      "published": "2026-11-24T23:27:41.000Z",
+      "updated": "2026-11-24T23:27:41.000Z"
+    },
     "cloudfront-protobuf-maintenance.html": {
       "fingerprint": "3ac82cf61b10d53fa300c9ba5c09c2fc6f1395e9abc8cc079309fd56c7d7508e",
       "published": "2026-10-07T16:24:47.000Z",
@@ -242,9 +247,9 @@
       "updated": "2026-11-19T17:36:57.000Z"
     },
     "glossary.html": {
-      "fingerprint": "8ddb7d891d19ad1d3ff9b91ac2196139f551f2ddbfc95cb4e6f31e59e2467b84",
+      "fingerprint": "5e0a20fe35ea814a6bd3fd8a8a49719047700ef4baae136f4fbbc6311f5208ae",
       "published": "2026-11-24T01:37:31.000Z",
-      "updated": "2026-11-24T23:09:22.000Z"
+      "updated": "2026-11-24T23:18:09.000Z"
     },
     "go-code-verification.html": {
       "fingerprint": "add16dcf6c555dc85cb859063495bf903ab5151b47f9de01db2dbaede2cc0162",
