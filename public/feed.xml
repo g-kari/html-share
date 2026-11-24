@@ -7,7 +7,52 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Tue, 24 Nov 2026 11:47:34 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 24 Nov 2026 16:57:21 GMT</lastBuildDate>
+    <item>
+      <title>AWS コンピュート・ストレージ 2026年11月の変更まとめ：EC2、S3、FSx、ECS</title>
+      <link>https://share.0g0.xyz/aws-compute-storage-november-2026</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/aws-compute-storage-november-2026</guid>
+      <description>AWSのコンピュート・ストレージ分野の2026年11月の発表55件。Graviton5ベースのEC2 T9g、S3の読み取りレート2倍とVectorsのハイブリッド検索、FSx for NetApp ONTAPの新世代、ECS Action Logsなどをサービス別に整理します。</description>
+      <pubDate>Tue, 24 Nov 2026 16:57:21 GMT</pubDate>
+      <dcterms:created>2026-11-24T11:47:34.000Z</dcterms:created>
+      <dcterms:modified>2026-11-24T16:57:21.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>Amazon Inspector 2026年11月の変更：AMIスキャン、ランタイム到達性分析、Code Securityの拡張</title>
+      <link>https://share.0g0.xyz/aws-inspector-november-2026</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/aws-inspector-november-2026</guid>
+      <description>Amazon Inspectorの2026年11月の発表4件。EC2のAMIスキャン、ECR／EC2の検出結果へのランタイム到達性分析、Inspector Code SecurityのGitHub Enterprise Server対応とプライベート接続、Security HubのGoogle Cloud Platform拡張を、公式発表と公式ドキュメントで詳しく整理します。</description>
+      <pubDate>Tue, 24 Nov 2026 16:57:21 GMT</pubDate>
+      <dcterms:created>2026-11-24T16:57:21.000Z</dcterms:created>
+      <dcterms:modified>2026-11-24T16:57:21.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>AWS 2026年11月の発表まとめ：全442件をサービス別に整理</title>
+      <link>https://share.0g0.xyz/aws-november-2026</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/aws-november-2026</guid>
+      <description>2026年11月1日〜24日のAWS公式発表442件を、サービス・分野別の16記事に整理した索引。AgentCore、WAF、Inspector、Lambda、Nitro Sandboxes、AWS Emulator、Strandsなど単独記事への入口と、期間・総件数・サービス別件数を明記します。</description>
+      <pubDate>Tue, 24 Nov 2026 16:57:21 GMT</pubDate>
+      <dcterms:created>2026-11-24T11:47:34.000Z</dcterms:created>
+      <dcterms:modified>2026-11-24T16:57:21.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>AWS セキュリティ 2026年11月の変更まとめ：Cognito、IAM、STS、Security Hub、Network Firewall</title>
+      <link>https://share.0g0.xyz/aws-security-november-2026</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/aws-security-november-2026</guid>
+      <description>AWSのセキュリティ・アイデンティティ分野の2026年11月の発表38件。STS GetScopedCredentials、CognitoのOAuth 2.0トークン交換とセッション管理、Security HubのSBOMインベントリ、Network Firewallの次世代ポリシーなどをサービス別に整理します。WAFは単独記事です。</description>
+      <pubDate>Tue, 24 Nov 2026 16:57:21 GMT</pubDate>
+      <dcterms:created>2026-11-24T11:47:34.000Z</dcterms:created>
+      <dcterms:modified>2026-11-24T16:57:21.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>用語集：HTML Shareの記事に出てくる専門用語</title>
+      <link>https://share.0g0.xyz/glossary</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/glossary</guid>
+      <description>HTML Shareの記事に出てくる専門用語の短い説明の一覧です。記事本文では、辞書に登録された用語の初出が自動でこの用語集へリンクされます。</description>
+      <pubDate>Tue, 24 Nov 2026 11:51:47 GMT</pubDate>
+      <dcterms:created>2026-11-24T01:37:31.000Z</dcterms:created>
+      <dcterms:modified>2026-11-24T11:51:47.000Z</dcterms:modified>
+    </item>
     <item>
       <title>Amazon Connect 2026年11月の変更：ケース管理とResolutions</title>
       <link>https://share.0g0.xyz/amazon-connect-november-2026</link>
@@ -40,15 +85,6 @@
       <link>https://share.0g0.xyz/aws-business-november-2026</link>
       <guid isPermaLink="true">https://share.0g0.xyz/aws-business-november-2026</guid>
       <description>AWSの業務アプリケーションとその他の分野の2026年11月の発表53件。AWS Marketplaceのエージェントモードと決済まわり、AIエージェント向けWorkSpaces、Amazon MWAA、SES、メディアサービス、Partner Centralなどをサービス別に整理します。</description>
-      <pubDate>Tue, 24 Nov 2026 11:47:34 GMT</pubDate>
-      <dcterms:created>2026-11-24T11:47:34.000Z</dcterms:created>
-      <dcterms:modified>2026-11-24T11:47:34.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>AWS コンピュート・ストレージ 2026年11月の変更まとめ：EC2、S3、FSx、ECS</title>
-      <link>https://share.0g0.xyz/aws-compute-storage-november-2026</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/aws-compute-storage-november-2026</guid>
-      <description>AWSのコンピュート・ストレージ分野の2026年11月の発表55件。Graviton5ベースのEC2 T9g、S3の読み取りレート2倍とVectorsのハイブリッド検索、FSx for NetApp ONTAPの新世代、ECS Action Logsなどをサービス別に整理します。</description>
       <pubDate>Tue, 24 Nov 2026 11:47:34 GMT</pubDate>
       <dcterms:created>2026-11-24T11:47:34.000Z</dcterms:created>
       <dcterms:modified>2026-11-24T11:47:34.000Z</dcterms:modified>
@@ -108,28 +144,10 @@
       <dcterms:modified>2026-11-24T11:47:34.000Z</dcterms:modified>
     </item>
     <item>
-      <title>AWS 2026年11月の発表まとめ：全442件をサービス別に整理</title>
-      <link>https://share.0g0.xyz/aws-november-2026</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/aws-november-2026</guid>
-      <description>2026年11月1日〜24日のAWS公式発表442件を、サービス・分野別の15記事に整理した索引。AgentCore、WAF、Lambda、Nitro Sandboxes、AWS Emulator、Strandsなど単独記事への入口と、期間・総件数・サービス別件数を明記します。</description>
-      <pubDate>Tue, 24 Nov 2026 11:47:34 GMT</pubDate>
-      <dcterms:created>2026-11-24T11:47:34.000Z</dcterms:created>
-      <dcterms:modified>2026-11-24T11:47:34.000Z</dcterms:modified>
-    </item>
-    <item>
       <title>AWS 運用・移行・コスト 2026年11月の変更まとめ：CloudWatch、Transform、課金、GovCloud</title>
       <link>https://share.0g0.xyz/aws-operations-november-2026</link>
       <guid isPermaLink="true">https://share.0g0.xyz/aws-operations-november-2026</guid>
       <description>AWSの運用・移行・コスト分野の2026年11月の発表51件。CloudWatchのPromQL拡大とQuery Studio、AWS Transformの移行自動化、EventBridgeの拡張、クレジット分割などの課金まわり、GovCloudでの提供開始をサービス別に整理します。</description>
-      <pubDate>Tue, 24 Nov 2026 11:47:34 GMT</pubDate>
-      <dcterms:created>2026-11-24T11:47:34.000Z</dcterms:created>
-      <dcterms:modified>2026-11-24T11:47:34.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>AWS セキュリティ 2026年11月の変更まとめ：Cognito、IAM、STS、Security Hub、Network Firewall</title>
-      <link>https://share.0g0.xyz/aws-security-november-2026</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/aws-security-november-2026</guid>
-      <description>AWSのセキュリティ・アイデンティティ分野の2026年11月の発表38件。STS GetScopedCredentials、CognitoのOAuth 2.0トークン交換とセッション管理、Security HubのSBOMインベントリ、Network Firewallの次世代ポリシーなどをサービス別に整理します。WAFは単独記事です。</description>
       <pubDate>Tue, 24 Nov 2026 11:47:34 GMT</pubDate>
       <dcterms:created>2026-11-24T11:47:34.000Z</dcterms:created>
       <dcterms:modified>2026-11-24T11:47:34.000Z</dcterms:modified>
@@ -151,15 +169,6 @@
       <pubDate>Tue, 24 Nov 2026 11:47:34 GMT</pubDate>
       <dcterms:created>2026-11-24T11:47:34.000Z</dcterms:created>
       <dcterms:modified>2026-11-24T11:47:34.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>用語集：HTML Shareの記事に出てくる専門用語</title>
-      <link>https://share.0g0.xyz/glossary</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/glossary</guid>
-      <description>HTML Shareの記事に出てくる専門用語の短い説明の一覧です。記事本文では、辞書に登録された用語の初出が自動でこの用語集へリンクされます。</description>
-      <pubDate>Tue, 24 Nov 2026 09:56:35 GMT</pubDate>
-      <dcterms:created>2026-11-24T01:37:31.000Z</dcterms:created>
-      <dcterms:modified>2026-11-24T09:56:35.000Z</dcterms:modified>
     </item>
     <item>
       <title>Orcaとは：Claude CodeやCodexをワークツリーごとに並行実行する無料のエージェント開発環境（ADE）</title>
