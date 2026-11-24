@@ -220,7 +220,7 @@ custom-domain.example
       <div class="panel goodpanel"><h3>Phase 1｜運営が公開する特設サイト</h3><p><strong>CloudFront × 1 + S3 × 1 + URL補正用CFFn</strong>。プレフィックスごとに静的ファイルを置く。内部運営で権限が共通なら、今までの案で十分。</p><span class="choice-tag">低コストで先行可能</span></div>
       <div class="panel"><h3>Phase 2｜企業セルフサービス</h3><p>企業アカウント、アップロード・検証、プレビュー、企業別サブドメイン、サイト管理・ロールバックを追加。ここで「ホスト名と企業ID」の結び付けを確実にする。</p></div>
       <div class="panel"><h3>Phase 3｜動的API・管理済みSSR</h3><p>共通API入口を増設し、認可済みテンプレートや管理された実行環境から動的処理を提供する。全企業に任意のサーバーコードを許可する必要はない。</p></div>
-      <div class="panel warnpanel"><h3>Phase 4｜企業独自のコード実行</h3><p>ビルド・実行サンドボックス、企業別ロール、資源制限、課金、悪用対応まで設計。これは単なる「S3ホスティング」ではなく、PaaS/ホスティングサービスの構築になる。</p></div>
+      <div class="panel warnpanel"><h3>Phase 4｜企業独自のコード実行</h3><p>ビルド・実行サンドボックス、企業別ロール、資源制限、課金、悪用対応まで設計。これは単なる「S3<a class="gloss" href="/glossary#term-hosting" title="作ったウェブサイトやアプリをサーバ上で公開し、アクセスできる状態に保つこと。トラフィックや保存量に応じて料金がかかる場合があります。">ホスティング</a>」ではなく、PaaS/ホスティングサービスの構築になる。</p></div>
     </div>
     <div class="note"><strong>最終判断：</strong> 会社が違っても運営側が制作・審査する特設サイトなら「1 S3 + 1 CloudFront」が運用最小。会社が任意のHTML/JS/SSRを自己公開するなら「共通管理 + 企業別サブドメイン + 静的/動的の分離実行」を最初から前提にする。</div>
   </section>
