@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ChatGPT Sitesの料金：無料ホスティングは2026年12月31日まで、2027年からはクレジット枠制</title>
+<meta name="description" content="ChatGPT Sitesのホスティング料金をOpenAI公式ドキュメントで確認しました。無料期間は2026年12月31日までで、2027年1月1日からはプランごとの月次クレジット枠を超えた分を支払う形になります。枠の大きさ、消費項目ごとの単価、データベース1 GiBでPlusの枠を超える計算を整理します。">
+<link rel="canonical" href="https://share.0g0.xyz/chatgpt-sites-pricing">
+<link rel="stylesheet" href="/assets/site.css">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="ChatGPT Sitesの料金：無料ホスティングは2026年12月31日まで、2027年からはクレジット枠制">
+<meta property="og:description" content="2027年1月1日からは月次クレジット枠を超えた分を支払う形に。枠の大きさと消費単価、データベース1 GiBでPlusの枠を超える計算を公式資料で整理します。">
+<meta property="og:url" content="https://share.0g0.xyz/chatgpt-sites-pricing">
+<meta property="og:image" content="https://share.0g0.xyz/assets/chatgpt-sites-ogp-v1.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ChatGPT Sitesの料金。無料ホスティングは2026年12月31日まで">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://share.0g0.xyz/assets/chatgpt-sites-ogp-v1.png">
+<meta name="twitter:image:alt" content="ChatGPT Sitesの料金。無料ホスティングは2026年12月31日まで">
+<style>
+:root{--accent:#0e5a6d;--accent-dark:#8fd8cb}
+.sites-figure{margin:1.25rem 0;max-inline-size:44rem}
+.sites-figure img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:0}
+.sites-figure figcaption{font-size:.9rem;margin-top:.55rem}
+table.sites-table{border-collapse:collapse;margin:1rem 0}
+table.sites-table th,table.sites-table td{border:1px solid var(--line);padding:.45rem .8rem;text-align:left}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="sitebar" aria-label="サイト内"><a class="brand" href="/">HTML Share</a><nav><a href="/">一覧</a><a href="/feed.xml">RSS</a></nav></nav>
+<header class="top">
+  <div class="kicker">サービス料金 · OpenAI</div>
+  <h1>ChatGPT Sitesの料金：無料ホスティングは2026年12月31日まで、2027年からはクレジット枠制</h1>
+  <p class="meta">
+    確認日：2026年11月24日<br>
+    一次資料：<a href="https://learn.chatgpt.com/docs/sites/usage-and-cost">OpenAI公式ドキュメント「Usage and cost」</a>／<a href="https://help.openai.com/en/articles/20001339-creating-and-using-chatgpt-sites">OpenAIヘルプセンター「Creating and using ChatGPT Sites」</a>
+  </p>
+</header>
+
+<div class="summary3">
+  <div class="ttl">要点</div>
+  <ol>
+    <li>ChatGPT Sitesのホスティングは2026年12月31日まで無料です。2027年1月1日から、Plus、Pro、Businessの利用者は、月次クレジット枠を超えた分のホスティング利用料を支払う形になります。</li>
+    <li>月次枠は Plus 125クレジット、Pro 375クレジット、Business 125クレジット（1席あたり）で、自分の全サイトで1つの枠を共有します。</li>
+    <li>消費の目安では、データベース保存が1 GiBあたり月150クレジットと最も大きく、この項目だけでPlusの月次枠を超えます。ストレージありのサイトは基本料25クレジットもかかるため、1 GiB保存したサイトは合計で約175クレジットになります。</li>
+    <li>公式ドキュメントの単価は「概算（approximate）」と明記されています。クレジットの現金換算レートはプランや契約で異なり、料金ページにも一律のレートは示されていません。</li>
+  </ol>
+</div>
+
+<nav class="toc">
+  <div class="ttl">目次</div>
+  <ol>
+    <li><a href="#about">ChatGPT Sitesとは</a></li>
+    <li><a href="#period">無料期間と、2027年1月からの形</a></li>
+    <li><a href="#allowance">プランごとの月次クレジット枠</a></li>
+    <li><a href="#rates">何にどれだけかかるか</a></li>
+    <li><a href="#example">具体例：データベースを使うサイト</a></li>
+    <li><a href="#overage">枠を超えた場合と注意点</a></li>
+    <li><a href="#check">X投稿の主張との照合</a></li>
+    <li><a href="#sources">一次資料</a></li>
+  </ol>
+</nav>
+
+<h2 id="about">ChatGPT Sitesとは</h2>
+<p>ChatGPT Sitesは、ChatGPTとの対話でウェブサイトや軽量なアプリを作り、プレビューで確認して、そのまま公開・共有できる機能です。作りたい内容をチャットで伝えるか、プロンプトに <code>@Sites</code> を含めると作成が始まります。利用できるのはChatGPT PlusとProのアカウント、およびBusinessとEnterpriseのワークスペースです。</p>
+<p>サイトの作成と編集は、各プランのCodex利用量に数えられます。これに対して、公開したサイトを動かし続けるホスティング（トラフィックと保存量）は別枠で数えられ、この記事で扱う料金はホスティング側のものです。</p>
+<figure class="sites-figure">
+<img src="/assets/chatgpt-sites-flow-v1.png" width="1600" height="560" loading="lazy" alt="ChatGPT Sitesの作り方。説明する、プレビュー、直す、公開するの4段階">
+<figcaption>図：ChatGPT Sitesの作り方。対話で作り、公開前にプレビューで確認します。</figcaption>
+</figure>
+
+<h2 id="period">無料期間と、2027年1月からの形</h2>
+<p>公式ドキュメント「Usage and cost」には、ホスティングは2026年12月31日まで無料と書かれています。2027年1月1日からは、Plus、Pro、Businessの利用者が、月次枠を超えた分のホスティング利用料を支払います。Enterpriseの課金は組織の契約内容に従います。</p>
+<p>サイトは何個でも作れます。ただしホスティングの月次枠は、自分の全サイトで共有する1つの枠です。サイトを増やすほど、同じ枠を分け合う形になります。</p>
+<figure class="sites-figure">
+<img src="/assets/chatgpt-sites-timeline-v1.png" width="1600" height="520" loading="lazy" alt="無料期間と2027年1月からの料金の形。2026年12月31日までホスティングは無料、2027年1月1日からは月次クレジット枠を超えた分を支払う">
+<figcaption>図：無料期間の終了と、2027年1月からの課金の形。</figcaption>
+</figure>
+
+<h2 id="allowance">プランごとの月次クレジット枠</h2>
+<p>プランごとの月次ホスティング枠は次のとおりです。</p>
+<table class="sites-table">
+<tr><th>プラン</th><th>月次ホスティング枠</th></tr>
+<tr><td>Plus</td><td>125クレジット</td></tr>
+<tr><td>Pro</td><td>375クレジット</td></tr>
+<tr><td>Business</td><td>125クレジット（1席あたり）</td></tr>
+<tr><td>Enterprise（クレジット制）</td><td>組織の契約クレジットプールから消費</td></tr>
+</table>
+<p>Enterpriseでドル建てコミットメントの契約の場合は、Codexの利用料とSitesのホスティング料に別々のレートがあり、同じコミットメントから引かれます。具体的なホスティングレートはアカウントチームへ確認するよう案内されています。</p>
+<figure class="sites-figure">
+<img src="/assets/chatgpt-sites-credits-v1.png" width="1600" height="960" loading="lazy" alt="月次クレジット枠と主な消費項目の棒グラフ。PlusとBusinessは125、Proは375。消費ではデータベース1 GiBが150で最も大きい">
+<figcaption>図：プランの月次枠と、主な消費項目の大きさ。データベース保存1 GiB（150）が、Plusの枠（125）を単独で超えます。</figcaption>
+</figure>
+
+<h2 id="rates">何にどれだけかかるか</h2>
+<p>公式ドキュメントが示す、2027年1月1日からのホスティング消費の目安です。いずれも「概算クレジット」とされています。</p>
+<table class="sites-table">
+<tr><th>使うもの</th><th>課金の単位</th><th>概算クレジット</th></tr>
+<tr><td>ストレージなしのサイト</td><td>1サイト／月</td><td>0</td></tr>
+<tr><td>ストレージありのサイト（空のデータベースを含む）</td><td>1サイト／月</td><td>25</td></tr>
+<tr><td>トラフィック</td><td>10万リクエスト</td><td>15</td></tr>
+<tr><td>データベース保存（フォーム回答などの保存レコード）</td><td>1 GiBを1か月保存</td><td>150</td></tr>
+<tr><td>ファイル保存（画像やPDFなどのアップロードファイル）</td><td>1 GiBを1か月保存</td><td>3.75</td></tr>
+<tr><td>カスタムドメイン（ドメイン登録費用は別）</td><td>1ドメイン／月</td><td>25</td></tr>
+<tr><td>プライベートシステムへのSite–tunnel接続（Enterpriseのみ）</td><td>1接続／30日</td><td>125</td></tr>
+</table>
+<p>リクエストは、ページや画像などのリソースを1回読み込む単位です。公式ドキュメントでは、1回のページ表示で通常30〜50リクエストが発生するとされています。保存量の単価が突出して大きいのはデータベース保存で、ファイル保存（1 GiBで3.75）とは40倍の開きがあります。</p>
+
+<h2 id="example">具体例：データベースを使うサイト</h2>
+<p>公式ドキュメントの例では、空のデータベースを持つサイトはトラフィック分を除いて月約25クレジットです。そこへ保存レコードが1 GiBあると、基本料25とデータベース保存150で、合計は月約175クレジットになります。</p>
+<figure class="sites-figure">
+<img src="/assets/chatgpt-sites-example-v1.png" width="1600" height="620" loading="lazy" alt="データベースに1 GiB保存したサイトの内訳。基本料25とデータベース保存150で合計約175クレジットとなり、Plusの月次枠125を約50クレジット超える">
+<figcaption>図：データベースに1 GiB保存したサイトの月次消費。Plusの枠を約50クレジット超えます（トラフィック分は別）。</figcaption>
+</figure>
+<p>Plusの枠は125クレジットなので、この1サイトだけで枠を使い切り、超過分が発生します。Proの枠（375）であれば同じサイトでも枠内に収まります。なお、1 GiBは約1.07 GBです。データベースの上限自体は1サイトあたり10 GBまでとヘルプセンターに記載されています。</p>
+
+<h2 id="overage">枠を超えた場合と注意点</h2>
+<p>2027年1月からの形は「枠を超えた分を支払う」であり、枠に達したらサイトが止まるとは公式ドキュメントに書かれていません。ChatGPTの料金ページでは、PlusとProの利用者は上限に達したあとも追加クレジットを購入して利用を続けられると説明されています。ただし、これはCodex利用量を含むクレジット全般の説明で、ホスティング超過分だけを切り分けた手順は、確認した公式ページには明記されていません。</p>
+<ul>
+<li>単価は概算です。公式ドキュメントは「approximate credit rates」と明記しており、実際の消費は見積もりとずれる場合があります。公式ページには、リクエスト数と保存量を入れて枠との差を試算できる見積もりツールがあります。</li>
+<li>クレジットの現金換算は一律ではありません。料金ページでは、クレジットの購入価格はプランや契約で異なるとされています。この記事では円やドルへの換算はしません。</li>
+<li>枠は全サイト合算です。データベースを持つサイトを複数公開している場合、基本料と保存量が積み上がります。</li>
+<li>移行や代替手段の案内は、確認した公式ページには載っていませんでした。他のホスティングへ移す場合の手順や、Sitesのデータを書き出す方法の案内は未確認です。</li>
+</ul>
+
+<h2 id="check">X投稿の主張との照合</h2>
+<p>この記事の発端は、Xの投稿（Tekon Burns、2026年11月24日）が伝えた料金表です。投稿の主張と公式ドキュメントの記載を照合した結果は次のとおりです。</p>
+<table class="sites-table">
+<tr><th>投稿の主張</th><th>公式との照合</th></tr>
+<tr><td>無料ホスティングは12月31日で終わる</td><td>一致。公式も「2026年12月31日まで無料」と明記</td></tr>
+<tr><td>1月1日からクレジット課金が始まり、Plus 125／Pro 375／Business 125（1席あたり）</td><td>一致。ただし正確には「月次枠を超えた分を支払う」形で、枠内は追加料金なし</td></tr>
+<tr><td>データベース保存1 GiBで月150クレジット</td><td>一致。公式の概算単価表どおり</td></tr>
+<tr><td>1 GiBのデータベースだけでPlusの枠を使い切る</td><td>概ね一致。150は枠の125を単独で超える。実際にはストレージありサイトの基本料25も加わり、合計は約175になる</td></tr>
+</table>
+
+<h2 id="sources">一次資料</h2>
+<ul>
+<li><a href="https://learn.chatgpt.com/docs/sites/usage-and-cost">OpenAI公式ドキュメント：Usage and cost（ChatGPT Learn）</a>（無料期間、月次枠、消費単価、具体例）</li>
+<li><a href="https://help.openai.com/en/articles/20001339-creating-and-using-chatgpt-sites">OpenAIヘルプセンター：Creating and using ChatGPT Sites</a>（対象プラン、作成手順、データベース上限10 GB）</li>
+<li><a href="https://learn.chatgpt.com/docs/pricing">OpenAI公式ドキュメント：Pricing（ChatGPT Learn）</a>（クレジットの扱い、追加クレジット購入の説明）</li>
+<li>発端の投稿：<a href="https://x.com/TekonBurns/status/2125003460265546227">Tekon BurnsのX投稿</a>（2026年11月24日。主張の照合対象であり、一次資料ではありません）</li>
+</ul>
+<p>この記事は2026年11月24日に一次資料を確認して書きました。単価は公式でも概算とされており、今後の版で変わる可能性があります。</p>
+
+</div>
+<script type="module" src="/assets/site.js"></script>
+</body>
+</html>
