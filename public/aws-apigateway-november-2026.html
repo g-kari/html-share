@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amazon API Gateway 2026年11月の発表まとめ：REST APIのJWTオーソライザーとAPI Portal</title>
+<meta name="description" content="Amazon API Gatewayの2026年11月の発表。REST APIにネイティブのJWTオーソライザーが追加され、Cognito以外のOIDC／OAuth 2.0トークンをLambdaなしで検証できるようになりました。あわせて、APIを自動発見するAPI PortalとWAF連携を、公式発表と公式ドキュメントで詳しく整理します。">
+<link rel="canonical" href="https://share.0g0.xyz/aws-apigateway-november-2026">
+<link rel="stylesheet" href="/assets/site.css">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="Amazon API Gateway 2026年11月の発表まとめ：REST APIのJWTオーソライザーとAPI Portal">
+<meta property="og:description" content="Amazon API Gatewayの2026年11月の発表。REST APIにネイティブのJWTオーソライザーが追加され、Cognito以外のOIDC／OAuth 2.0トークンをLambdaなしで検証できるようになりました。あわせて、APIを自動発見するAPI PortalとWAF連携を、公式発表と公式ドキュメントで詳しく整理します。">
+<meta property="og:url" content="https://share.0g0.xyz/aws-apigateway-november-2026">
+<meta property="og:image" content="https://share.0g0.xyz/assets/aws-apigateway-ogp-v1.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Amazon API Gateway 2026年11月の発表まとめ：REST APIのJWTオーソライザーとAPI Portal">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://share.0g0.xyz/assets/aws-apigateway-ogp-v1.png">
+<meta name="twitter:image:alt" content="Amazon API Gateway 2026年11月の発表まとめ：REST APIのJWTオーソライザーとAPI Portal">
+<style>
+:root{--accent:#8a4b00;--accent-dark:#e8a34c}
+.fig{margin:1.25rem 0;max-inline-size:46rem}
+.fig img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:0}
+.fig figcaption{font-size:.9rem;margin-top:.55rem}
+table.aws-table{border-collapse:collapse;margin:1rem 0;width:100%}
+table.aws-table th,table.aws-table td{border:1px solid var(--line);padding:.45rem.7rem;text-align:left;vertical-align:top}
+table.aws-table td.date{white-space:nowrap}
+table.aws-table td.svc{white-space:nowrap}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="sitebar" aria-label="サイト内"><a class="brand" href="/">HTML Share</a><nav><a href="/">一覧</a><a href="/feed.xml">RSS</a></nav></nav>
+<header class="top">
+<div class="kicker">AWS発表まとめ · Amazon API Gateway</div>
+<h1>Amazon API Gateway 2026年11月の発表まとめ：REST APIのJWTオーソライザーとAPI Portal</h1>
+<p class="meta">確認日：2026年11月25日<br>一次資料：<a href="https://aws.amazon.com/about-aws/whats-new/">AWS公式 What's New</a>（2026年11月1日〜24日の投稿）と、Amazon API Gateway開発者ガイドなどの公式ドキュメント。各項目の詳細は公式発表とドキュメントへのリンクつきです。全体の索引は<a href="/aws-november-2026">AWS 2026年11月の発表まとめ</a>。</p>
+</header>
+
+<div class="summary3">
+<div class="ttl">要点</div>
+<ol><li>11月17日、REST APIにネイティブのJWTオーソライザーが追加されました。Cognito以外のOIDC／OAuth 2.0のIdPのトークン検証が、Lambdaオーソライザーを書かずに設定だけでできるようになりました。</li><li>11月23日、API Portalが一般提供になりました。API Gateway、Application Load Balancer、CloudFrontの背後にあるAPIを、トラフィックログとサービス設定レコードから自動発見し、シャドウAPIやゾンビAPIを特定します。</li><li>発見したAPIの保護はAWS WAFが担います。API SecurityとAI Securityのマネージドルールグループが同日発表され、WAFの検出イベントはAPI Portalの所見に統合されます。</li><li>API Gatewayタグ付きの発表は3件ですが、JWTオーソライザーの発表は同じ内容が2つのURLで掲載されたため、この記事では実質2件として扱います。</li></ol>
+</div>
+
+<nav class="toc">
+<div class="ttl">目次</div>
+<ol><li><a href="#about">概要</a></li><li><a href="#jwt">REST APIのJWTオーソライザー</a></li><li><a href="#portal">API Portal：APIの自動発見と棚卸し</a></li><li><a href="#waf">WAFとの連携</a></li><li><a href="#list">発表一覧（11月・実質2件）</a></li><li><a href="#sources">資料と出典</a></li></ol>
+</nav>
+
+<h2 id="about">概要</h2>
+<p>Amazon API Gatewayは、REST API、HTTP API、WebSocket APIを作成・公開・運用するためのマネージドサービスです。2026年11月のAPI Gateway関連の発表は、認可と棚卸しの2方向でした。認可では、REST APIがトークン検証の新しいオーソライザータイプ「JWT」を得ました。棚卸しでは、組織内のAPIを自動で見つけ出す新機能「API Portal」がAPI Gatewayの機能として追加されました。API Portalが見つける対象はAPI Gateway自身のAPIだけではなく、Application Load BalancerとCloudFrontの背後にあるAPIも含みます。</p>
+<p>分野別のまとめでは、JWTオーソライザーは<a href="/aws-network-november-2026">ネットワーク・CDN記事</a>に、API Portalを含む2件は<a href="/aws-waf-november-2026">WAF記事</a>に分かれて載っていたため、この記事に集約し、公式ドキュメントで補って詳しくします。</p>
+<figure class="fig"><img src="/assets/aws-apigateway-overview-v1.png" width="1600" height="900" loading="lazy" alt="Amazon API Gateway 2026年11月の発表。11月17日にREST APIのJWTオーソライザー、11月23日にAPI Portalが追加され、保護はAWS WAFが担う"><figcaption>図：11月のAPI Gatewayの発表。認可（JWTオーソライザー）と棚卸し（API Portal）の2件です。</figcaption></figure>
+
+<h2 id="jwt">REST APIのJWTオーソライザー（11月17日）</h2>
+<p><a href="https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-api-gateway-rest-authorizers-jwt/">公式発表</a>。REST APIに、JSON Web Token（JWT）をゲートウェイ自体が検証するネイティブのJWTオーソライザーが追加されました。これまでREST APIの組み込みオーソライザーが受け付けたのはAmazon Cognitoのトークンだけで、それ以外のOpenID Connect（OIDC）やOAuth 2.0のIDプロバイダ（IdP）のトークンを検証するには、署名鍵の取得と検証、IAMポリシーの返却を行うLambdaオーソライザーを自分で書いて運用する必要がありました。今回の追加で、トークン検証はコードではなく設定で宣言する形になりました。</p>
+<p>検証の手順は公式ドキュメントに明記されています。API Gatewayは、設定したアイデンティティソース（通常は <code>Authorization</code> ヘッダー）からトークンを読み、まず <code>iss</code> クレームが設定済みの発行者と一致するかを見ます。未知の発行者のトークンは、ネットワーク呼び出しの前に拒否されます。次に、許可した署名アルゴリズムかどうかを確認し、発行者の公開鍵で署名を検証します。公開鍵は、発行者が <code>/.well-known/openid-configuration</code> に公開するOIDC発見文書（ディスカバリドキュメント）経由で取得し、最大1時間キャッシュします。見たことのない <code>kid</code> の鍵で署名されたトークンが来たら、鍵セットを取り直します。続いて <code>aud</code>（Cognitoのアクセストークンでは代わりに <code>client_id</code>）と、<code>exp</code>／<code>nbf</code>／<code>iat</code> の時刻クレームを検証します。時刻のずれは60秒まで許容されます。その後、発行者ごとに設定した追加クレームのルールを評価し、メソッドが要求するスコープがトークンの <code>scope</code> または <code>scp</code> クレームに1つでも含まれているかを確認します。検証済みのクレームは <code>$context.authorizer.claims</code> で統合へ渡ります。</p>
+<p>失敗時の応答も分かれています。トークンがない、形式が不正、期限切れ、信頼できない発行者といった場合は <code>401 Unauthorized</code> です。トークン自体は有効でも、必要なスコープを持たない、または追加クレームのルールに合わない場合は <code>403 Forbidden</code> になります。発行者の鍵エンドポイントに到達できず、キャッシュ済みの鍵もない場合は、リクエストを通さず <code>5xx</code> を返します（公式ブログの説明）。</p>
+<figure class="fig"><img src="/assets/aws-apigateway-jwt-flow-v1.png" width="1600" height="940" loading="lazy" alt="JWTオーソライザーの検証フロー。クライアントのBearerトークンをAPI Gatewayが発行者、署名、audience、有効期限、追加クレーム、スコープの順に検証し、通ったリクエストだけが統合へ届く"><figcaption>図：JWTオーソライザーの検証フロー。検証はゲートウェイ内で完結し、Lambda関数の呼び出しはリクエスト経路に入りません。</figcaption></figure>
+<p>設定の上限と規則も公式ドキュメントで確認できます。信頼する発行者は1つのオーソライザーに最大10件まで登録でき、IdPの移行期間に旧・新の発行者を併用するような使い方ができます。発行者ごとに、受け付けるaudienceは最大100件、追加クレームのルールは最大10件まで設定できます。クレームルールは <code>SINGLE_STRING</code> 形式で、期待値は1つだけ、完全一致（大文字・小文字も区別）で評価します。トークン側のクレーム値が配列だとルールに一致せず <code>403</code> になります。対象にできないクレームは <code>iss</code>、<code>aud</code>、<code>exp</code>、<code>nbf</code>、<code>iat</code>、<code>scope</code>、<code>scp</code> です。</p>
+<p>署名アルゴリズムはRS256、RS384、RS512、ES256、ES384、ES512に対応し、許可するものを <code>defaultAlgorithms</code>（必須）で宣言します。HMAC系（HS256など）と <code>alg: none</code> のトークンは拒否されます。発行者のURLは、トークンの <code>iss</code> と末尾のスラッシュまで含めて完全一致させる必要があり、絶対HTTPS URLで、クエリ文字列やフラグメントは付けられません。発見文書と鍵セットは、プライベートREST APIの場合でも、パブリックインターネットから到達できる場所に公開されている必要があります。</p>
+<p>作成はコンソール、AWS CLI、CloudFormation（<code>AWS::ApiGateway::Authorizer</code> の <code>JwtConfiguration</code>）、OpenAPI定義（<code>x-amazon-apigateway-authorizer</code> で <code>type: jwt</code>）のいずれでもできます。オーソライザーやメソッドの変更は、ステージへ再デプロイして初めて反映されます。対象はRegional、エッジ最適化、プライベートの各REST APIで、提供範囲は全商用リージョンとAWS GovCloud（US）です。JWTオーソライザー自体の追加料金については、公式発表とドキュメントに明記を確認できなかったため未確認です。認可結果のキャッシュ（Lambdaオーソライザーにあるような結果キャッシュ）についても、REST API版のドキュメントに記載は確認できませんでした。</p>
+<p>既存のオーソライザーとの使い分けは、公式ドキュメントの比較表が基準になります。JWTオーソライザーは、1つ以上のOIDC／OAuth 2.0 IdP（Cognitoユーザープールを含む）のトークン検証に向きます。Cognitoユーザープールオーソライザーは、利用者がCognitoユーザープールにいて、プールの全アプリクライアントのトークンをクライアントIDの列挙なしで受け付けたい場合の選択肢です。Lambdaオーソライザーは、JWTオーソライザーでは評価できないクレームの確認や、JWT以外の資格情報など、カスタムの認可ロジックが必要な場合に使います。公式ブログも、トークンのイントロスペクション（失効確認など）が必要な場合はLambdaオーソライザーが適切だとしています。</p>
+<p>HTTP APIには以前からJWTオーソライザーがありましたが、別物です。HTTP API版は発行者が1つだけで、対応する署名アルゴリズムはRSA系のみ、公開鍵のキャッシュは最大2時間（ベストエフォート）です。今回のREST API版は、発行者を複数持てること、EC系の署名にも対応することが主な違いです。</p>
+<figure class="fig"><img src="/assets/aws-apigateway-compare-v1.png" width="1600" height="940" loading="lazy" alt="REST APIのオーソライザー3種の使い分け。JWTオーソライザーは複数のIdPのトークン検証、Cognitoユーザープールオーソライザーはプール利用者向け、Lambdaオーソライザーはカスタムロジック向け"><figcaption>図：オーソライザー3種の使い分け。トークン検証だけなら、関数を持たないJWTオーソライザーが担います。</figcaption></figure>
+
+<h2 id="portal">API Portal：APIの自動発見と棚卸し（11月23日）</h2>
+<p><a href="https://aws.amazon.com/about-aws/whats-new/2026/11/api-security-with-waf/">公式発表</a>。API PortalはAmazon API Gatewayの新機能で、API Gateway、Application Load Balancer、Amazon CloudFrontの背後で動いているAPIを自動で発見し、継続的に更新される台帳（APIインベントリ）を作ります。対象は1つのAWSアカウント、またはAWS Organizationsの組織全体です。発見はトラフィックログとサービス設定レコードから行い、エージェントの導入も、ログの転送も、トラフィックの経路変更も要りません。発見自体は読み取り専用で、API側の設定は変わりません。</p>
+<p>台帳でのAPIの単位は、フロントドアのリソース上の「HTTPメソッドとURIパス」です。たとえば <code>GET /v1/payments</code> が1行になります。API Gatewayの <code>RestApi</code> リソースとは単位が違い、1つのREST APIは通常、メソッドとパスの組み合わせごとに複数行として現れます。同じAPIが複数の入口（例：CloudFront配下のREST API）から到達できる場合は、入口ごとに行が分かれます。</p>
+<p>発見のされ方は入口ごとに異なります。API GatewayはREST APIだけが対象で、設定（AWS Configの構成アイテム）とトラフィックの両方から発見します。HTTP APIとWebSocket APIは発見されません。リテラルなパスに明示されたメソッドは、リクエストがなくても台帳に現れます。一方、<code>ANY</code> メソッドや <code>/{proxy+}</code> のような貪欲（greedy）なパスは設定からは発見されず、実際に呼ばれた具体的なメソッドとパスの形で、トラフィックの後に現れます。Application Load BalancerとCloudFrontはトラフィックからのみ発見するため、リクエストを受けていないエンドポイントは台帳に現れません。CloudFrontはグローバルサービスのため、発見はバージニア北部（us-east-1）リージョンでのみ行われます。新しいAPIが台帳に現れるまでには通常数時間かかり、発見を初めて有効にした場合は最大24時間見ておく必要があります。APIを削除したりトラフィックが止まったりしても、その行は約30日間台帳に残ってから消えます。</p>
+<figure class="fig"><img src="/assets/aws-apigateway-portal-v1.png" width="1600" height="940" loading="lazy" alt="API Portalの発見の仕組み。API Gateway REST API、Application Load Balancer、CloudFrontから発見されたAPIが台帳に集まり、シャドウAPI、管理対象API、ゾンビAPI、孤立APIに分類される"><figcaption>図：API Portalの発見と分類。発見されたAPIはすべてシャドウAPIから始まります。</figcaption></figure>
+<p>分類の定義も公式ドキュメントにあります。発見されたAPIはすべて「シャドウAPI」から始まります。これは、実在して到達できるのに、組織の管理下に置かれていない状態です。台帳から昇格させたAPIが「管理対象API」で、セキュリティ態勢の評価対象になり、後述のドキュメントポータルにも載せられます。管理対象APIのうち、30日間トラフィックがなく、かつ裏付けリソースの設定変更が90日間ないものは「ゾンビAPI」として示されます（両方の条件が必要です。トラフィックが戻れば表示は消えます）。所有アカウントが組織を離脱した、または閉鎖された管理対象APIは「孤立API」で、台帳には最後に分かった状態が残りますが、再発見も所見の更新もされません。</p>
+<p>管理対象APIについては、セキュリティ態勢が評価されます。評価項目は認証、リクエスト検証、スロットリング、TLSバージョン、AWS WAF保護などで、結果は所見として報告されます。WAF保護が付いていないAPIも所見に含まれます。AIエンドポイントの識別を有効にすると、トラフィックに現れるプロトコルから、MCPサーバ、A2Aサーバ、LLM向けのAPIといったAI向けエンドポイントも識別します。</p>
+<p>API Portalには、発見とは別の顔としてドキュメントポータルもあります。管理対象APIを「製品」にまとめ、API定義から生成したリファレンスページと自作ドキュメントを載せたポータルサイトとして公開する機能です。既存の「API Gateway Portals」（API Gatewayで作ったAPI専用の開発者ポータル）とは別リソースで、現時点では移行手段はありません。既存のポータルは従来の料金のまま動き続け、API Portal内の「Documentation portals」から管理します。</p>
+<p>料金は2本立てで、1つのAPIが両方で課金されることはありません。発見は、発見されたAPIの数×月で、発見を有効にしたアカウント（組織全体の場合は管理アカウント）に、発見を有効にしたリージョンごとに月額の最低料金付きで課金されます。ドキュメントポータルはポータル数×月で、含まれるAPI数を超えた分はAPI単位の追加課金です。具体的な単価はAPI Gatewayの料金ページで確認してください。提供範囲は東京を含む32リージョンです。API Portalには <code>apiportal</code> という専用のAPI名前空間があり、CLIでは <code>aws apiportal</code> として操作します。</p>
+
+<h2 id="waf">WAFとの連携：保護はWAFのマネージドルールが担う（11月23日）</h2>
+<p>API Portalは発見と評価までで、攻撃を止める保護自体はAWS WAFが担います。同日発表の2件がその保護側です。詳細は<a href="/aws-waf-november-2026">WAF記事</a>にまとめているため、ここではAPI Gateway側との関係に絞ります。</p>
+<p><a href="https://aws.amazon.com/about-aws/whats-new/2026/11/api-security-with-waf/">API security with WAF</a>では、WAFのAPI Securityマネージドルールグループが、悪用されやすいAPI攻撃の分類を担います。リクエスト内のレコードIDを差し替えて他人のデータを読むBOLA（オブジェクトレベル認可の不備）、トークンの偽造や盗まれたパスワードの大量試行を含む認証破りとクレデンシャルスタッフィング、隠れたルートの推測や公開ドキュメントの探索による偵察・列挙の3分類です。WAFが検出したイベントはAPI Portalの所見に統合され、管理対象APIの詳細画面で、態勢の所見と実際に検出された脅威をあわせて見られます。</p>
+<p><a href="https://aws.amazon.com/about-aws/whats-new/2026/11/waf-ai-endpoint-discovery-protection/">AIエンドポイント向けの発表</a>では、API Portalの発見範囲にLLM、MCP、A2Aのエンドポイントが含まれます。未文書化のまま公開されているMCPサーバは、シャドウAPIとして台帳に現れます。保護はWAFのAI Securityマネージドルールグループが担い、MCPとA2Aのプロトコル認識と準拠チェックで不正な形式のメッセージを止めます。内容検査を有効にすると、Amazon Bedrock Guardrailsの <code>InvokeGuardrailsCheck</code> APIを呼び、プロンプトインジェクションやジェイルブレイクの試み、リクエスト内の有害コンテンツ、レスポンス内の機微情報を検出します。この内容検査には追加料金がかかり、Bedrock側の料金も別にかかります。AI Securityの提供は東京を含む7リージョンです。</p>
+<figure class="fig"><img src="/assets/aws-apigateway-waf-v1.png" width="1600" height="900" loading="lazy" alt="API PortalとWAFの連携。API PortalはWAF保護の欠けを所見として報告し、WAFのAPI SecurityとAI Securityの検出イベントはAPI Portalの所見に統合される"><figcaption>図：発見と保護の分担。API Portalの所見とWAFの検出イベントが行き来します。</figcaption></figure>
+
+<h2 id="list">発表一覧（11月・実質2件）</h2>
+<table class="aws-table"><thead><tr><th>日付</th><th>変更の要点</th></tr></thead><tbody><tr><td class="date">11月17日</td><td>REST APIがJWTオーソライザーに対応（同じ発表が<a href="https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-api-gateway-rest-jwt-authorizers/">別URL</a>でも掲載された二重掲載のため1件として数える） <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-api-gateway-rest-authorizers-jwt/">公式発表</a></td></tr><tr><td class="date">11月23日</td><td>API PortalによるAPIの自動発見と、WAF API Securityによる保護が一般提供に <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/api-security-with-waf/">公式発表</a></td></tr><tr><td class="date">11月23日</td><td>WAF AI SecurityによるLLM、MCP、A2Aエンドポイントの自動発見と保護。発見はAPI Portalが担う <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/waf-ai-endpoint-discovery-protection/">公式発表</a></td></tr></tbody></table>
+
+<h2 id="sources">資料と出典</h2>
+<p>各項目の「公式発表」リンクが一次資料です。件数と期間の数え方は<a href="/aws-november-2026">索引ページ</a>にまとめています。本文の詳細は、次の公式ドキュメントと公式ブログで補いました。</p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-jwt-authorizer.html">Control access to REST APIs using JWT authorizers</a>（検証手順、対応アルゴリズム、オーソライザー3種の比較）</li>
+<li><a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-jwt-authorizer-create.html">Create a JWT authorizer for a REST API</a>（発行者・audience・クレームルールの上限と、CLI／CloudFormation／OpenAPIでの作成）</li>
+<li><a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-jwt-authorizer-keys.html">Signing keys and troubleshooting JWT authorizers</a>（公開鍵のキャッシュと鍵ローテーション、失敗時の対処）</li>
+<li><a href="https://aws.amazon.com/blogs/compute/securing-rest-apis-with-jwt-authorizers-in-amazon-api-gateway/">Securing REST APIs with JWT authorizers in Amazon API Gateway</a>（AWS Compute Blog。検証手順の解説と、発行者を2つ持つ構成例）</li>
+<li><a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-jwt-authorizer.html">Control access to HTTP APIs with JWT authorizers in API Gateway</a>（HTTP API版との違いの確認）</li>
+<li><a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apiportal.html">API Portal in API Gateway</a>（発見の仕組み、対象と制約、提供リージョン）</li>
+<li><a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apiportal-concepts.html">API Portal concepts</a>（シャドウAPI、管理対象API、ゾンビAPI、孤立APIの定義）</li>
+<li><a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apiportal-how-it-fits.html">How API Portal resources fit together</a>（リソースの関係と課金の仕組み、既存のAPI Gateway Portalsとの関係）</li>
+</ul>
+
+</div>
+<script type="module" src="/assets/site.js"></script>
+</body>
+</html>
