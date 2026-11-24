@@ -77,6 +77,24 @@ Cloudflare Workers Static Assets の HTML handling により、URLは次のよ�
 
 そのため `public/index.html`、`public/feed.xml`、専用RSS XML、`.feed-state.json`、`.report-feed-state.json` は手編集しません。
 
+## Glossary auto-links
+
+- `glossary/terms.json` - 用語辞書（正本。用語・別名・分類・短い説明）
+- `public/glossary.html` - 用語集ページ（`/glossary`）。一覧部分は生成時に辞書から再生成される
+- `scripts/glossary.mjs` - 生成時の自動リンクと用語集の再生成
+
+記事を生成するとき、辞書に登録された用語の「その記事での初出だけ」が
+`/glossary#term-<id>` へのリンク（`class="gloss"`、title属性に短い説明）になります。
+
+- 見出し・既存リンク・コード（pre/code）・図のキャプション・定義リスト（dl）の中はリンク化しません
+- 記事自身の用語補足節（`id="glossary"` の見出し配下）の中もリンク化しません
+- 略語などのASCII用語は単語境界でのみ一致させ、長い用語を短い用語より先に照合します
+- 著者が手作業で `#term-*` へリンク済みの用語は自動リンクの対象から外れます
+- ページに `<!-- glossary: off -->` と書くと、そのページでは自動リンクを止められます
+- レポート原本から生成されるページ（`/vulnerabilities`、`/technology-updates`）は対象外です
+- 自動リンクは生成物として扱い、RSSの内容フィンガープリントでは剥がして計算します。
+  辞書の変更が記事の更新日時を動かすことはありません
+
 ## Site-wide full-text search
 
 トップページからタイトル・説明・公開本文を検索できます。スペース区切りはAND検索で、
