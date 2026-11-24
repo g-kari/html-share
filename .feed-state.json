@@ -61,6 +61,11 @@
       "published": "2026-11-19T14:58:06.000Z",
       "updated": "2026-11-23T05:06:11.000Z"
     },
+    "chatgpt-sites-pricing.html": {
+      "fingerprint": "92a8f6cdb4ac8974361df3bfaba403ac70d10d590efb5602923891489e46e207",
+      "published": "2026-11-24T05:09:52.000Z",
+      "updated": "2026-11-24T05:09:52.000Z"
+    },
     "cloudfront-protobuf-maintenance.html": {
       "fingerprint": "3ac82cf61b10d53fa300c9ba5c09c2fc6f1395e9abc8cc079309fd56c7d7508e",
       "published": "2026-10-07T16:24:47.000Z",
@@ -142,9 +147,9 @@
       "updated": "2026-11-19T17:36:57.000Z"
     },
     "glossary.html": {
-      "fingerprint": "f566fc22b073b05b32c491cca5c87baba410d6a01b9499bc1a5822c287b10bd6",
+      "fingerprint": "561ce4b10e6f84adb254ab22d63b0360482da2fef552646f84f8a969492384eb",
       "published": "2026-11-24T01:37:31.000Z",
-      "updated": "2026-11-24T01:37:31.000Z"
+      "updated": "2026-11-24T01:42:01.000Z"
     },
     "go-code-verification.html": {
       "fingerprint": "add16dcf6c555dc85cb859063495bf903ab5151b47f9de01db2dbaede2cc0162",

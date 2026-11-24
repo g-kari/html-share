@@ -7,15 +7,24 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Tue, 24 Nov 2026 01:37:31 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 24 Nov 2026 05:09:52 GMT</lastBuildDate>
+    <item>
+      <title>ChatGPT Sitesの料金：無料ホスティングは2026年12月31日まで、2027年からはクレジット枠制</title>
+      <link>https://share.0g0.xyz/chatgpt-sites-pricing</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/chatgpt-sites-pricing</guid>
+      <description>ChatGPT Sitesのホスティング料金をOpenAI公式ドキュメントで確認しました。無料期間は2026年12月31日までで、2027年1月1日からはプランごとの月次クレジット枠を超えた分を支払う形になります。枠の大きさ、消費項目ごとの単価、データベース1 GiBでPlusの枠を超える計算を整理します。</description>
+      <pubDate>Tue, 24 Nov 2026 05:09:52 GMT</pubDate>
+      <dcterms:created>2026-11-24T05:09:52.000Z</dcterms:created>
+      <dcterms:modified>2026-11-24T05:09:52.000Z</dcterms:modified>
+    </item>
     <item>
       <title>用語集：HTML Shareの記事に出てくる専門用語</title>
       <link>https://share.0g0.xyz/glossary</link>
       <guid isPermaLink="true">https://share.0g0.xyz/glossary</guid>
       <description>HTML Shareの記事に出てくる専門用語の短い説明の一覧です。記事本文では、辞書に登録された用語の初出が自動でこの用語集へリンクされます。</description>
-      <pubDate>Tue, 24 Nov 2026 01:37:31 GMT</pubDate>
+      <pubDate>Tue, 24 Nov 2026 01:42:01 GMT</pubDate>
       <dcterms:created>2026-11-24T01:37:31.000Z</dcterms:created>
-      <dcterms:modified>2026-11-24T01:37:31.000Z</dcterms:modified>
+      <dcterms:modified>2026-11-24T01:42:01.000Z</dcterms:modified>
     </item>
     <item>
       <title>Shirudo：パッチが届くまでの間、サービスを止めずに脆弱性を塞ぐ</title>
