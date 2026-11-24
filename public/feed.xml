@@ -7,7 +7,25 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Tue, 24 Nov 2026 23:14:49 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 24 Nov 2026 23:27:41 GMT</lastBuildDate>
+    <item>
+      <title>Cloudflare Code Mode：2,500超のAPIを2つのツールに畳むMCPの設計</title>
+      <link>https://share.0g0.xyz/cloudflare-code-mode-mcp</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/cloudflare-code-mode-mcp</guid>
+      <description>CloudflareのCode Modeは、2,594エンドポイント分のツール定義（約117万トークン）を search と execute の2ツール（約1,000トークン）に置き換えるMCPの設計です。公式ブログとcloudflare/mcpのREADMEで数字の測り方、仕組み、サンドボックス、向き不向きを確認します。</description>
+      <pubDate>Tue, 24 Nov 2026 23:27:41 GMT</pubDate>
+      <dcterms:created>2026-11-24T23:27:41.000Z</dcterms:created>
+      <dcterms:modified>2026-11-24T23:27:41.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>用語集：HTML Shareの記事に出てくる専門用語</title>
+      <link>https://share.0g0.xyz/glossary</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/glossary</guid>
+      <description>HTML Shareの記事に出てくる専門用語の短い説明の一覧です。記事本文では、辞書に登録された用語の初出が自動でこの用語集へリンクされます。</description>
+      <pubDate>Tue, 24 Nov 2026 23:18:09 GMT</pubDate>
+      <dcterms:created>2026-11-24T01:37:31.000Z</dcterms:created>
+      <dcterms:modified>2026-11-24T23:18:09.000Z</dcterms:modified>
+    </item>
     <item>
       <title>PHP 8.6の変更点：セッション既定値の厳格化と、自分のリポジトリへの影響</title>
       <link>https://share.0g0.xyz/php-8-6-release-2026-11-19</link>
@@ -25,15 +43,6 @@
       <pubDate>Tue, 24 Nov 2026 23:14:49 GMT</pubDate>
       <dcterms:created>2026-11-19T14:16:03.000Z</dcterms:created>
       <dcterms:modified>2026-11-24T23:14:49.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>用語集：HTML Shareの記事に出てくる専門用語</title>
-      <link>https://share.0g0.xyz/glossary</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/glossary</guid>
-      <description>HTML Shareの記事に出てくる専門用語の短い説明の一覧です。記事本文では、辞書に登録された用語の初出が自動でこの用語集へリンクされます。</description>
-      <pubDate>Tue, 24 Nov 2026 23:09:22 GMT</pubDate>
-      <dcterms:created>2026-11-24T01:37:31.000Z</dcterms:created>
-      <dcterms:modified>2026-11-24T23:09:22.000Z</dcterms:modified>
     </item>
     <item>
       <title>AIボット系エージェント 2026年秋の比較：Grok Bot、2つのOpenBot、MausBot、Hermes Agent</title>

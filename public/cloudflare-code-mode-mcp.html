@@ -28,6 +28,14 @@
 table.cmp{border-collapse:collapse;margin:1rem 0;width:100%}
 table.cmp th,table.cmp td{border:1px solid var(--line);padding:.45rem .7rem;text-align:left;vertical-align:top}
 </style>
+  <!-- html-share: social metadata -->
+  <meta property="og:site_name" content="HTML Share">
+  <meta name="twitter:title" content="Cloudflare Code Mode：2,500超のAPIを2つのツールに畳むMCPの設計">
+  <meta name="twitter:description" content="ツール定義 約117万トークンを約1,000トークンに。search/executeの仕組み、サンドボックス、数字の読み方と向き不向きを公式資料で確認します。">
+  <!-- /html-share: social metadata -->
+  <!-- html-share: rss discovery -->
+  <link rel="alternate" type="application/rss+xml" title="HTML Share RSS" href="https://share.0g0.xyz/feed.xml">
+  <!-- /html-share: rss discovery -->
 </head>
 <body>
 <div class="wrap">
@@ -42,7 +50,7 @@ table.cmp th,table.cmp td{border:1px solid var(--line);padding:.45rem .7rem;text
 <div class="ttl">要点</div>
 <ol>
 <li>MCPでツールを増やすと、その定義がモデルの文脈を常駐して食います。Cloudflare APIの2,594エンドポイントを通常のツールとして載せると定義だけで1,170,523トークン（Cloudflareの実測）になり、多くのモデルの文脈枠を超えます。</li>
-<li>Code Modeはツールを <code>search</code> と <code>execute</code> に絞ります。仕様はサーバー側に置き、モデルはJavaScriptを書いて必要なエンドポイントだけを検索し、API呼び出しの連鎖もコードとして1回で実行します。常駐コストは約1,000トークンで、エンドポイントが増えてもほぼ固定です。</li>
+<li><a class="gloss" href="/glossary#term-code-mode" title="AIエージェントにツールを1つずつ呼ばせず、ツールを呼ぶコードを書かせてサンドボックスで実行する方式。ツール定義をモデルの文脈に常駐させる量を減らし、複数呼び出しの連鎖をコードの中で済ませる。">Code Mode</a>はツールを <code>search</code> と <code>execute</code> に絞ります。仕様はサーバー側に置き、モデルはJavaScriptを書いて必要なエンドポイントだけを検索し、API呼び出しの連鎖もコードとして1回で実行します。常駐コストは約1,000トークンで、エンドポイントが増えてもほぼ固定です。</li>
 <li>コードはDynamic Workerの隔離環境で実行されます。ファイルシステムと環境変数はなく、外向き通信は既定で無効です。ただし隔離が防ぐのは通信と秘密の漏えいで、コードの正しさまでは保証しません。</li>
 <li>効果が出るのは、エンドポイントが多い大きなAPIと、多段の編排がある作業です。ツールが数個の小さいサーバーや1回だけの呼び出しでは、通常のツール呼び出しと大差ありません。</li>
 </ol>

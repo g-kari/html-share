@@ -118,14 +118,14 @@
       <p><a class="rss" href="/feed.xml">RSSで新規公開・更新を購読</a></p>
       <p><a class="rss" href="/glossary">用語集</a> — 記事に出てくる専門用語の短い説明</p>
       <p><a class="rss" href="/vulnerabilities-feed.xml">脆弱性レポート 更新RSSを購読</a> · <a class="rss" href="/security-incidents-feed.xml">漏洩・セキュリティ事案レポート 更新RSSを購読</a></p>
-      <p class="count">90 pages</p>
+      <p class="count">91 pages</p>
     </header>
     <div id="site-guide-fallback" class="site-guide" aria-label="ページの探し方と購読">
       <details class="guide-item" data-guide-section="reports"><summary>よく読むレポートへ</summary><div><p>更新を追いたいページを直接開けます。</p><ul><li><a href="/technology-updates">技術アップデート</a></li><li><a href="/vulnerabilities">重要な脆弱性</a></li><li><a href="/security-incidents">情報流出・セキュリティ事案</a></li></ul></div></details>
       <details class="guide-item" data-guide-section="search"><summary>本文まで探す・更新を受け取る</summary><div><p>下の検索はスペース区切りのAND検索です。RSSは申込みなしで購読アプリに追加できます。</p><ul><li><a href="#site-search">本文を検索する</a></li><li><a href="/feed.xml">全ページの更新RSS</a></li><li><a href="/vulnerabilities-feed.xml">脆弱性の更新RSS</a></li><li><a href="/security-incidents-feed.xml">事案の更新RSS</a></li></ul></div></details>
     </div>
     <div id="site-guide-enhanced" aria-label="ページの探し方と購読" hidden></div>
-    <form id="site-search" class="search" role="search" data-index="/assets/search/index-4291e7b046b4f5c6.json" hidden>
+    <form id="site-search" class="search" role="search" data-index="/assets/search/index-c80200afb5425e86.json" hidden>
       <label for="search-query">タイトル・本文を検索</label>
       <div class="search-controls">
         <input id="search-query" name="q" type="search" placeholder="例：Cloudflare 日本語" maxlength="200" enterkeyhint="search" autocomplete="off" aria-describedby="search-help search-status">
@@ -141,6 +141,22 @@
     <section id="page-list" class="grid" aria-label="共有ページ一覧">
 
       <article class="card">
+        <a href="/cloudflare-code-mode-mcp">
+          <h2>Cloudflare Code Mode：2,500超のAPIを2つのツールに畳むMCPの設計</h2>
+          <p>CloudflareのCode Modeは、2,594エンドポイント分のツール定義（約117万トークン）を search と execute の2ツール（約1,000トークン）に置き換えるMCPの設計です。公式ブログとcloudflare/mcpのREADMEで数字の測り方、仕組み、サンドボックス、向き不向きを確認します。</p>
+          <code>/cloudflare-code-mode-mcp</code>
+        </a>
+      </article>
+
+      <article class="card">
+        <a href="/glossary">
+          <h2>用語集：HTML Shareの記事に出てくる専門用語</h2>
+          <p>HTML Shareの記事に出てくる専門用語の短い説明の一覧です。記事本文では、辞書に登録された用語の初出が自動でこの用語集へリンクされます。</p>
+          <code>/glossary</code>
+        </a>
+      </article>
+
+      <article class="card">
         <a href="/php-8-6-release-2026-11-19">
           <h2>PHP 8.6の変更点：セッション既定値の厳格化と、自分のリポジトリへの影響</h2>
           <p>PHP 8.6.0（2026年11月19日）の新機能と互換性変更、セッション既定値の厳格化、PHP 8.2のサポート終了（2026年12月31日）と、自分のGitHubリポジトリの走査結果をまとめます。</p>
@@ -153,14 +169,6 @@
           <h2>PHPのセキュリティ更新：修正版と確認手順（2026年11月19日）</h2>
           <p>PHP 8.2〜8.5のセキュリティ修正版、重大なセッションの不具合、OSやDockerでの配布状況と更新後の確認をまとめます。</p>
           <code>/php-security-release-2026-11-19</code>
-        </a>
-      </article>
-
-      <article class="card">
-        <a href="/glossary">
-          <h2>用語集：HTML Shareの記事に出てくる専門用語</h2>
-          <p>HTML Shareの記事に出てくる専門用語の短い説明の一覧です。記事本文では、辞書に登録された用語の初出が自動でこの用語集へリンクされます。</p>
-          <code>/glossary</code>
         </a>
       </article>
 
