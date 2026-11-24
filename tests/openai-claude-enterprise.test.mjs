@@ -37,7 +37,7 @@ test("Enterprise comparison has accessible structure, canonical and social metad
 });
 
 test("Enterprise comparison distinguishes evidence, uncertainty and scope", () => {
-  assert.equal(document.querySelectorAll(".source-list > li").length, 24);
+  assert.equal(document.querySelectorAll(".source-list > li").length, 25);
   for (const source of document.querySelectorAll(".source-list > li")) {
     assert.ok([...source.querySelectorAll("a[href]")].every((a) => a.href.startsWith("https://")));
     assert.ok(source.querySelector("span")?.textContent.length);
@@ -112,4 +112,7 @@ test("EFS documentation preserves the storage and evidence boundaries", () => {
     /データ転送のクラウド費用/
   ]) assert.match(body?.textContent ?? "", required);
   assert.ok(document.querySelector('#s24 a')?.href.includes("/enterprise-frontier-safeguards/flagged-cases"));
+  assert.ok(document.querySelector("#s25 a")?.href.endsWith("/setup-console"));
+  assert.match(body?.querySelector(".note")?.textContent ?? "", /親組織がある場合は配下すべて/);
+  assert.match(body?.querySelector(".note")?.textContent ?? "", /既定のワークスペースは対象外/);
 });
