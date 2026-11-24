@@ -43,6 +43,7 @@ details{border-block:1px solid var(--rule);padding:12px 0;margin:18px 0}details+
 .source-list{font-size:.85rem;line-height:1.7;columns:2;column-gap:34px;padding-left:1.8em}.source-list li{break-inside:avoid;margin:0 0 10px}.source-list span{display:block;font-size:.77rem;color:var(--muted)}.footer{border-top:1px solid var(--rule);padding:20px 0 50px;color:var(--muted);font-size:.81rem}
 @media(max-width:700px){.wrap{width:calc(100% - 28px)}.hero{padding:27px 0 22px}.toc{gap:7px 11px;font-size:.8rem}section{padding-top:28px}section+section{margin-top:27px}h1{letter-spacing:-.025em}.key{padding:12px 13px}.source-list{columns:1}table{font-size:.86rem}th,td{padding:9px 8px}.sitehead .wrap{align-items:flex-start;flex-direction:column;gap:2px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.efs-flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;list-style:none;padding:0;margin:0}.efs-flow li{margin:0;padding:12px 14px;background:var(--soft);border-top:3px solid var(--accent);font-size:.9rem}@media(max-width:620px){.efs-flow{grid-template-columns:1fr}}
 </style>
   <!-- html-share: social metadata -->
   <meta property="og:site_name" content="HTML Share">
@@ -61,19 +62,20 @@ details{border-block:1px solid var(--rule);padding:12px 0;margin:18px 0}details+
   <header class="hero">
     <h1>OpenAI EnterpriseとClaude Enterpriseの比較</h1>
     <p class="dek">20〜49人の組織がコーディングと全社利用を両立するときの選定材料。セキュリティ、ソースコード保護、データ保持、監査、料金を公式公開資料から整理する。</p>
-    <p class="byline">調査基準日：<time datetime="2026-11-18">2026年11月18日</time>　｜　対象：ChatGPT Enterprise／Codex と Claude Enterprise／Claude Code</p>
+    <p class="byline">調査基準日：<time datetime="2026-11-18">2026年11月18日</time>　｜　EFS追記：<time datetime="2026-11-24">2026年11月24日</time>　｜　対象：ChatGPT Enterprise／Codex と Claude Enterprise／Claude Code</p>
   </header>
 
-  <nav class="toc" aria-label="記事内の目次"><span>目次</span><a href="#conclusion">結論</a><a href="#overview">比較表</a><a href="#code">コード保護</a><a href="#retention">保持・監査</a><a href="#cost">コスト</a><a href="#checklist">確認項目</a><a href="#sources">出典</a></nav>
+  <nav class="toc" aria-label="記事内の目次"><span>目次</span><a href="#conclusion">結論</a><a href="#overview">比較表</a><a href="#code">コード保護</a><a href="#retention">保持・監査</a><a href="#efs">Claude EFS</a><a href="#cost">コスト</a><a href="#checklist">確認項目</a><a href="#sources">出典</a></nav>
 
   <section id="conclusion" class="prose">
     <h2>結論：20〜49人では契約方式と監査対象が分かれ目</h2>
     <div class="key">
-      <h3>先に押さえる4点</h3>
+      <h3>先に押さえる5点</h3>
       <ul>
         <li><strong>導入規模：</strong>Claude Enterpriseは20席からセルフサービス契約ができる。営業経由の契約は50席から。OpenAI Enterpriseの価格・最低席数は公開情報だけでは確定できず、見積もりが必要。<a href="#s1">[1]</a><a href="#s2">[2]</a></li>
         <li><strong>ソースコード：</strong>両製品とも企業データを原則としてモデル学習に使わない。ただし推論に必要なコードや出力はサービスへ送られ得る。学習除外と機密情報の非送信は別の問題。<a href="#s4">[4]</a><a href="#s5">[5]</a></li>
         <li><strong>監査：</strong>ClaudeのCompliance APIはローカルClaude Codeのセッション本文を取得できるが、Claude Codeのクラウドセッションは対象外。OpenAIのCompliance Logs Platformもエージェント内の全操作を網羅するものではない。<a href="#s14">[14]</a><a href="#s15">[15]</a></li>
+        <li><strong>Claudeの新しいZDRオプション：</strong>一部顧客向けのEFSは、対象APIのデータを自社クラウドに保存する。提供元にコピーを残さず、自動で安全性を検査できる。<a href="#efs">適用範囲と監査の違い</a>を確認したい。</li>
         <li><strong>料金：</strong>Claude Enterpriseは<strong>1席月額20米ドル相当（年払い）＋全機能のトークン従量課金</strong>。30人・例示した中程度の利用量なら月額<strong>1,580米ドル</strong>という試算。OpenAI Enterpriseの総額は見積もり前には不明。<a href="#s1">[1]</a><a href="#s3">[3]</a></li>
       </ul>
     </div>
@@ -94,7 +96,7 @@ details{border-block:1px solid var(--rule);padding:12px 0;margin:18px 0}details+
         <tr><th scope="row">送信前の検査</th><td>Codexの管理ポリシー、権限、外部ガードレール統合。Prisma AIRS連携が検査する内容には制限。</td><td>Enterprise Inference hooksでプロンプト・ツール結果・添付テキスト等を顧客側の検査先へ送り、許可／拒否可能。</td></tr>
         <tr><th scope="row">保持の設定</th><td>チャット、ファイル、スナップショット、API利用など製品・データ種別ごとに別の条件。</td><td>Enterpriseのチャット保持を設定可能。プロジェクトの個別設定やCompliance APIの保存は別に確認。</td></tr>
         <tr><th scope="row">コードセッション監査</th><td>Compliance Logs Platform＋Codexの追加のテレメトリーや端末・Git操作ログを組み合わせる。</td><td>ローカルClaude Codeのセッション本文をCompliance APIで取得可能。一部クラウド実行は対象外。</td></tr>
-        <tr><th scope="row">ZDR</th><td>API向けの対象機能・適格条件あり。ChatGPT Work全体に自動適用されない。</td><td>適格なAPIと別途承認されたClaude Code Enterpriseが対象になり得る。Claude Chat/Coworkには包括適用されない。</td></tr>
+        <tr><th scope="row">ZDR</th><td>API向けの対象機能・適格条件あり。ChatGPT Work全体に自動適用されない。</td><td>適格なAPIと別途承認されたClaude Code Enterpriseが対象になり得る。Claude Chat/Coworkには包括適用されない。対象APIには<a href="#efs">EFSの公開ベータ</a>もある。</td></tr>
         </tbody>
       </table>
     </div>
@@ -141,6 +143,23 @@ details{border-block:1px solid var(--rule);padding:12px 0;margin:18px 0}details+
     </div>
     <p class="small">出典：<a href="#s4">[4]</a><a href="#s12">[12]</a>〜<a href="#s17">[17]</a>。監査ログの保存期間と元データの保存期間は同一ではない。</p>
     <div class="note"><strong>見落としやすい点：</strong>「チャットを30日で消す」設定があっても、別のコンプライアンス取得基盤に収集済みの履歴がより長く保存されることがある。逆にZDRで保存を抑えると、監査・eDiscoveryで取得できる本文が減ることがある。目的に応じて保持と証跡の両立を設計する。</div>
+    <h3 id="efs">ClaudeのEFS：提供元には残さず、自社の保管先で安全性を監視</h3>
+    <div class="prose">
+      <p><span class="data-label">2026年11月23日・公開ベータ</span> AnthropicのEnterprise Frontier Safeguards（EFS）は、一部の法人顧客向けに、<strong>複数のAPIリクエストにまたがる安全性の監視</strong>を追加する。従来のZDR（Zero Data Retention）は各リクエストをその場で検査する。EFSの顧客管理ストレージ方式では、入出力とモデルの推論データを顧客自身のクラウド領域に暗号化して書き込み、自動システムがそこから読み取って検査する。提供元は書き込み後に入出力のコピーを保持しない。提供元の担当者が内容を読むこともない。モデルや分類器の学習にも使わない。<a href="#s22">[22]</a><a href="#s23">[23]</a></p>
+      <figure>
+        <ol class="efs-flow" aria-label="顧客管理ストレージのデータの流れ">
+          <li><strong>1. 受け取る</strong><br>対象APIの入出力</li>
+          <li><strong>2. 保管・検査する</strong><br>自社クラウドに暗号化して保存し、自動で検査</li>
+          <li><strong>3. 検出結果を知らせる</strong><br>安全性ケースには本文を含めない</li>
+        </ol>
+        <figcaption>顧客管理ストレージ方式の概念図。入出力を保持しないのは提供元であり、顧客側には暗号化済みの安全性データが残る。</figcaption>
+      </figure>
+      <ul>
+        <li><strong>適用範囲：</strong>Claude PlatformではEFSを設定したワークスペース内のMessages APIが、モデルを問わず対象。これはClaude Enterpriseの画面やClaude Code全体への標準適用を意味しない。コード実行コンテナ、Files APIのアップロード、Batch APIの結果、Managed Agentsのセッションは別の保存ルールに従う。<a href="#s23">[23]</a></li>
+        <li><strong>監査・EDRとの違い：</strong>異常が検出されると、ケースID、分類、状態、会話記録の識別子などが通知される。入出力本文や抜粋は含まれず、EFSが保存した暗号化データを顧客の担当者が直接読むこともできない。ログ分析基盤（SIEM）へ連携する場合でも、本文照合には別途保管した自社側の原本が必要。EFSは端末監視（EDR）や全操作の監査、データ送信を止めるDLPの代わりにはならない。<a href="#s22">[22]</a><a href="#s23">[23]</a></li>
+        <li><strong>契約と費用：</strong>公開ベータは対象顧客に案内される。見積もり時に、提供経路と対象ワークスペースを確認する。自社側の保存先・鍵・アクセス権・保持期間も決めておく。AnthropicのEFS利用料やモデル料金の上乗せはないが、顧客にはストレージの読み書きや鍵操作などのクラウド費用が発生する。提供元が暗号化済みコピーを保持する方式は、顧客管理鍵を使っていてもZDRではない。<a href="#s22">[22]</a><a href="#s23">[23]</a></li>
+      </ul>
+    </div>
     <h3>監査で「何を証明できるか」</h3>
     <div class="prose">
       <p>Claude Codeのローカルセッション取得にはユーザー入力、モデル応答、ツール呼び出しと結果が含まれる。ただしそれはAIへ送られたセッションの記録であり、端末上の最終ファイル状態やGit pushの事実を保証するものではない。OpenAI側もCompliance APIだけで実行全操作を網羅できないため、Gitの監査ログ、端末／EDR、CI、OpenTelemetry等と突き合わせる。<a href="#s14">[14]</a><a href="#s15">[15]</a></p>
@@ -194,7 +213,7 @@ details{border-block:1px solid var(--rule);padding:12px 0;margin:18px 0}details+
       <li><strong>対象製品の一覧：</strong>Chat、Code、Cowork、API、クラウド実行が同一の契約・管理ポリシーで扱われるか。</li>
       <li><strong>送信の境界：</strong>ソース、添付、ツール結果、MCP連携内容をいつ外部へ送信するか。秘密情報遮断テストを実施できるか。</li>
       <li><strong>保持の一覧表：</strong>チャット、ファイル、コードセッション、API、ログ、バックアップを別々に保持期間・削除条件まで文書化できるか。</li>
-      <li><strong>ZDRと監査の両立：</strong>どの製品・機能にZDRが適用されるか。ZDR有効時にも欲しい監査証跡を取得できるか。</li>
+      <li><strong>ZDRと監査の両立：</strong>どの製品・機能にZDRが適用されるか。ZDR有効時にも欲しい監査証跡を取得できるか。EFSを使うなら、対象API・ワークスペース・契約経路、保存先と鍵の管理者、安全性ケースで受け取れる項目を確認する。</li>
       <li><strong>監査の網羅率：</strong>ローカル／クラウドで、誰が何を読み、どのコマンドを実行し、最終的に何をGitへ反映したかを突合できるか。</li>
       <li><strong>地域と第三者処理：</strong>データ保管・推論・外部DLP先・接続サービスの地域と再委託先を説明できるか。</li>
       <li><strong>上限付きの実測：</strong>開発者10人＋一般20人で2〜4週間の試用を行い、月間トークン、キャッシュ率、モデルの偏り、実際の削減工数を測る。</li>
@@ -227,6 +246,8 @@ details{border-block:1px solid var(--rule);padding:12px 0;margin:18px 0}details+
       <li id="s19"><a href="https://privacy.claude.com/en/articles/7996890-where-are-your-servers-located-do-you-host-your-models-on-eu-servers">Anthropic: Server locations</a><span>ネイティブClaudeの保管場所</span></li>
       <li id="s20"><a href="https://support.claude.com/en/articles/15422948-enable-us-only-inference-for-your-organization">Anthropic: US-only inference</a><span>米国内推論の条件</span></li>
       <li id="s21"><a href="https://support.claude.com/en/articles/17444462-set-up-and-manage-the-new-unified-claude-experience-for-your-enterprise-organization">Anthropic: Unified Claude experience</a><span>2026年11月時点の新しい体験</span></li>
+      <li id="s22"><a href="https://claude.com/ja/resources/articles/zero-data-retention-with-enterprise-frontier-safeguards">Anthropic：Enterprise Frontier Safeguardsによるゼロデータ保持</a><span>2026年11月23日の公開ベータ発表</span></li>
+      <li id="s23"><a href="https://platform.claude.com/docs/en/manage-claude/enterprise-frontier-safeguards/overview">Anthropic：Enterprise Frontier Safeguardsの概要</a><span>保存方式、対象API、安全性ケース、費用</span></li>
     </ol>
   </section>
 </main>
