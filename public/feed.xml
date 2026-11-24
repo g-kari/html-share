@@ -7,7 +7,34 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Tue, 24 Nov 2026 08:58:19 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 24 Nov 2026 09:51:47 GMT</lastBuildDate>
+    <item>
+      <title>Orcaとは：Claude CodeやCodexをワークツリーごとに並行実行する無料のエージェント開発環境（ADE）</title>
+      <link>https://share.0g0.xyz/orca</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/orca</guid>
+      <description>Orca（orca.dev）の概要、Gitワークツリーでエージェントごとに作業場所を分ける仕組み、Orca Bots、対応エージェント、T3 Codeとの違い、料金（本体は無料）、データの扱いを、公式サイト・GitHubと出典つきで整理します。</description>
+      <pubDate>Tue, 24 Nov 2026 09:51:47 GMT</pubDate>
+      <dcterms:created>2026-11-24T09:51:47.000Z</dcterms:created>
+      <dcterms:modified>2026-11-24T09:51:47.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>T3 Codeとは：Claude CodeやCodexを1つの画面で操る無料のオープンソース。T3 Chatとは別物</title>
+      <link>https://share.0g0.xyz/t3-code</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/t3-code</guid>
+      <description>T3 Code（t3.codes）の概要、T3 Chatとの違い、対応するコーディングエージェント、仕組み、リモート利用、料金（本体は無料、T3 Connectの上限だけT3 Chatプランと連動）、データの扱いを、公式サイト・GitHub・公式FAQと出典つきで整理します。</description>
+      <pubDate>Tue, 24 Nov 2026 09:51:47 GMT</pubDate>
+      <dcterms:created>2026-11-24T08:58:19.000Z</dcterms:created>
+      <dcterms:modified>2026-11-24T09:51:47.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>用語集：HTML Shareの記事に出てくる専門用語</title>
+      <link>https://share.0g0.xyz/glossary</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/glossary</guid>
+      <description>HTML Shareの記事に出てくる専門用語の短い説明の一覧です。記事本文では、辞書に登録された用語の初出が自動でこの用語集へリンクされます。</description>
+      <pubDate>Tue, 24 Nov 2026 09:03:48 GMT</pubDate>
+      <dcterms:created>2026-11-24T01:37:31.000Z</dcterms:created>
+      <dcterms:modified>2026-11-24T09:03:48.000Z</dcterms:modified>
+    </item>
     <item>
       <title>T3 Chatとは：複数モデルを1つの画面で切り替えるAIチャット。Proは月8ドル、利用量はメーター制</title>
       <link>https://share.0g0.xyz/t3-chat</link>
@@ -18,15 +45,6 @@
       <dcterms:modified>2026-11-24T08:58:19.000Z</dcterms:modified>
     </item>
     <item>
-      <title>T3 Codeとは：Claude CodeやCodexを1つの画面で操る無料のオープンソース。T3 Chatとは別物</title>
-      <link>https://share.0g0.xyz/t3-code</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/t3-code</guid>
-      <description>T3 Code（t3.codes）の概要、T3 Chatとの違い、対応するコーディングエージェント、仕組み、リモート利用、料金（本体は無料、T3 Connectの上限だけT3 Chatプランと連動）、データの扱いを、公式サイト・GitHub・公式FAQと出典つきで整理します。</description>
-      <pubDate>Tue, 24 Nov 2026 08:58:19 GMT</pubDate>
-      <dcterms:created>2026-11-24T08:58:19.000Z</dcterms:created>
-      <dcterms:modified>2026-11-24T08:58:19.000Z</dcterms:modified>
-    </item>
-    <item>
       <title>OpenAI EnterpriseとClaude Enterpriseの比較｜セキュリティ・監査・コスト（2〜200席の導入目安）</title>
       <link>https://share.0g0.xyz/openai-claude-enterprise</link>
       <guid isPermaLink="true">https://share.0g0.xyz/openai-claude-enterprise</guid>
@@ -34,15 +52,6 @@
       <pubDate>Tue, 24 Nov 2026 06:02:17 GMT</pubDate>
       <dcterms:created>2026-11-18T07:25:58.000Z</dcterms:created>
       <dcterms:modified>2026-11-24T06:02:17.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>用語集：HTML Shareの記事に出てくる専門用語</title>
-      <link>https://share.0g0.xyz/glossary</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/glossary</guid>
-      <description>HTML Shareの記事に出てくる専門用語の短い説明の一覧です。記事本文では、辞書に登録された用語の初出が自動でこの用語集へリンクされます。</description>
-      <pubDate>Tue, 24 Nov 2026 05:40:55 GMT</pubDate>
-      <dcterms:created>2026-11-24T01:37:31.000Z</dcterms:created>
-      <dcterms:modified>2026-11-24T05:40:55.000Z</dcterms:modified>
     </item>
     <item>
       <title>ChatGPT Sitesの料金：無料ホスティングは2026年12月31日まで、2027年からはクレジット枠制</title>

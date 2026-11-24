@@ -28,12 +28,20 @@
 table.oc-table{border-collapse:collapse;margin:1rem 0}
 table.oc-table th,table.oc-table td{border:1px solid var(--line);padding:.45rem .8rem;text-align:left}
 </style>
+  <!-- html-share: social metadata -->
+  <meta property="og:site_name" content="HTML Share">
+  <meta name="twitter:title" content="Orcaとは：Claude CodeやCodexをワークツリーごとに並行実行する無料のエージェント開発環境（ADE）">
+  <meta name="twitter:description" content="複数のコーディングエージェントを、タスクごとのGitワークツリーで並行実行するOrca。仕組み、Orca Bots、対応エージェント、T3 Codeとの違い、料金とデータの扱いを公式資料と出典つきで整理します。">
+  <!-- /html-share: social metadata -->
+  <!-- html-share: rss discovery -->
+  <link rel="alternate" type="application/rss+xml" title="HTML Share RSS" href="https://share.0g0.xyz/feed.xml">
+  <!-- /html-share: rss discovery -->
 </head>
 <body>
 <div class="wrap">
 <nav class="sitebar" aria-label="サイト内"><a class="brand" href="/">HTML Share</a><nav><a href="/">一覧</a><a href="/feed.xml">RSS</a></nav></nav>
 <header class="top">
-  <div class="kicker">AI開発ツール解説 · Orca</div>
+  <div class="kicker">AI開発ツール解説 · <a class="gloss" href="/glossary#term-orca" title="複数のコーディングエージェントを、タスクごとのGitワークツリーで並行実行するための無料のオープンソースのデスクトップアプリ。エージェント開発環境（ADE）を名乗ります。運営はStably。">Orca</a></div>
   <h1>Orcaとは：Claude CodeやCodexをワークツリーごとに並行実行する無料のエージェント開発環境（ADE）</h1>
   <p class="meta">
     確認日：2026年11月24日<br>
@@ -44,12 +52,12 @@ table.oc-table th,table.oc-table td{border:1px solid var(--line);padding:.45rem 
 <div class="summary3">
   <div class="ttl">要点</div>
   <ol>
-    <li>Orcaは、複数のコーディングエージェントを並行して動かすためのデスクトップアプリです。公式は「ADE（エージェント開発環境）」と呼び、人間がコードを書くためのIDEではなく、エージェントと一緒に開発するための環境だと位置づけています。運営はStably（GitHub組織は stablyai）で、公式サイトにはY Combinatorの支援が表示されています。</li>
-    <li>中心の仕組みはGitワークツリーです。タスクごとに本物の <code>git worktree</code> を切り出し、エージェントごとに作業フォルダを分けるため、複数のエージェントが同じリポジトリで同時に働いても衝突しません。ターミナル、diffレビュー、ブラウザ、GitHub／Linear連携が1つの画面に入っています。</li>
+    <li>Orcaは、複数の<a class="gloss" href="/glossary#term-coding-agent" title="コードの読み書きやコマンド実行を自律的に進めるAIツール。Claude CodeやCodexなどが該当し、利用はモデルの提供元の契約に基づきます。">コーディングエージェント</a>を並行して動かすためのデスクトップアプリです。公式は「<a class="gloss" href="/glossary#term-ade" title="AIエージェントと一緒に開発するための環境。人間がコードを書くためのIDEに対し、エージェントの並行実行や作業場所の管理まで含めて設計されたものを指します。">ADE</a>（エージェント開発環境）」と呼び、人間がコードを書くためのIDEではなく、エージェントと一緒に開発するための環境だと位置づけています。運営はStably（GitHub組織は stablyai）で、公式サイトにはY Combinatorの支援が表示されています。</li>
+    <li>中心の仕組みは<a class="gloss" href="/glossary#term-worktree" title="1つのGitリポジトリから複数の作業フォルダを切り出す仕組み。フォルダごとに別のブランチを開けるため、複数の作業を並行して進められます。">Gitワークツリー</a>です。タスクごとに本物の <code>git worktree</code> を切り出し、エージェントごとに作業フォルダを分けるため、複数のエージェントが同じリポジトリで同時に働いても衝突しません。ターミナル、diffレビュー、ブラウザ、GitHub／Linear連携が1つの画面に入っています。</li>
     <li>Orca自身はAIモデルを持ちません。動かすのは利用者がすでに契約している各エージェントのCLIで、課金は各提供元の契約のままです。アプリ本体は無料で、ソースコードはMITライセンスで公開されています。</li>
-    <li>「Orca Bots」という機能では、SlackやLinear、GitHubなどから仕事を頼むと、ボットが自分のマシンで自分のClaude CodeやCodexを使い、テスト済みのプルリクエストを返します。判断が要る場面では「Needs you」として止まり、デスクトップやスマホから答えると再開します。</li>
+    <li>「<a class="gloss" href="/glossary#term-orca-bots" title="Orcaの中で動くボット。SlackやLinearなどから仕事を受け、利用者自身のマシンと契約でエージェントを動かし、プルリクエストを返します。">Orca Bots</a>」という機能では、SlackやLinear、GitHubなどから仕事を頼むと、ボットが自分のマシンで自分のClaude CodeやCodexを使い、テスト済みのプルリクエストを返します。判断が要る場面では「Needs you」として止まり、デスクトップやスマホから答えると再開します。</li>
     <li>GitHubリポジトリの公開は2026年3月です。スターは2026年11月24日時点で13万5千を超え、最新版はv1.4.272（2026年11月23日）で、公式が「毎日出す」と言うとおり更新が非常に速いプロジェクトです。</li>
-    <li>同じく複数エージェントを扱う<a href="/t3-code">T3 Code</a>とは、管理の単位が違います。T3 Codeが「スレッド」中心の操作画面なのに対し、Orcaは「ワークスペース＝ワークツリー」中心の開発環境です。違いは本文で比べます。</li>
+    <li>同じく複数エージェントを扱う<a href="/t3-code">T3 Code</a>とは、管理の単位が違います。<a class="gloss" href="/glossary#term-t3-code" title="Claude CodeやCodexなどのコーディングエージェントを、自分のマシンで動かしたまま、デスクトップ・Web・スマホの1つの画面から操作する無料のオープンソースアプリ。運営は米国のT3 Tools。">T3 Code</a>が「スレッド」中心の操作画面なのに対し、Orcaは「ワークスペース＝ワークツリー」中心の開発環境です。違いは本文で比べます。</li>
   </ol>
 </div>
 
@@ -136,7 +144,7 @@ table.oc-table th,table.oc-table td{border:1px solid var(--line);padding:.45rem 
 <tr><td>ワークツリー</td><td>スレッドごとに分けることができる</td><td>ワークツリー・ファーストで、作成が作業の起点</td></tr>
 <tr><td>仕事の受け方</td><td>画面から指示するのが中心</td><td>画面に加え、Bots（Slack等）とAutomationsで受ける</td></tr>
 <tr><td>運営</td><td>T3 Tools, Inc.</td><td>Stably</td></tr>
-<tr><td>料金</td><td>無料（MIT）。接点としてT3 Connectの上限がT3 Chatプランと連動</td><td>無料（MIT）。有料プランは公式に用意されていない</td></tr>
+<tr><td>料金</td><td>無料（MIT）。接点として<a class="gloss" href="/glossary#term-t3-connect" title="T3 Codeのリモート接続の仕組み。自分のマシンで動くエージェントへ、スマホやブラウザから接続するために使います。">T3 Connect</a>の上限が<a class="gloss" href="/glossary#term-t3-chat" title="OpenAIやAnthropic、Googleなど複数社のAIモデルを、1つの画面で切り替えて使えるチャットサービス。運営は米国のT3 Tools。">T3 Chat</a>プランと連動</td><td>無料（MIT）。有料プランは公式に用意されていない</td></tr>
 </table>
 <p>ざっくり言えば、1つの作業を進めながら相棒を切り替えるならT3 Code、複数の作業を同時に走らせて結果を比べるならOrca、という向きの違いです。T3 Code側の詳しい内容は<a href="/t3-code">T3 Codeの記事</a>にまとめています。</p>
 <figure class="oc-figure">
