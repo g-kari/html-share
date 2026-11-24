@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AWS 2026年11月の発表まとめ：全442件をサービス別に整理</title>
+<meta name="description" content="2026年11月1日〜24日のAWS公式発表442件を、サービス・分野別の15記事に整理した索引。AgentCore、WAF、Lambda、Nitro Sandboxes、AWS Emulator、Strandsなど単独記事への入口と、期間・総件数・サービス別件数を明記します。">
+<link rel="canonical" href="https://share.0g0.xyz/aws-november-2026">
+<link rel="stylesheet" href="/assets/site.css">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="AWS 2026年11月の発表まとめ：全442件をサービス別に整理">
+<meta property="og:description" content="2026年11月1日〜24日のAWS公式発表442件を、サービス・分野別の15記事に整理した索引。AgentCore、WAF、Lambda、Nitro Sandboxes、AWS Emulator、Strandsなど単独記事への入口と、期間・総件数・サービス別件数を明記します。">
+<meta property="og:url" content="https://share.0g0.xyz/aws-november-2026">
+<meta property="og:image" content="https://share.0g0.xyz/assets/aws-nov-ogp-v1.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="AWS 2026年11月の発表まとめ：全442件をサービス別に整理">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://share.0g0.xyz/assets/aws-nov-ogp-v1.png">
+<meta name="twitter:image:alt" content="AWS 2026年11月の発表まとめ：全442件をサービス別に整理">
+<style>
+:root{--accent:#17365d;--accent-dark:#7ea6d8}
+.fig{margin:1.25rem 0;max-inline-size:46rem}
+.fig img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:0}
+.fig figcaption{font-size:.9rem;margin-top:.55rem}
+table.aws-table{border-collapse:collapse;margin:1rem 0;width:100%}
+table.aws-table th,table.aws-table td{border:1px solid var(--line);padding:.45rem .7rem;text-align:left;vertical-align:top}
+table.aws-table td.date{white-space:nowrap}
+table.aws-table td.svc{white-space:nowrap}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="sitebar" aria-label="サイト内"><a class="brand" href="/">HTML Share</a><nav><a href="/">一覧</a><a href="/feed.xml">RSS</a></nav></nav>
+<header class="top">
+  <div class="kicker">AWS発表まとめ · 索引</div>
+  <h1>AWS 2026年11月の発表まとめ：全442件をサービス別に整理</h1>
+  <p class="meta">確認日：2026年11月24日<br>一次資料：<a href="https://aws.amazon.com/about-aws/whats-new/">AWS公式 What's New</a>（公式フィードを全件取得）。Strandsのみ公式ブログが一次資料です。</p>
+</header>
+
+<div class="summary3">
+  <div class="ttl">要点</div>
+  <ol><li>2026年11月1日〜24日のAWS公式発表は<strong>442件</strong>。re:Invent直前のPre:Invent期間で、11月17日〜20日に集中しました（20日は87件）。</li><li>この索引から、サービス・分野ごとに分けた<strong>15本の記事</strong>へ進めます。単独記事はAgentCore、WAF、Lambda、EKS／Nitro Sandboxes、Strands、AWS Emulator、DevOps Agent、Amazon Connectの8本です。</li><li>軸はエージェントです。次世代AgentCoreランタイム、ローカル再現のAWS Emulator、Pod分離のNitro Sandboxes、エージェント決済と権限の絞り込みがそろいました。</li><li>AWS WAFは料金体系の組み替えと、AIエンドポイント／APIの自動発見・保護という大きな転機がありました。</li></ol>
+</div>
+
+<nav class="toc">
+  <div class="ttl">目次</div>
+  <ol><li><a href="#about">この索引について</a></li><li><a href="#articles">サービス別・分野別の記事</a></li><li><a href="#highlights">目立つ変更</a></li><li><a href="#notes">範囲と注意</a></li><li><a href="#sources">資料と出典</a></li></ol>
+</nav>
+
+
+<h2 id="about">この索引について</h2>
+<p>2026年11月1日から24日までにAWS公式「What's New」へ投稿された発表は<strong>442件</strong>ありました。re:Invent 2026（11月30日〜12月4日）の直前にあたる「Pre:Invent」の期間で、発表は11月17日〜20日に集中しています。このページは全442件への入口で、サービス・分野ごとに分けた15本の記事へリンクします。</p>
+<p>数え方：What's Newの公式フィード（API）を新しい順に全ページ取得し、投稿日時が2026年11月1日00:00（UTC）から11月25日00:00（UTC）までのものを切り取りました。重複はなく442件でした。外部の集計（11月16日〜21日で255件）とも大きな差はありません。日付は投稿日時（UTC）基準です。</p>
+<figure class="fig"><img src="/assets/aws-nov-timeline-v1.png" width="1600" height="720" loading="lazy" alt="日別の発表件数。11月17日から20日に集中し、20日は87件"><figcaption>図：日別の発表件数。週末は少なく、re:Invent直前の週に集中しています。</figcaption></figure>
+<figure class="fig"><img src="/assets/aws-nov-categories-v1.png" width="1600" height="1120" loading="lazy" alt="サービス別・分野別の件数。データベース・分析が76件で最多"><figcaption>図：サービス別・分野別の件数。単独記事にしたサービスと、分野別のまとめ記事の内訳です。</figcaption></figure>
+
+<h2 id="articles">サービス別・分野別の記事</h2>
+<table class="aws-table"><thead><tr><th>記事</th><th>件数</th><th>主な内容</th></tr></thead><tbody><tr><td class="svc"><a href="/aws-agentcore-november-2026">Amazon Bedrock AgentCore</a></td><td class="date">14件</td><td>次世代ランタイム、Memory、Identity、エージェント決済</td></tr><tr><td class="svc"><a href="/aws-waf-november-2026">AWS WAF</a></td><td class="date">9件（＋秋2件）</td><td>料金体系の簡素化、AI Security／API Security、分析ダッシュボード（11月9件＋秋の関連2件）</td></tr><tr><td class="svc"><a href="/aws-lambda-november-2026">AWS Lambda</a></td><td class="date">18件</td><td>GPU対応、durable functions、MicroVMs、カスタマーマネージドランタイム</td></tr><tr><td class="svc"><a href="/aws-eks-nitro-november-2026">Amazon EKS／Nitro Sandboxes</a></td><td class="date">13件</td><td>PodごとにmicroVMで分離するNitro Sandboxes、Auto Modeの強化</td></tr><tr><td class="svc"><a href="/aws-strands-november-2026">Strands（Decider／Box）</a></td><td class="date">ブログ発表2件</td><td>判断モデルDecider v2とサンドボックスBoxのCLI対応（公式ブログ発表）</td></tr><tr><td class="svc"><a href="/aws-emulator-november-2026">AWS Emulator</a></td><td class="date">1件</td><td>200以上のサービスをローカルで再現する無料エミュレータ</td></tr><tr><td class="svc"><a href="/aws-devops-agent-november-2026">AWS DevOps Agent</a></td><td class="date">10件</td><td>エージェントサンドボックス、Slack／Teams連携</td></tr><tr><td class="svc"><a href="/amazon-connect-november-2026">Amazon Connect</a></td><td class="date">20件</td><td>ケース管理の拡充とエージェント型ソリューションResolutions</td></tr><tr><td class="svc"><a href="/aws-ai-november-2026">AI・機械学習</a></td><td class="date">47件</td><td>Bedrockの新モデル、SageMaker、AWS Quick、Textract</td></tr><tr><td class="svc"><a href="/aws-database-november-2026">データベース・分析</a></td><td class="date">76件</td><td>RDS、Aurora DSQL、OpenSearch、MSK、Glue</td></tr><tr><td class="svc"><a href="/aws-compute-storage-november-2026">コンピュート・ストレージ</a></td><td class="date">55件</td><td>EC2、S3、FSx、ECS、Backup</td></tr><tr><td class="svc"><a href="/aws-network-november-2026">ネットワーク・CDN</a></td><td class="date">37件</td><td>CloudFront、Route 53、Interconnect、Transit Gateway</td></tr><tr><td class="svc"><a href="/aws-security-november-2026">セキュリティ・アイデンティティ</a></td><td class="date">38件</td><td>Cognito、IAM、STS、Security Hub、Network Firewall</td></tr><tr><td class="svc"><a href="/aws-operations-november-2026">運用・移行・コスト</a></td><td class="date">51件</td><td>CloudWatch、Transform、EventBridge、課金、GovCloud</td></tr><tr><td class="svc"><a href="/aws-business-november-2026">業務アプリ・その他</a></td><td class="date">53件</td><td>Marketplace、WorkSpaces、MWAA、メディア、パートナー</td></tr></tbody></table>
+<p>Strandsの2件はWhat's NewではなくStrands公式ブログでの発表です。AWS EmulatorはWhat's Newの1件をもとに、公式ドキュメントとリポジトリの内容で補った単独記事にしています。</p>
+
+<h2 id="highlights">目立つ変更</h2>
+<ul>
+<li><strong>エージェントの実行基盤</strong>：<a href="/aws-agentcore-november-2026">AgentCore</a>の次世代ランタイムが既定になり、<a href="/aws-emulator-november-2026">AWS Emulator</a>（ローカル再現）と<a href="/aws-eks-nitro-november-2026">Nitro Sandboxes</a>（PodごとのmicroVM分離）が出そろいました。エージェントに払わせる仕組み（AgentCore Payments）や、権限を絞るSTS GetScopedCredentialsも11月の発表です。</li>
+<li><strong>AWS WAFの転機</strong>：<a href="/aws-waf-november-2026">WAF</a>は料金体系が「何を守るか」基準に組み替わり、LLM／MCP／A2AエンドポイントとAPIの自動発見・保護が一般提供になりました。</li>
+<li><strong>Lambdaの拡張</strong>：<a href="/aws-lambda-november-2026">Lambda</a>はManaged InstancesでGPU推論に対応し、durable functionsとMicroVMsが広がりました。</li>
+<li><strong>モデルの追加</strong>：BedrockにClaude Fable 5.2、GPT-6.2 Astra／Sol、Kimi K3.1 Proが入り、Strandsからは判断専用モデル<a href="/aws-strands-november-2026">Decider v2</a>が出ました。</li>
+</ul>
+
+<h2 id="notes">範囲と注意</h2>
+<ul>
+<li>対象は2026年11月1日〜24日の発表です。11月25日以降とre:Invent本番（11月30日〜）の発表は含みません。</li>
+<li>各記事の要点は公式見出しと本文の日本語要約です。正確な条件・料金・対象リージョンは各公式発表を確認してください。</li>
+<li>分類は公式の製品タグを主に、見出しのサービス名で補いました。複数サービスにまたがる発表は、主題の記事に寄せています。</li>
+</ul>
+<h2 id="sources">資料と出典</h2><p>各項目の「公式発表」リンクが一次資料です。件数と期間の数え方は<a href="/aws-november-2026">索引ページ</a>にまとめています。要点は公式見出しと本文をもとに日本語で要約したもので、料金や提供条件の正確な内容は各公式発表を確認してください。</p>
+
+</div>
+<script type="module" src="/assets/site.js"></script>
+</body>
+</html>

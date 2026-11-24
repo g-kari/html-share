@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AWS ネットワーク・CDN 2026年11月の変更まとめ：CloudFront、Route 53、Interconnect</title>
+<meta name="description" content="AWSのネットワーク・CDN分野の2026年11月の発表37件。Microsoft Azureとのマルチクラウド接続AWS Interconnectの一般提供、CloudFrontのオリジン相互TLSとFunctionsのネットワーク呼び出し、Route 53の新機能、Transit Gatewayのファイアウォール連携などをサービス別に整理します。">
+<link rel="canonical" href="https://share.0g0.xyz/aws-network-november-2026">
+<link rel="stylesheet" href="/assets/site.css">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="AWS ネットワーク・CDN 2026年11月の変更まとめ：CloudFront、Route 53、Interconnect">
+<meta property="og:description" content="AWSのネットワーク・CDN分野の2026年11月の発表37件。Microsoft Azureとのマルチクラウド接続AWS Interconnectの一般提供、CloudFrontのオリジン相互TLSとFunctionsのネットワーク呼び出し、Route 53の新機能、Transit Gatewayのファイアウォール連携などをサービス別に整理します。">
+<meta property="og:url" content="https://share.0g0.xyz/aws-network-november-2026">
+<meta property="og:image" content="https://share.0g0.xyz/assets/aws-network-ogp-v1.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="AWS ネットワーク・CDN 2026年11月の変更まとめ：CloudFront、Route 53、Interconnect">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://share.0g0.xyz/assets/aws-network-ogp-v1.png">
+<meta name="twitter:image:alt" content="AWS ネットワーク・CDN 2026年11月の変更まとめ：CloudFront、Route 53、Interconnect">
+<style>
+:root{--accent:#145a46;--accent-dark:#7ed8bc}
+.fig{margin:1.25rem 0;max-inline-size:46rem}
+.fig img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:0}
+.fig figcaption{font-size:.9rem;margin-top:.55rem}
+table.aws-table{border-collapse:collapse;margin:1rem 0;width:100%}
+table.aws-table th,table.aws-table td{border:1px solid var(--line);padding:.45rem .7rem;text-align:left;vertical-align:top}
+table.aws-table td.date{white-space:nowrap}
+table.aws-table td.svc{white-space:nowrap}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="sitebar" aria-label="サイト内"><a class="brand" href="/">HTML Share</a><nav><a href="/">一覧</a><a href="/feed.xml">RSS</a></nav></nav>
+<header class="top">
+  <div class="kicker">AWS発表まとめ · ネットワーク・CDN</div>
+  <h1>AWS ネットワーク・CDN 2026年11月の変更まとめ：CloudFront、Route 53、Interconnect</h1>
+  <p class="meta">確認日：2026年11月24日<br>一次資料：<a href="https://aws.amazon.com/about-aws/whats-new/">AWS公式 What's New</a>（2026年11月1日〜24日の投稿を全件取得）。各項目の見出しは公式発表へのリンクです。全体の索引は<a href="/aws-november-2026">AWS 2026年11月の発表まとめ【索引】</a>。</p>
+</header>
+
+<div class="summary3">
+  <div class="ttl">要点</div>
+  <ol><li>AWS Interconnectが一般提供になりました。Equinix経由のラストマイルと、Microsoft Azureとのマルチクラウド接続です。</li><li>CloudFrontはオリジン相互TLSでのWebSocket／gRPC、Functionsからのネットワーク呼び出し、SaaS Managerの強化が入りました。</li><li>VPC、Transit Gateway、Cloud WANはクロスリージョントラフィックで99.999%の可用性SLAを打ち出しました。</li></ol>
+</div>
+
+<nav class="toc">
+  <div class="ttl">目次</div>
+  <ol><li><a href="#about">概要</a></li><li><a href="#highlights">目立つ変更</a></li><li><a href="#list">発表一覧（37件）</a></li><li><a href="#sources">資料と出典</a></li></ol>
+</nav>
+
+<h2 id="about">概要</h2><p>ネットワーク・CDN分野の発表は37件です。CloudFront、Route 53、VPC、Direct Connect／Interconnect、Transit Gateway、API Gatewayなどを扱います。WAFは単独記事に分けています。</p>
+<h2 id="highlights">目立つ変更</h2><ul><li><strong>AWS Interconnect</strong>：EquinixのデータセンターからAWSへのマネージド接続（ラストマイル）のプレビューに続き、Microsoft Azureとのマルチクラウド接続が一般提供になりました。</li><li><strong>CloudFront</strong>：オリジン相互TLSでWebSocketとgRPCに対応し、CloudFront Functionsからネットワーク呼び出しができるように。欧州ソブリンクラウドでも提供開始しました。</li><li><strong>Route 53</strong>：レコードセット保護、期限切れドメインのセルフサービス復旧、プライベートエンドポイントのヘルスチェック、Advanced Hosted Zones、Resolver DNS Firewallの許可リスト自動生成など、件数が多い月です。</li><li><strong>Transit Gateway／ファイアウォール</strong>：ファイアウォールへリソースコンテキストを共有するセグメンテーションポリシー、Gateway Load Balancerとのネイティブ統合が入りました。</li></ul>
+<figure class="fig"><img src="/assets/aws-network-chart-v1.png" width="1600" height="720" loading="lazy" alt="AWS発表まとめ · ネットワーク・CDNの日別発表件数"><figcaption>図：日別の発表件数（2026年11月1日〜24日）。</figcaption></figure>
+<h2 id="list">発表一覧（37件）</h2>
+<h3>Amazon CloudFront（8件）</h3><table class="aws-table"><thead><tr><th>日付</th><th>変更の要点</th></tr></thead><tbody><tr><td class="date">11月2日</td><td>Service Quotasの上限引き上げがセルフサービスに <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/cloudfront-self-service-quotas/">公式発表</a></td></tr><tr><td class="date">11月18日</td><td>標準ログがCMCDと追加ログフィールドに対応 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/cloudfront-standard-logging-cmcd-fields">公式発表</a></td></tr><tr><td class="date">11月18日</td><td>オリジン相互TLSでWebSocketとgRPCのサポートを発表 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-cloudfront-origin-mtls-websockets-grpc/">公式発表</a></td></tr><tr><td class="date">11月18日</td><td>CloudFront Functionsがネットワーク呼び出しに対応 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/cloudfront-functions-network-calls/">公式発表</a></td></tr><tr><td class="date">11月19日</td><td>SaaS ManagerにIPベースルーティングと接続ログを追加 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/cloudfront-ip-based-routing-connection-logging">公式発表</a></td></tr><tr><td class="date">11月19日</td><td>SaaS Managerのドメイン移行と導入を簡素化 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/cloudfront-domain-moves-distribution-tenants">公式発表</a></td></tr><tr><td class="date">11月23日</td><td>欧州ソブリンクラウドでCloudFrontが提供開始 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/cloudfront-european-sovereign-cloud">公式発表</a></td></tr><tr><td class="date">11月23日</td><td>オリジンへの接続でHTTP/2サポートを発表 <a href="https://aws.amazon.com/about-aws/whats-new/2026/01/amazon-cloudfront-http2-origins/">公式発表</a></td></tr></tbody></table>
+<h3>AWS Direct Connect（4件）</h3><table class="aws-table"><thead><tr><th>日付</th><th>変更の要点</th></tr></thead><tbody><tr><td class="date">11月4日</td><td>Equinixと組んだ「AWS Interconnect - last mile」のプレビューを発表 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/interconnect-last-mile-preview-equinix/">公式発表</a></td></tr><tr><td class="date">11月5日</td><td>Interconnect - last mileが北バージニアの新メトロを発表 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/interconnect-last-mile-northern-virginia/">公式発表</a></td></tr><tr><td class="date">11月12日</td><td>Direct ConnectアタッチメントのBGPコミュニティによるルーティングポリシーに対応 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/cloud-wan-bgp-community-directconnect/">公式発表</a></td></tr><tr><td class="date">11月17日</td><td>Microsoft Azureとのマルチクラウド接続「AWS Interconnect」が一般提供 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/aws-announces-AWS-interconnect-multicloud-azure-ga/">公式発表</a></td></tr></tbody></table>
+<h3>Amazon Route 53（9件）</h3><table class="aws-table"><thead><tr><th>日付</th><th>変更の要点</th></tr></thead><tbody><tr><td class="date">11月9日</td><td>Route 53 ProfilesがVPCあたり複数プロファイルに対応 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/route-53-profiles-multiple-per-vpc/">公式発表</a></td></tr><tr><td class="date">11月12日</td><td>期限切れ・削除済みドメインのセルフサービス復旧に対応 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/route-53-domains-self-service-restore/">公式発表</a></td></tr><tr><td class="date">11月12日</td><td>レコードセット保護に対応 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-route-53-record-set-protection/">公式発表</a></td></tr><tr><td class="date">11月17日</td><td>Resolver DNS Firewallが許可リストの自動生成に対応 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/route-53-dns-firewall-auto-allowlists/">公式発表</a></td></tr><tr><td class="date">11月17日</td><td>Infoblox Threat Defenseに対応（プレビュー） <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/route53-dns-firewall-infoblox-preview/">公式発表</a></td></tr><tr><td class="date">11月17日</td><td>Route 53 Global ResolverがCloud WAN経由でハイブリッドネットワーク向けに提供 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/route-53-global-resolver-cloud-wan/">公式発表</a></td></tr><tr><td class="date">11月19日</td><td>プライベートエンドポイント向けヘルスチェックに対応 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/route-53-private-endpoint-health-checks/">公式発表</a></td></tr><tr><td class="date">11月20日</td><td>プライベートホストゾーンがパブリックDNSフォールバックに対応 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/route-53-public-dns-fallback/">公式発表</a></td></tr><tr><td class="date">11月20日</td><td>「Advanced Hosted Zones」を提供開始 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/route-53-offers-advanced-hosted-zones/">公式発表</a></td></tr></tbody></table>
+<h3>AWS Cloud WAN（2件）</h3><table class="aws-table"><thead><tr><th>日付</th><th>変更の要点</th></tr></thead><tbody><tr><td class="date">11月11日</td><td>Cloud WANがFlow Logsに対応 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/aws-cloud-wan-flow-logs/">公式発表</a></td></tr><tr><td class="date">11月17日</td><td>VPC、Transit Gateway、Cloud WANがクロスリージョントラフィックで99.999%の可用性SLAを提供 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/vpc-tgw-cloudwan-99999-sla/">公式発表</a></td></tr></tbody></table>
+<h3>AWS PrivateLink（1件）</h3><table class="aws-table"><thead><tr><th>日付</th><th>変更の要点</th></tr></thead><tbody><tr><td class="date">11月16日</td><td>IAM Identity CenterがVPCエンドポイントとネットワークアクセス制御に対応（PrivateLink側の発表） <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/iam-identity-center-vpc-endpoints/">公式発表</a></td></tr></tbody></table>
+<h3>Amazon VPC（3件）</h3><table class="aws-table"><thead><tr><th>日付</th><th>変更の要点</th></tr></thead><tbody><tr><td class="date">11月16日</td><td>VPC向け「Networking Flexible Cost Allocation」を発表 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/networking-flexible-cost-allocation/">公式発表</a></td></tr><tr><td class="date">11月20日</td><td>AZアフィニティルーティングに対応（発表はRoute 53） <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/route-53-affinity-routing/">公式発表</a></td></tr><tr><td class="date">11月20日</td><td>VPC LatticeがVPCリソースのCloudWatchメトリクスに対応 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/vpc-lattice-cloudwatch-metrics/">公式発表</a></td></tr></tbody></table>
+<h3>Amazon API Gateway（2件）</h3><table class="aws-table"><thead><tr><th>日付</th><th>変更の要点</th></tr></thead><tbody><tr><td class="date">11月17日</td><td>REST APIがJWTオーソライザーに対応 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-api-gateway-rest-authorizers-jwt/">公式発表</a></td></tr><tr><td class="date">11月17日</td><td>REST APIがJWTオーソライザーに対応 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-api-gateway-rest-jwt-authorizers/">公式発表</a></td></tr></tbody></table>
+<h3>Elastic Load Balancing（4件）</h3><table class="aws-table"><thead><tr><th>日付</th><th>変更の要点</th></tr></thead><tbody><tr><td class="date">11月17日</td><td>AWS Transformがロードバランサーの移行に対応 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/aws-transform-lb-migration/">公式発表</a></td></tr><tr><td class="date">11月19日</td><td>Network Load Balancerが相互TLS認証に対応 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/network-load-balancer-mtls/">公式発表</a></td></tr><tr><td class="date">11月19日</td><td>クライアントTLS接続の鍵交換グループを示す新ヘッダーを追加 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/alb-adds-tls-key-exchange-header/">公式発表</a></td></tr><tr><td class="date">11月20日</td><td>CNSA 2.0相互運用TLSポリシーに対応 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/alb-cnsa-2-0-tls-policies/">公式発表</a></td></tr></tbody></table>
+<h3>AWS Transit Gateway（2件）</h3><table class="aws-table"><thead><tr><th>日付</th><th>変更の要点</th></tr></thead><tbody><tr><td class="date">11月17日</td><td>Transit Gatewayがセグメンテーションポリシー用にファイアウォールへリソースコンテキストを共有 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/transit-gateway-firewall-context-sharing/">公式発表</a></td></tr><tr><td class="date">11月17日</td><td>Gateway Load Balancerとのネイティブ統合に対応 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/transit-gateway-gwlb-integration/">公式発表</a></td></tr></tbody></table>
+<h3>AWS VPN（1件）</h3><table class="aws-table"><thead><tr><th>日付</th><th>変更の要点</th></tr></thead><tbody><tr><td class="date">11月19日</td><td>Site-to-Site VPNが耐量子鍵交換に対応 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/site-to-site-vpn-post-quantum/">公式発表</a></td></tr></tbody></table>
+<h3>AWS Global Accelerator（1件）</h3><table class="aws-table"><thead><tr><th>日付</th><th>変更の要点</th></tr></thead><tbody><tr><td class="date">11月23日</td><td>TLSリスナーを持つNLBでクライアントIPを保持するように <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/global-accelerator-client-ip-nlb-tls/">公式発表</a></td></tr></tbody></table>
+<h2 id="sources">資料と出典</h2><p>各項目の「公式発表」リンクが一次資料です。件数と期間の数え方は<a href="/aws-november-2026">索引ページ</a>にまとめています。要点は公式見出しと本文をもとに日本語で要約したもので、料金や提供条件の正確な内容は各公式発表を確認してください。</p>
+</div>
+<script type="module" src="/assets/site.js"></script>
+</body>
+</html>

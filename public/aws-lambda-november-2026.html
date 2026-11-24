@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AWS Lambda 2026年11月の変更：GPU対応とdurable functions、MicroVMsの拡張</title>
+<meta name="description" content="AWS Lambdaの2026年11月の発表18件。Managed InstancesでのGPU推論、durable functionsの一時停止・OTel・Rust SDK GAとクォータ拡大、MicroVMsのx86対応、カスタマーマネージドランタイム、30分タイムアウトなどを公式発表と出典つきで整理します。">
+<link rel="canonical" href="https://share.0g0.xyz/aws-lambda-november-2026">
+<link rel="stylesheet" href="/assets/site.css">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="AWS Lambda 2026年11月の変更：GPU対応とdurable functions、MicroVMsの拡張">
+<meta property="og:description" content="AWS Lambdaの2026年11月の発表18件。Managed InstancesでのGPU推論、durable functionsの一時停止・OTel・Rust SDK GAとクォータ拡大、MicroVMsのx86対応、カスタマーマネージドランタイム、30分タイムアウトなどを公式発表と出典つきで整理します。">
+<meta property="og:url" content="https://share.0g0.xyz/aws-lambda-november-2026">
+<meta property="og:image" content="https://share.0g0.xyz/assets/aws-lambda-ogp-v1.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="AWS Lambda 2026年11月の変更：GPU対応とdurable functions、MicroVMsの拡張">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://share.0g0.xyz/assets/aws-lambda-ogp-v1.png">
+<meta name="twitter:image:alt" content="AWS Lambda 2026年11月の変更：GPU対応とdurable functions、MicroVMsの拡張">
+<style>
+:root{--accent:#b0740a;--accent-dark:#d8a87e}
+.fig{margin:1.25rem 0;max-inline-size:46rem}
+.fig img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:0}
+.fig figcaption{font-size:.9rem;margin-top:.55rem}
+table.aws-table{border-collapse:collapse;margin:1rem 0;width:100%}
+table.aws-table th,table.aws-table td{border:1px solid var(--line);padding:.45rem .7rem;text-align:left;vertical-align:top}
+table.aws-table td.date{white-space:nowrap}
+table.aws-table td.svc{white-space:nowrap}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="sitebar" aria-label="サイト内"><a class="brand" href="/">HTML Share</a><nav><a href="/">一覧</a><a href="/feed.xml">RSS</a></nav></nav>
+<header class="top">
+  <div class="kicker">AWS発表まとめ · AWS Lambda</div>
+  <h1>AWS Lambda 2026年11月の変更：GPU対応とdurable functions、MicroVMsの拡張</h1>
+  <p class="meta">確認日：2026年11月24日<br>一次資料：<a href="https://aws.amazon.com/about-aws/whats-new/">AWS公式 What's New</a>（2026年11月1日〜24日の投稿を全件取得）。各項目の見出しは公式発表へのリンクです。全体の索引は<a href="/aws-november-2026">AWS 2026年11月の発表まとめ【索引】</a>。</p>
+</header>
+
+<div class="summary3">
+  <div class="ttl">要点</div>
+  <ol><li>Managed InstancesでGPU推論に対応（11月18日）。ドライバーやスケーリングの管理なしに、vLLM等の事前構成イメージでGPUワークロードを動かせます。</li><li>durable functionsは一時停止／削除、OpenTelemetry、Rust SDKのGA、既定クォータの大幅引き上げ（実行中500万件など）が入りました。</li><li>MicroVMsはx86対応と7リージョン追加。カスタマーマネージドランタイムで、ランタイムの中身を一元管理して再デプロイなしに配れるようになりました。</li><li>細部では30分タイムアウト、SQS FIFOバッチ1万件、Node.js 26／Python 3.15ランタイム追加などがあります。</li></ol>
+</div>
+
+<nav class="toc">
+  <div class="ttl">目次</div>
+  <ol><li><a href="#about">概要</a></li><li><a href="#gpu">Managed InstancesでGPU推論</a></li><li><a href="#durable">durable functionsの拡充</a></li><li><a href="#microvms">MicroVMsとランタイム</a></li><li><a href="#list">発表一覧（18件）</a></li><li><a href="#sources">資料と出典</a></li></ol>
+</nav>
+
+
+<h2 id="about">概要</h2>
+<p>AWS Lambdaの2026年11月は18件と、単独サービスでは多めの月でした。目玉は実行形態の拡張で、Managed InstancesでのGPU対応、durable functionsの機能追加、MicroVMsの対応拡大が並びます。あわせて、カスタマーマネージドランタイムという運用の仕組みも入りました。</p>
+<figure class="fig"><img src="/assets/aws-lambda-fig-v1.png" width="1600" height="860" loading="lazy" alt="Lambdaの3つの実行形態。durable functions、Managed Instances、MicroVMs"><figcaption>図：11月に広がった3つの実行形態。</figcaption></figure>
+
+<h2 id="gpu">Managed InstancesでGPU推論（11月18日）</h2>
+<p>Lambda Managed Instancesで、EC2 GシリーズのGPUインスタンスを使ったGPU加速Event Functionsが動くようになりました。AI推論、メディア処理、3Dレンダリング、科学計算、金融シミュレーションが対象で、GPUドライバーやフレームワーク、スケーリングの管理は不要です。vLLM、SGLang、PyTorchを事前構成したGPUベースイメージが用意され、GPU利用率や同時実行数に応じてスケールします。通常のEvent Functionsと同じ200以上のイベントソースと組み合わせられます。</p>
+<p>Managed Instances自体にも、ゼロへの／ゼロからのスケール（11月17日）と、Event Functions向けコスト最適化レコメンド（11月20日）が入りました。</p>
+
+<h2 id="durable">durable functionsの拡充</h2>
+<p>チェックポイントと自動リトライを持ち、最長1年動く多段処理のためのdurable functionsは、11月に4件の更新がありました。実行の一時停止と削除、OpenTelemetryトレーシングへの対応、Durable Execution SDK for Rustの一般提供、そして既定クォータの引き上げです。クォータは実行中のdurable executionがアカウントあたり100万→500万、開始レートが300→3,000リクエスト/秒など、大幅に上がっています（一部リージョンではその2倍）。</p>
+
+<h2 id="microvms">MicroVMsとランタイム</h2>
+<p>VMレベルの分離と高速な起動・再開を持つLambda MicroVMsは、x86アーキテクチャに対応し（従来はGraviton）、7リージョン追加とKMSカスタマーマネージドキー対応が入りました。AIコーディングアシスタントやCIランナー、脆弱性スキャナのような、利用者やジョブごとに隔離したい用途が想定されています。</p>
+<p>ランタイム面では、カスタマーマネージドランタイムが新設されました。プラットフォームチームがランタイムの中身（承認済みSDK、証明書、セキュリティ／監視ツールなど）をOCIイメージとして一元管理し、関数の再デプロイなしに更新を配れる仕組みです。このほか、オンデマンドEvent Functionsの30分タイムアウト、SQS FIFOのバッチ上限10,000件、Node.js 26とPython 3.15のランタイム追加、Kafkaイベントソースのキュー処理などがあります。</p>
+<figure class="fig"><img src="/assets/aws-lambda-chart-v1.png" width="1600" height="720" loading="lazy" alt="AWS Lambdaの日別発表件数"><figcaption>図：日別の発表件数。11月20日に集中しています。</figcaption></figure>
+
+<h2 id="list">発表一覧（18件）</h2>
+<table class="aws-table"><thead><tr><th>日付</th><th>変更の要点</th></tr></thead><tbody><tr><td class="date">11月2日</td><td>セルフマネージドKafkaイベントソースでキュー処理に対応。1パーティションを多数の並行呼び出しで処理可能 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/aws-lambda-queue-kafka-esm/">公式発表</a></td></tr><tr><td class="date">11月5日</td><td>durable functionsの実行・APIクォータの既定値を引き上げ <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/lambda-durable-functions-default-quotas/">公式発表</a></td></tr><tr><td class="date">11月11日</td><td>Lambda MicroVMsがx86 CPUアーキテクチャに対応 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/aws-lambda-microvms-x86-architecture/">公式発表</a></td></tr><tr><td class="date">11月17日</td><td>Lambda Managed Instancesでゼロへの／ゼロからのスケールに対応 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/aws-lambda-managed-instances-scale-to-zero/">公式発表</a></td></tr><tr><td class="date">11月17日</td><td>durable functionsで実行の一時停止と削除に対応 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/lambda-durable-pause-delete/">公式発表</a></td></tr><tr><td class="date">11月18日</td><td>Lambda Managed InstancesでGPUインスタンスに対応。GPU推論を実行可能に <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/aws-lambda-gpu-managed-instances/">公式発表</a></td></tr><tr><td class="date">11月18日</td><td>カスタマーマネージドランタイムに対応。プラットフォームチームがランタイムの中身と更新を一元管理できる <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/aws-lambda-customer-managed-runtimes/">公式発表</a></td></tr><tr><td class="date">11月19日</td><td>durable functionsがOpenTelemetryトレーシングに対応 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/lambda-durable-otel/">公式発表</a></td></tr><tr><td class="date">11月19日</td><td>オンデマンドEvent Functionsのタイムアウトが30分に延長 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/aws-lambda-30-minute-ondemand-event-functions/">公式発表</a></td></tr><tr><td class="date">11月19日</td><td>Durable Execution SDK for Rustが一般提供 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/lambda-durable-execution-sdk-rust/">公式発表</a></td></tr><tr><td class="date">11月20日</td><td>Event Functionの状態変更イベントをEventBridgeへ発行するように <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/aws-lambda-function-state-events/">公式発表</a></td></tr><tr><td class="date">11月20日</td><td>Event Functions向けのコスト最適化レコメンドを提供 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/aws-lambda-cost-optimization-recommendations/">公式発表</a></td></tr><tr><td class="date">11月20日</td><td>SQS FIFOキューのバッチサイズ上限が10,000メッセージに拡大 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/aws-lambda-10K-batch-size-SQSFIFO/">公式発表</a></td></tr><tr><td class="date">11月20日</td><td>Lambda MicroVMsが7リージョンで追加提供 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/aws-lambda-microvms-7-regions">公式発表</a></td></tr><tr><td class="date">11月20日</td><td>Node.js 26ランタイムを追加 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/aws-lambda-nodejs-26/">公式発表</a></td></tr><tr><td class="date">11月20日</td><td>Python 3.15ランタイムを追加 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/aws-lambda-python-315/">公式発表</a></td></tr><tr><td class="date">11月20日</td><td>VPC IPAMポリシーが、インターネットファイアウォールとLambda Web Functions／MicroVMsの自動適用に対応（VPC IPAM側の発表） <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/vpc-ipam-policies-firewall-lambda/">公式発表</a></td></tr><tr><td class="date">11月20日</td><td>Lambda MicroVMsがKMSのカスタマーマネージドキーに対応 <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/lambda-microvms-customer-managed-keys/">公式発表</a></td></tr></tbody></table>
+<h2 id="sources">資料と出典</h2><p>各項目の「公式発表」リンクが一次資料です。件数と期間の数え方は<a href="/aws-november-2026">索引ページ</a>にまとめています。要点は公式見出しと本文をもとに日本語で要約したもので、料金や提供条件の正確な内容は各公式発表を確認してください。</p>
+
+</div>
+<script type="module" src="/assets/site.js"></script>
+</body>
+</html>
