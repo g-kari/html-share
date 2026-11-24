@@ -7,7 +7,25 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Tue, 24 Nov 2026 22:58:28 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 24 Nov 2026 23:03:49 GMT</lastBuildDate>
+    <item>
+      <title>用語集：HTML Shareの記事に出てくる専門用語</title>
+      <link>https://share.0g0.xyz/glossary</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/glossary</guid>
+      <description>HTML Shareの記事に出てくる専門用語の短い説明の一覧です。記事本文では、辞書に登録された用語の初出が自動でこの用語集へリンクされます。</description>
+      <pubDate>Tue, 24 Nov 2026 23:03:49 GMT</pubDate>
+      <dcterms:created>2026-11-24T01:37:31.000Z</dcterms:created>
+      <dcterms:modified>2026-11-24T23:03:49.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>PHPのセキュリティ更新：修正版と確認手順（2026年11月19日）</title>
+      <link>https://share.0g0.xyz/php-security-release-2026-11-19</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/php-security-release-2026-11-19</guid>
+      <description>PHP 8.2〜8.5のセキュリティ修正版、重大なセッションの不具合、OSやDockerでの配布状況と更新後の確認をまとめます。</description>
+      <pubDate>Tue, 24 Nov 2026 23:03:16 GMT</pubDate>
+      <dcterms:created>2026-11-19T14:16:03.000Z</dcterms:created>
+      <dcterms:modified>2026-11-24T23:03:16.000Z</dcterms:modified>
+    </item>
     <item>
       <title>AIボット系エージェント 2026年秋の比較：Grok Bot、2つのOpenBot、MausBot、Hermes Agent</title>
       <link>https://share.0g0.xyz/ai-bot-agents-2026</link>
@@ -16,15 +34,6 @@
       <pubDate>Tue, 24 Nov 2026 22:58:28 GMT</pubDate>
       <dcterms:created>2026-11-24T22:58:28.000Z</dcterms:created>
       <dcterms:modified>2026-11-24T22:58:28.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>用語集：HTML Shareの記事に出てくる専門用語</title>
-      <link>https://share.0g0.xyz/glossary</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/glossary</guid>
-      <description>HTML Shareの記事に出てくる専門用語の短い説明の一覧です。記事本文では、辞書に登録された用語の初出が自動でこの用語集へリンクされます。</description>
-      <pubDate>Tue, 24 Nov 2026 22:42:29 GMT</pubDate>
-      <dcterms:created>2026-11-24T01:37:31.000Z</dcterms:created>
-      <dcterms:modified>2026-11-24T22:42:29.000Z</dcterms:modified>
     </item>
     <item>
       <title>Amazon API Gateway 2026年11月の発表まとめ：REST APIのJWTオーソライザーとAPI Portal</title>
@@ -277,15 +286,6 @@
       <pubDate>Fri, 20 Nov 2026 07:51:41 GMT</pubDate>
       <dcterms:created>2026-11-20T02:49:22.000Z</dcterms:created>
       <dcterms:modified>2026-11-20T07:51:41.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>PHPのセキュリティ更新：修正版と確認手順（2026年11月19日）</title>
-      <link>https://share.0g0.xyz/php-security-release-2026-11-19</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/php-security-release-2026-11-19</guid>
-      <description>PHP 8.2〜8.5のセキュリティ修正版、重大なセッションの不具合、OSやDockerでの配布状況と更新後の確認をまとめます。</description>
-      <pubDate>Thu, 19 Nov 2026 22:30:29 GMT</pubDate>
-      <dcterms:created>2026-11-19T14:16:03.000Z</dcterms:created>
-      <dcterms:modified>2026-11-19T22:30:29.000Z</dcterms:modified>
     </item>
     <item>
       <title>Vitest Browser Mode 試験導入の実測：jsdom 17ファイルで Duration 約32秒→26.20秒、通過は222/283</title>
