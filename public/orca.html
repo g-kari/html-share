@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Orcaとは：Claude CodeやCodexをワークツリーごとに並行実行する無料のエージェント開発環境（ADE）</title>
+<meta name="description" content="Orca（orca.dev）の概要、Gitワークツリーでエージェントごとに作業場所を分ける仕組み、Orca Bots、対応エージェント、T3 Codeとの違い、料金（本体は無料）、データの扱いを、公式サイト・GitHubと出典つきで整理します。">
+<link rel="canonical" href="https://share.0g0.xyz/orca">
+<link rel="stylesheet" href="/assets/site.css">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="Orcaとは：Claude CodeやCodexをワークツリーごとに並行実行する無料のエージェント開発環境（ADE）">
+<meta property="og:description" content="複数のコーディングエージェントを、タスクごとのGitワークツリーで並行実行するOrca。仕組み、Orca Bots、対応エージェント、T3 Codeとの違い、料金とデータの扱いを公式資料と出典つきで整理します。">
+<meta property="og:url" content="https://share.0g0.xyz/orca">
+<meta property="og:image" content="https://share.0g0.xyz/assets/orca-ogp-v1.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Orcaとは。Claude CodeやCodexをワークツリーごとに並行実行する無料のエージェント開発環境">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://share.0g0.xyz/assets/orca-ogp-v1.png">
+<meta name="twitter:image:alt" content="Orcaとは。Claude CodeやCodexをワークツリーごとに並行実行する無料のエージェント開発環境">
+<style>
+:root{--accent:#17365d;--accent-dark:#7ea6d8}
+.oc-figure{margin:1.25rem 0;max-inline-size:44rem}
+.oc-figure img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:0}
+.oc-figure figcaption{font-size:.9rem;margin-top:.55rem}
+table.oc-table{border-collapse:collapse;margin:1rem 0}
+table.oc-table th,table.oc-table td{border:1px solid var(--line);padding:.45rem .8rem;text-align:left}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="sitebar" aria-label="サイト内"><a class="brand" href="/">HTML Share</a><nav><a href="/">一覧</a><a href="/feed.xml">RSS</a></nav></nav>
+<header class="top">
+  <div class="kicker">AI開発ツール解説 · Orca</div>
+  <h1>Orcaとは：Claude CodeやCodexをワークツリーごとに並行実行する無料のエージェント開発環境（ADE）</h1>
+  <p class="meta">
+    確認日：2026年11月24日<br>
+    一次資料：<a href="https://orca.dev/">Orca公式サイト</a>／<a href="https://github.com/stablyai/orca">GitHubリポジトリ（README）</a>。公式で確認できない箇所は、本文と出典に明記します。同名の別製品（音声合成ソフトや分散型取引所のOrcaなど）とは無関係です。
+  </p>
+</header>
+
+<div class="summary3">
+  <div class="ttl">要点</div>
+  <ol>
+    <li>Orcaは、複数のコーディングエージェントを並行して動かすためのデスクトップアプリです。公式は「ADE（エージェント開発環境）」と呼び、人間がコードを書くためのIDEではなく、エージェントと一緒に開発するための環境だと位置づけています。運営はStably（GitHub組織は stablyai）で、公式サイトにはY Combinatorの支援が表示されています。</li>
+    <li>中心の仕組みはGitワークツリーです。タスクごとに本物の <code>git worktree</code> を切り出し、エージェントごとに作業フォルダを分けるため、複数のエージェントが同じリポジトリで同時に働いても衝突しません。ターミナル、diffレビュー、ブラウザ、GitHub／Linear連携が1つの画面に入っています。</li>
+    <li>Orca自身はAIモデルを持ちません。動かすのは利用者がすでに契約している各エージェントのCLIで、課金は各提供元の契約のままです。アプリ本体は無料で、ソースコードはMITライセンスで公開されています。</li>
+    <li>「Orca Bots」という機能では、SlackやLinear、GitHubなどから仕事を頼むと、ボットが自分のマシンで自分のClaude CodeやCodexを使い、テスト済みのプルリクエストを返します。判断が要る場面では「Needs you」として止まり、デスクトップやスマホから答えると再開します。</li>
+    <li>GitHubリポジトリの公開は2026年3月です。スターは2026年11月24日時点で13万5千を超え、最新版はv1.4.272（2026年11月23日）で、公式が「毎日出す」と言うとおり更新が非常に速いプロジェクトです。</li>
+    <li>同じく複数エージェントを扱う<a href="/t3-code">T3 Code</a>とは、管理の単位が違います。T3 Codeが「スレッド」中心の操作画面なのに対し、Orcaは「ワークスペース＝ワークツリー」中心の開発環境です。違いは本文で比べます。</li>
+  </ol>
+</div>
+
+<nav class="toc">
+  <div class="ttl">目次</div>
+  <ol>
+    <li><a href="#about">Orcaとは</a></li>
+    <li><a href="#mechanism">仕組み：ワークツリーで作業場所を分ける</a></li>
+    <li><a href="#bots">Orca Bots：チャットから頼めるボット</a></li>
+    <li><a href="#agents">対応するコーディングエージェント</a></li>
+    <li><a href="#features">主な機能</a></li>
+    <li><a href="#diff">T3 Codeとの違い</a></li>
+    <li><a href="#pricing">料金</a></li>
+    <li><a href="#privacy">データの扱い</a></li>
+    <li><a href="#install">導入の流れ</a></li>
+    <li><a href="#notes">注意点と未確認事項</a></li>
+    <li><a href="#sources">資料と出典</a></li>
+  </ol>
+</nav>
+
+<h2 id="about">Orcaとは</h2>
+<p>Orcaは、Claude CodeやCodexなどのコーディングエージェントを複数、同時に走らせるためのデスクトップアプリです。公式サイトの見出しは「The agent development environment」で、FAQでは「無料でオープンソースのデスクトップアプリ」と説明されています。エディタの代わりにエージェントを置くのではなく、ワークツリー、ターミナル、diffレビュー、ブラウザをまとめた「エージェントのための開発環境（ADE）」という言い方をしています。</p>
+<p>想定する使い方は、タスクごとに作業場所を分けてエージェントを並行させることです。たとえば認証まわりをClaude Code、APIをCodex、フロント画面をOpenCodeに任せ、出来上がったdiffを並べて確認し、よいものを採用します。同じエージェントを複数起動して同じタスクを競わせる使い方も公式FAQが挙げています。</p>
+<p>運営はStablyです。GitHubの組織は stablyai、リポジトリ（stablyai/orca）の作成は2026年3月17日、主な実装言語はTypeScriptです。公式サイトにはY Combinatorのロゴと「Backed by Y Combinator」の表示があります。</p>
+<figure class="oc-figure">
+<img src="/assets/orca-overview-v1.png" width="1600" height="860" loading="lazy" alt="Orcaの全体像。中心のOrcaに、並行ワークツリー、チャットとターミナル、diffレビュー、モバイルアプリ、GitHubとLinearの連携、Orca Botsが並ぶ">
+<figcaption>図：Orcaの全体像。モデルは内蔵せず、利用者の契約しているエージェントのCLIを動かします。</figcaption>
+</figure>
+
+<h2 id="mechanism">仕組み：ワークツリーで作業場所を分ける</h2>
+<p>Orcaは「ワークツリー・ファースト」を掲げています。各エージェントは専用の隔離されたGitワークツリーの中で動きます。ワークツリーはGit標準の仕組みで、1つのリポジトリから複数の作業フォルダを切り出し、フォルダごとに別のブランチを開けます。Orcaが作るのは本物の <code>git worktree</code> なので、通常のgit操作もそのまま使えます（公式FAQ）。</p>
+<p>作業の流れは、リポジトリの既定ブランチからワークツリーを切り出し、エージェントを割り当て、並行して進め、diffを比べて採用する、という形です。同じファイルを複数のエージェントが同時に触らないため、並行作業同士が衝突しません。</p>
+<p>エージェントとの対話は、チャットUIでも生のターミナル（CLIそのまま）でも行え、文脈を失わずに両方を行き来できます。ターミナルはGhostty系の分割機能を持つものが内蔵されています（公式FAQ）。</p>
+<p>実行場所は自分のマシンが基本ですが、Remote Orca Serverとのペアリング、SSHホスト上での実行、ワークツリー専用のクラウドVMも選べます。リモートで動かせば、ノートPCがスリープしてもエージェントは動き続けます（README）。</p>
+<figure class="oc-figure">
+<img src="/assets/orca-layers-v1.png" width="1600" height="940" loading="lazy" alt="Orcaのレイヤー構成。操作画面（デスクトップとモバイル）、Orcaの管理層（ワークツリー、ターミナル、diffレビュー）、エージェントのCLI、モデルの提供元の順につながる">
+<figcaption>図：Orcaのレイヤー構成。Orcaは管理層で、コードを書くのは各エージェントのCLIです。</figcaption>
+</figure>
+<figure class="oc-figure">
+<img src="/assets/orca-worktrees-v1.png" width="1600" height="900" loading="lazy" alt="ワークツリーの挙動。1つのGitリポジトリから3つのワークツリーを切り出し、Claude Code、Codex、OpenCodeが別々のタスクを並行して進め、diffを比べてよい方を採用する">
+<figcaption>図：ワークツリーによる並行作業。作業場所が分かれているため、エージェント同士が干渉しません。</figcaption>
+</figure>
+
+<h2 id="bots">Orca Bots：チャットから頼めるボット</h2>
+<p>Orca Botsは、Orcaの中に住むボットです。公式FAQによると、各ボットは利用者自身のClaude CodeやCodexを、利用者自身のマシンで動かし、Slack、Linear、GitHub、Gmail、スケジュール、Webhookから仕事を受けます。ボットはGitワークツリーの中で作業し、必要に応じて並行ワーカーを起動します。</p>
+<p>公式サイトの説明では、SlackやLinear、GitHubでボットに「このバグを直して」と頼むと、戻ってきたときにはテスト済みのプルリクエストができている、という流れです。途中で判断が要る場面になると「Needs you」に挙がり、デスクトップでもスマホでも、質問に答えれば作業が再開します。手を入れたくなったら、そのスレッドをOrcaで開けばエディタ、ターミナル、ブラウザがそろっています。</p>
+<p>ボットのスケジュールとトリガー（平日9時に実行、PRが開いたら実行、チェックが失敗したら実行、Webhookで実行）も用意されています。ボットの人格と記憶は <code>SOUL.md</code> と <code>MEMORY.md</code> というプレーンなMarkdownファイルに置かれ、読んだり編集したりできます（README）。</p>
+<figure class="oc-figure">
+<img src="/assets/orca-bots-v1.png" width="1600" height="860" loading="lazy" alt="Orca Botsの流れ。Slack、Linear、GitHub、Gmail、Webhook、スケジュールから仕事を受け、自分のマシンで自分のエージェントを使うボットが、ワークツリーで作業してテスト済みのプルリクエストを返す">
+<figcaption>図：Orca Botsの流れ。入口は普段の仕事道具で、実行は自分のマシンの中です。</figcaption>
+</figure>
+
+<h2 id="agents">対応するコーディングエージェント</h2>
+<p>公式の言い方は「ターミナルで動くCLIエージェントなら何でも」です。READMEには名前つきで多数が挙がっています。代表例はClaude Code、Codex、Grok、Cursor、GitHub Copilot、Muse、OpenCode、Amp、Antigravity、Pi、Hermes Agent、Devin、Goose、Cline、Continue、Kiro、Qwen Codeなどで、このほかにも多くの名前が並びます。前提は、各エージェントのCLIがそのマシンに入っていて、利用者自身の契約でログインが済んでいることです。</p>
+<p>エージェントの利用量とリセット時期をOrcaの中で確認したり、ログアウトせずにアカウントを切り替えたりする機能もあります（公式サイトのUsage &amp; Accounts）。</p>
+<figure class="oc-figure">
+<img src="/assets/orca-agents-v1.png" width="1600" height="780" loading="lazy" alt="対応するコーディングエージェントの例。Claude Code、Codex、Grok、Cursor、GitHub Copilot、OpenCode、Amp、Antigravity、Pi、Hermes Agent、Devin、Goose、Cline、Continue、Kiroなど">
+<figcaption>図：対応エージェントの例（公式READMEより）。顔ぶれは更新で変わるため、導入前にREADMEの最新の一覧を確認してください。</figcaption>
+</figure>
+
+<h2 id="features">主な機能</h2>
+<ul>
+<li>diffレビュー：変更行そのものにメモを書き、その注記をエージェントへ返して直させることができます。</li>
+<li>Git連携：diffからコミットメッセージとプルリクエストを下書きし、失敗したチェックやPRのレビューコメントをエージェントへ送って直させることができます。</li>
+<li>GitHub／Linear連携：課題をアプリの中で見て、課題ごとにワークスペースを開始できます。</li>
+<li>エージェントの分担（Orchestrate Agents）：大きなタスクを1つのエージェントに渡すと、仕事を分割してワーカーエージェントを各自のワークスペースで起動し、結果を持ち帰ります。</li>
+<li>Orca CLI：アプリでできることはコマンドラインからもでき、エージェント自身がワークツリーの作成、ワーカーの起動、ブラウザやデスクトップアプリの操作、自動化のスケジュールを行えます。</li>
+<li>Automations：リポジトリごとにプロンプトをスケジュール実行できます。例として夜間の依存関係更新、週次のトリアージ、不安定なテストの洗い出しが挙げられています。</li>
+<li>Design Mode：内蔵ブラウザで要素をクリックすると、そのHTML、スタイル、セレクタをコピーしてエージェントのチャットへ貼れます。</li>
+<li>そのほか：画面分割（Split Anything）、モバイルエミュレータ、音声入力（Dictation）、Computer Use（CLIやAPIがない場面でデスクトップアプリを操作）、プラグインなど。</li>
+</ul>
+<figure class="oc-figure">
+<img src="/assets/orca-features-v1.png" width="1600" height="740" loading="lazy" alt="Orcaの主な機能。diffへの行メモ、Git連携、Orca CLI、リモート実行、Automations、エージェントの分担">
+<figcaption>図：主な機能。並行実行だけでなく、レビューと出荷までの流れが1画面に入っています。</figcaption>
+</figure>
+
+<h2 id="diff">T3 Codeとの違い</h2>
+<p>どちらも「複数のコーディングエージェントを、自分の契約のまま、自分のマシンで動かす」ための無料のオープンソースです。違いは管理の単位と画面の作りです。</p>
+<table class="oc-table">
+<tr><th>項目</th><th>T3 Code</th><th>Orca</th></tr>
+<tr><td>管理の単位</td><td>スレッド（作業の会話）</td><td>ワークスペース＝Gitワークツリー</td></tr>
+<tr><td>軸になる使い方</td><td>途中でのモデル／エージェント切替と引き継ぎ</td><td>複数エージェントの並行実行とdiffの比較・採用</td></tr>
+<tr><td>形態</td><td>自分のマシンで動く小さなサーバ＋デスクトップ／Web／スマホのクライアント</td><td>IDE型のデスクトップアプリ＋モバイルコンパニオン</td></tr>
+<tr><td>ワークツリー</td><td>スレッドごとに分けることができる</td><td>ワークツリー・ファーストで、作成が作業の起点</td></tr>
+<tr><td>仕事の受け方</td><td>画面から指示するのが中心</td><td>画面に加え、Bots（Slack等）とAutomationsで受ける</td></tr>
+<tr><td>運営</td><td>T3 Tools, Inc.</td><td>Stably</td></tr>
+<tr><td>料金</td><td>無料（MIT）。接点としてT3 Connectの上限がT3 Chatプランと連動</td><td>無料（MIT）。有料プランは公式に用意されていない</td></tr>
+</table>
+<p>ざっくり言えば、1つの作業を進めながら相棒を切り替えるならT3 Code、複数の作業を同時に走らせて結果を比べるならOrca、という向きの違いです。T3 Code側の詳しい内容は<a href="/t3-code">T3 Codeの記事</a>にまとめています。</p>
+<figure class="oc-figure">
+<img src="/assets/orca-diff-v1.png" width="1600" height="940" loading="lazy" alt="T3 CodeとOrcaの違い。T3 Codeはスレッド中心の操作画面、Orcaはワークツリー中心の開発環境。共通点は、どちらも無料のオープンソースで、自分の契約と自分のマシンでエージェントを動かすこと">
+<figcaption>図：T3 CodeとOrcaの違い。発想は近いものの、管理の単位が異なります。</figcaption>
+</figure>
+
+<h2 id="pricing">料金</h2>
+<p>Orca本体は無料です。公式FAQの「Is Orca free?」への答えは「完全に無料で、MITライセンスのオープンソース」で、公式サイトにも価格は0ドルと表示されています。有料プランは、確認した公式資料の範囲では用意されていません。</p>
+<p>払う必要があるのは、Claude CodeやCodexなど、自分が使うエージェントの契約料だけで、それはOrcaを使う前と同じです。Orca側がトークンを再販したり、利用量メーターで課金したりすることはありません。リモート実行でSSHホストやクラウドVMを使う場合は、その環境自体は自分の用意したものを使います。</p>
+<figure class="oc-figure">
+<img src="/assets/orca-pricing-v1.png" width="1600" height="800" loading="lazy" alt="料金の図。Orca本体は無料でオープンソース。エージェントの契約は従来どおり。有料プランは公式に用意されていない">
+<figcaption>図：料金の構造。本体は無料で、費用はエージェントの契約だけです。</figcaption>
+</figure>
+
+<h2 id="privacy">データの扱い</h2>
+<p>実行は自分のマシンが基本で、エージェントは利用者自身の契約とログインで動きます。ボットについても公式FAQは「自分のマシンで、自分のClaude CodeやCodexを使う」と明記しています。リモート実行を選んだ場合も、接続先は自分のSSHホストや自分のクラウドVMです。</p>
+<p>利用状況データについては、READMEが公式のプライバシー／テレメトリ文書へ案内しています。そこでは、Orcaが収集する匿名の利用状況データの内容と、オプトアウトの方法が説明されています。導入時に気になる場合は、その文書を確認してください。</p>
+<figure class="oc-figure">
+<img src="/assets/orca-privacy-v1.png" width="1600" height="660" loading="lazy" alt="データの扱い。実行は自分のマシンが基本で、モデルは自分の契約で直接利用する。リモート実行も自分のSSHホストやVM。匿名の利用状況データは公式文書に内容とオプトアウト方法が明記されている">
+<figcaption>図：データの扱い。実行場所は、自分のマシンか自分のリモート環境です。</figcaption>
+</figure>
+
+<h2 id="install">導入の流れ</h2>
+<p>デスクトップ版はmacOS、Windows、Linuxに対応し、公式サイト（orca.dev）からダウンロードできます。macOSはHomebrewでも入れられますが、その際は <code>brew install --cask stablyai/orca/orca</code> とフルネームで指定します。素の <code>orca</code> は無関係のPlotlyのcaskだとREADMEが注意しています。LinuxはAppImageのほか、Arch Linux向けのAURパッケージ（stably-orca-bin）もあります。</p>
+<p>前提は、少なくとも1つのエージェントのCLIが入り、ログインが済んでいることです。アプリにリポジトリを追加すると、既定ブランチからワークツリーを切り出して作業を始められます。モバイルアプリ（iOS／Android）はデスクトップとペアリングして使うコンパニオンで、エージェントが入力を待っているときの通知、チャットでの返信、外出先からの進行確認に使います。</p>
+<figure class="oc-figure">
+<img src="/assets/orca-flow-v1.png" width="1600" height="620" loading="lazy" alt="導入の流れ。1. Orcaを入れる、2. リポジトリを追加する、3. ワークツリーを作ってエージェントを起動する">
+<figcaption>図：導入の流れ。先にエージェント側の準備が要ります。</figcaption>
+</figure>
+
+<h2 id="notes">注意点と未確認事項</h2>
+<ul>
+<li>更新が非常に速いプロジェクトです。公式README自身が「毎日出すので、この機能一覧は常に遅れている。本当の機能一覧はchangelogだ」と書いています。この記事の内容は2026年11月24日時点のもので、導入前に公式の最新版を確認してください。</li>
+<li>スター数（13万5千超）と最新版（v1.4.272）は、2026年11月24日にGitHub APIで確認した値です。数値は動き続けています。</li>
+<li>Homebrewで入れる場合はフルネーム指定が必要です。素の <code>orca</code> caskは無関係の別物です。</li>
+<li>日本語の画面表示の提供状況は、この記事では確認していません。READMEには日本語版が用意されていますが、アプリ画面の言語は未確認です。</li>
+<li>リモート実行やクラウドVMは、接続先の環境を自分で用意することが前提です。その環境の費用や保守はOrcaの範囲外です。</li>
+<li>この記事では、外部の校正ツール（yomiyasu）は実行していません。数値と出典は原稿作成時に一次資料と照合しています。</li>
+</ul>
+
+<h2 id="sources">資料と出典</h2>
+<p>公式資料（一次資料）：</p>
+<ul>
+<li><a href="https://orca.dev/">Orca 公式サイト</a>（ADEの位置づけ、機能、FAQ、価格0ドルの表示、Y Combinatorの表示）</li>
+<li><a href="https://github.com/stablyai/orca">GitHub：stablyai/orca</a>（README：機能の一覧、対応エージェント、導入方法、Bots、ライセンス。リポジトリ作成は2026年3月17日）</li>
+<li><a href="https://api.github.com/repos/stablyai/orca">GitHub API（リポジトリ情報）</a>（スター135,082件、フォーク8,638件、最新リリースv1.4.272＝2026年11月23日。いずれも2026年11月24日確認）</li>
+<li><a href="/t3-code">T3 Codeの記事（このサイト）</a>（比較対象。T3 Codeの仕組みと料金）</li>
+</ul>
+<p>この記事は2026年11月24日に上記の資料を確認して書きました。対応エージェントや機能は更新で変わるため、導入前に公式READMEと公式サイトの最新版を確認してください。</p>
+
+</div>
+<script type="module" src="/assets/site.js"></script>
+</body>
+</html>
