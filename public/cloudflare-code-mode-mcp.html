@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cloudflare Code Mode：2,500超のAPIを2つのツールに畳むMCPの設計</title>
+<meta name="description" content="CloudflareのCode Modeは、2,594エンドポイント分のツール定義（約117万トークン）を search と execute の2ツール（約1,000トークン）に置き換えるMCPの設計です。公式ブログとcloudflare/mcpのREADMEで数字の測り方、仕組み、サンドボックス、向き不向きを確認します。">
+<link rel="canonical" href="https://share.0g0.xyz/cloudflare-code-mode-mcp">
+<link rel="stylesheet" href="/assets/site.css">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="Cloudflare Code Mode：2,500超のAPIを2つのツールに畳むMCPの設計">
+<meta property="og:description" content="ツール定義 約117万トークンを約1,000トークンに。search/executeの仕組み、サンドボックス、数字の読み方と向き不向きを公式資料で確認します。">
+<meta property="og:url" content="https://share.0g0.xyz/cloudflare-code-mode-mcp">
+<meta property="og:image" content="https://share.0g0.xyz/assets/codemode-ogp-v1.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Cloudflare Code Mode：2,500超のAPIを2つのツールに畳む">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://share.0g0.xyz/assets/codemode-ogp-v1.png">
+<meta name="twitter:image:alt" content="Cloudflare Code Mode：2,500超のAPIを2つのツールに畳む">
+<style>
+:root{--accent:#924004;--accent-dark:#ffb86b}
+.fig{margin:1.25rem 0;max-inline-size:46rem}
+.fig img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:0}
+.fig figcaption{font-size:.9rem;margin-top:.55rem}
+table.cmp{border-collapse:collapse;margin:1rem 0;width:100%}
+table.cmp th,table.cmp td{border:1px solid var(--line);padding:.45rem .7rem;text-align:left;vertical-align:top}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="sitebar" aria-label="サイト内"><a class="brand" href="/">HTML Share</a><nav><a href="/">一覧</a><a href="/feed.xml">RSS</a></nav></nav>
+<header class="top">
+<div class="kicker">MCPとエージェント基盤</div>
+<h1>Cloudflare Code Mode：2,500超のAPIを2つのツールに畳むMCPの設計</h1>
+<p class="meta">確認日：2026年11月25日<br>一次資料はCloudflare公式ブログ、cloudflare/mcp リポジトリのREADME、Cloudflare開発者ドキュメント、@cloudflare/codemode パッケージのREADMEです。発端となったX投稿は出典に挙げますが、主張の根拠は公式資料で確認しました。</p>
+</header>
+
+<div class="summary3">
+<div class="ttl">要点</div>
+<ol>
+<li>MCPでツールを増やすと、その定義がモデルの文脈を常駐して食います。Cloudflare APIの2,594エンドポイントを通常のツールとして載せると定義だけで1,170,523トークン（Cloudflareの実測）になり、多くのモデルの文脈枠を超えます。</li>
+<li>Code Modeはツールを <code>search</code> と <code>execute</code> に絞ります。仕様はサーバー側に置き、モデルはJavaScriptを書いて必要なエンドポイントだけを検索し、API呼び出しの連鎖もコードとして1回で実行します。常駐コストは約1,000トークンで、エンドポイントが増えてもほぼ固定です。</li>
+<li>コードはDynamic Workerの隔離環境で実行されます。ファイルシステムと環境変数はなく、外向き通信は既定で無効です。ただし隔離が防ぐのは通信と秘密の漏えいで、コードの正しさまでは保証しません。</li>
+<li>効果が出るのは、エンドポイントが多い大きなAPIと、多段の編排がある作業です。ツールが数個の小さいサーバーや1回だけの呼び出しでは、通常のツール呼び出しと大差ありません。</li>
+</ol>
+</div>
+
+<nav class="toc">
+<div class="ttl">目次</div>
+<ol>
+<li><a href="#numbers">数字の内訳：117万トークンは何を測ったものか</a></li>
+<li><a href="#layers">仕組み：仕様と実行をサーバー側に置く</a></li>
+<li><a href="#flow">動き：searchで絞り、executeで連鎖させる</a></li>
+<li><a href="#sandbox">サンドボックス：隔離で防げること、防げないこと</a></li>
+<li><a href="#sdk">自分のサーバーに使う：@cloudflare/codemode</a></li>
+<li><a href="#fit">向き不向き</a></li>
+<li><a href="#limits">注意点と限界</a></li>
+<li><a href="#sources">資料と出典</a></li>
+</ol>
+</nav>
+
+<h2 id="numbers">数字の内訳：117万トークンは何を測ったものか</h2>
+<p>MCPは、エージェントに外部ツールを接続する標準の仕組みです。接続したツールの定義（名前、説明、引数のスキーマ）はモデルの文脈に入り、会話の間ずっと残ります。ツールが数個なら問題になりませんが、APIのエンドポイントを1つずつツール化すると、定義の合計がそのまま常駐コストになります。</p>
+<p>Cloudflare APIは2,500を超えるエンドポイントを持ちます。cloudflare/mcp のREADMEに載る比較表では、見せ方によって次のように変わります。</p>
+<table class="cmp">
+<tr><th>見せ方</th><th>ツール数</th><th>トークン</th><th>何を測ったものか</th></tr>
+<tr><td>生のOpenAPI仕様をそのまま渡す</td><td>―</td><td>約2,000,000</td><td>仕様文書そのものの大きさ</td></tr>
+<tr><td>ネイティブMCP（完全なスキーマ）</td><td>2,594</td><td>1,170,523</td><td>全エンドポイントを完全なスキーマ付きツールとして定義した場合。公式ブログでは tiktoken で計数したと明記</td></tr>
+<tr><td>ネイティブMCP（最小スキーマ）</td><td>2,594</td><td>244,047</td><td>スキーマを必須パラメータだけに削った場合</td></tr>
+<tr><td>Code Mode</td><td>3</td><td>約1,100</td><td>search / execute 等のツール定義のみ。公式ブログの表現では「約1,000トークン」</td></tr>
+</table>
+<p>「117万トークンが1,000トークンに」という見出しの数字は、この表の2行目と4行目の比較です。削減率は99.9%とされます。200万という数字は仕様そのものの大きさで、ツール定義の数字とは別物です。混ぜて読むと過大にも過小にも見えるため、この記事では分けて書きます。</p>
+<p>もう1つ大事なのは、この約1,000が「固定」だという点です。エンドポイントが増えても、モデルが常駐で持つのは search と execute の定義だけなので、コストはAPIの規模に比例しません。比例するのは、後述する検索と実行の往復の分だけです。</p>
+<figure class="fig">
+<img src="/assets/codemode-tokens-v1.png" alt="方式ごとの常駐トークンコストを対数スケールで比べた図。生のOpenAPI仕様が約200万、ネイティブMCP完全スキーマが1,170,523、最小スキーマが244,047、Code Modeが約1,100">
+<figcaption>図：トークンはどこで消えるか。桁が違いすぎるため対数スケールで示す。数値は cloudflare/mcp のREADMEの比較表による。</figcaption>
+</figure>
+
+<h2 id="layers">仕組み：仕様と実行をサーバー側に置く</h2>
+<p>Code Modeの考え方は、2025年9月26日のCloudflare公式ブログ「Code Mode: the better way to use MCP」で提示されました。MCPツールをTypeScriptのAPIに変換し、モデルにはツールを直接呼ばせず、そのAPIを呼ぶコードを書かせます。根拠として挙げられているのは、モデルは学習で大量の実コードを見ている一方、ツール呼び出しの例は作り物が中心で、コードを書く方が得意だという点です。Anthropicも独立に同じ型を「Code execution with MCP」として提示しました。</p>
+<p>2026年2月20日の公式ブログで、Cloudflareはこの型をサーバー側に置いた公式MCPサーバーを公開しました。接続先は <code>https://mcp.cloudflare.com/mcp</code> です。サーバー側に置く利点は、エージェント側に特別な仕組みが要らないことです。通常のMCPクライアントから接続でき、コードの実行環境はサーバーが用意します。</p>
+<p>公開されるツールの中核は2つです。<code>search</code> は、サーバーが保持するOpenAPI仕様（参照は解決済み）に対してモデルが書いたJavaScriptを実行し、一致したエンドポイントだけを返します。<code>execute</code> は、<code>cloudflare.request()</code> を使うJavaScriptを実行し、実際のAPIを呼びます。現行のREADMEでは、この2つに開発者ドキュメント検索の <code>docs</code> と、接続中アカウントを返す <code>whoami</code> が加わります。コスト表の「3ツール」はこの構成を数えたものです。</p>
+<figure class="fig">
+<img src="/assets/codemode-layer-v1.png" alt="レイヤー図。エージェント層には約1,000トークンの定義だけが常駐し、MCPサーバー層がOpenAPI仕様を保持し、サンドボックス層でコードを実行し、Cloudflare API層を呼ぶ">
+<figcaption>図：レイヤー図。仕様と実行はサーバー側にあり、モデルの文脈に入るのは定義と結果だけ。</figcaption>
+</figure>
+
+<h2 id="flow">動き：searchで絞り、executeで連鎖させる</h2>
+<p>実際の使い方は、検索と実行の2段です。公式ブログの例（ゾーンをDDoS攻撃から守る）では、まず <code>search</code> でパスやタグを条件に仕様を絞り、WAFとルールセットのエンドポイントだけを取り出します。次に特定エンドポイントのスキーマをコードで掘り、使えるフェーズの値を確認します。その後 <code>execute</code> に移り、既存ルールセットの一覧取得、DDoS用とWAF用エントリポイントの取得を1回の実行の中で連鎖させます。ブログによれば、この一連は4回のツール呼び出しで完了しました。</p>
+<p>従来方式との違いは、中間結果がモデルを経由しないことです。通常のツール呼び出しでは、呼び出しごとに結果がモデルへ戻り、モデルが次の呼び出しを決めます。ページング、絞り込み、集計のような機械的な連鎖までモデルを経由すると、その分だけ往復とトークンが増えます。Code Modeでは連鎖はコードの中に書き、モデルへ戻るのは最終結果だけです。</p>
+<p>結果の側にも上限があります。READMEによれば、<code>search</code> と <code>execute</code> の結果はそれぞれ約6,000トークンで切断され、切断箇所にはその旨が表示されます。結果をファイルなどへ流してモデルに読ませない場合に限り、全量を返す指定もできます。</p>
+<figure class="fig">
+<img src="/assets/codemode-flow-v1.png" alt="挙動図。指示、search、スキーマ確認、execute、結果だけがモデルへ戻る、の5段階">
+<figcaption>図：挙動図。searchで必要な部分だけを取り、executeで連鎖を実行し、結果だけが戻る。</figcaption>
+</figure>
+
+<h2 id="sandbox">サンドボックス：隔離で防げること、防げないこと</h2>
+<p>モデルが書いたコードをそのまま実行する設計なので、実行環境の隔離が前提になります。公式ブログによれば、コードはDynamic Workerのisolate（V8のサンドボックス）で実行され、ファイルシステムはなく、漏れる環境変数も置かれず、外向きのfetchは既定で無効です。必要な場合だけ、外向き通信をハンドラで明示的に制御できます。</p>
+<p>認証も境界の内側で処理されます。サンドボックスには認証付きの <code>cloudflare.request()</code> クライアントが渡り、APIトークン自体はモデルのコードに渡りません。接続はOAuth 2.1に対応し、権限は接続時に利用者が承認した範囲へ絞られます（ダウンスコープ）。READMEには、APIトークンで接続する場合の注意として、Client IP Address Filteringが有効なトークンは現在未対応であることも明記されています。</p>
+<p>一方で、隔離が保証するのは「勝手な通信をしない」「秘密が漏れない」という境界の話です。コードが意図どおりのエンドポイントを正しい引数で呼ぶかは、モデルの書くコード次第です。何を実行したかを後から追える記録や、変更前の承認をどう挟むかは、この仕組みの外側、利用側の設計に残ります。</p>
+<figure class="fig">
+<img src="/assets/codemode-sandbox-v1.png" alt="サンドボックスの境界を示す図。ファイルシステムなし、環境変数なし、外向きfetch既定無効、トークンはコードに渡らない、権限はダウンスコープ。下部に隔離では防げない範囲の注記">
+<figcaption>図：サンドボックスの境界。隔離は通信と漏えいを防ぎ、操作の正しさまでは保証しない。</figcaption>
+</figure>
+
+<h2 id="sdk">自分のサーバーに使う：@cloudflare/codemode</h2>
+<p>この型は、Cloudflareの公式サーバー専用の話ではありません。X投稿で紹介されていた「底層ライブラリのオープンソース化」も事実で、パッケージ <code>@cloudflare/codemode</code> が cloudflare/agents リポジトリで公開され、npmから導入できます。公式ブログ（Dynamic Workersの記事）によれば、SDKには2つの入口があります。既存のMCPサーバーのツール面を単一の <code>code()</code> ツールへ置き換える <code>codeMcpServer()</code> と、OpenAPI仕様から <code>search</code> / <code>execute</code> 型のサーバーを組み立てる <code>openApiMcpServer()</code> です。後者が公式Cloudflare APIサーバーと同型です。</p>
+<p>注意は、パッケージのREADME冒頭に「Experimental（実験的）。破壊的変更があり得る。本番では注意」と明記されていることです。実行の土台としてDynamic Worker Loaderも必要になります。設計の方向性は公式サーバーで実運用されていますが、SDK自体はまだ変わり得る段階だと分けて読むのが正確です。</p>
+<p>なお、公式サーバー側にはCode Modeを外す選択肢もあります。URLに <code>?codemode=false</code> を付けると、各エンドポイントが個別ツールとして登録されます（READMEでは約3,000ツール、生成はforge）。自分のクライアント側でCode Modeを実装している場合の合成用ですが、トークンコストは約24.4万の水準に戻るとREADMEが警告しています。</p>
+<figure class="fig">
+<img src="/assets/codemode-sdk-v1.png" alt="SDKの2つの入口を示す図。openApiMcpServerは大きなAPI向け、codeMcpServerは既存サーバーの転用向け。下部にExperimentalの注意">
+<figcaption>図：SDKの入口は2つ。どちらも土台はDynamic Workerで、パッケージは実験的と明記されている。</figcaption>
+</figure>
+
+<h2 id="fit">向き不向き</h2>
+<p>効果が出る条件は、APIが大きいことと、作業に連鎖があることの2つです。エンドポイントが数千規模なら、定義の常駐コストだけで通常方式は成り立ちません。検索して、絞り込んで、まとめて変更するような多段の作業では、中間結果をモデルに経由させない分も効きます。</p>
+<p>逆に、ツールが数個から十数個の小さいサーバーでは、定義の常駐コスト自体が小さいため、削減できる量も小さくなります。1回だけの単純な呼び出しでは、検索の往復が増える分だけ通常方式より遅くなる場面もあります。往復ごとに人の承認を挟む運用や、モデルにコードを書かせる前提が置けない環境とも相性がよくありません。</p>
+<figure class="fig">
+<img src="/assets/codemode-fit-v1.png" alt="向き不向きの対比図。向いているのは大きなAPI、多段の編排、ページングや集計を伴う取得。効果が薄いのは小さいサーバー、単発の呼び出し、承認を挟む運用">
+<figcaption>図：向き不向き。条件は「大きい」と「連鎖する」の2つ。</figcaption>
+</figure>
+
+<h2 id="limits">注意点と限界</h2>
+<ul>
+<li>数字はCloudflare自身の計数です。1,170,523トークンは「全エンドポイントを完全スキーマでツール化した場合」の定義量で、作業全体の消費量ではありません。実作業では検索と実行の往復が別に発生します。</li>
+<li>結果は約6,000トークンで切断されます。広い条件で検索すると先頭だけが返るため、条件の絞り方が結果の質を左右します。</li>
+<li>正しさはモデルが書くコードに依存します。スキーマを掘ってから呼ぶ手順は用意されていますが、誤ったエンドポイントや引数を選ぶ可能性は残ります。</li>
+<li>SDK（@cloudflare/codemode）は実験的と明記されています。公式サーバーの利用と、SDKでの自作では、安定性の前提が違います。</li>
+<li>Client IP Address Filteringが有効なAPIトークンは、公式サーバーへの接続に現在使えません（README）。</li>
+</ul>
+
+<h2 id="sources">資料と出典</h2>
+<ul>
+<li>Cloudflare Blog「Code Mode: give agents an entire API in 1,000 tokens」（2026年2月20日、2026年7月15日更新）<br><a href="https://blog.cloudflare.com/code-mode-mcp/">https://blog.cloudflare.com/code-mode-mcp/</a></li>
+<li>cloudflare/mcp リポジトリ README（トークン比較表、ツール一覧、codemode=false、結果の切断、トークンの注意）<br><a href="https://github.com/cloudflare/mcp">https://github.com/cloudflare/mcp</a></li>
+<li>Cloudflare Blog「Code Mode: the better way to use MCP」（2025年9月26日）<br><a href="https://blog.cloudflare.com/code-mode/">https://blog.cloudflare.com/code-mode/</a></li>
+<li>Cloudflare開発者ドキュメント「Cloudflare's own MCP servers」<br><a href="https://developers.cloudflare.com/agents/model-context-protocol/cloudflare/servers-for-cloudflare/">https://developers.cloudflare.com/agents/model-context-protocol/cloudflare/servers-for-cloudflare/</a></li>
+<li>@cloudflare/codemode パッケージ README（cloudflare/agents）<br><a href="https://github.com/cloudflare/agents/tree/main/packages/codemode">https://github.com/cloudflare/agents/tree/main/packages/codemode</a></li>
+<li>Cloudflare Blog「Sandboxing AI agents, 100x faster」（Dynamic Worker LoaderとSDKの入口）<br><a href="https://blog.cloudflare.com/dynamic-workers/">https://blog.cloudflare.com/dynamic-workers/</a></li>
+<li>発端：明子206（@mingzi206）のX投稿（2026年11月24日）<br><a href="https://x.com/mingzi206/status/2125161818897412409">https://x.com/mingzi206/status/2125161818897412409</a></li>
+</ul>
+<p>確認は2026年11月25日に行いました。数値は各資料の公表値で、こちらで再計測したものではありません。</p>
+
+</div>
+<script type="module" src="/assets/site.js"></script>
+</body>
+</html>
