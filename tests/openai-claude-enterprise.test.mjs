@@ -18,9 +18,9 @@ test("Enterprise comparison has accessible structure, canonical and social metad
   assert.equal(document.querySelector('meta[property="og:image:height"]')?.content, "909");
   assert.equal(document.querySelector('meta[name="twitter:card"]')?.content, "summary_large_image");
   assert.equal(document.querySelector('a.skip[href="#main"]')?.textContent, "本文へ移動");
-  assert.equal(document.querySelectorAll(".toc a").length, 7);
+  assert.equal(document.querySelectorAll(".toc a").length, 8);
   assert.equal(document.querySelectorAll("#checklist > ol > li").length, 8);
-  assert.equal(document.querySelectorAll("#conclusion .key li").length, 4);
+  assert.equal(document.querySelectorAll("#conclusion .key li").length, 5);
   assert.ok(document.querySelectorAll("details").length >= 2);
   assert.match(html, /prefers-reduced-motion/);
 
@@ -37,7 +37,7 @@ test("Enterprise comparison has accessible structure, canonical and social metad
 });
 
 test("Enterprise comparison distinguishes evidence, uncertainty and scope", () => {
-  assert.equal(document.querySelectorAll(".source-list > li").length, 21);
+  assert.equal(document.querySelectorAll(".source-list > li").length, 24);
   for (const source of document.querySelectorAll(".source-list > li")) {
     assert.ok([...source.querySelectorAll("a[href]")].every((a) => a.href.startsWith("https://")));
     assert.ok(source.querySelector("span")?.textContent.length);
@@ -97,4 +97,19 @@ test("Enterprise OGP and explanatory PNG are complete and dimensioned", async ()
   assert.equal(image?.getAttribute("height"), "941");
   assert.match(image?.getAttribute("alt") ?? "", /社内コード/);
   assert.match(document.querySelector("#code figcaption")?.textContent ?? "", /概念図/);
+});
+
+test("EFS documentation preserves the storage and evidence boundaries", () => {
+  const intro = document.querySelector("#efs");
+  assert.ok(document.querySelector('.toc a[href="#efs"]'));
+  const body = intro?.nextElementSibling;
+  assert.equal(body?.querySelectorAll(".efs-flow li").length, 3);
+  assert.ok(body?.querySelector("figure figcaption")?.textContent.includes("顧客側"));
+  for (const required of [
+    /Messages API/, /Files API/, /Batch API/, /Managed Agents/,
+    /ケースのJSON/, /Transcripts/, /別の読める会話記録/,
+    /暗号化済みの安全性データを直接読めるという意味ではない/,
+    /データ転送のクラウド費用/
+  ]) assert.match(body?.textContent ?? "", required);
+  assert.ok(document.querySelector('#s24 a')?.href.includes("/enterprise-frontier-safeguards/flagged-cases"));
 });
