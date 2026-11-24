@@ -28,12 +28,20 @@
 table.tc-table{border-collapse:collapse;margin:1rem 0}
 table.tc-table th,table.tc-table td{border:1px solid var(--line);padding:.45rem .8rem;text-align:left}
 </style>
+  <!-- html-share: social metadata -->
+  <meta property="og:site_name" content="HTML Share">
+  <meta name="twitter:title" content="T3 Codeとは：Claude CodeやCodexを1つの画面で操る無料のオープンソース。T3 Chatとは別物">
+  <meta name="twitter:description" content="コーディングエージェントを自分のマシンで動かし、デスクトップ・Web・スマホから操作するT3 Code。T3 Chatとの違い、対応エージェント、料金とT3 Chatプランの接点を公式資料と出典つきで整理します。">
+  <!-- /html-share: social metadata -->
+  <!-- html-share: rss discovery -->
+  <link rel="alternate" type="application/rss+xml" title="HTML Share RSS" href="https://share.0g0.xyz/feed.xml">
+  <!-- /html-share: rss discovery -->
 </head>
 <body>
 <div class="wrap">
 <nav class="sitebar" aria-label="サイト内"><a class="brand" href="/">HTML Share</a><nav><a href="/">一覧</a><a href="/feed.xml">RSS</a></nav></nav>
 <header class="top">
-  <div class="kicker">AI開発ツール解説 · T3 Code</div>
+  <div class="kicker">AI開発ツール解説 · <a class="gloss" href="/glossary#term-t3-code" title="Claude CodeやCodexなどのコーディングエージェントを、自分のマシンで動かしたまま、デスクトップ・Web・スマホの1つの画面から操作する無料のオープンソースアプリ。運営は米国のT3 Tools。">T3 Code</a></div>
   <h1>T3 Codeとは：Claude CodeやCodexを1つの画面で操る無料のオープンソース。T3 Chatとは別物</h1>
   <p class="meta">
     確認日：2026年11月24日<br>
@@ -44,10 +52,10 @@ table.tc-table th,table.tc-table td{border:1px solid var(--line);padding:.45rem 
 <div class="summary3">
   <div class="ttl">要点</div>
   <ol>
-    <li>T3 Codeは、<a href="/t3-chat">T3 Chat</a>とは別の製品です。T3 Chatが各社のAIモデルと文章で会話する汎用チャットなのに対し、T3 Codeは、Claude CodeやCodexなどのコーディングエージェントを自分のマシンで動かし、デスクトップ・Web・スマホから操作するための画面です。運営はどちらも米国のT3 Tools, Inc.です。</li>
-    <li>T3 Code自身はAIモデルでもエージェントでもありません。公式FAQは「ハーネス（エージェントの実行基盤）ではなく、それらを使う側」と明言しています。動かすのは、利用者がすでに入れてログイン済みのエージェントで、契約と課金は各提供元のままです。</li>
+    <li>T3 Codeは、<a href="/t3-chat">T3 Chat</a>とは別の製品です。<a class="gloss" href="/glossary#term-t3-chat" title="OpenAIやAnthropic、Googleなど複数社のAIモデルを、1つの画面で切り替えて使えるチャットサービス。運営は米国のT3 Tools。">T3 Chat</a>が各社のAIモデルと文章で会話する汎用チャットなのに対し、T3 Codeは、Claude CodeやCodexなどのコーディングエージェントを自分のマシンで動かし、デスクトップ・Web・スマホから操作するための画面です。運営はどちらも米国のT3 Tools, Inc.です。</li>
+    <li>T3 Code自身はAIモデルでもエージェントでもありません。公式FAQは「<a class="gloss" href="/glossary#term-harness" title="LLMに道具の呼び出しや結果の受け渡しを担わせ、エージェントとして動かすための実行基盤。Claude CodeやCodexの中核部分を指します。">ハーネス</a>（エージェントの実行基盤）ではなく、それらを使う側」と明言しています。動かすのは、利用者がすでに入れてログイン済みのエージェントで、契約と課金は各提供元のままです。</li>
     <li>料金は無料です。公式FAQには「私たちに払う方法自体がない」と書かれています。ソースコードはMITライセンスで公開されています。T3 Chatの月額プランを買う必要はありません。</li>
-    <li>T3 Chatとの接点は1つだけあります。リモート接続の仕組みT3 Connectでつなげるマシンの上限が、無料では3台のところ、T3 Chatの有料プランを連携するとProで10台、Premierで100台に増えます（公式FAQ）。</li>
+    <li>T3 Chatとの接点は1つだけあります。リモート接続の仕組み<a class="gloss" href="/glossary#term-t3-connect" title="T3 Codeのリモート接続の仕組み。自分のマシンで動くエージェントへ、スマホやブラウザから接続するために使います。">T3 Connect</a>でつなげるマシンの上限が、無料では3台のところ、T3 Chatの有料プランを連携するとProで10台、Premierで100台に増えます（公式FAQ）。</li>
     <li>エージェントの実行場所は自分のマシンや自分のVPSで、コードがT3のサーバへ送られることはないと公式FAQが明記しています。机で始めた作業の続きを、スマホから承認だけして進める、という使い方が前面に出ています。</li>
     <li>GitHubリポジトリの作成は2026年2月で、公式サイトの表示ではスターは7万5千を超えています。一方で公式READMEは「非常に初期のプロジェクトで、バグを想定してください」と明記しています。</li>
   </ol>
@@ -88,7 +96,7 @@ table.tc-table th,table.tc-table td{border:1px solid var(--line);padding:.45rem 
 </figure>
 
 <h2 id="about">T3 Codeとは：仕組み</h2>
-<p>T3 Code（t3.codes）は、公式サイトの言葉では「コーディングエージェントのための、オープンソースのコントロールプレーン（制御面）」です。GitHubのREADMEは「エージェントハーネスのコントロールサーフェス（操作面）」と表現しています。どちらも、T3 Code自身がエージェントとして働くのではなく、エージェントを動かして見せる側だという意味です。</p>
+<p>T3 Code（t3.codes）は、公式サイトの言葉では「コーディングエージェントのための、オープンソースの<a class="gloss" href="/glossary#term-control-plane" title="実際に処理を行う部分に対して、何をどう動かすかを決める部分のこと。">コントロールプレーン</a>（制御面）」です。GitHubのREADMEは「エージェントハーネスのコントロールサーフェス（操作面）」と表現しています。どちらも、T3 Code自身がエージェントとして働くのではなく、エージェントを動かして見せる側だという意味です。</p>
 <p>この区別は公式FAQが丁寧に説明しています。モデルに道具の実行や結果の受け渡しを担わせる実行基盤を「ハーネス」と呼び、Claude CodeやCodexがそれに当たります。T3 Codeはハーネスではなく、それらを使う側で、ハーネスなしでは動きません。FAQの比喩では、LLMがシェフ、ハーネスがキッチン、T3 Codeは「好きなキッチンを持ち込めるレストラン」です。</p>
 <p>仕組みは、操作画面と実行場所の分離です。自分のマシンで小さなサーバが動き、インストール済みのエージェント（ハーネス）を起動します。デスクトップアプリ、Webアプリ（app.t3.codes）、iOS・Androidのスマホアプリはすべて同じサーバにつながり、同じスレッド（作業の単位）を表示します。机の前のPCで始めた作業を、外出先のスマホで確認して次のステップを承認する、という流れが想定されています。</p>
 <p>運営はT3 Tools, Inc.で、商標ポリシーとライセンス表記に社名が明記されています。GitHubの組織は pingdotgg で、リポジトリの作成は2026年2月8日です。2026年3月にはCodex向けのWeb UIとして紹介され始め（二次資料）、その後対応エージェントとクライアントを広げました。バージョンは0.1.x系で更新が頻繁です。</p>
@@ -98,7 +106,7 @@ table.tc-table th,table.tc-table td{border:1px solid var(--line);padding:.45rem 
 </figure>
 
 <h2 id="agents">対応するコーディングエージェント</h2>
-<p>README（確認時点）では、Claude Code、Codex、Cursor、OpenCode、Grok Build、Antigravity、Kiro、Pi、Muse Code、fxに対応し、さらにACP（Agent Client Protocol）に対応する任意のエージェントも接続できるとしています。前提は、各エージェントの公式CLIがそのマシンに入っていて、ログインが済んでいることです。</p>
+<p>README（確認時点）では、Claude Code、Codex、Cursor、OpenCode、Grok Build、Antigravity、Kiro、Pi、Muse Code、fxに対応し、さらに<a class="gloss" href="/glossary#term-acp" title="エージェントと、それを操作するクライアントの間の通信手順を定めたプロトコル。対応するエージェントは共通の方法で別の画面から操作できます。">ACP</a>（Agent Client Protocol）に対応する任意のエージェントも接続できるとしています。前提は、各エージェントの公式CLIがそのマシンに入っていて、ログインが済んでいることです。</p>
 <table class="tc-table">
 <tr><th>エージェント</th><th>ログインの例</th></tr>
 <tr><td>Claude Code</td><td><code>claude auth login</code></td></tr>
@@ -117,7 +125,7 @@ table.tc-table th,table.tc-table td{border:1px solid var(--line);padding:.45rem 
 <h2 id="features">主な機能</h2>
 <p>中心は「スレッド」という作業単位の管理です。スレッドごとに担当エージェントやモデルを決め、作業の途中でも別のモデルやエージェントに切り替えて引き継げます（例：Claudeに途中まで任せて、続きをCodexへ渡す）。</p>
 <ul>
-<li>並行作業：スレッドごとにGitのワークツリーとブランチを分けられるため、複数のエージェントが同じリポジトリで別々の作業を同時に進められます。</li>
+<li>並行作業：スレッドごとにGitの<a class="gloss" href="/glossary#term-worktree" title="1つのGitリポジトリから複数の作業フォルダを切り出す仕組み。フォルダごとに別のブランチを開けるため、複数の作業を並行して進められます。">ワークツリー</a>とブランチを分けられるため、複数のエージェントが同じリポジトリで別々の作業を同時に進められます。</li>
 <li>diffの確認：ターンごとに何が変わったかを確認してから次へ進められます。</li>
 <li>PRまで1ボタン：コミット、プッシュ、プルリクエストの作成を1つのボタンで行います。PRの題と本文は自動生成され、既存のGitHub認証を使います（公式サイト）。</li>
 <li>権限モード：コマンド実行などの承認範囲を切り替える仕組みが、公式ドキュメントに用意されています。</li>
