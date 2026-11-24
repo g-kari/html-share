@@ -52,7 +52,7 @@ table.tc-table th,table.tc-table td{border:1px solid var(--line);padding:.45rem 
 <div class="summary3">
   <div class="ttl">要点</div>
   <ol>
-    <li>T3 Codeは、<a href="/t3-chat">T3 Chat</a>とは別の製品です。<a class="gloss" href="/glossary#term-t3-chat" title="OpenAIやAnthropic、Googleなど複数社のAIモデルを、1つの画面で切り替えて使えるチャットサービス。運営は米国のT3 Tools。">T3 Chat</a>が各社のAIモデルと文章で会話する汎用チャットなのに対し、T3 Codeは、Claude CodeやCodexなどのコーディングエージェントを自分のマシンで動かし、デスクトップ・Web・スマホから操作するための画面です。運営はどちらも米国のT3 Tools, Inc.です。</li>
+    <li>T3 Codeは、<a href="/t3-chat">T3 Chat</a>とは別の製品です。<a class="gloss" href="/glossary#term-t3-chat" title="OpenAIやAnthropic、Googleなど複数社のAIモデルを、1つの画面で切り替えて使えるチャットサービス。運営は米国のT3 Tools。">T3 Chat</a>が各社のAIモデルと文章で会話する汎用チャットなのに対し、T3 Codeは、Claude CodeやCodexなどの<a class="gloss" href="/glossary#term-coding-agent" title="コードの読み書きやコマンド実行を自律的に進めるAIツール。Claude CodeやCodexなどが該当し、利用はモデルの提供元の契約に基づきます。">コーディングエージェント</a>を自分のマシンで動かし、デスクトップ・Web・スマホから操作するための画面です。運営はどちらも米国のT3 Tools, Inc.です。</li>
     <li>T3 Code自身はAIモデルでもエージェントでもありません。公式FAQは「<a class="gloss" href="/glossary#term-harness" title="LLMに道具の呼び出しや結果の受け渡しを担わせ、エージェントとして動かすための実行基盤。Claude CodeやCodexの中核部分を指します。">ハーネス</a>（エージェントの実行基盤）ではなく、それらを使う側」と明言しています。動かすのは、利用者がすでに入れてログイン済みのエージェントで、契約と課金は各提供元のままです。</li>
     <li>料金は無料です。公式FAQには「私たちに払う方法自体がない」と書かれています。ソースコードはMITライセンスで公開されています。T3 Chatの月額プランを買う必要はありません。</li>
     <li>T3 Chatとの接点は1つだけあります。リモート接続の仕組み<a class="gloss" href="/glossary#term-t3-connect" title="T3 Codeのリモート接続の仕組み。自分のマシンで動くエージェントへ、スマホやブラウザから接続するために使います。">T3 Connect</a>でつなげるマシンの上限が、無料では3台のところ、T3 Chatの有料プランを連携するとProで10台、Premierで100台に増えます（公式FAQ）。</li>
@@ -89,7 +89,7 @@ table.tc-table th,table.tc-table td{border:1px solid var(--line);padding:.45rem 
 <tr><td>実行場所</td><td>T3側の基盤から各社のモデルへ</td><td>自分のマシンや自分のVPS</td></tr>
 <tr><td>公開形態</td><td>サービスとして提供</td><td>オープンソース（MITライセンス）</td></tr>
 </table>
-<p>共通点は運営（T3 Tools）と、「複数のAIを1つの画面に集める」という発想です。接点は料金の節で述べるT3 Connectの上限だけで、T3 Chatのプランに入っていなくてもT3 Codeは使えます。T3 Chat側の詳しい内容は<a href="/t3-chat">T3 Chatの記事</a>にまとめています。なお、同じく複数のコーディングエージェントを扱う別の選択肢にOrcaがあり、管理の単位（スレッドかワークツリーか）などの違いを<a href="/orca">Orcaの記事</a>で比べています。</p>
+<p>共通点は運営（T3 Tools）と、「複数のAIを1つの画面に集める」という発想です。接点は料金の節で述べるT3 Connectの上限だけで、T3 Chatのプランに入っていなくてもT3 Codeは使えます。T3 Chat側の詳しい内容は<a href="/t3-chat">T3 Chatの記事</a>にまとめています。なお、同じく複数のコーディングエージェントを扱う別の選択肢に<a class="gloss" href="/glossary#term-orca" title="複数のコーディングエージェントを、タスクごとのGitワークツリーで並行実行するための無料のオープンソースのデスクトップアプリ。エージェント開発環境（ADE）を名乗ります。運営はStably。">Orca</a>があり、管理の単位（スレッドかワークツリーか）などの違いを<a href="/orca">Orcaの記事</a>で比べています。</p>
 <figure class="tc-figure">
 <img src="/assets/t3code-diff-v1.png" width="1600" height="940" loading="lazy" alt="T3 ChatとT3 Codeの違い。T3 Chatはブラウザで使う汎用チャットで料金は月額プラン。T3 Codeは自分のマシンに入れるアプリで、エージェントが自分のマシンでコードを書き、料金は無料">
 <figcaption>図：T3 ChatとT3 Codeの違い。運営は同じでも、製品としては別物です。</figcaption>

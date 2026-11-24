@@ -147,9 +147,9 @@
       "updated": "2026-11-19T17:36:57.000Z"
     },
     "glossary.html": {
-      "fingerprint": "14efcb067ea352b71a7d559d76ab95ff29a64bb1e064f60d43f4b26b5deeb954",
+      "fingerprint": "8be1fb4bdc9e0228e6eddf474f6b41cddc77531ef287bc540a3ac04e8c47bf7d",
       "published": "2026-11-24T01:37:31.000Z",
-      "updated": "2026-11-24T05:40:55.000Z"
+      "updated": "2026-11-24T09:03:48.000Z"
     },
     "go-code-verification.html": {
       "fingerprint": "add16dcf6c555dc85cb859063495bf903ab5151b47f9de01db2dbaede2cc0162",
@@ -231,6 +231,11 @@
       "published": "2026-10-21T01:55:38.000Z",
       "updated": "2026-10-21T01:55:38.000Z"
     },
+    "orca.html": {
+      "fingerprint": "46b1cff5172027131fe2e0bd946a8f2c798be62e93514ad5001d798ed4761b7d",
+      "published": "2026-11-24T09:51:47.000Z",
+      "updated": "2026-11-24T09:51:47.000Z"
+    },
     "personal-ai-agent-comparison.html": {
       "fingerprint": "38d27970076784ce47169889bf1b23a74f086b73d32a36b4c899e9b0ac45202f",
       "published": "2026-10-07T16:46:20.000Z",
@@ -307,9 +312,9 @@
       "updated": "2026-11-24T08:58:19.000Z"
     },
     "t3-code.html": {
-      "fingerprint": "bbea7c49455dd8c124a4523c2551425b5b38f5cb4fd18bb9837008e20eb7454b",
+      "fingerprint": "0fd476a34a0c3557b9e6bcb97f297382a127c26fea3f1500d610aca3e236f45e",
       "published": "2026-11-24T08:58:19.000Z",
-      "updated": "2026-11-24T08:58:19.000Z"
+      "updated": "2026-11-24T09:51:47.000Z"
     },
     "technology-updates.html": {
       "fingerprint": "fc5a2cc6d9e2bfe7f81aad0b05bdde5c12b7e9069fcd2880abb72bbc0065f9f9",
