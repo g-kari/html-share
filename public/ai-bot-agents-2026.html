@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AIボット系エージェント 2026年秋の比較：Grok Bot、2つのOpenBot、MausBot、Hermes Agent</title>
+<meta name="description" content="チャットから仕事を任せるAIコワーカー／エージェント管理ボットの5製品（Grok Bot、OpenBot（CopilotKit）、OpenBot（nightly-labs）、MausBot、Hermes Agent）を、公式資料と第三者の評価で比較。殻自体のベンチマークが存在しないこと、止め方の違い、用途別の向き不向きまで整理します。">
+<link rel="canonical" href="https://share.0g0.xyz/ai-bot-agents-2026">
+<link rel="stylesheet" href="/assets/site.css">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="AIボット系エージェント 2026年秋の比較：Grok Bot、2つのOpenBot、MausBot、Hermes Agent">
+<meta property="og:description" content="チャットから仕事を任せるAIコワーカー／エージェント管理ボットの5製品を、公式資料と第三者の評価で比較。殻自体のベンチマークが存在しないこと、止め方の違い、用途別の向き不向きまで整理します。">
+<meta property="og:url" content="https://share.0g0.xyz/ai-bot-agents-2026">
+<meta property="og:image" content="https://share.0g0.xyz/assets/ai-bot-agents-ogp-v1.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="AIボット系エージェント 2026年秋の比較：Grok Bot、2つのOpenBot、MausBot、Hermes Agent">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://share.0g0.xyz/assets/ai-bot-agents-ogp-v1.png">
+<meta name="twitter:image:alt" content="AIボット系エージェント 2026年秋の比較：Grok Bot、2つのOpenBot、MausBot、Hermes Agent">
+<style>
+:root{--accent:#0b5563;--accent-dark:#9adbe8}
+.fig{margin:1.25rem 0;max-inline-size:46rem}
+.fig img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:0}
+.fig figcaption{font-size:.9rem;margin-top:.55rem}
+table.cmp{border-collapse:collapse;margin:1rem 0;width:100%}
+table.cmp th,table.cmp td{border:1px solid var(--line);padding:.45rem.7rem;text-align:left;vertical-align:top}
+table.cmp td.pname{white-space:nowrap;font-weight:bold}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="sitebar" aria-label="サイト内"><a class="brand" href="/">HTML Share</a><nav><a href="/">一覧</a><a href="/feed.xml">RSS</a></nav></nav>
+<header class="top">
+<div class="kicker">AIエージェント比較</div>
+<h1>AIボット系エージェント 2026年秋の比較：Grok Bot、2つのOpenBot、MausBot、Hermes Agent</h1>
+<p class="meta">確認日：2026年11月25日<br>一次資料は各製品の公式サイト・GitHub・公式ドキュメント。GitHubの数値は2026年11月24日22時43分（UTC）の表示で確認しました。第三者の評価は出典と日付を付けて引用し、ベンダー自身による比較は「自社比較」と明記して割り引いて扱います。</p>
+</header>
+
+<div class="summary3">
+<div class="ttl">要点</div>
+<ol>
+<li>起点はxAIが2026年8月11日にベータ公開したGrok Botです。同日夜から「Grok Botクローン」を自称するオープンソースが出始め、いまや同名のOpenBotが2つある状態になりました。この記事では本家と主要な4製品を比べます。</li>
+<li>このジャンルには、ボット基盤（殻）自体の標準ベンチマークは存在しません。仕事の出来は中身のモデル／CLIエージェントでほぼ決まります。殻の差が出るのは、起こし方（チャット／時刻／キュー）、止め方（承認／ポリシー／監査）、分離の単位、データの置き場所です。</li>
+<li>止め方は製品で大きく違います。実行前にポリシー判定と監査を行うCopilotKit版OpenBot（ただし出荷時の既定ポリシーは全許可）、承認カードで確認するMausBot、危険なコマンドの前に既定で確認するHermes Agent、初回同意の後は操作ごとに確認しないnightly-labs版OpenBot、と幅があります。</li>
+<li>用途別の結論はシンプルです。個人が手元の月額プランを束ねるならMausBotかnightly-labs版OpenBot、監査が要る会社ならCopilotKit版OpenBot、自分で育てる常駐エージェントならHermes Agentが向きます。</li>
+</ol>
+</div>
+
+<nav class="toc">
+<div class="ttl">目次</div>
+<ol>
+<li><a href="#about">概要：ジャンルの成り立ちと「殻」と「中身」</a></li>
+<li><a href="#grok">Grok Bot（xAI）：本家</a></li>
+<li><a href="#openbot-copilotkit">OpenBot（CopilotKit）：会社向けの基盤</a></li>
+<li><a href="#openbot-nightly">OpenBot（nightly-labs）：既存エージェントのチーム管理</a></li>
+<li><a href="#mausbot">MausBot：Botを連絡先として並べる</a></li>
+<li><a href="#hermes">Hermes Agent（Nous Research）：エージェント自体が本体</a></li>
+<li><a href="#compare">比較表</a></li>
+<li><a href="#eval">性能評価と第三者の評価</a></li>
+<li><a href="#choice">良い点・ダメな点と用途別の選び方</a></li>
+<li><a href="#summary">まとめ</a></li>
+<li><a href="#sources">資料と出典</a></li>
+</ol>
+</nav>
+
+<h2 id="about">概要：ジャンルの成り立ちと「殻」と「中身」</h2>
+<p>この記事で扱うのは、自分のマシンやサーバに常駐し、チャットから仕事を任せるAIコワーカー／エージェント管理ボットです。1回限りのチャット相談ではなく、「受信箱を整理しておいて」「この不具合を直してプルリクエストを出しておいて」のように仕事を預け、終わったら報告が戻ってくる形を指します。</p>
+<p>起点はxAIのGrok Botで、2026年8月11日にベータ公開されました。その日の夜には早くもOpenGrokBot（現在のMausBot）がGitHubに現れ、翌日にはnightly-labs版OpenBotのリポジトリが作られ、8月17〜19日にはCopilotKit版OpenBotが出ました。その後7週間で、閉じた製品が4つ（Grok Bot、Meta Muse、OpenAI dots、Manus Cue）そろい、オープンソース側でもクローンや派生が大量に出ました（経緯はmausbot.comの比較ページ調べ）。同名のOpenBotが無関係に2つあることが、このジャンルの分かりにくさと勢いを象徴しています。</p>
+<figure class="fig"><img src="/assets/ai-bot-agents-overview-v1.png" width="1600" height="940" loading="lazy" alt="ジャンルの成り立ち。2026年8月11日にxAIがGrok Botをベータ公開し、同日夜からOSSクローンが出現、8月17〜19日にCopilotKit版OpenBot、その後7週間で閉じた製品が4つ出て、2026年11月にはOSS側が残った。Hermes Agentは別系統"><figcaption>図：ジャンルの成り立ち。3か月で顔ぶれが出そろい、Hermes Agentだけはクローンの系譜の外から来ています。</figcaption></figure>
+<p>製品を見るときの物差しは、「殻」と「中身」の分離です。中身はモデルとCLIエージェント（Claude Code、Codex、Grok等）で、仕事の出来は主にここで決まります。殻は、常駐して受け口を持ち、スケジュールやキューで仕事を起こし、承認・ポリシー・監査で止める部分です。今回の5製品のうち4つは殻であり、中身は利用者が持ち込みます。例外はHermes Agentで、殻と中身が一体になっています。</p>
+<figure class="fig"><img src="/assets/ai-bot-agents-layer-v1.png" width="1600" height="980" loading="lazy" alt="レイヤー図。利用者の指示が、殻（常駐・受け口・スケジュール・キュー）、止める仕組み（承認・ポリシー・監査）、中身（モデルとCLIエージェント）、実行環境（自分のPC、VM、クラウド）の順に流れる"><figcaption>図：「殻」と「中身」のレイヤー。製品の差が最も出るのは「止める仕組み」の層です。</figcaption></figure>
+
+<h2 id="grok">Grok Bot（xAI）：本家</h2>
+<p><a href="https://x.ai/">xAI</a>のGrok Botは、このジャンルの起点です。各Botがクラウド上に専用のコンピュータ（デスクトップ、ファイルシステム、ターミナル、ブラウザ）を持ち、既存のツールにサインインして働き、承認が要る時だけ利用者のところへ戻ってきます。2026年8月11日にベータが始まり、8月26日からSuperGrokの各プランとCursor Pro／Pro+／Ultra／Teamsに同梱され、9月28日にはTeam Bots（Teams／Enterprise向け、公開ベータ）が加わりました。10月12日にはGrok、Grok Bot、Cursor、X Premiumを束ねたX Subscription（月8〜200ドル）へ再編されています（analyticsmadesimple.comの2026年10月8日確認、oTechWorldの2026年11月2日確認による下調べ）。</p>
+<p><strong>良い点</strong>：既存のプランに同梱されるため、追加のセットアップなしに「常駐して働くBot」を試せます。実行環境はクラウド側にあり、自分のPCを起動し続ける必要もありません。</p>
+<p><strong>ダメな点</strong>：いまだベータです。アカウント内の全Botが1台のクラウドコンピュータを共有し、Bot同士はセキュリティ境界にならないとガイド（emergent.sh）で指摘されています。2026年10月末には週次クォータの枯渇を訴える報告が相次ぎ、MausBot側への流入が起きたと報じられました（stringers.io、TechCrunchの2026年11月2日報道への言及）。閉じた製品なので、セルフホストも中身の差し替えもできません。</p>
+
+<h2 id="openbot-copilotkit">OpenBot（CopilotKit）：会社向けの基盤</h2>
+<p><a href="https://open.bot/">open.bot</a>のOpenBotは、AIコワーカーのワークスペースです。作り手はCopilotKitで、リポジトリは2026年8月17日に作られ、8月19日に発表、2026年11月9日にv1.0を迎えました。最新版はv1.1.3（2026年11月21日、FollowAgents調べ）。GitHubはスター13,414、フォーク1,670、コミット1,545、リリース50（2026年11月24日確認）。アプリ本体のライセンスはMITです。</p>
+<p>設計の核は「実行前に止める」ことです。各Botに専用のブラウザ・ファイル・ツールを持たせ、すべてのアクションをゲートウェイで受け、CELで書かれたポリシーで実行前に判定し、監査行を書いてから実行します。ポリシーが無い・壊れている場合は全拒否になるfail-closed設計で、denyがallowに優先します。中身はAG-UIプロトコルで接続する任意のエージェント（LangGraph、Mastra、CrewAI、Pydantic AI、Google ADK、Claude Agent SDK等）と、任意のモデル（OpenAI、Anthropic、Google、xAI、OpenAI互換、OllamaやvLLMのローカルモデル）です。</p>
+<p>個人向けにはデスクトップ版（MacのApple silicon／Intel、Windows。署名・公証済みでターミナル不要）があります。チーム向けのOpenBot for Businessは自社インフラ（Kubernetes＋Helm）へデプロイし、会社サインイン（SSO）、ロール、ツール権限、承認、監査、SIEM連携を持ちます。料金は個人プロジェクトが無料、Businessは従量の人数課金で、最初の25人まで1人月29ドル、次の75人は1人月18ドル（100人で月2,075ドル、平均20.75ドル）です。モデル費用は提供元へ直接払い、月5,000ドルを超えるモデル支出には5%の上乗せがあります（open.botの料金ページ、2026年11月13日確認の第三者分析による）。</p>
+<p>見落としやすいのが、必須コンポーネントであるCopilotKit Intelligenceが別ライセンスだという点です。個人のノートPCでは無料のローカルライセンスをデスクトップ側が自動処理しますが、Kubernetesでの評価は無料トライアル、本番は本番ライセンス（Businessに含まれる）が必要です。Intelligence単体の料金は、無料枠が月1,000インタラクション／組織、PAYGが月49ドル（10,000件含む）、Annualはカスタムです（ReviewRamble調べ）。</p>
+<p><strong>良い点</strong>：5製品の中で、承認・監査・権限を最初から設計の中心に置いた唯一の製品です。中身のエージェントもモデルも差し替え可能で、ロックインが小さい作りです。</p>
+<p><strong>ダメな点</strong>：出荷時の起動ポリシーは <code>deny: []</code>／<code>allow: ["true"]</code> の全許可で、管理者が置き換えるまで全部通ります（Wavectのレビュー、2026年11月11日、v1.0.2で確認。CopilotKit自身のウェビナーFAQでも「既定ポリシーは管理者がルールを書くまで全アクションを許可」と明言されています）。初期設定はシングルユーザーの無認証モードです。また、スレッドがIntelligence側に残るデータ経路を自前で説明できる必要がある、という指摘もあります（Wavect、tobira.aiのブログ。後者は「ポリシーは何をしてよいかを統制するが、相手が誰かは保証しない」「Botごとの分離はスーパーバイザ設定時」と整理しています）。</p>
+
+<h2 id="openbot-nightly">OpenBot（nightly-labs）：既存エージェントのチーム管理</h2>
+<p><a href="https://openbot.run/">openbot.run</a>のOpenBotは、CopilotKit版とは同名の別製品です。作り手はポーランド登録のSynthetify Labs（nightly-labs）で、リポジトリは2026年8月12日に作られ、9月14日に導入記事が出ました。GitHubはスター10,474、フォーク1,010、コミット5,484、リリース139（2026年11月24日確認）と、開発の回転が速い側です。</p>
+<p>形態は、既存のコーディングエージェントCLIをチームとして束ねる、ローカルファーストのデスクトップアプリ（Electron＋SolidJS、SQLite）です。Codex App ServerとClaude Codeがネイティブ対応で、そのほかGrok CLI、OpenCode、Gemini、Cursor CLI、Cline CLI、Kimi、Devin、GitHub Copilot CLI、Mistral Vibe、そしてHermes AgentまでがACP経由で接続できます。エージェントごとにワークスペースと会話とFIFOキュー（停止／再開／取消、クラッシュ耐性）を持ち、エージェント同士のメッセージやファイル転送、共有チャンネル、内蔵ブラウザ、任意のComputer Use、iPhone／Androidアプリ、サーバモード（VPS／Docker／Nix）までそろっています。</p>
+<p>ライセンスは公式READMEのバッジでPolyForm Noncommercial 1.0.0と確認できます。v0.1.11まではApache-2.0で、その後変更されました。READMEのNix節には「OpenBot is not free software」と書かれています。個人・非商用は全機能無料、商用利用は別ライセンス、OpenBot for Teamsはマネージドサーバで営業連絡が必要です。</p>
+<p><strong>良い点</strong>：手元のCLIエージェントの契約をそのまま使って「チーム」を組める点が実用的で、キューやエージェント間連携の作り込みは5製品でも随一です。開発速度も速く、Mediumの独立レビューでは31日中29日に安定版リリースがあったと数えられています。</p>
+<p><strong>ダメな点</strong>：公式READMEの警告文が示すとおり、エージェントは <code>danger-full-access</code> かつ <code>approvalPolicy: never</code> で動き、初回起動時の同意の後は、操作ごとの確認なしにファイルの読み書き、コマンド実行、ネットワーク、ブラウザ操作ができます。heatdrop.aiの解説（2026年10月29日）も「完全なローカルアクセスは意図的な製品判断であり、セキュリティ境界ではない」と明記しています。止める仕組みは利用者側で用意する前提です。あわせて、ライセンスが途中でApache-2.0から変更された経緯があるため、商用利用では現在の条件の確認が要ります。</p>
+
+<h2 id="mausbot">MausBot：Botを連絡先として並べる</h2>
+<p><a href="https://mausbot.com/">MausBot</a>（リポジトリ名はOpenMausBot）は、Botをチャットの連絡先として並べるデスクトップアプリ（Mac／Windows／Ubuntu、署名済みインストーラ）です。作り手はインドのSupamaus Software Private Limited（Milind SoniとOmkar Satputeの2名、資金調達なし）。Grok Bot発表へのXでの返信が起点で、2026年8月11日18時58分（UTC）にOpenGrokBotとして現れました（stringers.io調べ）。GitHubはスター27,499、フォーク3,929、コミット13,512、リリース127（2026年11月24日確認）で、5製品ではスター数が最大です。最新版はv0.1.169（2026年11月17日、thegrowthengine.netの2026年11月18日確認）。ライセンスはApache 2.0（ただしenterprise/フォルダは別ライセンス）です。</p>
+<p>中身は手元のClaude Code、Codex、Grok等16種のエンジンで、Botごとにモデル、コンピュータ（クラウドLinuxデスクトップ「Boat」、ローカルVM、自分のマシン）、接続アプリ（Composio経由でGmail、Slack、GitHub、Notion、Linear等500超）、スケジュールを持ち、会話の途中でモデルを切り替えることもできます。データは手元の <code>~/.openmausbot</code> に保存され、ハーネスサーバは127.0.0.1で待ち受けます。承認はpermission brokerが担い、シェルコマンドやファイル編集をチャット内の承認カードにします。料金はアプリ自体が無料（AIの利用料は自分の契約から）で、PCを切ってもBotが働くMausBot Cloudが月15／49／99ドルです。</p>
+<p><strong>良い点</strong>：連絡先としてBotを並べる形は分かりやすく、既存の月額契約を束ねる用途では最速で始められます。承認カードの仕組みもあり、止め方を自分で調整できます。</p>
+<p><strong>ダメな点</strong>：新規Botの既定はFull accessで、確認カードなしに1日25件まで送信できます（socialvik.comの比較、2026年11月5日更新）。独立監査（solosoft.dev、2026年11月9日計測）では、隔離（サンドボックス）層が自社クラウド以外では既定オフであること、スター18,250（当時）に対してウォッチャー44、Hacker Newsでの言及がほぼ無いことから、成長の出所に疑問が呈されています。収益はTrustMRRの検証で30日7,218ドル、約155契約（2026年11月6日、stringers.io経由）と小さく、2名体制の継続性は未知数です。</p>
+
+<h2 id="hermes">Hermes Agent（Nous Research）：エージェント自体が本体</h2>
+<p><a href="https://github.com/NousResearch/hermes-agent">Hermes Agent</a>は、他の4製品と違い「殻」ではなくエージェント自体が本体です。作り手はNous Research。リポジトリは2025年7月に作られ、初公開は2026年2月（ArceApps調べ）。スターは約26.5万（brandefense.io、2026年11月21日確認）、最新版はv0.23.3（2026年11月20日、AgentMsgrの2026年11月22日の比較表調べ）。ライセンスはMITです。</p>
+<p>特徴は組み込みの学習ループです。経験からスキルを自動作成して使用中に改善し、記憶を自己キュレーションし、過去の会話をFTS5検索と要約で引けるようにし、利用者のモデルを深めていきます。スキルはagentskills.io標準と互換です。モデルはNous Portal、OpenRouter（200超）、NVIDIA NIM、OpenAI、Anthropic等を <code>hermes model</code> で切り替えられ、ロックインがありません。受け口は単一のゲートウェイプロセスから、Telegram、Discord、Slack、WhatsApp、Signal、メール、CLI（TUI）へ広がります。実行場所は月5ドルのVPS、Docker、SSH、Modal、Daytona等7種のターミナルバックエンドで、アイドル時は休止します。cronスケジューラ、サブエージェントの並列実行、OpenClawからの移行機能（<code>hermes claw migrate</code>）もあります。</p>
+<p>料金は本体が無料です。Nous Portalには無料枠（無料モデル）があり、有料はPlus月20ドル、Super月100ドル、Ultra月200ドル（crewmark.ai、2026年11月13日確認）。ホスト型のHermes CloudはPlusからとされます（日額＋モデル費用という資料もあります）。承認については、危険なコマンドの前に既定で確認すると作り手情報と第三者比較（Personal Agent Atlas、2026年11月3日時点の情報）がそろって述べています。</p>
+<p><strong>良い点</strong>：記憶とスキル学習が本体に組み込まれている唯一の形で、「使うほど自分の仕事を覚える常駐エージェント」に最も近い製品です。モデルの持ち替えの自由度と、受け口の広さも強みです。</p>
+<p><strong>ダメな点</strong>：Windowsではネイティブに動かず、WSL2が必要です。また、不用意なインストールがAPIキーやBotトークンを露出させる事例への警告があります（brandefense.ioのセキュリティ解説、2026年11月21日）。常駐させる以上、鍵の置き場所と権限の設計は利用者側の責任です。</p>
+
+<h2 id="compare">比較表</h2>
+<figure class="fig"><img src="/assets/ai-bot-agents-map-v1.png" width="1600" height="940" loading="lazy" alt="製品マップ。横軸は個人向けから組織向け、縦軸は殻（既存エージェントを束ねる）から本体（エージェントそのもの）。MausBotとnightly-labs版OpenBotは殻の個人寄り、CopilotKit版OpenBotは殻の組織寄り、Hermes Agentは本体の個人寄り、Grok Botは本体の組織寄りに位置する"><figcaption>図：製品マップ。同じ「OpenBot」でも、CopilotKit版は組織向けの基盤、nightly-labs版は個人〜チーム向けの管理役と、立ち位置が正反対に近いことが分かります。</figcaption></figure>
+<table class="cmp">
+<thead><tr><th>製品</th><th>作り手</th><th>形態</th><th>ライセンス</th><th>料金の目安</th><th>中身の持ち込み方</th><th>止め方</th></tr></thead>
+<tbody>
+<tr><td class="pname">Grok Bot</td><td>xAI</td><td>クラウド完結の本家。各Botに専用コンピュータ</td><td>クローズド</td><td>X Subscription（月8〜200ドル）に同梱</td><td>xAIのモデル（自社製のみ）</td><td>承認が要る時だけ戻ってくる。Bot間は境界にならない</td></tr>
+<tr><td class="pname">OpenBot（CopilotKit）</td><td>CopilotKit</td><td>AIコワーカーのワークスペース。自社インフラで運用</td><td>MIT（Intelligenceは別ライセンス）</td><td>個人は無料。Businessは1人月29ドル〜</td><td>AG-UI対応エージェント＋任意のモデル</td><td>実行前にポリシー判定＋監査行。ただし既定ポリシーは全許可</td></tr>
+<tr><td class="pname">OpenBot（nightly-labs）</td><td>Synthetify Labs</td><td>既存CLIエージェントのチーム管理。ローカルファースト</td><td>PolyForm Noncommercial 1.0.0</td><td>個人・非商用は無料。商用は別ライセンス</td><td>手元のCLI群（Claude Code、Codex等）</td><td>初回同意の後は確認なし（danger-full-access）</td></tr>
+<tr><td class="pname">MausBot</td><td>Supamaus Software</td><td>Botを連絡先として並べるデスクトップアプリ</td><td>Apache 2.0（enterprise/は別）</td><td>アプリ無料。Cloudは月15〜99ドル</td><td>手元の16種のエンジン</td><td>承認カード。ただし既定はFull access</td></tr>
+<tr><td class="pname">Hermes Agent</td><td>Nous Research</td><td>エージェント本体＋学習ループ</td><td>MIT</td><td>本体無料。Nous Portalは月20〜200ドル</td><td>モデルを切替可能（Portal、OpenRouter等）</td><td>危険なコマンドの前に既定で確認</td></tr>
+</tbody>
+</table>
+<figure class="fig"><img src="/assets/ai-bot-agents-approval-v1.png" width="1600" height="940" loading="lazy" alt="止め方の対比。CopilotKit版OpenBotは実行前にポリシー判定と監査行、MausBotは承認カード、Hermes Agentは危険なコマンドの前に確認、nightly-labs版OpenBotは初回同意の後は確認なしで実行する"><figcaption>図：止め方の対比。仕様の細部より先に、この違いが製品選びを左右します。</figcaption></figure>
+
+<h2 id="eval">性能評価と第三者の評価</h2>
+<p>最初に結論を書きます。<strong>このジャンルには、殻（ボット基盤）自体の標準ベンチマークは存在しません。</strong>比較サイトのBenchClawは両OpenBotについて「どちらも実行しておらず、ベンチマークはしていない」と明言しています（2026年11月5日）。コーディング能力などのベンチマークは存在しますが、それが測っているのは中身のモデル／CLIエージェントであり、殻の優劣ではありません。ArceAppsの実使用比較（GitHub APIの数値は2026年11月14日）も、「ベンチマークはモデルを測るもので、エージェント基盤の有用さを決める『何がエージェントを起こし、何が止めるか』は測らない」と軸を置いています。同比較では、OpenBot（nightly-labs）は指示と時刻で起こすルーティン型、Hermesは記憶つきスケジューラ、と対比されています。</p>
+<figure class="fig"><img src="/assets/ai-bot-agents-eval-v1.png" width="1600" height="920" loading="lazy" alt="性能評価の見取り図。仕事の出来は中身のモデル／CLIエージェントでほぼ決まり、殻の差は起こし方、止め方、分離の単位、データの置き場所に出る。第三者の物差しはスコアカードとソース監査が中心"><figcaption>図：性能評価の見取り図。「どのBotが一番賢いか」という問いは、殻については成り立ちません。</figcaption></figure>
+<p>では第三者は何を物差しにしているか。現状の実測に近いものは、筆者独自のスコアカードと、コードと文書を読むソース監査です。代表的なものを出典つきで挙げます。</p>
+<p><strong>Mediumの独立レビュー「OpenBot vs OpenBot」</strong>（Aditya Sharma。2026年11月21日に両リポジトリ、サイト、ライセンス、Xを確認）：筆者独自の15項目スコアで、nightly-labs版が9勝、CopilotKit版が6勝。結論は「個人（Macで一人）ならnightly-labs、監査行と承認が要る会社ならCopilotKit」。数値も具体的で、スターはCopilotKit版13,113対nightly-labs版9,566、コミットはnightly-labs版が約3.5倍（4,998対1,411）、nightly-labs版は31日中29日に安定版リリース、期間中のissue起票は7,458件対85件、Xのフォロワーはnightly-labs約25,000対CopilotKit版のOpenBot約1,800でした。</p>
+<p><strong>ソース監査系の評点</strong>：FollowAgentsのソースレビューはCopilotKit版OpenBotに87/100（コードと文書の審査で、実行ベンチではありません）。ReviewRambleは3.8/5、Grab AI Toolの編集部評価は4.0/5（2026年11月12日確認）。MausBotについてはsolosoft.devの独立監査（2026年11月9日計測）が、隔離層の既定オフと成長指標への疑問を報告しています。</p>
+<p><strong>比較サイトの推奨</strong>：AgentMsgrの比較群（2026年11月22日更新）では、「Free AI Agents」でnightly-labs版OpenBotを「Grok Botファンにまず勧める」とし、HermesはNous Portalの無料枠で最初から最後まで無料運用が可能と評価。「OpenClaw Alternatives」ではHermesを「大きめのコミュニティと、将来のホスト型クラウドの選択肢がある」と位置づけています。Personal Agent AtlasのHermes対OpenBot比較（2026年11月11日最終確認）は、権限面で「Hermesは危険なコマンドを既定で確認、OpenBot（nightly-labs）は初回同意後は操作ごとに聞かない」と対比しています。</p>
+<p><strong>割り引いて読むべき自社比較</strong>：mausbot.comのOpenBot（CopilotKit版）比較（2026年11月15日時点）は、競合であるMausBot自身による自社比較です（OpenBot 12,321スター対MausBot約23,000スター等の提示）。openbot.runのHermes Agent比較（2026年10月2日確認）もnightly-labsによる自社比較で、14項目中OpenBot優位3、Hermes優位2、残り互角という自己評価です。どちらも「相手の弱点の置き場所」を知る材料にはなりますが、順位そのものは割り引く必要があります。</p>
+<p>日本語の第三者情報はまだ少なく、ai-kidou.jpの実演動画レポート（2026年10月21日、nightly-labs版OpenBotを実際に触る回）と、github-trending.yumekui.orgのCopilotKit版OpenBot解説（2026年10月30日）が確認できました。</p>
+
+<h2 id="choice">良い点・ダメな点と用途別の選び方</h2>
+<p>各製品の良い点・ダメな点は各節に書きました。ここでは用途別に絞ります。</p>
+<figure class="fig"><img src="/assets/ai-bot-agents-choice-v1.png" width="1600" height="920" loading="lazy" alt="用途別の選び方。個人で月額プランを束ねたいならMausBotとnightly-labs版OpenBot、チームで使いたいなら両OpenBot、監査が要る会社ならCopilotKit版OpenBot、自分で育てる常駐エージェントならHermes Agent"><figcaption>図：用途別の選び方。迷ったら「誰が止めるのか」から逆算すると決めやすくなります。</figcaption></figure>
+<p><strong>個人で月額プランを束ねたい</strong>：MausBotかnightly-labs版OpenBotです。どちらも手元のClaude CodeやCodex等の契約をそのまま中身にでき、アプリ自体は無料〜低額です。チャットらしく使いたいならMausBot、複数のエージェントに役割分担させたいならnightly-labs版、という分け方になります。どちらも既定の権限が広いので、権限設定を最初に締めることが前提です。</p>
+<p><strong>チームで使いたい</strong>：エージェント同士の連携やキューが要るならnightly-labs版OpenBot（Teamsはマネージドサーバ）、会社の基盤として権限と監査を持ちたいならCopilotKit版OpenBotです。nightly-labs版は商用ライセンスの確認、CopilotKit版はIntelligenceのライセンスと既定ポリシーの締め直しが、それぞれ導入時の宿題になります。</p>
+<p><strong>監査が要る会社</strong>：現時点ではCopilotKit版OpenBot一択に近いです。実行前のポリシー判定、監査行、SSO／RBAC、SIEM連携を最初から持つのはこれだけです。ただし「監査の仕組みがある」ことと「既定で安全」なことは別で、出荷時の全許可ポリシーを自社のルールに置き換え、許可と拒否の両方を検証してから本番の権限を渡す必要があります。</p>
+<p><strong>自分で育てる常駐エージェントがほしい</strong>：Hermes Agentです。記憶とスキル学習が本体にあるため、使い続けるほど自分の仕事の進め方を覚えていきます。モデルも自由に切り替えられます。WindowsではWSL2が前提で、鍵やトークンの管理は自分で設計します。</p>
+<p><strong>とにかく手軽に試したい</strong>：既にxAIのプランを持っているならGrok Bot本家です。ただしベータであり、クォータの枯渇報告や、Bot間が境界にならない設計といった割り切りを受け入れる必要があります。</p>
+
+<h2 id="summary">まとめ</h2>
+<p>2026年8月のGrok Botから3か月で、「常駐して働くAIコワーカー」は一つのジャンルになりました。顔ぶれは、クラウド完結の本家Grok Bot、会社向け基盤のCopilotKit版OpenBot、既存エージェントの管理役であるnightly-labs版OpenBot、連絡先型のMausBot、そしてエージェント本体＋学習ループのHermes Agentです。</p>
+<p>性能については、殻自体のベンチマークが存在しない以上、「賢さ」で選ぶものではありません。賢さは中身のモデルとCLIエージェントが決めます。殻を選ぶ基準は、何がエージェントを起こすか（チャット、時刻、キュー、イベント）、何が止めるか（承認、ポリシー、監査）、データがどこに残るか、そしてライセンスと料金の形です。第三者の評価も、スコアカードとソース監査という形で、すでにその方向を向いています。</p>
+<p>最後に注意を1つ。どの製品も「任せられる速さ」と「止められる確かさ」はトレードオフで、既定の権限設定は総じて広めです。導入するなら、最初に権限とポリシーを自分の基準に締め直すところまでをセットで考えるのが、このジャンルとの付き合い方です。</p>
+
+<h2 id="sources">資料と出典</h2>
+<p>一次資料は各製品の公式サイト、GitHub、公式ドキュメントです。GitHubの数値は2026年11月24日22時43分（UTC）の表示で確認しました。</p>
+<ul>
+<li>Grok Bot（xAI）：<a href="https://x.ai/">x.ai</a>。経緯と料金の変遷は analyticsmadesimple.com（2026年10月8日確認）、oTechWorld（2026年11月2日確認）、emergent.sh のガイド、stringers.io の報道整理による</li>
+<li>OpenBot（CopilotKit）：<a href="https://open.bot/">open.bot</a>、<a href="https://github.com/CopilotKit/OpenBot">GitHub（CopilotKit/OpenBot）</a>、open.bot の料金ページ</li>
+<li>OpenBot（nightly-labs）：<a href="https://openbot.run/">openbot.run</a>、<a href="https://github.com/nightly-labs/openbot">GitHub（nightly-labs/openbot）</a>、公式README（ライセンスと警告文）</li>
+<li>MausBot：<a href="https://mausbot.com/">mausbot.com</a>、<a href="https://github.com/milind-soni/OpenMausBot">GitHub（milind-soni/OpenMausBot）</a></li>
+<li>Hermes Agent：<a href="https://github.com/NousResearch/hermes-agent">GitHub（NousResearch/hermes-agent）</a></li>
+</ul>
+<p>第三者の評価・レビュー（自社比較はその旨を明記）：</p>
+<ul>
+<li><a href="https://medium.com/@adityaarsharma/openbot-vs-openbot-same-name-completely-different-ideas-about-ai-agents-which-one-to-choose-b59881ca1ebc">Medium「OpenBot vs OpenBot」（Aditya Sharma、2026年11月21日にソース確認）</a>：独立レビュー、15項目スコア</li>
+<li><a href="https://wavect.io/blog/openbot-self-hosted-ai-coworkers-review/">Wavect「OpenBot Review」（2026年11月11日、v1.0.2を文書とソースで確認）</a>：起動ポリシーが全許可である点とデータ経路の注意</li>
+<li><a href="https://blog.tobira.ai/openbot-agent-policy-deployment-boundary/">tobira.ai ブログ（2026年8月24日公開、10月16日レビュー）</a>：ポリシーが統制する範囲の整理</li>
+<li><a href="https://www.socialvik.com/blog/openmausbot-vs-openbot-ai-coworker-permissions">socialvik.com「OpenMausBot vs OpenBot」（2026年11月5日更新）</a>：既定の権限の対比</li>
+<li><a href="https://heatdrop.ai/editorial/nightly-labs/openbot/2026-10-29">heatdrop.ai「OpenBot's Bet」（2026年10月29日）</a>：nightly-labs版の構造と信頼の設計判断</li>
+<li><a href="https://benchclaw.io/tag/openbot/">BenchClaw の OpenBot 解説（2026年11月5日）</a>：「実行しておらず、ベンチマークはしていない」と明言</li>
+<li>mausbot.com の OpenBot 比較（2026年11月15日時点）：MausBotによる自社比較として割り引いて引用</li>
+<li>openbot.run の Hermes Agent 比較（2026年10月2日確認）：nightly-labsによる自社比較として割り引いて引用</li>
+<li>Personal Agent Atlas の Hermes 対 OpenBot 比較（2026年11月11日最終確認）、ArceApps の実使用比較（2026年11月14日）、AgentMsgr の比較群（2026年11月22日更新）、FollowAgents のソースレビュー（87/100）、ReviewRamble（3.8/5）、Grab AI Tool（4.0/5）、solosoft.dev の MausBot 独立監査（2026年11月9日計測）、brandefense.io の Hermes セキュリティ解説（2026年11月21日）、crewmark.ai の Nous Portal 料金整理（2026年11月13日確認）</li>
+<li>日本語の第三者情報：ai-kidou.jp の実演動画レポート（2026年10月21日）、github-trending.yumekui.org の CopilotKit版OpenBot解説（2026年10月30日）</li>
+</ul>
+
+</div>
+<script type="module" src="/assets/site.js"></script>
+</body>
+</html>
