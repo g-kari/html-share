@@ -150,14 +150,14 @@ details{border-block:1px solid var(--rule);padding:12px 0;margin:18px 0}details+
         <ol class="efs-flow" aria-label="顧客管理ストレージのデータの流れ">
           <li><strong>1. 受け取る</strong><br>対象APIの入出力</li>
           <li><strong>2. 保管・検査する</strong><br>自社クラウドに暗号化して保存し、自動で検査</li>
-          <li><strong>3. 検出結果を知らせる</strong><br>安全性ケースには本文を含めない</li>
+          <li><strong>3. 検出結果を確認する</strong><br>ケースには本文を含めない。関連する本文は別に確認</li>
         </ol>
         <figcaption>顧客管理ストレージ方式の概念図。入出力を保持しないのは提供元であり、顧客側には暗号化済みの安全性データが残る。</figcaption>
       </figure>
       <ul>
         <li><strong>適用範囲：</strong>Claude PlatformではEFSを設定したワークスペース内のMessages APIが、モデルを問わず対象。これはClaude Enterpriseの画面やClaude Code全体への標準適用を意味しない。コード実行コンテナ、Files APIのアップロード、Batch APIの結果、Managed Agentsのセッションは別の保存ルールに従う。<a href="#s23">[23]</a></li>
-        <li><strong>監査・EDRとの違い：</strong>異常が検出されると、ケースID、分類、状態、会話記録の識別子などが通知される。入出力本文や抜粋は含まれず、EFSが保存した暗号化データを顧客の担当者が直接読むこともできない。ログ分析基盤（SIEM）へ連携する場合でも、本文照合には別途保管した自社側の原本が必要。EFSは端末監視（EDR）や全操作の監査、データ送信を止めるDLPの代わりにはならない。<a href="#s22">[22]</a><a href="#s23">[23]</a></li>
-        <li><strong>契約と費用：</strong>公開ベータは対象顧客に案内される。見積もり時に、提供経路と対象ワークスペースを確認する。自社側の保存先・鍵・アクセス権・保持期間も決めておく。AnthropicのEFS利用料やモデル料金の上乗せはないが、顧客にはストレージの読み書きや鍵操作などのクラウド費用が発生する。提供元が暗号化済みコピーを保持する方式は、顧客管理鍵を使っていてもZDRではない。<a href="#s22">[22]</a><a href="#s23">[23]</a></li>
+        <li><strong>監査・EDRとの違い：</strong>顧客側は保存先の監視かSafety Cases APIの定期取得で新規ケースを把握する。ケースのJSONにはID、分類、状態、会話記録の識別子などが入り、入出力本文や抜粋は入らない。調査に必要な関連メッセージは別の読める会話記録（Transcripts）またはSafety Cases APIで確認できる。これは自社クラウドに置く暗号化済みの安全性データを直接読めるという意味ではない。EFSは端末監視（EDR）、全操作の監査、データ送信を止めるDLPの代わりにはならない。<a href="#s22">[22]</a><a href="#s23">[23]</a><a href="#s24">[24]</a></li>
+        <li><strong>契約と費用：</strong>公開ベータは対象顧客に案内される。見積もり時に、提供経路と対象ワークスペースを確認する。自社側の保存先・鍵・アクセス権・保持期間も決めておく。AnthropicのEFS利用料やモデル料金の上乗せはないが、顧客には保管、読み書き、鍵操作、該当する場合はデータ転送のクラウド費用が発生する。提供元が暗号化済みコピーを保持する方式は、顧客管理鍵を使っていてもZDRではない。<a href="#s22">[22]</a><a href="#s23">[23]</a></li>
       </ul>
     </div>
     <h3>監査で「何を証明できるか」</h3>
@@ -248,6 +248,7 @@ details{border-block:1px solid var(--rule);padding:12px 0;margin:18px 0}details+
       <li id="s21"><a href="https://support.claude.com/en/articles/17444462-set-up-and-manage-the-new-unified-claude-experience-for-your-enterprise-organization">Anthropic: Unified Claude experience</a><span>2026年11月時点の新しい体験</span></li>
       <li id="s22"><a href="https://claude.com/ja/resources/articles/zero-data-retention-with-enterprise-frontier-safeguards">Anthropic：Enterprise Frontier Safeguardsによるゼロデータ保持</a><span>2026年11月23日の公開ベータ発表</span></li>
       <li id="s23"><a href="https://platform.claude.com/docs/en/manage-claude/enterprise-frontier-safeguards/overview">Anthropic：Enterprise Frontier Safeguardsの概要</a><span>保存方式、対象API、安全性ケース、費用</span></li>
+      <li id="s24"><a href="https://platform.claude.com/docs/en/manage-claude/enterprise-frontier-safeguards/flagged-cases">Anthropic：Review Safety Cases</a><span>検出ケースの取得と、本文の参照範囲</span></li>
     </ol>
   </section>
 </main>
