@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PHP 8.6の変更点：セッション既定値の厳格化と、自分のリポジトリへの影響</title>
+<meta name="description" content="PHP 8.6.0（2026年11月19日）の新機能と互換性変更、セッション既定値の厳格化、PHP 8.2のサポート終了（2026年12月31日）と、自分のGitHubリポジトリの走査結果をまとめます。">
+<link rel="canonical" href="https://share.0g0.xyz/php-8-6-release-2026-11-19">
+<link rel="stylesheet" href="/assets/site.css">
+<meta property="og:image" content="https://share.0g0.xyz/assets/php-8-6-release-2026-11-19-ogp-v1.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="PHP 8.6の変更点。セッション既定値の厳格化とPHP 8.2サポート終了">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://share.0g0.xyz/assets/php-8-6-release-2026-11-19-ogp-v1.jpg">
+<meta name="twitter:image:alt" content="PHP 8.6の変更点。セッション既定値の厳格化とPHP 8.2サポート終了">
+<style>:root{--accent:#3f4896;--accent-dark:#2b3266}
+table.php86{border-collapse:collapse;width:100%;margin:1rem 0}
+table.php86 :is(td,th){padding:.45rem .6rem;border-bottom:1px solid #808080;text-align:left;vertical-align:top}
+.check pre{max-inline-size:100%;overflow:auto;font-size:.9em}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="sitebar" aria-label="サイト内"><a class="brand" href="/">HTML Share</a><nav><a href="/">一覧</a><a href="/feed.xml">RSS</a></nav></nav>
+<header class="top">
+<div class="kicker">PHP · バージョンアップ</div>
+<h1>PHP 8.6の変更点：セッション既定値の厳格化と、自分のリポジトリへの影響</h1>
+<p class="meta">公開日：2026年11月25日<br>一次資料：php.net の PHP 8.6 リリースページ、移行ガイド、php-src の UPGRADING、Supported Versions。自分のリポジトリの走査は2026年11月25日に実施しました。同日のセキュリティ修正版については<a href="/php-security-release-2026-11-19">PHPのセキュリティ更新（2026年11月19日）</a>に分けています。</p>
+</header>
+
+<div class="summary3">
+<div class="ttl">要点</div>
+<ol>
+<li>PHP 8.6.0 が2026年11月19日に公開されました。新機能の中心は部分関数適用、<code>\Time\Duration</code> クラス、ポーリングAPI <code>Io\Poll</code>、<code>clamp()</code> 関数です。</li>
+<li>既存アプリへの影響が一番大きいのは新機能ではなく、セッションの既定値の変更です。<code>session.use_strict_mode</code> と <code>session.cookie_httponly</code> が 1 になり、<code>session.cookie_samesite</code> の既定が <code>Lax</code> になります。SSOや決済サイトから戻るPOSTでログインが切れるのが典型的な壊れ方です。</li>
+<li>PHP 8.2 のセキュリティサポートは2026年12月31日で終了します。8.2 のまま年を越すと、新しい脆弱性が出てもPHP公式の修正が届きません。</li>
+<li>自分のGitHubリポジトリを走査した結果（対象はアーカイブ済みを除く109件）、PHP 8.2 に固定されていたのは <code>php-base</code> の1件だけでした。もう1件のPHP関連リポジトリ <code>phalcon-queue</code> はバージョン固定ではありません。</li>
+</ol>
+</div>
+
+<nav class="toc">
+<div class="ttl">目次</div>
+<ol>
+<li><a href="#about">概要</a></li>
+<li><a href="#support">サポート期限：8.2は2026年12月31日まで</a></li>
+<li><a href="#features">新機能</a></li>
+<li><a href="#session">セッション既定値の厳格化</a></li>
+<li><a href="#deprecations">その他の非互換と非推奨</a></li>
+<li><a href="#scan">自分のリポジトリ走査結果</a></li>
+<li><a href="#migration">PHP 8.2からの進め方</a></li>
+<li><a href="#glossary">用語補足</a></li>
+<li><a href="#sources">出典</a></li>
+</ol>
+</nav>
+
+<h2 id="about">概要</h2>
+<p>PHP 8.6.0 は2026年11月19日に公開された、PHP 8 系の新しいマイナーバージョンです。同じ日には、8.5.13、8.4.28、8.3.37、8.2.36 のセキュリティ修正版も公開されています。8.6.0 には、その修正版と同じ18件のセキュリティ修正が含まれています。修正版だけが目的であれば、8.6 へ乗り換える必要はなく、使っている系列の修正版に上げるのが先です。脆弱性の内容と確認手順は<a href="/php-security-release-2026-11-19">PHPのセキュリティ更新（2026年11月19日）</a>にまとめています。</p>
+<p>この記事では、8.6 の変更のうち既存のアプリケーションに影響しやすいものを先に扱い、新機能はその後にまとめます。あわせて、自分のGitHubリポジトリに残っているPHPのバージョン固定を走査し、8.2 のサポート終了に当たるものがあるかを確認しました。</p>
+
+<h2 id="support">サポート期限：8.2は2026年12月31日まで</h2>
+<p>PHP の各系列は、公開から2年間のアクティブサポート（バグ修正とセキュリティ修正）のあと、2年間のセキュリティ修正のみの期間に入り、合計4年でサポートが終わります。php.net の Supported Versions に掲載されている期限は次のとおりです。</p>
+<table class="php86">
+<thead><tr><th>系列</th><th>初回公開</th><th>アクティブサポート</th><th>セキュリティ修正</th></tr></thead>
+<tbody>
+<tr><td>8.2</td><td>2022年12月8日</td><td>2024年12月31日（終了）</td><td><strong>2026年12月31日まで</strong></td></tr>
+<tr><td>8.3</td><td>2023年11月23日</td><td>2025年12月31日まで</td><td>2027年12月31日まで</td></tr>
+<tr><td>8.4</td><td>2024年11月21日</td><td>2026年12月31日まで</td><td>2028年12月31日まで</td></tr>
+<tr><td>8.5</td><td>2025年11月20日</td><td>2027年12月31日まで</td><td>2029年12月31日まで</td></tr>
+<tr><td>8.6</td><td>2026年11月19日</td><td>2028年12月31日まで</td><td>2030年12月31日まで</td></tr>
+</tbody>
+</table>
+<p>8.2 はすでにセキュリティ修正のみの期間に入っていて、その期限が約1か月後に来ます。期限を過ぎた系列は、重大な脆弱性が見つかってもPHPプロジェクトからは修正版が出ません。OSのパッケージやレンタルサーバーを使っている場合は、提供元が独自に修正を続けることがあるため、提供元の案内も確認してください。</p>
+<figure class="fig"><img src="/assets/php86-support-timeline-v1.jpg" width="1600" height="900" loading="lazy" alt="PHP 8.2から8.6までのセキュリティサポート期限のバー図。8.2は2026年12月31日で終了し、8.6は2030年12月31日まで続く"><figcaption>図：系列ごとのセキュリティサポート期限。8.2だけが年内に終わります。</figcaption></figure>
+
+<h2 id="features">新機能</h2>
+<p><strong>部分関数適用</strong>は、関数の引数の一部を先に渡し、残りを受け取る Closure を返す書き方です。プレースホルダの <code>?</code> は1つの引数、<code>...</code> は残り全部を表します。これまで <code>array_map()</code> や <code>array_filter()</code> に渡していた小さなクロージャの多くを、関数呼び出しの形で直接書けます。</p>
+<figure class="fig"><img src="/assets/php86-pfa-v1.jpg" width="1600" height="880" loading="lazy" alt="部分関数適用の前後比較。従来は fn($v) => version_compare(...) というクロージャを書いていた箇所を、version_compare(?, '8.6', '>=') と書ける"><figcaption>図：部分関数適用。プレースホルダの位置に、後から渡す引数が入ります。</figcaption></figure>
+<p><strong><code>\Time\Duration</code> クラス</strong>は、経過時間を表す専用の型です。ナノ秒精度で250年を超える範囲を表せて、時刻やタイムゾーンに依存しません。タイムアウトやリトライ間隔、処理時間の計測など、これまでマイクロ秒の整数で受け渡していた値の置き換え先になります。</p>
+<p><strong>ポーリングAPI <code>Io\Poll</code></strong> は、多数のストリームをまとめて監視する仕組みです。OSごとに epoll、kqueue、event ports、WSAPoll のうち使えるものを使い、<code>stream_select()</code> の接続数の上限を避けられます。ReactPHP や AMPHP のようなイベントループのライブラリが土台として使う想定の機能で、通常のWebアプリが直接使う場面は多くありません。</p>
+<p>そのほかの追加は次のとおりです。</p>
+<ul>
+<li><code>clamp()</code> 関数：値を最小値と最大値の範囲に収めます。<code>max(min(...))</code> の入れ子の置き換えです。自前で同名のグローバル関数を定義しているコードは衝突するため、移行前に確認が必要です。</li>
+<li><code>SortDirection</code> 列挙型：並び順を表す共通の型です。ライブラリごとに違った整数や文字列で受けていた並び順を、型で統一できます。</li>
+<li>readonly プロパティのデフォルト値：コンストラクタで代入しなくても、宣言時に既定値を持てるようになりました。</li>
+<li>ストリームのエラー処理：ストリーム操作の失敗を警告ではなく <code>StreamException</code> として投げる設定ができ、失敗の内容は <code>stream_last_errors()</code> でも取得できます。</li>
+<li>リフレクションの追加：引数ごとのドキュメントコメントを読む <code>ReflectionParameter::getDocComment()</code> と、プロパティの読み書き可否を返す <code>ReflectionProperty::isReadable()</code>、<code>isWritable()</code>。</li>
+<li>URI の組み立て：<code>Uri\Rfc3986\UriBuilder</code> と <code>Uri\WhatWg\UrlBuilder</code>。</li>
+<li>Sodium 拡張に、耐量子計算機の鍵カプセル化（X-Wing、ML-KEM-768）などが追加されました。</li>
+</ul>
+
+<h2 id="session">セッション既定値の厳格化</h2>
+<p>8.6 で既存アプリに最も影響するのは、セッション関連の3つの設定の既定値変更です。いずれも、設定していない場合に、より安全な値になる変更で、php.ini やアプリ側で明示的に設定済みであれば動きは変わりません。逆に、既定値のまま動かしていたアプリでは、バージョンを上げただけでセッションの動きが変わります。</p>
+<figure class="fig"><img src="/assets/php86-session-layers-v1.jpg" width="1600" height="980" loading="lazy" alt="セッション既定値の変更が効く層の図。session.cookie_httponly と session.cookie_samesite はブラウザ層、session.use_strict_mode はPHP層に効く"><figcaption>図：3つの既定値変更が効く場所。ブラウザ側の Cookie の扱いが2件、PHP側のセッションIDの受け入れが1件です。</figcaption></figure>
+<table class="php86">
+<thead><tr><th>設定</th><th>変更前</th><th>8.6の既定</th><th>壊れやすい箇所</th></tr></thead>
+<tbody>
+<tr><td><code>session.use_strict_mode</code></td><td>0</td><td>1</td><td>外部の仕組みから渡されたセッションIDをそのまま使う構成。カスタムのセッションハンドラ</td></tr>
+<tr><td><code>session.cookie_httponly</code></td><td>0</td><td>1</td><td>JavaScript から <code>document.cookie</code> でセッションIDを読んでいるコード</td></tr>
+<tr><td><code>session.cookie_samesite</code></td><td>未設定</td><td>Lax</td><td>SSOや決済サイトから自サイトへ戻るクロスサイトPOST</td></tr>
+</tbody>
+</table>
+<p><strong>strict mode</strong> が有効になると、PHPが発行していないセッションIDは拒否され、新しいIDが発行されます。セッションフィクセーションへの対策ですが、外部の認証基盤やモバイルアプリからセッションIDを引き渡す構成では、ログイン状態が引き継げなくなります。カスタムのセッションハンドラは <code>validateId()</code> と <code>create_sid()</code> の実装が要ります。この2つを持たないハンドラを <code>session_set_save_handler()</code> に渡すことも 8.6 で非推奨になりました。どうしても旧来の動きが必要な場合は、影響を理解したうえで明示的に <code>0</code> へ戻す選択肢があります。</p>
+<p><strong>HttpOnly</strong> が有効になると、セッションCookieは JavaScript から読めなくなります。XSS でセッションIDを盗まれる経路を塞ぐ変更で、通常のアプリは影響を受けません。<code>document.cookie</code> からセッションIDを読んでAPIリクエストに付けているような作りの場合だけ、別の受け渡し方法への変更が必要です。</p>
+<p><strong>SameSite の Lax</strong> が一番影響が出やすい変更です。Lax では、別のサイトから来るPOSTリクエストにはセッションCookieが付きません。決済サイトや SSO の認証先で処理を終えたあと、結果をPOSTで自サイトへ戻す流れでは、戻り先でCookieが送られず、セッションが見つからないため、決済や認証が完了したのにログイン画面へ戻される、という症状になります。</p>
+<figure class="fig"><img src="/assets/php86-session-samesite-flow-v1.jpg" width="1600" height="1020" loading="lazy" alt="SameSite=Laxで決済・SSOの戻りPOSTが切れる流れ。外部サイトから結果をPOSTで戻すときセッションCookieが送られず、戻り先でセッションが見つからずログイン画面に戻される"><figcaption>図：戻りPOSTが切れる仕組み。対処は、戻り先をセッションに依存させない作りにするか、そのフローだけ SameSite=None と Secure を組み合わせます。</figcaption></figure>
+<div class="check">
+<p><strong>移行前に確認すること</strong>（設定を変えずに読むだけの確認です）</p>
+<ol>
+<li>本番とステージングで、現在の値を確認します。<br><code>php -i | grep -E 'session\.(use_strict_mode|cookie_httponly|cookie_samesite)'</code><br>Web（FPM）とCLIで設定ファイルが違う環境では、Web側の値を <code>phpinfo()</code> やアプリ側の <code>ini_get()</code> でも確認します。3つとも既定のままなら、8.6で動きが変わる対象です。</li>
+<li>ステージングでは、PHP 8.5 のまま先に新しい既定値を有効化して試せます。ログイン、ログアウト、SSOの往復、決済サイトからの戻り、埋め込みiframeの流れを確認します。</li>
+<li>問題が出たフローは、戻り先を署名付きペイロードで検証するなど、セッションに依存しない形へ直すのが本筋です。一時的に戻す場合は、対象フローの範囲だけ <code>session.cookie_samesite</code> を <code>None</code> にし、合わせて <code>session.cookie_secure</code> を有効にします。</li>
+</ol>
+</div>
+
+<h2 id="deprecations">その他の非互換と非推奨</h2>
+<p>8.6 では、古い別名関数を中心に非推奨がまとまって入ります。非推奨は警告が出る段階で、削除は PHP 9 が予定です。置き換え先が決まっているものは機械的に直せます。</p>
+<figure class="fig"><img src="/assets/php86-deprecations-v1.jpg" width="1600" height="940" loading="lazy" alt="非推奨になる関数の置き換え先。is_doubleはis_float、is_longとis_integerはis_int、doublevalはfloatval、mb_eregなどはPCRE、spl_object_hashはspl_object_id、strcollとSORT_LOCALE_STRINGはロケール依存の照合をやめる"><figcaption>図：主な非推奨と置き換え先。自前コードと依存パッケージの両方を検索して洗い出します。</figcaption></figure>
+<ul>
+<li><code>finally</code> ブロックの中で <code>return</code> することが非推奨になりました。例外を握りつぶし、<code>try</code> や <code>catch</code> の戻り値を上書きしてしまうためです。</li>
+<li><code>__construct()</code> と <code>__destruct()</code> から値を返すことと、この2つをジェネレータにすることが非推奨になりました。</li>
+<li><code>mb_ereg()</code> 系の mbstring 正規表現が非推奨になりました。エンジンの Oniguruma が保守されていないためで、置き換え先は <code>u</code> 修飾子を付けた PCRE（<code>preg_*()</code>）です。</li>
+<li><code>define()</code> の第3引数（大文字小文字を区別しない定数）が非推奨になりました。</li>
+<li><code>trim()</code>、<code>ltrim()</code>、<code>rtrim()</code> の既定の除去対象にフォームフィード（<code>\f</code>）が加わりました。対象文字を明示していないコードでは、結果がわずかに変わることがあります。</li>
+<li>引数の検証が厳しくなり、これまで警告や黙っての切り捨てで済んでいた入力に <code>ValueError</code> が投げられる箇所が増えました。範囲外の数値や NUL バイトを含む文字列を渡すコードは、例外として表面化します。</li>
+</ul>
+
+<h2 id="scan">自分のリポジトリ走査結果</h2>
+<p>自分のGitHubリポジトリ（アカウント g-kari、全144件）のうち、アーカイブ済みを除く109件を対象に、ファイルツリーを走査しました。確認したのは <code>composer.json</code>、<code>Dockerfile</code>、<code>.php-version</code>、PHPファイルの有無です。Dockerfile が見つかったリポジトリは、ベースイメージが PHP かどうかを個別に確認しました。空のリポジトリ4件には内容がありませんでした。</p>
+<figure class="fig"><img src="/assets/php86-scan-flow-v1.jpg" width="1600" height="920" loading="lazy" alt="リポジトリ走査の流れ。全144件からアクティブ109件をツリー走査し、PHP関連ファイルがあったのは php-base と phalcon-queue の2件"><figcaption>図：走査の流れと結果。PHP関連は2件で、8.2固定は php-base の1件でした。</figcaption></figure>
+<table class="php86">
+<thead><tr><th>リポジトリ</th><th>バージョンの証拠</th><th>8.2期限への該当</th><th>8.6で関係する変更</th></tr></thead>
+<tbody>
+<tr>
+<td><code>php-base</code></td>
+<td><code>docker/php/Dockerfile</code> の <code>FROM php:8.2-fpm</code>。README にも PHP 8.2 と記載。composer.json や CI のバージョン指定はなし</td>
+<td><strong>該当</strong>。8.2 に固定されていて、セキュリティサポートが2026年12月31日で終わる</td>
+<td>ベースイメージの系列を上げる必要がある。PHP-FPM の土台なので、この上で動くアプリはセッション既定値の変更を受ける。mbstring 拡張を入れているが、非推奨になるのは <code>mb_ereg()</code> 系の関数であり、拡張そのものではない</td>
+</tr>
+<tr>
+<td><code>phalcon-queue</code>（fork）</td>
+<td><code>composer.json</code> の <code>require.php</code> が <code>^8.1</code></td>
+<td>非該当。バージョン固定ではなく、8.2 に縛られていない</td>
+<td><code>^8.1</code> は 8.6 も範囲内に含む。ただし依存する拡張 <code>ext-phalcon</code> 5.* の PHP 8.6 対応は、この走査では確認できていない（未確認）。CLI 向けのキューライブラリで、セッション既定値の影響は小さい</td>
+</tr>
+</tbody>
+</table>
+<p>主言語が PHP のリポジトリは、この2件のほかにアーカイブ済みのテスト用リポジトリ10件（フレームワークや管理画面の検証用）があり、今回は対象外にしました。バージョンの根拠が取れなかったものは「不明」として、推測で埋めていません。今回の走査で不明になったのは、非公開リポジトリ <code>stream-friend</code> の開発コンテナ用 Dockerfile の中身だけで、このリポジトリには PHP ファイルも composer.json もありませんでした。</p>
+
+<h2 id="migration">PHP 8.2からの進め方</h2>
+<p>8.2 を使っている場合、移行先は 8.6 とは限りません。8.6 は出たばかりで、フレームワークや拡張の対応がそろっていないことがあります。期限に間に合うことと、使っているフレームワークが対応していることの両方で移行先を決めます。</p>
+<figure class="fig"><img src="/assets/php86-migration-path-v1.jpg" width="1600" height="940" loading="lazy" alt="PHP 8.2からの移行手順。まず系列内の最新版へ上げ、ステージングでセッションの新既定値を先に試し、フレームワーク対応が済んだ8.4か8.5へ移る"><figcaption>図：移行の手順。8.6 は CI に入れて検証し、対応がそろってから本番へ入れます。</figcaption></figure>
+<ol>
+<li>まず系列内の最新版へ上げます。8.2 なら 8.2.36 が、11月19日に公開されたセキュリティ修正版です。</li>
+<li>ステージングで、セッションの新しい既定値を先に有効化して、ログイン、SSO、決済の戻りをテストします。8.6 へ上げる前に、既定値変更の影響だけを切り分けられます。</li>
+<li>移行先は、フレームワークと拡張の対応が済んだ系列を選びます。8.4 はセキュリティ修正が2028年12月31日まで、8.5 は2029年12月31日まであり、どちらも期限には十分間に合います。</li>
+<li>8.6 は CI のジョブに入れて、非推奨警告とテストの結果を見てから判断します。<code>composer why-not php 8.6</code> で、8.6 を妨げているパッケージを確認できます。</li>
+</ol>
+<p><code>php-base</code> については、Dockerfile の系列を 8.4 か 8.5 へ上げるのが実際の作業になります。タグは <code>php:8.2-fpm</code> のように系列までの指定なので、系列内では再ビルドで修正版を取り込めますが、系列自体は手で変える必要があります。</p>
+
+<h2 id="glossary">用語補足</h2>
+<dl>
+<dt>部分関数適用とPHP 8.5のパイプ演算子</dt>
+<dd>部分関数適用は「関数を組み立てる」仕組みで、PHP 8.5 で入ったパイプ演算子は「値を関数へ流す」仕組みです。組み合わせると、小さなクロージャを挟まずに処理の連なりを書けます。</dd>
+<dt>SameSite の Lax と Strict</dt>
+<dd>Lax は、別サイトからのPOSTなどには Cookie を付けない一方、リンク遷移のようなトップレベルの GET では付けます。Strict は遷移でも付けません。今回の既定は Lax です。</dd>
+<dt>strict mode（セッション）</dt>
+<dd>PHP が発行した記録のあるセッションIDだけを受け入れる設定です。発行記録のないIDは、攻撃者が用意したものと区別できないため拒否されます。</dd>
+</dl>
+
+<h2 id="sources">出典</h2>
+<ul>
+<li>PHP公式リリースページ：<a href="https://www.php.net/releases/8.6/en.php">PHP 8.6 Release Announcement</a>（2026年11月19日）</li>
+<li>PHP公式マニュアル：<a href="https://www.php.net/manual/en/migration86.incompatible.php">Migrating from PHP 8.5.x to PHP 8.6.x — Backward Incompatible Changes</a></li>
+<li>php-src の UPGRADING（PHP 8.6 の変更一覧）</li>
+<li>RFC：<a href="https://wiki.php.net/rfc/session_security_defaults">Secure session defaults</a>（セッション既定値の変更）</li>
+<li>PHP公式：<a href="https://www.php.net/supported-versions.php">Supported Versions</a>（系列ごとのサポート期限）</li>
+<li>自分のリポジトリ：<a href="https://github.com/g-kari/php-base">g-kari/php-base</a>（<code>docker/php/Dockerfile</code>）、<a href="https://github.com/g-kari/phalcon-queue">g-kari/phalcon-queue</a>（<code>composer.json</code>）。走査は2026年11月25日に実施</li>
+<li>関連記事：<a href="/php-security-release-2026-11-19">PHPのセキュリティ更新：修正版と確認手順（2026年11月19日）</a></li>
+</ul>
+</main>
+</div>
+<script type="module" src="/assets/site.js"></script>
+</body>
+</html>
