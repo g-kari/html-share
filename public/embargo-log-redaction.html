@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>embargo：Goのログに出る秘密を伏せる</title>
+<meta name="description" content="Go向けのembargoを使い、ダミーのログでマスクを試す。隠せる値と、そもそもログに出さない情報を分ける。">
+<link rel="canonical" href="https://share.0g0.xyz/embargo-log-redaction">
+<meta property="og:image" content="https://share.0g0.xyz/assets/embargo-log-redaction-ogp-v1.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="628">
+<meta property="og:image:alt" content="embargoの文字と、ログに伏せ字を入れる印刷ローラーのイラスト。">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://share.0g0.xyz/assets/embargo-log-redaction-ogp-v1.jpg">
+<meta name="twitter:image:alt" content="embargoの文字と、ログに伏せ字を入れる印刷ローラーのイラスト。">
+<link rel="stylesheet" href="/assets/site.css">
+<style>
+:root{--accent:#a12e06;--accent-dark:#ff9d71}
+.wrap.embargo{max-width:1120px} .embargo article{min-width:0;overflow-wrap:anywhere}
+.embargo .entry{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,3fr);gap:clamp(1rem,4vw,3rem);align-items:center}
+.embargo figure{margin:0} .embargo figure img{display:block;width:100%;height:auto}
+.embargo figcaption{margin-top:.5rem} .embargo section{border-top:1px solid var(--line);margin-top:2rem;padding-top:1rem}
+.embargo section p{max-width:72ch} .embargo pre{max-width:100%;overflow:auto}
+.embargo summary{cursor:pointer;font-weight:700} .embargo nav a{display:inline-block;margin:.25rem .9rem .25rem 0}
+.embargo a:focus-visible,.embargo summary:focus-visible,.embargo pre:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+@media(max-width:720px){.embargo .entry{grid-template-columns:minmax(0,1fr)}}
+</style></head><body><div class="wrap embargo">
+<div class="sitebar"><a class="brand" href="/">HTML Share</a><a href="/">記事一覧</a><a href="/feed.xml">RSS</a></div>
+<main><article><header class="top"><h1 id="top">embargo：Goのログに出る秘密を伏せる</h1></header>
+<div class="entry"><p class="lede">ログは障害の原因を調べるための記録です。パスワードやトークンまで書き出す必要はありません。embargoはGoのログやテキストを調べ、検出した値を伏せるライブラリ兼コマンドです。まず秘密をログに渡さず、それでも混ざった場合の予備の防御に使います。</p>
+<figure><img src="/assets/embargo-log-redaction-flow-v1.jpg" width="1200" height="628" alt="入力のログにある色付きの項目を、検出後に黒い伏せ字に置き換える流れ。" decoding="async"><figcaption>印刷機は処理のたとえです。伏せ字に替わるのは、ルールに一致した項目だけです。</figcaption></figure></div>
+<nav aria-label="記事の目次"><a href="#limits">隠せるもの、任せてはいけないもの</a><a href="#try">ダミーのログで試す</a><a href="#go">Goのサービスに入れるとき</a><a href="#sources">一次資料</a></nav>
+<section aria-labelledby="limits"><h2 id="limits">隠せるもの、任せてはいけないもの</h2>
+<p>メールアドレスやIPアドレスは、既定のルールで検出する例です。ログに残るメールやIPが本当に不要かは、用途ごとに決めます。</p>
+<p>独自の識別子や短い値など、ルールに当てはまらない値は残ることがあります。認証情報、Cookie、URLのクエリ、リクエスト本文は原則としてログに渡しません。</p>
+<p>すでに保存・転送したログはこのツールを追加しただけでは変わりません。秘密が漏れた場合は、まず該当するパスワードやトークンを失効・再発行し、ログの保存先と共有先も確認します。</p>
+<p>JSONで伏せ字にした数値は文字列に変わる場合があります。後段で数値を集計するなら、非機密の集計項目を別に持たせます。</p>
+</section>
+<section aria-labelledby="try"><h2 id="try">ダミーのログで試す</h2>
+<p>リリース v0.20.1 のGo要件は1.26.11以上です。Go環境にバージョンを指定してCLIを入れ、例示用のアドレスを含む1行を渡します。インストールでは取得のための通信が発生し得ますが、CLIのマスク処理そのものは外部サービスを使いません。</p>
+<p>この例では、メールアドレスとIPアドレスが伏せ字に変わり、障害の種類を示す文が残る想定です。本物の秘密で試す必要はありません。</p>
+<pre tabindex="0" aria-label="ダミーの入力を使うコマンド"><code>go install github.com/nao1215/embargo/cmd/embargo@v0.20.1
+printf &#x27;%s\n&#x27; &#x27;login failed for alice@example.com from 203.0.113.7&#x27; | embargo</code></pre><details><summary>伏せ字になった出力を見る（期待例）</summary><pre tabindex="0"><code>login failed for [REDACTED] from [REDACTED]</code></pre></details></section>
+<section aria-labelledby="go"><h2 id="go">Goのサービスに入れるとき</h2>
+<p>標準の構造化ログ <code>slog</code> では、出力先のハンドラーをembargoで包んでから、<code>With</code>で共通の項目を付けます。包む前に付けた項目はマスク処理を通らない場合があります。</p>
+<p>標準エラー、Web管理画面、診断ファイルに同じログを出すなら、分岐前にマスクします。保存済みのログまで書き換えるという意味ではありません。</p>
+<p>検証では、ダミー値がどの出力先にも残らず、時刻・ログレベル・障害の種類は読めることを確認します。<code>embargotest</code>は、テスト用の目印が出力に漏れていないかを調べる補助にも使えます。</p>
+</section>
+<section aria-labelledby="sources"><h2 id="sources">一次資料</h2>
+<p><a href="https://github.com/nao1215/embargo/blob/79d271e314cbce06f2c8b6770aa48b8e2b72faf6/README.md">embargo v0.20.1 のREADME</a>、Goの対象バージョンを定める<a href="https://github.com/nao1215/embargo/blob/79d271e314cbce06f2c8b6770aa48b8e2b72faf6/go.mod">go.mod</a>。</p>
+</section>
+</article></main></div><script type="module" src="/assets/site.js"></script></body></html>
