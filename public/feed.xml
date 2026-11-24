@@ -7,7 +7,43 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Tue, 24 Nov 2026 16:57:21 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 24 Nov 2026 22:37:52 GMT</lastBuildDate>
+    <item>
+      <title>Amazon API Gateway 2026年11月の発表まとめ：REST APIのJWTオーソライザーとAPI Portal</title>
+      <link>https://share.0g0.xyz/aws-apigateway-november-2026</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/aws-apigateway-november-2026</guid>
+      <description>Amazon API Gatewayの2026年11月の発表。REST APIにネイティブのJWTオーソライザーが追加され、Cognito以外のOIDC／OAuth 2.0トークンをLambdaなしで検証できるようになりました。あわせて、APIを自動発見するAPI PortalとWAF連携を、公式発表と公式ドキュメントで詳しく整理します。</description>
+      <pubDate>Tue, 24 Nov 2026 22:37:52 GMT</pubDate>
+      <dcterms:created>2026-11-24T22:37:52.000Z</dcterms:created>
+      <dcterms:modified>2026-11-24T22:37:52.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>AWS ネットワーク・CDN 2026年11月の変更まとめ：CloudFront、Route 53、Interconnect</title>
+      <link>https://share.0g0.xyz/aws-network-november-2026</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/aws-network-november-2026</guid>
+      <description>AWSのネットワーク・CDN分野の2026年11月の発表37件。Microsoft Azureとのマルチクラウド接続AWS Interconnectの一般提供、CloudFrontのオリジン相互TLSとFunctionsのネットワーク呼び出し、Route 53の新機能、Transit Gatewayのファイアウォール連携などをサービス別に整理します。</description>
+      <pubDate>Tue, 24 Nov 2026 22:37:52 GMT</pubDate>
+      <dcterms:created>2026-11-24T11:47:34.000Z</dcterms:created>
+      <dcterms:modified>2026-11-24T22:37:52.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>AWS 2026年11月の発表まとめ：全442件をサービス別に整理</title>
+      <link>https://share.0g0.xyz/aws-november-2026</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/aws-november-2026</guid>
+      <description>2026年11月1日〜24日のAWS公式発表442件を、サービス・分野別の17記事に整理した索引。AgentCore、WAF、Inspector、API Gateway、Lambda、Nitro Sandboxes、AWS Emulator、Strandsなど単独記事への入口と、期間・総件数・サービス別件数を明記します。</description>
+      <pubDate>Tue, 24 Nov 2026 22:37:52 GMT</pubDate>
+      <dcterms:created>2026-11-24T11:47:34.000Z</dcterms:created>
+      <dcterms:modified>2026-11-24T22:37:52.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>用語集：HTML Shareの記事に出てくる専門用語</title>
+      <link>https://share.0g0.xyz/glossary</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/glossary</guid>
+      <description>HTML Shareの記事に出てくる専門用語の短い説明の一覧です。記事本文では、辞書に登録された用語の初出が自動でこの用語集へリンクされます。</description>
+      <pubDate>Tue, 24 Nov 2026 17:03:24 GMT</pubDate>
+      <dcterms:created>2026-11-24T01:37:31.000Z</dcterms:created>
+      <dcterms:modified>2026-11-24T17:03:24.000Z</dcterms:modified>
+    </item>
     <item>
       <title>AWS コンピュート・ストレージ 2026年11月の変更まとめ：EC2、S3、FSx、ECS</title>
       <link>https://share.0g0.xyz/aws-compute-storage-november-2026</link>
@@ -27,15 +63,6 @@
       <dcterms:modified>2026-11-24T16:57:21.000Z</dcterms:modified>
     </item>
     <item>
-      <title>AWS 2026年11月の発表まとめ：全442件をサービス別に整理</title>
-      <link>https://share.0g0.xyz/aws-november-2026</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/aws-november-2026</guid>
-      <description>2026年11月1日〜24日のAWS公式発表442件を、サービス・分野別の16記事に整理した索引。AgentCore、WAF、Inspector、Lambda、Nitro Sandboxes、AWS Emulator、Strandsなど単独記事への入口と、期間・総件数・サービス別件数を明記します。</description>
-      <pubDate>Tue, 24 Nov 2026 16:57:21 GMT</pubDate>
-      <dcterms:created>2026-11-24T11:47:34.000Z</dcterms:created>
-      <dcterms:modified>2026-11-24T16:57:21.000Z</dcterms:modified>
-    </item>
-    <item>
       <title>AWS セキュリティ 2026年11月の変更まとめ：Cognito、IAM、STS、Security Hub、Network Firewall</title>
       <link>https://share.0g0.xyz/aws-security-november-2026</link>
       <guid isPermaLink="true">https://share.0g0.xyz/aws-security-november-2026</guid>
@@ -43,15 +70,6 @@
       <pubDate>Tue, 24 Nov 2026 16:57:21 GMT</pubDate>
       <dcterms:created>2026-11-24T11:47:34.000Z</dcterms:created>
       <dcterms:modified>2026-11-24T16:57:21.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>用語集：HTML Shareの記事に出てくる専門用語</title>
-      <link>https://share.0g0.xyz/glossary</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/glossary</guid>
-      <description>HTML Shareの記事に出てくる専門用語の短い説明の一覧です。記事本文では、辞書に登録された用語の初出が自動でこの用語集へリンクされます。</description>
-      <pubDate>Tue, 24 Nov 2026 11:51:47 GMT</pubDate>
-      <dcterms:created>2026-11-24T01:37:31.000Z</dcterms:created>
-      <dcterms:modified>2026-11-24T11:51:47.000Z</dcterms:modified>
     </item>
     <item>
       <title>Amazon Connect 2026年11月の変更：ケース管理とResolutions</title>
@@ -130,15 +148,6 @@
       <link>https://share.0g0.xyz/aws-lambda-november-2026</link>
       <guid isPermaLink="true">https://share.0g0.xyz/aws-lambda-november-2026</guid>
       <description>AWS Lambdaの2026年11月の発表18件。Managed InstancesでのGPU推論、durable functionsの一時停止・OTel・Rust SDK GAとクォータ拡大、MicroVMsのx86対応、カスタマーマネージドランタイム、30分タイムアウトなどを公式発表と出典つきで整理します。</description>
-      <pubDate>Tue, 24 Nov 2026 11:47:34 GMT</pubDate>
-      <dcterms:created>2026-11-24T11:47:34.000Z</dcterms:created>
-      <dcterms:modified>2026-11-24T11:47:34.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>AWS ネットワーク・CDN 2026年11月の変更まとめ：CloudFront、Route 53、Interconnect</title>
-      <link>https://share.0g0.xyz/aws-network-november-2026</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/aws-network-november-2026</guid>
-      <description>AWSのネットワーク・CDN分野の2026年11月の発表37件。Microsoft Azureとのマルチクラウド接続AWS Interconnectの一般提供、CloudFrontのオリジン相互TLSとFunctionsのネットワーク呼び出し、Route 53の新機能、Transit Gatewayのファイアウォール連携などをサービス別に整理します。</description>
       <pubDate>Tue, 24 Nov 2026 11:47:34 GMT</pubDate>
       <dcterms:created>2026-11-24T11:47:34.000Z</dcterms:created>
       <dcterms:modified>2026-11-24T11:47:34.000Z</dcterms:modified>

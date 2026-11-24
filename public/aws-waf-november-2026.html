@@ -68,7 +68,7 @@ table.aws-table td.svc{white-space:nowrap}
 <figure class="fig"><img src="/assets/aws-waf-pricing-v1.png" width="1600" height="860" loading="lazy" alt="AWS WAFの新しい料金体系。リソース料金、基本リクエスト料金、プレミアムリクエスト料金の3軸"><figcaption>図：新しい料金体系の3軸。ルールの追加や変更で料金は変わりません。</figcaption></figure>
 
 <h2 id="ai-api">AIエンドポイントとAPIの自動発見・保護（11月23日）</h2>
-<p>API Gateway、Application Load Balancer、CloudFrontの背後にあるAPIとAIエンドポイントを、AWS Organization全体で自動発見する仕組みが一般提供になりました。発見は新しいAPI Gateway API Portalが担い、トラフィックログとサービス設定から自動で識別するため、エージェントの導入やログ転送は不要です。文書化されていない公開MCPサーバーは「シャドウAPI」として現れます。</p>
+<p>API Gateway、Application Load Balancer、CloudFrontの背後にあるAPIとAIエンドポイントを、AWS Organization全体で自動発見する仕組みが一般提供になりました。発見は新しいAPI Gateway <a class="gloss" href="/glossary#term-api-portal" title="Amazon API Gatewayの機能。API Gateway、Application Load Balancer、CloudFrontの背後にあるAPIを、トラフィックログとサービス設定レコードから自動発見して台帳化し、セキュリティ態勢を評価します。発見したAPIのドキュメントポータルも作れます。">API Portal</a>が担い、トラフィックログとサービス設定から自動で識別するため、エージェントの導入やログ転送は不要です。文書化されていない公開MCPサーバーは「<a class="gloss" href="/glossary#term-shadow-api" title="組織内に実在して到達できるのに、管理下に置かれていないAPI。API Portalでは発見されたAPIはすべてシャドウAPIとして台帳に現れ、昇格させることで管理対象になります。">シャドウAPI</a>」として現れます。</p>
 <p>保護側は2つの新しいマネージドルールグループです。<strong>AI Security</strong>はLLM／MCP／A2Aエンドポイント向けで、プロトコル認識と準拠チェックで不正なMCP・A2Aメッセージを止め、コンテンツ検査を有効にするとAmazon Bedrock Guardrailsを呼んで、プロンプトインジェクション、ジェイルブレイク試行、有害コンテンツ、応答内の機微情報を検出します。<strong>API Security</strong>は、BOLA（オブジェクトレベルの認可不備）、認証破りとクレデンシャルスタッフィング、APIの偵察と列挙という、悪用されやすいAPI攻撃カテゴリに対応します。どちらも追加料金の対象で、Guardrailsの呼び出しは別途Bedrock側の課金です。</p>
 
 <h2 id="dashboard">Security Analytics Dashboard（11月19日）</h2>

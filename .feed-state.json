@@ -36,6 +36,11 @@
       "published": "2026-11-24T11:47:34.000Z",
       "updated": "2026-11-24T11:47:34.000Z"
     },
+    "aws-apigateway-november-2026.html": {
+      "fingerprint": "adb3496034688db19d82f7ba821c6b17a0a36783cc7c79d2c3512c895897e8da",
+      "published": "2026-11-24T22:37:52.000Z",
+      "updated": "2026-11-24T22:37:52.000Z"
+    },
     "aws-business-november-2026.html": {
       "fingerprint": "6b28b62c491134e7cd422aea693b94f91da75b3bb9e2a2f43edcc82318c5dfbd",
       "published": "2026-11-24T11:47:34.000Z",
@@ -97,14 +102,14 @@
       "updated": "2026-10-14T02:32:43.000Z"
     },
     "aws-network-november-2026.html": {
-      "fingerprint": "4b4ad283b8cc472a1cb465c1b3e7f0ea129349e745ee4d7d15a182a03195062f",
+      "fingerprint": "788dd38f1a830002f300b02602d6c04cac1bdd5c61ea72937b54131dae2a70ad",
       "published": "2026-11-24T11:47:34.000Z",
-      "updated": "2026-11-24T11:47:34.000Z"
+      "updated": "2026-11-24T22:37:52.000Z"
     },
     "aws-november-2026.html": {
-      "fingerprint": "81b2afb36e7cfd3731e92e706b8fef61e1ffe2ee737b0e3372338f0b83105ec4",
+      "fingerprint": "aefbd59ed2426ae2261b471d495625d9511d7793afd30fa595b159464fd71e9a",
       "published": "2026-11-24T11:47:34.000Z",
-      "updated": "2026-11-24T16:57:21.000Z"
+      "updated": "2026-11-24T22:37:52.000Z"
     },
     "aws-operations-november-2026.html": {
       "fingerprint": "c3dff6b0281d2ce73221883db304ac4a7bc184a1702d3ef6c7f1a9506b8b8aa1",
@@ -232,9 +237,9 @@
       "updated": "2026-11-19T17:36:57.000Z"
     },
     "glossary.html": {
-      "fingerprint": "32b67e8c1b00df157c7f0a98f070a190479465739724b8bd7b99e483c801c8b9",
+      "fingerprint": "50aaa0899b3f40dd7d60c8fc8cb50b55b67d38972424deb9b11e43ce1a65fb02",
       "published": "2026-11-24T01:37:31.000Z",
-      "updated": "2026-11-24T11:51:47.000Z"
+      "updated": "2026-11-24T17:03:24.000Z"
     },
     "go-code-verification.html": {
       "fingerprint": "add16dcf6c555dc85cb859063495bf903ab5151b47f9de01db2dbaede2cc0162",

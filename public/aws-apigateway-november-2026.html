@@ -30,6 +30,14 @@ table.aws-table th,table.aws-table td{border:1px solid var(--line);padding:.45re
 table.aws-table td.date{white-space:nowrap}
 table.aws-table td.svc{white-space:nowrap}
 </style>
+  <!-- html-share: social metadata -->
+  <meta property="og:site_name" content="HTML Share">
+  <meta name="twitter:title" content="Amazon API Gateway 2026年11月の発表まとめ：REST APIのJWTオーソライザーとAPI Portal">
+  <meta name="twitter:description" content="Amazon API Gatewayの2026年11月の発表。REST APIにネイティブのJWTオーソライザーが追加され、Cognito以外のOIDC／OAuth 2.0トークンをLambdaなしで検証できるようになりました。あわせて、APIを自動発見するAPI PortalとWAF連携を、公式発表と公式ドキュメントで詳しく整理します。">
+  <!-- /html-share: social metadata -->
+  <!-- html-share: rss discovery -->
+  <link rel="alternate" type="application/rss+xml" title="HTML Share RSS" href="https://share.0g0.xyz/feed.xml">
+  <!-- /html-share: rss discovery -->
 </head>
 <body>
 <div class="wrap">
@@ -42,7 +50,7 @@ table.aws-table td.svc{white-space:nowrap}
 
 <div class="summary3">
 <div class="ttl">要点</div>
-<ol><li>11月17日、REST APIにネイティブのJWTオーソライザーが追加されました。Cognito以外のOIDC／OAuth 2.0のIdPのトークン検証が、Lambdaオーソライザーを書かずに設定だけでできるようになりました。</li><li>11月23日、API Portalが一般提供になりました。API Gateway、Application Load Balancer、CloudFrontの背後にあるAPIを、トラフィックログとサービス設定レコードから自動発見し、シャドウAPIやゾンビAPIを特定します。</li><li>発見したAPIの保護はAWS WAFが担います。API SecurityとAI Securityのマネージドルールグループが同日発表され、WAFの検出イベントはAPI Portalの所見に統合されます。</li><li>API Gatewayタグ付きの発表は3件ですが、JWTオーソライザーの発表は同じ内容が2つのURLで掲載されたため、この記事では実質2件として扱います。</li></ol>
+<ol><li>11月17日、REST APIにネイティブの<a class="gloss" href="/glossary#term-jwt-authorizer" title="Amazon API GatewayがJSON Web Token（JWT）をゲートウェイ自体で検証するオーソライザー。信頼する発行者、audience、署名アルゴリズム、追加クレームを設定で宣言し、Lambda関数なしでOIDC／OAuth 2.0のトークンを検証します。">JWTオーソライザー</a>が追加されました。Cognito以外のOIDC／OAuth 2.0のIdPのトークン検証が、Lambdaオーソライザーを書かずに設定だけでできるようになりました。</li><li>11月23日、<a class="gloss" href="/glossary#term-api-portal" title="Amazon API Gatewayの機能。API Gateway、Application Load Balancer、CloudFrontの背後にあるAPIを、トラフィックログとサービス設定レコードから自動発見して台帳化し、セキュリティ態勢を評価します。発見したAPIのドキュメントポータルも作れます。">API Portal</a>が一般提供になりました。API Gateway、Application Load Balancer、CloudFrontの背後にあるAPIを、トラフィックログとサービス設定レコードから自動発見し、<a class="gloss" href="/glossary#term-shadow-api" title="組織内に実在して到達できるのに、管理下に置かれていないAPI。API Portalでは発見されたAPIはすべてシャドウAPIとして台帳に現れ、昇格させることで管理対象になります。">シャドウAPI</a>や<a class="gloss" href="/glossary#term-zombie-api" title="管理対象のAPIのうち、長期間トラフィックがなく設定変更もないもの。API Portalでは、30日間トラフィックがなく、かつ裏付けリソースの設定変更が90日間ない管理対象APIを指します。">ゾンビAPI</a>を特定します。</li><li>発見したAPIの保護はAWS WAFが担います。API SecurityとAI Securityのマネージドルールグループが同日発表され、WAFの検出イベントはAPI Portalの所見に統合されます。</li><li>API Gatewayタグ付きの発表は3件ですが、JWTオーソライザーの発表は同じ内容が2つのURLで掲載されたため、この記事では実質2件として扱います。</li></ol>
 </div>
 
 <nav class="toc">

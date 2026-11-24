@@ -165,6 +165,14 @@
   <dd>AWSの脆弱性管理サービス。EC2インスタンス、ECRのコンテナイメージ、Lambda関数、AMI、コードリポジトリを継続的にスキャンし、ソフトウェアの脆弱性と意図しないネットワーク露出を検出結果として報告します。</dd>
   <dt id="term-runtime-reachability">ランタイム到達性分析</dt>
   <dd>脆弱なパッケージが実行時に実際に使われる場所にあるか、動いているかを判定し、検出結果の優先付けに使う分析。Amazon InspectorではECRのコンテナイメージとEC2インスタンスの検出結果に付きます。</dd>
+  <dt id="term-jwt-authorizer">JWTオーソライザー</dt>
+  <dd>Amazon API GatewayがJSON Web Token（JWT）をゲートウェイ自体で検証するオーソライザー。信頼する発行者、audience、署名アルゴリズム、追加クレームを設定で宣言し、Lambda関数なしでOIDC／OAuth 2.0のトークンを検証します。</dd>
+  <dt id="term-api-portal">API Portal</dt>
+  <dd>Amazon API Gatewayの機能。API Gateway、Application Load Balancer、CloudFrontの背後にあるAPIを、トラフィックログとサービス設定レコードから自動発見して台帳化し、セキュリティ態勢を評価します。発見したAPIのドキュメントポータルも作れます。</dd>
+  <dt id="term-shadow-api">シャドウAPI</dt>
+  <dd>組織内に実在して到達できるのに、管理下に置かれていないAPI。API Portalでは発見されたAPIはすべてシャドウAPIとして台帳に現れ、昇格させることで管理対象になります。</dd>
+  <dt id="term-zombie-api">ゾンビAPI</dt>
+  <dd>管理対象のAPIのうち、長期間トラフィックがなく設定変更もないもの。API Portalでは、30日間トラフィックがなく、かつ裏付けリソースの設定変更が90日間ない管理対象APIを指します。</dd>
 </dl>
 <h2>コンピュート</h2>
 <dl>
