@@ -173,7 +173,7 @@ trivy image --format cyclonedx \
             <tbody>
               <tr><th scope="row">Syft + 定期収集</th><td>クラウド・オンプレを混在させたい</td><td>SSH / ジョブ / エージェントの方式、権限、実行負荷を設計する。</td></tr>
               <tr><th scope="row">SSM Inventory</th><td>AWSの管理対象ノード</td><td>アプリケーション名・版などを収集。標準のSBOMエクスポートと同一ではない。<a href="#ref-ssm">[5]</a></td></tr>
-              <tr><th scope="row">Amazon Inspector</th><td>Inspectorが監視対象としているAWSリソース</td><td>対応するEC2・ECR・Lambda等からSBOMをエクスポート。利用条件、サービス料金、S3・KMSの設定が必要。<a href="#ref-inspector">[6]</a></td></tr>
+              <tr><th scope="row"><a class="gloss" href="/glossary#term-amazon-inspector" title="AWSの脆弱性管理サービス。EC2インスタンス、ECRのコンテナイメージ、Lambda関数、AMI、コードリポジトリを継続的にスキャンし、ソフトウェアの脆弱性と意図しないネットワーク露出を検出結果として報告します。">Amazon Inspector</a></th><td>Inspectorが監視対象としているAWSリソース</td><td>対応するEC2・ECR・Lambda等からSBOMをエクスポート。利用条件、サービス料金、S3・KMSの設定が必要。<a href="#ref-inspector">[6]</a></td></tr>
             </tbody>
           </table>
         </div>

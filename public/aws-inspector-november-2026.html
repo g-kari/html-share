@@ -30,19 +30,27 @@ table.aws-table th,table.aws-table td{border:1px solid var(--line);padding:.45re
 table.aws-table td.date{white-space:nowrap}
 table.aws-table td.svc{white-space:nowrap}
 </style>
+  <!-- html-share: social metadata -->
+  <meta property="og:site_name" content="HTML Share">
+  <meta name="twitter:title" content="Amazon Inspector 2026年11月の変更：AMIスキャン、ランタイム到達性分析、Code Securityの拡張">
+  <meta name="twitter:description" content="Amazon Inspectorの2026年11月の発表4件。EC2のAMIスキャン、ECR／EC2の検出結果へのランタイム到達性分析、Inspector Code SecurityのGitHub Enterprise Server対応とプライベート接続、Security HubのGoogle Cloud Platform拡張を、公式発表と公式ドキュメントで詳しく整理します。">
+  <!-- /html-share: social metadata -->
+  <!-- html-share: rss discovery -->
+  <link rel="alternate" type="application/rss+xml" title="HTML Share RSS" href="https://share.0g0.xyz/feed.xml">
+  <!-- /html-share: rss discovery -->
 </head>
 <body>
 <div class="wrap">
 <nav class="sitebar" aria-label="サイト内"><a class="brand" href="/">HTML Share</a><nav><a href="/">一覧</a><a href="/feed.xml">RSS</a></nav></nav>
 <header class="top">
-<div class="kicker">AWS発表まとめ · Amazon Inspector</div>
+<div class="kicker">AWS発表まとめ · <a class="gloss" href="/glossary#term-amazon-inspector" title="AWSの脆弱性管理サービス。EC2インスタンス、ECRのコンテナイメージ、Lambda関数、AMI、コードリポジトリを継続的にスキャンし、ソフトウェアの脆弱性と意図しないネットワーク露出を検出結果として報告します。">Amazon Inspector</a></div>
 <h1>Amazon Inspector 2026年11月の変更：AMIスキャン、ランタイム到達性分析、Code Securityの拡張</h1>
 <p class="meta">確認日：2026年11月25日<br>一次資料：<a href="https://aws.amazon.com/about-aws/whats-new/">AWS公式 What's New</a>（2026年11月1日〜24日の投稿）と、Amazon Inspector User Guideなどの公式ドキュメント。各項目の詳細は公式発表とドキュメントへのリンクつきです。全体の索引は<a href="/aws-november-2026">AWS 2026年11月の発表まとめ</a>。</p>
 </header>
 
 <div class="summary3">
 <div class="ttl">要点</div>
-<ol><li>11月2日、EC2のAMI（マシンイメージ）がInspectorのスキャン対象に加わりました。インスタンスを起動せず、裏付けのEBSスナップショットから検査します。</li><li>11月23日、ECRとEC2の検出結果にランタイム到達性分析が付きました。脆弱なパッケージが実際に使われる場所にあるか、動いているかで優先付けできます。</li><li>11月19日、Inspector Code SecurityがGitHub Enterprise Serverに対応し、GHESとGitLab Self-Managedへのプライベート接続も入りました。自動修正プルリクエストもパブリックプレビューで始まっています。</li><li>11月17日、Security Hubの監視対象がGoogle Cloud Platformへ広がりました。脆弱性管理を担うAmazon Inspectorでも、GCPへの統合を単独で作れます。</li></ol>
+<ol><li>11月2日、EC2の<a class="gloss" href="/glossary#term-machine-image" title="EC2インスタンスを起動するためのテンプレート。OSやソフトウェア一式を含みます。代表例がAmazon Machine Image（AMI）です。">AMI</a>（マシンイメージ）がInspectorのスキャン対象に加わりました。インスタンスを起動せず、裏付けのEBSスナップショットから検査します。</li><li>11月23日、ECRとEC2の検出結果に<a class="gloss" href="/glossary#term-runtime-reachability" title="脆弱なパッケージが実行時に実際に使われる場所にあるか、動いているかを判定し、検出結果の優先付けに使う分析。Amazon InspectorではECRのコンテナイメージとEC2インスタンスの検出結果に付きます。">ランタイム到達性分析</a>が付きました。脆弱なパッケージが実際に使われる場所にあるか、動いているかで優先付けできます。</li><li>11月19日、Inspector Code SecurityがGitHub Enterprise Serverに対応し、GHESとGitLab Self-Managedへのプライベート接続も入りました。自動修正プルリクエストもパブリックプレビューで始まっています。</li><li>11月17日、Security Hubの監視対象がGoogle Cloud Platformへ広がりました。脆弱性管理を担うAmazon Inspectorでも、GCPへの統合を単独で作れます。</li></ol>
 </div>
 
 <nav class="toc">
@@ -52,7 +60,7 @@ table.aws-table td.svc{white-space:nowrap}
 
 <h2 id="about">概要</h2>
 <p>Amazon Inspectorは、ワークロードを自動で発見し、ソフトウェアの脆弱性と意図しないネットワーク露出を継続的にスキャンする脆弱性管理サービスです。対象はEC2インスタンス、ECRのコンテナイメージ、Lambda関数などで、検出結果（finding）には、その環境に合わせてNVDのCVSS基本値を調整したInspectorスコアが付きます。</p>
-<p>2026年11月のInspector関連の発表は4件です。スキャン対象にAMIが加わり（11月2日）、検出結果の優先付けにランタイム到達性が入り（11月23日）、コード側のCode SecurityがGitHub Enterprise Serverとプライベート接続に対応し（11月19日）、管理面ではSecurity Hubの監視対象がGoogle Cloud Platformへ広がりました（11月17日）。分野別のまとめでは、AMIスキャンと到達性分析は<a href="/aws-compute-storage-november-2026">コンピュート・ストレージ記事</a>、残りの2件は<a href="/aws-security-november-2026">セキュリティ記事</a>に分かれて載っていたため、この記事に4件を集約し、公式ドキュメントで補って詳しくします。</p>
+<p>2026年11月のInspector関連の発表は4件です。スキャン対象にAMIが加わり（11月2日）、検出結果の優先付けに<a class="gloss" href="/glossary#term-runtime" title="プログラムを実行する土台となるソフトウェアや実行環境のこと。">ランタイム</a>到達性が入り（11月23日）、コード側のCode SecurityがGitHub Enterprise Serverとプライベート接続に対応し（11月19日）、管理面ではSecurity Hubの監視対象がGoogle Cloud Platformへ広がりました（11月17日）。分野別のまとめでは、AMIスキャンと到達性分析は<a href="/aws-compute-storage-november-2026">コンピュート・ストレージ記事</a>、残りの2件は<a href="/aws-security-november-2026">セキュリティ記事</a>に分かれて載っていたため、この記事に4件を集約し、公式ドキュメントで補って詳しくします。</p>
 <figure class="fig"><img src="/assets/aws-inspector-overview-v1.png" width="1600" height="900" loading="lazy" alt="Amazon Inspectorのスキャン対象。EC2インスタンス、ECRコンテナイメージ、Lambda関数、コードリポジトリに、11月2日からAMIが加わった"><figcaption>図：Inspectorのスキャン対象と11月の拡張。対象の追加、優先付け、管理面の3方向に広がりました。</figcaption></figure>
 
 <h2 id="ami">AMIスキャン：起動前のイメージを検査する（11月2日）</h2>
@@ -69,7 +77,7 @@ table.aws-table td.svc{white-space:nowrap}
 <h2 id="reachability">ランタイム到達性分析：検出結果の優先付け（11月23日）</h2>
 <p><a href="https://aws.amazon.com/about-aws/whats-new/2026/11/inspector-runtime-reachability/">公式発表</a>。ECRのコンテナイメージとEC2インスタンスを対象に、検出結果へランタイム到達性分析が付きました。従来は、リソースで見つかった脆弱性をすべて報告していたため、アプリケーションが使っていないパッケージの脆弱性も同じ列に並び、どれが実際に危ないかの見極めは人手でした。今回の分析は、脆弱なパッケージが実行時に届く場所にあるかを自動で判定し、優先付けの材料にします。</p>
 <p>判定の根拠は対象ごとに異なります。コンテナイメージでは、脆弱なパッケージのファイルパスと、イメージのDockerfileにある <code>WORKDIR</code>／<code>ENTRYPOINT</code>／<code>CMD</code> が指すディレクトリを比べます。パスの内側にあれば <code>REACHABLE</code>、外側にあれば <code>NOT_REACHABLE</code> です。コンテナを実行して確認するわけではないため、公式ドキュメントは、パス内にあることが実際に読み込まれることの証明にはならないと明記しています。</p>
-<p>EC2インスタンスでは、スキャンした時点で、脆弱なパッケージがプロセスまたはサービスとして動いているかを見ます。観測されれば <code>REACHABLE</code>、されなければ <code>NOT_REACHABLE</code> で、判定はスキャンのたびに付け直されるため、値が変わることもあります。この判定を使うには、Inspector VM Scannerによるエージェント型スキャンが必要です。VM ScannerはInspector SBOM Generatorでインベントリを集める方式で、Enhanced EC2 Scanningを有効にするとSystems Manager経由で自動導入され、手動インストールもできます。</p>
+<p>EC2インスタンスでは、スキャンした時点で、脆弱なパッケージがプロセスまたはサービスとして動いているかを見ます。観測されれば <code>REACHABLE</code>、されなければ <code>NOT_REACHABLE</code> で、判定はスキャンのたびに付け直されるため、値が変わることもあります。この判定を使うには、Inspector VM Scannerによるエージェント型スキャンが必要です。VM ScannerはInspector <a class="gloss" href="/glossary#term-sbom" title="ソフトウェアを構成する部品（ライブラリ等）の一覧表。脆弱性の影響範囲を調べるために使います。">SBOM</a> Generatorでインベントリを集める方式で、Enhanced EC2 Scanningを有効にするとSystems Manager経由で自動導入され、手動インストールもできます。</p>
 <p>結果は検出結果の <code>vulnerablePackages</code> にあるパッケージごとに、状態を示す <code>runtimeReachability</code>（<code>REACHABLE</code>／<code>NOT_REACHABLE</code>／<code>UNKNOWN</code>）と、根拠を示す <code>runtimeReachabilityReason</code> として付きます。同じ検出結果の中でもパッケージごとに値が違うことがあります。両フィールドは検出結果のフィルタと抑制ルールに使えます。ただし評価の仕方は同じではありません。フィルタは1つでも一致するパッケージがあればその検出結果を返しますが、抑制ルールの <code>NOT_REACHABLE</code> は、すべてのパッケージが <code>NOT_REACHABLE</code> のときにだけ抑制します。</p>
 <p>公式ドキュメントも、この状態は根拠に基づく目安であり、決定的な信号ではないと注意しています。<code>NOT_REACHABLE</code> でも、そのパッケージが動かないことや、脆弱性が悪用できないことを意味しません。検出結果の重要度そのものも変わりません。</p>
 <p>対象は <code>AWS_ECR_CONTAINER_IMAGE</code> と <code>AWS_EC2_INSTANCE</code> の2種だけです。Lambda関数、AMI（<code>MACHINE_IMAGE</code>）、ECRリポジトリ、コードリポジトリ、AzureとGCPのリソースの検出結果には付きません。新しく作られる検出結果には最初から含まれ、既存の検出結果へは時間をかけて順次付きます（バックフィル）。追加料金はなく、Inspectorが利用できるすべてのリージョンで使えます。</p>

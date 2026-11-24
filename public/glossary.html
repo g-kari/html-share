@@ -161,11 +161,17 @@
   <dd>EKSのPodやECSタスクなどを、それぞれ専用の軽量仮想マシンでハードウェア分離して動かすAWSの仕組み。1台のインスタンスを共有しながら分離境界を保ちます。</dd>
   <dt id="term-strands-box">Strands Box</dt>
   <dd>コーディングエージェントをOSレベルのサンドボックスで動かすオープンソース。ファイル、コマンド、ネットワーク、MCPの呼び出しをポリシーで検査します。</dd>
+  <dt id="term-amazon-inspector">Amazon Inspector</dt>
+  <dd>AWSの脆弱性管理サービス。EC2インスタンス、ECRのコンテナイメージ、Lambda関数、AMI、コードリポジトリを継続的にスキャンし、ソフトウェアの脆弱性と意図しないネットワーク露出を検出結果として報告します。</dd>
+  <dt id="term-runtime-reachability">ランタイム到達性分析</dt>
+  <dd>脆弱なパッケージが実行時に実際に使われる場所にあるか、動いているかを判定し、検出結果の優先付けに使う分析。Amazon InspectorではECRのコンテナイメージとEC2インスタンスの検出結果に付きます。</dd>
 </dl>
 <h2>コンピュート</h2>
 <dl>
   <dt id="term-durable-functions">durable functions</dt>
   <dd>AWS Lambdaで、チェックポイントと自動リトライを持ち、最長1年動ける多段処理を書くための仕組み。途中で待機しても計算料金はかかりません。</dd>
+  <dt id="term-machine-image">マシンイメージ</dt>
+  <dd>EC2インスタンスを起動するためのテンプレート。OSやソフトウェア一式を含みます。代表例がAmazon Machine Image（AMI）です。</dd>
 </dl>
 <!-- /html-share: glossary terms -->
 

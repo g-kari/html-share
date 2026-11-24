@@ -118,14 +118,14 @@
       <p><a class="rss" href="/feed.xml">RSSで新規公開・更新を購読</a></p>
       <p><a class="rss" href="/glossary">用語集</a> — 記事に出てくる専門用語の短い説明</p>
       <p><a class="rss" href="/vulnerabilities-feed.xml">脆弱性レポート 更新RSSを購読</a> · <a class="rss" href="/security-incidents-feed.xml">漏洩・セキュリティ事案レポート 更新RSSを購読</a></p>
-      <p class="count">86 pages</p>
+      <p class="count">87 pages</p>
     </header>
     <div id="site-guide-fallback" class="site-guide" aria-label="ページの探し方と購読">
       <details class="guide-item" data-guide-section="reports"><summary>よく読むレポートへ</summary><div><p>更新を追いたいページを直接開けます。</p><ul><li><a href="/technology-updates">技術アップデート</a></li><li><a href="/vulnerabilities">重要な脆弱性</a></li><li><a href="/security-incidents">情報流出・セキュリティ事案</a></li></ul></div></details>
       <details class="guide-item" data-guide-section="search"><summary>本文まで探す・更新を受け取る</summary><div><p>下の検索はスペース区切りのAND検索です。RSSは申込みなしで購読アプリに追加できます。</p><ul><li><a href="#site-search">本文を検索する</a></li><li><a href="/feed.xml">全ページの更新RSS</a></li><li><a href="/vulnerabilities-feed.xml">脆弱性の更新RSS</a></li><li><a href="/security-incidents-feed.xml">事案の更新RSS</a></li></ul></div></details>
     </div>
     <div id="site-guide-enhanced" aria-label="ページの探し方と購読" hidden></div>
-    <form id="site-search" class="search" role="search" data-index="/assets/search/index-78b55d7b2b65dc15.json" hidden>
+    <form id="site-search" class="search" role="search" data-index="/assets/search/index-694386344c77f2bd.json" hidden>
       <label for="search-query">タイトル・本文を検索</label>
       <div class="search-controls">
         <input id="search-query" name="q" type="search" placeholder="例：Cloudflare 日本語" maxlength="200" enterkeyhint="search" autocomplete="off" aria-describedby="search-help search-status">
@@ -139,6 +139,46 @@
     <section id="search-results" class="grid" aria-label="検索結果" hidden></section>
     <button id="search-more" type="button" hidden>さらに20件を表示</button>
     <section id="page-list" class="grid" aria-label="共有ページ一覧">
+
+      <article class="card">
+        <a href="/aws-compute-storage-november-2026">
+          <h2>AWS コンピュート・ストレージ 2026年11月の変更まとめ：EC2、S3、FSx、ECS</h2>
+          <p>AWSのコンピュート・ストレージ分野の2026年11月の発表55件。Graviton5ベースのEC2 T9g、S3の読み取りレート2倍とVectorsのハイブリッド検索、FSx for NetApp ONTAPの新世代、ECS Action Logsなどをサービス別に整理します。</p>
+          <code>/aws-compute-storage-november-2026</code>
+        </a>
+      </article>
+
+      <article class="card">
+        <a href="/aws-inspector-november-2026">
+          <h2>Amazon Inspector 2026年11月の変更：AMIスキャン、ランタイム到達性分析、Code Securityの拡張</h2>
+          <p>Amazon Inspectorの2026年11月の発表4件。EC2のAMIスキャン、ECR／EC2の検出結果へのランタイム到達性分析、Inspector Code SecurityのGitHub Enterprise Server対応とプライベート接続、Security HubのGoogle Cloud Platform拡張を、公式発表と公式ドキュメントで詳しく整理します。</p>
+          <code>/aws-inspector-november-2026</code>
+        </a>
+      </article>
+
+      <article class="card">
+        <a href="/aws-november-2026">
+          <h2>AWS 2026年11月の発表まとめ：全442件をサービス別に整理</h2>
+          <p>2026年11月1日〜24日のAWS公式発表442件を、サービス・分野別の16記事に整理した索引。AgentCore、WAF、Inspector、Lambda、Nitro Sandboxes、AWS Emulator、Strandsなど単独記事への入口と、期間・総件数・サービス別件数を明記します。</p>
+          <code>/aws-november-2026</code>
+        </a>
+      </article>
+
+      <article class="card">
+        <a href="/aws-security-november-2026">
+          <h2>AWS セキュリティ 2026年11月の変更まとめ：Cognito、IAM、STS、Security Hub、Network Firewall</h2>
+          <p>AWSのセキュリティ・アイデンティティ分野の2026年11月の発表38件。STS GetScopedCredentials、CognitoのOAuth 2.0トークン交換とセッション管理、Security HubのSBOMインベントリ、Network Firewallの次世代ポリシーなどをサービス別に整理します。WAFは単独記事です。</p>
+          <code>/aws-security-november-2026</code>
+        </a>
+      </article>
+
+      <article class="card">
+        <a href="/glossary">
+          <h2>用語集：HTML Shareの記事に出てくる専門用語</h2>
+          <p>HTML Shareの記事に出てくる専門用語の短い説明の一覧です。記事本文では、辞書に登録された用語の初出が自動でこの用語集へリンクされます。</p>
+          <code>/glossary</code>
+        </a>
+      </article>
 
       <article class="card">
         <a href="/amazon-connect-november-2026">
@@ -169,14 +209,6 @@
           <h2>AWS 業務アプリ・その他 2026年11月の変更まとめ：Marketplace、WorkSpaces、MWAA、メディア</h2>
           <p>AWSの業務アプリケーションとその他の分野の2026年11月の発表53件。AWS Marketplaceのエージェントモードと決済まわり、AIエージェント向けWorkSpaces、Amazon MWAA、SES、メディアサービス、Partner Centralなどをサービス別に整理します。</p>
           <code>/aws-business-november-2026</code>
-        </a>
-      </article>
-
-      <article class="card">
-        <a href="/aws-compute-storage-november-2026">
-          <h2>AWS コンピュート・ストレージ 2026年11月の変更まとめ：EC2、S3、FSx、ECS</h2>
-          <p>AWSのコンピュート・ストレージ分野の2026年11月の発表55件。Graviton5ベースのEC2 T9g、S3の読み取りレート2倍とVectorsのハイブリッド検索、FSx for NetApp ONTAPの新世代、ECS Action Logsなどをサービス別に整理します。</p>
-          <code>/aws-compute-storage-november-2026</code>
         </a>
       </article>
 
@@ -229,26 +261,10 @@
       </article>
 
       <article class="card">
-        <a href="/aws-november-2026">
-          <h2>AWS 2026年11月の発表まとめ：全442件をサービス別に整理</h2>
-          <p>2026年11月1日〜24日のAWS公式発表442件を、サービス・分野別の15記事に整理した索引。AgentCore、WAF、Lambda、Nitro Sandboxes、AWS Emulator、Strandsなど単独記事への入口と、期間・総件数・サービス別件数を明記します。</p>
-          <code>/aws-november-2026</code>
-        </a>
-      </article>
-
-      <article class="card">
         <a href="/aws-operations-november-2026">
           <h2>AWS 運用・移行・コスト 2026年11月の変更まとめ：CloudWatch、Transform、課金、GovCloud</h2>
           <p>AWSの運用・移行・コスト分野の2026年11月の発表51件。CloudWatchのPromQL拡大とQuery Studio、AWS Transformの移行自動化、EventBridgeの拡張、クレジット分割などの課金まわり、GovCloudでの提供開始をサービス別に整理します。</p>
           <code>/aws-operations-november-2026</code>
-        </a>
-      </article>
-
-      <article class="card">
-        <a href="/aws-security-november-2026">
-          <h2>AWS セキュリティ 2026年11月の変更まとめ：Cognito、IAM、STS、Security Hub、Network Firewall</h2>
-          <p>AWSのセキュリティ・アイデンティティ分野の2026年11月の発表38件。STS GetScopedCredentials、CognitoのOAuth 2.0トークン交換とセッション管理、Security HubのSBOMインベントリ、Network Firewallの次世代ポリシーなどをサービス別に整理します。WAFは単独記事です。</p>
-          <code>/aws-security-november-2026</code>
         </a>
       </article>
 
@@ -265,14 +281,6 @@
           <h2>AWS WAF 2026年11月の変更：料金体系の簡素化とAI／APIの自動保護</h2>
           <p>AWS WAFの2026年11月の発表9件（＋秋の関連2件）。料金体系の3軸への組み替えと無料WCU拡大、AI Security／API Securityマネージドルール、Security Analytics Dashboard、Bot Controlの導入簡素化とWebBotAuth連携を、公式発表と出典つきで詳しく整理します。</p>
           <code>/aws-waf-november-2026</code>
-        </a>
-      </article>
-
-      <article class="card">
-        <a href="/glossary">
-          <h2>用語集：HTML Shareの記事に出てくる専門用語</h2>
-          <p>HTML Shareの記事に出てくる専門用語の短い説明の一覧です。記事本文では、辞書に登録された用語の初出が自動でこの用語集へリンクされます。</p>
-          <code>/glossary</code>
         </a>
       </article>
 

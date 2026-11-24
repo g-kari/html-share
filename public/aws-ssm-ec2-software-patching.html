@@ -46,7 +46,7 @@
 <tr><th scope="row">EC2の指定パッケージだけ</th><td>Run Command → <code>AWS-RunShellScript</code></td><td>OS、配布元、パッケージ系列、必要ならCPUアーキテクチャを分ける。</td></tr>
 <tr><th scope="row">EC2のOSパッチを定期適用</th><td>Patch Manager → <code>AWS-RunPatchBaseline</code></td><td>パッチベースラインで対象を確認。PHPだけに固定されるわけではない。</td></tr>
 <tr><th scope="row">Docker／ECS内のPHP</th><td>修正版でイメージを再ビルドし、コンテナを再配備</td><td>EC2側のPHP更新ではコンテナ内のPHPは変わらない。再配備後に稼働中タスクを確認する。</td></tr>
-<tr><th scope="row">Auto Scalingグループの新規・交換インスタンス</th><td>修正版を含むAMIを作成 → 起動テンプレート更新 → Instance Refresh</td><td>手動で既存機だけ更新すると、スケールアウトや交換先に旧版が戻り得る。起動時の導入処理も修正版を使うよう確認する。</td></tr>
+<tr><th scope="row">Auto Scalingグループの新規・交換インスタンス</th><td>修正版を含む<a class="gloss" href="/glossary#term-machine-image" title="EC2インスタンスを起動するためのテンプレート。OSやソフトウェア一式を含みます。代表例がAmazon Machine Image（AMI）です。">AMI</a>を作成 → 起動テンプレート更新 → Instance Refresh</td><td>手動で既存機だけ更新すると、スケールアウトや交換先に旧版が戻り得る。起動時の導入処理も修正版を使うよう確認する。</td></tr>
 </tbody></table></div>
 <figure><img src="assets/aws-ssm-ec2-package-container-v1.webp" width="1200" height="614" alt="左は同じサーバー内のパッケージを更新。右はホストを残してコンテナを新しいイメージに置き換える。" loading="lazy" decoding="async"><figcaption>左はEC2上のパッケージ更新。右は新しいイメージで再配備。ホストOSとコンテナ内の更新は別です。</figcaption></figure>
 <figure><img src="assets/aws-ssm-ec2-rollout-v1.webp" width="1200" height="600" alt="先行1台、動作確認、小グループへの展開。動作確認に失敗した場合はそこで停止。" loading="lazy" decoding="async"><figcaption>先行の1台が合格した構成だけ、少数ずつ広げます。停止は自動で元に戻すことを意味しません。</figcaption></figure>

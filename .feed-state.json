@@ -42,9 +42,9 @@
       "updated": "2026-11-24T11:47:34.000Z"
     },
     "aws-compute-storage-november-2026.html": {
-      "fingerprint": "94d6d492548e74a3c54cf00ca33ce5460654a1737fcdf22662f5d3d306901365",
+      "fingerprint": "fa8dc5dfbb73891968a7c3867ef04ebd8339755aea1bbb7d110c3f0b3cc0533c",
       "published": "2026-11-24T11:47:34.000Z",
-      "updated": "2026-11-24T11:47:34.000Z"
+      "updated": "2026-11-24T16:57:21.000Z"
     },
     "aws-continuum.html": {
       "fingerprint": "a787840451a881f655efe9c57d2c5d8e1a7f5089c4ff4e3fd56fbee3dce5e7a9",
@@ -76,6 +76,11 @@
       "published": "2026-10-19T09:41:18.000Z",
       "updated": "2026-10-19T10:54:39.000Z"
     },
+    "aws-inspector-november-2026.html": {
+      "fingerprint": "a8e090767558359307bf793894a771c1e75f4da301c1fbe1568e02023cc4e81a",
+      "published": "2026-11-24T16:57:21.000Z",
+      "updated": "2026-11-24T16:57:21.000Z"
+    },
     "aws-lambda-go-cold-start.html": {
       "fingerprint": "90e81aef4673477b7f4edf405d4cd33f4758504ea8309af603672b186f857613",
       "published": "2026-10-14T08:28:12.000Z",
@@ -97,9 +102,9 @@
       "updated": "2026-11-24T11:47:34.000Z"
     },
     "aws-november-2026.html": {
-      "fingerprint": "c8352039dc3f7a61f6b81e6c7a843a78931c74e06f8e88ee8122f8e38308eb56",
+      "fingerprint": "81b2afb36e7cfd3731e92e706b8fef61e1ffe2ee737b0e3372338f0b83105ec4",
       "published": "2026-11-24T11:47:34.000Z",
-      "updated": "2026-11-24T11:47:34.000Z"
+      "updated": "2026-11-24T16:57:21.000Z"
     },
     "aws-operations-november-2026.html": {
       "fingerprint": "c3dff6b0281d2ce73221883db304ac4a7bc184a1702d3ef6c7f1a9506b8b8aa1",
@@ -107,9 +112,9 @@
       "updated": "2026-11-24T11:47:34.000Z"
     },
     "aws-security-november-2026.html": {
-      "fingerprint": "f4fbf5c608ae85ce1e9b8270eda661be2345f0de8d0d390f33d2536ee75af947",
+      "fingerprint": "5c30b3982c85898bd3eb69459ec776be87f69f652fb08465ce47ff8f02540ddc",
       "published": "2026-11-24T11:47:34.000Z",
-      "updated": "2026-11-24T11:47:34.000Z"
+      "updated": "2026-11-24T16:57:21.000Z"
     },
     "aws-ssm-ec2-software-patching.html": {
       "fingerprint": "8f034f7824f1ccc600c7440c680424f75836631fba507d8d86dceb569f639ce0",
@@ -227,9 +232,9 @@
       "updated": "2026-11-19T17:36:57.000Z"
     },
     "glossary.html": {
-      "fingerprint": "b6e4055dc04d5b874a812b116279059a35bbde7431709e4774f668e031e15ed7",
+      "fingerprint": "32b67e8c1b00df157c7f0a98f070a190479465739724b8bd7b99e483c801c8b9",
       "published": "2026-11-24T01:37:31.000Z",
-      "updated": "2026-11-24T09:56:35.000Z"
+      "updated": "2026-11-24T11:51:47.000Z"
     },
     "go-code-verification.html": {
       "fingerprint": "add16dcf6c555dc85cb859063495bf903ab5151b47f9de01db2dbaede2cc0162",
