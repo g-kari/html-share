@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>T3 Chatとは：複数モデルを1つの画面で切り替えるAIチャット。Proは月8ドル、利用量はメーター制</title>
+<meta name="description" content="T3 Chat（t3.chat）の概要、対応モデル、料金プラン（Free／Pro月8ドル／Premier月50ドル）、4時間で回復する利用量メーター、学習に使わないデータ方針、公開直後の急成長の経緯を、公式FAQ・プライバシーポリシーと出典つきで整理します。">
+<link rel="canonical" href="https://share.0g0.xyz/t3-chat">
+<link rel="stylesheet" href="/assets/site.css">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="T3 Chatとは：複数モデルを1つの画面で切り替えるAIチャット。Proは月8ドル、利用量はメーター制">
+<meta property="og:description" content="複数社のAIモデルを1つの画面で切り替えて使えるT3 Chat。料金プラン、利用量メーターの仕組み、データの扱い、急成長の経緯を公式資料と出典つきで整理します。">
+<meta property="og:url" content="https://share.0g0.xyz/t3-chat">
+<meta property="og:image" content="https://share.0g0.xyz/assets/t3chat-ogp-v1.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="T3 Chatとは。複数モデルを1つの画面で切り替えるAIチャット">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://share.0g0.xyz/assets/t3chat-ogp-v1.png">
+<meta name="twitter:image:alt" content="T3 Chatとは。複数モデルを1つの画面で切り替えるAIチャット">
+<style>
+:root{--accent:#c2185b;--accent-dark:#f48fb1}
+.t3-figure{margin:1.25rem 0;max-inline-size:44rem}
+.t3-figure img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:0}
+.t3-figure figcaption{font-size:.9rem;margin-top:.55rem}
+table.t3-table{border-collapse:collapse;margin:1rem 0}
+table.t3-table th,table.t3-table td{border:1px solid var(--line);padding:.45rem .8rem;text-align:left}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="sitebar" aria-label="サイト内"><a class="brand" href="/">HTML Share</a><nav><a href="/">一覧</a><a href="/feed.xml">RSS</a></nav></nav>
+<header class="top">
+  <div class="kicker">AIサービス解説 · T3 Chat</div>
+  <h1>T3 Chatとは：複数モデルを1つの画面で切り替えるAIチャット。Proは月8ドル、利用量はメーター制</h1>
+  <p class="meta">
+    確認日：2026年11月24日<br>
+    一次資料：<a href="https://t3.chat/faq">T3 Chat公式FAQ</a>／<a href="https://t3.chat/privacy-policy">公式プライバシーポリシー</a>／<a href="https://t3.chat/terms-of-service">公式利用規約</a>。料金とモデル構成は公開ページがない項目があり、二次資料で補った箇所は本文と出典に明記します。
+  </p>
+</header>
+
+<div class="summary3">
+  <div class="ttl">要点</div>
+  <ol>
+    <li>T3 Chatは、OpenAI、Anthropic、Google、DeepSeekなど複数社のAIモデルを、1つの会話画面で切り替えて使えるチャットサービスです。運営は米国のT3 Tools, Inc.で、自社モデルは持たず、各社のモデルへの窓口に徹しています。</li>
+    <li>料金はFree、Pro（月8ドル）、Premier（月50ドル、税別）です。Proで全モデル、ファイル添付、Web検索、画像生成が使えます。ただし公開の料金ページはなく、価格はアプリ内の表示を確認した二次資料と、公式チームの公開回答に基づきます。</li>
+    <li>利用量はメッセージ数ではなく、実コストに連動するメーター制です。土台の枠（Base）は4時間ごとに回復し、その先に月単位の超過枠（Burst overage）があります（公式FAQ）。</li>
+    <li>入力データを自社モデルの学習に使わず、主要な提供元とは学習を無効にする設定で接続すると、公式FAQとプライバシーポリシーが明記しています。個人情報も販売しません。</li>
+    <li>2025年1月の公開直後、16日でメッセージを送った利用者が10万人を超え、2025年中に年間経常収益が7桁（100万ドル超）に達したと創業者が語っています。いずれも監査済みの公表値ではなく、創業者の発言に基づく数字です。</li>
+  </ol>
+</div>
+
+<nav class="toc">
+  <div class="ttl">目次</div>
+  <ol>
+    <li><a href="#about">T3 Chatとは</a></li>
+    <li><a href="#models">対応モデル</a></li>
+    <li><a href="#features">主な機能</a></li>
+    <li><a href="#speed">速さと同期の仕組み</a></li>
+    <li><a href="#pricing">料金プラン</a></li>
+    <li><a href="#meter">利用量メーターの仕組み</a></li>
+    <li><a href="#privacy">データとプライバシー</a></li>
+    <li><a href="#history">経緯：公開直後の急成長</a></li>
+    <li><a href="#notes">注意点と未確認事項</a></li>
+    <li><a href="#sources">資料と出典</a></li>
+  </ol>
+</nav>
+
+<h2 id="about">T3 Chatとは</h2>
+<p>T3 Chat（t3.chat）は、ブラウザで使うAIチャットサービスです。公式サイトの題は「AI chat with ChatGPT, Claude, Gemini, and more」で、ChatGPTやClaude、Geminiを含む複数社のモデルと、同じ会話画面のまま話せることを前面に出しています。各社の公式アプリを行き来する代わりに、モデル選択だけを切り替えて使い続ける形です。</p>
+<p>運営は米国のT3 Tools, Inc.です（プライバシーポリシーに運営会社として明記）。創業者は、開発者向けの発信で知られるTheo Browneで、共同創業者にMark Florkowskiがいます。会社は2021年に設立され、Y CombinatorのWinter 2022バッチに参加しました。同社はPing Labsとも呼ばれ、ファイルアップロードサービスのUploadThingなども手がけています。</p>
+<p>T3 Chat自身はAIモデルを作っていません。利用者が選んだモデルの提供元へ入力を送り、返ってきた応答を表示する窓口です。そのため、新しいモデルが出ると比較的早く選択肢に加わる一方、使えるモデルの顔ぶれは提供元側の都合でも変わります。</p>
+<figure class="t3-figure">
+<img src="/assets/t3chat-routing-v1.png" width="1600" height="840" loading="lazy" alt="T3 Chatの仕組み。ユーザーはブラウザでT3 Chatと会話し、T3 Chatが選ばれたモデルの提供元（OpenAI、Anthropic、Google、DeepSeekほか、OpenRouter経由）へ入力を送る">
+<figcaption>図：T3 Chatの位置づけ。会話画面とモデル選択をT3 Chatが担い、実際の応答は各社のモデルが返します。</figcaption>
+</figure>
+
+<h2 id="models">対応モデル</h2>
+<p>2026年11月17日にアプリ内の表示を確認した二次資料（Inference Hub）によると、提供元はOpenAI、Anthropic、Google、Meta、DeepSeek、xAI、Alibaba、Moonshot、Z.ai、MiniMax、Xiaomiなどにわたります。モデル数は50以上とする紹介もありますが、顔ぶれは頻繁に入れ替わり、公式の固定したモデル一覧は公開されていません。ここでは同資料で確認された代表例を示します。</p>
+<table class="t3-table">
+<tr><th>モデル例</th><th>提供元</th><th>無料枠</th><th>アプリ内のコスト表示</th></tr>
+<tr><td>GPT-6 Luna</td><td>OpenAI</td><td>使える（未ログイン時の既定）</td><td>Very low</td></tr>
+<tr><td>Gemini 3.5 Flash-Lite</td><td>Google</td><td>使える</td><td>Low</td></tr>
+<tr><td>Kimi K2</td><td>Moonshot</td><td>使える</td><td>Medium</td></tr>
+<tr><td>Claude Sonnet 5.5</td><td>Anthropic</td><td>有料プラン</td><td>Medium</td></tr>
+<tr><td>Gemini 3.8 Flash</td><td>Google</td><td>有料プラン</td><td>Medium</td></tr>
+<tr><td>GPT-6.1 Sol</td><td>OpenAI</td><td>有料プラン</td><td>High</td></tr>
+<tr><td>Claude Opus 5.5</td><td>Anthropic</td><td>有料プラン</td><td>Very high</td></tr>
+<tr><td>GPT-6 Astra</td><td>OpenAI</td><td>有料プラン</td><td>Very high</td></tr>
+<tr><td>Nano Banana 2（画像生成）</td><td>Google</td><td>有料プラン</td><td>Medium</td></tr>
+</table>
+<p>無料枠は、アカウントを作らなくても一部の低価格モデルで試せます。有料プランでは全モデルが解放されます。各モデルにはコスト表示（Very lowからVery high）が付いていて、後述する利用量メーターの減り方の目安になります。なお、この一覧は確認時点のもので、新モデルの追加や提供終了で変わります。</p>
+
+<h2 id="features">主な機能</h2>
+<p>中心になるのは、会話の途中でのモデル切替です。同じ会話の流れを引き継いだまま別のモデルに切り替えて、答えの違いを比べられます。会話を途中から分岐させる機能もあり、片方を残したまま別の聞き方を試せます。</p>
+<ul>
+<li>Web検索：検索を有効にすると、新しい情報を引いてから回答します。利用量の消費は増えます。</li>
+<li>添付ファイル：PDF、画像、テキストファイルを読み込ませて質問できます。</li>
+<li>画像生成：有料プランで、画像生成モデル（Nano Banana 2など）を使えます。</li>
+<li>プロフィール：応答の傾向などを保存して、会話に反映させる仕組みがあります。</li>
+<li>一時チャット：履歴に残さない一時的なチャットを作れます。</li>
+<li>共有URLで新規チャット：<code>/new</code> にクエリパラメータを付けると、モデル、最初の質問、検索の有無、推論の強さなどを指定した状態で新しいチャットを開けます。公式FAQにパラメータの仕様があり、ブラウザのカスタム検索エンジンに登録して使う方法が案内されています。</li>
+<li>BYOK：自分のOpenRouterキーを持ち込むと、利用料を提供元へ直接払う形でも使えます。枠の制限を受けにくくなる一方、コスト管理は自分で行います。</li>
+</ul>
+<figure class="t3-figure">
+<img src="/assets/t3chat-features-v1.png" width="1600" height="720" loading="lazy" alt="T3 Chatの主な機能。モデルの途中切替、会話の分岐、Web検索、添付ファイル、画像生成、共有URLでの新規チャット">
+<figcaption>図：T3 Chatの主な機能。モデル切替と分岐が、複数モデルを比べる使い方の中心です。</figcaption>
+</figure>
+
+<h2 id="speed">速さと同期の仕組み</h2>
+<p>T3 Chatが売りにしているのは速さです。会話の表示や画面の切り替えで待たされないことを重視し、裏側では「入力したらまず手元の画面に反映し、変更分をサーバと同期する」形の同期エンジンが使われています。どの端末で開いても同じ会話が続きから使えるのは、この同期があるためです。</p>
+<p>当初、この同期エンジンは創業者のTheo Browneが自作していました。後にチームの拡大に伴ってボトルネックになり、バックエンドをConvexへ移行したと、2026年11月の創業者自身の動画で語られています（二次報道による）。速さのための仕組みを自作し、規模に合わせて定番の基盤へ載せ替えたという経緯です。</p>
+<figure class="t3-figure">
+<img src="/assets/t3chat-sync-v1.png" width="1600" height="600" loading="lazy" alt="同期の仕組みの概念図。入力する、まず手元で反映、同期エンジン、どの端末でも同じ、の4段階">
+<figcaption>図：同期の仕組みの概念図。手元で先に反映することで、サーバの応答を待たずに画面が動きます。</figcaption>
+</figure>
+
+<h2 id="pricing">料金プラン</h2>
+<p>プランは3つです。Freeは0ドルで、アカウントなしでも始められ、一部の低価格モデルを上限の範囲で使えます。Proは月8ドルで、全モデル、ファイル添付、Web検索、画像生成が使えます。Premierは月50ドル（税別）で、Proの10倍を超える利用量の枠があります。</p>
+<table class="t3-table">
+<tr><th>プラン</th><th>価格</th><th>内容</th></tr>
+<tr><td>Free</td><td>$0</td><td>アカウントなしでも開始できる。一部の低価格モデル。利用量に上限あり</td></tr>
+<tr><td>Pro</td><td>$8／月</td><td>全モデルを利用可能。ファイル添付、Web検索、画像生成</td></tr>
+<tr><td>Premier</td><td>$50／月（税別）</td><td>Proの10倍を超える利用量の枠</td></tr>
+<tr><td>BYOK</td><td>提供元へ直接支払い</td><td>自分のOpenRouterキーを持ち込み、リクエスト単位で支払う</td></tr>
+</table>
+<p>注意点として、T3 Chatには公開された料金ページがありません。利用規約は「料金の詳細は設定ページを見てください」としており、実際の設定画面はログイン後にしか表示されません。この記事の価格は、アプリ内の表示を2026年11月に確認した二次資料と、公式フィードバックボードでのチーム回答（Premierは月50ドル＋税、と明記）に基づきます。価格は税別表示です。</p>
+<p>以前は、月あたりのメッセージ数（例：月1,500通）で数える方式だった時期もあります。現在の上限の数え方は、次の節のメーター制です（2026年2月に移行したと二次資料が伝えています）。</p>
+<figure class="t3-figure">
+<img src="/assets/t3chat-plans-v1.png" width="1600" height="700" loading="lazy" alt="料金プラン。Freeは0ドル、Proは月8ドル、Premierは月50ドル（税別）。BYOKの案内つき">
+<figcaption>図：料金プランの概要（2026年11月確認）。各社公式の月20ドル前後のプランと比べ、Proの8ドルは安い部類です。</figcaption>
+</figure>
+
+<h2 id="meter">利用量メーターの仕組み</h2>
+<p>利用量は、メッセージの通数ではなく、実際のコストに連動するメーターで管理されます。公式FAQによると、メーターは2つの枠（バケツ）でできています。</p>
+<ul>
+<li>Base（土台の枠）：まずここから消費され、4時間ごとに回復します。</li>
+<li>Burst overage（超過枠）：Baseを使い切ると次にここから消費され、回復は月次の更新日です。</li>
+</ul>
+<p>公式FAQは例として、Baseが20ポイント、Burst overageが200ポイント、合計220ポイントという数字を挙げています（実際の容量はプランにより、この例は説明用の単純化です）。送信時には予想コストが先に予約され、応答が終わると実コストで精算されるため、メーターの表示が一時的に増減して見えることがあります。両方の枠を使い切ると、回復するまで待つ必要があります。</p>
+<p>1メッセージの消費を増やす要因として、公式FAQは、長いスレッド（毎回送る文脈が増える）、大きな・多数の添付、検索の有効化、高価格なモデル、を挙げています。同じプランでも使い方で実質の通数が大きく変わるため、「月に何通まで」という単純な換算は公式には示されていません。</p>
+<figure class="t3-figure">
+<img src="/assets/t3chat-meter-v1.png" width="1600" height="640" loading="lazy" alt="利用量メーターの仕組み。Baseは4時間ごとに回復し先に消費される。Burst overageは月次の更新日に回復する。公式FAQの例ではBase 20ポイント、Burst overage 200ポイント">
+<figcaption>図：利用量メーターの2つの枠。短いセッションではBaseの回復が効き、月単位の上限はBurst overageが決めます。</figcaption>
+</figure>
+
+<h2 id="privacy">データとプライバシー</h2>
+<p>データの扱いは、公式FAQとプライバシーポリシーに明記されています。まず、T3 Chatは自社モデルの学習に利用者の個人情報を使いません。プライバシーポリシーには「個人情報を販売しない」とも書かれています。</p>
+<p>提供元側について、公式FAQは、可能な範囲で学習データ収集をオプトアウトしていると説明しています。具体的には、OpenAIとAnthropicは既定で学習が無効でオプトインしていないこと、Googleは有料モデルで学習が無効なこと、OpenRouterでは入力の学習を許可する提供元へルーティングしない設定を明示的に有効にしていること、が挙げられています。例外として、学習が有効な場合にのみ使える新しいモデルがまれにあり、その場合は利用者が判断できるよう明示するとしています。</p>
+<p>入力したプロンプトや添付ファイルは、処理のために選んだモデルの提供元（OpenAI、Google、Anthropic、OpenRouterなど）へ送られます。これはプライバシーポリシーの共有先一覧にも載っています。つまり、内容がT3 Chatの外に出ないわけではなく、行き先は選んだモデル次第です。自分のAPIキー（BYOK）を使う場合は、学習を無効にする設定の確認は利用者側の責任になると、公式FAQは注意しています。</p>
+<figure class="t3-figure">
+<img src="/assets/t3chat-privacy-v1.png" width="1600" height="640" loading="lazy" alt="データの扱い。ユーザーの入力はT3 Chatを経てモデルの提供元へ送られる。T3 Chatは自社モデルの学習に使わず個人情報を販売しない。提供元は学習に使わない設定で接続される">
+<figcaption>図：データの流れと学習利用の方針。学習オフは提供元ごとの設定に依存します。</figcaption>
+</figure>
+
+<h2 id="history">経緯：公開直後の急成長</h2>
+<p>T3 Chatが公開されたのは2025年1月です。既存のAIチャットアプリの速度や使い勝手に不満を持ったTheo Browneが、初版を約5日で作って公開したとされています。</p>
+<p>その後の伸びは、創業者の発言として次のように語られています。公開から16日で、メッセージを送った利用者が10万人を超えた。公開から2週間で、同社の他の全製品（Ping、UploadThingなど）の売上合計を上回った。そして2025年中に、年間経常収益（ARR）が7桁、つまり100万ドルを超えた（Indie Hackersのインタビュー）。</p>
+<p>これらの数字は、監査を受けた公表値ではありません。10万人という数字も、課金した利用者の数ではなく「少なくとも1回メッセージを送った人」の数です。その断りを付けたうえで、無名の新規サービスではなく、開発者向けに大きな発信力を持つ創業者が、既存の基盤と視聴者を持った状態で始めた、という前提もあわせて紹介されています。</p>
+<figure class="t3-figure">
+<img src="/assets/t3chat-timeline-v1.png" width="1600" height="560" loading="lazy" alt="T3 Chatの経緯。2021年にT3 Tools設立、2025年1月にT3 Chat公開、16日で利用者10万人超、2週間で他の全製品の売上合計を上回り、2025年中に年間経常収益が7桁">
+<figcaption>図：経緯のまとめ。数字はいずれも創業者の公表ベースです。</figcaption>
+</figure>
+
+<h2 id="notes">注意点と未確認事項</h2>
+<ul>
+<li>料金とモデルの顔ぶれは変わりやすい情報です。公開の料金ページがないため、申し込み前にログイン後の設定画面で最新の価格と枠を確認してください。この記事の価格・モデルは2026年11月時点の確認に基づきます。</li>
+<li>Pro（月8ドル）とPremier（月50ドル）の間に中間プランはありません。公式フィードバックボードでは中間プランを求める声があり、チームは選択肢を検討していると回答していますが、提供は未確認です。</li>
+<li>利用量メーターは実コスト連動のため、長い会話や大きな添付を多用すると、想定より早く枠を使うことがあります。公式フィードバックボードにも、制限の分かりにくさへの不満が寄せられています。</li>
+<li>日本語の画面表示や、日本向けのサポート体制については、この記事では確認していません。</li>
+<li>この記事では、外部の校正ツール（yomiyasu）は実行していません。数値と出典は原稿作成時に一次資料と照合しています。</li>
+</ul>
+
+<h2 id="sources">資料と出典</h2>
+<p>公式資料（一次資料）：</p>
+<ul>
+<li><a href="https://t3.chat/faq">T3 Chat公式FAQ</a>（学習データの扱い、利用量メーターの仕組み、<code>/new</code> のパラメータ仕様）</li>
+<li><a href="https://t3.chat/privacy-policy">T3 Chat プライバシーポリシー</a>（運営会社T3 Tools, Inc.、学習利用なし、個人情報を販売しない、共有先の一覧。2025年5月31日版）</li>
+<li><a href="https://t3.chat/terms-of-service">T3 Chat 利用規約</a>（無料は一定の上限まで、料金の詳細は設定ページへ。2025年11月15日版）</li>
+<li><a href="https://t3.chat">T3 Chat 公式サイト</a>（サービスの位置づけ）</li>
+<li><a href="https://feedback.t3.chat/p/new-tier-in-between-pro-and-premier">公式フィードバックボード</a>（Premierは月50ドル＋税というチーム回答、BYOKの案内）</li>
+</ul>
+<p>二次資料（公式で確認できない項目の補完）：</p>
+<ul>
+<li><a href="https://inferencehub.org/blog/t3-chat-pricing-2026">Inference Hub「T3 Chat Pricing 2026」</a>（2026年11月17日にアプリ内とFAQで確認した料金・モデル一覧）</li>
+<li><a href="https://toolfolio.com/articles/is-t3-chat-free-pricing-usage-limits-and-models-explained">Toolfolio「Is T3 Chat Free?」</a>（料金の確認経緯、2026年2月のメーター移行）</li>
+<li><a href="https://magai.co/t3-chat-vs-magai">Magai「T3 Chat vs Magai」</a>（プラン構成の確認。2026年11月9日時点）</li>
+<li><a href="https://www.indiehackers.com/post/tech/theo-browne-on-how-hes-bringing-in-over-1m-yr-as-a-creator-and-founder-tJPQiOnONnf7pJ9m1PTP">Indie Hackers：Theo Browneインタビュー</a>（2週間で他製品の売上合計を上回った、7桁ARR、という創業者の発言）</li>
+<li><a href="https://ai.engineer/orgs/ping-labs">AI Engineer「Ping Labs」</a>（2021年設立、YC W22、共同創業者）</li>
+<li><a href="https://www.korture.ai/blog/why-deleting-11000-tests-sped-one-ai-team-up">Korture</a>（自作の同期エンジンとConvex移行についての創業者発言の紹介）</li>
+</ul>
+<p>この記事は2026年11月24日に上記の資料を確認して書きました。料金とモデル構成は変更される可能性があり、最新の状態は公式の設定画面で確認してください。</p>
+
+</div>
+<script type="module" src="/assets/site.js"></script>
+</body>
+</html>
