@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>T3 Codeとは：Claude CodeやCodexを1つの画面で操る無料のオープンソース。T3 Chatとは別物</title>
+<meta name="description" content="T3 Code（t3.codes）の概要、T3 Chatとの違い、対応するコーディングエージェント、仕組み、リモート利用、料金（本体は無料、T3 Connectの上限だけT3 Chatプランと連動）、データの扱いを、公式サイト・GitHub・公式FAQと出典つきで整理します。">
+<link rel="canonical" href="https://share.0g0.xyz/t3-code">
+<link rel="stylesheet" href="/assets/site.css">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="T3 Codeとは：Claude CodeやCodexを1つの画面で操る無料のオープンソース。T3 Chatとは別物">
+<meta property="og:description" content="コーディングエージェントを自分のマシンで動かし、デスクトップ・Web・スマホから操作するT3 Code。T3 Chatとの違い、対応エージェント、料金とT3 Chatプランの接点を公式資料と出典つきで整理します。">
+<meta property="og:url" content="https://share.0g0.xyz/t3-code">
+<meta property="og:image" content="https://share.0g0.xyz/assets/t3code-ogp-v1.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="T3 Codeとは。Claude CodeやCodexを1つの画面で操る無料のオープンソース">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://share.0g0.xyz/assets/t3code-ogp-v1.png">
+<meta name="twitter:image:alt" content="T3 Codeとは。Claude CodeやCodexを1つの画面で操る無料のオープンソース">
+<style>
+:root{--accent:#37474f;--accent-dark:#90a4ae}
+.tc-figure{margin:1.25rem 0;max-inline-size:44rem}
+.tc-figure img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:0}
+.tc-figure figcaption{font-size:.9rem;margin-top:.55rem}
+table.tc-table{border-collapse:collapse;margin:1rem 0}
+table.tc-table th,table.tc-table td{border:1px solid var(--line);padding:.45rem .8rem;text-align:left}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="sitebar" aria-label="サイト内"><a class="brand" href="/">HTML Share</a><nav><a href="/">一覧</a><a href="/feed.xml">RSS</a></nav></nav>
+<header class="top">
+  <div class="kicker">AI開発ツール解説 · T3 Code</div>
+  <h1>T3 Codeとは：Claude CodeやCodexを1つの画面で操る無料のオープンソース。T3 Chatとは別物</h1>
+  <p class="meta">
+    確認日：2026年11月24日<br>
+    一次資料：<a href="https://t3.codes/">T3 Code公式サイト</a>／<a href="https://github.com/pingdotgg/t3code">GitHubリポジトリ（README）</a>／<a href="https://github.com/pingdotgg/t3code/blob/main/docs/user/faq.md">公式FAQ</a>。公式で確認できない箇所は、本文と出典に明記します。
+  </p>
+</header>
+
+<div class="summary3">
+  <div class="ttl">要点</div>
+  <ol>
+    <li>T3 Codeは、<a href="/t3-chat">T3 Chat</a>とは別の製品です。T3 Chatが各社のAIモデルと文章で会話する汎用チャットなのに対し、T3 Codeは、Claude CodeやCodexなどのコーディングエージェントを自分のマシンで動かし、デスクトップ・Web・スマホから操作するための画面です。運営はどちらも米国のT3 Tools, Inc.です。</li>
+    <li>T3 Code自身はAIモデルでもエージェントでもありません。公式FAQは「ハーネス（エージェントの実行基盤）ではなく、それらを使う側」と明言しています。動かすのは、利用者がすでに入れてログイン済みのエージェントで、契約と課金は各提供元のままです。</li>
+    <li>料金は無料です。公式FAQには「私たちに払う方法自体がない」と書かれています。ソースコードはMITライセンスで公開されています。T3 Chatの月額プランを買う必要はありません。</li>
+    <li>T3 Chatとの接点は1つだけあります。リモート接続の仕組みT3 Connectでつなげるマシンの上限が、無料では3台のところ、T3 Chatの有料プランを連携するとProで10台、Premierで100台に増えます（公式FAQ）。</li>
+    <li>エージェントの実行場所は自分のマシンや自分のVPSで、コードがT3のサーバへ送られることはないと公式FAQが明記しています。机で始めた作業の続きを、スマホから承認だけして進める、という使い方が前面に出ています。</li>
+    <li>GitHubリポジトリの作成は2026年2月で、公式サイトの表示ではスターは7万5千を超えています。一方で公式READMEは「非常に初期のプロジェクトで、バグを想定してください」と明記しています。</li>
+  </ol>
+</div>
+
+<nav class="toc">
+  <div class="ttl">目次</div>
+  <ol>
+    <li><a href="#diff">T3 Chatとの違い</a></li>
+    <li><a href="#about">T3 Codeとは：仕組み</a></li>
+    <li><a href="#agents">対応するコーディングエージェント</a></li>
+    <li><a href="#features">主な機能</a></li>
+    <li><a href="#remote">リモート利用</a></li>
+    <li><a href="#pricing">料金とT3 Chatプランとの関係</a></li>
+    <li><a href="#privacy">データの扱い</a></li>
+    <li><a href="#install">導入の流れ</a></li>
+    <li><a href="#notes">注意点と未確認事項</a></li>
+    <li><a href="#sources">資料と出典</a></li>
+  </ol>
+</nav>
+
+<h2 id="diff">T3 Chatとの違い</h2>
+<p>結論から言うと、名前と運営は同じでも、用途も形態も料金の仕組みも違う別製品です。T3 Chatはブラウザで開くチャットサービスで、モデルはT3側が用意し、利用者は月額プランと利用量メーターの範囲で各社のモデルと会話します。T3 Codeは自分のマシンにインストールするオープンソースのアプリで、モデル利用は利用者自身の契約（Claude CodeやCodexのサブスクリプションなど）をそのまま使います。</p>
+<table class="tc-table">
+<tr><th>項目</th><th>T3 Chat</th><th>T3 Code</th></tr>
+<tr><td>用途</td><td>汎用AIチャット（文章の質問と回答）</td><td>コーディングエージェントの操作（コードの読み書きと実行）</td></tr>
+<tr><td>形態</td><td>ブラウザで使うクラウドサービス</td><td>自分のマシンに入れるアプリ＋小さなサーバ</td></tr>
+<tr><td>対象ユーザー</td><td>モデルを使い分けたい一般の利用者</td><td>複数のコーディングエージェントを使う開発者</td></tr>
+<tr><td>モデルの用意</td><td>T3側が用意し、利用量はメーター制</td><td>利用者の契約とログインをそのまま使う</td></tr>
+<tr><td>料金</td><td>Free／Pro 月8ドル／Premier 月50ドル</td><td>無料（払う方法がない）。エージェントの契約料は別</td></tr>
+<tr><td>実行場所</td><td>T3側の基盤から各社のモデルへ</td><td>自分のマシンや自分のVPS</td></tr>
+<tr><td>公開形態</td><td>サービスとして提供</td><td>オープンソース（MITライセンス）</td></tr>
+</table>
+<p>共通点は運営（T3 Tools）と、「複数のAIを1つの画面に集める」という発想です。接点は料金の節で述べるT3 Connectの上限だけで、T3 Chatのプランに入っていなくてもT3 Codeは使えます。T3 Chat側の詳しい内容は<a href="/t3-chat">T3 Chatの記事</a>にまとめています。</p>
+<figure class="tc-figure">
+<img src="/assets/t3code-diff-v1.png" width="1600" height="940" loading="lazy" alt="T3 ChatとT3 Codeの違い。T3 Chatはブラウザで使う汎用チャットで料金は月額プラン。T3 Codeは自分のマシンに入れるアプリで、エージェントが自分のマシンでコードを書き、料金は無料">
+<figcaption>図：T3 ChatとT3 Codeの違い。運営は同じでも、製品としては別物です。</figcaption>
+</figure>
+
+<h2 id="about">T3 Codeとは：仕組み</h2>
+<p>T3 Code（t3.codes）は、公式サイトの言葉では「コーディングエージェントのための、オープンソースのコントロールプレーン（制御面）」です。GitHubのREADMEは「エージェントハーネスのコントロールサーフェス（操作面）」と表現しています。どちらも、T3 Code自身がエージェントとして働くのではなく、エージェントを動かして見せる側だという意味です。</p>
+<p>この区別は公式FAQが丁寧に説明しています。モデルに道具の実行や結果の受け渡しを担わせる実行基盤を「ハーネス」と呼び、Claude CodeやCodexがそれに当たります。T3 Codeはハーネスではなく、それらを使う側で、ハーネスなしでは動きません。FAQの比喩では、LLMがシェフ、ハーネスがキッチン、T3 Codeは「好きなキッチンを持ち込めるレストラン」です。</p>
+<p>仕組みは、操作画面と実行場所の分離です。自分のマシンで小さなサーバが動き、インストール済みのエージェント（ハーネス）を起動します。デスクトップアプリ、Webアプリ（app.t3.codes）、iOS・Androidのスマホアプリはすべて同じサーバにつながり、同じスレッド（作業の単位）を表示します。机の前のPCで始めた作業を、外出先のスマホで確認して次のステップを承認する、という流れが想定されています。</p>
+<p>運営はT3 Tools, Inc.で、商標ポリシーとライセンス表記に社名が明記されています。GitHubの組織は pingdotgg で、リポジトリの作成は2026年2月8日です。2026年3月にはCodex向けのWeb UIとして紹介され始め（二次資料）、その後対応エージェントとクライアントを広げました。バージョンは0.1.x系で更新が頻繁です。</p>
+<figure class="tc-figure">
+<img src="/assets/t3code-layers-v1.png" width="1600" height="940" loading="lazy" alt="T3 Codeの仕組みのレイヤー図。クライアント（デスクトップ、Web、スマホ）から、自分のマシンのT3 Codeサーバ、ハーネス（Claude CodeやCodex）、モデルの提供元の順につながる">
+<figcaption>図：T3 Codeのレイヤー構成。操作はクライアントから、実行は自分のマシンの中で起きます。</figcaption>
+</figure>
+
+<h2 id="agents">対応するコーディングエージェント</h2>
+<p>README（確認時点）では、Claude Code、Codex、Cursor、OpenCode、Grok Build、Antigravity、Kiro、Pi、Muse Code、fxに対応し、さらにACP（Agent Client Protocol）に対応する任意のエージェントも接続できるとしています。前提は、各エージェントの公式CLIがそのマシンに入っていて、ログインが済んでいることです。</p>
+<table class="tc-table">
+<tr><th>エージェント</th><th>ログインの例</th></tr>
+<tr><td>Claude Code</td><td><code>claude auth login</code></td></tr>
+<tr><td>Codex</td><td><code>codex login</code></td></tr>
+<tr><td>Cursor</td><td><code>agent login</code></td></tr>
+<tr><td>Grok Build</td><td><code>grok login</code></td></tr>
+<tr><td>OpenCode</td><td><code>opencode auth login</code></td></tr>
+<tr><td>Antigravity</td><td>Google サインイン</td></tr>
+</table>
+<p>契約（サブスクリプション）ではなくAPIキーで使う形も選べます。公式FAQによると、設定から別のプロバイダを追加して、独自のキーやエンドポイントを指定でき、Claude向けにはOpenRouterを使う手順も用意されています。一方、ローカルで動くモデルには対応しません。これはFAQが理由つきで明言している方針です。</p>
+<figure class="tc-figure">
+<img src="/assets/t3code-agents-v1.png" width="1600" height="780" loading="lazy" alt="対応するコーディングエージェントの一覧。Claude Code、Codex、Cursor、Grok Build、OpenCode、Antigravity、Kiro、Pi、Muse Code、fxと、ACP対応エージェント">
+<figcaption>図：対応エージェント。顔ぶれは更新で変わるため、導入前にREADMEの最新の一覧を確認してください。</figcaption>
+</figure>
+
+<h2 id="features">主な機能</h2>
+<p>中心は「スレッド」という作業単位の管理です。スレッドごとに担当エージェントやモデルを決め、作業の途中でも別のモデルやエージェントに切り替えて引き継げます（例：Claudeに途中まで任せて、続きをCodexへ渡す）。</p>
+<ul>
+<li>並行作業：スレッドごとにGitのワークツリーとブランチを分けられるため、複数のエージェントが同じリポジトリで別々の作業を同時に進められます。</li>
+<li>diffの確認：ターンごとに何が変わったかを確認してから次へ進められます。</li>
+<li>PRまで1ボタン：コミット、プッシュ、プルリクエストの作成を1つのボタンで行います。PRの題と本文は自動生成され、既存のGitHub認証を使います（公式サイト）。</li>
+<li>権限モード：コマンド実行などの承認範囲を切り替える仕組みが、公式ドキュメントに用意されています。</li>
+<li>音声入力：スマホやデスクトップで、音声から指示を入力できます（公式FAQ）。</li>
+<li>外部からの接続：外のエージェントがMCP経由でT3 Codeを呼び出す接続も、公式ドキュメントにあります。</li>
+</ul>
+<figure class="tc-figure">
+<img src="/assets/t3code-features-v1.png" width="1600" height="740" loading="lazy" alt="T3 Codeの主な機能。途中でモデル切替、ワークツリー並行作業、diffの確認、1ボタンでPR、権限モード、音声入力">
+<figcaption>図：主な機能。複数エージェントの並行作業と、確認してから進める流れが中心です。</figcaption>
+</figure>
+
+<h2 id="remote">リモート利用</h2>
+<p>エージェントは、T3 Codeサーバを動かしているマシンで実行されます。そのマシンは自宅のデスクトップでも、サーバやVPSでも構いません。マシンに <code>t3 up</code> でサーバを常駐させておけば、スマホアプリやブラウザ（app.t3.codes）から同じスレッドを操作できます。スマホはあくまでリモコンで、作業するマシンの電源は入れたままにしておく必要があります（公式FAQ）。</p>
+<p>接続の方法は3つあります。自前で用意されたT3 Connect（Cloudflareのトンネルを使い、接続の取り次ぎだけを行います）、同じネットワーク内での直接接続、Tailscale経由です。公式FAQは、T3 Connectが不安定な場合の代替としてTailscaleも案内しています。</p>
+<figure class="tc-figure">
+<img src="/assets/t3code-remote-v1.png" width="1600" height="820" loading="lazy" alt="リモート利用の構成。自分のマシンやVPSでT3 Codeサーバとエージェントが動き、スマホアプリ、ブラウザ、デスクトップアプリから接続する。接続方法はT3 Connect、Tailscale、直接接続">
+<figcaption>図：リモート利用の構成。実行場所は1台のマシンに集約され、操作だけが各クライアントから行われます。</figcaption>
+</figure>
+
+<h2 id="pricing">料金とT3 Chatプランとの関係</h2>
+<p>T3 Codeの利用料は無料です。公式FAQの「How much does T3 Code cost?」への答えは「Nothing. There's no way to pay us to use T3 Code.（何も。T3 Codeの利用料を私たちに払う方法自体がありません）」で、ソースコードはMITライセンスのオープンソースです。払う必要があるのは、Claude CodeやCodexなど、自分が使うエージェントの契約料だけで、それはT3 Codeを使う前と同じです。T3側がトークンを再販することもありません。</p>
+<p>アカウントとプランの関係は次のとおりです。T3 Code自体の利用に、T3 Chatの契約は要りません。ただしリモート接続のT3 Connectにはアカウント単位の上限があり、無料ではエージェントを動かすマシンを3台まで接続できます。この上限は、T3 Chatの有料プランを連携すると増えます。Proの連携で10台、Premierの連携で100台です。無料プランのT3 Chatを連携しても上限は3台のままです（いずれも公式FAQ）。数えるのはマシンの台数で、接続するスマホやブラウザは数えません。</p>
+<p>なお公式FAQは、T3 Connectの無料提供について「請求額が受け入れがたくなれば方針を変えるかもしれない」とも書いています。上限を避けたい場合は、ソースコードのフォークや自前ホスト、Tailscaleで代替できると案内されています。</p>
+<figure class="tc-figure">
+<img src="/assets/t3code-pricing-v1.png" width="1600" height="800" loading="lazy" alt="料金の図。T3 Code本体は無料でオープンソース。エージェントの契約は従来どおり。T3 Connectの上限は無料3台、T3 Chat Pro連携で10台、Premier連携で100台">
+<figcaption>図：料金の構造。本体は無料で、T3 Chatとの接点はT3 Connectの台数上限だけです。</figcaption>
+</figure>
+
+<h2 id="privacy">データの扱い</h2>
+<p>公式FAQは「コードがT3のサーバへ行くことはない」と明記しています。コードとプロンプトは、自分のマシンからモデルの提供元（AnthropicやOpenAIなど）へ直接送られます。T3 Connectを使う場合も、通信は自分のマシン上のCloudflareトンネルを通り、T3側のリレーは接続を取り次ぐだけで、HTTPやWebSocketのセッションを中継しません。</p>
+<p>例外は製品の利用状況データです。提供元、モデル、トークンの総量といった基本情報はT3へ送られますが、プロンプトやファイルの中身は含まれません。この送信は、環境変数 <code>T3CODE_TELEMETRY_ENABLED=false</code> で止められます（公式FAQ）。</p>
+<figure class="tc-figure">
+<img src="/assets/t3code-privacy-v1.png" width="1600" height="660" loading="lazy" alt="データの流れ。自分のマシンからモデルの提供元へ直接送られ、T3のサーバへコードは送られない。利用状況の基本情報だけがT3へ送られ、止めることもできる">
+<figcaption>図：データの流れ。コードの行き先は提供元だけです。</figcaption>
+</figure>
+
+<h2 id="install">導入の流れ</h2>
+<p>前提は、少なくとも1つのエージェントが、そのマシンでインストールとログインを済ませていることです。そのうえでT3 Codeを入れます。コマンドライン版は <code>curl -fsSL https://t3.codes/install.sh | sh</code>（WindowsはPowerShell向けのスクリプト）で <code>t3</code> コマンドが入ります。インストールせずに試す場合は <code>npx t3@latest</code> です。デスクトップアプリは公式サイトからダウンロードできるほか、macOSは <code>brew install --cask t3-code</code>、Windowsは <code>winget install T3Tools.T3Code</code> などで入れられます。</p>
+<p><code>t3</code> を実行するとサーバが起動し、Webアプリが開きます。常駐させたい場合は <code>t3 service install</code>、更新は <code>t3 update</code> です。対応OSはWindows、macOS、Linuxですが、Intel Mac向けの <code>t3</code> バイナリはないため、Intel Macではデスクトップアプリを使います。WindowsではWSLの中でエージェントを動かすこともできます（公式FAQ）。</p>
+<figure class="tc-figure">
+<img src="/assets/t3code-flow-v1.png" width="1600" height="620" loading="lazy" alt="導入の流れ。1. エージェントを用意してログイン、2. T3 Codeを入れる、3. t3で起動してプロジェクトを開く">
+<figcaption>図：導入の流れ。先にエージェント側の準備が要ります。</figcaption>
+</figure>
+
+<h2 id="notes">注意点と未確認事項</h2>
+<ul>
+<li>初期段階のプロジェクトです。公式READMEは「We are very very early in this project. Expect bugs.（非常に初期のプロジェクトです。バグを想定してください）」と明記し、外部からの貢献も基本的に受け付けていません（小さな修正は検討される場合があります）。重要な作業の本命にするかは、この前提で判断してください。</li>
+<li>ローカルモデルには対応しません。公式FAQが方針として明言しています。手元のモデルだけで完結させたい用途には向きません。</li>
+<li>エージェントの利用上限は各提供元の契約のままです。たとえばClaudeの5時間枠の消費については、FAQが版ごとの挙動に触れています（v0.1.7以降はClaude Code直接利用と同じ割合と説明）。枠の管理はT3 Codeではなく提供元側で行われます。</li>
+<li>MITライセンスが及ぶのはソースコードだけです。T3 Codeの名前やロゴはT3 Toolsの商標で、フォークを公開する場合は自前のブランドに替える必要があります（READMEの商標の節）。</li>
+<li>日本語の画面表示の提供状況は、この記事では確認していません。ドキュメントは英語が正本です。</li>
+<li>この記事では、外部の校正ツール（yomiyasu）は実行していません。数値と出典は原稿作成時に一次資料と照合しています。</li>
+</ul>
+
+<h2 id="sources">資料と出典</h2>
+<p>公式資料（一次資料）：</p>
+<ul>
+<li><a href="https://t3.codes/">T3 Code 公式サイト</a>（位置づけ、対応エージェント、スター数の表示、PR作成の流れ）</li>
+<li><a href="https://github.com/pingdotgg/t3code">GitHub：pingdotgg/t3code</a>（README：自己定義、機能の一覧、導入方法、商標とライセンス。リポジトリ作成は2026年2月8日）</li>
+<li><a href="https://github.com/pingdotgg/t3code/blob/main/docs/user/faq.md">公式FAQ</a>（ハーネスではないこと、料金が無料であること、T3 Connectの上限とT3 Chat連携、コードがT3のサーバへ行かないこと、ローカルモデル非対応）</li>
+<li><a href="/t3-chat">T3 Chatの記事（このサイト）</a>（T3 Chat側の料金プランと仕組み）</li>
+</ul>
+<p>二次資料（補完）：</p>
+<ul>
+<li><a href="https://betterstack.com/community/guides/ai/t3-code/">Better Stack「T3 Code: An Open-Source GUI for Managing AI Coding Agents」</a>（2026年3月時点の紹介。初期の位置づけの確認に使用）</li>
+</ul>
+<p>この記事は2026年11月24日に上記の資料を確認して書きました。対応エージェントや上限などの仕様は更新で変わるため、導入前に公式READMEとFAQの最新版を確認してください。</p>
+
+</div>
+<script type="module" src="/assets/site.js"></script>
+</body>
+</html>
