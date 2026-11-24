@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Tue, 24 Nov 2026 01:24:25 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 24 Nov 2026 01:37:31 GMT</lastBuildDate>
+    <item>
+      <title>用語集：HTML Shareの記事に出てくる専門用語</title>
+      <link>https://share.0g0.xyz/glossary</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/glossary</guid>
+      <description>HTML Shareの記事に出てくる専門用語の短い説明の一覧です。記事本文では、辞書に登録された用語の初出が自動でこの用語集へリンクされます。</description>
+      <pubDate>Tue, 24 Nov 2026 01:37:31 GMT</pubDate>
+      <dcterms:created>2026-11-24T01:37:31.000Z</dcterms:created>
+      <dcterms:modified>2026-11-24T01:37:31.000Z</dcterms:modified>
+    </item>
     <item>
       <title>Shirudo：パッチが届くまでの間、サービスを止めずに脆弱性を塞ぐ</title>
       <link>https://share.0g0.xyz/shirudo</link>

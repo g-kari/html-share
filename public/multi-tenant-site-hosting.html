@@ -67,7 +67,7 @@
 
   <section class="section" id="architecture">
     <h2 class="section-title">全体構成：管理系と配信系を分離する</h2>
-    <p>企業が操作する<strong>コントロールプレーン</strong>と、訪問者にコンテンツを届ける<strong>データプレーン</strong>を分けると、静的サイトから動的サイトへ機能を増やしやすい。</p>
+    <p>企業が操作する<strong><a class="gloss" href="/glossary#term-control-plane" title="実際に処理を行う部分に対して、何をどう動かすかを決める部分のこと。">コントロールプレーン</a></strong>と、訪問者にコンテンツを届ける<strong>データプレーン</strong>を分けると、静的サイトから動的サイトへ機能を増やしやすい。</p>
     <figure class="architecture" aria-label="企業向けWebサイト公開基盤のアーキテクチャ">
       <div class="arch-top">
         <div class="arch-box control"><strong>管理ポータル</strong><span>企業ログイン / サイト作成 / ドメイン設定 / デプロイ履歴</span></div>
@@ -157,7 +157,7 @@ public.example.com/campaign-b/
     <details>
       <summary>もっと詳しく：企業が任意のNode.jsコードをアップロードする場合</summary>
       <div class="inner"><p>「HTMLを保管して配信」と「第三者のサーバーコードを実行」は別サービスとして考える。アップロードされたコードを、運営ポータルと同じLambdaや、秘密情報にアクセスできる共有プロセスでそのまま実行しない。ビルドも隔離し、公開時は企業別の実行ロール・CPU/メモリ・同時実行・ネットワーク・ログ・シークレット・データアクセスを制御する。</p>
-      <p>AWS Lambdaにはテナント別の実行環境を作る「Tenant isolation mode」がある。ただしこれは実行環境の分離を助ける機能で、企業単位のデータ認可やアプリの脆弱性対策を自動で保証するものではない。実際の対応ランタイム・リージョン・制限・料金を確認して採用する。<a href="#sources">[10]</a></p></div>
+      <p>AWS Lambdaにはテナント別の実行環境を作る「Tenant isolation mode」がある。ただしこれは実行環境の分離を助ける機能で、企業単位のデータ認可やアプリの脆弱性対策を自動で保証するものではない。実際の対応<a class="gloss" href="/glossary#term-runtime" title="プログラムを実行する土台となるソフトウェアや実行環境のこと。">ランタイム</a>・リージョン・制限・料金を確認して採用する。<a href="#sources">[10]</a></p></div>
     </details>
   </section>
 

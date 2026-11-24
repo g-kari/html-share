@@ -25,11 +25,11 @@
 </head><body><main>
 <div class="eyebrow">セキュリティをやさしく理解する</div>
 <h1>Javaの脆弱性、誰が危ない？</h1>
-<p class="muted">CVE-2026-114938（Java4Shell）｜2026年11月18日時点の情報</p>
+<p class="muted">CVE-2026-114938（<a class="gloss" href="/glossary#term-java4shell" title="OpenJDKにある脆弱性の通称。細工した入力によって、本来できない上書きなどを引き起こす問題です。影響条件は当サイトのJava4Shell解説で扱っています。">Java4Shell</a>）｜2026年11月18日時点の情報</p>
 <p class="lead">結論：Javaが入っているだけで直ちに攻撃されるわけではありません。ただし、条件のそろったJava製サーバーは、外部から攻撃される可能性があります。</p>
 <div class="key">特に大切なのは、<strong>「誰のパソコンでJavaが動いているか」</strong>です。Confluenceをブラウザで開く人と、Confluenceのサーバーを運用する人では、心配すべき場所が異なります。</div>
 <h2>そもそも何が起きるの？</h2>
-<p>Javaはアプリを動かすための仕組みです。今回の問題は、Javaが特定の形式のデータ（Base64）を読み取る処理にあります。細工されたデータを、条件に合うJavaアプリが処理すると、内部のメモリが壊れ、場合によっては攻撃者の命令が実行されます。これを「リモートコード実行（RCE）」と呼びます。</p>
+<p>Javaはアプリを動かすための仕組みです。今回の問題は、Javaが特定の形式のデータ（<a class="gloss" href="/glossary#term-base64" title="バイナリデータを英数字などの文字列で表す変換方式。">Base64</a>）を読み取る処理にあります。細工されたデータを、条件に合うJavaアプリが処理すると、内部のメモリが壊れ、場合によっては攻撃者の命令が実行されます。これを「リモートコード実行（RCE）」と呼びます。</p>
 <figure class="figure"><img src="/assets/java4shell-beginners-flow-v2.png" alt="Javaアプリが動き、細工したデータが届き、特定のCPUなど条件がそろうと問題が起きるという3段階の図" width="1774" height="887" loading="lazy"><figcaption>仕組みのイメージ図。図は攻撃の成立条件を簡略化したもので、データが届けば必ず成功するという意味ではありません。</figcaption></figure>
 <h2>Javaを起動していなければ大丈夫？</h2>
 <p><strong>そのJava処理が実行されていなければ、この脆弱性の処理を悪用することはできません。</strong> ただし、自分でJavaを起動した覚えがなくても、サーバー製品やアプリにJavaが組み込まれ、自動で動いている場合があります。</p>

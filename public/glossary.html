@@ -10,6 +10,26 @@
 <style>
 :root{--accent:#0e5a6d;--accent-dark:#8fd8cb}
 </style>
+  <!-- html-share: social metadata -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="HTML Share">
+  <meta property="og:title" content="用語集：HTML Shareの記事に出てくる専門用語">
+  <meta property="og:description" content="HTML Shareの記事に出てくる専門用語の短い説明の一覧です。記事本文では、辞書に登録された用語の初出が自動でこの用語集へリンクされます。">
+  <meta property="og:url" content="https://share.0g0.xyz/glossary">
+  <meta property="og:image" content="https://share.0g0.xyz/assets/html-share-card-v1.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="HTML Shareのロゴと共有ページを表すカード">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="用語集：HTML Shareの記事に出てくる専門用語">
+  <meta name="twitter:description" content="HTML Shareの記事に出てくる専門用語の短い説明の一覧です。記事本文では、辞書に登録された用語の初出が自動でこの用語集へリンクされます。">
+  <meta name="twitter:image" content="https://share.0g0.xyz/assets/html-share-card-v1.png">
+  <meta name="twitter:image:alt" content="HTML Shareのロゴと共有ページを表すカード">
+  <!-- /html-share: social metadata -->
+  <!-- html-share: rss discovery -->
+  <link rel="alternate" type="application/rss+xml" title="HTML Share RSS" href="https://share.0g0.xyz/feed.xml">
+  <!-- /html-share: rss discovery -->
 </head>
 <body>
 <div class="wrap">
@@ -22,6 +42,74 @@
 </header>
 
 <!-- html-share: glossary terms -->
+<h2>土台の技術</h2>
+<dl>
+  <dt id="term-runtime">ランタイム</dt>
+  <dd>プログラムを実行する土台となるソフトウェアや実行環境のこと。</dd>
+  <dt id="term-ebpf">eBPF</dt>
+  <dd>Linuxカーネル（OSの中核部分）の中で、小さなプログラムを決められた地点で動かす仕組み。処理や通信を観察したり、条件に合う動きを差し止めたりするために使われます。</dd>
+  <dt id="term-tetragon">Tetragon</dt>
+  <dd>Isovalentが公開した、eBPFベースの監視と実行制御の基盤。プロセスや通信の動きを観察し、決めたルールに合わない動きを止めます。</dd>
+  <dt id="term-codepath">コードパス</dt>
+  <dd>プログラムが処理を進めるときに通る命令の道筋のこと。「脆弱なコードパス」は、攻撃に使われる入力が通る特定の道筋を指します。</dd>
+  <dt id="term-verifier">eBPF verifier</dt>
+  <dd>eBPFプログラムをカーネルへ読み込む前に検査するLinuxの仕組み。終わらない処理や範囲外のメモリアクセスなど、安全でないプログラムを読み込み前に弾きます。</dd>
+</dl>
+<h2>保護の仕組み</h2>
+<dl>
+  <dt id="term-shield">shield</dt>
+  <dd>恒久パッチが届くまでの間だけ使う、小さな緩和策。Shirudoの発表ではshield、本体リポジトリではupatch（マイクロパッチ）と呼びます。脆弱な経路を塞ぐ、脆弱なコードを修正済みのコードへ置き換える、といった働きをします。</dd>
+  <dt id="term-monitor-enforce">監視モード</dt>
+  <dd>実際には止めずに「止めるはずだった動き」を記録だけする状態。影響を確認したあと、実際に止める状態へ切り替えることが適用（Enforce）です。</dd>
+  <dt id="term-tpm">TPM</dt>
+  <dd>コンピュータに載るセキュリティ用のチップ。鍵の保管や、読み込まれたソフトウェアの記録を行い、あとから記録が改ざんされていないか確かめるために使います。</dd>
+  <dt id="term-attest">attest</dt>
+  <dd>「このマシンには、このソフトウェアや保護が読み込まれている」という証跡を提示すること。受け取った側は証跡を検証して、記録が改ざんされていないか確認できます。</dd>
+  <dt id="term-oci">OCIレジストリ</dt>
+  <dd>OCIはコンテナイメージなどの配布形式を定めた標準で、レジストリはその配布物を置くサーバです。プル型配布は、配る側が対象へ送り込むのではなく、対象側が取りに行き、署名を確かめてから使う方式を指します。</dd>
+  <dt id="term-daemon-cli">常駐デーモン</dt>
+  <dd>デーモンは裏で動き続ける常駐プログラム、CLIはコマンドを打って操作する道具です。ワンショットCLIは、コマンドを1回実行して終わる形の操作を指します。</dd>
+  <dt id="term-control-plane">制御プレーン</dt>
+  <dd>実際に処理を行う部分に対して、何をどう動かすかを決める部分のこと。</dd>
+</dl>
+<h2>実証と導入条件に出てくる用語</h2>
+<dl>
+  <dt id="term-java4shell">Java4Shell</dt>
+  <dd>OpenJDKにある脆弱性の通称。細工した入力によって、本来できない上書きなどを引き起こす問題です。影響条件は当サイトのJava4Shell解説で扱っています。</dd>
+  <dt id="term-openjdk">OpenJDK</dt>
+  <dd>Javaの実行環境のオープンソース実装。Javaプログラムはこの上で動きます。</dd>
+  <dt id="term-bytecode">Javaバイトコード</dt>
+  <dd>Javaのソースコードを変換した中間形式のコード。実行環境がこれを読み込んで動かします。</dd>
+  <dt id="term-base64">Base64</dt>
+  <dd>バイナリデータを英数字などの文字列で表す変換方式。</dd>
+  <dt id="term-elasticsearch">Elasticsearch</dt>
+  <dd>検索エンジンのソフトウェア。ログや文書の検索・集計に広く使われます。</dd>
+  <dt id="term-abi">ABI</dt>
+  <dd>プログラム同士、またはカーネルとプログラムの間で、データの渡し方や呼び出し方を定めた約束事。約束が合わないと正しく連携できません。</dd>
+  <dt id="term-signed-loader">署名付きローダー</dt>
+  <dd>ローダーはプログラムや保護を読み込む仕組みです。署名付きローダーは、そのローダー自体が信頼できる署名を持つものに限られる仕組みを指します。</dd>
+  <dt id="term-kernel-patch">カーネルパッチ</dt>
+  <dd>Linuxカーネル（OSの中核部分）自体への修正のこと。</dd>
+  <dt id="term-prerelease">プレリリース</dt>
+  <dd>正式版より前の公開段階。仕様や要件が変わる前提で、評価や検証のために出す状態を指します。</dd>
+  <dt id="term-dual-license">デュアルライセンス</dt>
+  <dd>一つの成果物に複数のライセンスを併記し、利用する側が条件を選べる形。</dd>
+</dl>
+<h2>セキュリティ一般</h2>
+<dl>
+  <dt id="term-phishing">フィッシング</dt>
+  <dd>本物そっくりのメールやサイトで、パスワードやカード情報などを入力させる手口。</dd>
+  <dt id="term-malware">マルウェア</dt>
+  <dd>利用者の意図に反する動作をする悪意のあるソフトウェアの総称。ウイルスやランサムウェアを含みます。</dd>
+  <dt id="term-ransomware">ランサムウェア</dt>
+  <dd>感染した機器のデータを暗号化するなどして使えなくし、復旧と引き換えに金銭を要求するマルウェア。</dd>
+  <dt id="term-zeroday">ゼロデイ</dt>
+  <dd>修正パッチがまだ提供されていない脆弱性や、その脆弱性を突く攻撃のこと。</dd>
+  <dt id="term-sbom">SBOM</dt>
+  <dd>ソフトウェアを構成する部品（ライブラリ等）の一覧表。脆弱性の影響範囲を調べるために使います。</dd>
+  <dt id="term-supply-chain">サプライチェーン</dt>
+  <dd>ソフトウェアや製品が作られ、届けられるまでの供給の連なり。その途中の部品や配布経路が狙われる攻撃をサプライチェーン攻撃と呼びます。</dd>
+</dl>
 <!-- /html-share: glossary terms -->
 
 </div>

@@ -51,8 +51,8 @@
 <div class="summary3">
   <div class="ttl">要点</div>
   <ol>
-    <li>ShirudoはOpenAIとCiscoが公開したオープンソースのランタイムです。<a href="#term-ebpf">eBPF</a>（カーネル内で小さなプログラムを動かすLinuxの仕組み）を使い、稼働中のLinuxへ一時的な保護（<a href="#term-shield">shield</a>）を再起動なしで適用します。対象は恒久パッチのテストと適用が終わるまでの期間です。</li>
-    <li>実証は制御されたテスト1件です。Codexが生成したshieldが、稼働中のElasticsearchへの<a href="#term-java4shell">Java4Shell</a>の攻撃を止めました。任意の脆弱性に使えることを示す結果ではありません。</li>
+    <li>ShirudoはOpenAIとCiscoが公開したオープンソースの<a class="gloss" href="/glossary#term-runtime" title="プログラムを実行する土台となるソフトウェアや実行環境のこと。">ランタイム</a>です。<a href="#term-ebpf">eBPF</a>（カーネル内で小さなプログラムを動かすLinuxの仕組み）を使い、稼働中のLinuxへ一時的な保護（<a href="#term-shield">shield</a>）を再起動なしで適用します。対象は恒久パッチのテストと適用が終わるまでの期間です。</li>
+    <li>実証は制御されたテスト1件です。Codexが生成したshieldが、稼働中の<a class="gloss" href="/glossary#term-elasticsearch" title="検索エンジンのソフトウェア。ログや文書の検索・集計に広く使われます。">Elasticsearch</a>への<a href="#term-java4shell">Java4Shell</a>の攻撃を止めました。任意の脆弱性に使えることを示す結果ではありません。</li>
     <li>現在は<a href="#term-prerelease">プレリリース</a>です。本番の対象には専用のカーネル要件と<a href="#term-tpm">TPM</a> 2.0が要ります。shieldは恒久パッチの代わりにはなりません。</li>
   </ol>
 </div>
@@ -73,7 +73,7 @@
 
 <h2 id="about">Shirudoとは何か</h2>
 <p>ShirudoはOpenAIとCiscoが2026年11月23日（米国時間）に発表した、Linux向けのオープンソースのセキュリティ基盤です。名前は日本語の「盾」に由来します。土台には、Cisco傘下のIsovalentが2022年にオープンソース化したeBPFベースのランタイムセキュリティ基盤<a href="#term-tetragon">Tetragon</a>があり、Shirudoはエージェントが扱うことを前提に書き直したものと説明されています。</p>
-<p>Shirudoが配る保護は、発表ではshield、本体リポジトリではupatch（マイクロパッチ）と呼ばれます。小さく対象を絞った緩和策で、脆弱なコードパスを塞ぐ、脆弱なコードを修正済みのコードに置き換える、攻撃を見つけるための可視化を足す、といった働きをします。</p>
+<p>Shirudoが配る保護は、発表ではshield、本体リポジトリではupatch（マイクロパッチ）と呼ばれます。小さく対象を絞った緩和策で、<a class="gloss" href="/glossary#term-codepath" title="プログラムが処理を進めるときに通る命令の道筋のこと。「脆弱なコードパス」は、攻撃に使われる入力が通る特定の道筋を指します。">脆弱なコードパス</a>を塞ぐ、脆弱なコードを修正済みのコードに置き換える、攻撃を見つけるための可視化を足す、といった働きをします。</p>
 <figure class="shirudo-figure">
 <img src="/assets/shirudo-overview-v1.png" width="1600" height="600" loading="lazy" alt="Shirudoの全体像。脆弱性の開示、shieldの作成、稼働中サーバーへの適用、恒久パッチの適用の4段階で、パッチまでの空白期間はshieldが守る">
 <figcaption>図：Shirudoの全体像。脆弱性の開示から恒久パッチの適用まで、shieldが守るのはパッチまでの空白期間です。</figcaption>
@@ -98,19 +98,19 @@
 <figcaption>図：shield適用の流れ。監視モードで影響を確かめ、運用者が承認してから適用し、読み込みと解除をTPMで検証できる形で記録します。</figcaption>
 </figure>
 <ol class="shirudo-steps">
-<li><strong>監視：</strong>提案したshieldがアプリケーションへどう影響するかを、強制する前に監視モードで確かめます。正規のリクエストを通し、脆弱性を露出させる動きだけを止めるかを確認します。</li>
+<li><strong>監視：</strong>提案したshieldがアプリケーションへどう影響するかを、強制する前に<a class="gloss" href="/glossary#term-monitor-enforce" title="実際には止めずに「止めるはずだった動き」を記録だけする状態。影響を確認したあと、実際に止める状態へ切り替えることが適用（Enforce）です。">監視モード</a>で確かめます。正規のリクエストを通し、脆弱性を露出させる動きだけを止めるかを確認します。</li>
 <li><strong>承認：</strong>適用するかどうかは運用者が決めます。OpenAIの発表は、配備するものを決めるのはセキュリティチームだと明記しています。</li>
 <li><strong>適用：</strong>承認したshieldを、サービスを動かしたまま適用します。再起動は要りません。</li>
 <li><strong>記録：</strong>shieldの読み込みと解除は、TPM（Trusted Platform Module）で検証できる形で記録されます。運用者はこの証跡で、システムが自組織のセキュリティ要件を満たすかを確認できます。本体リポジトリのREADMEでは、読み込んだupatchの集合の変化がTPMのレジスタへ記録され、<code>shirudo attest</code>（<a href="#term-attest">attest</a>は構成証明の意）が返す証跡をオフラインで検証できると説明されています。</li>
 </ol>
-<p>配備の信頼性は署名と検証で確保します。shieldは暗号署名され、読み込みの前に検証されます。eBPFプログラムはLinuxの<a href="#term-verifier">eBPF verifier</a>が安全規則に照らして検査し、カーネルのセキュリティ制御が無許可の変更を制限します。配布は運用側が署名済みパッケージを作って<a href="#term-oci">OCIレジストリ</a>（配布物を置く保管場所）へ置き、対象側が取得して署名を検証するプル型の流れです。常駐デーモンは置かず、ワンショットのCLIで操作します。</p>
+<p>配備の信頼性は署名と検証で確保します。shieldは暗号署名され、読み込みの前に検証されます。eBPFプログラムはLinuxの<a href="#term-verifier">eBPF verifier</a>が安全規則に照らして検査し、カーネルのセキュリティ制御が無許可の変更を制限します。配布は運用側が署名済みパッケージを作って<a href="#term-oci">OCIレジストリ</a>（配布物を置く保管場所）へ置き、対象側が取得して署名を検証するプル型の流れです。<a class="gloss" href="/glossary#term-daemon-cli" title="デーモンは裏で動き続ける常駐プログラム、CLIはコマンドを打って操作する道具です。ワンショットCLIは、コマンドを1回実行して終わる形の操作を指します。">常駐デーモン</a>は置かず、ワンショットのCLIで操作します。</p>
 <figure class="shirudo-figure">
 <img src="/assets/shirudo-server-v1.png" width="1600" height="1010" loading="lazy" alt="サーバー上でのShirudoの動き。運用側がshieldを用意して署名し、OCIレジストリへ配置する。サーバー側は取得して署名を検証し、監視モードで観察し、運用者が承認したら、eBPF verifierの検査を通して読み込み・適用する。サービスは再起動なしで継続し、読み込みと解除はTPMへ記録され、shirudo attestであとから検証できる">
 <figcaption>図：サーバー上での動き。運用側で署名して配置し、サーバー側が取得・検証・監視・承認・適用を行います。サービスは止めず、記録はTPMに残ります。</figcaption>
 </figure>
 
 <h2 id="demo">実証：Java4ShellとElasticsearch</h2>
-<p>発表に合わせて、制御されたテストが公開されています。対象の脆弱性はOpenJDKの脆弱性Java4Shellです。エージェント型の制御プレーンとしてCodexを使い、脆弱性情報を入力すると、<a href="#term-bytecode">Javaバイトコード</a>（Javaプログラムの実行形式）の形をしたshieldが生成されました。このshieldはJavaアプリケーションへ注入され、<a href="#term-base64">Base64</a>入力へ検証を足して、悪用に使われる上書きを防ぎます。</p>
+<p>発表に合わせて、制御されたテストが公開されています。対象の脆弱性は<a class="gloss" href="/glossary#term-openjdk" title="Javaの実行環境のオープンソース実装。Javaプログラムはこの上で動きます。">OpenJDK</a>の脆弱性Java4Shellです。エージェント型の<a class="gloss" href="/glossary#term-control-plane" title="実際に処理を行う部分に対して、何をどう動かすかを決める部分のこと。">制御プレーン</a>としてCodexを使い、脆弱性情報を入力すると、<a href="#term-bytecode">Javaバイトコード</a>（Javaプログラムの実行形式）の形をしたshieldが生成されました。このshieldはJavaアプリケーションへ注入され、<a href="#term-base64">Base64</a>入力へ検証を足して、悪用に使われる上書きを防ぎます。</p>
 <figure class="shirudo-figure">
 <img src="/assets/shirudo-demo-v1.png" width="1600" height="720" loading="lazy" alt="実証の構成。Codexが脆弱性情報からJavaバイトコードのshieldを生成し、稼働中のElasticsearch 9.5.5へ注入した。shieldはBase64入力へ検証を追加し、Java4Shellの悪用の試行を遮断した。悪用は成功せず、Elasticsearchは動き続け、ログに緩和成功の記録が残った">
 <figcaption>図：実証の構成。Codexが生成したshieldを稼働中のElasticsearchへ注入し、攻撃の試行を遮断しました。</figcaption>
@@ -119,9 +119,9 @@
 <p>確認できた範囲は、この1件の構成と、この脆弱性に対する結果までです。テストは制御された環境で行われており、別の脆弱性や別の構成でも同じ結果になるとは限りません。Isovalentは、このshieldがOpenJDK自体へパッチが当たるまでの間アプリケーションを守る、という位置づけで説明しています。Java4Shell自体の影響条件は、当サイトの<a href="/java4shell-beginners">Java4Shell解説</a>で扱っています。</p>
 
 <h2 id="oss">OSSとしての公開形態</h2>
-<p>ソースコードはGitHubの<a href="https://github.com/shirudo-dev/shirudo">shirudo-dev/shirudo</a>で公開されています。ライセンスはBSD 2-Clauseで、BPFプログラムはBSDとGPLのデュアルライセンスです。公式ドキュメントは<a href="https://docs.shirudo.dev">docs.shirudo.dev</a>にあります。</p>
+<p>ソースコードはGitHubの<a href="https://github.com/shirudo-dev/shirudo">shirudo-dev/shirudo</a>で公開されています。ライセンスはBSD 2-Clauseで、BPFプログラムはBSDとGPLの<a class="gloss" href="/glossary#term-dual-license" title="一つの成果物に複数のライセンスを併記し、利用する側が条件を選べる形。">デュアルライセンス</a>です。公式ドキュメントは<a href="https://docs.shirudo.dev">docs.shirudo.dev</a>にあります。</p>
 <p>試す方法は3つ案内されています。ドキュメントのVMクイックスタート（署名、読み込み、検証の手順で、VMはソフトウェアTPMを使います）、Isovalentのセルフガイド式ハンズオンラボ、12月15日の技術ウェビナーです。</p>
-<p>状態はプレリリースです。READMEによると、本番の対象には署名付きローダーの<a href="#term-abi">ABI</a>（プログラム同士がやり取りするときの約束事）を持つLinuxカーネルとShirudoのカーネルパッチ、それにTPM 2.0が要ります。一般的なLinux環境へそのまま導入できる段階ではありません。</p>
+<p>状態はプレリリースです。READMEによると、本番の対象には<a class="gloss" href="/glossary#term-signed-loader" title="ローダーはプログラムや保護を読み込む仕組みです。署名付きローダーは、そのローダー自体が信頼できる署名を持つものに限られる仕組みを指します。">署名付きローダー</a>の<a href="#term-abi">ABI</a>（プログラム同士がやり取りするときの約束事）を持つLinuxカーネルとShirudoの<a class="gloss" href="/glossary#term-kernel-patch" title="Linuxカーネル（OSの中核部分）自体への修正のこと。">カーネルパッチ</a>、それにTPM 2.0が要ります。一般的なLinux環境へそのまま導入できる段階ではありません。</p>
 <figure class="shirudo-figure">
 <img src="/assets/shirudo-oss-v1.png" width="1600" height="700" loading="lazy" alt="OSSとしての公開形態。中心はGitHubのshirudo-dev/shirudoで、ライセンスは本体がBSD 2-Clause、BPFプログラムはBSDとGPLのデュアルライセンス。公式ドキュメントはdocs.shirudo.dev。試す方法はVMクイックスタート、Isovalentのハンズオンラボ、12月15日の技術ウェビナーの3つ。状態はプレリリース">
 <figcaption>図：公開形態。コードはGitHub、ドキュメントは公式サイトで公開され、状態はプレリリースです。</figcaption>
