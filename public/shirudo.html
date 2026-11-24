@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shirudo：パッチが届くまでの間、サービスを止めずに脆弱性を塞ぐ</title>
+<meta name="description" content="OpenAIとCiscoが公開したOSS「Shirudo」を解説します。eBPFの一時的な保護「shield」で、恒久パッチの適用までの期間をサービス無停止で守る仕組み、Java4Shellの実証で確認できた範囲、導入の前提条件を整理します。">
+<link rel="canonical" href="https://share.0g0.xyz/shirudo">
+<link rel="stylesheet" href="/assets/site.css">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="Shirudo：パッチが届くまでの間、サービスを止めずに脆弱性を塞ぐ">
+<meta property="og:description" content="eBPFの一時的な保護「shield」で、パッチ適用までの期間を無停止で守る仕組みと、実証で確認できた範囲を解説します。">
+<meta property="og:url" content="https://share.0g0.xyz/shirudo">
+<meta property="og:image" content="https://share.0g0.xyz/assets/shirudo-ogp-v1.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Shirudo。パッチまでの空白を、止めずに守る">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://share.0g0.xyz/assets/shirudo-ogp-v1.png">
+<meta name="twitter:image:alt" content="Shirudo。パッチまでの空白を、止めずに守る">
+<style>
+:root{--accent:#0e5a6d;--accent-dark:#8fd8cb}
+.shirudo-figure{margin:1.25rem 0;max-inline-size:44rem}
+.shirudo-figure img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:0}
+.shirudo-figure figcaption{font-size:.9rem;margin-top:.55rem}
+.shirudo-steps li{margin-bottom:.55rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="sitebar" aria-label="サイト内"><a class="brand" href="/">HTML Share</a><nav><a href="/">一覧</a><a href="/feed.xml">RSS</a></nav></nav>
+<header class="top">
+  <div class="kicker">セキュリティ基盤 · OSS</div>
+  <h1>Shirudo：パッチが届くまでの間、サービスを止めずに脆弱性を塞ぐ</h1>
+  <p class="meta">
+    発表：OpenAI と Cisco（2026年11月23日、米国時間）<br>
+    一次資料：<a href="https://openai.com/index/introducing-shirudo/">OpenAIの発表</a>／<a href="https://isovalent.com/blog/post/cisco-openai-shirudo/">Isovalent（Cisco）の技術解説</a>／<a href="https://github.com/shirudo-dev/shirudo">GitHubリポジトリ</a>
+  </p>
+</header>
+
+<div class="summary3">
+  <div class="ttl">要点</div>
+  <ol>
+    <li>ShirudoはOpenAIとCiscoが公開したオープンソースのランタイムです。eBPFを使い、稼働中のLinuxへ一時的な保護（shield）を再起動なしで適用します。対象は恒久パッチのテストと適用が終わるまでの期間です。</li>
+    <li>実証は制御されたテスト1件です。Codexが生成したshieldが、稼働中のElasticsearchへのJava4Shellの攻撃を止めました。任意の脆弱性に使えることを示す結果ではありません。</li>
+    <li>現在はプレリリースです。本番の対象には専用のカーネル要件とTPM 2.0が要ります。shieldは恒久パッチの代わりにはなりません。</li>
+  </ol>
+</div>
+
+<nav class="toc">
+  <div class="ttl">目次</div>
+  <ol>
+    <li><a href="#about">Shirudoとは何か</a></li>
+    <li><a href="#why">なぜ必要か：パッチまでの空白期間</a></li>
+    <li><a href="#how">仕組み：監視、承認、適用、記録</a></li>
+    <li><a href="#demo">実証：Java4ShellとElasticsearch</a></li>
+    <li><a href="#oss">OSSとしての公開形態</a></li>
+    <li><a href="#operators">運用者視点の見方</a></li>
+    <li><a href="#sources">一次資料</a></li>
+  </ol>
+</nav>
+
+<h2 id="about">Shirudoとは何か</h2>
+<p>ShirudoはOpenAIとCiscoが2026年11月23日（米国時間）に発表した、Linux向けのオープンソースのセキュリティ基盤です。名前は日本語の「盾」に由来します。土台には、Cisco傘下のIsovalentが2022年にオープンソース化したeBPFベースのランタイムセキュリティ基盤Tetragonがあり、Shirudoはエージェントが扱うことを前提に書き直したものと説明されています。</p>
+<p>Shirudoが配る保護は、発表ではshield、本体リポジトリではupatch（マイクロパッチ）と呼ばれます。小さく対象を絞った緩和策で、脆弱なコードパスを塞ぐ、脆弱なコードを修正済みのコードに置き換える、攻撃を見つけるための可視化を足す、といった働きをします。</p>
+
+<h2 id="why">なぜ必要か：パッチまでの空白期間</h2>
+<p>脆弱性の修正パッチは、テストと適用に数日から数週間かかります。Isovalentの記事は、広く使われるソフトウェアの重要な修正が大半のシステムに届くまで数か月かかる場合があるとも書いています。</p>
+<p>この期間の防御にはトレードオフがあります。攻撃と正規のリクエストが同じLinuxの操作を使う場合があります。その操作を丸ごと塞ぐとサービス自体が止まるおそれがあり、塞がなければ攻撃が通るおそれが残ります。Shirudoは、操作全体ではなく脆弱な経路だけを狙う小さな保護を、サービスを動かしたまま差し込むことで、このトレードオフを避ける設計です。</p>
+
+<h2 id="how">仕組み：監視、承認、適用、記録</h2>
+<p>土台はeBPFです。eBPFはOSの特定の地点で小さなプログラムを動かすLinuxの技術で、不審な動きの観察と、対象を絞った保護の適用に使われます。</p>
+<figure class="shirudo-figure">
+<img src="/assets/shirudo-flow-v1.png" width="1600" height="533" loading="lazy" alt="shield適用の流れ。1 Monitor（監視）、2 Approve（承認）、3 Enforce（適用）、4 Record（記録）">
+<figcaption>図：shield適用の流れ。監視モードで影響を確かめ、運用者が承認してから適用し、読み込みと解除をTPMで検証できる形で記録します。</figcaption>
+</figure>
+<ol class="shirudo-steps">
+<li><strong>監視：</strong>提案したshieldがアプリケーションへどう影響するかを、強制する前に監視モードで確かめます。正規のリクエストを通し、脆弱性を露出させる動きだけを止めるかを確認します。</li>
+<li><strong>承認：</strong>適用するかどうかは運用者が決めます。OpenAIの発表は、配備するものを決めるのはセキュリティチームだと明記しています。</li>
+<li><strong>適用：</strong>承認したshieldを、サービスを動かしたまま適用します。再起動は要りません。</li>
+<li><strong>記録：</strong>shieldの読み込みと解除は、TPM（Trusted Platform Module）で検証できる形で記録されます。運用者はこの証跡で、システムが自組織のセキュリティ要件を満たすかを確認できます。本体リポジトリのREADMEでは、読み込んだupatchの集合の変化がTPMのレジスタへ記録され、<code>shirudo attest</code> が返す証跡をオフラインで検証できると説明されています。</li>
+</ol>
+<p>配備の信頼性は署名と検証で確保します。shieldは暗号署名され、読み込みの前に検証されます。eBPFプログラムはLinuxのeBPF verifierが安全規則に照らして検査し、カーネルのセキュリティ制御が無許可の変更を制限します。配布は運用側が署名済みパッケージを作ってOCIレジストリへ置き、対象側が取得して署名を検証するプル型の流れです。常駐デーモンは置かず、ワンショットのCLIで操作します。</p>
+
+<h2 id="demo">実証：Java4ShellとElasticsearch</h2>
+<p>発表に合わせて、制御されたテストが公開されています。対象の脆弱性はOpenJDKの脆弱性Java4Shellです。エージェント型の制御プレーンとしてCodexを使い、脆弱性情報を入力すると、Javaバイトコードの形をしたshieldが生成されました。このshieldはJavaアプリケーションへ注入され、Base64入力へ検証を足して、悪用に使われる上書きを防ぎます。</p>
+<p>テストではElasticsearch 9.5.5を動かし、稼働中のプロセスへshieldを取り付けたあと、脆弱性の悪用を試みました。悪用は成功せず、Elasticsearchは動き続け、ログには緩和が成功した記録が残りました。</p>
+<p>確認できた範囲は、この1件の構成と、この脆弱性に対する結果までです。テストは制御された環境で行われており、別の脆弱性や別の構成でも同じ結果になるとは限りません。Isovalentは、このshieldがOpenJDK自体へパッチが当たるまでの間アプリケーションを守る、という位置づけで説明しています。Java4Shell自体の影響条件は、当サイトの<a href="/java4shell-beginners">Java4Shell解説</a>で扱っています。</p>
+
+<h2 id="oss">OSSとしての公開形態</h2>
+<p>ソースコードはGitHubの<a href="https://github.com/shirudo-dev/shirudo">shirudo-dev/shirudo</a>で公開されています。ライセンスはBSD 2-Clauseで、BPFプログラムはBSDとGPLのデュアルライセンスです。公式ドキュメントは<a href="https://docs.shirudo.dev">docs.shirudo.dev</a>にあります。</p>
+<p>試す方法は3つ案内されています。ドキュメントのVMクイックスタート（署名、読み込み、検証の手順で、VMはソフトウェアTPMを使います）、Isovalentのセルフガイド式ハンズオンラボ、12月15日の技術ウェビナーです。</p>
+<p>状態はプレリリースです。READMEによると、本番の対象には署名付きローダーのABIを持つLinuxカーネルとShirudoのカーネルパッチ、それにTPM 2.0が要ります。一般的なLinux環境へそのまま導入できる段階ではありません。</p>
+
+<h2 id="operators">運用者視点の見方</h2>
+<p>shieldは一時的な緩和で、恒久パッチの代替ではありません。パッチのテストと適用が終われば、保護の役目はそちらへ移ります。Shirudoの目標は、脆弱性の開示と同時に検証済みのshieldを配れるようにして、パッチが届くまでの期間に評価と適用ができる状態を作ることです。</p>
+<p>導入を判断する材料は3点あります。対象カーネルの要件を満たせるか。監視モードでの確認と運用者の承認を手順として回せるか。TPMの証跡を自組織の監査や要件確認へ組み込めるか。逆に、要件を満たさない環境では、発表の実証結果だけを根拠に導入を急ぐ段階ではありません。</p>
+<p>AIエージェントとの関係では、エージェントがコードとして緩和策を作って検証し、人は監視結果を見て承認します。配備の判断を人が持つ点は、発表と実装の両方で一貫しています。</p>
+
+<h2 id="sources">一次資料</h2>
+<ul>
+<li><a href="https://openai.com/index/introducing-shirudo/">OpenAI: OpenAI and Cisco introduce Shirudo</a>（発表本文）</li>
+<li><a href="https://isovalent.com/blog/post/cisco-openai-shirudo/">Isovalent（Cisco）: Cisco and OpenAI introduce Shirudo</a>（技術解説と実証の詳細）</li>
+<li><a href="https://github.com/shirudo-dev/shirudo">GitHub: shirudo-dev/shirudo</a>（README、ライセンス、システム要件）</li>
+<li><a href="https://docs.shirudo.dev">公式ドキュメント: docs.shirudo.dev</a></li>
+</ul>
+<p class="note">この記事は2026年11月24日に一次資料を確認して書きました。Shirudoはプレリリースのため、要件や手順は今後の版で変わる可能性があります。</p>
+</div>
+<script type="module" src="/assets/site.js"></script>
+</body>
+</html>
