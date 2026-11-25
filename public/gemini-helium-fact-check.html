@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gemini Helium は来週出るのか：X投稿を公式情報で検証した</title>
+<meta name="description" content="「来週 Gemini Helium が発表される。コストは DeepSeek 4.1 Flash 並み、能力は Opus 5.5 並み」というX投稿（2026年11月24日）を、Google公式のモデル一覧とDeepMind公式ブログ、AnthropicとDeepSeekの公式発表で検証したファクトチェック。結論は、公式発表はなく、価格と能力の主張に裏付けはない。">
+<link rel="canonical" href="https://share.0g0.xyz/gemini-helium-fact-check">
+<link rel="stylesheet" href="/assets/site.css">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="Gemini Helium は来週出るのか：X投稿を公式情報で検証した">
+<meta property="og:description" content="Xで拡散した「Gemini Helium が来週発表、コストはDeepSeek 4.1 Flash並み、能力はOpus 5.5並み」という投稿を、Google・Anthropic・DeepSeekの公式情報と照合した。公式発表はなく、価格と能力の主張は未確認。">
+<meta property="og:url" content="https://share.0g0.xyz/gemini-helium-fact-check">
+<meta property="og:image" content="https://share.0g0.xyz/assets/helium-ogp-v1.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Gemini Helium は来週出るのか。X投稿の主張を公式情報で検証">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://share.0g0.xyz/assets/helium-ogp-v1.png">
+<meta name="twitter:image:alt" content="Gemini Helium は来週出るのか。X投稿の主張を公式情報で検証">
+<style>
+.gh-figure{margin:1.25rem 0;max-inline-size:46rem}
+.gh-figure img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:0}
+.gh-figure figcaption{font-size:.9rem;margin-top:.55rem}
+table.gh-table{border-collapse:collapse;margin:1rem 0}
+table.gh-table th,table.gh-table td{border:1px solid var(--line);padding:.45rem .8rem;text-align:left;vertical-align:top}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="sitebar" aria-label="サイト内"><a class="brand" href="/">HTML Share</a><nav><a href="/">一覧</a><a href="/feed.xml">RSS</a></nav></nav>
+<header class="top">
+  <div class="kicker">ファクトチェック · AIモデル</div>
+  <h1>Gemini Helium は来週出るのか：X投稿を公式情報で検証した</h1>
+  <p class="meta">
+    確認日：2026年11月25日<br>
+    対象：gshota（@gshota666）が2026年11月24日21時（日本時間）にXへ投稿した「Gemini Helium」に関する主張。検証は Google 公式のモデル一覧、Google DeepMind 公式ブログ、Anthropic と DeepSeek の公式発表を一次資料とし、報道は補助に使った。公式で確認できない箇所は「未確認」と明記する。
+  </p>
+</header>
+
+<div class="summary3">
+  <div class="ttl">要点</div>
+  <ol>
+    <li>2026年11月25日時点で、Google は「Gemini Helium」というモデルを発表していない。公式の Gemini API モデル一覧にある Gemini 4 は Carbon、Neon、Hydrogen、Argon の4つで、Helium のモデルID・価格・モデルカードは存在しない。「すでに発表・提供されている」という読み方は否定できる。</li>
+    <li>「来週発表される」という日付の主張には、公式の予告がない。材料とされるのは、DeepMind のスタッフによる周期表のティーザー動画と、Gemini Web のコード内で見つかった「TIER_HELIUM」という購読区分側の文字列で、どちらも発表日・価格・性能を示していない。判定は未確認。</li>
+    <li>比較対象の2モデルはどちらも実在する。Claude Opus 5.5 は Anthropic が2026年9月22日に発表した実在のモデルで、DeepSeek-V4.1-Flash も DeepSeek が2026年9月10日に正式提供を開始した実在のモデルである。</li>
+    <li>ただし Helium 側の価格もベンチマークも一切公表されていないため、「コストは DeepSeek 4.1 Flash 並み」「能力は Opus 5.5 並み」は検証のしようがなく、どちらも未確認である。</li>
+    <li>投稿に添付された「Gemini 4 Helium」のロゴ風画像は、Google 公式の発表画像とは確認できなかった。同時期には「非公式コンセプト」と明記された同種のバナーが拡散していた。</li>
+  </ol>
+</div>
+
+<nav class="toc">
+  <div class="ttl">目次</div>
+  <ol>
+    <li><a href="#claim">投稿の主張</a></li>
+    <li><a href="#exist">公式一覧に Helium はあるか</a></li>
+    <li><a href="#materials">「来週発表」の材料とされるもの</a></li>
+    <li><a href="#compare">比較対象は実在するか</a></li>
+    <li><a href="#image">添付画像について</a></li>
+    <li><a href="#conclusion">結論</a></li>
+    <li><a href="#terms">用語補足</a></li>
+    <li><a href="#sources">資料と出典</a></li>
+  </ol>
+</nav>
+
+<h2 id="claim">投稿の主張</h2>
+<p>対象の投稿は、gshota（@gshota666）が2026年11月24日21時（日本時間）にXへ投稿した中国語のポストである。要旨は次の3点で、出典の提示はない。</p>
+<ol>
+  <li>来週、Gemini Helium が発表される</li>
+  <li>コストは DeepSeek 4.1 Flash 相当である</li>
+  <li>能力は Opus 5.5 相当である</li>
+</ol>
+<p>投稿には「Gemini 4 Helium」と書かれたロゴ風の画像が添付されている。本文のモデル名は「Gemini Helium」で、画像側は「Gemini 4 Helium」と表記が食い違っている。この投稿は2026年11月25日確認時点で約26万回表示され、いいねは約3,500件付いている。</p>
+<figure class="gh-figure">
+  <img src="/assets/helium-verdicts-v1.png" alt="投稿の3つの主張（来週発表、コストはDeepSeek 4.1 Flash並み、能力はOpus 5.5並み）と、この記事の判定（いずれも未確認）を対応させた図" width="1560" height="700">
+  <figcaption>投稿の主張3点と、この記事の判定。3点とも裏付けが取れず「未確認」で、「すでに発表・提供されている」という読み方だけは公式一覧の不在から否定できる。</figcaption>
+</figure>
+
+<h2 id="exist">公式一覧に Helium はあるか</h2>
+<p>Google 公式の Gemini API モデル一覧（ai.google.dev/gemini-api/docs/models）を2026年11月25日に確認した。Gemini 4 として載っているのは次の4モデルだけで、ページ内に「Helium」の文字列はない。</p>
+<ul>
+  <li>Gemini 4 Carbon（モデルID：gemini-4-carbon、2026年10月発表）</li>
+  <li>Gemini 4 Neon（gemini-4-neon、2026年11月18日）</li>
+  <li>Gemini 4 Hydrogen（gemini-4-hydrogen、2026年11月12日）</li>
+  <li>Gemini 4 Argon（gemini-4-argon、2026年10月13日）</li>
+</ul>
+<p>Google DeepMind 公式ブログの新着一覧にも、Neon、Hydrogen、Carbon、Argon の発表記事はあるが、Helium の発表記事はない。API の変更履歴と価格ページにも Helium の記載はないと、2026年11月23日時点の検証報道（DigIntoAI）が確認しており、今回の確認でも状況は変わっていない。</p>
+<p>したがって「Gemini Helium がすでに発表・提供されている」という主張は否定できる。一方で、将来の発表そのものは公式一覧の不在では否定できない。次の節で、日付の主張の材料を分けて見る。</p>
+<figure class="gh-figure">
+  <img src="/assets/helium-lineup-v1.png" alt="Google公式のGemini 4ラインナップ4モデル（Carbon、Neon、Hydrogen、Argon）と、公式一覧に掲載のないHeliumを示した図" width="1560" height="620">
+  <figcaption>公式の Gemini 4 は元素名の4モデルで構成され、Helium は含まれていない（2026年11月25日確認）。</figcaption>
+</figure>
+
+<h2 id="materials">「来週発表」の材料とされるもの</h2>
+<p>「Helium」という名前自体には、投稿以前から2つの材料がある。どちらも実在するが、発表日・価格・性能を示す内容ではない。</p>
+<h3>周期表のティーザー（2026年11月19日）</h3>
+<p>Google DeepMind の開発者体験担当 Omar Sanseviero が、周期表のアニメーションと「Gemini 4 will return」という文言をXに投稿した。映像では Helium（He）のマスが、すでに発売済みの4つの元素と並んで点灯したと観察された。ただし映像にはモデル名・発表日・価格・性能の提示はなく、Helium 以外のマスも後半で点灯する。確認できるのは「Gemini 4 の追加更新が予告された」ことまでで、Helium が次のモデル名であることや、その時期は示されていない。</p>
+<h3>Gemini Web のコード内の文字列（2026年11月18〜23日）</h3>
+<p>Gemini Web のフロントエンドコード内に、TIER_HELIUM、TIER_HELIUM_DISCOVERY_CARD、CAN_SEE_TIER_HELIUM_LOGO、CAN_UPGRADE_TO_TIER_HELIUM_SUBSCRIPTION、CAN_USE_TIER_HELIUM_QUOTA という識別子が見つかり、2026年11月22〜23日にXで拡散した。いずれも TIER_（区分）、SUBSCRIPTION（購読）、QUOTA（利用枠）という購読プラン側の語彙で、gemini-4-helium のようなモデルIDは含まれていない。価格表やアップグレード画面も公開されていない。</p>
+<p>AIモデルの追跡メディア TestingCatalog は2026年11月19日、Helium を「次の Gemini 4 で、Flash-Lite 級」と推測した。現在の Gemini 4 に最廉価帯が欠けていることからの推測で、Google の位置づけ発表ではない。</p>
+<p>以上から、「来週（2026年11月30日からの週）に発表される」という日付の主張を裏付ける材料はない。名前の材料は実在するため将来の登場自体は否定できないが、時期については未確認と判定する。</p>
+<figure class="gh-figure">
+  <img src="/assets/helium-timeline-v1.png" alt="Heliumの材料が出てきた順番を示すタイムライン。11月19日の周期表ティーザー、11月18〜23日のTIER_HELIUM文字列、11月24日21時のgshotaの投稿" width="1560" height="660">
+  <figcaption>材料の時系列。ティーザーとコード内文字列は実在するが、どちらも発表日・価格・性能を含まない。</figcaption>
+</figure>
+
+<h2 id="compare">比較対象は実在するか</h2>
+<p>投稿が引き合いに出す2モデルは、どちらも実在する。</p>
+<h3>Claude Opus 5.5（確認済み）</h3>
+<p>Anthropic が2026年9月22日に発表した実在のモデルである。公式発表では、API価格は100万トークンあたり入力4ドル・出力20ドルとされている。システムカードも公開されている。</p>
+<h3>DeepSeek-V4.1-Flash（確認済み）</h3>
+<p>DeepSeek が2026年9月10日に正式提供を開始した実在のモデルである。公式発表では、552BパラメータのMoEで、入力時に8B、出力時に16Bのパラメータを活性化する新しいアーキテクチャとされている。API価格は低価格帯で、ピーク時・キャッシュミスの場合で100万トークンあたり入力0.30ドル・出力1.20ドル（公式APIドキュメントの価格表に基づく二次資料の確認）。投稿の表記「Deepseek 4.1 flash」は、この DeepSeek-V4.1-Flash を指すと読むのが自然である。</p>
+<h3>「並み」という主張（未確認）</h3>
+<p>比較対象が実在しても、Helium 側の価格とベンチマークが公表されていない以上、「コストが並み」「能力が並み」は照合できない。Helium の価格情報は公式・非公式のいずれにも存在せず、性能を示すベンチマークやモデルカードもない。さらに、追跡メディアの位置づけ推測は「最廉価の Flash-Lite 級」で、フラッグシップ級の Opus 5.5 と同等の能力という主張とは方向が異なる。ただし位置づけ推測も公式情報ではないため、能力の主張は「否定できる」ではなく「未確認」とする。</p>
+<figure class="gh-figure">
+  <img src="/assets/helium-prices-v1.png" alt="Claude Opus 5.5の公式価格（入力4ドル、出力20ドル）とDeepSeek-V4.1-Flashの価格（入力0.30ドル、出力1.20ドル）の棒グラフと、価格情報のないGemini 4 Heliumの比較図" width="1560" height="700">
+  <figcaption>比較対象2モデルの価格は公表されているが、Helium には比較の土台になる価格情報がない（100万トークンあたり）。</figcaption>
+</figure>
+
+<h2 id="image">添付画像について</h2>
+<p>投稿に添付された画像は、Gemini の星型ロゴと「Gemini 4 Helium」の文字を、淡い波形の背景に置いたロゴ風グラフィックである。この画像について確認できたのは次の範囲である。</p>
+<ul>
+  <li>Google の公式チャンネル（公式ブログ、DeepMind 公式ブログ、公式Xアカウント）がこの画像を発表したという記録は確認できなかった。</li>
+  <li>画像ファイルに撮影・生成の出所を示すメタデータは残っていない。ただしXへ投稿された画像はメタデータが除去されるため、これは出所を否定する材料にもならない。</li>
+  <li>同時期に拡散した同種の「Gemini Helium」バナーには、フッターに「Unofficial concept · Release details unconfirmed（非公式コンセプト・発売詳細は未確認）」と明記されたものがあったと検証報道が伝えている。対象投稿の画像にその明記はない。</li>
+</ul>
+<p>以上から、この画像が Google 公式の発表画像であるとは確認できない。判定は未確認とする。</p>
+
+<h2 id="conclusion">結論</h2>
+<p>要素ごとの判定は次のとおりである。2026年11月25日時点の確認に基づく。</p>
+<table class="gh-table">
+  <tr><th>要素</th><th>判定</th><th>根拠</th></tr>
+  <tr><td>Gemini Helium がすでに発表・提供されている</td><td>否定できる</td><td>Google 公式のモデル一覧・APIカタログ・DeepMind 公式ブログに掲載がない（2026年11月25日確認）</td></tr>
+  <tr><td>来週（2026年11月30日からの週）に発表される</td><td>未確認</td><td>公式の予告はない。材料のティーザーとコード内文字列は発表日を示していない</td></tr>
+  <tr><td>コストは DeepSeek 4.1 Flash 並み</td><td>未確認</td><td>Helium の価格情報が存在しないため照合できない</td></tr>
+  <tr><td>能力は Opus 5.5 並み</td><td>未確認</td><td>Helium のベンチマークやモデルカードが存在しない</td></tr>
+  <tr><td>Claude Opus 5.5 は実在する</td><td>確認済み</td><td>Anthropic 公式発表（2026年9月22日）とシステムカード</td></tr>
+  <tr><td>DeepSeek-V4.1-Flash は実在する</td><td>確認済み</td><td>DeepSeek 公式発表（2026年9月10日に正式提供開始）</td></tr>
+  <tr><td>添付画像は Google 公式の発表画像である</td><td>未確認</td><td>公式チャンネルでの発表が確認できず、出所を示す情報もない</td></tr>
+</table>
+<p>まとめると、この投稿は「実在する2モデル」と「名前の材料だけは実在する未発表モデル」を組み合わせ、価格と能力に具体的な裏付けのない主張である。来週に何らかの発表があった場合は、その時点で公式のモデルID・価格・モデルカードが出るかで判定が変わる。</p>
+
+<h2 id="terms">用語補足</h2>
+<dl>
+  <dt>ティーザー</dt>
+  <dd>製品の詳細を明かさずに存在だけを示す予告のこと。この記事では、2026年11月19日に DeepMind のスタッフが投稿した周期表のアニメーションを指す。</dd>
+  <dt>Flash-Lite 級</dt>
+  <dd>Gemini の世代内で最も安く高速な位置づけのモデル区分を指す言い方。Helium については追跡メディアの推測であり、Google の公式な位置づけではない。</dd>
+</dl>
+
+<h2 id="sources">資料と出典</h2>
+<ul>
+  <li>対象の投稿：<a href="https://x.com/gshota666/status/2125197762027282795">gshota（@gshota666）のX投稿</a>（2026年11月24日21時、日本時間）</li>
+  <li>Google 公式：<a href="https://ai.google.dev/gemini-api/docs/models">Gemini API モデル一覧</a>（2026年11月25日に確認。Gemini 4 は Carbon、Neon、Hydrogen、Argon の4モデル）</li>
+  <li>Google DeepMind 公式：<a href="https://deepmind.google/blog/">DeepMind ブログ新着一覧</a>（Helium の発表記事なし）</li>
+  <li>Anthropic 公式：<a href="https://www.anthropic.com/claude-opus-5-5?url=https%3A%2F%2Fwww.anthropic.com%2Fclaude-opus-5-5&s=builders&d=2026-09-23&t=Claude+Opus+5.5">Claude Opus 5.5 の発表</a>と<a href="https://www-cdn.anthropic.com/fc1b44717c85dc068bc6ba5024219938094694bd/Claude%20Opus%205.5%20System%20Card.pdf">システムカード</a>（2026年9月22日）</li>
+  <li>DeepSeek 公式：<a href="https://www.deepseek.com/en/news/deepseek-v4-1-flash/?ref=runtimewire">DeepSeek-V4.1-Flash の発表</a>（2026年9月10日）</li>
+  <li>価格の二次確認：<a href="https://apidog.com/blog/what-is-deepseek-v4-1-flash/">Apidog「What Is DeepSeek-V4.1-Flash?」</a>（公式APIドキュメントの価格表に基づく整理）</li>
+  <li>検証報道：<a href="https://digintoai.com/en/articles/did-gemini-4-helium-suddenly-launch-fact-checking-gemini-web-s-tier-helium-strin-24f07ad6174c">DigIntoAI「Did Gemini 4 Helium Suddenly Launch?」</a>（2026年11月23日。ティーザーと TIER_HELIUM 文字列の検証）</li>
+  <li>検証報道：<a href="https://promptblueprints.tech/leaks/gemini-helium-tier/">PromptBlueprints「Gemini Helium Tier Spotted in Gemini Web Code」</a></li>
+  <li>検証報道：<a href="https://www.orcarouter.ai/blog/gemini-4-release-date">OrcaRouter「Gemini 4 Release Date: Helium Next」</a>（2026年11月24日時点の公式参照の確認）</li>
+</ul>
+
+</div>
+<script type="module" src="/assets/site.js"></script>
+</body>
+</html>
