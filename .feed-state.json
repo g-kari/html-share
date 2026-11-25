@@ -226,6 +226,11 @@
       "published": "2026-11-24T00:59:54.000Z",
       "updated": "2026-11-24T00:59:54.000Z"
     },
+    "emergency-maintenance-2026-11.html": {
+      "fingerprint": "479775d93d421bb6bc35c537a57d0eb866172241565b25c8d5631be43e4cb962",
+      "published": "2026-11-25T00:55:12.000Z",
+      "updated": "2026-11-25T00:55:12.000Z"
+    },
     "emudhra-browser-check.html": {
       "fingerprint": "0c3c395b7da515991164968b292c2785672fe25ed70638cc8ab8526489926d0e",
       "published": "2026-10-22T07:45:50.000Z",
@@ -247,9 +252,9 @@
       "updated": "2026-11-19T17:36:57.000Z"
     },
     "glossary.html": {
-      "fingerprint": "93a38319834b815283d8fcc8b87fd36b6649fef7e24d39e93f4c05464bfb5bc5",
+      "fingerprint": "153ff40e1f617e21bd802f77617045a874ee18a37c2c0ab2df78084350cae9f6",
       "published": "2026-11-24T01:37:31.000Z",
-      "updated": "2026-11-24T23:32:53.000Z"
+      "updated": "2026-11-24T23:46:08.000Z"
     },
     "go-code-verification.html": {
       "fingerprint": "add16dcf6c555dc85cb859063495bf903ab5151b47f9de01db2dbaede2cc0162",
