@@ -257,9 +257,9 @@
       "updated": "2026-11-19T17:36:57.000Z"
     },
     "glossary.html": {
-      "fingerprint": "65821c942768eab5dca7d0958fa5887fde2100c7df0710c0bd61e0cf03998573",
+      "fingerprint": "ba610a603b3966abae95e9b2f3b8f270d49597a077c96d2faf2b3360b4c8e819",
       "published": "2026-11-24T01:37:31.000Z",
-      "updated": "2026-11-25T00:59:18.000Z"
+      "updated": "2026-11-25T01:08:33.000Z"
     },
     "go-code-verification.html": {
       "fingerprint": "add16dcf6c555dc85cb859063495bf903ab5151b47f9de01db2dbaede2cc0162",
@@ -310,6 +310,11 @@
       "fingerprint": "c1492dac3e5a5a43600d8da5a7f1aa259eea77ac3393224c9a8dd190ee928566",
       "published": "2026-11-19T15:12:40.000Z",
       "updated": "2026-11-19T15:12:40.000Z"
+    },
+    "mcp-skills-tasks.html": {
+      "fingerprint": "e6442e991377cc3e79efea70b56e0578537cce339d76f438bc443721eecdd1cb",
+      "published": "2026-11-25T01:07:47.000Z",
+      "updated": "2026-11-25T01:07:47.000Z"
     },
     "microsoft-ai-video-recreation.html": {
       "fingerprint": "1e75441f32d2ea2fbed61d56a91e19a93fd5cb3815977c70d66f7f6d919b30ce",

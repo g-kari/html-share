@@ -43,14 +43,14 @@ table.cmp th,table.cmp td{border:1px solid var(--line);padding:.45rem .7rem;text
 <header class="top">
 <div class="kicker">MCPとエージェント基盤</div>
 <h1>Skills over MCPとTasks：MCP 2周年でサーバーが手順と長時間の仕事を持てるようになった</h1>
-<p class="meta">確認日：2026年11月25日<br>一次資料はAnthropicの公式記事（Claude公式サイト、2026-11-24公開）、MCP公式ドキュメントのSkills／Tasks拡張ページ、各拡張の仕様、Claude Code公式ドキュメントです。発端となったClaudeDevsのX投稿は出典に挙げますが、内容の根拠は公式資料で確認しました。</p>
+<p class="meta">確認日：2026年11月25日<br>一次資料はAnthropicの公式記事（Claude公式サイト、2026-11-24公開）、MCP公式ドキュメントのSkills／<a class="gloss" href="/glossary#term-mcp-tasks" title="MCPのツール呼び出しを非同期化する拡張。サーバーは最終結果の代わりにタスクIDと状態を返し、クライアントは状態を確認しながら結果を後から受け取る。">Tasks</a>拡張ページ、各拡張の仕様、Claude Code公式ドキュメントです。発端となったClaudeDevsのX投稿は出典に挙げますが、内容の根拠は公式資料で確認しました。</p>
 </header>
 
 <div class="summary3">
 <div class="ttl">要点</div>
 <ol>
-<li>MCPの2周年発表は4つの更新の組み合わせです。Skills over MCPはパブリックベータ、TasksとElicitation（処理の途中での入力要求）は正式提供（GA）、File Uploadsは提供開始が近日と、段階がそれぞれ違います。まとめて「全部正式提供」とは読めません。</li>
-<li>Skills over MCPでは、MCPサーバーがツールと一緒にスキル（手順書）を公開できます。ツール名と説明は「何ができるか」までしか伝えませんが、スキルは進め方そのものを渡します。Claudeはスキルを必要な時だけ読み込み、スキルはサーバーの更新に追従するので、利用者側に別のインストールは要りません。</li>
+<li>MCPの2周年発表は4つの更新の組み合わせです。<a class="gloss" href="/glossary#term-skills-over-mcp" title="MCPサーバーが、ツールと一緒にAgent Skills（仕事の手順書）を公開できるようにするMCPの拡張。クライアントはスキルを必要な時だけ読み込み、内容はサーバーの更新に追従する。">Skills over MCP</a>はパブリックベータ、Tasksと<a class="gloss" href="/glossary#term-elicitation" title="MCPサーバーが処理の途中で利用者へ入力や承認を求める仕組み。課金や削除のような確認が要る操作の前に、フォームやリンクで問い合わせてから処理を続ける。">Elicitation</a>（処理の途中での入力要求）は正式提供（GA）、File Uploadsは提供開始が近日と、段階がそれぞれ違います。まとめて「全部正式提供」とは読めません。</li>
+<li>Skills over MCPでは、MCPサーバーがツールと一緒に<a class="gloss" href="/glossary#term-agent-skills" title="エージェントに特定の仕事の手順や知識を与えるための公開標準。SKILL.mdを中心に、指示・スクリプト・参考資料を1つのフォルダ（スキル）にまとめる。">スキル</a>（手順書）を公開できます。ツール名と説明は「何ができるか」までしか伝えませんが、スキルは進め方そのものを渡します。Claudeはスキルを必要な時だけ読み込み、スキルはサーバーの更新に追従するので、利用者側に別のインストールは要りません。</li>
 <li>Tasksでは、サーバーがツール呼び出しへの最終結果の代わりにタスク（タスクIDと状態）を返せます。Claudeは完了を待たずに別の作業を進め、状態を確認しながら結果を後から受け取ります。対象は長時間の処理や、エージェントループごと任せる仕事です。</li>
 <li>どちらも開かれたMCP仕様と拡張の上の機能です。対応したサーバーはClaude以外の互換クライアントでも動くと公式記事は書いています。ただし、プランごとの提供範囲と未確認の日程が残ります（本文の「未確認の点」節）。</li>
 </ol>
@@ -121,7 +121,7 @@ table.cmp th,table.cmp td{border:1px solid var(--line);padding:.45rem .7rem;text
 
 <h2 id="tasks-spec">Tasksの状態と仕様</h2>
 <p>仕様側は、MCP公式ドキュメントのTasks拡張ページと拡張仕様で確認できます。拡張の識別子は <code>io.modelcontextprotocol/tasks</code> です。タスク化はサーバー主導で、クライアントがリクエストごとに拡張への対応を宣言し、その範囲でサーバーがリクエストごとにタスクにするかどうかを決めます。現行仕様でタスク化できるのは <code>tools/call</code> のみです。</p>
-<p>メソッドは3つです。<code>tasks/get</code> は状態の確認（ポーリング）で、終端状態では最終結果やエラーもここに載ります。<code>tasks/update</code> は、タスクが入力待ち（<code>input_required</code>）のときに、サーバーから来た要求への答えを返すために使います。<code>tasks/cancel</code> は取り消しの意思を伝えますが、協調的で、サーバーが必ず止める義務はありません。</p>
+<p>メソッドは3つです。<code>tasks/get</code> は状態の確認（<a class="gloss" href="/glossary#term-polling" title="複数の入出力先をまとめて監視し、読み書きできるようになったものを通知する仕組み。OSの epoll や kqueue を使うと、多数の接続を効率よく扱える。">ポーリング</a>）で、終端状態では最終結果やエラーもここに載ります。<code>tasks/update</code> は、タスクが入力待ち（<code>input_required</code>）のときに、サーバーから来た要求への答えを返すために使います。<code>tasks/cancel</code> は取り消しの意思を伝えますが、協調的で、サーバーが必ず止める義務はありません。</p>
 <p>状態は5つです。<code>working</code>（処理中）、<code>input_required</code>（入力待ち）、<code>completed</code>（完了。結果は <code>result</code>）、<code>failed</code>（失敗。JSON-RPCエラーは <code>error</code>）、<code>cancelled</code>（取り消し済み）。後ろの3つは終端で、到達後は状態が変わりません。タスクには有効期間（TTL）と推奨ポーリング間隔も付き、クライアントはタスクIDを保存しておけば、切断や再起動の後でも同じIDで続きを確認できます。状態の通知（<code>notifications/tasks</code>）もありますが任意で、既定はポーリングです。</p>
 <p>なお、Claude Codeの実装では <code>tasks/result</code> や <code>tasks/list</code> は使われず、結果は <code>tasks/get</code> の応答に載せる形だと公式ドキュメントに書かれています。仕様にある全メソッドが、そのまま各クライアントで使われるわけではありません。</p>
 <figure class="fig">

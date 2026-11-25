@@ -153,7 +153,7 @@ Invoke-WebRequest &quot;http://127.0.0.1:8082/readyz&quot; -UseBasicParsing</cod
 <p class="doc-link"><strong>ChatGPT Plugins<br></strong><a href="https://chatgpt.com/plugins">https://chatgpt.com/plugins</a></p>
 <p class="doc-p">今回のローカルMCPは追加OAuthを実装していない構成。認証選択が表示されたらNo Authenticationを使うが、公開HTTPサーバーの無認証公開はしない。runtime keyはPCとOpenAIのTunnel制御用で、ChatGPTのMCP認証欄へ貼るものではない。<a class="ref" href="#source-1">[1]</a><a class="ref" href="#source-2">[2]</a><a class="ref" href="#source-9">[9]</a></p>
 <h3>5-2. 既存のUnity/Blenderスキルと結び付ける</h3>
-<p class="doc-p">接続の作成とツール発見が通った後、登録済み接続のURLからplugin_asdk_app…形式の技術IDを取得する。スキル入りpluginを作成・更新するときは、実際に登録したそのIDを接続先として使用する。packageの.app.jsonとmanifestの参照が正しい接続へ向いていることを確認する。<a class="ref" href="#source-10">[10]</a></p>
+<p class="doc-p">接続の作成とツール発見が通った後、登録済み接続のURLからplugin_asdk_app…形式の技術IDを取得する。<a class="gloss" href="/glossary#term-agent-skills" title="エージェントに特定の仕事の手順や知識を与えるための公開標準。SKILL.mdを中心に、指示・スクリプト・参考資料を1つのフォルダ（スキル）にまとめる。">スキル</a>入りpluginを作成・更新するときは、実際に登録したそのIDを接続先として使用する。packageの.app.jsonとmanifestの参照が正しい接続へ向いていることを確認する。<a class="ref" href="#source-10">[10]</a></p>
 <p class="doc-p">GitHubにplugin packageがあること、スキルがインストール済みであること、Tunnelを作成したことは、それぞれ別段階。packageだけで認証・接続が完了した扱いにしない。必要なmappingが確認できるまで同じpackageを作り直し続けない。</p>
 <h3>5-3. 完了の判定</h3>
 <p class="doc-p">① 登録した各接続で実tools/listが取得できる<br>② Unityは現在のproject名・Unity版・開いているsceneを読み取れる<br>③ Blenderは現在のscene名・object一覧を読み取れる<br>④ dotの実際の会話から同じ接続のツールを呼び、PCの対象状態と一致する結果が返る<br>⑤ ここまで通ってから、バックアップした検証ファイルへ小さい編集を試す</p>
