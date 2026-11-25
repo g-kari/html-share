@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/vulnerabilities-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Wed, 11 Nov 2026 01:46:22 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 25 Nov 2026 23:19:34 GMT</lastBuildDate>
+    <item>
+      <title>KEV追加分のうち一次資料照合済みの2項目を追加</title>
+      <link>https://share.0g0.xyz/vulnerabilities</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/vulnerabilities-feed.xml#d96c2c22028f2a3064528a0d16f4b07c6b002068ebb9d80aadde807c204667a7</guid>
+      <description>KEV追加分のうち一次資料照合済みの2項目を追加。Synology DSM／BSMのCVE-2024-10441（2026-11-18 KEV追加、ランサムウェア利用は当初Unknownから2026-11-23改訂でKnown、KEV公式JSON本体の直接取得は未実施と明記）と、Drupal coreのinstaller系列2件（CVE-2026-132165／CVE-2026-136716を併記し、修正版はSA-CORE-2026-019の10.6.23／11.3.23／11.4.14へそろえ、update.php実行必須を明記）。残るKEV追加14件は一次資料照合が済んだものから順次反映する。</description>
+      <pubDate>Wed, 25 Nov 2026 23:19:34 GMT</pubDate>
+      <dcterms:created>2026-11-25T23:19:34.000Z</dcterms:created>
+    </item>
     <item>
       <title>11月9〜10日のKEV追加を反映</title>
       <link>https://share.0g0.xyz/vulnerabilities</link>
