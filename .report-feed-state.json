@@ -114,6 +114,7 @@
         "diffusers-local-model-import-trust-boundary": "833b934ed9b6a491508af9dbcae87f22985753202eeb22c20fecb0839ece4d5e",
         "dormakaba-evolo-service-system-rce": "2c2e3d72530737599b05463d3d00d7ea41d11d1733da732d4062e34a784a12fe",
         "dotnet-wpf-xaml-xps-rce-70035": "12e4b87faffbac64dc30957b1ff01c519b8cba1d1189bfa1e72f4c2a8758fdc6",
+        "drupal-core-installer-takeover-132165-136716": "9a31f95c524fe3b8d31e15df745647eef13b3c4a56dae3ef6f98d154d5aa7b77",
         "drupal-entity-list-contributed-module-rce": "b0f522096e2c406bd77b24cec106b8c8e76fbeccf612ff4faa9d67b86e0cbb85",
         "drupal-field-ui-contributed-module-rce": "b78b23df328df914a835662b5e94048b4a8bab07de533504f999c00a8da3c404",
         "drupal-gin-admin-theme-attributes-xss": "4e4df0137e37c4ac7f3f71a750f32d0d7f9ed79d21149ad5a5f184a07c18ff56",
@@ -342,6 +343,7 @@
         "struts-dmi-method-prefix-october-kev-followup": "549f8ec35b27ab155b656de232e5d55f87e10eac118dd238cc8840265c325421",
         "struts-legacy-restful-ognl-rce": "4cc4c5c50df6f279740f2a903e211346a68f0aee83be8d6daae3ef7fb1f45ea5",
         "sungrow-isolarcloud-hosted-authentication-bypass": "970605182144b9c454ec6e1d0cc6f093e6fc70efdde0b5f4998ec4e29467b6d4",
+        "synology-dsm-bsm-plugin-daemon-rce-10441": "8634faa346da8834d0e08bcee78cdf8f0a1fa1b2283816f38818bcb082b8c2a9",
         "teamcity-exploited-agent-polling-rce": "019c49f89f61595af4c714fa1132db69e399b4af80f72f31c41940082b3424a1",
         "teamcity-kotlin-dsl-sandbox-escape": "2f9c65288575b79e7f3114e123f2670efe0d7b0ab71f4c729a519c99bb1584bf",
         "teamviewer-session-recording-ipc-and-rollback-boundaries": "23a9db7b7bb4a1964082af670f494855fa0373bfa785d8f2adc9ce7f261f924c",
@@ -965,6 +967,15 @@
             "windows-search-ldap-network-rce-november-2026"
           ],
           "date": "2026-11-11"
+        },
+        {
+          "signature": "6fc79293b34c7b267f09473048aed8fbfa54dd1111f8b5324a230e5c92421530",
+          "summary": "KEV追加分のうち一次資料照合済みの2項目を追加。Synology DSM／BSMのCVE-2024-10441（2026-11-18 KEV追加、ランサムウェア利用は当初Unknownから2026-11-23改訂でKnown、KEV公式JSON本体の直接取得は未実施と明記）と、Drupal coreのinstaller系列2件（CVE-2026-132165／CVE-2026-136716を併記し、修正版はSA-CORE-2026-019の10.6.23／11.3.23／11.4.14へそろえ、update.php実行必須を明記）。残るKEV追加14件は一次資料照合が済んだものから順次反映する。",
+          "ids": [
+            "drupal-core-installer-takeover-132165-136716",
+            "synology-dsm-bsm-plugin-daemon-rce-10441"
+          ],
+          "date": "2026-11-26"
         }
       ],
       "items": [
@@ -1929,9 +1940,26 @@
           ],
           "published": "2026-11-11T01:46:22.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "d96c2c22028f2a3064528a0d16f4b07c6b002068ebb9d80aadde807c204667a7",
+          "summary": "KEV追加分のうち一次資料照合済みの2項目を追加。Synology DSM／BSMのCVE-2024-10441（2026-11-18 KEV追加、ランサムウェア利用は当初Unknownから2026-11-23改訂でKnown、KEV公式JSON本体の直接取得は未実施と明記）と、Drupal coreのinstaller系列2件（CVE-2026-132165／CVE-2026-136716を併記し、修正版はSA-CORE-2026-019の10.6.23／11.3.23／11.4.14へそろえ、update.php実行必須を明記）。残るKEV追加14件は一次資料照合が済んだものから順次反映する。",
+          "journal": [
+            {
+              "signature": "6fc79293b34c7b267f09473048aed8fbfa54dd1111f8b5324a230e5c92421530",
+              "summary": "KEV追加分のうち一次資料照合済みの2項目を追加。Synology DSM／BSMのCVE-2024-10441（2026-11-18 KEV追加、ランサムウェア利用は当初Unknownから2026-11-23改訂でKnown、KEV公式JSON本体の直接取得は未実施と明記）と、Drupal coreのinstaller系列2件（CVE-2026-132165／CVE-2026-136716を併記し、修正版はSA-CORE-2026-019の10.6.23／11.3.23／11.4.14へそろえ、update.php実行必須を明記）。残るKEV追加14件は一次資料照合が済んだものから順次反映する。",
+              "ids": [
+                "drupal-core-installer-takeover-132165-136716",
+                "synology-dsm-bsm-plugin-daemon-rce-10441"
+              ],
+              "date": "2026-11-26"
+            }
+          ],
+          "published": "2026-11-25T23:19:34.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "a9cc1cfff43a6d75d7fbbcedcb1dc5882f74da13"
+      "cursor": "c473eb5bc2c97e1108f218df863bca6d712a6048"
     },
     "security-incidents": {
       "records": {
