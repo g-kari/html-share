@@ -7,7 +7,25 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Wed, 25 Nov 2026 00:55:12 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 25 Nov 2026 01:00:11 GMT</lastBuildDate>
+    <item>
+      <title>CVE監視 第3号（2026年11月25日）：WordPress ページテンプレート解決でのファイル取り込み</title>
+      <link>https://share.0g0.xyz/cve-watch-2026-11-25</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/cve-watch-2026-11-25</guid>
+      <description>2026年11月24日から25日に確認したCVEのうち、関心技術に関わる High 以上で未掲載の1件、WordPress ページテンプレート解決でのファイル取り込み（CVE-2026-87902、CVSS 8.1、CISA KEV掲載）を、対象版・修正版・成立条件つきで整理した監視の第3号。</description>
+      <pubDate>Wed, 25 Nov 2026 01:00:11 GMT</pubDate>
+      <dcterms:created>2026-11-25T01:00:11.000Z</dcterms:created>
+      <dcterms:modified>2026-11-25T01:00:11.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>用語集：HTML Shareの記事に出てくる専門用語</title>
+      <link>https://share.0g0.xyz/glossary</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/glossary</guid>
+      <description>HTML Shareの記事に出てくる専門用語の短い説明の一覧です。記事本文では、辞書に登録された用語の初出が自動でこの用語集へリンクされます。</description>
+      <pubDate>Wed, 25 Nov 2026 00:59:18 GMT</pubDate>
+      <dcterms:created>2026-11-24T01:37:31.000Z</dcterms:created>
+      <dcterms:modified>2026-11-25T00:59:18.000Z</dcterms:modified>
+    </item>
     <item>
       <title>緊急メンテナンス続報まとめ（2026年11月25日時点）：継続中・一部復旧・復旧済み</title>
       <link>https://share.0g0.xyz/emergency-maintenance-2026-11</link>
@@ -16,15 +34,6 @@
       <pubDate>Wed, 25 Nov 2026 00:55:12 GMT</pubDate>
       <dcterms:created>2026-11-25T00:55:12.000Z</dcterms:created>
       <dcterms:modified>2026-11-25T00:55:12.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>用語集：HTML Shareの記事に出てくる専門用語</title>
-      <link>https://share.0g0.xyz/glossary</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/glossary</guid>
-      <description>HTML Shareの記事に出てくる専門用語の短い説明の一覧です。記事本文では、辞書に登録された用語の初出が自動でこの用語集へリンクされます。</description>
-      <pubDate>Tue, 24 Nov 2026 23:46:08 GMT</pubDate>
-      <dcterms:created>2026-11-24T01:37:31.000Z</dcterms:created>
-      <dcterms:modified>2026-11-24T23:46:08.000Z</dcterms:modified>
     </item>
     <item>
       <title>Notionにワークスペース容量上限：フリーは512MB、プラン別の上限と確認方法</title>
