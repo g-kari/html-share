@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WizとOpenAI Codexの連携：クラウドの文脈を持ったままコード修正まで進める仕組み</title>
+<meta name="description" content="Wizが2026-11-24に発表したOpenAI Codexとの連携（Wiz plugin for Codex）を、Wiz公式ブログとOpenAIのDaybreak Defense Factory公式ページで確認します。連携の仕組み、文脈として渡る情報、提供範囲と未確認の点を分けます。">
+<link rel="canonical" href="https://share.0g0.xyz/wiz-codex-integration">
+<link rel="stylesheet" href="/assets/site.css">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="WizとOpenAI Codexの連携：クラウドの文脈を持ったままコード修正まで進める仕組み">
+<meta property="og:description" content="Wiz Security Graphのクラウド文脈をCodexへ渡し、根元のコード修正とPRの下書きまでつなぐ連携。仕組みと未確認の点を公式資料で確認します。">
+<meta property="og:url" content="https://share.0g0.xyz/wiz-codex-integration">
+<meta property="og:image" content="https://share.0g0.xyz/assets/wiz-codex-ogp-v1.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="WizとOpenAI Codexの連携、クラウド文脈を修復エージェントへ">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://share.0g0.xyz/assets/wiz-codex-ogp-v1.png">
+<meta name="twitter:image:alt" content="WizとOpenAI Codexの連携、クラウド文脈を修復エージェントへ">
+<style>
+:root{--accent:#1f5e8f;--accent-dark:#8fc3ec}
+.fig{margin:1.25rem 0;max-inline-size:46rem}
+.fig img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:0}
+.fig figcaption{font-size:.9rem;margin-top:.55rem}
+table.cmp{border-collapse:collapse;margin:1rem 0;width:100%}
+table.cmp th,table.cmp td{border:1px solid var(--line);padding:.45rem .7rem;text-align:left;vertical-align:top}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="sitebar" aria-label="サイト内"><a class="brand" href="/">HTML Share</a><nav><a href="/">一覧</a><a href="/feed.xml">RSS</a></nav></nav>
+<header class="top">
+<div class="kicker">クラウドセキュリティとコーディングエージェント</div>
+<h1>WizとOpenAI Codexの連携：クラウドの文脈を持ったままコード修正まで進める仕組み</h1>
+<p class="meta">確認日：2026年11月25日<br>一次資料はWiz公式ブログ「Wiz &amp; OpenAI Bring Cloud Context into Agentic Remediation」（2026-11-24公開）と、OpenAIのDaybreak Defense Factory公式ページです。Wizのプラグイン解説ドキュメントはログインが必要で本文を確認できなかったため、導入手順の詳細は未確認として分けています。</p>
+</header>
+
+<div class="summary3">
+<div class="ttl">要点</div>
+<ol>
+<li>WizがOpenAIのDaybreak Defense Factoryとの連携を発表しました。受け渡しの中心は新しく出た「Wiz plugin for Codex」で、Wizの検出結果とWiz Security Graphのクラウド文脈を、そのままCodexへ届けます。新しい検出機能の発表ではなく、検出結果をコード修正までつなぐ使い方の更新です。</li>
+<li>Codexは文脈を受けて、根元のコード、Dockerfile、IaC（Infrastructure as Code）の定義を調べ、脆弱性の再現、対象を絞った修正、プルリクエストの下書きまで用意します。検出結果をCodex Securityへ引き渡して、検証と切り分け（トリアージ）に回す経路もあります。</li>
+<li>最終判断は人の側に残ります。OpenAIの公式ページも、提案されたパッチはマージ前に開発者がレビューとテストをする前提で書かれています。自動でマージされる流れは、どちらの公式資料にも書かれていません。</li>
+<li>料金、提供開始時期、対象プランは、Wiz公式ブログにもOpenAIの公式ページにも書かれていません。この記事では未確認として分けています（本文の「未確認の点」節）。</li>
+</ol>
+</div>
+
+<nav class="toc">
+<div class="ttl">目次</div>
+<ol>
+<li><a href="#overview">発表の全体像</a></li>
+<li><a href="#layers">レイヤー図：どの層が何を持つか</a></li>
+<li><a href="#flow">挙動図：検出結果からPRの下書きまで</a></li>
+<li><a href="#context">なぜクラウド文脈が要るのか</a></li>
+<li><a href="#defense-factory">土台のDaybreak Defense Factory</a></li>
+<li><a href="#php2shell">協働の実例：PHP2Shellへの対応</a></li>
+<li><a href="#limits">未確認の点</a></li>
+<li><a href="#sources">資料と出典</a></li>
+</ol>
+</nav>
+
+<h2 id="overview">発表の全体像</h2>
+<p>2026年11月24日、Wizは公式ブログで、OpenAIのDaybreak Defense Factoryとの連携を発表しました。Defense Factoryは、自律エージェントが脆弱性を発見し、検証し、修復する仕組みとしてOpenAIが打ち出している取り組みです。ただしコードは単独では存在しません。修復を正しく進めるには、そのワークロードがインターネットへ公開されているか、機密データへ到達できるか、高い権限と結び付いているか、といったクラウド側の文脈が要る、というのが発表の出発点です。</p>
+<p>Wizが持ち込むのは、このクラウド文脈です。Wiz Security Graphが持つ実際のクラウド環境の情報を、Codexへ直接届けます。両社の狙いは、複雑なクラウドリスクを発生源のコードまでたどり、対象を絞ったプルリクエストの下書きを用意するところまでをエージェントに任せつつ、統制はセキュリティチームと開発チームの側に残すことです。</p>
+<p>連携の部品は3つです。Wiz plugin for Codexが受け渡しの入口になり、CodexはWiz MCPサーバー経由でリポジトリの検出結果と文脈を取りに行きます。もう1つの経路として、検出結果をクラウド文脈とコード所有者つきでCodex Securityへ引き渡し、検証と切り分けに使うこともできます。</p>
+<figure class="fig">
+<img src="/assets/wiz-codex-overview-v1.png" alt="発表の全体像。Wiz plugin for Codex、Wiz MCPサーバー、Codex Securityへの引き渡しの3部品と、土台のDaybreak Defense Factory、実例のPHP2Shell。料金・提供開始時期・対象プランは公式ブログに記載なし">
+<figcaption>図：発表の全体像。検出の文脈（Wiz）と修正の実行（Codex）をつなぐ連携で、新しい検出機能ではない。</figcaption>
+</figure>
+
+<h2 id="layers">レイヤー図：どの層が何を持つか</h2>
+<p>役割分担を層で分けると、上が文脈、下が実行と判断です。Wiz Security Graphは、クラウドの公開状態、IDと権限、機密データといった情報を、相互の関係として保持します。検出結果だけでは分からない「攻撃者から何へ到達できるか」は、この層が持ちます。</p>
+<p>受け渡しの層は、Wiz plugin for CodexとWiz MCPサーバーです。リポジトリにひも付く検出結果と、その背後にあるクラウド文脈をCodexへ届けます。調査と修正の層はCodexで、根元のコードをたどり、再現と修正案、プルリクエストの下書きを用意します。いちばん下の判断の層は人です。修正案をレビューし、取り込むかどうかを決めるのは、セキュリティチームと開発チームのままです。</p>
+<figure class="fig">
+<img src="/assets/wiz-codex-layer-v1.png" alt="レイヤー図。Wiz Security Graph（文脈の層）、Wiz plugin for CodexとWiz MCPサーバー（受け渡しの層）、Codex（調査と修正の層）、セキュリティ／開発チーム（判断の層）の4層">
+<figcaption>図：レイヤー図。検出と文脈はWiz側、コードの調査と修正案はCodex側、判断は人の側に残る。</figcaption>
+</figure>
+
+<h2 id="flow">挙動図：検出結果からPRの下書きまで</h2>
+<p>使い方の入口は自然言語です。開発者は「このリポジトリで重要なWizの検出結果を直して」のように頼みます。CodexはWiz MCPサーバー経由で、そのリポジトリの検出結果、そのコードがクラウドへ何を配備しているか、各リスクの背後にある文脈を引きます。</p>
+<p>そのうえでCodexは、根元のコードを調査します。検出結果と、インターネットへの公開状態、クラウドのID、実効権限、機密データを突き合わせ、どのリスクが本当に重要かを見ます。公式ブログが挙げる効きどころは3つです。リスクを発生源（コード、Dockerfileの命令、IaCの定義）までたどれること、攻撃経路まで含めて全体像を把握できること、再現と対象を絞った修正とプルリクエストの準備まで進められることです。</p>
+<p>分岐として、検出結果をCodex Securityへ引き渡す経路もあります。リポジトリの検出結果にクラウド文脈とコード所有者を付けて渡し、検証と切り分け（トリアージ）に使います。修正へ直行する前に、指摘が本物かどうかを確認する使い方です。</p>
+<figure class="fig">
+<img src="/assets/wiz-codex-flow-v1.png" alt="挙動図。自然言語での依頼、Wiz MCPサーバー経由の取得、根元コードの調査、修正案とPRの下書き、開発者のレビューの5段階。分岐としてCodex Securityへの引き渡し">
+<figcaption>図：挙動図。検出結果からPRの下書きまで進むが、最後は人のレビューが前提。</figcaption>
+</figure>
+
+<h2 id="context">なぜクラウド文脈が要るのか</h2>
+<p>発表の前提は、孤立した脆弱性や設定ミスの指摘だけでは全体像が分からない、という点です。同じ深刻度の指摘でも、インターネットへ公開されていて機密データへ到達できるものと、内部に閉じていて到達経路がないものとでは、直す順番が変わります。</p>
+<p>有効な修正には、何が公開されているか、リスク同士がどうつながっているか、攻撃者が何へ到達できるか、問題がどこで生まれたか、の4点が要ります。WizがCodexへ渡すのはこの情報で、Codexはそれを使って「なぜこの検出結果が重要か」と「どう直すか」の両方を扱います。断片的なアラートと手作業の調査から、文脈に基づく修復へ移す、というのが両社の説明です。</p>
+<figure class="fig">
+<img src="/assets/wiz-codex-context-v1.png" alt="検出結果だけの場合と、クラウド文脈つきの場合の比較。文脈つきでは公開状態、機密データへの到達可能性、高い権限との結び付き、根元のコードの場所が分かる">
+<figcaption>図：検出結果だけでは優先度が付けにくい。公開状態と到達可能性がそろって初めて、重要なものから直せる。</figcaption>
+</figure>
+
+<h2 id="defense-factory">土台のDaybreak Defense Factory</h2>
+<p>この連携の土台は、OpenAIのDaybreak Defense Factoryです。OpenAIの公式ページでは、エージェントが脆弱性をコードの中でたどり、パッチを用意し、開発者は提案されたパッチをマージ前にレビューとテストをする、と説明されています。既存のセキュリティツールの検出結果とDaybreak Red Teamの結果を持ち込めること、Codexと直接やり取りしながら証拠の確認やパッチの調整ができること、新しいコミットのスキャンや定期チェックで継続的に回せることも、公式ページに書かれています。</p>
+<p>Wizの連携は、この「既存ツールの検出結果を持ち込む」口の1つとして位置付けられます。違いは、検出結果に加えてWiz Security Graphのクラウド文脈まで一緒に渡る点です。WizはOpenAIのDaybreak Defense Networkのパートナーでもあり、今回の連携はその協働の一部として発表されています。Wizはこの形を、エージェント型修復（agentic remediation）を実用的で安全な、文脈に基づく進め方にするものと説明しています。</p>
+<table class="cmp">
+<tr><th>項目</th><th>公式資料で確認できる内容</th></tr>
+<tr><td>連携の中心</td><td>Wiz plugin for Codex。Wizの検出結果とSecurity Graphの文脈をCodexへ届ける</td></tr>
+<tr><td>取得の経路</td><td>Wiz MCPサーバー経由で、リポジトリの検出結果と配備先の文脈をCodexが引く</td></tr>
+<tr><td>Codex側の作業</td><td>根元コードの調査、脆弱性の再現、対象を絞った修正、プルリクエストの下書き</td></tr>
+<tr><td>もう1つの経路</td><td>検出結果をクラウド文脈とコード所有者つきでCodex Securityへ引き渡し、検証と切り分けに使う</td></tr>
+<tr><td>人の役割</td><td>提案されたパッチはマージ前に開発者がレビューとテストをする。統制はチーム側に残る</td></tr>
+<tr><td>料金・提供時期・対象プラン</td><td>Wiz公式ブログ、OpenAI公式ページのどちらにも記載なし（未確認）</td></tr>
+</table>
+
+<h2 id="php2shell">協働の実例：PHP2Shellへの対応</h2>
+<p>Wizは、この連携の土台にある協働の実例として、重大なPHP脆弱性（PHP2Shellと呼ばれるもの）への対応を紹介しています。枠組みはDaybreak Defense Networkと、その調整された取り組みであるPatch the Planetです。</p>
+<p>流れは3段です。発見では、Wizが脆弱性を独自に発見して責任ある報告を行い、サイバーセキュリティコンサルティングのCalifがPatch the Planetを通じてOpenAIのモデルを使い、重大な欠陥を特定しました。修復では、PHPの保守者が上流の修正リリースを主導し、OpenAI、Wiz、パートナーが公開前のパッチ検証と調整を支援しました。結果として、上流パッチ、提供元側の緩和策、Wizによる脆弱性検出・悪用の監視・脅威ハンティングの案内を含む、顧客への即時の保護が出ています。</p>
+<p>Defense Factoryは、この協働の形を大きな脆弱性対応から日常のセキュリティ運用へ広げるものだ、とWizは位置付けています。共有された情報と文脈をもとに、レビュー済みの修正へつなげる流れを、日々のリポジトリでも回す狙いです。</p>
+<figure class="fig">
+<img src="/assets/wiz-codex-php2shell-v1.png" alt="PHP2Shellへの対応の3段。協働での発見、保守者主導の修復、コミュニティ全体の保護。Defense Factoryはこの形を日常運用へ広げる位置付け">
+<figcaption>図：協働の実例。発見、修復、保護の分担が、連携の土台として紹介されている。</figcaption>
+</figure>
+<p>関連：PHP2Shellそのものの修正状況は<a href="/php2shell-patch-status">PHP2Shellのパッチ配布状況</a>にまとめています。</p>
+
+<h2 id="limits">未確認の点</h2>
+<p>公式資料で確認できなかった点は、次のとおりです。この記事では、公式に書かれた範囲を超えて書いていません。</p>
+<ul>
+<li>料金：連携やWiz plugin for Codexに追加料金がかかるかは、Wiz公式ブログにもOpenAIの公式ページにも書かれていません。</li>
+<li>提供開始時期：いつから使えるか、段階的な展開があるかは、公式資料に示されていません。</li>
+<li>対象プラン：Wiz側とOpenAI側のそれぞれで、どの契約・プランが対象かは示されていません。</li>
+<li>導入手順の詳細：Wiz公式ブログが案内するプラグインのドキュメント（docs.wiz.io）はログインが必要で、今回の確認では本文を読めませんでした。接続手順や必要な権限の詳細は未確認です。</li>
+<li>自動化の範囲：プルリクエストの自動マージや修正の自動適用までは、公式資料に書かれていません。確認できるのは、修正案とPRの下書きを用意し、人がレビューする流れまでです。</li>
+<li>Defense Factory自体の提供段階：二次報道では研究プレビューや早期アクセスとされる場合がありますが、OpenAIの公式ページ（今回確認した範囲）には段階の明記がなかったため、この記事では断定していません。</li>
+</ul>
+<figure class="fig">
+<img src="/assets/wiz-codex-limits-v1.png" alt="未確認の点の一覧。料金、提供開始時期、対象プラン、導入手順の詳細、自動化の範囲">
+<figcaption>図：未確認として残る点。条件面は公式の続報待ち。</figcaption>
+</figure>
+
+<h2 id="sources">資料と出典</h2>
+<ul>
+<li>Wiz公式ブログ「Wiz &amp; OpenAI Bring Cloud Context into Agentic Remediation」（2026-11-24）https://www.wiz.io/blog/wiz-openai-codex-integration ― 連携の発表、Wiz plugin for Codex、Wiz MCPサーバー経由の取得、Codex Securityへの引き渡し、PHP2Shellの協働事例。</li>
+<li>OpenAI公式ページ「Daybreak Defense Factory」https://openai.com/daybreak/defense-factory/ ― エージェントが脆弱性をたどってパッチを用意すること、既存ツールとRed Teamの検出結果を持ち込めること、マージ前に開発者がレビューとテストをすること、コミットのスキャンと定期チェック。</li>
+<li>Wizのドキュメント「Wiz plugin for Codex」（docs.wiz.io）― 公式ブログからの案内先。ログインが必要で本文は未確認のため、内容の根拠には使っていません。</li>
+</ul>
+<p>関連：<a href="/php2shell-patch-status">PHP2Shellのパッチ配布状況</a>（PHP2Shellの修正と配布の追跡）、<a href="/mcp-skills-tasks">Skills over MCPとTasks</a>（エージェントがサーバーから文脈と手順を受け取る、別の形の連携）。</p>
+
+</div>
+<script type="module" src="/assets/site.js"></script>
+</body>
+</html>
