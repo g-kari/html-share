@@ -149,7 +149,7 @@ const html = `<!doctype html>
     @keyframes hs-rise { from { opacity: 0; transform: translateY(10px); } }
     .card {
       border: 1px solid var(--border);
-      border-radius: 16px;
+      border-radius: var(--radius);
       background: var(--panel);
       transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
       animation: hs-rise .45s ease backwards;
@@ -174,7 +174,7 @@ const html = `<!doctype html>
     .card p { margin: 0 0 12px; color: var(--sub); }
     code { color: var(--accent); }
     .empty { color: var(--sub); }
-    .site-guide { margin: 20px 0; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+    .site-guide { margin: 20px 0; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
     .site-guide details { border: 0; border-radius: 0; padding: 0; margin: 0; }
     .site-guide details[open] > summary { margin-bottom: 0; }
     .guide-item + .guide-item { border-top: 1px solid var(--border); }
@@ -193,14 +193,14 @@ const html = `<!doctype html>
     .search label { display: block; font-weight: 650; margin-bottom: 8px; }
     .search-controls { display: flex; flex-wrap: wrap; gap: 8px; }
     .search input { flex: 1 1 260px; min-width: 0; width: 100%; }
-    .search input, button { border: 1px solid var(--border); border-radius: 10px; background: var(--panel); color: var(--text); font: inherit; padding: 10px 14px; min-height: 44px; }
+    .search input, button { border: 1px solid var(--border); border-radius: var(--radius); background: var(--panel); color: var(--text); font: inherit; padding: 10px 14px; min-height: 44px; }
     button { cursor: pointer; }
     .search-help, .search-status { color: var(--sub); font-size: .95rem; margin: 8px 0 0; }
     .search-status { min-height: 1.65em; }
     :focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
     .card h2, .card p, .result-route { overflow-wrap: anywhere; }
     .result-route { color: var(--accent); font-size: .9rem; }
-    mark { background: #ffdb83; color: #1a1720; border-radius: 2px; }
+    mark { background: var(--accent); color: #fff; border-radius: 2px; }
     #search-more { margin-top: 16px; }
     @media (max-width: 480px) { main { padding-top: 28px; } .card a { padding: 16px; } }
     @media (prefers-reduced-motion: reduce) { .card { transition: none; } .card:hover { transform: none; } }
