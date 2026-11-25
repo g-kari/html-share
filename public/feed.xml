@@ -7,15 +7,24 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Wed, 25 Nov 2026 01:08:33 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 25 Nov 2026 12:38:43 GMT</lastBuildDate>
+    <item>
+      <title>WizとOpenAI Codexの連携：クラウドの文脈を持ったままコード修正まで進める仕組み</title>
+      <link>https://share.0g0.xyz/wiz-codex-integration</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/wiz-codex-integration</guid>
+      <description>Wizが2026-11-24に発表したOpenAI Codexとの連携（Wiz plugin for Codex）を、Wiz公式ブログとOpenAIのDaybreak Defense Factory公式ページで確認します。連携の仕組み、文脈として渡る情報、提供範囲と未確認の点を分けます。</description>
+      <pubDate>Wed, 25 Nov 2026 12:38:43 GMT</pubDate>
+      <dcterms:created>2026-11-25T12:38:43.000Z</dcterms:created>
+      <dcterms:modified>2026-11-25T12:38:43.000Z</dcterms:modified>
+    </item>
     <item>
       <title>用語集：HTML Shareの記事に出てくる専門用語</title>
       <link>https://share.0g0.xyz/glossary</link>
       <guid isPermaLink="true">https://share.0g0.xyz/glossary</guid>
       <description>HTML Shareの記事に出てくる専門用語の短い説明の一覧です。記事本文では、辞書に登録された用語の初出が自動でこの用語集へリンクされます。</description>
-      <pubDate>Wed, 25 Nov 2026 01:08:33 GMT</pubDate>
+      <pubDate>Wed, 25 Nov 2026 01:14:03 GMT</pubDate>
       <dcterms:created>2026-11-24T01:37:31.000Z</dcterms:created>
-      <dcterms:modified>2026-11-25T01:08:33.000Z</dcterms:modified>
+      <dcterms:modified>2026-11-25T01:14:03.000Z</dcterms:modified>
     </item>
     <item>
       <title>Skills over MCPとTasks：MCP 2周年でサーバーが手順と長時間の仕事を持てるようになった</title>
