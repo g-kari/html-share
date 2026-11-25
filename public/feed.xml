@@ -7,7 +7,25 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Wed, 25 Nov 2026 01:00:11 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 25 Nov 2026 01:08:33 GMT</lastBuildDate>
+    <item>
+      <title>用語集：HTML Shareの記事に出てくる専門用語</title>
+      <link>https://share.0g0.xyz/glossary</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/glossary</guid>
+      <description>HTML Shareの記事に出てくる専門用語の短い説明の一覧です。記事本文では、辞書に登録された用語の初出が自動でこの用語集へリンクされます。</description>
+      <pubDate>Wed, 25 Nov 2026 01:08:33 GMT</pubDate>
+      <dcterms:created>2026-11-24T01:37:31.000Z</dcterms:created>
+      <dcterms:modified>2026-11-25T01:08:33.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>Skills over MCPとTasks：MCP 2周年でサーバーが手順と長時間の仕事を持てるようになった</title>
+      <link>https://share.0g0.xyz/mcp-skills-tasks</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/mcp-skills-tasks</guid>
+      <description>AnthropicがMCP 2周年（2026-11-24）に発表したSkills over MCP（パブリックベータ）とTasks（正式提供）を、公式記事・MCP公式ドキュメント・拡張仕様・Claude Code公式ドキュメントで確認します。仕組み、提供範囲、未確認の点を分けます。</description>
+      <pubDate>Wed, 25 Nov 2026 01:07:47 GMT</pubDate>
+      <dcterms:created>2026-11-25T01:07:47.000Z</dcterms:created>
+      <dcterms:modified>2026-11-25T01:07:47.000Z</dcterms:modified>
+    </item>
     <item>
       <title>CVE監視 第3号（2026年11月25日）：WordPress ページテンプレート解決でのファイル取り込み</title>
       <link>https://share.0g0.xyz/cve-watch-2026-11-25</link>
@@ -16,15 +34,6 @@
       <pubDate>Wed, 25 Nov 2026 01:00:11 GMT</pubDate>
       <dcterms:created>2026-11-25T01:00:11.000Z</dcterms:created>
       <dcterms:modified>2026-11-25T01:00:11.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>用語集：HTML Shareの記事に出てくる専門用語</title>
-      <link>https://share.0g0.xyz/glossary</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/glossary</guid>
-      <description>HTML Shareの記事に出てくる専門用語の短い説明の一覧です。記事本文では、辞書に登録された用語の初出が自動でこの用語集へリンクされます。</description>
-      <pubDate>Wed, 25 Nov 2026 00:59:18 GMT</pubDate>
-      <dcterms:created>2026-11-24T01:37:31.000Z</dcterms:created>
-      <dcterms:modified>2026-11-25T00:59:18.000Z</dcterms:modified>
     </item>
     <item>
       <title>緊急メンテナンス続報まとめ（2026年11月25日時点）：継続中・一部復旧・復旧済み</title>
