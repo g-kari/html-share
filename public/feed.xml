@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Wed, 25 Nov 2026 13:35:01 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 25 Nov 2026 13:39:04 GMT</lastBuildDate>
+    <item>
+      <title>T3 Codeとは：Claude CodeやCodexを1つの画面で操る無料のオープンソース。T3 Chatとは別物</title>
+      <link>https://share.0g0.xyz/t3-code</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/t3-code</guid>
+      <description>T3 Code（t3.codes）の概要、T3 Chatとの違い、対応するコーディングエージェント、仕組み、リモート利用、料金（本体は無料、T3 Connectの上限だけT3 Chatプランと連動）、データの扱いを、公式サイト・GitHub・公式FAQと出典つきで整理します。</description>
+      <pubDate>Wed, 25 Nov 2026 13:39:04 GMT</pubDate>
+      <dcterms:created>2026-11-24T08:58:19.000Z</dcterms:created>
+      <dcterms:modified>2026-11-25T13:39:04.000Z</dcterms:modified>
+    </item>
     <item>
       <title>AIボット系エージェント 2026年秋の比較：Grok Bot、2つのOpenBot、MausBot、Hermes Agent</title>
       <link>https://share.0g0.xyz/ai-bot-agents-2026</link>
@@ -366,15 +375,6 @@
       <description>T3 Chat（t3.chat）の概要、対応モデル、料金プラン（Free／Pro月8ドル／Premier月50ドル）、4時間で回復する利用量メーター、学習に使わないデータ方針、公開直後の急成長の経緯を、公式FAQ・プライバシーポリシーと出典つきで整理します。</description>
       <pubDate>Wed, 25 Nov 2026 13:35:01 GMT</pubDate>
       <dcterms:created>2026-11-24T05:35:56.000Z</dcterms:created>
-      <dcterms:modified>2026-11-25T13:35:01.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>T3 Codeとは：Claude CodeやCodexを1つの画面で操る無料のオープンソース。T3 Chatとは別物</title>
-      <link>https://share.0g0.xyz/t3-code</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/t3-code</guid>
-      <description>T3 Code（t3.codes）の概要、T3 Chatとの違い、対応するコーディングエージェント、仕組み、リモート利用、料金（本体は無料、T3 Connectの上限だけT3 Chatプランと連動）、データの扱いを、公式サイト・GitHub・公式FAQと出典つきで整理します。</description>
-      <pubDate>Wed, 25 Nov 2026 13:35:01 GMT</pubDate>
-      <dcterms:created>2026-11-24T08:58:19.000Z</dcterms:created>
       <dcterms:modified>2026-11-25T13:35:01.000Z</dcterms:modified>
     </item>
     <item>

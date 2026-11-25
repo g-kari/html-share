@@ -44,7 +44,7 @@ table.tc-table th,table.tc-table td{border:1px solid var(--line);padding:.45rem 
   <div class="kicker">AI開発ツール解説 · <a class="gloss" href="/glossary#term-t3-code" title="Claude CodeやCodexなどのコーディングエージェントを、自分のマシンで動かしたまま、デスクトップ・Web・スマホの1つの画面から操作する無料のオープンソースアプリ。運営は米国のT3 Tools。">T3 Code</a></div>
   <h1>T3 Codeとは：Claude CodeやCodexを1つの画面で操る無料のオープンソース。T3 Chatとは別物</h1>
   <p class="meta">
-    確認日：2026年11月24日（2026年11月25日にテレメトリの裏取りで「データの扱い」を訂正）<br>
+    確認日：2026年11月24日（2026年11月25日に<a class="gloss" href="/glossary#term-telemetry" title="ソフトウェアや機器の利用状況や動作の記録を、開発元などへ送信して集める仕組み。利用状況データとも呼ばれる。">テレメトリ</a>の裏取りで「データの扱い」を訂正）<br>
     一次資料：<a href="https://t3.codes/">T3 Code公式サイト</a>／<a href="https://github.com/pingdotgg/t3code">GitHubリポジトリ（README）</a>／<a href="https://github.com/pingdotgg/t3code/blob/main/docs/user/faq.md">公式FAQ</a>。公式で確認できない箇所は、本文と出典に明記します。
   </p>
 </header>
@@ -157,7 +157,7 @@ table.tc-table th,table.tc-table td{border:1px solid var(--line);padding:.45rem 
 
 <h2 id="privacy">データの扱い</h2>
 <p>コードとプロンプトは、自分のマシンからモデルの提供元（AnthropicやOpenAIなど）へ直接送られ、T3のサーバへは送られません。T3 Connectを使う場合も、通信は自分のマシン上のCloudflareトンネルを通り、T3側のリレーは接続を取り次ぐだけで、HTTPやWebSocketのセッションを中継しません（公式FAQ）。ただし、これはコードとプロンプトの話です。利用状況データの送信は別にあります。</p>
-<p>利用状況データ（テレメトリ）は、既定でT3へ送られます。内容は、使う提供元やモデル、権限モード、ターンの結果、所要時間、トークン数などで、プロンプトや応答、ファイルの中身、認証トークンは含まれないと公式文書にあります。送信先はT3自前のサーバ（ingest.t3.codes）で、受け取ったイベントは、コピーが自社に残ってから分析サービスのPostHogへ転送されます（2026年10月のPR <a href="https://github.com/pingdotgg/t3code/pull/15028">#15028</a>。それまではPostHogへ直接送られていました）。</p>
+<p>利用状況データ（テレメトリ）は、既定でT3へ送られます。内容は、使う提供元やモデル、権限モード、ターンの結果、所要時間、トークン数などで、プロンプトや応答、ファイルの中身、認証トークンは含まれないと公式文書にあります。送信先はT3自前のサーバ（ingest.t3.codes）で、受け取ったイベントは、コピーが自社に残ってから分析サービスの<a class="gloss" href="/glossary#term-posthog" title="製品の利用状況を分析するサービス。アプリに組み込んで、利用者の操作や利用量などのイベントを集計・可視化する。">PostHog</a>へ転送されます（2026年10月のPR <a href="https://github.com/pingdotgg/t3code/pull/15028">#15028</a>。それまではPostHogへ直接送られていました）。</p>
 <p>この送信は、2026年3月6日のPR <a href="https://github.com/pingdotgg/t3code/pull/174">#174</a>で入りました。既定はオンで、止める方法は環境変数だけでした。利用者からの指摘（Issue <a href="https://github.com/pingdotgg/t3code/issues/1397">#1397</a>、2026年3月）によれば、その環境変数はREADMEにもドキュメントにもUIにも書かれていませんでした。公式サイトのトップには「No telemetry（テレメトリなし）」「Unless you opt in. Full stop.（オプトインしない限り。以上）」と書かれていた時期がありますが、この2行は2026年6月18日のホームページ改修（PR <a href="https://github.com/pingdotgg/t3code/pull/3137">#3137</a>）で削除されています。改修の説明に、テレメトリへの言及はありません。</p>
 <p>識別子の扱いも広がっていました。導入当初から、サーバはCodexのログイン情報ファイル（<code>~/.codex/auth.json</code>）にあるアカウントIDを読み、ハッシュ化して送信に使っていました。2026年10月19日のPR <a href="https://github.com/pingdotgg/t3code/pull/21506">#21506</a>では、同じファイルのIDトークンからOpenAIのユーザーIDを取り出し、Claude Codeのファイル（<code>~/.claude.json</code>）のアカウントUUIDも読むようになりました。どちらも無塩のSHA-256でハッシュ化され、インストールの「所有者」としてイベントに付けられました。この提供元アカウント識別子の読み取りは、告発を受けた2026年11月24日のPR <a href="https://github.com/pingdotgg/t3code/pull/42299">#42299</a>で削除されました。現在のコードが読むのは、T3 Connectのアカウントと、接続してくるデバイスの識別子（いずれもハッシュ化）です。</p>
 <p>診断用の送信もあります。T3 Connectの接続トレースはAxiomへ送られます。告発時点の公式文書（2026年11月23日版）には、ブラウザ版にはトレースを止めるスイッチがなく、モバイル版も環境変数や管理ポリシーでは止められないと書かれていました。公式文書はその後更新され、現在の版ではモバイル版の設定スイッチが案内されています。</p>

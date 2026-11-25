@@ -83,7 +83,7 @@
 <p class="source">根拠：<a href="https://ollama.com/privacy">Privacy Policy §2・3・5・6</a><a href="https://ollama.com/pricing">料金ページのPrivacy FAQ</a>。実インフラ監査や契約審査を行ったという意味ではない。</p>
 
 <h3>DSHの標準フィードバック経路</h3>
-<div class="notice"><p><strong>モデルをOllamaにしても、DSH自身のフィードバック送信設定は別。</strong>確認した標準baseは<code>FEEDBACK_ONLY</code>。新しいテキストフィードバック、評価の作成・編集、ノート編集、撤回を契機に、そのイベントまでの未送信セッションログのprefixを、文脈を含めてDeepSeekのcollectorへ送る仕様。全モデルproviderが対象となる。</p><p>普通の会話やモデル呼び出しだけで、このテレメトリのcaptureが始まるわけではない。送信はbest effortで、受付表示はリモート受領の証明ではなく、撤回イベントも遠隔のデータ消去を保証しない。</p></div>
+<div class="notice"><p><strong>モデルをOllamaにしても、DSH自身のフィードバック送信設定は別。</strong>確認した標準baseは<code>FEEDBACK_ONLY</code>。新しいテキストフィードバック、評価の作成・編集、ノート編集、撤回を契機に、そのイベントまでの未送信セッションログのprefixを、文脈を含めてDeepSeekのcollectorへ送る仕様。全モデルproviderが対象となる。</p><p>普通の会話やモデル呼び出しだけで、この<a class="gloss" href="/glossary#term-telemetry" title="ソフトウェアや機器の利用状況や動作の記録を、開発元などへ送信して集める仕組み。利用状況データとも呼ばれる。">テレメトリ</a>のcaptureが始まるわけではない。送信はbest effortで、受付表示はリモート受領の証明ではなく、撤回イベントも遠隔のデータ消去を保証しない。</p></div>
 <p>この経路を使わない評価では、起動前に次のどちらかを設定する。設定変更は今後のこの経路を止めるためのもので、過去に送信済みの情報を削除する操作ではない。</p>
 <pre><code translate="no"># DSH起動前。どちらか一つでよい
 export DSH_TELEMETRY_MODE=DISABLED
