@@ -2,9 +2,9 @@
   "version": 1,
   "pages": {
     "ai-bot-agents-2026.html": {
-      "fingerprint": "1485f55ac8d05a29007a5959c225d26912f541963df1213932a334267c7bbb12",
+      "fingerprint": "2e654b4fe69bc46828ffe6346d36cadad5d75c680cb6744914d22122d5d7ac4b",
       "published": "2026-11-24T22:58:28.000Z",
-      "updated": "2026-11-24T22:58:28.000Z"
+      "updated": "2026-11-25T13:35:01.000Z"
     },
     "ai-harness-shinbun.html": {
       "fingerprint": "c39993299359fdbad4ca5a6a751ae1dd3825bd4537cf642c0ba3df87cc8cf4a5",
@@ -22,9 +22,9 @@
       "updated": "2026-11-18T19:53:07.000Z"
     },
     "amazon-connect-november-2026.html": {
-      "fingerprint": "5d9ff49f6d56ff510c9f48923a9e5c09aa23a0c92f203438c34020b7721067af",
+      "fingerprint": "e4bc967a71d58d8893990db812157d06da1c52ff7b69d720f08783e519e9ca3c",
       "published": "2026-11-24T11:47:34.000Z",
-      "updated": "2026-11-24T11:47:34.000Z"
+      "updated": "2026-11-25T13:35:01.000Z"
     },
     "animation-skills-research.html": {
       "fingerprint": "cad7f20a534129cac6d0e324c73af6c499e1306aaaee1bec38a26aeb98b5cf75",
@@ -32,29 +32,29 @@
       "updated": "2026-10-08T13:44:50.000Z"
     },
     "aws-agentcore-november-2026.html": {
-      "fingerprint": "e7829803a0ac2461d50c7ab0da37697eb4ee3ef3c9042a71d22e2531eef92b0d",
+      "fingerprint": "d704029073a66281544d2db1d78542bc749373615199145efe5441a463f7a638",
       "published": "2026-11-24T11:47:34.000Z",
-      "updated": "2026-11-24T11:47:34.000Z"
+      "updated": "2026-11-25T13:35:01.000Z"
     },
     "aws-ai-november-2026.html": {
-      "fingerprint": "7779fbb135bbc653600eed3e36f86b4b71f8b6e254e6e5cbb83111ad57d0e4ea",
+      "fingerprint": "54336501bbf0472335a74ae932fe733a62c923ba7ea347c83faaa6caae37305a",
       "published": "2026-11-24T11:47:34.000Z",
-      "updated": "2026-11-24T11:47:34.000Z"
+      "updated": "2026-11-25T13:35:01.000Z"
     },
     "aws-apigateway-november-2026.html": {
-      "fingerprint": "adb3496034688db19d82f7ba821c6b17a0a36783cc7c79d2c3512c895897e8da",
+      "fingerprint": "9baa84360b9c07aaae522a27584d19c3ad2e67a91bbc90008808d74e6002b280",
       "published": "2026-11-24T22:37:52.000Z",
-      "updated": "2026-11-24T22:37:52.000Z"
+      "updated": "2026-11-25T13:35:01.000Z"
     },
     "aws-business-november-2026.html": {
-      "fingerprint": "6b28b62c491134e7cd422aea693b94f91da75b3bb9e2a2f43edcc82318c5dfbd",
+      "fingerprint": "c49f7d6506bd4972545853fade4caac37d01eb710461f7e15f565681272024d3",
       "published": "2026-11-24T11:47:34.000Z",
-      "updated": "2026-11-24T11:47:34.000Z"
+      "updated": "2026-11-25T13:35:01.000Z"
     },
     "aws-compute-storage-november-2026.html": {
-      "fingerprint": "fa8dc5dfbb73891968a7c3867ef04ebd8339755aea1bbb7d110c3f0b3cc0533c",
+      "fingerprint": "0355ce31112999066dc1783843a996354571d57630b0d5c3f9328efeccb6c0c3",
       "published": "2026-11-24T11:47:34.000Z",
-      "updated": "2026-11-24T16:57:21.000Z"
+      "updated": "2026-11-25T13:35:01.000Z"
     },
     "aws-continuum.html": {
       "fingerprint": "a787840451a881f655efe9c57d2c5d8e1a7f5089c4ff4e3fd56fbee3dce5e7a9",
@@ -62,24 +62,24 @@
       "updated": "2026-10-23T13:43:39.000Z"
     },
     "aws-database-november-2026.html": {
-      "fingerprint": "82fa17b90607f9461062acad848e54a998968383f6d5f2e02958430e91eeffb0",
+      "fingerprint": "a9aa1dbbcf153e72da4d6bed31fc4ae44e2fab5d2fe3b99c340cbe37b1f0133e",
       "published": "2026-11-24T11:47:34.000Z",
-      "updated": "2026-11-24T11:47:34.000Z"
+      "updated": "2026-11-25T13:35:01.000Z"
     },
     "aws-devops-agent-november-2026.html": {
-      "fingerprint": "4448bf0b77b90356632bf9f4beced72b36556ca9c4623fc3e45cb4a02f2bfc6a",
+      "fingerprint": "6b97089fcb84bad117127a6d820f6dbbf6b0e81f1ad4fa42435acb0a8b4ce360",
       "published": "2026-11-24T11:47:34.000Z",
-      "updated": "2026-11-24T11:47:34.000Z"
+      "updated": "2026-11-25T13:35:01.000Z"
     },
     "aws-eks-nitro-november-2026.html": {
-      "fingerprint": "8ef9d8a683c99f3c1c36c10e41bbd513895f19e605fbb6254cc218e5286268f1",
+      "fingerprint": "06e1d2cc81266da245c495a67cae7f2ba95775c502372fdec17c19bb68ea5791",
       "published": "2026-11-24T11:47:34.000Z",
-      "updated": "2026-11-24T11:47:34.000Z"
+      "updated": "2026-11-25T13:35:01.000Z"
     },
     "aws-emulator-november-2026.html": {
-      "fingerprint": "197dfa031cb13133f3d5829928faf90db8bd49958fdc649197815ba50bcf4a39",
+      "fingerprint": "b7f5d99c16cbda9ebe07cd2d2d95a33726c17fd47cbd0b6f0af17969f4cfd5d3",
       "published": "2026-11-24T11:47:34.000Z",
-      "updated": "2026-11-24T11:47:34.000Z"
+      "updated": "2026-11-25T13:35:01.000Z"
     },
     "aws-guardduty-2026.html": {
       "fingerprint": "cae59ef0b1e555800d323ace26ad4db8889311a5cc2b422ea42d80736bafbf68",
@@ -87,9 +87,9 @@
       "updated": "2026-10-19T10:54:39.000Z"
     },
     "aws-inspector-november-2026.html": {
-      "fingerprint": "a8e090767558359307bf793894a771c1e75f4da301c1fbe1568e02023cc4e81a",
+      "fingerprint": "e5cda05989e286fe9af8fc0d37952d2929ff2b5a107a1b79d514e7c8cc25c4a4",
       "published": "2026-11-24T16:57:21.000Z",
-      "updated": "2026-11-24T16:57:21.000Z"
+      "updated": "2026-11-25T13:35:01.000Z"
     },
     "aws-lambda-go-cold-start.html": {
       "fingerprint": "90e81aef4673477b7f4edf405d4cd33f4758504ea8309af603672b186f857613",
@@ -97,9 +97,9 @@
       "updated": "2026-10-14T10:10:47.000Z"
     },
     "aws-lambda-november-2026.html": {
-      "fingerprint": "0e1ed92106be7e41112d5f33300a0f5ae78abae31f35f7c39be4ff858b6e4b7e",
+      "fingerprint": "d9b26fe9c9117c760c1166bd3f2563a7caeb390cc57146d4e46e0908d8514739",
       "published": "2026-11-24T11:47:34.000Z",
-      "updated": "2026-11-24T11:47:34.000Z"
+      "updated": "2026-11-25T13:35:01.000Z"
     },
     "aws-lambda-web-functions.html": {
       "fingerprint": "a8be10b31b2c9658204ba82591f86004f6621c774a07a0bbd0dc272c497eb180",
@@ -107,24 +107,24 @@
       "updated": "2026-10-14T02:32:43.000Z"
     },
     "aws-network-november-2026.html": {
-      "fingerprint": "788dd38f1a830002f300b02602d6c04cac1bdd5c61ea72937b54131dae2a70ad",
+      "fingerprint": "a0937aeca7994c05574ab9d75b895c45da9587ae5bcbec04adf9670a88f07c73",
       "published": "2026-11-24T11:47:34.000Z",
-      "updated": "2026-11-24T22:37:52.000Z"
+      "updated": "2026-11-25T13:35:01.000Z"
     },
     "aws-november-2026.html": {
-      "fingerprint": "aefbd59ed2426ae2261b471d495625d9511d7793afd30fa595b159464fd71e9a",
+      "fingerprint": "c4409204343161bad1bd9d48d2991455ad33ee625b0135b5725df9412e21864c",
       "published": "2026-11-24T11:47:34.000Z",
-      "updated": "2026-11-24T22:37:52.000Z"
+      "updated": "2026-11-25T13:35:01.000Z"
     },
     "aws-operations-november-2026.html": {
-      "fingerprint": "c3dff6b0281d2ce73221883db304ac4a7bc184a1702d3ef6c7f1a9506b8b8aa1",
+      "fingerprint": "dc501d463dd89c0c4a285aeabeb43b252acf81f77b2e4626ee675121629bd197",
       "published": "2026-11-24T11:47:34.000Z",
-      "updated": "2026-11-24T11:47:34.000Z"
+      "updated": "2026-11-25T13:35:01.000Z"
     },
     "aws-security-november-2026.html": {
-      "fingerprint": "5c30b3982c85898bd3eb69459ec776be87f69f652fb08465ce47ff8f02540ddc",
+      "fingerprint": "f9d8a6944241303814fba57f99626f63259d78b2e265f37dc4b175d6c5aa648b",
       "published": "2026-11-24T11:47:34.000Z",
-      "updated": "2026-11-24T16:57:21.000Z"
+      "updated": "2026-11-25T13:35:01.000Z"
     },
     "aws-ssm-ec2-software-patching.html": {
       "fingerprint": "8f034f7824f1ccc600c7440c680424f75836631fba507d8d86dceb569f639ce0",
@@ -132,9 +132,9 @@
       "updated": "2026-11-20T07:51:41.000Z"
     },
     "aws-strands-november-2026.html": {
-      "fingerprint": "7ebe55083aad89dae72ad24abed977fd16287089096e796cfc59741a8cd00f2b",
+      "fingerprint": "4fd4bf91fe4d02270e837cd43809cae400c3b3d12c5d95e72c86f4fa0bf4f03f",
       "published": "2026-11-24T11:47:34.000Z",
-      "updated": "2026-11-24T11:47:34.000Z"
+      "updated": "2026-11-25T13:35:01.000Z"
     },
     "aws-waf-ip-reputation.html": {
       "fingerprint": "4e4f01e455d8b5dc93e47b8bc56260c69f0878155cb591be19aa0a84ce7ddc38",
@@ -142,9 +142,9 @@
       "updated": "2026-10-08T07:03:55.000Z"
     },
     "aws-waf-november-2026.html": {
-      "fingerprint": "2a332dd1e5489b81f7f6f32b8e69c951d21c315b3ea14c6f26e181a5fbece040",
+      "fingerprint": "564d0ace0ff50c8232a5b3bb6be2ff59c3a996eee0f5262ddd5f162ca7dff125",
       "published": "2026-11-24T11:47:34.000Z",
-      "updated": "2026-11-24T11:47:34.000Z"
+      "updated": "2026-11-25T13:35:01.000Z"
     },
     "brotli-security-explained.html": {
       "fingerprint": "19ec64c8f1fe78b554b2c877aba85f26a3c8943cb8b1c8ab727b1a7dcba1aeec",
@@ -152,19 +152,19 @@
       "updated": "2026-10-28T09:32:08.000Z"
     },
     "cephfs-cve-2026-99304.html": {
-      "fingerprint": "0405fa3b0ca6225f59aa6a16ebc69420f183ba0842d5d47fcb20995351056c33",
+      "fingerprint": "bd58a0e511ac4fe443bfaa68384a440bf000dbc959217b185b1794b8fd65272d",
       "published": "2026-11-19T14:58:06.000Z",
-      "updated": "2026-11-23T05:06:11.000Z"
+      "updated": "2026-11-25T13:35:01.000Z"
     },
     "chatgpt-sites-pricing.html": {
-      "fingerprint": "92a8f6cdb4ac8974361df3bfaba403ac70d10d590efb5602923891489e46e207",
+      "fingerprint": "45c714d87cf96e728216c55851c80bd1e3518eed7720fc4ab8781a065e005bec",
       "published": "2026-11-24T05:09:52.000Z",
-      "updated": "2026-11-24T05:09:52.000Z"
+      "updated": "2026-11-25T13:35:01.000Z"
     },
     "cloudflare-code-mode-mcp.html": {
-      "fingerprint": "d65a85b21ac370896fe9534851743d3d0b33bdf335910ddc6390f1e360ebd23a",
+      "fingerprint": "85d04fd3d815760c6818f7f007edde42af3c3374f995e5ac343746f5b553fb31",
       "published": "2026-11-24T23:27:41.000Z",
-      "updated": "2026-11-24T23:27:41.000Z"
+      "updated": "2026-11-25T13:35:01.000Z"
     },
     "cloudfront-protobuf-maintenance.html": {
       "fingerprint": "3ac82cf61b10d53fa300c9ba5c09c2fc6f1395e9abc8cc079309fd56c7d7508e",
@@ -192,19 +192,19 @@
       "updated": "2026-10-30T07:18:38.000Z"
     },
     "cve-watch-2026-11-20.html": {
-      "fingerprint": "406c29c4dfe690623fac77ff3531670ecf070d34a03e797575f04a75a7b0158d",
+      "fingerprint": "8d90cef01598aac04ae8506ae6fa26dadb4998c89934f23358638741a314d2b0",
       "published": "2026-11-19T17:43:36.000Z",
-      "updated": "2026-11-19T17:43:36.000Z"
+      "updated": "2026-11-25T13:35:01.000Z"
     },
     "cve-watch-2026-11-22.html": {
-      "fingerprint": "883331248ea091d8376c39baf8fb5294a16c262cf85f40ab97e09cf2b3b5f80d",
+      "fingerprint": "bf754b7cbf84b0b951bddb67b0474322efd85d44dc61a75b58e755286ca60eca",
       "published": "2026-11-22T00:55:59.000Z",
-      "updated": "2026-11-22T00:55:59.000Z"
+      "updated": "2026-11-25T13:35:01.000Z"
     },
     "cve-watch-2026-11-25.html": {
-      "fingerprint": "e9bbd6d89b72a5b8ab432d318d65e991dee95a2fa6c7b0097e0a39c85f85275e",
+      "fingerprint": "a4f1e12466e77584e9d484e9b4ef55f826f2fe076e955fc66dc0d878ac98ccdb",
       "published": "2026-11-25T01:00:11.000Z",
-      "updated": "2026-11-25T01:00:11.000Z"
+      "updated": "2026-11-25T13:35:01.000Z"
     },
     "devsecops-oss.html": {
       "fingerprint": "7f317107f631f85865de795313404d4abc4cdce28fd3fea2dc40f7832d835d9e",
@@ -227,14 +227,14 @@
       "updated": "2026-10-15T08:33:57.000Z"
     },
     "embargo-log-redaction.html": {
-      "fingerprint": "5ac10a33ccf0056c7ac4678ada473b7161f11776ae242a89137dcfa22a6166f9",
+      "fingerprint": "b89efaa39315b442aace0b128fd067802f8c2d2445da8ccb685e212f02ef0ce2",
       "published": "2026-11-24T00:59:54.000Z",
-      "updated": "2026-11-24T00:59:54.000Z"
+      "updated": "2026-11-25T13:35:01.000Z"
     },
     "emergency-maintenance-2026-11.html": {
-      "fingerprint": "479775d93d421bb6bc35c537a57d0eb866172241565b25c8d5631be43e4cb962",
+      "fingerprint": "503401dc96f1459a5b3fe8457f48f9f12ff54df0575b06888405928f9e5bc12a",
       "published": "2026-11-25T00:55:12.000Z",
-      "updated": "2026-11-25T00:55:12.000Z"
+      "updated": "2026-11-25T13:35:01.000Z"
     },
     "emudhra-browser-check.html": {
       "fingerprint": "0c3c395b7da515991164968b292c2785672fe25ed70638cc8ab8526489926d0e",
@@ -252,14 +252,14 @@
       "updated": "2026-10-09T01:43:48.000Z"
     },
     "github-team-security-risk-assessments.html": {
-      "fingerprint": "b236742397e2ed92edc7c9a9ec1734dfe8528eed9f5896f15a153046f2cc513f",
+      "fingerprint": "a190cdb46c4123123bee4ebdf92d8532ef81fa93864d3b9c4e92b39ebb3e1a06",
       "published": "2026-11-19T17:36:57.000Z",
-      "updated": "2026-11-19T17:36:57.000Z"
+      "updated": "2026-11-25T13:35:01.000Z"
     },
     "glossary.html": {
-      "fingerprint": "aaaf6e8c6ac157fe56901b2373c1f77bb4b8e6fed4095e1300653c3019b6be79",
+      "fingerprint": "ee1d133b299cfd2bd470d1d20d82c920ba624fafaec779a4544e120f13bedd48",
       "published": "2026-11-24T01:37:31.000Z",
-      "updated": "2026-11-25T01:14:03.000Z"
+      "updated": "2026-11-25T13:35:01.000Z"
     },
     "go-code-verification.html": {
       "fingerprint": "add16dcf6c555dc85cb859063495bf903ab5151b47f9de01db2dbaede2cc0162",
@@ -307,14 +307,14 @@
       "updated": "2026-11-19T02:30:55.000Z"
     },
     "linux-kernel-cve-roundup-2026-11-19.html": {
-      "fingerprint": "c1492dac3e5a5a43600d8da5a7f1aa259eea77ac3393224c9a8dd190ee928566",
+      "fingerprint": "4d721b58119cced1e42d8ca1864870021b062952186259f4f6161e117542aea5",
       "published": "2026-11-19T15:12:40.000Z",
-      "updated": "2026-11-19T15:12:40.000Z"
+      "updated": "2026-11-25T13:35:01.000Z"
     },
     "mcp-skills-tasks.html": {
-      "fingerprint": "e6442e991377cc3e79efea70b56e0578537cce339d76f438bc443721eecdd1cb",
+      "fingerprint": "abb14e0be3705b2414e53e223a192ce3f97a29d9f8f3d40a3abeddafd8f0a316",
       "published": "2026-11-25T01:07:47.000Z",
-      "updated": "2026-11-25T01:07:47.000Z"
+      "updated": "2026-11-25T13:35:01.000Z"
     },
     "microsoft-ai-video-recreation.html": {
       "fingerprint": "1e75441f32d2ea2fbed61d56a91e19a93fd5cb3815977c70d66f7f6d919b30ce",
@@ -332,14 +332,14 @@
       "updated": "2026-10-30T08:37:53.000Z"
     },
     "nginx2shell.html": {
-      "fingerprint": "e3681beb0d9fda1e9ed32f0a52165b5d3fa2b0f2c0a457269fb87e71117fd07d",
+      "fingerprint": "f9bf34110dce8e04bcd5df61e22fb89b020edc0fad3c938afcdf089537a7c228",
       "published": "2026-11-18T17:45:48.000Z",
-      "updated": "2026-11-19T05:02:58.000Z"
+      "updated": "2026-11-25T13:35:01.000Z"
     },
     "notion-storage-limits.html": {
-      "fingerprint": "6e2a5e6b9b9f316d84f47cb457f5f2022767b0215b78e6849dd203dd3b40694f",
+      "fingerprint": "11f360881e19bccb962e3ffae94b1d0a71c3a37c6d44829959f92cd2387598d7",
       "published": "2026-11-24T23:40:59.000Z",
-      "updated": "2026-11-24T23:40:59.000Z"
+      "updated": "2026-11-25T13:35:01.000Z"
     },
     "openai-claude-enterprise.html": {
       "fingerprint": "ea0efa79a910ec22c07678fa428c824b5667a1336f1b847f7e8ffd26f28c78b0",
@@ -352,9 +352,9 @@
       "updated": "2026-10-21T01:55:38.000Z"
     },
     "orca.html": {
-      "fingerprint": "46b1cff5172027131fe2e0bd946a8f2c798be62e93514ad5001d798ed4761b7d",
+      "fingerprint": "290a528714cc0d96cc6659c9f0739374b731f8e9c611a15dcf9d76e915f30cdb",
       "published": "2026-11-24T09:51:47.000Z",
-      "updated": "2026-11-24T09:51:47.000Z"
+      "updated": "2026-11-25T13:35:01.000Z"
     },
     "personal-ai-agent-comparison.html": {
       "fingerprint": "38d27970076784ce47169889bf1b23a74f086b73d32a36b4c899e9b0ac45202f",
@@ -362,9 +362,9 @@
       "updated": "2026-10-08T16:08:38.000Z"
     },
     "php-8-6-release-2026-11-19.html": {
-      "fingerprint": "5f29b7c1bd9e4c944644c2c1be4ac9539c6660836eb32fc6ebf9d38649d05430",
+      "fingerprint": "b23d546877e4fa2ccf321779b3ac4836ae7467ff454540f08010bb58685558cf",
       "published": "2026-11-24T23:14:49.000Z",
-      "updated": "2026-11-24T23:14:49.000Z"
+      "updated": "2026-11-25T13:35:01.000Z"
     },
     "php-emergency-maintenance.html": {
       "fingerprint": "6c47d3015b80b45ae71ca2f0545bbccbf87a4f366d1cd3c81e730756bb05fc88",
@@ -377,9 +377,9 @@
       "updated": "2026-11-06T00:25:52.000Z"
     },
     "php-security-release-2026-11-19.html": {
-      "fingerprint": "2207665923462b733b4e980c494747dd426484ffea732215e35ef7c41f9be43b",
+      "fingerprint": "3e9f92e73c060eff6d95e0f44d3d757b8c09439fd3f03d31de7420a2b8772cbc",
       "published": "2026-11-19T14:16:03.000Z",
-      "updated": "2026-11-24T23:14:49.000Z"
+      "updated": "2026-11-25T13:35:01.000Z"
     },
     "php2shell-patch-status.html": {
       "fingerprint": "abd9f40dcd8c55bd9834e790552aedcbb37cd879fbc34bccbf5e20aecadd56b8",
@@ -387,9 +387,9 @@
       "updated": "2026-10-22T10:18:31.000Z"
     },
     "pi-durable.html": {
-      "fingerprint": "b9526127766c791a0e1072a12aa924eb03b9240adae076b0097f1925535cad03",
+      "fingerprint": "d5089c69226b157dfb872bbfbae793cc5083324d8e1a17f3796dd3831449ffff",
       "published": "2026-10-06T03:28:19.000Z",
-      "updated": "2026-11-18T18:02:55.000Z"
+      "updated": "2026-11-25T13:35:01.000Z"
     },
     "proton-suite-comparison.html": {
       "fingerprint": "a362391bd1ab4f3e79d730985550d541af6a0bfdaaa1203dd630a32b502a4613",
@@ -402,9 +402,9 @@
       "updated": "2026-10-28T16:12:54.000Z"
     },
     "sam-altman-stanford-cs153.html": {
-      "fingerprint": "aad1921ae0ab7e7e41315db7bc3f6ff87db0b6dd6cbf71fd3e76cf61ab2ac1aa",
+      "fingerprint": "00a8ce98864ae6213602d93402e56a6e751a1350029e49647266c33bbeac4b39",
       "published": "2026-11-18T17:27:09.000Z",
-      "updated": "2026-11-18T18:02:55.000Z"
+      "updated": "2026-11-25T13:35:01.000Z"
     },
     "secure-mcp-tunnel-unity-blender.html": {
       "fingerprint": "bf27f02d3803916b0f28da3d19de1bf39d4f3650748aa51fdd7fcbde37a98426",
@@ -427,19 +427,19 @@
       "updated": "2026-11-04T17:27:57.000Z"
     },
     "shirudo.html": {
-      "fingerprint": "dae29ea971a84ac83f616892266ad25b22c8c5477a01b53767aaa1a2ce093d56",
+      "fingerprint": "46b99b5d6977eec5b6d373686730e2f7a242a10da3fc7a0f05f47a50fdf01289",
       "published": "2026-11-24T00:52:20.000Z",
-      "updated": "2026-11-24T01:24:25.000Z"
+      "updated": "2026-11-25T13:35:01.000Z"
     },
     "t3-chat.html": {
-      "fingerprint": "f23873f069572b2304c0358efc02ff28c19b2d8498b0fecf9f07a76c91066f96",
+      "fingerprint": "9fc4a5a2443806469b6e2393c86932f831917f5cd23a0383eee1eb6f421d1430",
       "published": "2026-11-24T05:35:56.000Z",
-      "updated": "2026-11-24T08:58:19.000Z"
+      "updated": "2026-11-25T13:35:01.000Z"
     },
     "t3-code.html": {
-      "fingerprint": "0fd476a34a0c3557b9e6bcb97f297382a127c26fea3f1500d610aca3e236f45e",
+      "fingerprint": "2385cb219634574497d843f1b118bb01513afa62f86886ab6209ae5feff3c738",
       "published": "2026-11-24T08:58:19.000Z",
-      "updated": "2026-11-24T09:51:47.000Z"
+      "updated": "2026-11-25T13:35:01.000Z"
     },
     "technology-updates.html": {
       "fingerprint": "fc5a2cc6d9e2bfe7f81aad0b05bdde5c12b7e9069fcd2880abb72bbc0065f9f9",
@@ -452,9 +452,9 @@
       "updated": "2026-09-28T15:38:43.000Z"
     },
     "vitest-browser-mode-pilot.html": {
-      "fingerprint": "4dac2a333109db25b7482ae8bf5482c9dd2dfed7e4c22254aac315301ca461cc",
+      "fingerprint": "975f0db2f20cbe97de0d77fc76e5ead07865e367c948730f08b98e2c68a9b39b",
       "published": "2026-11-19T19:11:41.000Z",
-      "updated": "2026-11-19T19:17:51.000Z"
+      "updated": "2026-11-25T13:35:01.000Z"
     },
     "vrchat-avatar-skills.html": {
       "fingerprint": "bcda796e5a374fb753f62287e6d944a123723c9f643487ba54789e495885a888",
@@ -472,9 +472,9 @@
       "updated": "2026-10-08T13:49:52.000Z"
     },
     "wiz-codex-integration.html": {
-      "fingerprint": "0986b2b8c5e2a4eef552f582a2fe6c53c3229520a066d569279de2cf48e71ab3",
+      "fingerprint": "d2f7dbb4c1bc49d638ad52623b844d41dbdaf41f7b129b33d2f91a78d9e0fb70",
       "published": "2026-11-25T12:38:43.000Z",
-      "updated": "2026-11-25T12:38:43.000Z"
+      "updated": "2026-11-25T13:35:01.000Z"
     },
     "zam.html": {
       "fingerprint": "b91d4290d7ef2826c88af9f8805d01df787ade93fb1ec770b7fad57e73d45983",

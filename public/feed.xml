@@ -7,285 +7,393 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Wed, 25 Nov 2026 12:38:43 GMT</lastBuildDate>
-    <item>
-      <title>WizとOpenAI Codexの連携：クラウドの文脈を持ったままコード修正まで進める仕組み</title>
-      <link>https://share.0g0.xyz/wiz-codex-integration</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/wiz-codex-integration</guid>
-      <description>Wizが2026-11-24に発表したOpenAI Codexとの連携（Wiz plugin for Codex）を、Wiz公式ブログとOpenAIのDaybreak Defense Factory公式ページで確認します。連携の仕組み、文脈として渡る情報、提供範囲と未確認の点を分けます。</description>
-      <pubDate>Wed, 25 Nov 2026 12:38:43 GMT</pubDate>
-      <dcterms:created>2026-11-25T12:38:43.000Z</dcterms:created>
-      <dcterms:modified>2026-11-25T12:38:43.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>用語集：HTML Shareの記事に出てくる専門用語</title>
-      <link>https://share.0g0.xyz/glossary</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/glossary</guid>
-      <description>HTML Shareの記事に出てくる専門用語の短い説明の一覧です。記事本文では、辞書に登録された用語の初出が自動でこの用語集へリンクされます。</description>
-      <pubDate>Wed, 25 Nov 2026 01:14:03 GMT</pubDate>
-      <dcterms:created>2026-11-24T01:37:31.000Z</dcterms:created>
-      <dcterms:modified>2026-11-25T01:14:03.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>Skills over MCPとTasks：MCP 2周年でサーバーが手順と長時間の仕事を持てるようになった</title>
-      <link>https://share.0g0.xyz/mcp-skills-tasks</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/mcp-skills-tasks</guid>
-      <description>AnthropicがMCP 2周年（2026-11-24）に発表したSkills over MCP（パブリックベータ）とTasks（正式提供）を、公式記事・MCP公式ドキュメント・拡張仕様・Claude Code公式ドキュメントで確認します。仕組み、提供範囲、未確認の点を分けます。</description>
-      <pubDate>Wed, 25 Nov 2026 01:07:47 GMT</pubDate>
-      <dcterms:created>2026-11-25T01:07:47.000Z</dcterms:created>
-      <dcterms:modified>2026-11-25T01:07:47.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>CVE監視 第3号（2026年11月25日）：WordPress ページテンプレート解決でのファイル取り込み</title>
-      <link>https://share.0g0.xyz/cve-watch-2026-11-25</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/cve-watch-2026-11-25</guid>
-      <description>2026年11月24日から25日に確認したCVEのうち、関心技術に関わる High 以上で未掲載の1件、WordPress ページテンプレート解決でのファイル取り込み（CVE-2026-87902、CVSS 8.1、CISA KEV掲載）を、対象版・修正版・成立条件つきで整理した監視の第3号。</description>
-      <pubDate>Wed, 25 Nov 2026 01:00:11 GMT</pubDate>
-      <dcterms:created>2026-11-25T01:00:11.000Z</dcterms:created>
-      <dcterms:modified>2026-11-25T01:00:11.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>緊急メンテナンス続報まとめ（2026年11月25日時点）：継続中・一部復旧・復旧済み</title>
-      <link>https://share.0g0.xyz/emergency-maintenance-2026-11</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/emergency-maintenance-2026-11</guid>
-      <description>2026年10月下旬〜11月に相次いだ緊急メンテナンスとサービス停止を、2026年11月25日時点の公式告知ベースで整理。KARTE、JAXA公開系、teket、ALL.Net、バッファローなど継続中の案件と、Cacoo、SuiteX／SuiteSなど復旧済みの案件を分けてまとめます。</description>
-      <pubDate>Wed, 25 Nov 2026 00:55:12 GMT</pubDate>
-      <dcterms:created>2026-11-25T00:55:12.000Z</dcterms:created>
-      <dcterms:modified>2026-11-25T00:55:12.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>Notionにワークスペース容量上限：フリーは512MB、プラン別の上限と確認方法</title>
-      <link>https://share.0g0.xyz/notion-storage-limits</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/notion-storage-limits</guid>
-      <description>Notionのファイルストレージにワークスペース単位の容量上限が明記されました。公式ヘルプと料金ページで確認したプラン別の上限（フリー512MB〜エンタープライズ1TB）、数えられるファイルの範囲、使用量の確認方法、上限に達したときの動きをまとめます。</description>
-      <pubDate>Tue, 24 Nov 2026 23:40:59 GMT</pubDate>
-      <dcterms:created>2026-11-24T23:40:59.000Z</dcterms:created>
-      <dcterms:modified>2026-11-24T23:40:59.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>Cloudflare Code Mode：2,500超のAPIを2つのツールに畳むMCPの設計</title>
-      <link>https://share.0g0.xyz/cloudflare-code-mode-mcp</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/cloudflare-code-mode-mcp</guid>
-      <description>CloudflareのCode Modeは、2,594エンドポイント分のツール定義（約117万トークン）を search と execute の2ツール（約1,000トークン）に置き換えるMCPの設計です。公式ブログとcloudflare/mcpのREADMEで数字の測り方、仕組み、サンドボックス、向き不向きを確認します。</description>
-      <pubDate>Tue, 24 Nov 2026 23:27:41 GMT</pubDate>
-      <dcterms:created>2026-11-24T23:27:41.000Z</dcterms:created>
-      <dcterms:modified>2026-11-24T23:27:41.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>PHP 8.6の変更点：セッション既定値の厳格化と、自分のリポジトリへの影響</title>
-      <link>https://share.0g0.xyz/php-8-6-release-2026-11-19</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/php-8-6-release-2026-11-19</guid>
-      <description>PHP 8.6.0（2026年11月19日）の新機能と互換性変更、セッション既定値の厳格化、PHP 8.2のサポート終了（2026年12月31日）と、自分のGitHubリポジトリの走査結果をまとめます。</description>
-      <pubDate>Tue, 24 Nov 2026 23:14:49 GMT</pubDate>
-      <dcterms:created>2026-11-24T23:14:49.000Z</dcterms:created>
-      <dcterms:modified>2026-11-24T23:14:49.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>PHPのセキュリティ更新：修正版と確認手順（2026年11月19日）</title>
-      <link>https://share.0g0.xyz/php-security-release-2026-11-19</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/php-security-release-2026-11-19</guid>
-      <description>PHP 8.2〜8.5のセキュリティ修正版、重大なセッションの不具合、OSやDockerでの配布状況と更新後の確認をまとめます。</description>
-      <pubDate>Tue, 24 Nov 2026 23:14:49 GMT</pubDate>
-      <dcterms:created>2026-11-19T14:16:03.000Z</dcterms:created>
-      <dcterms:modified>2026-11-24T23:14:49.000Z</dcterms:modified>
-    </item>
+    <lastBuildDate>Wed, 25 Nov 2026 13:35:01 GMT</lastBuildDate>
     <item>
       <title>AIボット系エージェント 2026年秋の比較：Grok Bot、2つのOpenBot、MausBot、Hermes Agent</title>
       <link>https://share.0g0.xyz/ai-bot-agents-2026</link>
       <guid isPermaLink="true">https://share.0g0.xyz/ai-bot-agents-2026</guid>
       <description>チャットから仕事を任せるAIコワーカー／エージェント管理ボットの5製品（Grok Bot、OpenBot（CopilotKit）、OpenBot（nightly-labs）、MausBot、Hermes Agent）を、公式資料と第三者の評価で比較。殻自体のベンチマークが存在しないこと、止め方の違い、用途別の向き不向きまで整理します。</description>
-      <pubDate>Tue, 24 Nov 2026 22:58:28 GMT</pubDate>
+      <pubDate>Wed, 25 Nov 2026 13:35:01 GMT</pubDate>
       <dcterms:created>2026-11-24T22:58:28.000Z</dcterms:created>
-      <dcterms:modified>2026-11-24T22:58:28.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>Amazon API Gateway 2026年11月の発表まとめ：REST APIのJWTオーソライザーとAPI Portal</title>
-      <link>https://share.0g0.xyz/aws-apigateway-november-2026</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/aws-apigateway-november-2026</guid>
-      <description>Amazon API Gatewayの2026年11月の発表。REST APIにネイティブのJWTオーソライザーが追加され、Cognito以外のOIDC／OAuth 2.0トークンをLambdaなしで検証できるようになりました。あわせて、APIを自動発見するAPI PortalとWAF連携を、公式発表と公式ドキュメントで詳しく整理します。</description>
-      <pubDate>Tue, 24 Nov 2026 22:37:52 GMT</pubDate>
-      <dcterms:created>2026-11-24T22:37:52.000Z</dcterms:created>
-      <dcterms:modified>2026-11-24T22:37:52.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>AWS ネットワーク・CDN 2026年11月の変更まとめ：CloudFront、Route 53、Interconnect</title>
-      <link>https://share.0g0.xyz/aws-network-november-2026</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/aws-network-november-2026</guid>
-      <description>AWSのネットワーク・CDN分野の2026年11月の発表37件。Microsoft Azureとのマルチクラウド接続AWS Interconnectの一般提供、CloudFrontのオリジン相互TLSとFunctionsのネットワーク呼び出し、Route 53の新機能、Transit Gatewayのファイアウォール連携などをサービス別に整理します。</description>
-      <pubDate>Tue, 24 Nov 2026 22:37:52 GMT</pubDate>
-      <dcterms:created>2026-11-24T11:47:34.000Z</dcterms:created>
-      <dcterms:modified>2026-11-24T22:37:52.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>AWS 2026年11月の発表まとめ：全442件をサービス別に整理</title>
-      <link>https://share.0g0.xyz/aws-november-2026</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/aws-november-2026</guid>
-      <description>2026年11月1日〜24日のAWS公式発表442件を、サービス・分野別の17記事に整理した索引。AgentCore、WAF、Inspector、API Gateway、Lambda、Nitro Sandboxes、AWS Emulator、Strandsなど単独記事への入口と、期間・総件数・サービス別件数を明記します。</description>
-      <pubDate>Tue, 24 Nov 2026 22:37:52 GMT</pubDate>
-      <dcterms:created>2026-11-24T11:47:34.000Z</dcterms:created>
-      <dcterms:modified>2026-11-24T22:37:52.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>AWS コンピュート・ストレージ 2026年11月の変更まとめ：EC2、S3、FSx、ECS</title>
-      <link>https://share.0g0.xyz/aws-compute-storage-november-2026</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/aws-compute-storage-november-2026</guid>
-      <description>AWSのコンピュート・ストレージ分野の2026年11月の発表55件。Graviton5ベースのEC2 T9g、S3の読み取りレート2倍とVectorsのハイブリッド検索、FSx for NetApp ONTAPの新世代、ECS Action Logsなどをサービス別に整理します。</description>
-      <pubDate>Tue, 24 Nov 2026 16:57:21 GMT</pubDate>
-      <dcterms:created>2026-11-24T11:47:34.000Z</dcterms:created>
-      <dcterms:modified>2026-11-24T16:57:21.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>Amazon Inspector 2026年11月の変更：AMIスキャン、ランタイム到達性分析、Code Securityの拡張</title>
-      <link>https://share.0g0.xyz/aws-inspector-november-2026</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/aws-inspector-november-2026</guid>
-      <description>Amazon Inspectorの2026年11月の発表4件。EC2のAMIスキャン、ECR／EC2の検出結果へのランタイム到達性分析、Inspector Code SecurityのGitHub Enterprise Server対応とプライベート接続、Security HubのGoogle Cloud Platform拡張を、公式発表と公式ドキュメントで詳しく整理します。</description>
-      <pubDate>Tue, 24 Nov 2026 16:57:21 GMT</pubDate>
-      <dcterms:created>2026-11-24T16:57:21.000Z</dcterms:created>
-      <dcterms:modified>2026-11-24T16:57:21.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>AWS セキュリティ 2026年11月の変更まとめ：Cognito、IAM、STS、Security Hub、Network Firewall</title>
-      <link>https://share.0g0.xyz/aws-security-november-2026</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/aws-security-november-2026</guid>
-      <description>AWSのセキュリティ・アイデンティティ分野の2026年11月の発表38件。STS GetScopedCredentials、CognitoのOAuth 2.0トークン交換とセッション管理、Security HubのSBOMインベントリ、Network Firewallの次世代ポリシーなどをサービス別に整理します。WAFは単独記事です。</description>
-      <pubDate>Tue, 24 Nov 2026 16:57:21 GMT</pubDate>
-      <dcterms:created>2026-11-24T11:47:34.000Z</dcterms:created>
-      <dcterms:modified>2026-11-24T16:57:21.000Z</dcterms:modified>
+      <dcterms:modified>2026-11-25T13:35:01.000Z</dcterms:modified>
     </item>
     <item>
       <title>Amazon Connect 2026年11月の変更：ケース管理とResolutions</title>
       <link>https://share.0g0.xyz/amazon-connect-november-2026</link>
       <guid isPermaLink="true">https://share.0g0.xyz/amazon-connect-november-2026</guid>
       <description>Amazon Connectの2026年11月の発表20件。大量業務を処理するエージェント型ソリューションResolutions、ケース管理の拡充、AIチャット要約や自動評価の言語拡大、フローでのMCPツール利用などを公式発表と出典つきで整理します。</description>
-      <pubDate>Tue, 24 Nov 2026 11:47:34 GMT</pubDate>
+      <pubDate>Wed, 25 Nov 2026 13:35:01 GMT</pubDate>
       <dcterms:created>2026-11-24T11:47:34.000Z</dcterms:created>
-      <dcterms:modified>2026-11-24T11:47:34.000Z</dcterms:modified>
+      <dcterms:modified>2026-11-25T13:35:01.000Z</dcterms:modified>
     </item>
     <item>
       <title>Amazon Bedrock AgentCore 2026年11月の変更：次世代ランタイムが既定に</title>
       <link>https://share.0g0.xyz/aws-agentcore-november-2026</link>
       <guid isPermaLink="true">https://share.0g0.xyz/aws-agentcore-november-2026</guid>
       <description>Amazon Bedrock AgentCoreの2026年11月の発表14件。次世代ランタイムの既定化、ランタイムインスタンスの拡張、Memoryの10年保持、Identity、Web Search／Web Answer、Marketplaceのエージェント決済を公式発表と出典つきで整理します。</description>
-      <pubDate>Tue, 24 Nov 2026 11:47:34 GMT</pubDate>
+      <pubDate>Wed, 25 Nov 2026 13:35:01 GMT</pubDate>
       <dcterms:created>2026-11-24T11:47:34.000Z</dcterms:created>
-      <dcterms:modified>2026-11-24T11:47:34.000Z</dcterms:modified>
+      <dcterms:modified>2026-11-25T13:35:01.000Z</dcterms:modified>
     </item>
     <item>
       <title>AWS AI・機械学習 2026年11月の変更まとめ：Bedrockの新モデルとSageMaker、AWS Quick</title>
       <link>https://share.0g0.xyz/aws-ai-november-2026</link>
       <guid isPermaLink="true">https://share.0g0.xyz/aws-ai-november-2026</guid>
       <description>AWSのAI・機械学習分野の2026年11月の発表47件。Amazon BedrockへのClaude Fable 5.2、GPT-6.2、Kimi K3.1 Proの追加、SageMaker HyperPodの推論基盤、AWS Quickの改称と機能追加、Textract Insightsなどをサービス別に整理します。</description>
-      <pubDate>Tue, 24 Nov 2026 11:47:34 GMT</pubDate>
+      <pubDate>Wed, 25 Nov 2026 13:35:01 GMT</pubDate>
       <dcterms:created>2026-11-24T11:47:34.000Z</dcterms:created>
-      <dcterms:modified>2026-11-24T11:47:34.000Z</dcterms:modified>
+      <dcterms:modified>2026-11-25T13:35:01.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>Amazon API Gateway 2026年11月の発表まとめ：REST APIのJWTオーソライザーとAPI Portal</title>
+      <link>https://share.0g0.xyz/aws-apigateway-november-2026</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/aws-apigateway-november-2026</guid>
+      <description>Amazon API Gatewayの2026年11月の発表。REST APIにネイティブのJWTオーソライザーが追加され、Cognito以外のOIDC／OAuth 2.0トークンをLambdaなしで検証できるようになりました。あわせて、APIを自動発見するAPI PortalとWAF連携を、公式発表と公式ドキュメントで詳しく整理します。</description>
+      <pubDate>Wed, 25 Nov 2026 13:35:01 GMT</pubDate>
+      <dcterms:created>2026-11-24T22:37:52.000Z</dcterms:created>
+      <dcterms:modified>2026-11-25T13:35:01.000Z</dcterms:modified>
     </item>
     <item>
       <title>AWS 業務アプリ・その他 2026年11月の変更まとめ：Marketplace、WorkSpaces、MWAA、メディア</title>
       <link>https://share.0g0.xyz/aws-business-november-2026</link>
       <guid isPermaLink="true">https://share.0g0.xyz/aws-business-november-2026</guid>
       <description>AWSの業務アプリケーションとその他の分野の2026年11月の発表53件。AWS Marketplaceのエージェントモードと決済まわり、AIエージェント向けWorkSpaces、Amazon MWAA、SES、メディアサービス、Partner Centralなどをサービス別に整理します。</description>
-      <pubDate>Tue, 24 Nov 2026 11:47:34 GMT</pubDate>
+      <pubDate>Wed, 25 Nov 2026 13:35:01 GMT</pubDate>
       <dcterms:created>2026-11-24T11:47:34.000Z</dcterms:created>
-      <dcterms:modified>2026-11-24T11:47:34.000Z</dcterms:modified>
+      <dcterms:modified>2026-11-25T13:35:01.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>AWS コンピュート・ストレージ 2026年11月の変更まとめ：EC2、S3、FSx、ECS</title>
+      <link>https://share.0g0.xyz/aws-compute-storage-november-2026</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/aws-compute-storage-november-2026</guid>
+      <description>AWSのコンピュート・ストレージ分野の2026年11月の発表55件。Graviton5ベースのEC2 T9g、S3の読み取りレート2倍とVectorsのハイブリッド検索、FSx for NetApp ONTAPの新世代、ECS Action Logsなどをサービス別に整理します。</description>
+      <pubDate>Wed, 25 Nov 2026 13:35:01 GMT</pubDate>
+      <dcterms:created>2026-11-24T11:47:34.000Z</dcterms:created>
+      <dcterms:modified>2026-11-25T13:35:01.000Z</dcterms:modified>
     </item>
     <item>
       <title>AWS データベース・分析 2026年11月の変更まとめ：RDS、Aurora DSQL、OpenSearch、MSK</title>
       <link>https://share.0g0.xyz/aws-database-november-2026</link>
       <guid isPermaLink="true">https://share.0g0.xyz/aws-database-november-2026</guid>
       <description>AWSのデータベース・分析分野の2026年11月の発表76件。Amazon RDSとAuroraの版数更新、Aurora DSQLの機能追加、OpenSearchの災害復旧とMemory、MSKのKafka 4.2対応、DynamoDBの一括投入などをサービス別に整理します。</description>
-      <pubDate>Tue, 24 Nov 2026 11:47:34 GMT</pubDate>
+      <pubDate>Wed, 25 Nov 2026 13:35:01 GMT</pubDate>
       <dcterms:created>2026-11-24T11:47:34.000Z</dcterms:created>
-      <dcterms:modified>2026-11-24T11:47:34.000Z</dcterms:modified>
+      <dcterms:modified>2026-11-25T13:35:01.000Z</dcterms:modified>
     </item>
     <item>
       <title>AWS DevOps Agent 2026年11月の変更：サンドボックスとチャット連携</title>
       <link>https://share.0g0.xyz/aws-devops-agent-november-2026</link>
       <guid isPermaLink="true">https://share.0g0.xyz/aws-devops-agent-november-2026</guid>
       <description>AWS DevOps Agentの2026年11月の発表10件。エージェントがスクリプトを実行するサンドボックス、Slack／Microsoft Teams連携、メモリ管理、GovCloud提供とFedRAMP認証、調査レイテンシ短縮を公式発表と出典つきで整理します。</description>
-      <pubDate>Tue, 24 Nov 2026 11:47:34 GMT</pubDate>
+      <pubDate>Wed, 25 Nov 2026 13:35:01 GMT</pubDate>
       <dcterms:created>2026-11-24T11:47:34.000Z</dcterms:created>
-      <dcterms:modified>2026-11-24T11:47:34.000Z</dcterms:modified>
+      <dcterms:modified>2026-11-25T13:35:01.000Z</dcterms:modified>
     </item>
     <item>
       <title>Amazon EKSとNitro Sandboxes 2026年11月の変更：PodごとにmicroVMで分離</title>
       <link>https://share.0g0.xyz/aws-eks-nitro-november-2026</link>
       <guid isPermaLink="true">https://share.0g0.xyz/aws-eks-nitro-november-2026</guid>
       <description>Amazon EKS関連の2026年11月の発表13件。Pod・タスク・VMをそれぞれ専用のFirecracker microVMでハードウェア分離するAWS Nitro Sandboxesと、EKS Auto Modeの強化、Provisioned Control Planeなどを公式発表と出典つきで整理します。</description>
-      <pubDate>Tue, 24 Nov 2026 11:47:34 GMT</pubDate>
+      <pubDate>Wed, 25 Nov 2026 13:35:01 GMT</pubDate>
       <dcterms:created>2026-11-24T11:47:34.000Z</dcterms:created>
-      <dcterms:modified>2026-11-24T11:47:34.000Z</dcterms:modified>
+      <dcterms:modified>2026-11-25T13:35:01.000Z</dcterms:modified>
     </item>
     <item>
       <title>AWS Emulatorとは：200以上のAWSサービスをローカルで再現する無料エミュレータ</title>
       <link>https://share.0g0.xyz/aws-emulator-november-2026</link>
       <guid isPermaLink="true">https://share.0g0.xyz/aws-emulator-november-2026</guid>
       <description>2026年11月11日に提供開始したAWS Emulatorの概要。既存のSDK／CLI呼び出しをローカルで受けてミリ秒で応答し、デプロイもアカウントも不要。インメモリの状態、コピーごとの独立性、APIモデルからの生成、CC0公開と追加料金なしを、公式発表と出典つきで整理します。</description>
-      <pubDate>Tue, 24 Nov 2026 11:47:34 GMT</pubDate>
+      <pubDate>Wed, 25 Nov 2026 13:35:01 GMT</pubDate>
       <dcterms:created>2026-11-24T11:47:34.000Z</dcterms:created>
-      <dcterms:modified>2026-11-24T11:47:34.000Z</dcterms:modified>
+      <dcterms:modified>2026-11-25T13:35:01.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>Amazon Inspector 2026年11月の変更：AMIスキャン、ランタイム到達性分析、Code Securityの拡張</title>
+      <link>https://share.0g0.xyz/aws-inspector-november-2026</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/aws-inspector-november-2026</guid>
+      <description>Amazon Inspectorの2026年11月の発表4件。EC2のAMIスキャン、ECR／EC2の検出結果へのランタイム到達性分析、Inspector Code SecurityのGitHub Enterprise Server対応とプライベート接続、Security HubのGoogle Cloud Platform拡張を、公式発表と公式ドキュメントで詳しく整理します。</description>
+      <pubDate>Wed, 25 Nov 2026 13:35:01 GMT</pubDate>
+      <dcterms:created>2026-11-24T16:57:21.000Z</dcterms:created>
+      <dcterms:modified>2026-11-25T13:35:01.000Z</dcterms:modified>
     </item>
     <item>
       <title>AWS Lambda 2026年11月の変更：GPU対応とdurable functions、MicroVMsの拡張</title>
       <link>https://share.0g0.xyz/aws-lambda-november-2026</link>
       <guid isPermaLink="true">https://share.0g0.xyz/aws-lambda-november-2026</guid>
       <description>AWS Lambdaの2026年11月の発表18件。Managed InstancesでのGPU推論、durable functionsの一時停止・OTel・Rust SDK GAとクォータ拡大、MicroVMsのx86対応、カスタマーマネージドランタイム、30分タイムアウトなどを公式発表と出典つきで整理します。</description>
-      <pubDate>Tue, 24 Nov 2026 11:47:34 GMT</pubDate>
+      <pubDate>Wed, 25 Nov 2026 13:35:01 GMT</pubDate>
       <dcterms:created>2026-11-24T11:47:34.000Z</dcterms:created>
-      <dcterms:modified>2026-11-24T11:47:34.000Z</dcterms:modified>
+      <dcterms:modified>2026-11-25T13:35:01.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>AWS ネットワーク・CDN 2026年11月の変更まとめ：CloudFront、Route 53、Interconnect</title>
+      <link>https://share.0g0.xyz/aws-network-november-2026</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/aws-network-november-2026</guid>
+      <description>AWSのネットワーク・CDN分野の2026年11月の発表37件。Microsoft Azureとのマルチクラウド接続AWS Interconnectの一般提供、CloudFrontのオリジン相互TLSとFunctionsのネットワーク呼び出し、Route 53の新機能、Transit Gatewayのファイアウォール連携などをサービス別に整理します。</description>
+      <pubDate>Wed, 25 Nov 2026 13:35:01 GMT</pubDate>
+      <dcterms:created>2026-11-24T11:47:34.000Z</dcterms:created>
+      <dcterms:modified>2026-11-25T13:35:01.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>AWS 2026年11月の発表まとめ：全442件をサービス別に整理</title>
+      <link>https://share.0g0.xyz/aws-november-2026</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/aws-november-2026</guid>
+      <description>2026年11月1日〜24日のAWS公式発表442件を、サービス・分野別の17記事に整理した索引。AgentCore、WAF、Inspector、API Gateway、Lambda、Nitro Sandboxes、AWS Emulator、Strandsなど単独記事への入口と、期間・総件数・サービス別件数を明記します。</description>
+      <pubDate>Wed, 25 Nov 2026 13:35:01 GMT</pubDate>
+      <dcterms:created>2026-11-24T11:47:34.000Z</dcterms:created>
+      <dcterms:modified>2026-11-25T13:35:01.000Z</dcterms:modified>
     </item>
     <item>
       <title>AWS 運用・移行・コスト 2026年11月の変更まとめ：CloudWatch、Transform、課金、GovCloud</title>
       <link>https://share.0g0.xyz/aws-operations-november-2026</link>
       <guid isPermaLink="true">https://share.0g0.xyz/aws-operations-november-2026</guid>
       <description>AWSの運用・移行・コスト分野の2026年11月の発表51件。CloudWatchのPromQL拡大とQuery Studio、AWS Transformの移行自動化、EventBridgeの拡張、クレジット分割などの課金まわり、GovCloudでの提供開始をサービス別に整理します。</description>
-      <pubDate>Tue, 24 Nov 2026 11:47:34 GMT</pubDate>
+      <pubDate>Wed, 25 Nov 2026 13:35:01 GMT</pubDate>
       <dcterms:created>2026-11-24T11:47:34.000Z</dcterms:created>
-      <dcterms:modified>2026-11-24T11:47:34.000Z</dcterms:modified>
+      <dcterms:modified>2026-11-25T13:35:01.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>AWS セキュリティ 2026年11月の変更まとめ：Cognito、IAM、STS、Security Hub、Network Firewall</title>
+      <link>https://share.0g0.xyz/aws-security-november-2026</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/aws-security-november-2026</guid>
+      <description>AWSのセキュリティ・アイデンティティ分野の2026年11月の発表38件。STS GetScopedCredentials、CognitoのOAuth 2.0トークン交換とセッション管理、Security HubのSBOMインベントリ、Network Firewallの次世代ポリシーなどをサービス別に整理します。WAFは単独記事です。</description>
+      <pubDate>Wed, 25 Nov 2026 13:35:01 GMT</pubDate>
+      <dcterms:created>2026-11-24T11:47:34.000Z</dcterms:created>
+      <dcterms:modified>2026-11-25T13:35:01.000Z</dcterms:modified>
     </item>
     <item>
       <title>Strands 2026年11月の発表：判断モデルDecider v2とサンドボックスBox</title>
       <link>https://share.0g0.xyz/aws-strands-november-2026</link>
       <guid isPermaLink="true">https://share.0g0.xyz/aws-strands-november-2026</guid>
       <description>Strands Agentsの2026年11月23日の発表。Gemma 4ベースの判断専用オープンモデル「Strands Decider v2」（5サイズ、Apache-2.0）と、Claude Code／Codex／Kiro CLIをOSサンドボックスで動かすStrands BoxのCLI対応を、公式ブログと出典つきで整理します。</description>
-      <pubDate>Tue, 24 Nov 2026 11:47:34 GMT</pubDate>
+      <pubDate>Wed, 25 Nov 2026 13:35:01 GMT</pubDate>
       <dcterms:created>2026-11-24T11:47:34.000Z</dcterms:created>
-      <dcterms:modified>2026-11-24T11:47:34.000Z</dcterms:modified>
+      <dcterms:modified>2026-11-25T13:35:01.000Z</dcterms:modified>
     </item>
     <item>
       <title>AWS WAF 2026年11月の変更：料金体系の簡素化とAI／APIの自動保護</title>
       <link>https://share.0g0.xyz/aws-waf-november-2026</link>
       <guid isPermaLink="true">https://share.0g0.xyz/aws-waf-november-2026</guid>
       <description>AWS WAFの2026年11月の発表9件（＋秋の関連2件）。料金体系の3軸への組み替えと無料WCU拡大、AI Security／API Securityマネージドルール、Security Analytics Dashboard、Bot Controlの導入簡素化とWebBotAuth連携を、公式発表と出典つきで詳しく整理します。</description>
-      <pubDate>Tue, 24 Nov 2026 11:47:34 GMT</pubDate>
+      <pubDate>Wed, 25 Nov 2026 13:35:01 GMT</pubDate>
       <dcterms:created>2026-11-24T11:47:34.000Z</dcterms:created>
-      <dcterms:modified>2026-11-24T11:47:34.000Z</dcterms:modified>
+      <dcterms:modified>2026-11-25T13:35:01.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>CephFSの脆弱性 CVE-2026-99304：影響を受ける条件と更新方法</title>
+      <link>https://share.0g0.xyz/cephfs-cve-2026-99304</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/cephfs-cve-2026-99304</guid>
+      <description>LinuxのCephFSカーネルクライアントに影響するCVE-2026-99304。対象ホストの見分け方、OSごとの修正状況、更新後の確認を解説します。</description>
+      <pubDate>Wed, 25 Nov 2026 13:35:01 GMT</pubDate>
+      <dcterms:created>2026-11-19T14:58:06.000Z</dcterms:created>
+      <dcterms:modified>2026-11-25T13:35:01.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>ChatGPT Sitesの料金：無料ホスティングは2026年12月31日まで、2027年からはクレジット枠制</title>
+      <link>https://share.0g0.xyz/chatgpt-sites-pricing</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/chatgpt-sites-pricing</guid>
+      <description>ChatGPT Sitesのホスティング料金をOpenAI公式ドキュメントで確認しました。無料期間は2026年12月31日までで、2027年1月1日からはプランごとの月次クレジット枠を超えた分を支払う形になります。枠の大きさ、消費項目ごとの単価、データベース1 GiBでPlusの枠を超える計算を整理します。</description>
+      <pubDate>Wed, 25 Nov 2026 13:35:01 GMT</pubDate>
+      <dcterms:created>2026-11-24T05:09:52.000Z</dcterms:created>
+      <dcterms:modified>2026-11-25T13:35:01.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>Cloudflare Code Mode：2,500超のAPIを2つのツールに畳むMCPの設計</title>
+      <link>https://share.0g0.xyz/cloudflare-code-mode-mcp</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/cloudflare-code-mode-mcp</guid>
+      <description>CloudflareのCode Modeは、2,594エンドポイント分のツール定義（約117万トークン）を search と execute の2ツール（約1,000トークン）に置き換えるMCPの設計です。公式ブログとcloudflare/mcpのREADMEで数字の測り方、仕組み、サンドボックス、向き不向きを確認します。</description>
+      <pubDate>Wed, 25 Nov 2026 13:35:01 GMT</pubDate>
+      <dcterms:created>2026-11-24T23:27:41.000Z</dcterms:created>
+      <dcterms:modified>2026-11-25T13:35:01.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>CVE監視 第1号（2026年11月20日）：FrankenPHP・NGINX・OpenSSL・Next.js・containerd</title>
+      <link>https://share.0g0.xyz/cve-watch-2026-11-20</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/cve-watch-2026-11-20</guid>
+      <description>2026年11月13日から20日に確認したCVEのうち、PHP・NGINX・Next.js・OpenSSL・Dockerの関心技術に関わる11件を、対象版・修正版・成立条件つきで整理した監視の第1号。</description>
+      <pubDate>Wed, 25 Nov 2026 13:35:01 GMT</pubDate>
+      <dcterms:created>2026-11-19T17:43:36.000Z</dcterms:created>
+      <dcterms:modified>2026-11-25T13:35:01.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>CVE監視 第2号（2026年11月22日）：NGINX HTTP/3 の use-after-free</title>
+      <link>https://share.0g0.xyz/cve-watch-2026-11-22</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/cve-watch-2026-11-22</guid>
+      <description>2026年11月21日から22日に確認したCVEのうち、関心技術に関わる High 以上で未掲載の1件、NGINX HTTP/3 の use-after-free（CVE-2026-121810、CVSS 8.1）を、対象版・修正版・成立条件つきで整理した監視の第2号。</description>
+      <pubDate>Wed, 25 Nov 2026 13:35:01 GMT</pubDate>
+      <dcterms:created>2026-11-22T00:55:59.000Z</dcterms:created>
+      <dcterms:modified>2026-11-25T13:35:01.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>CVE監視 第3号（2026年11月25日）：WordPress ページテンプレート解決でのファイル取り込み</title>
+      <link>https://share.0g0.xyz/cve-watch-2026-11-25</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/cve-watch-2026-11-25</guid>
+      <description>2026年11月24日から25日に確認したCVEのうち、関心技術に関わる High 以上で未掲載の1件、WordPress ページテンプレート解決でのファイル取り込み（CVE-2026-87902、CVSS 8.1、CISA KEV掲載）を、対象版・修正版・成立条件つきで整理した監視の第3号。</description>
+      <pubDate>Wed, 25 Nov 2026 13:35:01 GMT</pubDate>
+      <dcterms:created>2026-11-25T01:00:11.000Z</dcterms:created>
+      <dcterms:modified>2026-11-25T13:35:01.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>embargo：Goのログに出る秘密を伏せる</title>
+      <link>https://share.0g0.xyz/embargo-log-redaction</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/embargo-log-redaction</guid>
+      <description>Go向けのembargoを使い、ダミーのログでマスクを試す。隠せる値と、そもそもログに出さない情報を分ける。</description>
+      <pubDate>Wed, 25 Nov 2026 13:35:01 GMT</pubDate>
+      <dcterms:created>2026-11-24T00:59:54.000Z</dcterms:created>
+      <dcterms:modified>2026-11-25T13:35:01.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>緊急メンテナンス続報まとめ（2026年11月25日時点）：継続中・一部復旧・復旧済み</title>
+      <link>https://share.0g0.xyz/emergency-maintenance-2026-11</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/emergency-maintenance-2026-11</guid>
+      <description>2026年10月下旬〜11月に相次いだ緊急メンテナンスとサービス停止を、2026年11月25日時点の公式告知ベースで整理。KARTE、JAXA公開系、teket、ALL.Net、バッファローなど継続中の案件と、Cacoo、SuiteX／SuiteSなど復旧済みの案件を分けてまとめます。</description>
+      <pubDate>Wed, 25 Nov 2026 13:35:01 GMT</pubDate>
+      <dcterms:created>2026-11-25T00:55:12.000Z</dcterms:created>
+      <dcterms:modified>2026-11-25T13:35:01.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>GitHub Teamでセキュリティリスク評価が自動実行に｜2026年11月18日の変更点と2種類の評価</title>
+      <link>https://share.0g0.xyz/github-team-security-risk-assessments</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/github-team-security-risk-assessments</guid>
+      <description>GitHub Changelog（2026年11月18日）で、GitHub Teamプランの組織ではセキュリティリスク評価が自動で実行されるようになった。対象プラン、2種類の評価で分かること、費用と再実行の間隔を公式ドキュメントで確認して整理する。</description>
+      <pubDate>Wed, 25 Nov 2026 13:35:01 GMT</pubDate>
+      <dcterms:created>2026-11-19T17:36:57.000Z</dcterms:created>
+      <dcterms:modified>2026-11-25T13:35:01.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>用語集：HTML Shareの記事に出てくる専門用語</title>
+      <link>https://share.0g0.xyz/glossary</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/glossary</guid>
+      <description>HTML Shareの記事に出てくる専門用語の短い説明の一覧です。記事本文では、辞書に登録された用語の初出が自動でこの用語集へリンクされます。</description>
+      <pubDate>Wed, 25 Nov 2026 13:35:01 GMT</pubDate>
+      <dcterms:created>2026-11-24T01:37:31.000Z</dcterms:created>
+      <dcterms:modified>2026-11-25T13:35:01.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>LinuxカーネルのCVEを整理：11月16〜19日公表分</title>
+      <link>https://share.0g0.xyz/linux-kernel-cve-roundup-2026-11-19</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/linux-kernel-cve-roundup-2026-11-19</guid>
+      <description>Linuxカーネルの脆弱性を公表日と機能別に整理。確認したCVEの全件索引、運用別の確認コマンド、CephFS・PHPの個別記事。</description>
+      <pubDate>Wed, 25 Nov 2026 13:35:01 GMT</pubDate>
+      <dcterms:created>2026-11-19T15:12:40.000Z</dcterms:created>
+      <dcterms:modified>2026-11-25T13:35:01.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>Skills over MCPとTasks：MCP 2周年でサーバーが手順と長時間の仕事を持てるようになった</title>
+      <link>https://share.0g0.xyz/mcp-skills-tasks</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/mcp-skills-tasks</guid>
+      <description>AnthropicがMCP 2周年（2026-11-24）に発表したSkills over MCP（パブリックベータ）とTasks（正式提供）を、公式記事・MCP公式ドキュメント・拡張仕様・Claude Code公式ドキュメントで確認します。仕組み、提供範囲、未確認の点を分けます。</description>
+      <pubDate>Wed, 25 Nov 2026 13:35:01 GMT</pubDate>
+      <dcterms:created>2026-11-25T01:07:47.000Z</dcterms:created>
+      <dcterms:modified>2026-11-25T13:35:01.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>nginx2shell：NGINXのHTTP/2脆弱性と対処</title>
+      <link>https://share.0g0.xyz/nginx2shell</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/nginx2shell</guid>
+      <description>NGINXのHTTP/2脆弱性2件について、影響を受ける構成、修正版、AWS ALBの確認方法を図解します。</description>
+      <pubDate>Wed, 25 Nov 2026 13:35:01 GMT</pubDate>
+      <dcterms:created>2026-11-18T17:45:48.000Z</dcterms:created>
+      <dcterms:modified>2026-11-25T13:35:01.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>Notionにワークスペース容量上限：フリーは512MB、プラン別の上限と確認方法</title>
+      <link>https://share.0g0.xyz/notion-storage-limits</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/notion-storage-limits</guid>
+      <description>Notionのファイルストレージにワークスペース単位の容量上限が明記されました。公式ヘルプと料金ページで確認したプラン別の上限（フリー512MB〜エンタープライズ1TB）、数えられるファイルの範囲、使用量の確認方法、上限に達したときの動きをまとめます。</description>
+      <pubDate>Wed, 25 Nov 2026 13:35:01 GMT</pubDate>
+      <dcterms:created>2026-11-24T23:40:59.000Z</dcterms:created>
+      <dcterms:modified>2026-11-25T13:35:01.000Z</dcterms:modified>
     </item>
     <item>
       <title>Orcaとは：Claude CodeやCodexをワークツリーごとに並行実行する無料のエージェント開発環境（ADE）</title>
       <link>https://share.0g0.xyz/orca</link>
       <guid isPermaLink="true">https://share.0g0.xyz/orca</guid>
       <description>Orca（orca.dev）の概要、Gitワークツリーでエージェントごとに作業場所を分ける仕組み、Orca Bots、対応エージェント、T3 Codeとの違い、料金（本体は無料）、データの扱いを、公式サイト・GitHubと出典つきで整理します。</description>
-      <pubDate>Tue, 24 Nov 2026 09:51:47 GMT</pubDate>
+      <pubDate>Wed, 25 Nov 2026 13:35:01 GMT</pubDate>
       <dcterms:created>2026-11-24T09:51:47.000Z</dcterms:created>
-      <dcterms:modified>2026-11-24T09:51:47.000Z</dcterms:modified>
+      <dcterms:modified>2026-11-25T13:35:01.000Z</dcterms:modified>
     </item>
     <item>
-      <title>T3 Codeとは：Claude CodeやCodexを1つの画面で操る無料のオープンソース。T3 Chatとは別物</title>
-      <link>https://share.0g0.xyz/t3-code</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/t3-code</guid>
-      <description>T3 Code（t3.codes）の概要、T3 Chatとの違い、対応するコーディングエージェント、仕組み、リモート利用、料金（本体は無料、T3 Connectの上限だけT3 Chatプランと連動）、データの扱いを、公式サイト・GitHub・公式FAQと出典つきで整理します。</description>
-      <pubDate>Tue, 24 Nov 2026 09:51:47 GMT</pubDate>
-      <dcterms:created>2026-11-24T08:58:19.000Z</dcterms:created>
-      <dcterms:modified>2026-11-24T09:51:47.000Z</dcterms:modified>
+      <title>PHP 8.6の変更点：セッション既定値の厳格化と、自分のリポジトリへの影響</title>
+      <link>https://share.0g0.xyz/php-8-6-release-2026-11-19</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/php-8-6-release-2026-11-19</guid>
+      <description>PHP 8.6.0（2026年11月19日）の新機能と互換性変更、セッション既定値の厳格化、PHP 8.2のサポート終了（2026年12月31日）と、自分のGitHubリポジトリの走査結果をまとめます。</description>
+      <pubDate>Wed, 25 Nov 2026 13:35:01 GMT</pubDate>
+      <dcterms:created>2026-11-24T23:14:49.000Z</dcterms:created>
+      <dcterms:modified>2026-11-25T13:35:01.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>PHPのセキュリティ更新：修正版と確認手順（2026年11月19日）</title>
+      <link>https://share.0g0.xyz/php-security-release-2026-11-19</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/php-security-release-2026-11-19</guid>
+      <description>PHP 8.2〜8.5のセキュリティ修正版、重大なセッションの不具合、OSやDockerでの配布状況と更新後の確認をまとめます。</description>
+      <pubDate>Wed, 25 Nov 2026 13:35:01 GMT</pubDate>
+      <dcterms:created>2026-11-19T14:16:03.000Z</dcterms:created>
+      <dcterms:modified>2026-11-25T13:35:01.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>Pi と Pi Durable — 実装者のための選び方</title>
+      <link>https://share.0g0.xyz/pi-durable</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/pi-durable</guid>
+      <description>Pi coding agentとPi Durableの違い、永続化と再実行の境界、Cloudflare構成、費用と試験項目を一次資料で整理。2026年10月6日確認。</description>
+      <pubDate>Wed, 25 Nov 2026 13:35:01 GMT</pubDate>
+      <dcterms:created>2026-10-06T03:28:19.000Z</dcterms:created>
+      <dcterms:modified>2026-11-25T13:35:01.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>Sam Altman スタンフォード講演まとめ｜Scale, AGI, and the Future of Everything（Stanford CS153）</title>
+      <link>https://share.0g0.xyz/sam-altman-stanford-cs153</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/sam-altman-stanford-cs153</guid>
+      <description>Sam Altmanがスタンフォードの授業CS153で行った講演「Scale, AGI, and the Future of Everything」（Stanford Online、2026年6月15日公開、41分）を章立てで要約。Xで拡散した26分の再編集版の元ソースも特定した。</description>
+      <pubDate>Wed, 25 Nov 2026 13:35:01 GMT</pubDate>
+      <dcterms:created>2026-11-18T17:27:09.000Z</dcterms:created>
+      <dcterms:modified>2026-11-25T13:35:01.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>Shirudo：パッチが届くまでの間、サービスを止めずに脆弱性を塞ぐ</title>
+      <link>https://share.0g0.xyz/shirudo</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/shirudo</guid>
+      <description>OpenAIとCiscoが公開したOSS「Shirudo」を解説します。eBPFの一時的な保護「shield」で、恒久パッチの適用までの期間をサービス無停止で守る仕組み、Java4Shellの実証で確認できた範囲、導入の前提条件を整理します。</description>
+      <pubDate>Wed, 25 Nov 2026 13:35:01 GMT</pubDate>
+      <dcterms:created>2026-11-24T00:52:20.000Z</dcterms:created>
+      <dcterms:modified>2026-11-25T13:35:01.000Z</dcterms:modified>
     </item>
     <item>
       <title>T3 Chatとは：複数モデルを1つの画面で切り替えるAIチャット。Proは月8ドル、利用量はメーター制</title>
       <link>https://share.0g0.xyz/t3-chat</link>
       <guid isPermaLink="true">https://share.0g0.xyz/t3-chat</guid>
       <description>T3 Chat（t3.chat）の概要、対応モデル、料金プラン（Free／Pro月8ドル／Premier月50ドル）、4時間で回復する利用量メーター、学習に使わないデータ方針、公開直後の急成長の経緯を、公式FAQ・プライバシーポリシーと出典つきで整理します。</description>
-      <pubDate>Tue, 24 Nov 2026 08:58:19 GMT</pubDate>
+      <pubDate>Wed, 25 Nov 2026 13:35:01 GMT</pubDate>
       <dcterms:created>2026-11-24T05:35:56.000Z</dcterms:created>
-      <dcterms:modified>2026-11-24T08:58:19.000Z</dcterms:modified>
+      <dcterms:modified>2026-11-25T13:35:01.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>T3 Codeとは：Claude CodeやCodexを1つの画面で操る無料のオープンソース。T3 Chatとは別物</title>
+      <link>https://share.0g0.xyz/t3-code</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/t3-code</guid>
+      <description>T3 Code（t3.codes）の概要、T3 Chatとの違い、対応するコーディングエージェント、仕組み、リモート利用、料金（本体は無料、T3 Connectの上限だけT3 Chatプランと連動）、データの扱いを、公式サイト・GitHub・公式FAQと出典つきで整理します。</description>
+      <pubDate>Wed, 25 Nov 2026 13:35:01 GMT</pubDate>
+      <dcterms:created>2026-11-24T08:58:19.000Z</dcterms:created>
+      <dcterms:modified>2026-11-25T13:35:01.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>Vitest Browser Mode 試験導入の実測：jsdom 17ファイルで Duration 約32秒→26.20秒、通過は222/283</title>
+      <link>https://share.0g0.xyz/vitest-browser-mode-pilot</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/vitest-browser-mode-pilot</guid>
+      <description>g-kari/tools の jsdom テスト17ファイル（283件）を Vitest 5.1.1 の Browser Mode（Playwright の Chromium）で実行した実測結果。総時間は約32秒から26.20秒に短縮したが、通過は222件だった。失敗の分類と、移行に向く環境・向かない環境の目安を整理した。</description>
+      <pubDate>Wed, 25 Nov 2026 13:35:01 GMT</pubDate>
+      <dcterms:created>2026-11-19T19:11:41.000Z</dcterms:created>
+      <dcterms:modified>2026-11-25T13:35:01.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>WizとOpenAI Codexの連携：クラウドの文脈を持ったままコード修正まで進める仕組み</title>
+      <link>https://share.0g0.xyz/wiz-codex-integration</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/wiz-codex-integration</guid>
+      <description>Wizが2026-11-24に発表したOpenAI Codexとの連携（Wiz plugin for Codex）を、Wiz公式ブログとOpenAIのDaybreak Defense Factory公式ページで確認します。連携の仕組み、文脈として渡る情報、提供範囲と未確認の点を分けます。</description>
+      <pubDate>Wed, 25 Nov 2026 13:35:01 GMT</pubDate>
+      <dcterms:created>2026-11-25T12:38:43.000Z</dcterms:created>
+      <dcterms:modified>2026-11-25T13:35:01.000Z</dcterms:modified>
     </item>
     <item>
       <title>OpenAI EnterpriseとClaude Enterpriseの比較｜セキュリティ・監査・コスト（2〜200席の導入目安）</title>
@@ -297,51 +405,6 @@
       <dcterms:modified>2026-11-24T06:02:17.000Z</dcterms:modified>
     </item>
     <item>
-      <title>ChatGPT Sitesの料金：無料ホスティングは2026年12月31日まで、2027年からはクレジット枠制</title>
-      <link>https://share.0g0.xyz/chatgpt-sites-pricing</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/chatgpt-sites-pricing</guid>
-      <description>ChatGPT Sitesのホスティング料金をOpenAI公式ドキュメントで確認しました。無料期間は2026年12月31日までで、2027年1月1日からはプランごとの月次クレジット枠を超えた分を支払う形になります。枠の大きさ、消費項目ごとの単価、データベース1 GiBでPlusの枠を超える計算を整理します。</description>
-      <pubDate>Tue, 24 Nov 2026 05:09:52 GMT</pubDate>
-      <dcterms:created>2026-11-24T05:09:52.000Z</dcterms:created>
-      <dcterms:modified>2026-11-24T05:09:52.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>Shirudo：パッチが届くまでの間、サービスを止めずに脆弱性を塞ぐ</title>
-      <link>https://share.0g0.xyz/shirudo</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/shirudo</guid>
-      <description>OpenAIとCiscoが公開したOSS「Shirudo」を解説します。eBPFの一時的な保護「shield」で、恒久パッチの適用までの期間をサービス無停止で守る仕組み、Java4Shellの実証で確認できた範囲、導入の前提条件を整理します。</description>
-      <pubDate>Tue, 24 Nov 2026 01:24:25 GMT</pubDate>
-      <dcterms:created>2026-11-24T00:52:20.000Z</dcterms:created>
-      <dcterms:modified>2026-11-24T01:24:25.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>embargo：Goのログに出る秘密を伏せる</title>
-      <link>https://share.0g0.xyz/embargo-log-redaction</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/embargo-log-redaction</guid>
-      <description>Go向けのembargoを使い、ダミーのログでマスクを試す。隠せる値と、そもそもログに出さない情報を分ける。</description>
-      <pubDate>Tue, 24 Nov 2026 00:59:54 GMT</pubDate>
-      <dcterms:created>2026-11-24T00:59:54.000Z</dcterms:created>
-      <dcterms:modified>2026-11-24T00:59:54.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>CephFSの脆弱性 CVE-2026-99304：影響を受ける条件と更新方法</title>
-      <link>https://share.0g0.xyz/cephfs-cve-2026-99304</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/cephfs-cve-2026-99304</guid>
-      <description>LinuxのCephFSカーネルクライアントに影響するCVE-2026-99304。対象ホストの見分け方、OSごとの修正状況、更新後の確認を解説します。</description>
-      <pubDate>Mon, 23 Nov 2026 05:06:11 GMT</pubDate>
-      <dcterms:created>2026-11-19T14:58:06.000Z</dcterms:created>
-      <dcterms:modified>2026-11-23T05:06:11.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>CVE監視 第2号（2026年11月22日）：NGINX HTTP/3 の use-after-free</title>
-      <link>https://share.0g0.xyz/cve-watch-2026-11-22</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/cve-watch-2026-11-22</guid>
-      <description>2026年11月21日から22日に確認したCVEのうち、関心技術に関わる High 以上で未掲載の1件、NGINX HTTP/3 の use-after-free（CVE-2026-121810、CVSS 8.1）を、対象版・修正版・成立条件つきで整理した監視の第2号。</description>
-      <pubDate>Sun, 22 Nov 2026 00:55:59 GMT</pubDate>
-      <dcterms:created>2026-11-22T00:55:59.000Z</dcterms:created>
-      <dcterms:modified>2026-11-22T00:55:59.000Z</dcterms:modified>
-    </item>
-    <item>
       <title>AWS Systems Managerで複数のEC2を更新する</title>
       <link>https://share.0g0.xyz/aws-ssm-ec2-software-patching</link>
       <guid isPermaLink="true">https://share.0g0.xyz/aws-ssm-ec2-software-patching</guid>
@@ -349,51 +412,6 @@
       <pubDate>Fri, 20 Nov 2026 07:51:41 GMT</pubDate>
       <dcterms:created>2026-11-20T02:49:22.000Z</dcterms:created>
       <dcterms:modified>2026-11-20T07:51:41.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>Vitest Browser Mode 試験導入の実測：jsdom 17ファイルで Duration 約32秒→26.20秒、通過は222/283</title>
-      <link>https://share.0g0.xyz/vitest-browser-mode-pilot</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/vitest-browser-mode-pilot</guid>
-      <description>g-kari/tools の jsdom テスト17ファイル（283件）を Vitest 5.1.1 の Browser Mode（Playwright の Chromium）で実行した実測結果。総時間は約32秒から26.20秒に短縮したが、通過は222件だった。失敗の分類と、移行に向く環境・向かない環境の目安を整理した。</description>
-      <pubDate>Thu, 19 Nov 2026 19:17:51 GMT</pubDate>
-      <dcterms:created>2026-11-19T19:11:41.000Z</dcterms:created>
-      <dcterms:modified>2026-11-19T19:17:51.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>CVE監視 第1号（2026年11月20日）：FrankenPHP・NGINX・OpenSSL・Next.js・containerd</title>
-      <link>https://share.0g0.xyz/cve-watch-2026-11-20</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/cve-watch-2026-11-20</guid>
-      <description>2026年11月13日から20日に確認したCVEのうち、PHP・NGINX・Next.js・OpenSSL・Dockerの関心技術に関わる11件を、対象版・修正版・成立条件つきで整理した監視の第1号。</description>
-      <pubDate>Thu, 19 Nov 2026 17:43:36 GMT</pubDate>
-      <dcterms:created>2026-11-19T17:43:36.000Z</dcterms:created>
-      <dcterms:modified>2026-11-19T17:43:36.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>GitHub Teamでセキュリティリスク評価が自動実行に｜2026年11月18日の変更点と2種類の評価</title>
-      <link>https://share.0g0.xyz/github-team-security-risk-assessments</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/github-team-security-risk-assessments</guid>
-      <description>GitHub Changelog（2026年11月18日）で、GitHub Teamプランの組織ではセキュリティリスク評価が自動で実行されるようになった。対象プラン、2種類の評価で分かること、費用と再実行の間隔を公式ドキュメントで確認して整理する。</description>
-      <pubDate>Thu, 19 Nov 2026 17:36:57 GMT</pubDate>
-      <dcterms:created>2026-11-19T17:36:57.000Z</dcterms:created>
-      <dcterms:modified>2026-11-19T17:36:57.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>LinuxカーネルのCVEを整理：11月16〜19日公表分</title>
-      <link>https://share.0g0.xyz/linux-kernel-cve-roundup-2026-11-19</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/linux-kernel-cve-roundup-2026-11-19</guid>
-      <description>Linuxカーネルの脆弱性を公表日と機能別に整理。確認したCVEの全件索引、運用別の確認コマンド、CephFS・PHPの個別記事。</description>
-      <pubDate>Thu, 19 Nov 2026 15:12:40 GMT</pubDate>
-      <dcterms:created>2026-11-19T15:12:40.000Z</dcterms:created>
-      <dcterms:modified>2026-11-19T15:12:40.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>nginx2shell：NGINXのHTTP/2脆弱性と対処</title>
-      <link>https://share.0g0.xyz/nginx2shell</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/nginx2shell</guid>
-      <description>NGINXのHTTP/2脆弱性2件について、影響を受ける構成、修正版、AWS ALBの確認方法を図解します。</description>
-      <pubDate>Thu, 19 Nov 2026 05:02:58 GMT</pubDate>
-      <dcterms:created>2026-11-18T17:45:48.000Z</dcterms:created>
-      <dcterms:modified>2026-11-19T05:02:58.000Z</dcterms:modified>
     </item>
     <item>
       <title>LinuxサーバーのソフトウェアをSBOM化する方法｜nginx・PHP・OpenSSL</title>
@@ -412,24 +430,6 @@
       <pubDate>Wed, 18 Nov 2026 19:53:07 GMT</pubDate>
       <dcterms:created>2026-11-16T18:21:24.000Z</dcterms:created>
       <dcterms:modified>2026-11-18T19:53:07.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>Pi と Pi Durable — 実装者のための選び方</title>
-      <link>https://share.0g0.xyz/pi-durable</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/pi-durable</guid>
-      <description>Pi coding agentとPi Durableの違い、永続化と再実行の境界、Cloudflare構成、費用と試験項目を一次資料で整理。2026年10月6日確認。</description>
-      <pubDate>Wed, 18 Nov 2026 18:02:55 GMT</pubDate>
-      <dcterms:created>2026-10-06T03:28:19.000Z</dcterms:created>
-      <dcterms:modified>2026-11-18T18:02:55.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>Sam Altman スタンフォード講演まとめ｜Scale, AGI, and the Future of Everything（Stanford CS153）</title>
-      <link>https://share.0g0.xyz/sam-altman-stanford-cs153</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/sam-altman-stanford-cs153</guid>
-      <description>Sam Altmanがスタンフォードの授業CS153で行った講演「Scale, AGI, and the Future of Everything」（Stanford Online、2026年6月15日公開、41分）を章立てで要約。Xで拡散した26分の再編集版の元ソースも特定した。</description>
-      <pubDate>Wed, 18 Nov 2026 18:02:55 GMT</pubDate>
-      <dcterms:created>2026-11-18T17:27:09.000Z</dcterms:created>
-      <dcterms:modified>2026-11-18T18:02:55.000Z</dcterms:modified>
     </item>
     <item>
       <title>GPT-6.2の指示ガイド 日本語要約</title>
