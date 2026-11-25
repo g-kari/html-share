@@ -35,7 +35,7 @@
 ## Design
 
 - 記事ページの見た目は共通デザイン（`public/assets/site.css` / `public/assets/site.js`）を使う。インラインCSSをページごとに複製しない
-- `<head>` に `<link rel="stylesheet" href="/assets/site.css">` を入れ、アクセント色は直後の `<style>` で `:root{ --accent:...; --accent-dark:...; }` を指定する。`</body>` 直前に `<script type="module" src="/assets/site.js"></script>` を入れる
+- `<head>` に `<link rel="stylesheet" href="/assets/site.css">` を入れる。アクセント色は共通CSSで赤1色に固定されているため、ページ側では指定しない。`</body>` 直前に `<script type="module" src="/assets/site.js"></script>` を入れる
 - 本文は `.wrap` で囲み、先頭に `.sitebar`（ブランド／一覧／RSS）を置く。見出しには `id` を付ける
 - ページ固有の体裁は小さな `<style>` の上書きに留める。詳細は `design/site-design.md`
 
