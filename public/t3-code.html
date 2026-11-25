@@ -44,7 +44,7 @@ table.tc-table th,table.tc-table td{border:1px solid var(--line);padding:.45rem 
   <div class="kicker">AI開発ツール解説 · <a class="gloss" href="/glossary#term-t3-code" title="Claude CodeやCodexなどのコーディングエージェントを、自分のマシンで動かしたまま、デスクトップ・Web・スマホの1つの画面から操作する無料のオープンソースアプリ。運営は米国のT3 Tools。">T3 Code</a></div>
   <h1>T3 Codeとは：Claude CodeやCodexを1つの画面で操る無料のオープンソース。T3 Chatとは別物</h1>
   <p class="meta">
-    確認日：2026年11月24日<br>
+    確認日：2026年11月24日（2026年11月25日にテレメトリの裏取りで「データの扱い」を訂正）<br>
     一次資料：<a href="https://t3.codes/">T3 Code公式サイト</a>／<a href="https://github.com/pingdotgg/t3code">GitHubリポジトリ（README）</a>／<a href="https://github.com/pingdotgg/t3code/blob/main/docs/user/faq.md">公式FAQ</a>。公式で確認できない箇所は、本文と出典に明記します。
   </p>
 </header>
@@ -57,6 +57,7 @@ table.tc-table th,table.tc-table td{border:1px solid var(--line);padding:.45rem 
     <li>料金は無料です。公式FAQには「私たちに払う方法自体がない」と書かれています。ソースコードはMITライセンスで公開されています。T3 Chatの月額プランを買う必要はありません。</li>
     <li>T3 Chatとの接点は1つだけあります。リモート接続の仕組み<a class="gloss" href="/glossary#term-t3-connect" title="T3 Codeのリモート接続の仕組み。自分のマシンで動くエージェントへ、スマホやブラウザから接続するために使います。">T3 Connect</a>でつなげるマシンの上限が、無料では3台のところ、T3 Chatの有料プランを連携するとProで10台、Premierで100台に増えます（公式FAQ）。</li>
     <li>エージェントの実行場所は自分のマシンや自分のVPSで、コードがT3のサーバへ送られることはないと公式FAQが明記しています。机で始めた作業の続きを、スマホから承認だけして進める、という使い方が前面に出ています。</li>
+    <li>利用状況データ（テレメトリ）は、コードとは別に、既定でT3自前のサーバへ送られます。2026年11月24日までは、他のツールのログイン情報ファイルから読んだアカウント識別子のハッシュも含まれていました（同日の修正で削除）。詳細は「データの扱い」に書きました。</li>
     <li>GitHubリポジトリの作成は2026年2月で、公式サイトの表示ではスターは7万5千を超えています。一方で公式READMEは「非常に初期のプロジェクトで、バグを想定してください」と明記しています。</li>
   </ol>
 </div>
@@ -155,11 +156,16 @@ table.tc-table th,table.tc-table td{border:1px solid var(--line);padding:.45rem 
 </figure>
 
 <h2 id="privacy">データの扱い</h2>
-<p>公式FAQは「コードがT3のサーバへ行くことはない」と明記しています。コードとプロンプトは、自分のマシンからモデルの提供元（AnthropicやOpenAIなど）へ直接送られます。T3 Connectを使う場合も、通信は自分のマシン上のCloudflareトンネルを通り、T3側のリレーは接続を取り次ぐだけで、HTTPやWebSocketのセッションを中継しません。</p>
-<p>例外は製品の利用状況データです。提供元、モデル、トークンの総量といった基本情報はT3へ送られますが、プロンプトやファイルの中身は含まれません。この送信は、環境変数 <code>T3CODE_TELEMETRY_ENABLED=false</code> で止められます（公式FAQ）。</p>
+<p>コードとプロンプトは、自分のマシンからモデルの提供元（AnthropicやOpenAIなど）へ直接送られ、T3のサーバへは送られません。T3 Connectを使う場合も、通信は自分のマシン上のCloudflareトンネルを通り、T3側のリレーは接続を取り次ぐだけで、HTTPやWebSocketのセッションを中継しません（公式FAQ）。ただし、これはコードとプロンプトの話です。利用状況データの送信は別にあります。</p>
+<p>利用状況データ（テレメトリ）は、既定でT3へ送られます。内容は、使う提供元やモデル、権限モード、ターンの結果、所要時間、トークン数などで、プロンプトや応答、ファイルの中身、認証トークンは含まれないと公式文書にあります。送信先はT3自前のサーバ（ingest.t3.codes）で、受け取ったイベントは、コピーが自社に残ってから分析サービスのPostHogへ転送されます（2026年10月のPR <a href="https://github.com/pingdotgg/t3code/pull/15028">#15028</a>。それまではPostHogへ直接送られていました）。</p>
+<p>この送信は、2026年3月6日のPR <a href="https://github.com/pingdotgg/t3code/pull/174">#174</a>で入りました。既定はオンで、止める方法は環境変数だけでした。利用者からの指摘（Issue <a href="https://github.com/pingdotgg/t3code/issues/1397">#1397</a>、2026年3月）によれば、その環境変数はREADMEにもドキュメントにもUIにも書かれていませんでした。公式サイトのトップには「No telemetry（テレメトリなし）」「Unless you opt in. Full stop.（オプトインしない限り。以上）」と書かれていた時期がありますが、この2行は2026年6月18日のホームページ改修（PR <a href="https://github.com/pingdotgg/t3code/pull/3137">#3137</a>）で削除されています。改修の説明に、テレメトリへの言及はありません。</p>
+<p>識別子の扱いも広がっていました。導入当初から、サーバはCodexのログイン情報ファイル（<code>~/.codex/auth.json</code>）にあるアカウントIDを読み、ハッシュ化して送信に使っていました。2026年10月19日のPR <a href="https://github.com/pingdotgg/t3code/pull/21506">#21506</a>では、同じファイルのIDトークンからOpenAIのユーザーIDを取り出し、Claude Codeのファイル（<code>~/.claude.json</code>）のアカウントUUIDも読むようになりました。どちらも無塩のSHA-256でハッシュ化され、インストールの「所有者」としてイベントに付けられました。この提供元アカウント識別子の読み取りは、告発を受けた2026年11月24日のPR <a href="https://github.com/pingdotgg/t3code/pull/42299">#42299</a>で削除されました。現在のコードが読むのは、T3 Connectのアカウントと、接続してくるデバイスの識別子（いずれもハッシュ化）です。</p>
+<p>診断用の送信もあります。T3 Connectの接続トレースはAxiomへ送られます。告発時点の公式文書（2026年11月23日版）には、ブラウザ版にはトレースを止めるスイッチがなく、モバイル版も環境変数や管理ポリシーでは止められないと書かれていました。公式文書はその後更新され、現在の版ではモバイル版の設定スイッチが案内されています。</p>
+<p>設定画面へのオフスイッチの要望への対応も、リポジトリで確認できます。要望のIssue <a href="https://github.com/pingdotgg/t3code/issues/1397">#1397</a>は「対応予定なし（not planned）」で閉じられ、メンテナは「オプトアウトを簡単にはしない。利用者数を把握することが重要だ」という趣旨のコメントを残しています。スイッチを追加するコミュニティのPR（<a href="https://github.com/pingdotgg/t3code/pull/13458">#13458</a>、<a href="https://github.com/pingdotgg/t3code/pull/16763">#16763</a>、<a href="https://github.com/pingdotgg/t3code/pull/21248">#21248</a>、<a href="https://github.com/pingdotgg/t3code/pull/27077">#27077</a>）も、いずれも取り込まれずに閉じられました。</p>
+<p>止める方法は次のとおりです。サーバを起動する前に環境変数 <code>T3CODE_TELEMETRY_ENABLED=false</code>（または <code>DO_NOT_TRACK=1</code>）を設定すると、利用状況データと、サーバからのトレース送信が止まります。トレースだけは <code>T3CODE_OTEL_SDK_DISABLED=true</code> でも止まります（公式文書）。</p>
 <figure class="tc-figure">
-<img src="/assets/t3code-privacy-v1.png" width="1600" height="660" loading="lazy" alt="データの流れ。自分のマシンからモデルの提供元へ直接送られ、T3のサーバへコードは送られない。利用状況の基本情報だけがT3へ送られ、止めることもできる">
-<figcaption>図：データの流れ。コードの行き先は提供元だけです。</figcaption>
+<img src="/assets/t3code-privacy-v2.png" width="1600" height="660" loading="lazy" alt="データの流れ。コードとプロンプトは自分のマシンからモデルの提供元へ直接送られる。製品の利用状況（テレメトリ）は既定でT3自前のサーバへ送られ、コピーが残ってからPostHogへ転送される。止めるには環境変数の設定が要る">
+<figcaption>図：データの流れ。コードの行き先は提供元だけですが、利用状況データはT3のサーバへ送られます。</figcaption>
 </figure>
 
 <h2 id="install">導入の流れ</h2>
@@ -178,6 +184,7 @@ table.tc-table th,table.tc-table td{border:1px solid var(--line);padding:.45rem 
 <li>MITライセンスが及ぶのはソースコードだけです。T3 Codeの名前やロゴはT3 Toolsの商標で、フォークを公開する場合は自前のブランドに替える必要があります（READMEの商標の節）。</li>
 <li>日本語の画面表示の提供状況は、この記事では確認していません。ドキュメントは英語が正本です。</li>
 <li>この記事では、外部の校正ツール（yomiyasu）は実行していません。数値と出典は原稿作成時に一次資料と照合しています。</li>
+<li>テレメトリの記述は、2026年11月24日の告発を受けて、2026年11月25日に公開リポジトリのPRとコード、公式文書で裏取りし、訂正しました。裏取りの範囲では、告発の6項目はいずれも裏付けが取れています。確認できていないのは、スイッチ追加のPR4件をそれぞれ誰が閉じたかの内訳です。</li>
 </ul>
 
 <h2 id="sources">資料と出典</h2>
@@ -185,14 +192,16 @@ table.tc-table th,table.tc-table td{border:1px solid var(--line);padding:.45rem 
 <ul>
 <li><a href="https://t3.codes/">T3 Code 公式サイト</a>（位置づけ、対応エージェント、スター数の表示、PR作成の流れ）</li>
 <li><a href="https://github.com/pingdotgg/t3code">GitHub：pingdotgg/t3code</a>（README：自己定義、機能の一覧、導入方法、商標とライセンス。リポジトリ作成は2026年2月8日）</li>
-<li><a href="https://github.com/pingdotgg/t3code/blob/main/docs/user/faq.md">公式FAQ</a>（ハーネスではないこと、料金が無料であること、T3 Connectの上限とT3 Chat連携、コードがT3のサーバへ行かないこと、ローカルモデル非対応）</li>
+<li><a href="https://github.com/pingdotgg/t3code/blob/main/docs/user/faq.md">公式FAQ</a>（ハーネスではないこと、料金が無料であること、T3 Connectの上限とT3 Chat連携、コードがT3のサーバへ行かないという説明、ローカルモデル非対応）</li>
+<li><a href="https://github.com/pingdotgg/t3code/blob/main/docs/user/telemetry.md">公式テレメトリ文書</a>（利用状況データの送信先と内容、止める方法、Axiomへの接続トレース。告発時点の版は2026年11月23日のコミットで確認）</li>
+<li>テレメトリの裏取りに使ったPRとIssue：<a href="https://github.com/pingdotgg/t3code/pull/174">PR #174</a>（PostHogテレメトリの導入、2026年3月6日）／<a href="https://github.com/pingdotgg/t3code/pull/3137">PR #3137</a>（「No telemetry」の2行を削除、2026年6月18日）／<a href="https://github.com/pingdotgg/t3code/pull/15028">PR #15028</a>（送信先をingest.t3.codesへ、2026年10月）／<a href="https://github.com/pingdotgg/t3code/pull/21506">PR #21506</a>（所有者識別子の追加、2026年10月19日）／<a href="https://github.com/pingdotgg/t3code/pull/42299">PR #42299</a>（提供元アカウント識別子の読み取りを削除、2026年11月24日）／<a href="https://github.com/pingdotgg/t3code/issues/1397">Issue #1397</a>（オフスイッチの要望、対応予定なしで終了）</li>
 <li><a href="/t3-chat">T3 Chatの記事（このサイト）</a>（T3 Chat側の料金プランと仕組み）</li>
 </ul>
 <p>二次資料（補完）：</p>
 <ul>
 <li><a href="https://betterstack.com/community/guides/ai/t3-code/">Better Stack「T3 Code: An Open-Source GUI for Managing AI Coding Agents」</a>（2026年3月時点の紹介。初期の位置づけの確認に使用）</li>
 </ul>
-<p>この記事は2026年11月24日に上記の資料を確認して書きました。対応エージェントや上限などの仕様は更新で変わるため、導入前に公式READMEとFAQの最新版を確認してください。</p>
+<p>この記事は2026年11月24日に上記の資料を確認して書きました。2026年11月25日、テレメトリに関する告発を受けて、公開リポジトリのPRとコードで裏取りし、「データの扱い」を訂正しました。対応エージェントや上限などの仕様は更新で変わるため、導入前に公式READMEとFAQの最新版を確認してください。</p>
 
 </div>
 <script type="module" src="/assets/site.js"></script>
