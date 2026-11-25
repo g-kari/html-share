@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Skills over MCPとTasks：MCP 2周年でサーバーが手順と長時間の仕事を持てるようになった</title>
+<meta name="description" content="AnthropicがMCP 2周年（2026-11-24）に発表したSkills over MCP（パブリックベータ）とTasks（正式提供）を、公式記事・MCP公式ドキュメント・拡張仕様・Claude Code公式ドキュメントで確認します。仕組み、提供範囲、未確認の点を分けます。">
+<link rel="canonical" href="https://share.0g0.xyz/mcp-skills-tasks">
+<link rel="stylesheet" href="/assets/site.css">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="Skills over MCPとTasks：MCP 2周年でサーバーが手順と長時間の仕事を持てるようになった">
+<meta property="og:description" content="Skills over MCPはパブリックベータ、TasksとElicitationは正式提供。仕組みと提供範囲、未確認の点を公式資料で確認します。">
+<meta property="og:url" content="https://share.0g0.xyz/mcp-skills-tasks">
+<meta property="og:image" content="https://share.0g0.xyz/assets/mcp-skills-tasks-ogp-v1.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Skills over MCPとTasks、MCP 2周年の発表">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://share.0g0.xyz/assets/mcp-skills-tasks-ogp-v1.png">
+<meta name="twitter:image:alt" content="Skills over MCPとTasks、MCP 2周年の発表">
+<style>
+:root{--accent:#8f3b12;--accent-dark:#ffa26b}
+.fig{margin:1.25rem 0;max-inline-size:46rem}
+.fig img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:0}
+.fig figcaption{font-size:.9rem;margin-top:.55rem}
+table.cmp{border-collapse:collapse;margin:1rem 0;width:100%}
+table.cmp th,table.cmp td{border:1px solid var(--line);padding:.45rem .7rem;text-align:left;vertical-align:top}
+</style>
+  <!-- html-share: social metadata -->
+  <meta property="og:site_name" content="HTML Share">
+  <meta name="twitter:title" content="Skills over MCPとTasks：MCP 2周年でサーバーが手順と長時間の仕事を持てるようになった">
+  <meta name="twitter:description" content="Skills over MCPはパブリックベータ、TasksとElicitationは正式提供。仕組みと提供範囲、未確認の点を公式資料で確認します。">
+  <!-- /html-share: social metadata -->
+  <!-- html-share: rss discovery -->
+  <link rel="alternate" type="application/rss+xml" title="HTML Share RSS" href="https://share.0g0.xyz/feed.xml">
+  <!-- /html-share: rss discovery -->
+</head>
+<body>
+<div class="wrap">
+<nav class="sitebar" aria-label="サイト内"><a class="brand" href="/">HTML Share</a><nav><a href="/">一覧</a><a href="/feed.xml">RSS</a></nav></nav>
+<header class="top">
+<div class="kicker">MCPとエージェント基盤</div>
+<h1>Skills over MCPとTasks：MCP 2周年でサーバーが手順と長時間の仕事を持てるようになった</h1>
+<p class="meta">確認日：2026年11月25日<br>一次資料はAnthropicの公式記事（Claude公式サイト、2026-11-24公開）、MCP公式ドキュメントのSkills／Tasks拡張ページ、各拡張の仕様、Claude Code公式ドキュメントです。発端となったClaudeDevsのX投稿は出典に挙げますが、内容の根拠は公式資料で確認しました。</p>
+</header>
+
+<div class="summary3">
+<div class="ttl">要点</div>
+<ol>
+<li>MCPの2周年発表は4つの更新の組み合わせです。Skills over MCPはパブリックベータ、TasksとElicitation（処理の途中での入力要求）は正式提供（GA）、File Uploadsは提供開始が近日と、段階がそれぞれ違います。まとめて「全部正式提供」とは読めません。</li>
+<li>Skills over MCPでは、MCPサーバーがツールと一緒にスキル（手順書）を公開できます。ツール名と説明は「何ができるか」までしか伝えませんが、スキルは進め方そのものを渡します。Claudeはスキルを必要な時だけ読み込み、スキルはサーバーの更新に追従するので、利用者側に別のインストールは要りません。</li>
+<li>Tasksでは、サーバーがツール呼び出しへの最終結果の代わりにタスク（タスクIDと状態）を返せます。Claudeは完了を待たずに別の作業を進め、状態を確認しながら結果を後から受け取ります。対象は長時間の処理や、エージェントループごと任せる仕事です。</li>
+<li>どちらも開かれたMCP仕様と拡張の上の機能です。対応したサーバーはClaude以外の互換クライアントでも動くと公式記事は書いています。ただし、プランごとの提供範囲と未確認の日程が残ります（本文の「未確認の点」節）。</li>
+</ol>
+</div>
+
+<nav class="toc">
+<div class="ttl">目次</div>
+<ol>
+<li><a href="#overview">発表の全体像：4つの更新と段階の違い</a></li>
+<li><a href="#skills">Skills over MCP：サーバーが手順を届ける</a></li>
+<li><a href="#skills-flow">スキルの動き：発見、検証、必要な時だけ読み込み</a></li>
+<li><a href="#skills-scope">Skills over MCPの提供範囲と制約</a></li>
+<li><a href="#tasks">Tasks：呼び出しと結果の受け取りを分ける</a></li>
+<li><a href="#tasks-spec">Tasksの状態と仕様</a></li>
+<li><a href="#combined">組み合わせで何が変わるか</a></li>
+<li><a href="#limits">未確認の点</a></li>
+<li><a href="#sources">資料と出典</a></li>
+</ol>
+</nav>
+
+<h2 id="overview">発表の全体像：4つの更新と段階の違い</h2>
+<p>2026年11月24日、Anthropicは公式記事「MCP servers can now ship skills, run tasks, and more with Claude」を公開しました。MCP（Model Context Protocol）は、AIエージェントをデータのあるシステムへつなぐ標準として2年前に公開されたものです。公式記事は、今回の更新で「Claudeはサーバーと、もう1人のエージェントと働くように付き合えるようになる」とまとめています。学ぶ（スキル）、任せる（Tasks）、途中で入力をもらう（Elicitation）、ファイルをやり取りする（File Uploads）の4方向です。</p>
+<p>段階はそろっていません。Skills over MCPはパブリックベータ、TasksとElicitationは正式提供、File Uploadsは「近日提供開始（rolling out soon）」です。記事やニュースで読むときは、この段階の違いが実質の差になります。</p>
+<p>土台の数字も公式記事に出ています。MCPのSDKは月間7億超のダウンロードがあり、Claude向けのMCPコネクタは10,000を超えます。今回の機能は、この規模のサーバー群に対して「対応すれば互換クライアントでも動く」形で仕様側に入っています。</p>
+<figure class="fig">
+<img src="/assets/mcp-skills-tasks-overview-v1.png" alt="MCP 2周年の発表を構成する4つの更新。Skills over MCPはパブリックベータ、TasksとElicitationは正式提供、File Uploadsは提供開始が近日。下部にSDK月間7億超ダウンロードとコネクタ10,000超の数字">
+<figcaption>図：発表の全体像。4つの更新は段階が違う。数字は公式記事による。</figcaption>
+</figure>
+
+<h2 id="skills">Skills over MCP：サーバーが手順を届ける</h2>
+<p>従来のMCPサーバーが届ける中心はツールでした。ツール名と説明は、サーバーに何ができるかは伝えますが、特定の仕事をどう進めるかまでは伝わりません。手順は利用者側がプロンプトで補うか、ローカルにスキルを用意して別途インストールする必要がありました。</p>
+<p>Skills over MCPでは、サーバーがツールと一緒にスキルを公開します。スキルは、ベストプラクティス、手順の流れ、利用者のアカウントや組織に合わせた進め方（プレイブック）をまとめたものです。中身の形式はAgent Skillsの仕様に従い、中心は <code>SKILL.md</code> というファイルで、補助ファイルを持てます。</p>
+<p>公式記事が挙げる利用例は、Shopify（販売者のオンラインストアの設計と更新を一貫して行う）、HubSpot（顧客のオンボーディングと初期設定）、Atlassian（組織の文脈を使った分析）、Carta（アップロードされた文書から株式発行の下書きと発行。こちらは近日対応）です。いずれも「ツールを呼べる」だけでは足りず、手順と組織固有の進め方が要る仕事です。</p>
+<p>ポイントは2つあります。1つは、Claudeがスキルを必要な時だけ読み込むため、常駐する文脈の量が増えにくいことです。もう1つは、スキルがサーバーと一緒に更新されることです。提供側はツールと手順を1か所で直せて、利用者側に配布やインストールの手順が増えません。</p>
+<figure class="fig">
+<img src="/assets/mcp-skills-layer-v1.png" alt="レイヤー図。サーバーが届けるものはスキル（手順）、ツール（操作）、リソース（文脈）の3層になり、受け手のホストが発見・検証・承認を担う">
+<figcaption>図：レイヤー図。ツールは「何ができるか」、スキルは「どう進めるか」を担う。</figcaption>
+</figure>
+
+<h2 id="skills-flow">スキルの動き：発見、検証、必要な時だけ読み込み</h2>
+<p>仕様側の姿は、MCP公式ドキュメントのSkills拡張ページと、拡張仕様（SEP-2640、Final）で確認できます。拡張の識別子は <code>io.modelcontextprotocol/skills</code> です。新しい転送を発明するのではなく、既存のResources（リソース）の仕組みの上に載っています。</p>
+<p>サーバーは、スキルの各ファイルをリソースとして公開します。URIは慣例として <code>skill://</code> スキームを使います。クライアントは <code>skills/list</code> でサーバーが提供するスキルを列挙し、<code>skills/get</code> でURIを指定して1件を取り直せます。一覧に出ないスキルでも、サーバーは <code>skills/get</code> に応答しなければなりません。ファイルの中身自体は <code>resources/read</code> で読みます。</p>
+<p>読み込みには検証と承認が挟まります。各スキルの一覧エントリにはファイルの一覧（マニフェスト）が付き、各ファイルのSHA-256ダイジェストとバイト数が載ります。ホストは、使う前に各ファイルのサイズとダイジェストを照合し、<code>SKILL.md</code> のフロントマター（<code>name</code> と <code>description</code> が必須）がエントリと一致するかを確認します。ファイルが追加・変更・削除されれば、前に得た承認は失効し、取り直しと再承認が必要です。</p>
+<p>「必要な時だけ」の側も仕様の要件です。ホストは、接続時や一覧取得の時点でファイルを先読みしてはいけません。スキルの内容は信頼できない入力として扱い、コード実行やツール許可のような権限はスキルごとに利用者の明示承認が要る、と仕様は定めています。サーバーが配る手順書は便利な一方で、配布元がモデルの振る舞いを変える入口にもなるため、この検証と承認の層が仕様に組み込まれています。</p>
+<figure class="fig">
+<img src="/assets/mcp-skills-flow-v1.png" alt="挙動図。skills/listで発見、skills/getで個別取得、マニフェストのSHA-256とサイズを照合して承認、resources/readで読み込み、手順に沿って実行する5段階">
+<figcaption>図：挙動図。発見から実行まで、検証と承認を挟んでから読み込む。</figcaption>
+</figure>
+
+<h2 id="skills-scope">Skills over MCPの提供範囲と制約</h2>
+<p>提供範囲は公式記事とClaude Code公式ドキュメントの両方に記載があります。対象はClaudeとClaude Codeです。Pro、Max、Ultraの各プランでは既定で有効です。Teamプランでは管理者が有効化すると使えます。Enterpriseは「近日（coming soon）」で、具体的な日付は公式に示されていません。</p>
+<p>Claude Codeでは、スキル名は <code>&lt;サーバー名&gt;:&lt;スキル名&gt;</code> の形になり、プロンプトで <code>/</code> を打つと候補から探せます。読み込み時の承認は権限ルールで調整でき、サーバー単位・スキル単位で「毎回聞く」「拒否する」「許可する」を設定できます。一部のコネクタのスキルにはAnthropicのセキュリティスキャンが入り、スキャンを通った版だけが読み込まれます。</p>
+<p>制約も公式ドキュメントに明記されています。1サーバーあたり表示されるスキルは最大100件です。スキャン対象のスキルには、テキストファイル1件あたり100KB、スキル全体で400KBの上限があります。対応しない環境もあります。たとえばClaude CodeのクラウドセッションやAgent SDK等は対象外とされ、VS Code拡張では段階的に展開中です。使う環境が対象かどうかは、公式ドキュメントの「Where MCP skills are supported」を確認する必要があります。</p>
+<figure class="fig">
+<img src="/assets/mcp-skills-plans-v1.png" alt="Skills over MCPの提供範囲。Pro、Max、Ultraは既定で有効、Teamは管理者の有効化が必要、Enterpriseは近日。下部にClaude Code側の上限（1サーバー最大100スキル、スキャン対象は1ファイル100KB・1スキル400KBまで）">
+<figcaption>図：提供範囲と上限。プランで段階が違い、Enterpriseの具体日は未確認。</figcaption>
+</figure>
+
+<h2 id="tasks">Tasks：呼び出しと結果の受け取りを分ける</h2>
+<p>従来のツール呼び出しは、処理が終わるまでClaudeが次へ進めませんでした。数分で終わる処理なら待てますが、CIの調査、バッチ処理、人の承認待ちのような仕事では、接続を持ったまま待つ形が持ちません。</p>
+<p>Tasksはこの待ち方を変えます。サーバーは、ツール呼び出しへの応答として最終結果の代わりにタスクを返せます。タスクにはサーバーが発行したタスクIDと現在の状態が入り、処理はサーバー側で続きます。Claudeはその間、別の作業を進められます。状態が完了になれば、最終結果は元の呼び出しが同期で返したはずの結果と同じ形で受け取ります。</p>
+<p>公式記事の利用例はZoomInfoで、以前は複数のプロンプトに分けていた深いアカウント・連絡先の調査をTasksで回しています。公式記事は「時間がかかる処理や、エージェントループそのもの」をサーバーが引き受けられると書いています。</p>
+<p>提供段階は正式提供（GA）です。対象はClaudeとClaude Codeで、Pro、Max、Ultraの各プランで使え、TeamとEnterpriseの組織へは展開中とされています。Elicitationも同じ段階で正式提供になりました。こちらは、課金やデータ削除のような確認が要る操作で、サーバーが処理を止めて利用者へフォームやリンクで問い合わせ、答えを受けて続きから再開する仕組みです。</p>
+<figure class="fig">
+<img src="/assets/mcp-tasks-flow-v1.png" alt="挙動図。tools/callで呼び出し、resultType taskとタスクIDが即時に返り、Claudeは別作業を続け、tasks/getで状態を確認し、completedで結果を受け取る。下部に入力待ちと取り消しの扱い">
+<figcaption>図：挙動図。呼び出しと結果の受け取りを分けることで、待ち時間が他の作業に使える。</figcaption>
+</figure>
+
+<h2 id="tasks-spec">Tasksの状態と仕様</h2>
+<p>仕様側は、MCP公式ドキュメントのTasks拡張ページと拡張仕様で確認できます。拡張の識別子は <code>io.modelcontextprotocol/tasks</code> です。タスク化はサーバー主導で、クライアントがリクエストごとに拡張への対応を宣言し、その範囲でサーバーがリクエストごとにタスクにするかどうかを決めます。現行仕様でタスク化できるのは <code>tools/call</code> のみです。</p>
+<p>メソッドは3つです。<code>tasks/get</code> は状態の確認（ポーリング）で、終端状態では最終結果やエラーもここに載ります。<code>tasks/update</code> は、タスクが入力待ち（<code>input_required</code>）のときに、サーバーから来た要求への答えを返すために使います。<code>tasks/cancel</code> は取り消しの意思を伝えますが、協調的で、サーバーが必ず止める義務はありません。</p>
+<p>状態は5つです。<code>working</code>（処理中）、<code>input_required</code>（入力待ち）、<code>completed</code>（完了。結果は <code>result</code>）、<code>failed</code>（失敗。JSON-RPCエラーは <code>error</code>）、<code>cancelled</code>（取り消し済み）。後ろの3つは終端で、到達後は状態が変わりません。タスクには有効期間（TTL）と推奨ポーリング間隔も付き、クライアントはタスクIDを保存しておけば、切断や再起動の後でも同じIDで続きを確認できます。状態の通知（<code>notifications/tasks</code>）もありますが任意で、既定はポーリングです。</p>
+<p>なお、Claude Codeの実装では <code>tasks/result</code> や <code>tasks/list</code> は使われず、結果は <code>tasks/get</code> の応答に載せる形だと公式ドキュメントに書かれています。仕様にある全メソッドが、そのまま各クライアントで使われるわけではありません。</p>
+<figure class="fig">
+<img src="/assets/mcp-tasks-states-v1.png" alt="Tasksの状態図。workingからcompleted、failed、cancelledの終端へ進み、workingとinput_requiredの間は入力のやり取りで往復する">
+<figcaption>図：状態の遷移。終端の3状態に到達した後は変わらない。</figcaption>
+</figure>
+
+<h2 id="combined">組み合わせで何が変わるか</h2>
+<p>2つの機能は、サーバーの役割の違う側面を広げます。Skills over MCPは「知識の渡し方」、Tasksは「仕事の渡し方」です。従来のMCPサーバーは、呼ばれるたびに応答する道具の集合でした。スキルを受け取ればClaudeはそのサービスの流儀で道具を使え、タスクを渡せば長時間の仕事をサーバー側の実行に任せられます。</p>
+<p>ElicitationとFile Uploadsを合わせると、公式記事の総括どおりの形になります。サーバーから学び（スキル）、サーバーへ任せ（Tasks）、途中で人に聞き（Elicitation）、ファイルを受け渡す（File Uploads）。サーバーが「もう1人のエージェント」に近い相手になる、というのが今回の発表の中心です。</p>
+<p>実務での効きどころは、手順が固まっているのに長い仕事です。組織の進め方をスキルで固定し、実行の待ち時間をTasksで外へ逃がすと、プロンプトで手順を毎回説明し直す必要も、完了まで接続を抱える必要も減ります。反対に、短い呼び出しだけで終わるサーバーでは、Tasksの出番はほぼありません。スキルの側も、手順が単純なサーバーではツール説明で足ります。</p>
+<figure class="fig">
+<img src="/assets/mcp-skills-tasks-combined-v1.png" alt="組み合わせの図。学ぶ（Skills over MCP）、任せる（Tasks）、途中で聞く（Elicitation）、渡す（File Uploads）の4つがサーバーとの関係を構成する">
+<figcaption>図：4つの機能の役割分担。いずれも開かれたMCP仕様と拡張の上にある。</figcaption>
+</figure>
+
+<h2 id="limits">未確認の点</h2>
+<p>公式資料で確認できなかった点は、次のとおりです。この記事では、公式が「近日」「展開中」と書いた範囲を超えて書いていません。</p>
+<ul>
+<li>Skills over MCPのEnterprise提供の具体的な日付（公式記事は「近日」のみ）。</li>
+<li>File Uploadsの提供開始日と、最初に対応するサーバーの範囲（公式記事は「近日提供開始」のみ。Cartaのスキルも同じく近日とされます）。</li>
+<li>TasksとElicitationのTeam・Enterprise組織への展開が完了する時期（公式記事は「展開中」のみ）。</li>
+<li>Skills over MCPのパブリックベータが終わり、正式提供へ移る時期。</li>
+<li>Claude以外の互換クライアントについて、SkillsとTasksへの対応状況の全体像。公式ドキュメントは対応マトリクスへの案内を出していますが、本記事では個別クライアントの対応可否までは確認していません。</li>
+</ul>
+<p>もう1点、段階の読み違いに注意が要ります。今回の発表では、TasksとElicitationが正式提供で、Skills over MCPはベータです。ベータの間は、対応するコネクタが一部に限られる場合があるとClaude Codeの公式ドキュメントも書いています。「サーバーがスキルを出しているのにClaude Codeで見えない」という場合は、ベータ側の制限の可能性があります。</p>
+<figure class="fig">
+<img src="/assets/mcp-skills-tasks-limits-v1.png" alt="未確認の点の一覧。Enterprise提供の具体日、File Uploadsの開始日、TeamとEnterpriseへの展開完了時期、ベータ終了時期、互換クライアントの対応状況の全体像">
+<figcaption>図：未確認として残る点。日付や範囲は公式の続報待ち。</figcaption>
+</figure>
+
+<h2 id="sources">資料と出典</h2>
+<ul>
+<li>Anthropic公式記事「MCP servers can now ship skills, run tasks, and more with Claude」（Claude公式サイト、2026-11-24）https://claude.com/resources/articles/skills-over-mcp-tasks-and-more ― 発表全体、利用例、プラン別の提供段階、SDK月間7億超ダウンロードとコネクタ10,000超の数字。</li>
+<li>MCP公式ドキュメント「Skills」https://modelcontextprotocol.io/extensions/skills/overview ― 拡張識別子、SEP-2640がFinalであること、skills/list・skills/get・resources/read、マニフェストとSHA-256検証、承認の失効条件、先読み禁止。</li>
+<li>MCP公式ドキュメント「Tasks」https://modelcontextprotocol.io/extensions/tasks/overview ― タスクの流れ、状態の一覧、tasks/get・tasks/update・tasks/cancel、通知は任意で既定はポーリング。</li>
+<li>Tasks拡張仕様（io.modelcontextprotocol/tasks、2026-07-28版）https://tasks.extensions.modelcontextprotocol.io/specification/2026-07-28/tasks ― resultType: "task"、タスク化できるのはtools/callのみ、状態とフィールドの定義。</li>
+<li>Claude Code公式ドキュメント「Connect Claude Code to tools via MCP」https://code.claude.com/docs/en/mcp ― MCPスキルの名前の形、承認ルール、スキャン、1サーバー最大100スキルとサイズ上限、対応しない環境、Tasksのサーバー実装向け注意（tasks/resultとtasks/listは不使用）。</li>
+<li>発端：ClaudeDevs（@ClaudeDevs）のX投稿（2026-11-24 18:05 UTC）https://x.com/ClaudeDevs/status/2125289794871963935 と、その続き https://x.com/ClaudeDevs/status/2125289797199511594 ― MCP 2周年の告知とSkills over MCPの紹介。内容の根拠は上記の公式資料で確認し、投稿文の転載はしていません。</li>
+</ul>
+<p>関連：<a href="/cloudflare-code-mode-mcp">Cloudflare Code Mode：2,500超のAPIを2つのツールに畳むMCPの設計</a>（ツール定義の文脈コストを下げる、サーバー側の別の工夫）。</p>
+
+</div>
+<script type="module" src="/assets/site.js"></script>
+</body>
+</html>
