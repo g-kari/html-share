@@ -257,9 +257,9 @@
       "updated": "2026-11-19T17:36:57.000Z"
     },
     "glossary.html": {
-      "fingerprint": "ba610a603b3966abae95e9b2f3b8f270d49597a077c96d2faf2b3360b4c8e819",
+      "fingerprint": "aaaf6e8c6ac157fe56901b2373c1f77bb4b8e6fed4095e1300653c3019b6be79",
       "published": "2026-11-24T01:37:31.000Z",
-      "updated": "2026-11-25T01:08:33.000Z"
+      "updated": "2026-11-25T01:14:03.000Z"
     },
     "go-code-verification.html": {
       "fingerprint": "add16dcf6c555dc85cb859063495bf903ab5151b47f9de01db2dbaede2cc0162",
@@ -470,6 +470,11 @@
       "fingerprint": "babaaa4192fb553d24f0eac3e856d674eb9d30866bd9a9c0162611af1c2906f0",
       "published": "2026-10-08T13:10:15.000Z",
       "updated": "2026-10-08T13:49:52.000Z"
+    },
+    "wiz-codex-integration.html": {
+      "fingerprint": "0986b2b8c5e2a4eef552f582a2fe6c53c3229520a066d569279de2cf48e71ab3",
+      "published": "2026-11-25T12:38:43.000Z",
+      "updated": "2026-11-25T12:38:43.000Z"
     },
     "zam.html": {
       "fingerprint": "b91d4290d7ef2826c88af9f8805d01df787ade93fb1ec770b7fad57e73d45983",
