@@ -21,12 +21,24 @@ table.cases :is(td,th){padding:.45rem .6rem;border-bottom:1px solid #808080;text
 .case{border-top:2px solid #0b5563;margin-top:1.6rem;padding-top:.4rem}
 .case h3{margin-bottom:.3rem}
 </style>
+  <!-- html-share: social metadata -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="HTML Share">
+  <meta property="og:title" content="緊急メンテナンス続報まとめ（2026年11月25日時点）：継続中・一部復旧・復旧済み">
+  <meta property="og:description" content="2026年10月下旬〜11月に相次いだ緊急メンテナンスとサービス停止を、2026年11月25日時点の公式告知ベースで整理。KARTE、JAXA公開系、teket、ALL.Net、バッファローなど継続中の案件と、Cacoo、SuiteX／SuiteSなど復旧済みの案件を分けてまとめます。">
+  <meta property="og:url" content="https://share.0g0.xyz/emergency-maintenance-2026-11">
+  <meta name="twitter:title" content="緊急メンテナンス続報まとめ（2026年11月25日時点）：継続中・一部復旧・復旧済み">
+  <meta name="twitter:description" content="2026年10月下旬〜11月に相次いだ緊急メンテナンスとサービス停止を、2026年11月25日時点の公式告知ベースで整理。KARTE、JAXA公開系、teket、ALL.Net、バッファローなど継続中の案件と、Cacoo、SuiteX／SuiteSなど復旧済みの案件を分けてまとめます。">
+  <!-- /html-share: social metadata -->
+  <!-- html-share: rss discovery -->
+  <link rel="alternate" type="application/rss+xml" title="HTML Share RSS" href="https://share.0g0.xyz/feed.xml">
+  <!-- /html-share: rss discovery -->
 </head>
 <body>
 <div class="wrap">
 <nav class="sitebar" aria-label="サイト内"><a class="brand" href="/">HTML Share</a><nav><a href="/">一覧</a><a href="/feed.xml">RSS</a></nav></nav>
 <header class="top">
-<div class="kicker">緊急メンテナンス · 続報まとめ</div>
+<div class="kicker"><a class="gloss" href="/glossary#term-emergency-maintenance" title="障害やセキュリティ上の問題に対応するため、予定外にサービスを止めて行う保守作業のこと。原因の調査、修正の適用、安全性の確認が終わるまで再開しないことが多い。">緊急メンテナンス</a> · 続報まとめ</div>
 <h1>緊急メンテナンス続報まとめ（2026年11月25日時点）：継続中・一部復旧・復旧済み</h1>
 <p class="meta">公開日：2026年11月25日<br>2026年10月21日から11月25日 09:47まで、公式告知と報道で確認した緊急メンテナンス・サービス停止の収集記録をもとに整理しました。各案件には「確認できた最新の日付」を併記し、それより後の進展は未確認として分けています。2026年10月21日前後のPHP関連の個別告知カード集は<a href="/php-emergency-maintenance">緊急メンテナンス一覧（2026年10月21日前後）</a>にあります。</p>
 </header>
@@ -72,7 +84,7 @@ table.cases :is(td,th){padding:.45rem .6rem;border-bottom:1px solid #808080;text
 
 <div class="case">
 <h3>JAXA 公開系情報システム（地球観測データ提供）— 停止中</h3>
-<p><strong>開始：</strong>2026年11月18日 16:30までにWebサーバーを停止。<strong>影響：</strong>地球観測衛星の降水・気象データの提供が止まっています。Webアプリケーションのコマンドインジェクションの脆弱性を悪用され、バックドアを設置されたうえで、利用者約2,000名のアカウント名と暗号化されたパスワードが流出しました（2026年11月24日発表）。保存されている観測データ自体は公開情報で、アクセスの痕跡はないとしています。<strong>復旧見込み：</strong>バックドアの除去と脆弱性の修正に加え、Webアプリケーション全体の点検が必要で、具体的な復旧の見通しは立っていません。<strong>出典：</strong>JAXAの発表に基づく報道（2026年11月24日）。</p>
+<p><strong>開始：</strong>2026年11月18日 16:30までにWebサーバーを停止。<strong>影響：</strong>地球観測衛星の降水・気象データの提供が止まっています。Webアプリケーションのコマンドインジェクションの脆弱性を悪用され、<a class="gloss" href="/glossary#term-backdoor" title="攻撃者がシステムへ繰り返し侵入するために仕掛ける、通常の認証を通らない裏口のこと。見つけた場合は除去と侵入経路の修正が再開の前提になる。">バックドア</a>を設置されたうえで、利用者約2,000名のアカウント名と暗号化されたパスワードが流出しました（2026年11月24日発表）。保存されている観測データ自体は公開情報で、アクセスの痕跡はないとしています。<strong>復旧見込み：</strong>バックドアの除去と脆弱性の修正に加え、Webアプリケーション全体の点検が必要で、具体的な復旧の見通しは立っていません。<strong>出典：</strong>JAXAの発表に基づく報道（2026年11月24日）。</p>
 </div>
 
 <div class="case">
