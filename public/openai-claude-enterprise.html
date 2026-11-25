@@ -114,7 +114,7 @@ details{border-block:1px solid var(--rule);padding:12px 0;margin:18px 0}details+
         <tr><th scope="row">ID・利用者管理</th><td>SSO、SCIM、ロール／管理設定を備える。適用範囲は製品別に確認。</td><td>SSO、SCIM、役割、監査ログ、個別・組織別費用上限を備える。</td></tr>
         <tr><th scope="row">送信前の検査</th><td>Codexの管理ポリシー、権限、外部ガードレール統合。Prisma AIRS連携が検査する内容には制限。</td><td>Enterprise Inference hooksでプロンプト・ツール結果・添付テキスト等を顧客側の検査先へ送り、許可／拒否可能。</td></tr>
         <tr><th scope="row">保持の設定</th><td>チャット、ファイル、スナップショット、API利用など製品・データ種別ごとに別の条件。</td><td>Enterpriseのチャット保持を設定可能。プロジェクトの個別設定やCompliance APIの保存は別に確認。</td></tr>
-        <tr><th scope="row">コードセッション監査</th><td>Compliance Logs Platform＋Codexの追加のテレメトリーや端末・Git操作ログを組み合わせる。</td><td>ローカルClaude Codeのセッション本文をCompliance APIで取得可能。一部クラウド実行は対象外。</td></tr>
+        <tr><th scope="row">コードセッション監査</th><td>Compliance Logs Platform＋Codexの追加の<a class="gloss" href="/glossary#term-telemetry" title="ソフトウェアや機器の利用状況や動作の記録を、開発元などへ送信して集める仕組み。利用状況データとも呼ばれる。">テレメトリ</a>ーや端末・Git操作ログを組み合わせる。</td><td>ローカルClaude Codeのセッション本文をCompliance APIで取得可能。一部クラウド実行は対象外。</td></tr>
         <tr><th scope="row">ZDR</th><td>API向けの対象機能・適格条件あり。ChatGPT Work全体に自動適用されない。</td><td>適格なAPIと別途承認されたClaude Code Enterpriseが対象になり得る。Claude Chat/Coworkには包括適用されない。対象APIには<a href="#efs">EFSの公開ベータ</a>もある。</td></tr>
         </tbody>
       </table>
