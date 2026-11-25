@@ -201,6 +201,11 @@
       "published": "2026-11-22T00:55:59.000Z",
       "updated": "2026-11-22T00:55:59.000Z"
     },
+    "cve-watch-2026-11-25.html": {
+      "fingerprint": "e9bbd6d89b72a5b8ab432d318d65e991dee95a2fa6c7b0097e0a39c85f85275e",
+      "published": "2026-11-25T01:00:11.000Z",
+      "updated": "2026-11-25T01:00:11.000Z"
+    },
     "devsecops-oss.html": {
       "fingerprint": "7f317107f631f85865de795313404d4abc4cdce28fd3fea2dc40f7832d835d9e",
       "published": "2026-11-05T03:13:34.000Z",
@@ -252,9 +257,9 @@
       "updated": "2026-11-19T17:36:57.000Z"
     },
     "glossary.html": {
-      "fingerprint": "153ff40e1f617e21bd802f77617045a874ee18a37c2c0ab2df78084350cae9f6",
+      "fingerprint": "65821c942768eab5dca7d0958fa5887fde2100c7df0710c0bd61e0cf03998573",
       "published": "2026-11-24T01:37:31.000Z",
-      "updated": "2026-11-24T23:46:08.000Z"
+      "updated": "2026-11-25T00:59:18.000Z"
     },
     "go-code-verification.html": {
       "fingerprint": "add16dcf6c555dc85cb859063495bf903ab5151b47f9de01db2dbaede2cc0162",
