@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Thu, 26 Nov 2026 11:45:33 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 26 Nov 2026 12:45:33 GMT</lastBuildDate>
+    <item>
+      <title>アジャイルウェアの不正アクセス事案を新規掲載</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#865be4ce57b6b9d670e063eba345558454a843cdbb5d43e3764096a94246782e</guid>
+      <description>アジャイルウェアの不正アクセス事案を新規掲載。公式原文（2026-11-18第一報と11-20第二報）を直接開いて照合し、2026-11-14の検知、検証用サーバの脆弱性を経由した認証情報の不正取得、2021年1月以前のバックアップの一部（約148MB）の外部送信を整理。送信された個別情報は特定できていないことと「バックアップに含まれていた情報」の区別、解約・契約終了顧客の情報が消去手順の未整備で残っていた管理不備を明記。対象顧客数・人数や脆弱性の具体名は公式原文に記載がないため書いていない。既存263件を保持し計264件。</description>
+      <pubDate>Thu, 26 Nov 2026 12:45:33 GMT</pubDate>
+      <dcterms:created>2026-11-26T12:45:33.000Z</dcterms:created>
+    </item>
     <item>
       <title>楽天証券のテスト環境への不正アクセス事案を新規掲載</title>
       <link>https://share.0g0.xyz/security-incidents</link>
