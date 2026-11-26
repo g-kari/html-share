@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Thu, 26 Nov 2026 19:15:39 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 26 Nov 2026 20:16:47 GMT</lastBuildDate>
+    <item>
+      <title>オープンロジの既存項目へ、利用企業側の鹿島アントラーズ公表（2026-11-18）を内数として反映</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#793d234f053d3895ab6ca4defb8edf81bbe72f5d7933fbbfbbc7b7be021a3e7f</guid>
+      <description>オープンロジの既存項目へ、利用企業側の鹿島アントラーズ公表（2026-11-18）を内数として反映。オンラインストア配送と会員向けSEASON BOOK発送に利用した顧客情報40,844名の流出、対象期間2区分（2017年10月27日～2024年11月25日、2026年4月8日〜11月9日）、流出情報の項目とクレジットカード情報の不保持を公式原文で照合。40,844名は同一系列の内数で提供元総件数や他利用企業分と合算しない。既存270件を保持。</description>
+      <pubDate>Thu, 26 Nov 2026 20:16:47 GMT</pubDate>
+      <dcterms:created>2026-11-26T20:16:47.000Z</dcterms:created>
+    </item>
     <item>
       <title>オープングループ／オープンのBizRobo! mini認証サーバーへの不正アクセス事案を新規掲載</title>
       <link>https://share.0g0.xyz/security-incidents</link>
