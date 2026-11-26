@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/vulnerabilities-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Thu, 26 Nov 2026 02:17:10 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 26 Nov 2026 03:16:53 GMT</lastBuildDate>
+    <item>
+      <title>KEV追加分のうち一次資料照合済みの2項目を追加</title>
+      <link>https://share.0g0.xyz/vulnerabilities</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/vulnerabilities-feed.xml#0be883c2a15c269e901f9e592245d66879a22c2305def47ff25547306c49f600</guid>
+      <description>KEV追加分のうち一次資料照合済みの2項目を追加。MONAI LabelのCVE-2026-133968（GHSAでimageパラメータ検証なしのdatastore外書込み・認証デフォルト無効を確認、CVE記録で影響0.8.6未満・修正0.8.6・2026年9月からの実悪用・KEV追加2026-11-23）と、N-able MailAssureのCVE-2026-134624（ベンダーAdvisoryとCVE記録でrelay設定時のLDAP同期接続確認の宛先無制限・認証済みAPIユーザーが内部ホスト到達判定とデータ送信が可能・影響20261121.1943未満を確認。Hosted／Localの対応区分はベンダー一次本文で直接確認できていないため含めない）。残るKEV追加6件は一次資料照合が済んだものから順次反映する。</description>
+      <pubDate>Thu, 26 Nov 2026 03:16:53 GMT</pubDate>
+      <dcterms:created>2026-11-26T03:16:53.000Z</dcterms:created>
+    </item>
     <item>
       <title>KEV追加分のうち一次資料照合済みの2項目を追加</title>
       <link>https://share.0g0.xyz/vulnerabilities</link>
