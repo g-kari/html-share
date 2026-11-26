@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Thu, 26 Nov 2026 20:16:47 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 26 Nov 2026 21:16:29 GMT</lastBuildDate>
+    <item>
+      <title>オープングループ／オープンのBizRobo! mini認証サーバーへの不正アクセス事案を新規掲載</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#22825781c18057f28932f5e3c12139bdea950c4323518f41959a8283c7825b07</guid>
+      <description>オープングループ／オープンのBizRobo! mini認証サーバーへの不正アクセス事案を新規掲載。公式原文（2026-11-18）を直接開いて照合し、クラウド環境への第三者の不正アクセスと、利用顧客約560社・約1,000アカウントの認証サーバー情報へのアクセスログの確認を整理。認証情報が実際に持ち出されたかは公表されておらず漏えい確定とは書いていない。経路と原因は調査中。既存268件を保持し計271件。 厚生労働省の医薬品安定供給・流通確認システムへの不正アクセス事案を新規掲載。公式原文（2026-11-18）を直接開いて照合し、運用保守委託先からの報告で第三者の不正アクセスが判明し2026-11-17から運用を停止したこと、保管データの一部を閲覧した形跡と書き換えを試みた形跡、一部企業の担当者の氏名及び連絡先について漏えいの可能性を整理。漏えいは可能性の段階で、対象企業数・人数は公表されていない。方法は調査中。既存269件を保持し計271件。 三井不動産の三井ショッピングパークアプリへの不正アクセスによるポイント会員情報漏えい事案を新規掲載。公式原文の初報（2026-11-19）と続報（2026-11-26）を直接開いて照合し、2026-11-18に不正アクセスを確認して同日にアプリを停止したこと、続報で対象人数が約311万9千人と判明し対象情報に電話番号・性別が追加されたこと、侵入経路と手段を特定したと公表されたことを整理。クレジットカード情報やパスワードは含まない。侵入経路・手段の具体的内容は公表されていない。既存270件を保持し計271件。</description>
+      <pubDate>Thu, 26 Nov 2026 21:16:29 GMT</pubDate>
+      <dcterms:created>2026-11-26T21:16:29.000Z</dcterms:created>
+    </item>
     <item>
       <title>オープンロジの既存項目へ、利用企業側の鹿島アントラーズ公表（2026-11-18）を内数として反映</title>
       <link>https://share.0g0.xyz/security-incidents</link>
