@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Thu, 26 Nov 2026 06:17:12 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 26 Nov 2026 07:51:16 GMT</lastBuildDate>
+    <item>
+      <title>2026年 不正アクセス・情報漏えいウォッチ｜原因・出典・続報</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/security-incidents</guid>
+      <description>2026年の不正アクセス・情報漏えいを原因・影響・対応・日付・一次資料で整理。全260件。国内外の新規公表、流出範囲の精査、サービス再開と調査の続報を反映。</description>
+      <pubDate>Thu, 26 Nov 2026 07:51:16 GMT</pubDate>
+      <dcterms:created>2026-10-02T06:08:44.000Z</dcterms:created>
+      <dcterms:modified>2026-11-26T07:51:16.000Z</dcterms:modified>
+    </item>
     <item>
       <title>脆弱性レポート | 実悪用・修正版・対処</title>
       <link>https://share.0g0.xyz/vulnerabilities</link>
@@ -475,15 +484,6 @@
       <pubDate>Wed, 18 Nov 2026 07:18:51 GMT</pubDate>
       <dcterms:created>2026-11-18T07:18:51.000Z</dcterms:created>
       <dcterms:modified>2026-11-18T07:18:51.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>2026年 不正アクセス・情報漏えいウォッチ｜原因・出典・続報</title>
-      <link>https://share.0g0.xyz/security-incidents</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/security-incidents</guid>
-      <description>2026年の不正アクセス・情報漏えいを原因・影響・対応・日付・一次資料で整理。全259件。国内外の新規公表、流出範囲の精査、サービス再開と調査の続報を反映。</description>
-      <pubDate>Tue, 17 Nov 2026 00:27:16 GMT</pubDate>
-      <dcterms:created>2026-10-02T06:08:44.000Z</dcterms:created>
-      <dcterms:modified>2026-11-17T00:27:16.000Z</dcterms:modified>
     </item>
     <item>
       <title>AI侵入テスト・オーケストレーターの拡大と防御設計｜Cloudflare調査を読む</title>
