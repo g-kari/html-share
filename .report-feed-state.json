@@ -225,6 +225,7 @@
         "linux-rdma-rxe-mr-range-overflow-oob-access": "dc26e07289498c500b4a444d1d3b452c39a030bc43f104eddac11c299e994dd1",
         "linux-rdma-siw-fragmented-header-oob-write": "6d909d43481acf47bdf0b5bf13e035fedb58da4f8036b0efdaeff8b9a74b4741",
         "linux-vhost-stale-iotlb-vghost-disclosure": "9cf6521fa934f6f28a8938e92f6532cc173c4a1ea36c416ae4f41e9d8686e615",
+        "litellm-guardrails-test-custom-code-rce-40217": "72716eec940f89c259308bf8057772a2f7261dba88acf0a8fc6b604d0d8490d1",
         "llama-cpp-client-chat-parser-use-after-free": "c3158b1324eff9c1b7a41d249b92a0bf50a19211edef08c5b0cda85d9120440b",
         "lmcache-multiprocess-zmq-pickle-unauthenticated-rce": "9aeff2fb42d1ff615012e689fce28ac9b2b8cd3d5822ab737ee50147eda581f6",
         "lwip-smtp-auth-line-buffer-overflow": "2c618c6dc9e3a82ed358f12afcc0482079b3f8cdd22573fcaf44e5ccf683043e",
@@ -337,6 +338,7 @@
         "riot-sixlowpan-and-nanocoap-read-assertion-boundaries": "8c5215e145f9f7822dadc6363bbdbb4a568dca4172fcea77b39cbb5b01718963",
         "rundeck-windows-job-option-command-injection": "1548ad49cb2da99fa37a95e4d5664a5c107db83a613608e39eaae2afded215bc",
         "sagemaker-distribution-project-startup-command-injection": "2f2fbd7c0c30e9cac8c1f5fbb9c048989c1beac62ad70e955609bd49f0e946f7",
+        "sap-netweaver-enterprise-portal-jndi-injection-42884": "5478c9aa41dc7e4c0fdc8ebff3feffecda2c3cae6dafa7a922524b7814c58a79",
         "sharepoint-exploited-authenticated-code-injection": "474a959d4cb9e863dcec1ee5b6714dd865d2ddc5544d333d7710fb9da0227b6e",
         "siemens-software-center-dll-exploited": "37904306471d22469b308d24f3e716740fafa0c78f2b47c63e1e9bc0c506639d",
         "sipay-pos-opencart-prestashop-signature-validation": "e64e2745ef891107dbf5fd309d2e4e93f31358c3ccf51e2937e3d0ab58c8b022",
@@ -1018,6 +1020,15 @@
           "ids": [
             "monai-label-datastore-path-traversal-rce-133968",
             "n-able-mailassure-ldap-sync-ssrf-134624"
+          ],
+          "date": "2026-11-26"
+        },
+        {
+          "signature": "70fa812e1f795bdbde7e0dbdacf6c2429a45ed17a17f879b4d4fe8041f1c4e85",
+          "summary": "KEV追加分のうち一次資料照合済みの2項目を追加。SAP NetWeaver Enterprise PortalのCVE-2025-42884（CVE記録で未認証のJNDI注入による情報の開示・改変、CVSS 6.5、影響EP-BASIS／EP-RUNTIME 7.50、修正Note 3660969を確認し、RCEはOnapsisの分析として帰属を分け、SPレベルはログイン必須で未読のため書かない）と、LiteLLMのCVE-2026-40217（X41とCVE記録でguardrailsテストの正規表現フィルタをバイトコード書換えで回避する任意コード実行を確認し、成立条件は認証済み到達であり未認証とは書かない。修正版はGHSA本文1.83.11と構造化フィールド1.83.10の表記ゆれを併記）。残るKEV追加4件は一次資料照合が済んだものから順次反映する。",
+          "ids": [
+            "litellm-guardrails-test-custom-code-rce-40217",
+            "sap-netweaver-enterprise-portal-jndi-injection-42884"
           ],
           "date": "2026-11-26"
         }
@@ -2069,9 +2080,26 @@
           ],
           "published": "2026-11-26T03:16:53.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "eb755e16ef1b0fbeffdefe4e769800531f55f20b8ccddcf67588fe43894034ca",
+          "summary": "KEV追加分のうち一次資料照合済みの2項目を追加。SAP NetWeaver Enterprise PortalのCVE-2025-42884（CVE記録で未認証のJNDI注入による情報の開示・改変、CVSS 6.5、影響EP-BASIS／EP-RUNTIME 7.50、修正Note 3660969を確認し、RCEはOnapsisの分析として帰属を分け、SPレベルはログイン必須で未読のため書かない）と、LiteLLMのCVE-2026-40217（X41とCVE記録でguardrailsテストの正規表現フィルタをバイトコード書換えで回避する任意コード実行を確認し、成立条件は認証済み到達であり未認証とは書かない。修正版はGHSA本文1.83.11と構造化フィールド1.83.10の表記ゆれを併記）。残るKEV追加4件は一次資料照合が済んだものから順次反映する。",
+          "journal": [
+            {
+              "signature": "70fa812e1f795bdbde7e0dbdacf6c2429a45ed17a17f879b4d4fe8041f1c4e85",
+              "summary": "KEV追加分のうち一次資料照合済みの2項目を追加。SAP NetWeaver Enterprise PortalのCVE-2025-42884（CVE記録で未認証のJNDI注入による情報の開示・改変、CVSS 6.5、影響EP-BASIS／EP-RUNTIME 7.50、修正Note 3660969を確認し、RCEはOnapsisの分析として帰属を分け、SPレベルはログイン必須で未読のため書かない）と、LiteLLMのCVE-2026-40217（X41とCVE記録でguardrailsテストの正規表現フィルタをバイトコード書換えで回避する任意コード実行を確認し、成立条件は認証済み到達であり未認証とは書かない。修正版はGHSA本文1.83.11と構造化フィールド1.83.10の表記ゆれを併記）。残るKEV追加4件は一次資料照合が済んだものから順次反映する。",
+              "ids": [
+                "litellm-guardrails-test-custom-code-rce-40217",
+                "sap-netweaver-enterprise-portal-jndi-injection-42884"
+              ],
+              "date": "2026-11-26"
+            }
+          ],
+          "published": "2026-11-26T04:15:31.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "c061200bd40fb9943b73bbe83b9f6093ea85ab0d"
+      "cursor": "617ea0ac7cedbb13651b4b9bcd595cc4cc6f4bce"
     },
     "security-incidents": {
       "records": {

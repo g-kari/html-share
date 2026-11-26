@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/vulnerabilities-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Thu, 26 Nov 2026 03:16:53 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 26 Nov 2026 04:15:31 GMT</lastBuildDate>
+    <item>
+      <title>KEV追加分のうち一次資料照合済みの2項目を追加</title>
+      <link>https://share.0g0.xyz/vulnerabilities</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/vulnerabilities-feed.xml#eb755e16ef1b0fbeffdefe4e769800531f55f20b8ccddcf67588fe43894034ca</guid>
+      <description>KEV追加分のうち一次資料照合済みの2項目を追加。SAP NetWeaver Enterprise PortalのCVE-2025-42884（CVE記録で未認証のJNDI注入による情報の開示・改変、CVSS 6.5、影響EP-BASIS／EP-RUNTIME 7.50、修正Note 3660969を確認し、RCEはOnapsisの分析として帰属を分け、SPレベルはログイン必須で未読のため書かない）と、LiteLLMのCVE-2026-40217（X41とCVE記録でguardrailsテストの正規表現フィルタをバイトコード書換えで回避する任意コード実行を確認し、成立条件は認証済み到達であり未認証とは書かない。修正版はGHSA本文1.83.11と構造化フィールド1.83.10の表記ゆれを併記）。残るKEV追加4件は一次資料照合が済んだものから順次反映する。</description>
+      <pubDate>Thu, 26 Nov 2026 04:15:31 GMT</pubDate>
+      <dcterms:created>2026-11-26T04:15:31.000Z</dcterms:created>
+    </item>
     <item>
       <title>KEV追加分のうち一次資料照合済みの2項目を追加</title>
       <link>https://share.0g0.xyz/vulnerabilities</link>
