@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Thu, 26 Nov 2026 00:32:17 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 26 Nov 2026 00:52:57 GMT</lastBuildDate>
+    <item>
+      <title>CVE監視 第4号（2026年11月26日）：PHP-CGI 引数インジェクションと OpenSSL 無限ループ</title>
+      <link>https://share.0g0.xyz/cve-watch-2026-11-26</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/cve-watch-2026-11-26</guid>
+      <description>2026年11月25日から26日に確認したCVEのうち、関心技術に関わる High 以上で未掲載の2件、PHP-CGI 引数インジェクション（CVE-2024-4577、CVSS 9.8、CISA KEV掲載）と OpenSSL BN_mod_sqrt() の無限ループ（CVE-2022-0778、CVSS 7.5）を、対象版・修正版・成立条件つきで整理した監視の第4号。</description>
+      <pubDate>Thu, 26 Nov 2026 00:52:57 GMT</pubDate>
+      <dcterms:created>2026-11-26T00:52:57.000Z</dcterms:created>
+      <dcterms:modified>2026-11-26T00:52:57.000Z</dcterms:modified>
+    </item>
     <item>
       <title>緊急メンテナンス続報まとめ（2026年11月26日時点）：継続中・一部復旧・復旧済み</title>
       <link>https://share.0g0.xyz/emergency-maintenance-2026-11</link>
