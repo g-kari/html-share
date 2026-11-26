@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Thu, 26 Nov 2026 08:48:05 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 26 Nov 2026 09:46:15 GMT</lastBuildDate>
+    <item>
+      <title>大崎電気工業のランサムウェア事案を新規掲載</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#b1e4557efedb8bd608b866ea1fac6b08d4547a2d1fe7ab594c952576fe5a1be8</guid>
+      <description>大崎電気工業のランサムウェア事案を新規掲載。11月18日第一報（暗号化確認と生産停止）、11月20日第二報（VPN機器の認証突破という推察、MFA未適用アカウントの残存）、11月25日第三報（外部クラウド型ストレージへの送信確認、再開見通し、要求に応じない方針）を公式原文3報で照合して整理。経路は推察のまま、個人情報の有無は調査中として分けた。既存261件を保持し計262件。</description>
+      <pubDate>Thu, 26 Nov 2026 09:46:15 GMT</pubDate>
+      <dcterms:created>2026-11-26T09:46:15.000Z</dcterms:created>
+    </item>
     <item>
       <title>タワーレコード オンラインへの不正アクセスを新規掲載</title>
       <link>https://share.0g0.xyz/security-incidents</link>
