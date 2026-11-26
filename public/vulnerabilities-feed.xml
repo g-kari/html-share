@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/vulnerabilities-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Thu, 26 Nov 2026 04:15:31 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 26 Nov 2026 05:16:43 GMT</lastBuildDate>
+    <item>
+      <title>KEV追加分のうち一次資料照合済みの2項目を追加</title>
+      <link>https://share.0g0.xyz/vulnerabilities</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/vulnerabilities-feed.xml#bdebb52ec0d9cf4ac19da58e135123cc80a57e7b80098e57ea8b335764a3393b</guid>
+      <description>KEV追加分のうち一次資料照合済みの2項目を追加。REDCapのCVE-2026-90817（CVE記録でsurvey passthroughとData Importによる未認証RCEを確認し、認証不要だが有効なpublic survey hashの知識が必須であることを併記。詳細チェーンはSecurifera解説に基づく二次情報として分けた）と、Puppet EnterpriseのCVE-2026-115731（Perforce公式とCVE記録でreportのrich-dataデシリアライズによるサービスユーザーとしてのコード実行を確認し、成立条件はCA署名済み証明書の所持、未認証到達はautosignが弱い検証の場合に限る追加経路として分けた。別件CVE-2026-115732は混ぜていない）。残るKEV追加2件は一次資料照合が済んだものから順次反映する。</description>
+      <pubDate>Thu, 26 Nov 2026 05:16:43 GMT</pubDate>
+      <dcterms:created>2026-11-26T05:16:43.000Z</dcterms:created>
+    </item>
     <item>
       <title>KEV追加分のうち一次資料照合済みの2項目を追加</title>
       <link>https://share.0g0.xyz/vulnerabilities</link>

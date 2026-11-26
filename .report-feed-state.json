@@ -327,11 +327,13 @@
         "proftpd-modcopy-october-kev-followup": "a8a51a57c7d678397bf39c2bcc946fb59c22b8623a2689dc7d39a0382185bc92",
         "progress-arcgenai-generator-command-injection": "846fa21f1032fdd5f374daef49160eb4d1bd1e47fabe19bbfbffd4d530997d70",
         "pulp-container-ansible-cross-remote-credential-leakage": "0ccc7bdfd24ed82f7a859dac0440631f945aee712de56b90152f1f262be8026a",
+        "puppet-enterprise-report-deserialization-rce-115731": "b5acd9cb54f73542ae6523bbe9daf69440e8ec923d632542cd59d3f641cf9830",
         "pypi-anthropic-sdk-malware": "31ad5fe130d79ee48a2ce9fe0ed03b6e098996af9ad73c877b2d30da00e9d083",
         "python-hostname-verification": "e1c81ab568e146ff1d1a7e8d3a854830612d4f85b86f565a5315f679cf4eca3f",
         "python-ssl-uaf": "6d631b0549159b56eddc431982fd1ebbbc03fb5322d958915246f9aa71ec2eea",
         "quasar-ssr-meta-xss-user-agent-dos": "4ec50fde11f17b0a4e3d68dae1104e96d2af467f049f478de2a169b5fa31bcae",
         "react-server-components-formdata-dos": "cf35ff5a5098fc223628b109192b2e891bea254c702632ebc73c3d08e52d89c2",
+        "redcap-survey-passthrough-data-import-rce-90817": "afd8fd6b24d0fd08d02658db47791f5ecf951979babaf6066b58bc9a8e3d5b3f",
         "redhat-globalhub-postgres-exporter-unauthenticated-pprof": "16f932a5fc7ae919e0cd7208b9048dee02aa3e1539a8cdce05bf70d9d112c405",
         "rejetto-hfs-exploited-session-forgery": "60fce22d154da5d7bced98ea27f202eb64d9597df60c7af05860a606bd341507",
         "renovate-shared-preset-allowedenv-bypass": "eebda928d7fece7b04f6b3e5bc32d9592a093fd19086c06c4baf6c1e7fb80fdc",
@@ -1029,6 +1031,15 @@
           "ids": [
             "litellm-guardrails-test-custom-code-rce-40217",
             "sap-netweaver-enterprise-portal-jndi-injection-42884"
+          ],
+          "date": "2026-11-26"
+        },
+        {
+          "signature": "1df014d9736d35a11a714d880bbffece79d43ab5fdc49e3e6a52b8ce33f1382e",
+          "summary": "KEV追加分のうち一次資料照合済みの2項目を追加。REDCapのCVE-2026-90817（CVE記録でsurvey passthroughとData Importによる未認証RCEを確認し、認証不要だが有効なpublic survey hashの知識が必須であることを併記。詳細チェーンはSecurifera解説に基づく二次情報として分けた）と、Puppet EnterpriseのCVE-2026-115731（Perforce公式とCVE記録でreportのrich-dataデシリアライズによるサービスユーザーとしてのコード実行を確認し、成立条件はCA署名済み証明書の所持、未認証到達はautosignが弱い検証の場合に限る追加経路として分けた。別件CVE-2026-115732は混ぜていない）。残るKEV追加2件は一次資料照合が済んだものから順次反映する。",
+          "ids": [
+            "puppet-enterprise-report-deserialization-rce-115731",
+            "redcap-survey-passthrough-data-import-rce-90817"
           ],
           "date": "2026-11-26"
         }
@@ -2097,9 +2108,26 @@
           ],
           "published": "2026-11-26T04:15:31.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "bdebb52ec0d9cf4ac19da58e135123cc80a57e7b80098e57ea8b335764a3393b",
+          "summary": "KEV追加分のうち一次資料照合済みの2項目を追加。REDCapのCVE-2026-90817（CVE記録でsurvey passthroughとData Importによる未認証RCEを確認し、認証不要だが有効なpublic survey hashの知識が必須であることを併記。詳細チェーンはSecurifera解説に基づく二次情報として分けた）と、Puppet EnterpriseのCVE-2026-115731（Perforce公式とCVE記録でreportのrich-dataデシリアライズによるサービスユーザーとしてのコード実行を確認し、成立条件はCA署名済み証明書の所持、未認証到達はautosignが弱い検証の場合に限る追加経路として分けた。別件CVE-2026-115732は混ぜていない）。残るKEV追加2件は一次資料照合が済んだものから順次反映する。",
+          "journal": [
+            {
+              "signature": "1df014d9736d35a11a714d880bbffece79d43ab5fdc49e3e6a52b8ce33f1382e",
+              "summary": "KEV追加分のうち一次資料照合済みの2項目を追加。REDCapのCVE-2026-90817（CVE記録でsurvey passthroughとData Importによる未認証RCEを確認し、認証不要だが有効なpublic survey hashの知識が必須であることを併記。詳細チェーンはSecurifera解説に基づく二次情報として分けた）と、Puppet EnterpriseのCVE-2026-115731（Perforce公式とCVE記録でreportのrich-dataデシリアライズによるサービスユーザーとしてのコード実行を確認し、成立条件はCA署名済み証明書の所持、未認証到達はautosignが弱い検証の場合に限る追加経路として分けた。別件CVE-2026-115732は混ぜていない）。残るKEV追加2件は一次資料照合が済んだものから順次反映する。",
+              "ids": [
+                "puppet-enterprise-report-deserialization-rce-115731",
+                "redcap-survey-passthrough-data-import-rce-90817"
+              ],
+              "date": "2026-11-26"
+            }
+          ],
+          "published": "2026-11-26T05:16:43.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "617ea0ac7cedbb13651b4b9bcd595cc4cc6f4bce"
+      "cursor": "8de7c4c2ba8a1947a39d0840087b5b03addbe4ba"
     },
     "security-incidents": {
       "records": {
