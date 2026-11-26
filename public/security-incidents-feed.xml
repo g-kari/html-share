@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Tue, 17 Nov 2026 00:27:16 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 26 Nov 2026 07:51:16 GMT</lastBuildDate>
+    <item>
+      <title>プレイドのKARTEへの不正アクセスを新規掲載</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#9e05fa838fae0ed50614e67656b7df13499c0030ef2b42c52910ea7421488b61</guid>
+      <description>プレイドのKARTEへの不正アクセスを新規掲載。11月13日の検知・全サービス停止、11月16日の続報、11月20日の調査結果（預かりデータ4分類の対象社数、契約終了企業の未削除データ、再開目標2027年1月中旬）を整理し、利用企業側は一次確認済みの三井住友銀行（最大約14百万件）と丸井グループ（約883万件・約850万件）の公表を内数として分け、件数を合算しない。既存259件を保持し計260件。</description>
+      <pubDate>Thu, 26 Nov 2026 07:51:16 GMT</pubDate>
+      <dcterms:created>2026-11-26T07:51:16.000Z</dcterms:created>
+    </item>
     <item>
       <title>国内外の未掲載公表と重要続報を追加</title>
       <link>https://share.0g0.xyz/security-incidents</link>
