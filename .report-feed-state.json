@@ -69,6 +69,7 @@
         "busybox-proxy-prefix-smuggling-and-deb-extraction-escape": "5eed4a36be7cd80be42b13ac6c667d0d4f6e4f0de3d4043b3a43560a23c1924a",
         "canonical-lxd-microcloud-client-chain-auth-bypass": "d048adc6e078eac586799bc55cc43cb5e588ce6d82b14bf971b45cef466abb87",
         "capacitor-native-webview-origin-proxy": "664019fab05a7bb19a09675443758dd4e9b970df8de83a85f0e2de29865ff9fa",
+        "checkpoint-gaia-dynamic-server-local-root-123039": "2b14aa9049a42e843d847faaebf7a30c936007034efd9232822a291bc86bacff",
         "checkpoint-management-exploited-script-upload": "5a079d0149879e339c9df0e66463db668d2dd23028ae1abe0bc3c0e767e604d4",
         "checkpoint-vpn-exploited-certificate-rce": "061d31fd8854be97ecdcaae792d0269b248c75426512f6efd23bd18176419559",
         "chrome-156-october-critical-six": "ea3d37850f2fc2a55b4e738082fb28046f20df2ed802c81b553abb9ff978f4a3",
@@ -365,6 +366,7 @@
         "unbound-doq-multithread-uaf-97206": "619ce3806df6bfd1a66f97d60f5871b292dbf90bb65c94500990e77c2ed6be7a",
         "unifi-protect-ai-key-command-and-access-boundaries": "4074a31aed6d1212fbedd07fc73f7507f08d7fdd2221aa2743267e451c24bcae",
         "unitytls-emudhra-ca-trust": "08fb4d7e7e0a80560e547526e8d7878415017c7a9a3da4ad5b128fbe473afb88",
+        "unrealircd-labeled-response-privilege-escalation-114713": "f2d5774b12c61410eb184902eb888258906d9164a712040a0f18f5e057a76836",
         "uptime-kuma-public-ping-badge-resource-dos": "5f271286bda5e8194576686034cedf77818a6a6040414a4603e0ce87d75192d1",
         "veeam-backup-viewer-system-rce": "1c44858ba7f94d378bcb8ac2b3e348d3f7905e1f0329bc5f19d94a211181d954",
         "veeam-cloud-connect-tenant-host-file-read": "6edc206a28e6d4fefce1488008997120ac3db952ca5edd4eeae14d364afba3f0",
@@ -1040,6 +1042,15 @@
           "ids": [
             "puppet-enterprise-report-deserialization-rce-115731",
             "redcap-survey-passthrough-data-import-rce-90817"
+          ],
+          "date": "2026-11-26"
+        },
+        {
+          "signature": "850c78e07fdc1216295c49f754efbc96c6ff67f791f4a6a96e2cb085af600d56",
+          "summary": "KEV追加分の残り2項目を追加し、2026-11-11〜11-24追加の16件が全件反映済みになった。UnrealIRCdのCVE-2026-114713（ベンダー公表とCVE記録でlabeled-responseのlabel未エスケープを確認し、成立条件は2台以上リンクしたネットワークと任意の通常ユーザーであることを併記。CVSSはCNA評価8.6を主としNVD側7.7の別評価と分けた）と、Check PointのCVE-2026-123039（Advisory sk1000362でdynamic_serverのworld-writableソケットによるroot化を確認し、前提は既にローカルコード実行できていることでリモート単体では成立しないことを明記。R81／R81.10向けの修正Take案内がないことと、暫定策コマンドの引数を断定しないことも明記）。",
+          "ids": [
+            "checkpoint-gaia-dynamic-server-local-root-123039",
+            "unrealircd-labeled-response-privilege-escalation-114713"
           ],
           "date": "2026-11-26"
         }
@@ -2125,9 +2136,26 @@
           ],
           "published": "2026-11-26T05:16:43.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "3b9c6645291e879f76c8892d3731e3905df900f159d1afd662befffa136fbe42",
+          "summary": "KEV追加分の残り2項目を追加し、2026-11-11〜11-24追加の16件が全件反映済みになった。UnrealIRCdのCVE-2026-114713（ベンダー公表とCVE記録でlabeled-responseのlabel未エスケープを確認し、成立条件は2台以上リンクしたネットワークと任意の通常ユーザーであることを併記。CVSSはCNA評価8.6を主としNVD側7.7の別評価と分けた）と、Check PointのCVE-2026-123039（Advisory sk1000362でdynamic_serverのworld-writableソケットによるroot化を確認し、前提は既にローカルコード実行できていることでリモート単体では成立しないことを明記。R81／R81.10向けの修正Take案内がないことと、暫定策コマンドの引数を断定しないことも明記）。",
+          "journal": [
+            {
+              "signature": "850c78e07fdc1216295c49f754efbc96c6ff67f791f4a6a96e2cb085af600d56",
+              "summary": "KEV追加分の残り2項目を追加し、2026-11-11〜11-24追加の16件が全件反映済みになった。UnrealIRCdのCVE-2026-114713（ベンダー公表とCVE記録でlabeled-responseのlabel未エスケープを確認し、成立条件は2台以上リンクしたネットワークと任意の通常ユーザーであることを併記。CVSSはCNA評価8.6を主としNVD側7.7の別評価と分けた）と、Check PointのCVE-2026-123039（Advisory sk1000362でdynamic_serverのworld-writableソケットによるroot化を確認し、前提は既にローカルコード実行できていることでリモート単体では成立しないことを明記。R81／R81.10向けの修正Take案内がないことと、暫定策コマンドの引数を断定しないことも明記）。",
+              "ids": [
+                "checkpoint-gaia-dynamic-server-local-root-123039",
+                "unrealircd-labeled-response-privilege-escalation-114713"
+              ],
+              "date": "2026-11-26"
+            }
+          ],
+          "published": "2026-11-26T06:17:12.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "8de7c4c2ba8a1947a39d0840087b5b03addbe4ba"
+      "cursor": "128b38a52a59820d17ebad005edf896361c303d2"
     },
     "security-incidents": {
       "records": {

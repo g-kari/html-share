@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/vulnerabilities-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Thu, 26 Nov 2026 05:16:43 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 26 Nov 2026 06:17:12 GMT</lastBuildDate>
+    <item>
+      <title>KEV追加分の残り2項目を追加し、2026-11-11〜11-24追加の16件が全件反映済みになった</title>
+      <link>https://share.0g0.xyz/vulnerabilities</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/vulnerabilities-feed.xml#3b9c6645291e879f76c8892d3731e3905df900f159d1afd662befffa136fbe42</guid>
+      <description>KEV追加分の残り2項目を追加し、2026-11-11〜11-24追加の16件が全件反映済みになった。UnrealIRCdのCVE-2026-114713（ベンダー公表とCVE記録でlabeled-responseのlabel未エスケープを確認し、成立条件は2台以上リンクしたネットワークと任意の通常ユーザーであることを併記。CVSSはCNA評価8.6を主としNVD側7.7の別評価と分けた）と、Check PointのCVE-2026-123039（Advisory sk1000362でdynamic_serverのworld-writableソケットによるroot化を確認し、前提は既にローカルコード実行できていることでリモート単体では成立しないことを明記。R81／R81.10向けの修正Take案内がないことと、暫定策コマンドの引数を断定しないことも明記）。</description>
+      <pubDate>Thu, 26 Nov 2026 06:17:12 GMT</pubDate>
+      <dcterms:created>2026-11-26T06:17:12.000Z</dcterms:created>
+    </item>
     <item>
       <title>KEV追加分のうち一次資料照合済みの2項目を追加</title>
       <link>https://share.0g0.xyz/vulnerabilities</link>
