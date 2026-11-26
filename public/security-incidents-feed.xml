@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Thu, 26 Nov 2026 07:51:16 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 26 Nov 2026 08:48:05 GMT</lastBuildDate>
+    <item>
+      <title>タワーレコード オンラインへの不正アクセスを新規掲載</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#4c1e5ba57bcf2ef5f3c8dfc4a374621c049ae903c19c443af5b5d6f43c0277a0</guid>
+      <description>タワーレコード オンラインへの不正アクセスを新規掲載。11月19日の検知・サービス停止、11月21日の流出公表（対象はメンバーズ登録者で退会後3年以内を含み約1,100万件、ログイン情報10,214,652件・会員情報2,784,514件・配送先情報776,953件は重複を含むため合算しない、クレジットカード情報は含まれない）、11月22日・25日の更新（出荷見通しと特設ダイヤル開設予定）を公式原文で照合して整理。既存260件を保持し計261件。</description>
+      <pubDate>Thu, 26 Nov 2026 08:48:05 GMT</pubDate>
+      <dcterms:created>2026-11-26T08:48:05.000Z</dcterms:created>
+    </item>
     <item>
       <title>プレイドのKARTEへの不正アクセスを新規掲載</title>
       <link>https://share.0g0.xyz/security-incidents</link>
