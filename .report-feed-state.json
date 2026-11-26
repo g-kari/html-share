@@ -12,6 +12,7 @@
         "akeeba-csrf-105296-jvn": "479f735543c49635d25b466a02c0c50850d3d495f3c860e67047bf3b20c7fa53",
         "amd-rccl-proxy-untrusted-peer-pointer": "ff6332721c6b7e765c7e68cd1df45c475f0b904a14c62990a518e6d121cf5958",
         "android-october-critical-components": "9bb6543d037be34881589620674a02613f83e2e571fc7660b5e2b98266b3c5ba",
+        "apache-axis-soap-fault-deserialization-rce-90436": "13232c9d826d5868b46c246641805c184fe9927fb36e12cd96d4d229599043dc",
         "apache-bcel-class-name-repository-cache-poisoning": "941d62bc68c0b57f6d99448e1b0dadd2fcf229431cb33209124e0943b01ff1d7",
         "apache-camel-karavan-project-and-kubernetes-boundaries": "b7485878c6ba330f7db5256b200ed0ef4f5351310bc5bcfaa75a8806a6e62326",
         "apache-cxf-jms-untrusted-jndi-rce": "9c1b03fde199823c24d5d70c8289187cf28067ce55ffcfbd5cf9709b36e311b2",
@@ -187,6 +188,7 @@
         "ibm-datapower-ldap-jws-and-memory-rce": "2a9d1374ea79d9291094e06da0269527120db637d7f97ed31d03cf14d44754a2",
         "ibm-guardium-edge-authentication-and-native-boundaries": "6ee88e27fa6ba849fbcbab5e6027501eadcc95ab1b45ad715af597f3c0264888",
         "ibm-verify-access-unauthenticated-deserialization-rce": "349f69651a16d17b42ab9d0d8a044a682d96fb5fba952fe6cf88c981987202d2",
+        "idunno-anticsrf-objectstateformatter-rce-131914": "12b26d6da1baade001f8868144fb43a8b83b6b6896414bb8fcc975c75cabadc5",
         "ivanti-connect-secure-auth-bypass-104935": "772c66f5e4d812dbf55565679c4347329953a8ea3f15aac4e331a7f48544aa64",
         "ivanti-connect-secure-chained-file-write-lpe": "2b7da420f5c682f07cf477d52626cbc3d54faeb428b32b53c5406422620f3808",
         "jetbrains-exposed-string-sql-function-injection": "4cd317d9bfcf3c62e3d64218fed6412cbfc160d68a061a20f6da3d3b759a970b",
@@ -985,6 +987,15 @@
           "ids": [
             "apache-roller-xmlrpc-deserialization-rce-129448",
             "vmware-vcenter-directory-service-auth-bypass-123890"
+          ],
+          "date": "2026-11-26"
+        },
+        {
+          "signature": "78ac0d0a29eb2aed01b4796a13133ee966aa7f992c5053cb0062ae4cc257903c",
+          "summary": "KEV追加分のうち一次資料照合済みの2項目を追加。Idunno.AntiCsrfのCVE-2026-131914（Mandiant MNDT-2026-0048で成立条件の全列挙・CVSS 4.0 9.3・実悪用の明言・修正版なしを確認、KEV追加2026-11-24）と、Apache AxisのCVE-2026-90436（Apacheのoss-security公表で影響1.x through 1.4・認証ハンドラで防げないこと・修正コミット41f3b4e・修正版リリースなしを確認。スコアは一次公表に記載がなくCISA ADP評価9.8と帰属を分けた。KEV追加2026-11-18）。残るKEV追加10件は一次資料照合が済んだものから順次反映する。",
+          "ids": [
+            "apache-axis-soap-fault-deserialization-rce-90436",
+            "idunno-anticsrf-objectstateformatter-rce-131914"
           ],
           "date": "2026-11-26"
         }
@@ -1985,9 +1996,26 @@
           ],
           "published": "2026-11-26T00:21:58.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "3f26dea9191c755d0d499b25af6ba7e51f2b7b220a7088d344d9f4ee47148090",
+          "summary": "KEV追加分のうち一次資料照合済みの2項目を追加。Idunno.AntiCsrfのCVE-2026-131914（Mandiant MNDT-2026-0048で成立条件の全列挙・CVSS 4.0 9.3・実悪用の明言・修正版なしを確認、KEV追加2026-11-24）と、Apache AxisのCVE-2026-90436（Apacheのoss-security公表で影響1.x through 1.4・認証ハンドラで防げないこと・修正コミット41f3b4e・修正版リリースなしを確認。スコアは一次公表に記載がなくCISA ADP評価9.8と帰属を分けた。KEV追加2026-11-18）。残るKEV追加10件は一次資料照合が済んだものから順次反映する。",
+          "journal": [
+            {
+              "signature": "78ac0d0a29eb2aed01b4796a13133ee966aa7f992c5053cb0062ae4cc257903c",
+              "summary": "KEV追加分のうち一次資料照合済みの2項目を追加。Idunno.AntiCsrfのCVE-2026-131914（Mandiant MNDT-2026-0048で成立条件の全列挙・CVSS 4.0 9.3・実悪用の明言・修正版なしを確認、KEV追加2026-11-24）と、Apache AxisのCVE-2026-90436（Apacheのoss-security公表で影響1.x through 1.4・認証ハンドラで防げないこと・修正コミット41f3b4e・修正版リリースなしを確認。スコアは一次公表に記載がなくCISA ADP評価9.8と帰属を分けた。KEV追加2026-11-18）。残るKEV追加10件は一次資料照合が済んだものから順次反映する。",
+              "ids": [
+                "apache-axis-soap-fault-deserialization-rce-90436",
+                "idunno-anticsrf-objectstateformatter-rce-131914"
+              ],
+              "date": "2026-11-26"
+            }
+          ],
+          "published": "2026-11-26T01:17:03.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "9084f19f58c1e380b772ab74627bbf76cdda7840"
+      "cursor": "ccab3951c5e74cb710c515dd026b76cea73f7993"
     },
     "security-incidents": {
       "records": {

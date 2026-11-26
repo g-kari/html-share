@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/vulnerabilities-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Thu, 26 Nov 2026 00:21:58 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 26 Nov 2026 01:17:03 GMT</lastBuildDate>
+    <item>
+      <title>KEV追加分のうち一次資料照合済みの2項目を追加</title>
+      <link>https://share.0g0.xyz/vulnerabilities</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/vulnerabilities-feed.xml#3f26dea9191c755d0d499b25af6ba7e51f2b7b220a7088d344d9f4ee47148090</guid>
+      <description>KEV追加分のうち一次資料照合済みの2項目を追加。Idunno.AntiCsrfのCVE-2026-131914（Mandiant MNDT-2026-0048で成立条件の全列挙・CVSS 4.0 9.3・実悪用の明言・修正版なしを確認、KEV追加2026-11-24）と、Apache AxisのCVE-2026-90436（Apacheのoss-security公表で影響1.x through 1.4・認証ハンドラで防げないこと・修正コミット41f3b4e・修正版リリースなしを確認。スコアは一次公表に記載がなくCISA ADP評価9.8と帰属を分けた。KEV追加2026-11-18）。残るKEV追加10件は一次資料照合が済んだものから順次反映する。</description>
+      <pubDate>Thu, 26 Nov 2026 01:17:03 GMT</pubDate>
+      <dcterms:created>2026-11-26T01:17:03.000Z</dcterms:created>
+    </item>
     <item>
       <title>KEV追加分のうち一次資料照合済みの2項目を追加</title>
       <link>https://share.0g0.xyz/vulnerabilities</link>
