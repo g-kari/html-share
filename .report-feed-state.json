@@ -17,6 +17,7 @@
         "apache-cxf-jms-untrusted-jndi-rce": "9c1b03fde199823c24d5d70c8289187cf28067ce55ffcfbd5cf9709b36e311b2",
         "apache-httpd-october-http2-and-config-overflows": "bcef95b066294df34d40cde8085b2fa456762a07627f78b11e091b397764c476",
         "apache-impala-trusted-jar-path-traversal": "0df867eafedc2543d9f742f4748b2f3e73284ee7cd201f83dee11d33fc931ac2",
+        "apache-roller-xmlrpc-deserialization-rce-129448": "2e5ac52d9dc674a48bf0b8fdeba7d66840c8799ef699750a6bcfcd9995dee42a",
         "apple-coregraphics-exploited-file-rce": "d3ef514ed3f433382d8b85be586d4fc476be15018bc5d56448181250c00c65f8",
         "apple-webkit-pointer-auth-27834": "b84cb1cf337dc0ad6e2e76e8352110f40c427ed2e7d8403a3b10ba5ab5c91081",
         "apprise-cross-origin-redirect-auth-headers": "7f4cdb0eb7c0ad525fa5ab5337f85a0c8d0397511df854241d84afac3df16e7d",
@@ -364,6 +365,7 @@
         "vllm-multimodal-request-processor-resource-dos": "9b9b9301ae003cc8086cf697673b0881f886f0adfd6c0753f4d617a3b58e6f52",
         "vllm-request-code-revision-processor-rce": "a07675a4572f88f03ba70dd50fd3e646dc370d54e0b1f99555055b8efe78e1a2",
         "vmware-esx-insufficient-logging-41709": "17b1a36e1e85a91252876b948a45474772f6110d334c855ec4019e7748ada0fa",
+        "vmware-vcenter-directory-service-auth-bypass-123890": "c5b42ad7f8a9a2d7195337ec066dd36f8cf383bfb97326bf1960b2cf901460cf",
         "vmware-workstation-fusion-vmxnet3-hgfs-host-execution": "ef6dda42f9bf39bce24570e2af1b1218f571cf607b1f6762acebec1de6dbf722",
         "wasmtime-cranelift-sandbox-escape-oct2026": "02e275d45455f7d44f665c81b9d2c287ae1e6d8e58242c706a1ee8612c5b7ae9",
         "weasyprint-eps-ghostscript-dispatch": "b6d6385b11a49561386bf7af95533dca5c21ac02c96d6fe9bbb85fdfb7d09d9c",
@@ -974,6 +976,15 @@
           "ids": [
             "drupal-core-installer-takeover-132165-136716",
             "synology-dsm-bsm-plugin-daemon-rce-10441"
+          ],
+          "date": "2026-11-26"
+        },
+        {
+          "signature": "79b8bb9118d9893e7d9e88faba82d68173a493a2698dd7cb597eaaae2be86e27",
+          "summary": "KEV追加分のうち一次資料照合済みの2項目を追加。VMware vCenterのCVE-2026-123890（Broadcom VMSA-2026-0009.1で認証回避・CVSS 9.8・Workarounds None・系列別修正版を確認、KEV追加2026-11-20）と、Apache RollerのCVE-2026-129448（Apache一次公表でXML-RPCの認証前デシリアライズ・実悪用の明言・修正6.1.6以上・管理画面での無効化は不十分を確認、KEV追加2026-11-20）。残るKEV追加12件は一次資料照合が済んだものから順次反映する。",
+          "ids": [
+            "apache-roller-xmlrpc-deserialization-rce-129448",
+            "vmware-vcenter-directory-service-auth-bypass-123890"
           ],
           "date": "2026-11-26"
         }
@@ -1957,9 +1968,26 @@
           ],
           "published": "2026-11-25T23:19:34.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "3693a4bc8095e44dbed25d637dc3ef9bc033f6b1a887368aaa61f253803472a0",
+          "summary": "KEV追加分のうち一次資料照合済みの2項目を追加。VMware vCenterのCVE-2026-123890（Broadcom VMSA-2026-0009.1で認証回避・CVSS 9.8・Workarounds None・系列別修正版を確認、KEV追加2026-11-20）と、Apache RollerのCVE-2026-129448（Apache一次公表でXML-RPCの認証前デシリアライズ・実悪用の明言・修正6.1.6以上・管理画面での無効化は不十分を確認、KEV追加2026-11-20）。残るKEV追加12件は一次資料照合が済んだものから順次反映する。",
+          "journal": [
+            {
+              "signature": "79b8bb9118d9893e7d9e88faba82d68173a493a2698dd7cb597eaaae2be86e27",
+              "summary": "KEV追加分のうち一次資料照合済みの2項目を追加。VMware vCenterのCVE-2026-123890（Broadcom VMSA-2026-0009.1で認証回避・CVSS 9.8・Workarounds None・系列別修正版を確認、KEV追加2026-11-20）と、Apache RollerのCVE-2026-129448（Apache一次公表でXML-RPCの認証前デシリアライズ・実悪用の明言・修正6.1.6以上・管理画面での無効化は不十分を確認、KEV追加2026-11-20）。残るKEV追加12件は一次資料照合が済んだものから順次反映する。",
+              "ids": [
+                "apache-roller-xmlrpc-deserialization-rce-129448",
+                "vmware-vcenter-directory-service-auth-bypass-123890"
+              ],
+              "date": "2026-11-26"
+            }
+          ],
+          "published": "2026-11-26T00:21:58.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "c473eb5bc2c97e1108f218df863bca6d712a6048"
+      "cursor": "c0a73646a1eefc2f09c8c2037a2e060de59ebcfb"
     },
     "security-incidents": {
       "records": {
