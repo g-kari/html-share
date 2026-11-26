@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Thu, 26 Nov 2026 16:45:46 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 26 Nov 2026 17:49:54 GMT</lastBuildDate>
+    <item>
+      <title>AVerMedia公式サイトの不正転送：原因として公式が発表したことと、まだ分からないこと</title>
+      <link>https://share.0g0.xyz/avermedia-redirect-attack-2026-11</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/avermedia-redirect-attack-2026-11</guid>
+      <description>AVerMedia（アバーメディア）日本公式サイトで、アクセスが別のサイトに転送される事象が起きた。同社は2026年11月26日、原因は公式サイトへのアクセスを不正に転送するサイバー攻撃だったと公式Xで発表した。データベースへの侵入はなく、復旧は11月27日19時までに完了する見込み。公式発表で原因として確認できることと、まだ公表されていないことを分けて整理する。</description>
+      <pubDate>Thu, 26 Nov 2026 17:49:54 GMT</pubDate>
+      <dcterms:created>2026-11-26T17:49:54.000Z</dcterms:created>
+      <dcterms:modified>2026-11-26T17:49:54.000Z</dcterms:modified>
+    </item>
     <item>
       <title>2026年 不正アクセス・情報漏えいウォッチ｜原因・出典・続報</title>
       <link>https://share.0g0.xyz/security-incidents</link>
