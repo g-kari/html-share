@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Thu, 26 Nov 2026 13:45:37 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 26 Nov 2026 14:45:10 GMT</lastBuildDate>
+    <item>
+      <title>Kyashの社内向けウェブツールへの不正アクセス事案を新規掲載</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#1c2d5422ecb5db74901e976b3be4f990e0c98f16656b6d074779a4aadbde3dbf</guid>
+      <description>Kyashの社内向けウェブツールへの不正アクセス事案を新規掲載。公式原文（2026-11-19）を直接開いて照合し、2026年10月28日の不正アクセス、原因は社内ツールのアクセス管理の不備、対象は最大11,996名（退会済みを含む）で取得の可能性であることを整理。含まれていた情報の3区分（全員の識別用ユニークID、うち11,786名の状態・支払い情報、うち310名の利用記録等、重複があり得るため合算しない）と、氏名等の個人を特定できる情報は含まれていないとする同社の公表を明記。不正アクセスの把握時期と具体的手法は公式原文に記載がないため書いていない。既存265件を保持し計266件。</description>
+      <pubDate>Thu, 26 Nov 2026 14:45:10 GMT</pubDate>
+      <dcterms:created>2026-11-26T14:45:10.000Z</dcterms:created>
+    </item>
     <item>
       <title>六花亭オンラインショップの決済画面改ざん事案を新規掲載</title>
       <link>https://share.0g0.xyz/security-incidents</link>
