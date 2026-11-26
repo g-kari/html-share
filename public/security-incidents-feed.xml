@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Thu, 26 Nov 2026 10:45:43 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 26 Nov 2026 11:45:33 GMT</lastBuildDate>
+    <item>
+      <title>楽天証券のテスト環境への不正アクセス事案を新規掲載</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#c181dffbb83ada76f51f1682550e84ebfb20fe374417d59af52f17e5366a8f61</guid>
+      <description>楽天証券のテスト環境への不正アクセス事案を新規掲載。11月17日第1報（漏えいの可能性2区分、最大約447万口座／最大約1,125万口座）と11月24日第2報（個人情報を含む漏えいの確認約441万件、コード・ログインIDのみ約1,198万口座、新たに確認された7項目）を公式原文2報で照合して整理。第1報の可能性と第2報の確認を分け、重複の可能性がある数値は合算しない。原因・経路は調査中として書いた。既存262件を保持し計263件。</description>
+      <pubDate>Thu, 26 Nov 2026 11:45:33 GMT</pubDate>
+      <dcterms:created>2026-11-26T11:45:33.000Z</dcterms:created>
+    </item>
     <item>
       <title>京王電鉄グループの既存項目へ11月24日の確報を反映</title>
       <link>https://share.0g0.xyz/security-incidents</link>
