@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Thu, 26 Nov 2026 00:21:58 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 26 Nov 2026 00:32:17 GMT</lastBuildDate>
+    <item>
+      <title>緊急メンテナンス続報まとめ（2026年11月26日時点）：継続中・一部復旧・復旧済み</title>
+      <link>https://share.0g0.xyz/emergency-maintenance-2026-11</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/emergency-maintenance-2026-11</guid>
+      <description>2026年10月下旬〜11月に相次いだ緊急メンテナンスとサービス停止を、2026年11月26日時点の公式告知ベースで整理。KARTE、JAXA公開系、teket、ALL.Net、バッファローなど継続中の案件と、Cacoo、SuiteX／SuiteSなど復旧済みの案件を分けてまとめます。</description>
+      <pubDate>Thu, 26 Nov 2026 00:32:17 GMT</pubDate>
+      <dcterms:created>2026-11-25T00:55:12.000Z</dcterms:created>
+      <dcterms:modified>2026-11-26T00:32:17.000Z</dcterms:modified>
+    </item>
     <item>
       <title>脆弱性レポート | 実悪用・修正版・対処</title>
       <link>https://share.0g0.xyz/vulnerabilities</link>
@@ -34,15 +43,6 @@
       <pubDate>Wed, 25 Nov 2026 14:15:04 GMT</pubDate>
       <dcterms:created>2026-11-25T14:15:04.000Z</dcterms:created>
       <dcterms:modified>2026-11-25T14:15:04.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>緊急メンテナンス続報まとめ（2026年11月25日時点）：継続中・一部復旧・復旧済み</title>
-      <link>https://share.0g0.xyz/emergency-maintenance-2026-11</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/emergency-maintenance-2026-11</guid>
-      <description>2026年10月下旬〜11月に相次いだ緊急メンテナンスとサービス停止を、2026年11月25日時点の公式告知ベースで整理。KARTE、JAXA公開系、teket、ALL.Net、バッファローなど継続中の案件と、Cacoo、SuiteX／SuiteSなど復旧済みの案件を分けてまとめます。</description>
-      <pubDate>Wed, 25 Nov 2026 13:50:06 GMT</pubDate>
-      <dcterms:created>2026-11-25T00:55:12.000Z</dcterms:created>
-      <dcterms:modified>2026-11-25T13:50:06.000Z</dcterms:modified>
     </item>
     <item>
       <title>T3 Codeとは：Claude CodeやCodexを1つの画面で操る無料のオープンソース。T3 Chatとは別物</title>
