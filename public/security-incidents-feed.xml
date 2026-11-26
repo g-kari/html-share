@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Thu, 26 Nov 2026 14:45:10 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 26 Nov 2026 15:45:59 GMT</lastBuildDate>
+    <item>
+      <title>デジタル庁のGSSファイル共有サービスでファイルが漏えいした可能性の事案を新規掲載</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#6ef82b02a3159da08bd1d220f2d236a2706fa90051ab0a37e4c94572b3959f3f</guid>
+      <description>デジタル庁のGSSファイル共有サービスでファイルが漏えいした可能性の事案を新規掲載。公式原文（2026-11-20）を直接開いて照合し、2026年11月12日に正規の共有相手先以外の者からのアクセスの可能性を検知し、2026年7月30日から11月12日までの間に当該アクセスがあったことを確認したこと、アップロードされていたファイルの一部が漏えいした可能性があり個人情報が含まれていることも想定されることを整理。対象ファイルの件数・個人情報の具体的な項目・人数・アクセスの経路・手法・サービス再開の見通しは公式原文に記載がないため書いていない。既掲載の2026年9月公表のGSS事案とは別事案として扱い、既存266件を保持し計267件。</description>
+      <pubDate>Thu, 26 Nov 2026 15:45:59 GMT</pubDate>
+      <dcterms:created>2026-11-26T15:45:59.000Z</dcterms:created>
+    </item>
     <item>
       <title>Kyashの社内向けウェブツールへの不正アクセス事案を新規掲載</title>
       <link>https://share.0g0.xyz/security-incidents</link>
