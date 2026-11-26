@@ -636,6 +636,33 @@
       ],
       "category": "情報の検証",
       "description": "主張や報道が事実かどうかを、一次資料や複数の出典と照合して確かめる作業。要素ごとに確認済み・未確認・否定できるなどに切り分けて示す。"
+    },
+    {
+      "id": "argument-injection",
+      "term": "引数インジェクション",
+      "aliases": [
+        "Argument Injection"
+      ],
+      "category": "セキュリティ",
+      "description": "プログラムへ渡す引数として解釈される値を外部から注入し、本来想定していないオプションや動作を引き起こす攻撃手法。"
+    },
+    {
+      "id": "code-page",
+      "term": "コードページ",
+      "aliases": [
+        "Code Page"
+      ],
+      "category": "土台の技術",
+      "description": "文字コードと文字の対応を定めた表。Windowsでは地域設定によって使うコードページが切り替わり、文字の変換規則も変わる。"
+    },
+    {
+      "id": "infinite-loop",
+      "term": "無限ループ",
+      "aliases": [
+        "Infinite Loop"
+      ],
+      "category": "土台の技術",
+      "description": "終了条件を満たさずに同じ処理を繰り返し続ける状態。その処理を行うプロセスが応答しなくなり、サービス停止につながることがある。"
     }
   ],
   "version": 1
