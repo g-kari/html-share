@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Thu, 26 Nov 2026 16:45:46 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 26 Nov 2026 18:16:38 GMT</lastBuildDate>
+    <item>
+      <title>オープングループ／オープンのBizRobo! mini認証サーバーへの不正アクセス事案を新規掲載</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#6422405e35f062e1a4f1fbf01f057a47e45e0f2428bc62b270f94b7422df3b93</guid>
+      <description>オープングループ／オープンのBizRobo! mini認証サーバーへの不正アクセス事案を新規掲載。公式原文（2026-11-18）を直接開いて照合し、クラウド環境への第三者の不正アクセスと、利用顧客約560社・約1,000アカウントの認証サーバー情報へのアクセスログの確認を整理。認証情報が実際に持ち出されたかは公表されておらず漏えい確定とは書いていない。経路と原因は調査中。既存268件を保持し計269件。</description>
+      <pubDate>Thu, 26 Nov 2026 18:16:38 GMT</pubDate>
+      <dcterms:created>2026-11-26T18:16:38.000Z</dcterms:created>
+    </item>
     <item>
       <title>1Passwordのバックエンドシステムへの不正アクセス事案を新規掲載</title>
       <link>https://share.0g0.xyz/security-incidents</link>
