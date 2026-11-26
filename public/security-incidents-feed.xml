@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Thu, 26 Nov 2026 22:16:20 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 26 Nov 2026 23:17:22 GMT</lastBuildDate>
+    <item>
+      <title>Fireworks AIの既存項目へ、利用企業側のメルカリ公表（2026-11-20）を内数として反映</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#6765be1ea8098acd2c10f15da342c37194eaab89835759aa66ea737440d3aa0f</guid>
+      <description>Fireworks AIの既存項目へ、利用企業側のメルカリ公表（2026-11-20）を内数として反映。従業員が2026年10月5日から10月24日までの間にNotion AIへ入力した内容と回答の記録の一部が流出した可能性があり、お客さま1,522名分、取引先担当者等571名分、採用応募者169名分、派遣社員・業務委託先・退職者1,534名分を公式原文で照合。各区分は重複の明記がなく合算せず、流出確定とは書いていない。既存272件を保持。</description>
+      <pubDate>Thu, 26 Nov 2026 23:17:22 GMT</pubDate>
+      <dcterms:created>2026-11-26T23:17:22.000Z</dcterms:created>
+    </item>
     <item>
       <title>オープングループ／オープンのBizRobo! mini認証サーバーへの不正アクセス事案を新規掲載</title>
       <link>https://share.0g0.xyz/security-incidents</link>
