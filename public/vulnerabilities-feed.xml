@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/vulnerabilities-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Thu, 26 Nov 2026 01:17:03 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 26 Nov 2026 02:17:10 GMT</lastBuildDate>
+    <item>
+      <title>KEV追加分のうち一次資料照合済みの2項目を追加</title>
+      <link>https://share.0g0.xyz/vulnerabilities</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/vulnerabilities-feed.xml#5e3a56e1a45b8ea53aeb8610c4170733f2681d985c586384ef6863292c056b35</guid>
+      <description>KEV追加分のうち一次資料照合済みの2項目を追加。Optimizely Web ExperimentationのCVE-2026-132224（ベンダーStatusと顧客向け報告で2026-11-16のsignup flow悪用・同日閉鎖・挿入コード除去・影響5%未満を確認、KEV追加2026-11-24）と、Cisco ExpresswayのCVE-2026-76466（Cisco Advisory版1.1で脆弱なリリース＋クラスタ構成のみが対象・cookies所持とネットワーク到達でroot実行・修正X15.5.20・Workaroundsなし・KEV追加とCiscoの留保を確認。スコアは今回確認した一次本文に数値表示がなく二次評価9.8と帰属を分けた）。残るKEV追加8件は一次資料照合が済んだものから順次反映する。</description>
+      <pubDate>Thu, 26 Nov 2026 02:17:10 GMT</pubDate>
+      <dcterms:created>2026-11-26T02:17:10.000Z</dcterms:created>
+    </item>
     <item>
       <title>KEV追加分のうち一次資料照合済みの2項目を追加</title>
       <link>https://share.0g0.xyz/vulnerabilities</link>

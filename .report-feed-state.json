@@ -82,6 +82,7 @@
         "chrome-xml-use-after-free-125350": "8079a2d23bca1b9830c9600f864069387d0f4c588d69933645e4f1f6ea3d72c1",
         "cisco-asa-ftd-secondary-auth-vpn-dos-76418": "6bf6e84c46482310467ba996afc03bb917612824e221c45107d6b4429a05f373",
         "cisco-broadworks-oci-xxe-20320": "f012470582b898e14b7307487f15fa7d1d46e8e36982c39792cccb028aa51899",
+        "cisco-expressway-cluster-static-cookie-rce-76466": "04051831dc8a1ccf3826309598daf9e0743d77ea6678fe17185d26b22701c477",
         "cisco-fmc-exploited-authentication-root": "5b94f05d52c4c9d7577fdbb882711f27a41a41f440863a8a6c623ffba3ef4316",
         "cisco-ios-xe-august-hardening-october-fix-table": "d9137245aaf8690b8ff4c264591a7b6dde6dfb295ff0c46026199ca36e5cd4eb",
         "cisco-sdwan-exploited-api-bypass": "9258609fe2b2fa147a76fc01e387736e172428431f1e50f39b8c9e06cf504b0a",
@@ -280,6 +281,7 @@
         "openssl-dtls-retransmission-heap-disclosure": "f52e014ed97559cab65b9cafaf49759c2b36f7ff24e5a2b739c27e4bb903d481",
         "openwave-media-transcoder-file-policy-bypass-111793": "6f3dc05986769c80ec946e608a08c7228381b6cc9408836404cb9082310e6cff",
         "openwebui-community-session-theft": "4285411e86e7a5d39675eb9ce9b4fcb9c5495fcb90f0e9cce6007e6f010e7536",
+        "optimizely-web-experimentation-signup-projectjs-132224": "d5f4127866487502ae1302d02a1baf679207a66803a6e8a20cd79307f251566d",
         "outlook-file-ntlm-disclosure-124194": "d26988c46aa1a9a831e71efdf3199b934f7b1e5bd998efc749f1de9af1a5da86",
         "paloalto-checkov-path-traversal-0312": "4374d68538b2672e4c04567b37d82e6627a8ad2aa8f0829992480e770353c675",
         "paloalto-checkov-ssrf-0311": "f7b1e6fd090f26b1229c84ea7edaaf43a437fdcd27ee426b57e25aced746b042",
@@ -996,6 +998,15 @@
           "ids": [
             "apache-axis-soap-fault-deserialization-rce-90436",
             "idunno-anticsrf-objectstateformatter-rce-131914"
+          ],
+          "date": "2026-11-26"
+        },
+        {
+          "signature": "9f548f34452e7341529c7f89e59c18c7b41ce7000d753eaa836dce1d84a530a9",
+          "summary": "KEV追加分のうち一次資料照合済みの2項目を追加。Optimizely Web ExperimentationのCVE-2026-132224（ベンダーStatusと顧客向け報告で2026-11-16のsignup flow悪用・同日閉鎖・挿入コード除去・影響5%未満を確認、KEV追加2026-11-24）と、Cisco ExpresswayのCVE-2026-76466（Cisco Advisory版1.1で脆弱なリリース＋クラスタ構成のみが対象・cookies所持とネットワーク到達でroot実行・修正X15.5.20・Workaroundsなし・KEV追加とCiscoの留保を確認。スコアは今回確認した一次本文に数値表示がなく二次評価9.8と帰属を分けた）。残るKEV追加8件は一次資料照合が済んだものから順次反映する。",
+          "ids": [
+            "cisco-expressway-cluster-static-cookie-rce-76466",
+            "optimizely-web-experimentation-signup-projectjs-132224"
           ],
           "date": "2026-11-26"
         }
@@ -2013,9 +2024,26 @@
           ],
           "published": "2026-11-26T01:17:03.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "5e3a56e1a45b8ea53aeb8610c4170733f2681d985c586384ef6863292c056b35",
+          "summary": "KEV追加分のうち一次資料照合済みの2項目を追加。Optimizely Web ExperimentationのCVE-2026-132224（ベンダーStatusと顧客向け報告で2026-11-16のsignup flow悪用・同日閉鎖・挿入コード除去・影響5%未満を確認、KEV追加2026-11-24）と、Cisco ExpresswayのCVE-2026-76466（Cisco Advisory版1.1で脆弱なリリース＋クラスタ構成のみが対象・cookies所持とネットワーク到達でroot実行・修正X15.5.20・Workaroundsなし・KEV追加とCiscoの留保を確認。スコアは今回確認した一次本文に数値表示がなく二次評価9.8と帰属を分けた）。残るKEV追加8件は一次資料照合が済んだものから順次反映する。",
+          "journal": [
+            {
+              "signature": "9f548f34452e7341529c7f89e59c18c7b41ce7000d753eaa836dce1d84a530a9",
+              "summary": "KEV追加分のうち一次資料照合済みの2項目を追加。Optimizely Web ExperimentationのCVE-2026-132224（ベンダーStatusと顧客向け報告で2026-11-16のsignup flow悪用・同日閉鎖・挿入コード除去・影響5%未満を確認、KEV追加2026-11-24）と、Cisco ExpresswayのCVE-2026-76466（Cisco Advisory版1.1で脆弱なリリース＋クラスタ構成のみが対象・cookies所持とネットワーク到達でroot実行・修正X15.5.20・Workaroundsなし・KEV追加とCiscoの留保を確認。スコアは今回確認した一次本文に数値表示がなく二次評価9.8と帰属を分けた）。残るKEV追加8件は一次資料照合が済んだものから順次反映する。",
+              "ids": [
+                "cisco-expressway-cluster-static-cookie-rce-76466",
+                "optimizely-web-experimentation-signup-projectjs-132224"
+              ],
+              "date": "2026-11-26"
+            }
+          ],
+          "published": "2026-11-26T02:17:10.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "ccab3951c5e74cb710c515dd026b76cea73f7993"
+      "cursor": "842b6c211bd83daa60c7188fe8a74629b67f93fe"
     },
     "security-incidents": {
       "records": {
