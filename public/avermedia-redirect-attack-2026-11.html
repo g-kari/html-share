@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AVerMedia公式サイトの不正転送：原因として公式が発表したことと、まだ分からないこと</title>
+<meta name="description" content="AVerMedia（アバーメディア）日本公式サイトで、アクセスが別のサイトに転送される事象が起きた。同社は2026年11月26日、原因は公式サイトへのアクセスを不正に転送するサイバー攻撃だったと公式Xで発表した。データベースへの侵入はなく、復旧は11月27日19時までに完了する見込み。公式発表で原因として確認できることと、まだ公表されていないことを分けて整理する。">
+<link rel="canonical" href="https://share.0g0.xyz/avermedia-redirect-attack-2026-11">
+<link rel="stylesheet" href="/assets/site.css">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="AVerMedia公式サイトの不正転送：原因として公式が発表したことと、まだ分からないこと">
+<meta property="og:description" content="AVerMedia公式サイトのアクセスが別サイトへ転送された事象について、同社が公式に発表した原因（不正な転送を行うサイバー攻撃、データベースへの侵入なし）と、転送先や侵入経路など未公表の点を分けて整理した。">
+<meta property="og:url" content="https://share.0g0.xyz/avermedia-redirect-attack-2026-11">
+<meta property="og:image" content="https://share.0g0.xyz/assets/html-share-card-v1.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="AVerMedia公式サイトの不正転送：原因として公式が発表したことと、まだ分からないこと">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://share.0g0.xyz/assets/html-share-card-v1.png">
+<meta name="twitter:image:alt" content="AVerMedia公式サイトの不正転送：原因として公式が発表したことと、まだ分からないこと">
+<style>
+.av-figure{margin:1.25rem 0;max-inline-size:46rem}
+.av-figure svg{display:block;width:100%;height:auto;border:1px solid var(--line)}
+.av-figure figcaption{font-size:.9rem;margin-top:.55rem}
+table.av-table{border-collapse:collapse;margin:1rem 0}
+table.av-table th,table.av-table td{border:1px solid var(--line);padding:.45rem .8rem;text-align:left;vertical-align:top}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="sitebar" aria-label="サイト内"><a class="brand" href="/">HTML Share</a><nav><a href="/">一覧</a><a href="/feed.xml">RSS</a></nav></nav>
+<header class="top">
+  <div class="kicker">セキュリティ事案 · 公式発表の整理</div>
+  <h1>AVerMedia公式サイトの不正転送：原因として公式が発表したことと、まだ分からないこと</h1>
+  <p class="meta">
+    確認日：2026年11月27日<br>
+    対象：AVerMedia（アバーメディア）の日本公式サイト（avermedia.co.jp）で発生した、アクセスが別のサイトに転送される事象。一次資料は同社の公式Xアカウント（AVerMediaJP）の投稿で、原因についての発表は2026年11月26日21時53分（日本時間）の投稿に基づく。公式が発表していない点は「未公表」と明記し、推測で補わない。
+  </p>
+</header>
+
+<div class="summary3">
+  <div class="ttl">要点</div>
+  <ol>
+    <li>原因は、同社の公式発表によると「当社公式サイトへのアクセスを別のサイトに不正に転送するサイバー攻撃」。クラウドサービス事業者と調査した結果として判明したとしている。</li>
+    <li>公式サイトのデータベースへの侵入はなく、関連する業務データは引き続き保護されている、と同社は明言した。情報漏えいの発表はない。</li>
+    <li>不正な転送を解消する対応は進行中で、遅くとも2026年11月27日（金）19時（日本時間）までに完了する見込み。復旧完了の知らせが出るまでは、検索エンジンの検索結果に表示されるリンクからのアクセスを控え、ブラウザのアドレスバーに「avermedia.co.jp」を直接入力するよう同社が呼びかけている。</li>
+  </ol>
+</div>
+
+<section>
+<h2>何が起きたか</h2>
+<p>2026年11月25日、同社の公式Xは、検索エンジンの検索結果から公式サイトを開くと無関係のサイトへ飛ばされることがあるとして注意を呼びかけた。この時点では原因は調査中だった。翌11月26日21時53分の続報で、原因がサイバー攻撃による不正な転送だったと判明したことが発表された。</p>
+<figure class="av-figure">
+<svg viewBox="0 0 720 150" role="img" aria-label="時系列：11月25日に注意喚起、11月26日に原因判明の続報、11月27日19時までに復旧完了の見込み">
+  <line x1="40" y1="70" x2="680" y2="70" stroke="#687482" stroke-width="2"/>
+  <circle cx="90" cy="70" r="7" fill="#c8102e"/>
+  <circle cx="360" cy="70" r="7" fill="#c8102e"/>
+  <circle cx="630" cy="70" r="7" fill="#687482"/>
+  <text x="90" y="40" text-anchor="middle" font-size="15" font-weight="700" fill="#223444">11月25日</text>
+  <text x="90" y="100" text-anchor="middle" font-size="13" fill="#223444">公式Xが注意喚起</text>
+  <text x="90" y="120" text-anchor="middle" font-size="13" fill="#223444">原因は調査中</text>
+  <text x="360" y="40" text-anchor="middle" font-size="15" font-weight="700" fill="#223444">11月26日 21:53</text>
+  <text x="360" y="100" text-anchor="middle" font-size="13" fill="#223444">続報：原因は不正な転送を</text>
+  <text x="360" y="120" text-anchor="middle" font-size="13" fill="#223444">行うサイバー攻撃と判明</text>
+  <text x="630" y="40" text-anchor="middle" font-size="15" font-weight="700" fill="#223444">11月27日 19:00</text>
+  <text x="630" y="100" text-anchor="middle" font-size="13" fill="#223444">転送解消の対応が</text>
+  <text x="630" y="120" text-anchor="middle" font-size="13" fill="#223444">完了する見込み（期限）</text>
+</svg>
+<figcaption>図1：発表の時系列。同社の公式Xの投稿と、その内容を伝えた報道・解説に基づく。11月27日19時は「遅くとも完了する見込み」として示された期限で、完了したという発表ではない。</figcaption>
+</figure>
+<p>症状の特徴は、検索結果経由のアクセスで別サイトへ飛ばされる点にある。同社が復旧までの利用方法として「アドレスバーに直接入力」を案内していることからも、直接アクセスと検索経由で結果が違う事象だったことが分かる。</p>
+</section>
+
+<section>
+<h2>原因として公式が発表したこと</h2>
+<p>11月26日の続報で、同社は次の点を発表した。</p>
+<ul>
+  <li>本事象は、当社公式サイトへのアクセスを別のサイトに不正に転送するサイバー攻撃によるものだった。</li>
+  <li>この結論は、クラウドサービス事業者と調査した結果として判明した。</li>
+  <li>当社公式サイトのデータベースへの侵入はなかった。</li>
+  <li>関連する業務データは引き続き保護されている。</li>
+</ul>
+<figure class="av-figure">
+<svg viewBox="0 0 720 240" role="img" aria-label="アクセス経路の図：検索結果のリンクからは不正な転送で別サイトへ、アドレスバーへの直接入力では公式サイトへ届く">
+  <defs><marker id="av-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#223444"/></marker></defs>
+  <rect x="20" y="85" width="110" height="60" fill="#fff" stroke="#223444" stroke-width="1.5"/>
+  <text x="75" y="112" text-anchor="middle" font-size="14" font-weight="700" fill="#223444">利用者</text>
+  <text x="75" y="132" text-anchor="middle" font-size="12" fill="#223444">ブラウザ</text>
+  <rect x="230" y="20" width="180" height="52" fill="#fff" stroke="#223444" stroke-width="1.5"/>
+  <text x="320" y="43" text-anchor="middle" font-size="13" font-weight="700" fill="#223444">検索結果のリンク</text>
+  <text x="320" y="62" text-anchor="middle" font-size="12" fill="#223444">公式サイトのつもりで開く</text>
+  <rect x="230" y="160" width="180" height="52" fill="#fff" stroke="#223444" stroke-width="1.5"/>
+  <text x="320" y="183" text-anchor="middle" font-size="13" font-weight="700" fill="#223444">アドレスバーに直接入力</text>
+  <text x="320" y="202" text-anchor="middle" font-size="12" fill="#223444">avermedia.co.jp</text>
+  <rect x="490" y="20" width="200" height="52" fill="#fbeeee" stroke="#c8102e" stroke-width="1.5"/>
+  <text x="590" y="43" text-anchor="middle" font-size="13" font-weight="700" fill="#c8102e">不正な転送</text>
+  <text x="590" y="62" text-anchor="middle" font-size="12" fill="#223444">攻撃により別サイトへ</text>
+  <rect x="490" y="160" width="200" height="52" fill="#eef4ee" stroke="#687482" stroke-width="1.5"/>
+  <text x="590" y="183" text-anchor="middle" font-size="13" font-weight="700" fill="#223444">公式サイト</text>
+  <text x="590" y="202" text-anchor="middle" font-size="12" fill="#223444">データベースへの侵入なし</text>
+  <line x1="130" y1="100" x2="225" y2="55" stroke="#223444" stroke-width="1.5" marker-end="url(#av-arrow)"/>
+  <line x1="130" y1="130" x2="225" y2="180" stroke="#223444" stroke-width="1.5" marker-end="url(#av-arrow)"/>
+  <line x1="410" y1="46" x2="485" y2="46" stroke="#c8102e" stroke-width="1.5" marker-end="url(#av-arrow)"/>
+  <line x1="410" y1="186" x2="485" y2="186" stroke="#223444" stroke-width="1.5" marker-end="url(#av-arrow)"/>
+</svg>
+<figcaption>図2：公式発表から分かるアクセス経路。検索結果経由では不正な転送が挟まり別サイトへ届いた。転送がどの層（サイト側の設定、配信経路、名前解決など）で行われたかは公表されていない。</figcaption>
+</figure>
+<p>なお、「クラウドサービス事業者と調査した」という以上の内訳は発表されていない。転送の仕掛けが置かれた場所や、攻撃者がどこから入り込んだかは、この発表からは特定できない。</p>
+</section>
+
+<section>
+<h2>まだ公表されていないこと</h2>
+<p>原因の核心に触れる次の点は、2026年11月27日未明の時点で公式発表に含まれていない。分からないものは分からないとして切り分ける。</p>
+<table class="av-table">
+<tr><th>項目</th><th>状態</th></tr>
+<tr><td>転送先のサイトが何だったか</td><td>未公表（「別のサイト」とのみ発表）</td></tr>
+<tr><td>侵入経路・攻撃の具体的な手法</td><td>未公表（「サイバー攻撃」とのみ発表）</td></tr>
+<tr><td>転送が行われた層（サーバー、配信設定、名前解決など）</td><td>未公表</td></tr>
+<tr><td>事象の発生開始時期・継続期間</td><td>未公表</td></tr>
+<tr><td>転送されたアクセスの件数・影響範囲</td><td>未公表</td></tr>
+<tr><td>データベース以外のシステムへの侵入の有無</td><td>未公表（データベースへの侵入がないことだけが明言されている）</td></tr>
+<tr><td>関係するクラウドサービス事業者の名前</td><td>未公表</td></tr>
+</table>
+<p>検索経由でのみ症状が出るサイト改ざんは一般に知られた手口だが、本件の手法がそれと同一かどうかは公式発表では裏付けられていないため、ここでは断定しない。続報で転送の仕組みや経路が公表されれば、このページも更新する。</p>
+</section>
+
+<section>
+<h2>利用者が取るべき行動（公式の案内）</h2>
+<ul>
+  <li>同社から復旧完了の知らせが掲載されるまでは、検索エンジンの検索結果に表示されるリンクからのアクセスを控える。</li>
+  <li>公式サイトを利用する際は、ブラウザのアドレスバーに「avermedia.co.jp」と直接入力してアクセスする（同社の投稿では「http://avermedia.co.jp」と表記されている）。</li>
+  <li>転送先で入力した覚えのある認証情報や個人情報がある場合は、公式の続報を確認したうえで対処を判断する。転送先が何だったかは未公表のため、この点は公式発表の範囲外である。</li>
+</ul>
+</section>
+
+<section>
+<h2>出典</h2>
+<ul>
+  <li>AVerMediaJP（AVerMedia 日本公式X）2026年11月26日21時53分の投稿：原因がサイバー攻撃による不正な転送であること、データベースへの侵入がないこと、11月27日19時までに完了する見込み、検索結果リンクを控える案内。<a href="https://x.com/AVerMediaJapan/status/2125936044894040193">https://x.com/AVerMediaJapan/status/2125936044894040193</a></li>
+  <li>AVerMediaJP 2026年11月25日の注意喚起の投稿（検索から別サイトへ飛ぶ事象と、原因調査中である旨）。内容はアスタWorksの解説記事「ホームページの乗っ取り確認、検索から別サイトに飛ぶときの対処」（2026年11月）の引用で確認した。<a href="https://blog.astha.jp/search-redirect-hacked-site/">https://blog.astha.jp/search-redirect-hacked-site/</a></li>
+</ul>
+<p>このページは2026年11月27日未明時点の公式発表に基づく。復旧完了の発表や原因の続報が出た場合は内容を更新する。</p>
+</section>
+
+</div>
+</body>
+</html>
