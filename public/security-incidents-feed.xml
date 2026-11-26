@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Thu, 26 Nov 2026 15:45:59 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 26 Nov 2026 16:45:46 GMT</lastBuildDate>
+    <item>
+      <title>1Passwordのバックエンドシステムへの不正アクセス事案を新規掲載</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#3d0542ec1f2af75e70dd776dc6900ec2562078b4b2ad2b9f21fb33743a131f68</guid>
+      <description>1Passwordのバックエンドシステムへの不正アクセス事案を新規掲載。公式原文（2026-11-25）を直接開いて照合し、従業員の corporate GitHub アカウントへの攻撃者アクセスを起点にバックエンドサービスへ悪性コードが push され、一部の利用者のアカウント記録（氏名・メールアドレス、識別子、公開鍵、SRPパラメータ、招待・回復トークン等）が影響を受けたこと、保管庫とその鍵は不影響であることを整理。トークンは単体ではアクセスできず対象は少数で個別通知済みという限定も併記。影響を受けた顧客の人数・割合と最初の侵入手法は公式原文に記載がないため書いていない。既存267件を保持し計268件。</description>
+      <pubDate>Thu, 26 Nov 2026 16:45:46 GMT</pubDate>
+      <dcterms:created>2026-11-26T16:45:46.000Z</dcterms:created>
+    </item>
     <item>
       <title>デジタル庁のGSSファイル共有サービスでファイルが漏えいした可能性の事案を新規掲載</title>
       <link>https://share.0g0.xyz/security-incidents</link>
