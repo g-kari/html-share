@@ -363,7 +363,7 @@ test('November 10 followups distinguish partial recovery and classifications fro
 test('November 10 overseas additions distinguish publication dates, access and potential exposure', () => {
   const fire=byId.get('fireworks-ai-credentials-20261006');
   assert.equal(fire.disclosed, '2026-10-09');
-  assert.equal(fire.updated, '2026-11-13');
+  assert.equal(fire.updated, '2026-11-20');
   assert.match(fire.timeline.find(item=>item.date==='2026-10-09').text, /22:00 PDT.*10月10日05:00 UTC/);
   assert.match(fire.count, /非公表.*一部アカウント.*秘密情報・モデル・データセット.*請求情報の対象範囲全体は非公表/);
   assert.match(fire.impact, /未完成モデル重み・データセット.*カード番号.*保存しておらず/);
