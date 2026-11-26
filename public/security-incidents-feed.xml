@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Thu, 26 Nov 2026 12:45:33 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 26 Nov 2026 13:45:37 GMT</lastBuildDate>
+    <item>
+      <title>六花亭オンラインショップの決済画面改ざん事案を新規掲載</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#09a306b22b06839db7c6f9561663ce745e5d7606a674d85b0fcfccde5422fb65</guid>
+      <description>六花亭オンラインショップの決済画面改ざん事案を新規掲載。公式原文の第二報（2026-11-21）を直接開いて照合し、第一報（2026-11-18）の内容は第二報ページ内の公式転載で確認した。2026年10月21日から11月18日までに入力されたクレジットカード情報（第一報時点で約8,000件、確定値ではない）に加え、氏名・郵便番号・住所・電話番号・メールアドレスも流出の可能性が第二報で判明したこと、11月20日に不正利用1件を確認したことを整理。同社はカード情報をサーバー内に保存しておらず入力時に抜き取られた可能性があると説明。侵入経路・改ざん時期と第二報で追加された氏名等の件数は公式原文に記載がないため書いていない。既存264件を保持し計265件。</description>
+      <pubDate>Thu, 26 Nov 2026 13:45:37 GMT</pubDate>
+      <dcterms:created>2026-11-26T13:45:37.000Z</dcterms:created>
+    </item>
     <item>
       <title>アジャイルウェアの不正アクセス事案を新規掲載</title>
       <link>https://share.0g0.xyz/security-incidents</link>
