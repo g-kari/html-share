@@ -243,9 +243,11 @@
         "misp-mandatory-totp-enrolment-nonbrowser-session-bypass": "8026f35ec515bb82f51f1cef275752277124c24d1454ac459f7eed2f01247de1",
         "misp-sachertortephp-download-filename-stored-xss": "93b0a38c345eb61ffb6e64468aac30dd41449271912cdf83a6cd19b07bf91b44",
         "mlflow-multipart-cross-user-artifact-poisoning": "ff129d6d084b9d9c886ac10d44f2f7a283bae321bea8bbc4103757522f93e136",
+        "monai-label-datastore-path-traversal-rce-133968": "a90b906d934f779480402f2154bd849c70c0dcc6dc3e6ad3bbacc9c79ca3c72b",
         "mooncake-store-unauthenticated-rest-rpc": "171a7f0caab7c88784a8b00541a03d963b7d075e41c0c6123543b8fc95e5628b",
         "movabletype-upgrade-code-injection-and-search-sql-injection": "0707d5e19204a611411b0e1fc836fa1dfb4ad923464268a6b9bfa2af4ceb20ef",
         "msquic-openssl-hostname-validation": "3e6a94fcc3783038d3daa07639add691a11df4e54a45635780e247e26a0d2337",
+        "n-able-mailassure-ldap-sync-ssrf-134624": "bddcb4990bbf130a6bc7e552e75775622f7734c2d5c67c5e9533921bc6163414",
         "netbird-desktop-peer-ssh-config-injection": "2ade398c7d7333549082412a9494ada3f7c0779ea1c087ec389e0e8c728167f4",
         "netscaler-saml-october-memory-overflow-rce": "b4045d6b1562e0ad0d3594b7781e686c2550b757587f5a06075a7a4fd88760f5",
         "nexi-xpay-build-unauthenticated-order-payment-integrity": "04e4749cb988aaf5f1d3b2e73926c59f8149c9d10b260626ae3c09f937ccc674",
@@ -1007,6 +1009,15 @@
           "ids": [
             "cisco-expressway-cluster-static-cookie-rce-76466",
             "optimizely-web-experimentation-signup-projectjs-132224"
+          ],
+          "date": "2026-11-26"
+        },
+        {
+          "signature": "7f0ef0b9d277d5d2267b9d93d6f8cb4f941242f947f8bab1e316112e7387c851",
+          "summary": "KEV追加分のうち一次資料照合済みの2項目を追加。MONAI LabelのCVE-2026-133968（GHSAでimageパラメータ検証なしのdatastore外書込み・認証デフォルト無効を確認、CVE記録で影響0.8.6未満・修正0.8.6・2026年9月からの実悪用・KEV追加2026-11-23）と、N-able MailAssureのCVE-2026-134624（ベンダーAdvisoryとCVE記録でrelay設定時のLDAP同期接続確認の宛先無制限・認証済みAPIユーザーが内部ホスト到達判定とデータ送信が可能・影響20261121.1943未満を確認。Hosted／Localの対応区分はベンダー一次本文で直接確認できていないため含めない）。残るKEV追加6件は一次資料照合が済んだものから順次反映する。",
+          "ids": [
+            "monai-label-datastore-path-traversal-rce-133968",
+            "n-able-mailassure-ldap-sync-ssrf-134624"
           ],
           "date": "2026-11-26"
         }
@@ -2041,9 +2052,26 @@
           ],
           "published": "2026-11-26T02:17:10.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "0be883c2a15c269e901f9e592245d66879a22c2305def47ff25547306c49f600",
+          "summary": "KEV追加分のうち一次資料照合済みの2項目を追加。MONAI LabelのCVE-2026-133968（GHSAでimageパラメータ検証なしのdatastore外書込み・認証デフォルト無効を確認、CVE記録で影響0.8.6未満・修正0.8.6・2026年9月からの実悪用・KEV追加2026-11-23）と、N-able MailAssureのCVE-2026-134624（ベンダーAdvisoryとCVE記録でrelay設定時のLDAP同期接続確認の宛先無制限・認証済みAPIユーザーが内部ホスト到達判定とデータ送信が可能・影響20261121.1943未満を確認。Hosted／Localの対応区分はベンダー一次本文で直接確認できていないため含めない）。残るKEV追加6件は一次資料照合が済んだものから順次反映する。",
+          "journal": [
+            {
+              "signature": "7f0ef0b9d277d5d2267b9d93d6f8cb4f941242f947f8bab1e316112e7387c851",
+              "summary": "KEV追加分のうち一次資料照合済みの2項目を追加。MONAI LabelのCVE-2026-133968（GHSAでimageパラメータ検証なしのdatastore外書込み・認証デフォルト無効を確認、CVE記録で影響0.8.6未満・修正0.8.6・2026年9月からの実悪用・KEV追加2026-11-23）と、N-able MailAssureのCVE-2026-134624（ベンダーAdvisoryとCVE記録でrelay設定時のLDAP同期接続確認の宛先無制限・認証済みAPIユーザーが内部ホスト到達判定とデータ送信が可能・影響20261121.1943未満を確認。Hosted／Localの対応区分はベンダー一次本文で直接確認できていないため含めない）。残るKEV追加6件は一次資料照合が済んだものから順次反映する。",
+              "ids": [
+                "monai-label-datastore-path-traversal-rce-133968",
+                "n-able-mailassure-ldap-sync-ssrf-134624"
+              ],
+              "date": "2026-11-26"
+            }
+          ],
+          "published": "2026-11-26T03:16:53.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "842b6c211bd83daa60c7188fe8a74629b67f93fe"
+      "cursor": "c061200bd40fb9943b73bbe83b9f6093ea85ab0d"
     },
     "security-incidents": {
       "records": {
