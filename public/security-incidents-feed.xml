@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Thu, 26 Nov 2026 09:46:15 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 26 Nov 2026 10:45:43 GMT</lastBuildDate>
+    <item>
+      <title>京王電鉄グループの既存項目へ11月24日の確報を反映</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#a0df5a0701fc435e97bf4c260e7d9b03154d8a11f79d5dfa1812c012d1baac97</guid>
+      <description>京王電鉄グループの既存項目へ11月24日の確報を反映。漏えい確認3区分（約150人・約160人・約12,000人）と漏えいの可能性3区分（約1,063万人・約36万人・約7.7万人）を区分し、注記の個別件数（パスポート・クレジットカード番号・本人確認書類・マイナンバー関連）を含めた。両区分とも重複があり合算しないこと、二次被害は確認されていないこと、京王プレッソインの新規予約は12月中の再開予定であることを公式原文PDFで照合。侵入経路は確報でも公表されていない。既存262件を保持。</description>
+      <pubDate>Thu, 26 Nov 2026 10:45:43 GMT</pubDate>
+      <dcterms:created>2026-11-26T10:45:43.000Z</dcterms:created>
+    </item>
     <item>
       <title>大崎電気工業のランサムウェア事案を新規掲載</title>
       <link>https://share.0g0.xyz/security-incidents</link>
