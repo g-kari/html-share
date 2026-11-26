@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/vulnerabilities-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Wed, 25 Nov 2026 23:19:34 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 26 Nov 2026 00:21:58 GMT</lastBuildDate>
+    <item>
+      <title>KEV追加分のうち一次資料照合済みの2項目を追加</title>
+      <link>https://share.0g0.xyz/vulnerabilities</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/vulnerabilities-feed.xml#3693a4bc8095e44dbed25d637dc3ef9bc033f6b1a887368aaa61f253803472a0</guid>
+      <description>KEV追加分のうち一次資料照合済みの2項目を追加。VMware vCenterのCVE-2026-123890（Broadcom VMSA-2026-0009.1で認証回避・CVSS 9.8・Workarounds None・系列別修正版を確認、KEV追加2026-11-20）と、Apache RollerのCVE-2026-129448（Apache一次公表でXML-RPCの認証前デシリアライズ・実悪用の明言・修正6.1.6以上・管理画面での無効化は不十分を確認、KEV追加2026-11-20）。残るKEV追加12件は一次資料照合が済んだものから順次反映する。</description>
+      <pubDate>Thu, 26 Nov 2026 00:21:58 GMT</pubDate>
+      <dcterms:created>2026-11-26T00:21:58.000Z</dcterms:created>
+    </item>
     <item>
       <title>KEV追加分のうち一次資料照合済みの2項目を追加</title>
       <link>https://share.0g0.xyz/vulnerabilities</link>
