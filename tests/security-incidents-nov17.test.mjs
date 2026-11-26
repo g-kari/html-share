@@ -13,7 +13,7 @@ test('November 17 change summary identifies each unique added and updated record
  assert.deepEqual(new Set(change.incident_ids),new Set([...change.added_ids,...change.updated_ids]));
  assert.equal(change.added_ids.filter(id=>change.updated_ids.includes(id)).length,0);
  for(const id of change.incident_ids){const r=byId.get(id);assert.ok(r);assert.equal(r.last_content_change,'2026-11-17');assert.ok(r.sources.every(s=>s.type==='official'));}
- assert.equal(register.changes.length,104);
+ assert.equal(register.changes.length,105);
 });
 test('rendered derived totals agree with the register, including overlapping causes',()=>{
  const multiple=register.incidents.filter(i=>i.cause_types.length>1).length;
