@@ -61,10 +61,12 @@ export function latestChange(data) {
 }
 
 export function recentChanges(data, limit = 3) {
+  // Registers append new entries, so within one calendar day the later
+  // array position is the newer update; day-precision dates rely on it.
   return (data.changes || [])
-    .map((change) => ({ summary: cleanText(change.summary), ...changeDate(change.date) }))
+    .map((change, index) => ({ summary: cleanText(change.summary), ...changeDate(change.date), index }))
     .filter((change) => change.summary)
-    .sort((a, b) => Date.parse(b.published) - Date.parse(a.published))
+    .sort((a, b) => Date.parse(b.published) - Date.parse(a.published) || b.index - a.index)
     .slice(0, limit);
 }
 
