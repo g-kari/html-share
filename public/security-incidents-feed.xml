@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Thu, 26 Nov 2026 23:17:22 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 27 Nov 2026 00:16:37 GMT</lastBuildDate>
+    <item>
+      <title>Fireworks AIの既存項目へ、利用企業側のインフキュリオン公表（2026-11-18、TDnet開示）を内数として反映</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#8a1a83662a825ccb38cf3a45402557580084729e76b6fc44fc6e6840b59964af</guid>
+      <description>Fireworks AIの既存項目へ、利用企業側のインフキュリオン公表（2026-11-18、TDnet開示）を内数として反映。同社が2026年10月5日から10月24日までの間にNotion AIへ入力した内容と回答の一部が対象で、個人情報232件（取引先担当者・採用応募者・従業員の氏名・電話番号・メールアドレス等）が含まれ、営業活動に関する情報に含まれる取引先情報は精査中であることを公式原文で照合。232件は提供元総件数や他利用企業分と合算しない。同社のWallet Station事案とは別件。既存272件を保持。</description>
+      <pubDate>Fri, 27 Nov 2026 00:16:37 GMT</pubDate>
+      <dcterms:created>2026-11-27T00:16:37.000Z</dcterms:created>
+    </item>
     <item>
       <title>Fireworks AIの既存項目へ、利用企業側のメルカリ公表（2026-11-20）を内数として反映</title>
       <link>https://share.0g0.xyz/security-incidents</link>
