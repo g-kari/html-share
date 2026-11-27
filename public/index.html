@@ -108,6 +108,7 @@
   <link rel="alternate" type="application/rss+xml" title="HTML Share RSS" href="https://share.0g0.xyz/feed.xml">
   <link rel="alternate" type="application/rss+xml" title="脆弱性レポート 更新RSS" href="https://share.0g0.xyz/vulnerabilities-feed.xml">
   <link rel="alternate" type="application/rss+xml" title="漏洩・セキュリティ事案レポート 更新RSS" href="https://share.0g0.xyz/security-incidents-feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="緊急メンテナンス続報 更新RSS" href="https://share.0g0.xyz/emergency-maintenance-feed.xml">
   <!-- /html-share: rss discovery -->
 </head>
 <body>
@@ -117,15 +118,15 @@
       <p class="lead">共有ページ一覧</p>
       <p><a class="rss" href="/feed.xml">RSSで新規公開・更新を購読</a></p>
       <p><a class="rss" href="/glossary">用語集</a> — 記事に出てくる専門用語の短い説明</p>
-      <p><a class="rss" href="/vulnerabilities-feed.xml">脆弱性レポート 更新RSSを購読</a> · <a class="rss" href="/security-incidents-feed.xml">漏洩・セキュリティ事案レポート 更新RSSを購読</a></p>
+      <p><a class="rss" href="/vulnerabilities-feed.xml">脆弱性レポート 更新RSSを購読</a> · <a class="rss" href="/security-incidents-feed.xml">漏洩・セキュリティ事案レポート 更新RSSを購読</a> · <a class="rss" href="/emergency-maintenance-feed.xml">緊急メンテナンス続報 更新RSSを購読</a></p>
       <p class="count">99 pages</p>
     </header>
     <div id="site-guide-fallback" class="site-guide" aria-label="ページの探し方と購読">
-      <details class="guide-item" data-guide-section="reports"><summary>よく読むレポートへ</summary><div><p>更新を追いたいページを直接開けます。</p><ul><li><a href="/technology-updates">技術アップデート</a></li><li><a href="/vulnerabilities">重要な脆弱性</a></li><li><a href="/security-incidents">情報流出・セキュリティ事案</a></li></ul></div></details>
-      <details class="guide-item" data-guide-section="search"><summary>本文まで探す・更新を受け取る</summary><div><p>下の検索はスペース区切りのAND検索です。RSSは申込みなしで購読アプリに追加できます。</p><ul><li><a href="#site-search">本文を検索する</a></li><li><a href="/feed.xml">全ページの更新RSS</a></li><li><a href="/vulnerabilities-feed.xml">脆弱性の更新RSS</a></li><li><a href="/security-incidents-feed.xml">事案の更新RSS</a></li></ul></div></details>
+      <details class="guide-item" data-guide-section="reports"><summary>よく読むレポートへ</summary><div><p>更新を追いたいページを直接開けます。</p><ul><li><a href="/technology-updates">技術アップデート</a></li><li><a href="/vulnerabilities">重要な脆弱性</a></li><li><a href="/security-incidents">情報流出・セキュリティ事案</a></li><li><a href="/emergency-maintenance-2026-11">緊急メンテナンス続報</a></li></ul></div></details>
+      <details class="guide-item" data-guide-section="search"><summary>本文まで探す・更新を受け取る</summary><div><p>下の検索はスペース区切りのAND検索です。RSSは申込みなしで購読アプリに追加できます。</p><ul><li><a href="#site-search">本文を検索する</a></li><li><a href="/feed.xml">全ページの更新RSS</a></li><li><a href="/vulnerabilities-feed.xml">脆弱性の更新RSS</a></li><li><a href="/security-incidents-feed.xml">事案の更新RSS</a></li><li><a href="/emergency-maintenance-feed.xml">緊急メンテナンスの更新RSS</a></li></ul></div></details>
     </div>
     <div id="site-guide-enhanced" aria-label="ページの探し方と購読" hidden></div>
-    <form id="site-search" class="search" role="search" data-index="/assets/search/index-803398357b3a04a8.json" hidden>
+    <form id="site-search" class="search" role="search" data-index="/assets/search/index-f8b5a49e0be24e54.json" hidden>
       <label for="search-query">タイトル・本文を検索</label>
       <div class="search-controls">
         <input id="search-query" name="q" type="search" placeholder="例：Cloudflare 日本語" maxlength="200" enterkeyhint="search" autocomplete="off" aria-describedby="search-help search-status">
@@ -141,18 +142,18 @@
     <section id="page-list" class="grid" aria-label="共有ページ一覧">
 
       <article class="card">
-        <a href="/vulnerabilities">
-          <h2>脆弱性レポート | 実悪用・修正版・対処</h2>
-          <p>重要な脆弱性の影響製品・実悪用・修正版・対処を公開一次資料で確認するレポート。CVSSと条件付き対処優先度を分けて掲載します。</p>
-          <code>/vulnerabilities</code>
-        </a>
-      </article>
-
-      <article class="card">
         <a href="/emergency-maintenance-2026-11">
           <h2>緊急メンテナンス続報まとめ（2026年11月27日時点）：継続中・一部復旧・復旧済み</h2>
           <p>2026年10月下旬〜11月に相次いだ緊急メンテナンスとサービス停止を、2026年11月27日時点の公式告知ベースで整理。KARTE、JAXA公開系、teket、TOWER RECORDS ONLINE、三井ショッピングパークアプリ、SIP4D、ミンカブなど継続中の案件と、ENEOS公式アプリ、Payどん、セガ ラッキーくじオンラインなど復旧・再開の案件を分けてまとめます。</p>
           <code>/emergency-maintenance-2026-11</code>
+        </a>
+      </article>
+
+      <article class="card">
+        <a href="/vulnerabilities">
+          <h2>脆弱性レポート | 実悪用・修正版・対処</h2>
+          <p>重要な脆弱性の影響製品・実悪用・修正版・対処を公開一次資料で確認するレポート。CVSSと条件付き対処優先度を分けて掲載します。</p>
+          <code>/vulnerabilities</code>
         </a>
       </article>
 
