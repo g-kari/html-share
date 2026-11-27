@@ -147,12 +147,24 @@ Gitを含まないソースコピーでも変更のないページの日時を�
 
 - 脆弱性: https://share.0g0.xyz/vulnerabilities-feed.xml
 - 漏洩・セキュリティ事案: https://share.0g0.xyz/security-incidents-feed.xml
+- 緊急メンテナンス: https://share.0g0.xyz/emergency-maintenance-feed.xml
 
-全体RSS `/feed.xml` の固定ページGUID・更新日時の仕様は変更しません。
+全体RSS `/feed.xml` の固定ページGUID・更新日時の仕様は変更しません。ただし、更新履歴を持つ
+3ページ（脆弱性・事案・緊急メンテナンス）については、全体RSSでもページ項目の説明が
+静的なページ説明ではなく直近の更新内容になり、ページのOGP画像が付きます。
 専用RSSは各レポートのJSON registerと `changes` 更新履歴から、追加・訂正・重要な続報を
-更新ごとの別項目として生成します。本文全体、非公開ファイル、Gitのcommit messageは配信しません。
-トップページには3本の購読リンク、各レポートのheadには全体RSSと対応する専用RSSの
+更新ごとの別項目として生成します。脆弱性・事案の専用RSSは、先頭にページ全体を表す項目
+（GUIDはページURL、説明は最新の更新内容、画像はページのOGP画像）も置くので、
+ページ項目だけを見ても最新の更新が分かります。本文全体、非公開ファイル、Gitのcommit messageは配信しません。
+トップページには4本の購読リンク、各レポートのheadには全体RSSと対応する専用RSSの
 autodiscoveryを生成します。専用RSSにもRSS Content-Typeと5分キャッシュを設定します。
+
+緊急メンテナンスの専用RSSはページ単位の1項目だけを配信します。項目の説明はページ内の
+`maintenance-update-data` JSON registerの `changes`（`date` と具体的な更新概要 `summary`）から
+直近3件分を生成し、更新のたびに新しい内容へ差し替わります。GUIDはページURLで、
+画像はページのOGP画像です。ページを更新したら、同じ変更で `changes` の末尾に
+`{ "date": 実施日時（ISO形式、+09:00）, "summary": 更新概要 }` を同時に追加してください。
+この記録がないとフィードの説明は新しい更新へ追随しません。
 
 ### RSS delivery corrections
 

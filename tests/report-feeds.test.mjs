@@ -55,10 +55,15 @@ test("historical bootstrap uses real commit times; stable topic-specific GUIDs a
     const other = await save(cwd, incident, data(incident)); commit(cwd, dates[2]);
     await writeReportFeeds(cwd, [page, other]);
     const feed = await xml(cwd, vulnerability);
-    assert.equal(count(feed), 2); assert.equal(count(await xml(cwd, incident)), 1);
+    assert.equal(count(feed), 3); assert.equal(count(await xml(cwd, incident)), 2);
     assert.match(feed, /Thu, 01 Oct 2026 01:23:45 GMT/); assert.match(feed, /Fri, 02 Oct 2026 02:34:56 GMT/);
     assert.match(feed, /&amp;lt;script&amp;gt;/); assert.doesNotMatch(feed, /PRIVATE_BODY_NEVER_IN_FEED|<script>/);
     assert.match(feed, /guid isPermaLink="false"/); assert.doesNotMatch(feed, /security-incidents-feed.xml/);
+    // The lead item represents the page itself: page-URL GUID, the newest
+    // update as its description, and the page image on every item.
+    assert.match(feed, /<guid isPermaLink="true">https:\/\/share\.0g0\.xyz\/vulnerabilities<\/guid>/);
+    assert.match(feed, /<description>最新の更新：修正版の境界を訂正/);
+    assert.equal((feed.match(/<media:content /g) || []).length, 3);
     const state = await readReportState(cwd);
     await writeReportFeeds(cwd, [page, other]);
     assert.equal(await xml(cwd, vulnerability), feed); assert.deepEqual(await readReportState(cwd), state);
@@ -80,7 +85,7 @@ test("prepend/append, identical summary different delta, delayed concurrent upda
     const items = (await readReportState(cwd)).reports.vulnerabilities.items;
     assert.equal(items.length, 3); assert.equal(new Set(items.map((x) => x.fingerprint)).size, 3); assert.deepEqual(items[0], original);
     assert.deepEqual(items.map((x) => x.published), dates.slice(0, 3).map((d) => new Date(d).toISOString()));
-    assert.equal(count(await xml(cwd, incident)), 1);
+    assert.equal(count(await xml(cwd, incident)), 2);
   } finally { await rm(cwd, { recursive: true, force: true }); }
 });
 
@@ -98,9 +103,9 @@ test("timestamp-only checks, word-only history corrections, duplicate journal en
     assert.equal(corrected.summary, "初版の表現を明確化"); assert.equal(corrected.fingerprint, original.fingerprint); assert.equal(corrected.published, original.published);
     value.changes.push(change("確認時刻だけ更新", "2026-10-03"), change("表示件数の訂正", "2026-10-03", []), change("初版の表現を明確化", "2026-10-03"));
     page = await save(cwd, incident, value); commit(cwd, dates[3]); await writeReportFeeds(cwd, [page]);
-    assert.equal(count(await xml(cwd, incident)), 1);
+    assert.equal(count(await xml(cwd, incident)), 2);
     await writeReportFeeds(cwd, []); assert.equal(count(await xml(cwd, incident)), 0);
-    await writeReportFeeds(cwd, [page]); assert.equal(count(await xml(cwd, incident)), 1);
+    await writeReportFeeds(cwd, [page]); assert.equal(count(await xml(cwd, incident)), 2);
   } finally { await rm(cwd, { recursive: true, force: true }); }
 });
 
@@ -121,7 +126,7 @@ test("Git-free export backfill discloses day precision, does not date everything
     await rm(path.join(cwd, ".git"), { recursive: true, force: true });
     const page = await save(cwd, vulnerability, data(vulnerability, [change("初版", "2026-10-01"), change("追記", "2026-10-02")]));
     await writeReportFeeds(cwd, [page]); const feed = await xml(cwd, vulnerability);
-    assert.equal(count(feed), 2); assert.match(feed, /時刻は記録なし/); assert.match(feed, /Wed, 30 Sep 2026 15:00:00 GMT/); assert.match(feed, /Thu, 01 Oct 2026 15:00:00 GMT/);
+    assert.equal(count(feed), 3); assert.match(feed, /時刻は記録なし/); assert.match(feed, /Wed, 30 Sep 2026 15:00:00 GMT/); assert.match(feed, /Thu, 01 Oct 2026 15:00:00 GMT/);
     await writeReportFeeds(cwd, [page]); assert.equal(await xml(cwd, vulnerability), feed);
     const state = await readReportState(cwd); state.reports.vulnerabilities.items[0].published = "invalid"; await writeFile(path.join(cwd, REPORT_STATE_FILE), JSON.stringify(state));
     await assert.rejects(readReportState(cwd), /timestamp/);
@@ -334,7 +339,7 @@ test("known old-GUID delivery corrections remain distinct, stable and harmless t
     for (const feed of REPORT_FEEDS) {
       assert.deepEqual(after.reports[feed.key].items, before.reports[feed.key].items);
       const output = await xml(cwd, feed); const correction = corrections.find((item) => item.topic === feed.key);
-      assert.equal(count(output), before.reports[feed.key].items.length + 1);
+      assert.equal(count(output), before.reports[feed.key].items.length + 2);
       assert.equal((output.match(/<category>RSS初回配信訂正<\/category>/g) || []).length, 1);
       assert.ok(output.includes(`${feed.path}#${correction.fingerprint}</guid>`));
       assert.match(output, /Wed, 07 Oct 2026 17:18:29 GMT/);

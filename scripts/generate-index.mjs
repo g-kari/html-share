@@ -1,8 +1,9 @@
 import { readdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
-import { addSocialMetadata, escapeHtml, pageDetails, routeFor, scanTags, SITE_URL } from "./social-metadata.mjs";
+import { addSocialMetadata, escapeHtml, pageDetails, pageImage, routeFor, scanTags, SITE_URL } from "./social-metadata.mjs";
 import { addFeedDiscovery, contentFingerprint, pageDates, readFeedState, writeFeed } from "./rss-feed.mjs";
-import { REPORT_FEEDS, writeReportFeeds } from "./report-feeds.mjs";
+import { REPORT_FEEDS, reportChanges, reportData, writeReportFeeds } from "./report-feeds.mjs";
+import { PAGE_FEEDS, pageUpdateData, recentChanges, updateDescription, writePageFeeds } from "./page-feeds.mjs";
 import { authoredReportSource } from "./report-source.mjs";
 import { generateSplitVulnerabilities, isReportArchive } from "./split-vulnerabilities.mjs";
 import { generateSplitTechnologyUpdates, isTechnologyArchive } from "./split-technology-updates.mjs";
@@ -213,12 +214,12 @@ const html = `<!doctype html>
       <p class="lead">共有ページ一覧</p>
       <p><a class="rss" href="/feed.xml">RSSで新規公開・更新を購読</a></p>
       <p><a class="rss" href="/glossary">用語集</a> — 記事に出てくる専門用語の短い説明</p>
-      <p>${REPORT_FEEDS.map((feed) => `<a class="rss" href="${feed.path}">${escapeHtml(feed.title)}を購読</a>`).join(" · ")}</p>
+      <p>${[...REPORT_FEEDS, ...PAGE_FEEDS].map((feed) => `<a class="rss" href="${feed.path}">${escapeHtml(feed.title)}を購読</a>`).join(" · ")}</p>
       <p class="count">${pages.length} page${pages.length === 1 ? "" : "s"}</p>
     </header>
     <div id="site-guide-fallback" class="site-guide" aria-label="ページの探し方と購読">
-      <details class="guide-item" data-guide-section="reports"><summary>よく読むレポートへ</summary><div><p>更新を追いたいページを直接開けます。</p><ul><li><a href="/technology-updates">技術アップデート</a></li><li><a href="/vulnerabilities">重要な脆弱性</a></li><li><a href="/security-incidents">情報流出・セキュリティ事案</a></li></ul></div></details>
-      <details class="guide-item" data-guide-section="search"><summary>本文まで探す・更新を受け取る</summary><div><p>下の検索はスペース区切りのAND検索です。RSSは申込みなしで購読アプリに追加できます。</p><ul><li><a href="#site-search">本文を検索する</a></li><li><a href="/feed.xml">全ページの更新RSS</a></li><li><a href="/vulnerabilities-feed.xml">脆弱性の更新RSS</a></li><li><a href="/security-incidents-feed.xml">事案の更新RSS</a></li></ul></div></details>
+      <details class="guide-item" data-guide-section="reports"><summary>よく読むレポートへ</summary><div><p>更新を追いたいページを直接開けます。</p><ul><li><a href="/technology-updates">技術アップデート</a></li><li><a href="/vulnerabilities">重要な脆弱性</a></li><li><a href="/security-incidents">情報流出・セキュリティ事案</a></li><li><a href="/emergency-maintenance-2026-11">緊急メンテナンス続報</a></li></ul></div></details>
+      <details class="guide-item" data-guide-section="search"><summary>本文まで探す・更新を受け取る</summary><div><p>下の検索はスペース区切りのAND検索です。RSSは申込みなしで購読アプリに追加できます。</p><ul><li><a href="#site-search">本文を検索する</a></li><li><a href="/feed.xml">全ページの更新RSS</a></li><li><a href="/vulnerabilities-feed.xml">脆弱性の更新RSS</a></li><li><a href="/security-incidents-feed.xml">事案の更新RSS</a></li><li><a href="/emergency-maintenance-feed.xml">緊急メンテナンスの更新RSS</a></li></ul></div></details>
     </div>
     <div id="site-guide-enhanced" aria-label="ページの探し方と購読" hidden></div>
     <form id="site-search" class="search" role="search" data-index="${searchUrl}" hidden>
@@ -252,8 +253,23 @@ if (!image.subarray(0, 8).equals(Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]))
   throw new Error("The common social image must be a 1200×630 PNG.");
 }
 await writeReportFeeds(path.resolve("."), pages);
+await writePageFeeds(path.resolve("."), pages);
+// Pages that keep an update register get a general-feed item whose
+// description is the recorded update history (newest first) instead of the
+// static page description, plus the page's social image. Both dedicated
+// writers above have already validated these registers strictly.
+for (const page of pages) {
+  const reportFeed = REPORT_FEEDS.find((feed) => feed.relativePath === page.relativePath);
+  const pageFeed = PAGE_FEEDS.find((feed) => feed.relativePath === page.relativePath);
+  if (!reportFeed && !pageFeed) continue;
+  const changes = reportFeed ? reportChanges(reportData(page.source, reportFeed), reportFeed) : pageUpdateData(page.source, pageFeed).changes;
+  const recent = recentChanges({ changes });
+  if (!recent.length) continue;
+  page.feedDescription = updateDescription(recent);
+  page.image = pageImage(page.source, page.relativePath);
+}
 await writeFeed(path.resolve("."), pages);
-await writeFile(outputFile, addFeedDiscovery(addSocialMetadata(html, "index.html"), REPORT_FEEDS), "utf8");
+await writeFile(outputFile, addFeedDiscovery(addSocialMetadata(html, "index.html"), [...REPORT_FEEDS, ...PAGE_FEEDS]), "utf8");
 // Pages generated from the report sources keep their own generation
 // contract; glossary auto-links are applied to authored pages only.
 const GLOSSARY_LINK_EXCLUDED = new Set([GLOSSARY_PAGE, "vulnerabilities.html", "technology-updates.html"]);
@@ -261,7 +277,7 @@ const glossaryTerms = await loadGlossaryTerms(path.resolve("."));
 for (const file of files) {
   const source = await readFile(file, "utf8");
   const relativePath = path.relative(publicDir, file).split(path.sep).join("/");
-  let generated = addFeedDiscovery(addSocialMetadata(source, relativePath), REPORT_FEEDS.filter((feed) => feed.relativePath === relativePath));
+  let generated = addFeedDiscovery(addSocialMetadata(source, relativePath), [...REPORT_FEEDS, ...PAGE_FEEDS].filter((feed) => feed.relativePath === relativePath));
   if (relativePath === GLOSSARY_PAGE) {
     generated = updateGlossaryPage(generated, glossaryTerms);
   } else if (!GLOSSARY_LINK_EXCLUDED.has(relativePath)) {
