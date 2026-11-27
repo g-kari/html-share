@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/security-incidents-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Fri, 27 Nov 2026 00:16:37 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 27 Nov 2026 01:16:53 GMT</lastBuildDate>
+    <item>
+      <title>Fireworks AIの既存項目へ、利用企業側のイオレ公表（第一報2026-11-13、第二報・終報2026-11-20）を内数として反映</title>
+      <link>https://share.0g0.xyz/security-incidents</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/security-incidents-feed.xml#774862f5259aaa760135634c2e1bc5462f795abb5603513e2e625ee34b4b95c8</guid>
+      <description>Fireworks AIの既存項目へ、利用企業側のイオレ公表（第一報2026-11-13、第二報・終報2026-11-20）を内数として反映。対象期間2026年10月5日から10月24日、履歴に残っていた個人情報は区分別に計27件（顧客2件、委託先7件、従業員18件）で、第一報の最大40件は終報で具体化された見通しとして分けた。27件は提供元総件数や他利用企業分と合算しない。既存272件を保持。</description>
+      <pubDate>Fri, 27 Nov 2026 01:16:53 GMT</pubDate>
+      <dcterms:created>2026-11-27T01:16:53.000Z</dcterms:created>
+    </item>
     <item>
       <title>Fireworks AIの既存項目へ、利用企業側のインフキュリオン公表（2026-11-18、TDnet開示）を内数として反映</title>
       <link>https://share.0g0.xyz/security-incidents</link>
