@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/vulnerabilities-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Fri, 27 Nov 2026 07:46:17 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 27 Nov 2026 08:46:03 GMT</lastBuildDate>
+    <item>
+      <title>KEV 2026-11-25追加分のうち一次資料照合済みのHPE Juniper Session Smart Conductor CVE-2026-103406を1項目として追加</title>
+      <link>https://share.0g0.xyz/vulnerabilities</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/vulnerabilities-feed.xml#410653249d18c3476e18e1f033ae0e0446f6d9f47fa599d3350f33a162804281</guid>
+      <description>KEV 2026-11-25追加分のうち一次資料照合済みのHPE Juniper Session Smart Conductor CVE-2026-103406を1項目として追加。Juniper JSA112183とCVE記録で、AutomatedProvisionerで細工したsalt minion ID経由のrootでの任意コマンド実行、実悪用の明言、影響はConductorの7.0.5未満／7.1.0以上7.1.7未満／7.2.0以上7.2.3未満、修正は同各版以降を確認。本CVE自体の対象は一次資料上Conductorであり、KEV名に含まれるRouter単体で影響を受けるとは書かない線引きを明記。残るKEV 2026-11-25追加分はDanfoss 3件。</description>
+      <pubDate>Fri, 27 Nov 2026 08:46:03 GMT</pubDate>
+      <dcterms:created>2026-11-27T08:46:03.000Z</dcterms:created>
+    </item>
     <item>
       <title>KEV 2026-11-25追加分のうち一次資料照合済みのVates Xen Orchestra CVE-2026-133469を1項目として追加</title>
       <link>https://share.0g0.xyz/vulnerabilities</link>
