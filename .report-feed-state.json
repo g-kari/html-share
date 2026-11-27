@@ -244,6 +244,7 @@
         "mindsearch-planner-unsandboxed-python-execution": "62aeb76c55594d571cfaee0847de2af2f21573529087e4e1f34bb38dc130c86b",
         "misp-mandatory-totp-enrolment-nonbrowser-session-bypass": "8026f35ec515bb82f51f1cef275752277124c24d1454ac459f7eed2f01247de1",
         "misp-sachertortephp-download-filename-stored-xss": "93b0a38c345eb61ffb6e64468aac30dd41449271912cdf83a6cd19b07bf91b44",
+        "mitel-micollab-awv-multiple-133275": "bb8418f140c69fd461f5a79cd54c41765fba17a0ff4f55585d94b526646128cb",
         "mlflow-multipart-cross-user-artifact-poisoning": "ff129d6d084b9d9c886ac10d44f2f7a283bae321bea8bbc4103757522f93e136",
         "monai-label-datastore-path-traversal-rce-133968": "a90b906d934f779480402f2154bd849c70c0dcc6dc3e6ad3bbacc9c79ca3c72b",
         "mooncake-store-unauthenticated-rest-rpc": "171a7f0caab7c88784a8b00541a03d963b7d075e41c0c6123543b8fc95e5628b",
@@ -1053,6 +1054,14 @@
             "unrealircd-labeled-response-privilege-escalation-114713"
           ],
           "date": "2026-11-26"
+        },
+        {
+          "signature": "9fe1f3bc76a2a4c783ee039ac246cd4416eea57535e61c13f6dba86634759f09",
+          "summary": "KEV 2026-11-25追加分のうち一次資料照合済みのMitel MiCollab AWV系列5件を1項目として追加。Mitel MISA-2026-0012で影響は10.3（10.3.0.18）以前、修正は同版への更新とパッチ適用（同版自体は修正済みではない）または後継リリース、暫定策はAWVへの外部アクセス制限を確認。133303はpre-staged content、133311はランダム識別子の知識またはpre-staged contentが条件に含まれることを併記。CVSSはMitel評価（133323が10.0、133303が9.0）を主とし、NVD側9.8の別評価と分けた。残るKEV 2026-11-25追加分は5件。",
+          "ids": [
+            "mitel-micollab-awv-multiple-133275"
+          ],
+          "date": "2026-11-27"
         }
       ],
       "items": [
@@ -2153,9 +2162,25 @@
           ],
           "published": "2026-11-26T06:17:12.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "ac9e2a3fb4951be6a0b1bd24a88b3ca1ac964ac71933ab13be048e1977e14abf",
+          "summary": "KEV 2026-11-25追加分のうち一次資料照合済みのMitel MiCollab AWV系列5件を1項目として追加。Mitel MISA-2026-0012で影響は10.3（10.3.0.18）以前、修正は同版への更新とパッチ適用（同版自体は修正済みではない）または後継リリース、暫定策はAWVへの外部アクセス制限を確認。133303はpre-staged content、133311はランダム識別子の知識またはpre-staged contentが条件に含まれることを併記。CVSSはMitel評価（133323が10.0、133303が9.0）を主とし、NVD側9.8の別評価と分けた。残るKEV 2026-11-25追加分は5件。",
+          "journal": [
+            {
+              "signature": "9fe1f3bc76a2a4c783ee039ac246cd4416eea57535e61c13f6dba86634759f09",
+              "summary": "KEV 2026-11-25追加分のうち一次資料照合済みのMitel MiCollab AWV系列5件を1項目として追加。Mitel MISA-2026-0012で影響は10.3（10.3.0.18）以前、修正は同版への更新とパッチ適用（同版自体は修正済みではない）または後継リリース、暫定策はAWVへの外部アクセス制限を確認。133303はpre-staged content、133311はランダム識別子の知識またはpre-staged contentが条件に含まれることを併記。CVSSはMitel評価（133323が10.0、133303が9.0）を主とし、NVD側9.8の別評価と分けた。残るKEV 2026-11-25追加分は5件。",
+              "ids": [
+                "mitel-micollab-awv-multiple-133275"
+              ],
+              "date": "2026-11-27"
+            }
+          ],
+          "published": "2026-11-27T06:47:42.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "2757eb603579caffe04617d8ca2e32f0ec4b6f75"
+      "cursor": "b76619a058cf028622cff78c249340be5b845bcd"
     },
     "security-incidents": {
       "records": {

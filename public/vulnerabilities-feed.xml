@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/vulnerabilities-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Thu, 26 Nov 2026 06:17:12 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 27 Nov 2026 06:47:42 GMT</lastBuildDate>
+    <item>
+      <title>KEV 2026-11-25追加分のうち一次資料照合済みのMitel MiCollab AWV系列5件を1項目として追加</title>
+      <link>https://share.0g0.xyz/vulnerabilities</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/vulnerabilities-feed.xml#ac9e2a3fb4951be6a0b1bd24a88b3ca1ac964ac71933ab13be048e1977e14abf</guid>
+      <description>KEV 2026-11-25追加分のうち一次資料照合済みのMitel MiCollab AWV系列5件を1項目として追加。Mitel MISA-2026-0012で影響は10.3（10.3.0.18）以前、修正は同版への更新とパッチ適用（同版自体は修正済みではない）または後継リリース、暫定策はAWVへの外部アクセス制限を確認。133303はpre-staged content、133311はランダム識別子の知識またはpre-staged contentが条件に含まれることを併記。CVSSはMitel評価（133323が10.0、133303が9.0）を主とし、NVD側9.8の別評価と分けた。残るKEV 2026-11-25追加分は5件。</description>
+      <pubDate>Fri, 27 Nov 2026 06:47:42 GMT</pubDate>
+      <dcterms:created>2026-11-27T06:47:42.000Z</dcterms:created>
+    </item>
     <item>
       <title>KEV追加分の残り2項目を追加し、2026-11-11〜11-24追加の16件が全件反映済みになった</title>
       <link>https://share.0g0.xyz/vulnerabilities</link>
