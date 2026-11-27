@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/vulnerabilities-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Fri, 27 Nov 2026 06:47:42 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 27 Nov 2026 07:46:17 GMT</lastBuildDate>
+    <item>
+      <title>KEV 2026-11-25追加分のうち一次資料照合済みのVates Xen Orchestra CVE-2026-133469を1項目として追加</title>
+      <link>https://share.0g0.xyz/vulnerabilities</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/vulnerabilities-feed.xml#3b005e4870bba18744ec329579db4664e50775e942b51c8b15fdaf001a51e5fb</guid>
+      <description>KEV 2026-11-25追加分のうち一次資料照合済みのVates Xen Orchestra CVE-2026-133469を1項目として追加。Vates VSA-2026-062とGitHub Advisoryで、REST cookieの空オブジェクトが最初のtokenの所有者として認証される仕組み、攻撃者はtokenを選べず未失効で存在するユーザーのtokenが最初に返される場合にのみ成功すること、実悪用の明言、影響はstable 6.9.2未満／latest 6.10.1未満、修正は同各版を確認。CVSS 9.8はCVE記録（CNA: GitHub）の評価として帰属を分け、VatesのCVSS 4.0は未提供と明記。残るKEV 2026-11-25追加分は4件。</description>
+      <pubDate>Fri, 27 Nov 2026 07:46:17 GMT</pubDate>
+      <dcterms:created>2026-11-27T07:46:17.000Z</dcterms:created>
+    </item>
     <item>
       <title>KEV 2026-11-25追加分のうち一次資料照合済みのMitel MiCollab AWV系列5件を1項目として追加</title>
       <link>https://share.0g0.xyz/vulnerabilities</link>
