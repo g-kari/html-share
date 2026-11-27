@@ -111,6 +111,7 @@
         "cve-2026-88771": "99f6245619b542e82c3ffdf32dca84be9a09699e78add3027dc8f84e1fbeb6d7",
         "cve-2026-88779": "f9da3b36e5fc8f7286130594677f25843065fefce6afe59bb9167fa194b9db02",
         "cve-2026-94127": "80d084fdf355f91cd697e6d1b3ee738d8497bad89503d91957ea811011343f1c",
+        "danfoss-ak-sm-800a-multiple-25914": "7a6d362a2e521a4e0ed65ff1e81fbe514fcbd77ed2ce7cb031fec059c961e2eb",
         "dell-command-configure-mixed-encoding-eop": "17ee28a353cd17198f8b9e31bca80aac710d8020cf0585d0f1a012c5bfc0430b",
         "dell-csm-authentication-cluster-boundaries": "56b9b0bc653c8f56457998ef9eb543a45c53ce4bee3c12aeff4763104fc4ad39",
         "dell-system-update-root-path-and-permissions": "e2349581b1cf61fa9fad11e69144b5439dc8b6ec4be69175eadc7c9e33f5b8cb",
@@ -1078,6 +1079,14 @@
           "summary": "KEV 2026-11-25追加分のうち一次資料照合済みのHPE Juniper Session Smart Conductor CVE-2026-103406を1項目として追加。Juniper JSA112183とCVE記録で、AutomatedProvisionerで細工したsalt minion ID経由のrootでの任意コマンド実行、実悪用の明言、影響はConductorの7.0.5未満／7.1.0以上7.1.7未満／7.2.0以上7.2.3未満、修正は同各版以降を確認。本CVE自体の対象は一次資料上Conductorであり、KEV名に含まれるRouter単体で影響を受けるとは書かない線引きを明記。残るKEV 2026-11-25追加分はDanfoss 3件。",
           "ids": [
             "hpe-juniper-session-smart-conductor-103406"
+          ],
+          "date": "2026-11-27"
+        },
+        {
+          "signature": "d8c7def861d32a6b1f1ef757c6307e0b3c75c8e68a35038d4f16a2b8581309ce",
+          "summary": "KEV 2026-11-25追加分のうち一次資料照合済みのDanfoss AK-SM 800A Series 3件（CVE-2023-25914／25915・CVE-2025-41450）を同一系列1項目として追加。Danfoss公式アドバイザリとCVE記録で、2023年2件は認証済み攻撃者によるパス・トラバーサル／任意コマンド実行で影響3.3未満・修正3.3、41450は認証バイパスによる情報開示で影響4.2未満・修正4.2を確認。スコアは評価者ごとに分かれるため帰属を分け、41450のforensic triageは断定しない。これでKEV 2026-11-25追加分10件は全件反映済み。",
+          "ids": [
+            "danfoss-ak-sm-800a-multiple-25914"
           ],
           "date": "2026-11-27"
         }
@@ -2228,9 +2237,25 @@
           ],
           "published": "2026-11-27T08:46:03.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "e6f7cfa3558182dd294b79a03d6d12466e53226218aeb77636931331498bec3d",
+          "summary": "KEV 2026-11-25追加分のうち一次資料照合済みのDanfoss AK-SM 800A Series 3件（CVE-2023-25914／25915・CVE-2025-41450）を同一系列1項目として追加。Danfoss公式アドバイザリとCVE記録で、2023年2件は認証済み攻撃者によるパス・トラバーサル／任意コマンド実行で影響3.3未満・修正3.3、41450は認証バイパスによる情報開示で影響4.2未満・修正4.2を確認。スコアは評価者ごとに分かれるため帰属を分け、41450のforensic triageは断定しない。これでKEV 2026-11-25追加分10件は全件反映済み。",
+          "journal": [
+            {
+              "signature": "d8c7def861d32a6b1f1ef757c6307e0b3c75c8e68a35038d4f16a2b8581309ce",
+              "summary": "KEV 2026-11-25追加分のうち一次資料照合済みのDanfoss AK-SM 800A Series 3件（CVE-2023-25914／25915・CVE-2025-41450）を同一系列1項目として追加。Danfoss公式アドバイザリとCVE記録で、2023年2件は認証済み攻撃者によるパス・トラバーサル／任意コマンド実行で影響3.3未満・修正3.3、41450は認証バイパスによる情報開示で影響4.2未満・修正4.2を確認。スコアは評価者ごとに分かれるため帰属を分け、41450のforensic triageは断定しない。これでKEV 2026-11-25追加分10件は全件反映済み。",
+              "ids": [
+                "danfoss-ak-sm-800a-multiple-25914"
+              ],
+              "date": "2026-11-27"
+            }
+          ],
+          "published": "2026-11-27T09:45:53.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "305f78a2e354bc3d77210b74a587189962a76a1a"
+      "cursor": "b3d195d6559acbb834870bcec855bbffbf6a1236"
     },
     "security-incidents": {
       "records": {
