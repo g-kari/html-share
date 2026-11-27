@@ -369,6 +369,7 @@
         "unitytls-emudhra-ca-trust": "08fb4d7e7e0a80560e547526e8d7878415017c7a9a3da4ad5b128fbe473afb88",
         "unrealircd-labeled-response-privilege-escalation-114713": "f2d5774b12c61410eb184902eb888258906d9164a712040a0f18f5e057a76836",
         "uptime-kuma-public-ping-badge-resource-dos": "5f271286bda5e8194576686034cedf77818a6a6040414a4603e0ce87d75192d1",
+        "vates-xen-orchestra-auth-bypass-133469": "fc1330de6783d22c5afaedfc4c9c5582f27331bfac3ad21e5e9222c59e11f0bf",
         "veeam-backup-viewer-system-rce": "1c44858ba7f94d378bcb8ac2b3e348d3f7905e1f0329bc5f19d94a211181d954",
         "veeam-cloud-connect-tenant-host-file-read": "6edc206a28e6d4fefce1488008997120ac3db952ca5edd4eeae14d364afba3f0",
         "virtualbox-pcnet-guest-host-oob-write": "78803d2c56a95eda4ab48af77bcc22ff1cdfc4994b36e1dcce0b5dae52f60276",
@@ -1060,6 +1061,14 @@
           "summary": "KEV 2026-11-25追加分のうち一次資料照合済みのMitel MiCollab AWV系列5件を1項目として追加。Mitel MISA-2026-0012で影響は10.3（10.3.0.18）以前、修正は同版への更新とパッチ適用（同版自体は修正済みではない）または後継リリース、暫定策はAWVへの外部アクセス制限を確認。133303はpre-staged content、133311はランダム識別子の知識またはpre-staged contentが条件に含まれることを併記。CVSSはMitel評価（133323が10.0、133303が9.0）を主とし、NVD側9.8の別評価と分けた。残るKEV 2026-11-25追加分は5件。",
           "ids": [
             "mitel-micollab-awv-multiple-133275"
+          ],
+          "date": "2026-11-27"
+        },
+        {
+          "signature": "b6508d8efdf76170c462b2e895a045ca6e8dc6a4408892cb2ab4408fbdca1afa",
+          "summary": "KEV 2026-11-25追加分のうち一次資料照合済みのVates Xen Orchestra CVE-2026-133469を1項目として追加。Vates VSA-2026-062とGitHub Advisoryで、REST cookieの空オブジェクトが最初のtokenの所有者として認証される仕組み、攻撃者はtokenを選べず未失効で存在するユーザーのtokenが最初に返される場合にのみ成功すること、実悪用の明言、影響はstable 6.9.2未満／latest 6.10.1未満、修正は同各版を確認。CVSS 9.8はCVE記録（CNA: GitHub）の評価として帰属を分け、VatesのCVSS 4.0は未提供と明記。残るKEV 2026-11-25追加分は4件。",
+          "ids": [
+            "vates-xen-orchestra-auth-bypass-133469"
           ],
           "date": "2026-11-27"
         }
@@ -2178,9 +2187,25 @@
           ],
           "published": "2026-11-27T06:47:42.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "3b005e4870bba18744ec329579db4664e50775e942b51c8b15fdaf001a51e5fb",
+          "summary": "KEV 2026-11-25追加分のうち一次資料照合済みのVates Xen Orchestra CVE-2026-133469を1項目として追加。Vates VSA-2026-062とGitHub Advisoryで、REST cookieの空オブジェクトが最初のtokenの所有者として認証される仕組み、攻撃者はtokenを選べず未失効で存在するユーザーのtokenが最初に返される場合にのみ成功すること、実悪用の明言、影響はstable 6.9.2未満／latest 6.10.1未満、修正は同各版を確認。CVSS 9.8はCVE記録（CNA: GitHub）の評価として帰属を分け、VatesのCVSS 4.0は未提供と明記。残るKEV 2026-11-25追加分は4件。",
+          "journal": [
+            {
+              "signature": "b6508d8efdf76170c462b2e895a045ca6e8dc6a4408892cb2ab4408fbdca1afa",
+              "summary": "KEV 2026-11-25追加分のうち一次資料照合済みのVates Xen Orchestra CVE-2026-133469を1項目として追加。Vates VSA-2026-062とGitHub Advisoryで、REST cookieの空オブジェクトが最初のtokenの所有者として認証される仕組み、攻撃者はtokenを選べず未失効で存在するユーザーのtokenが最初に返される場合にのみ成功すること、実悪用の明言、影響はstable 6.9.2未満／latest 6.10.1未満、修正は同各版を確認。CVSS 9.8はCVE記録（CNA: GitHub）の評価として帰属を分け、VatesのCVSS 4.0は未提供と明記。残るKEV 2026-11-25追加分は4件。",
+              "ids": [
+                "vates-xen-orchestra-auth-bypass-133469"
+              ],
+              "date": "2026-11-27"
+            }
+          ],
+          "published": "2026-11-27T07:46:17.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "b76619a058cf028622cff78c249340be5b845bcd"
+      "cursor": "4c5a09133e3f9cb4897647f00982d704d28fb9ea"
     },
     "security-incidents": {
       "records": {
