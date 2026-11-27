@@ -186,6 +186,7 @@
         "hpe-clearpass-october-client-integrity-rce": "2c60a69b0db1cbb989c36f7bd4bcb71f94d48d39d9a055c00406fcc1ec7e848e",
         "hpe-clearpass-october-critical-server-boundaries": "85fc9d42b184d74f5744c24dd7110eb3272386e4d35b102eb756173bdbe3e8b8",
         "hpe-ilo7-user-validation": "8e0f2c16a1ad700b952c97786125817306f7b06697f128d78c0c8838b7ff8229",
+        "hpe-juniper-session-smart-conductor-103406": "c2cd5ded6e2b80c451696b8d7f7a52d7c201c40147cdd78a0aaed8d18edd23ff",
         "ibm-aspera-faspex-authorization-bypass-123218": "8f8a6c3b1be5a435f6caff238ba2fecdf7c370f662f8450495f90a5886717c69",
         "ibm-datapower-ldap-jws-and-memory-rce": "2a9d1374ea79d9291094e06da0269527120db637d7f97ed31d03cf14d44754a2",
         "ibm-guardium-edge-authentication-and-native-boundaries": "6ee88e27fa6ba849fbcbab5e6027501eadcc95ab1b45ad715af597f3c0264888",
@@ -1069,6 +1070,14 @@
           "summary": "KEV 2026-11-25追加分のうち一次資料照合済みのVates Xen Orchestra CVE-2026-133469を1項目として追加。Vates VSA-2026-062とGitHub Advisoryで、REST cookieの空オブジェクトが最初のtokenの所有者として認証される仕組み、攻撃者はtokenを選べず未失効で存在するユーザーのtokenが最初に返される場合にのみ成功すること、実悪用の明言、影響はstable 6.9.2未満／latest 6.10.1未満、修正は同各版を確認。CVSS 9.8はCVE記録（CNA: GitHub）の評価として帰属を分け、VatesのCVSS 4.0は未提供と明記。残るKEV 2026-11-25追加分は4件。",
           "ids": [
             "vates-xen-orchestra-auth-bypass-133469"
+          ],
+          "date": "2026-11-27"
+        },
+        {
+          "signature": "bb3afef561bf58a6603d3e3de930adb1de45a3680af57fb11f06917c8e8a6b1b",
+          "summary": "KEV 2026-11-25追加分のうち一次資料照合済みのHPE Juniper Session Smart Conductor CVE-2026-103406を1項目として追加。Juniper JSA112183とCVE記録で、AutomatedProvisionerで細工したsalt minion ID経由のrootでの任意コマンド実行、実悪用の明言、影響はConductorの7.0.5未満／7.1.0以上7.1.7未満／7.2.0以上7.2.3未満、修正は同各版以降を確認。本CVE自体の対象は一次資料上Conductorであり、KEV名に含まれるRouter単体で影響を受けるとは書かない線引きを明記。残るKEV 2026-11-25追加分はDanfoss 3件。",
+          "ids": [
+            "hpe-juniper-session-smart-conductor-103406"
           ],
           "date": "2026-11-27"
         }
@@ -2203,9 +2212,25 @@
           ],
           "published": "2026-11-27T07:46:17.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "410653249d18c3476e18e1f033ae0e0446f6d9f47fa599d3350f33a162804281",
+          "summary": "KEV 2026-11-25追加分のうち一次資料照合済みのHPE Juniper Session Smart Conductor CVE-2026-103406を1項目として追加。Juniper JSA112183とCVE記録で、AutomatedProvisionerで細工したsalt minion ID経由のrootでの任意コマンド実行、実悪用の明言、影響はConductorの7.0.5未満／7.1.0以上7.1.7未満／7.2.0以上7.2.3未満、修正は同各版以降を確認。本CVE自体の対象は一次資料上Conductorであり、KEV名に含まれるRouter単体で影響を受けるとは書かない線引きを明記。残るKEV 2026-11-25追加分はDanfoss 3件。",
+          "journal": [
+            {
+              "signature": "bb3afef561bf58a6603d3e3de930adb1de45a3680af57fb11f06917c8e8a6b1b",
+              "summary": "KEV 2026-11-25追加分のうち一次資料照合済みのHPE Juniper Session Smart Conductor CVE-2026-103406を1項目として追加。Juniper JSA112183とCVE記録で、AutomatedProvisionerで細工したsalt minion ID経由のrootでの任意コマンド実行、実悪用の明言、影響はConductorの7.0.5未満／7.1.0以上7.1.7未満／7.2.0以上7.2.3未満、修正は同各版以降を確認。本CVE自体の対象は一次資料上Conductorであり、KEV名に含まれるRouter単体で影響を受けるとは書かない線引きを明記。残るKEV 2026-11-25追加分はDanfoss 3件。",
+              "ids": [
+                "hpe-juniper-session-smart-conductor-103406"
+              ],
+              "date": "2026-11-27"
+            }
+          ],
+          "published": "2026-11-27T08:46:03.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "4c5a09133e3f9cb4897647f00982d704d28fb9ea"
+      "cursor": "5761aa22b29c4f573f78224dd5d8032ff8d7c859"
     },
     "security-incidents": {
       "records": {
