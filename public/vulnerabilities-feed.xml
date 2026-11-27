@@ -1,13 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dcterms="http://purl.org/dc/terms/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
     <title>脆弱性レポート 更新RSS</title>
     <link>https://share.0g0.xyz/vulnerabilities</link>
-    <description>レポートの追加・訂正・重要な続報を更新ごとの別項目で配信。項目の日付はレポート掲載日時で、脆弱性・事件の発生日時ではありません。</description>
+    <description>先頭の項目はページ全体の最新更新で、説明に最新の更新内容とページの画像が入ります。続く項目でレポートの追加・訂正・重要な続報を更新ごとの別項目で配信。項目の日付はレポート掲載日時で、脆弱性・事件の発生日時ではありません。</description>
     <language>ja</language>
+    <image>
+      <url>https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png</url>
+      <title>脆弱性レポート 更新RSS</title>
+      <link>https://share.0g0.xyz/vulnerabilities</link>
+    </image>
     <atom:link href="https://share.0g0.xyz/vulnerabilities-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
     <lastBuildDate>Fri, 27 Nov 2026 09:45:53 GMT</lastBuildDate>
+    <item>
+      <title>脆弱性レポート | 実悪用・修正版・対処</title>
+      <link>https://share.0g0.xyz/vulnerabilities</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/vulnerabilities</guid>
+      <description>最新の更新：KEV 2026-11-25追加分のうち一次資料照合済みのDanfoss AK-SM 800A Series 3件（CVE-2023-25914／25915・CVE-2025-41450）を同一系列1項目として追加。Danfoss公式アドバイザリとCVE記録で、2023年2件は認証済み攻撃者によるパス・トラバーサル／任意コマンド実行で影響3.3未満・修正3.3、41450は認証バイパスによる情報開示で影響4.2未満・修正4.2を確認。スコアは評価者ごとに分かれるため帰属を分け、41450のforensic triageは断定しない。これでKEV 2026-11-25追加分10件は全件反映済み。</description>
+      <pubDate>Fri, 27 Nov 2026 09:45:53 GMT</pubDate>
+      <dcterms:modified>2026-11-27T09:45:53.000Z</dcterms:modified>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
+    </item>
     <item>
       <title>KEV 2026-11-25追加分のうち一次資料照合済みのDanfoss AK-SM 800A Series 3件（CVE-2023-25914／25915・CVE-2025-41450）を同一系列1</title>
       <link>https://share.0g0.xyz/vulnerabilities</link>
@@ -15,6 +30,8 @@
       <description>KEV 2026-11-25追加分のうち一次資料照合済みのDanfoss AK-SM 800A Series 3件（CVE-2023-25914／25915・CVE-2025-41450）を同一系列1項目として追加。Danfoss公式アドバイザリとCVE記録で、2023年2件は認証済み攻撃者によるパス・トラバーサル／任意コマンド実行で影響3.3未満・修正3.3、41450は認証バイパスによる情報開示で影響4.2未満・修正4.2を確認。スコアは評価者ごとに分かれるため帰属を分け、41450のforensic triageは断定しない。これでKEV 2026-11-25追加分10件は全件反映済み。</description>
       <pubDate>Fri, 27 Nov 2026 09:45:53 GMT</pubDate>
       <dcterms:created>2026-11-27T09:45:53.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>KEV 2026-11-25追加分のうち一次資料照合済みのHPE Juniper Session Smart Conductor CVE-2026-103406を1項目として追加</title>
@@ -23,6 +40,8 @@
       <description>KEV 2026-11-25追加分のうち一次資料照合済みのHPE Juniper Session Smart Conductor CVE-2026-103406を1項目として追加。Juniper JSA112183とCVE記録で、AutomatedProvisionerで細工したsalt minion ID経由のrootでの任意コマンド実行、実悪用の明言、影響はConductorの7.0.5未満／7.1.0以上7.1.7未満／7.2.0以上7.2.3未満、修正は同各版以降を確認。本CVE自体の対象は一次資料上Conductorであり、KEV名に含まれるRouter単体で影響を受けるとは書かない線引きを明記。残るKEV 2026-11-25追加分はDanfoss 3件。</description>
       <pubDate>Fri, 27 Nov 2026 08:46:03 GMT</pubDate>
       <dcterms:created>2026-11-27T08:46:03.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>KEV 2026-11-25追加分のうち一次資料照合済みのVates Xen Orchestra CVE-2026-133469を1項目として追加</title>
@@ -31,6 +50,8 @@
       <description>KEV 2026-11-25追加分のうち一次資料照合済みのVates Xen Orchestra CVE-2026-133469を1項目として追加。Vates VSA-2026-062とGitHub Advisoryで、REST cookieの空オブジェクトが最初のtokenの所有者として認証される仕組み、攻撃者はtokenを選べず未失効で存在するユーザーのtokenが最初に返される場合にのみ成功すること、実悪用の明言、影響はstable 6.9.2未満／latest 6.10.1未満、修正は同各版を確認。CVSS 9.8はCVE記録（CNA: GitHub）の評価として帰属を分け、VatesのCVSS 4.0は未提供と明記。残るKEV 2026-11-25追加分は4件。</description>
       <pubDate>Fri, 27 Nov 2026 07:46:17 GMT</pubDate>
       <dcterms:created>2026-11-27T07:46:17.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>KEV 2026-11-25追加分のうち一次資料照合済みのMitel MiCollab AWV系列5件を1項目として追加</title>
@@ -39,6 +60,8 @@
       <description>KEV 2026-11-25追加分のうち一次資料照合済みのMitel MiCollab AWV系列5件を1項目として追加。Mitel MISA-2026-0012で影響は10.3（10.3.0.18）以前、修正は同版への更新とパッチ適用（同版自体は修正済みではない）または後継リリース、暫定策はAWVへの外部アクセス制限を確認。133303はpre-staged content、133311はランダム識別子の知識またはpre-staged contentが条件に含まれることを併記。CVSSはMitel評価（133323が10.0、133303が9.0）を主とし、NVD側9.8の別評価と分けた。残るKEV 2026-11-25追加分は5件。</description>
       <pubDate>Fri, 27 Nov 2026 06:47:42 GMT</pubDate>
       <dcterms:created>2026-11-27T06:47:42.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>KEV追加分の残り2項目を追加し、2026-11-11〜11-24追加の16件が全件反映済みになった</title>
@@ -47,6 +70,8 @@
       <description>KEV追加分の残り2項目を追加し、2026-11-11〜11-24追加の16件が全件反映済みになった。UnrealIRCdのCVE-2026-114713（ベンダー公表とCVE記録でlabeled-responseのlabel未エスケープを確認し、成立条件は2台以上リンクしたネットワークと任意の通常ユーザーであることを併記。CVSSはCNA評価8.6を主としNVD側7.7の別評価と分けた）と、Check PointのCVE-2026-123039（Advisory sk1000362でdynamic_serverのworld-writableソケットによるroot化を確認し、前提は既にローカルコード実行できていることでリモート単体では成立しないことを明記。R81／R81.10向けの修正Take案内がないことと、暫定策コマンドの引数を断定しないことも明記）。</description>
       <pubDate>Thu, 26 Nov 2026 06:17:12 GMT</pubDate>
       <dcterms:created>2026-11-26T06:17:12.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>KEV追加分のうち一次資料照合済みの2項目を追加</title>
@@ -55,6 +80,8 @@
       <description>KEV追加分のうち一次資料照合済みの2項目を追加。REDCapのCVE-2026-90817（CVE記録でsurvey passthroughとData Importによる未認証RCEを確認し、認証不要だが有効なpublic survey hashの知識が必須であることを併記。詳細チェーンはSecurifera解説に基づく二次情報として分けた）と、Puppet EnterpriseのCVE-2026-115731（Perforce公式とCVE記録でreportのrich-dataデシリアライズによるサービスユーザーとしてのコード実行を確認し、成立条件はCA署名済み証明書の所持、未認証到達はautosignが弱い検証の場合に限る追加経路として分けた。別件CVE-2026-115732は混ぜていない）。残るKEV追加2件は一次資料照合が済んだものから順次反映する。</description>
       <pubDate>Thu, 26 Nov 2026 05:16:43 GMT</pubDate>
       <dcterms:created>2026-11-26T05:16:43.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>KEV追加分のうち一次資料照合済みの2項目を追加</title>
@@ -63,6 +90,8 @@
       <description>KEV追加分のうち一次資料照合済みの2項目を追加。SAP NetWeaver Enterprise PortalのCVE-2025-42884（CVE記録で未認証のJNDI注入による情報の開示・改変、CVSS 6.5、影響EP-BASIS／EP-RUNTIME 7.50、修正Note 3660969を確認し、RCEはOnapsisの分析として帰属を分け、SPレベルはログイン必須で未読のため書かない）と、LiteLLMのCVE-2026-40217（X41とCVE記録でguardrailsテストの正規表現フィルタをバイトコード書換えで回避する任意コード実行を確認し、成立条件は認証済み到達であり未認証とは書かない。修正版はGHSA本文1.83.11と構造化フィールド1.83.10の表記ゆれを併記）。残るKEV追加4件は一次資料照合が済んだものから順次反映する。</description>
       <pubDate>Thu, 26 Nov 2026 04:15:31 GMT</pubDate>
       <dcterms:created>2026-11-26T04:15:31.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>KEV追加分のうち一次資料照合済みの2項目を追加</title>
@@ -71,6 +100,8 @@
       <description>KEV追加分のうち一次資料照合済みの2項目を追加。MONAI LabelのCVE-2026-133968（GHSAでimageパラメータ検証なしのdatastore外書込み・認証デフォルト無効を確認、CVE記録で影響0.8.6未満・修正0.8.6・2026年9月からの実悪用・KEV追加2026-11-23）と、N-able MailAssureのCVE-2026-134624（ベンダーAdvisoryとCVE記録でrelay設定時のLDAP同期接続確認の宛先無制限・認証済みAPIユーザーが内部ホスト到達判定とデータ送信が可能・影響20261121.1943未満を確認。Hosted／Localの対応区分はベンダー一次本文で直接確認できていないため含めない）。残るKEV追加6件は一次資料照合が済んだものから順次反映する。</description>
       <pubDate>Thu, 26 Nov 2026 03:16:53 GMT</pubDate>
       <dcterms:created>2026-11-26T03:16:53.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>KEV追加分のうち一次資料照合済みの2項目を追加</title>
@@ -79,6 +110,8 @@
       <description>KEV追加分のうち一次資料照合済みの2項目を追加。Optimizely Web ExperimentationのCVE-2026-132224（ベンダーStatusと顧客向け報告で2026-11-16のsignup flow悪用・同日閉鎖・挿入コード除去・影響5%未満を確認、KEV追加2026-11-24）と、Cisco ExpresswayのCVE-2026-76466（Cisco Advisory版1.1で脆弱なリリース＋クラスタ構成のみが対象・cookies所持とネットワーク到達でroot実行・修正X15.5.20・Workaroundsなし・KEV追加とCiscoの留保を確認。スコアは今回確認した一次本文に数値表示がなく二次評価9.8と帰属を分けた）。残るKEV追加8件は一次資料照合が済んだものから順次反映する。</description>
       <pubDate>Thu, 26 Nov 2026 02:17:10 GMT</pubDate>
       <dcterms:created>2026-11-26T02:17:10.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>KEV追加分のうち一次資料照合済みの2項目を追加</title>
@@ -87,6 +120,8 @@
       <description>KEV追加分のうち一次資料照合済みの2項目を追加。Idunno.AntiCsrfのCVE-2026-131914（Mandiant MNDT-2026-0048で成立条件の全列挙・CVSS 4.0 9.3・実悪用の明言・修正版なしを確認、KEV追加2026-11-24）と、Apache AxisのCVE-2026-90436（Apacheのoss-security公表で影響1.x through 1.4・認証ハンドラで防げないこと・修正コミット41f3b4e・修正版リリースなしを確認。スコアは一次公表に記載がなくCISA ADP評価9.8と帰属を分けた。KEV追加2026-11-18）。残るKEV追加10件は一次資料照合が済んだものから順次反映する。</description>
       <pubDate>Thu, 26 Nov 2026 01:17:03 GMT</pubDate>
       <dcterms:created>2026-11-26T01:17:03.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>KEV追加分のうち一次資料照合済みの2項目を追加</title>
@@ -95,6 +130,8 @@
       <description>KEV追加分のうち一次資料照合済みの2項目を追加。VMware vCenterのCVE-2026-123890（Broadcom VMSA-2026-0009.1で認証回避・CVSS 9.8・Workarounds None・系列別修正版を確認、KEV追加2026-11-20）と、Apache RollerのCVE-2026-129448（Apache一次公表でXML-RPCの認証前デシリアライズ・実悪用の明言・修正6.1.6以上・管理画面での無効化は不十分を確認、KEV追加2026-11-20）。残るKEV追加12件は一次資料照合が済んだものから順次反映する。</description>
       <pubDate>Thu, 26 Nov 2026 00:21:58 GMT</pubDate>
       <dcterms:created>2026-11-26T00:21:58.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>KEV追加分のうち一次資料照合済みの2項目を追加</title>
@@ -103,6 +140,8 @@
       <description>KEV追加分のうち一次資料照合済みの2項目を追加。Synology DSM／BSMのCVE-2024-10441（2026-11-18 KEV追加、ランサムウェア利用は当初Unknownから2026-11-23改訂でKnown、KEV公式JSON本体の直接取得は未実施と明記）と、Drupal coreのinstaller系列2件（CVE-2026-132165／CVE-2026-136716を併記し、修正版はSA-CORE-2026-019の10.6.23／11.3.23／11.4.14へそろえ、update.php実行必須を明記）。残るKEV追加14件は一次資料照合が済んだものから順次反映する。</description>
       <pubDate>Wed, 25 Nov 2026 23:19:34 GMT</pubDate>
       <dcterms:created>2026-11-25T23:19:34.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>11月9〜10日のKEV追加を反映</title>
@@ -111,6 +150,8 @@
       <description>11月9〜10日のKEV追加を反映。Outlookのファイル開封によるNTLMv2漏えい、Chrome XML、GPUStack、FreeSWITCH、Aspera、BroadWorks、Openwaveを7項目追加し、OpenSSHとBarracudaの実悪用・認証条件を更新。Windows SearchとLDAPの実悪用未確認のRCE2件を1項目追加。SonicOSは11月9日の暫定策を、PlexはQNAPの製品別対処を既存項目へ追記。初公表・修正・KEV追加日、操作や認証の要否、PoCと実悪用を分け、既存357項目・592 CVE・全履歴を保持。 未収録のVite2件、Prefab、Beta9、Linux TCP/AWS、UnityTLS、Cloudflare GLM-5.3、Chrome MediaStream、Konflux、LXD/MicroCloudも追加。Viteの6.4.5と6.4.6が修正する別問題、Unityの信頼ストア対策とBrotliで異なる再ビルド要否、提供済み版・未確認版とCVE対応の留保を明記。</description>
       <pubDate>Wed, 11 Nov 2026 01:46:22 GMT</pubDate>
       <dcterms:created>2026-11-11T01:46:22.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>SonicOS CVE-2026-19868を1項目追加</title>
@@ -119,6 +160,8 @@
       <description>SonicOS CVE-2026-19868を1項目追加。11月6日のCISA KEV追加、SSLVPNでSAML有効・別方式の有効な資格情報が必要な条件、Gen 7/8の修正版、SonicWallとCISAのCVSS評価差を記録。資格情報不要の認証回避や、同告知の別CVEの実悪用とは扱わず、既存356項目・591 CVE・全履歴を保持。</description>
       <pubDate>Sat, 07 Nov 2026 02:38:23 GMT</pubDate>
       <dcterms:created>2026-11-07T02:38:23.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>OpenSSH 10.6p2のmusl/PAM無効構成での認証回避と、h5io120499の未信頼HDF5読込によるコード実行を追加</title>
@@ -127,6 +170,8 @@
       <description>OpenSSH 10.6p2のmusl/PAM無効構成での認証回避と、h5io120499の未信頼HDF5読込によるコード実行を追加。Alpineの追加条件・系列別バックポートと、h5io0.2.6のallow_pickle既定値変更、PoCと実悪用未確認を分けて記録。 Pillowの10月17日公表2件を未収録補完し、11月2日のTIFFメモリーDoSとPython3.10対応終了を区別。11月6日の新規発見や実悪用として扱わない。</description>
       <pubDate>Fri, 06 Nov 2026 00:58:24 GMT</pubDate>
       <dcterms:created>2026-11-06T00:58:24.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>WordPress Core119977の11月3日KEV追加と7.1.4修正、Ivanti111357/118527・Cisco76418・Brotli111497・Adobe48356の実悪用を補</title>
@@ -135,6 +180,8 @@
       <description>WordPress Core119977の11月3日KEV追加と7.1.4修正、Ivanti111357/118527・Cisco76418・Brotli111497・Adobe48356の実悪用を補完。GitLab97229を実悪用確認へ訂正し、研究者のPoC公開と実証経路の条件も区別。Node.js集約はBrotliだけの実悪用として区別。Firefox159.0.1、pgAdmin9.19の2件、NWR100の2件を追加。版表・採点主体差・条件と未取得範囲を保持し、収録補完を新しい攻撃発生としない。 Apple WebKit27834の11月4日KEV追加、AirbyteのJVN実悪用確認と構成別条件を追加。Chrome157のCritical7件はAndroid限定とsandbox内外を区別。Barracuda2件、Hinemosのパッケージ番号付き修正、7月修正済みAkeebaの国内公表を補完。BrotliのSiemens Desigo CC V8/V9への影響追加と.NET更新案内を反映。新規公表・国内掲載・実悪用確認・修正日を分けて記録。 Cisco UCS Centralの11月4日公開の認証済みRCEと2.1(2c)修正を追加。 Cisco Secure Email Gateway76461は15.5.5-014の追加fixとRetro Remediation Engine4.0.2以上の確認条件、公開exploit codeへの言及を補足。</description>
       <pubDate>Thu, 05 Nov 2026 01:14:57 GMT</pubDate>
       <dcterms:created>2026-11-05T01:14:57.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>Plex 4 CVE連鎖とSiemensの実悪用続報、Node.js10月21日修正10 CVEを補完</title>
@@ -143,6 +190,8 @@
       <description>Plex 4 CVE連鎖とSiemensの実悪用続報、Node.js10月21日修正10 CVEを補完。元公表・修正・悪用続報を区別。残るChrome/Nuxt/Vitest等の未統合候補はこの部分候補に含めない。 10月23日のKEV追加2件（Arista VCO CVE-2026-114625、Collabora CODE CVE-2026-110447）とChrome156のCritical6件を補完。認証条件・停止中のみの成立・系列別修正版、CNAとCISAの別採点、Chromeのsandbox内外/Android条件を区別。旧318項目・49履歴を保持。 Pillowのmulti-frame境界外書込と同梱OpenJPEG、BIND GSS-TSIG並行処理、プリザンター限定LDAP認証の4項目を補完。正式修正版/互換性・成立条件・公表とDB登録日・実悪用と報告者実験を区別。旧321項目・50履歴を保持した未公開部分候補。 Unbound DoQ multi-thread UAF（CVE-2026-97206）とPowerDNS RecursorのDNSSEC検証回避/DoS（85555/73206）を補完。公式10月21日修正とJPRS10月23日案内、成立条件・採点・実悪用未確認を区別。 CERT/CC 10月26日公表のmpc-lib（CVE-2026-90975）祖先share隔離不備とvsomeip（CVE-2026-91141）TCPメモリDoSを追加。完全秘密鍵復元との違い、版範囲未確認・修正未提供と7月の既提供修正版、構成条件、実悪用/PoC/CVSS未確認を区別。 PAN-OSのPHP2Shell実悪用と製品別hotfix・非影響機能、Fragnesiaとの連鎖と10月28日KEV追加、VMware ESX41709のLow評価と実悪用を追加。Diffusersのローカルimport条件とbody-parser圧縮request DoSを補完。以前の未公開候補14件とGitLab・Wasmtime・OpenHands・PHP115560の4件を保持して統合し、日付更新だけを新情報にしない。 PHP115560はsession upload progress設定切替の別問題であり、PAN-OSはvendorの現行分析で非影響と区別する。 Authlib96760の正式修正版未確認という旧記述を訂正。maintainer影響範囲1.8.0以下と1.9.0正式release・PyPI配布を確認し、main修正履歴・旧CERT範囲・CVSS主体差を保持。新しい実悪用確認ではありません。</description>
       <pubDate>Fri, 30 Oct 2026 01:01:55 GMT</pubDate>
       <dcterms:created>2026-10-30T01:01:55.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>10月14日のNext.js/React 2件、10月15日のMCP TypeScript HTTP 3件を一次資料で補完</title>
@@ -151,6 +200,8 @@
       <description>10月14日のNext.js/React 2件、10月15日のMCP TypeScript HTTP 3件を一次資料で補完。既存sharp記録へNext.js SVG経路と15.x依存rangeの留保を追記し、既存MCP Python本文DoSへCVE-2026-109527・2.0.0a1下限を追加。今回の新規攻撃発生とは扱わない。 収録315項目・524 CVE、実悪用確認35項目を保持。</description>
       <pubDate>Sat, 17 Oct 2026 19:27:49 GMT</pubDate>
       <dcterms:created>2026-10-17T19:27:49.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>BeyondTrust Remote Support CVE-2026-102764とFortinet CVE-2025-61624の10月16日KEV実悪用登録、Chrome10月15日更新10 C</title>
@@ -159,6 +210,8 @@
       <description>BeyondTrust Remote Support CVE-2026-102764とFortinet CVE-2025-61624の10月16日KEV実悪用登録、Chrome10月15日更新10 CVEを追加し310項目・523 CVEへ。既載Atlassian CVE-2026-21589は10月15日KEV登録を受け実悪用確認へ更新。8月/4月の観測・公表と10月の後続、RS/PRAの影響差、Fortinet管理者権限・旧系列表の不一致、Chromeのsandbox内条件と採点主体を区別。 既存の実悪用表示30項目とJSON32項目の不一致を訂正し、今回の3項目増加後は35項目と表示。35件の新規攻撃を意味しない。</description>
       <pubDate>Sat, 17 Oct 2026 18:19:51 GMT</pubDate>
       <dcterms:created>2026-10-17T18:19:51.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>Better AuthのMagic Link / OAuth Proxy認証回避2 CVE、Renovateのshared preset環境変数制限回避、GitPython Remote.pullのr</title>
@@ -167,6 +220,8 @@
       <description>Better AuthのMagic Link / OAuth Proxy認証回避2 CVE、Renovateのshared preset環境変数制限回避、GitPython Remote.pullのrefspec注入を一次資料で収録補完。9月の公表・先行修正版と10月15日日本時間のCVE公開、CVSS主体・版・採点差を区別。GitPython GHSA本文の未修正記述と現行metadata / 3.2.0 releaseの不一致を明示。実悪用の新確認ではない。307項目・511 CVEへ。</description>
       <pubDate>Thu, 15 Oct 2026 09:47:34 GMT</pubDate>
       <dcterms:created>2026-10-15T09:47:34.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>NGINX Open Source / Plusの10月14日修正5 CVEを収録補完</title>
@@ -175,6 +230,8 @@
       <description>NGINX Open Source / Plusの10月14日修正5 CVEを収録補完。alias/rewrite・変数評価・AIO/SSIのメモリー破壊、HTTP/3 body注入、TLS session偽造を構成別に区別。Open Source 1.31.7 / 1.30.6とPlusのCVE別境界、CNAとの旧版範囲差異を明記。実悪用の新確認ではない。304項目・507 CVEへ。</description>
       <pubDate>Thu, 15 Oct 2026 07:53:31 GMT</pubDate>
       <dcterms:created>2026-10-15T07:53:31.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>Drupal Field UI RCEとGitLabの10月12日Critical Patch Releaseから計8項目・8 CVEを追加し264項目・463 CVEへ</title>
@@ -183,6 +240,8 @@
       <description>Drupal Field UI RCEとGitLabの10月12日Critical Patch Releaseから計8項目・8 CVEを追加し264項目・463 CVEへ。Drupalはcore単独で直接悪用不可、独自risk19/25・E:TheoreticalとCVSSを区別。GitLabは認証不要RCE、High5件、Duoガバナンス回避を個別収録し現行公式の19.2.8/19.3.5/19.4.2を採用。実悪用・一般公開PoCは未確認。既存256項目・455 CVEと全履歴を保持。 Drupal Link・Navigation・Entity List・Ginの4項目・4 CVEを追加し268項目・467 CVEへ。Drupal独自riskとCVSS、E:Proofと一般公開PoC・実悪用を区別。Field UIの初回配布確認保留は日時付きで残し、2026-10-14 18:05 UTCに11.3.19公式ページの配布リンク・掲載SHA-256を確認した続報を追加。バイナリ取得・hash照合と12 beta2配布は未確認。 Cisco Secure Email Gatewayの実悪用確認済みCVE-2026-76519とJuniperの12 CVEを収録補完し281項目・480 CVEへ。初公表は10月14日16〜17時台UTCで、18:32 UTCのGHSA掲載とは区別。CiscoはAMPとContent Scanner Tools条件・修正package、Juniperは機能別条件・respins・CVSS 3.1/4.0・SIRT見解を記載。Juniper CVE-2026-102182はCNA内の版記述不一致が未解決のため未追加。 後続確認ではCisco.com公式本文を直接取得し、既載の修正表・条件・侵害時対応を照合。出典の補強であり、新規脆弱性・新しい修正版の公表ではない。 PAN-OSの10月14日16:00 UTC公表7 CVE（0316〜0322）を収録補完し288項目・487 CVEへ。0322の限定的実悪用・認証条件、製品除外、CVSS-B/BTの区別、11.2.16の10月15日ETAと0318の11.2.15境界を記載。 Palo Alto NetworksのCheckov・Cortex OS Query・GlobalProtect 5 CVE、Microsoft KestrelのCritical 2 CVE、Appriseのredirect認証情報転送1 CVEを収録補完し296項目・495 CVEへ。製品・OS・認証条件とCVSS-B/BTを分離し、Kestrel self-contained再配布とApprise更新後も必要なredirect無効化を明記。 2026年10月13日公表のMicrosoft .NET / ASP.NET Core 7 CVEを収録補完し303項目・502 CVEへ。Blazor debug endpoint、Kestrel HTTP/3、WPF、認可race、Negotiate LDAP、Localization cache、multipart bufferについて、対象構成・認証条件・利用者操作と系列別修正版を区別。実悪用の新確認ではない。 AhsayCBSの正式修正版未確立という留保を、10月12日の公式hotfix案内に基づき訂正。v10向け10.3.4.45、v7/v8/v9向け9.15.2.70、旧patchの対策不完全・partner login・適用後再起動を区別。10月14日のKEV 1745件を取得し、Ahsay2件・Cisco76519・PAN0322の追加を既存項目へ補足。新たな脆弱性発生や攻撃観測ではなく、303項目・502 CVEを維持。</description>
       <pubDate>Thu, 15 Oct 2026 01:03:28 GMT</pubDate>
       <dcterms:created>2026-10-15T01:03:28.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>Claude Code pluginのSHA pin回避（CVE-2026-86063）とWindows Claude Desktopのproject内git.exe検索（CVE-2026-88066</title>
@@ -191,6 +250,8 @@
       <description>Claude Code pluginのSHA pin回避（CVE-2026-86063）とWindows Claude Desktopのproject内git.exe検索（CVE-2026-88066）を公式GHSAで確認して2項目・2 CVE追加し256項目・455 CVEへ。Code 2.1.179とDesktop 1.8089.0の修正境界、GHSA CVSS v4.0 7.7/7.5と86063 CNA側7.5/UI:Aとの差、必要なplugin導入・projectを開く操作を区別。86063の10月9日GHSA公表・10月13日CVE登録と6月16日の正式修正版提供を分離。88066のCVEProject取得404は不存在・安全の証明とせず、公式GHSAのCVE表記を根拠とする。実悪用・一般公開PoCの確認を新たに主張しない。既存254項目・453 CVEと全履歴を保持。</description>
       <pubDate>Wed, 14 Oct 2026 15:21:55 GMT</pubDate>
       <dcterms:created>2026-10-14T15:21:55.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>Windows Shell CVE-2026-96951とIvanti Connect Secure CVE-2026-104935の10月13日KEV実悪用登録、Chrome10月13日Critic</title>
@@ -199,6 +260,8 @@
       <description>Windows Shell CVE-2026-96951とIvanti Connect Secure CVE-2026-104935の10月13日KEV実悪用登録、Chrome10月13日Critical7件を追加し254項目・453 CVEへ。WindowsはMOTW回避の要操作条件とMSRC公式KB/build、22H2の版表不整合を区別。IvantiはCNAで確認可能なbranch境界とWeb本文未取得の留保を掲載。ChromeはAndroid限定2件とsandbox内外、Google CNAの数値CVSSなしとCISA ADPの別評価を分離。既存251項目・444 CVEと履歴を保持。Node.jsの10月21日予告はCVE未公表のため今回の脆弱性件数に加算しない。</description>
       <pubDate>Wed, 14 Oct 2026 15:18:03 GMT</pubDate>
       <dcterms:created>2026-10-14T15:18:03.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>Akamai GPA5件、libsoup、GStreamer asfmux、BusyBox2件、Cowlibを現行一次資料で再確認して5項目・10 CVE追加し251項目・444 CVEへ</title>
@@ -207,6 +270,8 @@
       <description>Akamai GPA5件、libsoup、GStreamer asfmux、BusyBox2件、Cowlibを現行一次資料で再確認して5項目・10 CVE追加し251項目・444 CVEへ。GPAは7.4修正と先行LA/GA提供、Windows/macOSの条件と本文・CVSSの不一致を区別。libsoupはRHEL系列別の修正RPM、asfmuxは非信頼metadataをASFへ変換する条件と修正版未確認、BusyBoxはproxyと.deb展開の別経路、Cowlibはsource fixとHex配布版・別層header検査を分離。Red Hat Web本文は今回取得不能のため現行CNAで確認できる範囲に限定。新しい実悪用の確認ではない。既存246項目・434 CVEと全34履歴を保持。</description>
       <pubDate>Wed, 14 Oct 2026 14:01:30 GMT</pubDate>
       <dcterms:created>2026-10-14T14:01:30.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>既存未掲載候補からNix/Lix5件、NetBird SSH設定注入、Linux vhost、UniFi Protect AI Key5件を一次資料で再確認して追加</title>
@@ -215,6 +280,8 @@
       <description>既存未掲載候補からNix/Lix5件、NetBird SSH設定注入、Linux vhost、UniFi Protect AI Key5件を一次資料で再確認して追加。GStreamer Editing Servicesの公式修正も再確認して追加。計246項目・434 CVE。Nix installerは更新後も既存store所有権確認、Lixは導入方式別更新、NetBirdは0.74.7と次回SSH実行条件、vhostはdevice権限・VM構成と系列別fix、AI Keyは2.2.8境界を区別。CNA/GHSAの採点差を保持し、研究者の実証を実悪用と扱わない。UniFi本文はLoadingで配布日時を未確認と明記。既存241項目・422 CVEと全33履歴を保持。</description>
       <pubDate>Wed, 14 Oct 2026 13:44:39 GMT</pubDate>
       <dcterms:created>2026-10-14T13:44:39.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>既通知・未掲載のSiteGuard CVE-2026-106931、EC-CUBE AmazonPay CVE-2026-103671、curl CVE-2026-92392を、10月14日の一次資料</title>
@@ -223,6 +290,8 @@
       <description>既通知・未掲載のSiteGuard CVE-2026-106931、EC-CUBE AmazonPay CVE-2026-103671、curl CVE-2026-92392を、10月14日の一次資料再確認に基づき3項目・3 CVE追加して241項目・422 CVEへ。SiteGuardの実悪用、更新前の診断情報保全、統計機能無効化とOS別修正境界、AmazonPayの実悪用と系列別影響範囲、curlの8.23.0・保守枝修正とHTTP/2回避策を記載。EC-CUBE開発者本文は今回403で再取得できず、最低修正版・直接更新可否は断定しない。curlの条件付きRCE実証を実悪用と区別。既存238項目・419 CVE（JTL2件を含む）と全32履歴を保持。</description>
       <pubDate>Wed, 14 Oct 2026 13:29:48 GMT</pubDate>
       <dcterms:created>2026-10-14T13:29:48.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>JTL-ShopのCVE-2026-103904（Consent統計の保存型XSS、管理者閲覧が必要）と103905（未認証のPlugin Safe Mode切替による機能停止）をENISA CNAの</title>
@@ -231,6 +300,8 @@
       <description>JTL-ShopのCVE-2026-103904（Consent統計の保存型XSS、管理者閲覧が必要）と103905（未認証のPlugin Safe Mode切替による機能停止）をENISA CNAの10月14日公開レコードから2項目・2 CVE追加し238項目・419 CVEへ。XSSの下限5.4.0とSafe Modeの下限5.3.0、系列ごとの修正境界5.6.5／5.7.5／5.8.2、CVSS v4.0の8.6／8.7を区別。公式告知本文は今回403で再取得できず、旧版手動patch公開済み・実悪用・配布日時を断定しない。既存236項目・417 CVEと旧履歴を保持。</description>
       <pubDate>Wed, 14 Oct 2026 13:17:21 GMT</pubDate>
       <dcterms:created>2026-10-14T13:17:21.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>JetBrains Exposedの新規公表CVE-2026-108474を1項目・1 CVE追加し236項目・417 CVEへ</title>
@@ -239,6 +310,8 @@
       <description>JetBrains Exposedの新規公表CVE-2026-108474を1項目・1 CVE追加し236項目・417 CVEへ。JetBrains CNAの1.5.1未満・CVSS v3.1 9.8、SQL関数の文字列引数と修正時のparameter binding / DB固有escapingを記載。10月9日23:13 UTCのCVE公表と先行する20:39 UTCの1.5.1正式配布を区別し、未信頼入力経路の条件は推論として明記。旧client-side escapingとの互換性テストを推奨。利用状況・実悪用は未確認。既存235項目・416 CVEと全履歴を保持。</description>
       <pubDate>Sat, 10 Oct 2026 00:30:27 GMT</pubDate>
       <dcterms:created>2026-10-10T00:30:27.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>18 UTC確認：公開一次資料からNginx UI10件、MariaDB Server8件とConnector/C、x64dbg MCP2件、Argo CD、DataPower高影響7件、gVisor</title>
@@ -247,6 +320,8 @@
       <description>18 UTC確認：公開一次資料からNginx UI10件、MariaDB Server8件とConnector/C、x64dbg MCP2件、Argo CD、DataPower高影響7件、gVisor、Guava、SmarterMail3件、AWS Tools for PowerShell、Pingvin Share X、RIOT3件、Zephyr、Tenable Identity Exposureを14カード・41 CVE追加。既存Corazaに107826を対応付け、CPython ssl2件に3.15.0正式版の提供を補足し235項目・416 CVEへ。元のGHSA・修正配布とCVE catalog公表を区別。x64dbg資料の版境界競合、Connector/C単独配布3.4.11、Tenableの監視リスナー再インストール、sentryの残存隔離、RIOT / Zephyrの正式修正版留保を明記。新しい実悪用は未確認。既存221 ID・374 CVE・29履歴を保持し、変更3項目以外の218カードは不変。</description>
       <pubDate>Fri, 09 Oct 2026 18:38:23 GMT</pubDate>
       <dcterms:created>2026-10-09T18:38:23.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>公開一次資料からHermes Agentのdashboard・自動git処理・email gateway、WP Post Author、Uptime Kuma、fast-jwt6件、IBM Verif</title>
@@ -255,6 +330,8 @@
       <description>公開一次資料からHermes Agentのdashboard・自動git処理・email gateway、WP Post Author、Uptime Kuma、fast-jwt6件、IBM Verify2件・Guardium製品固有4件、Microsoft Bookingsを9カード・15 CVE追加し221項目・374 CVEへ。Oct9の公表・CVE登録と以前のGHSA・修正版提供を区別。HermesのDesktop等未配布、WPのCNA・TRA採点差、fast-jwtの別々の前提と最低修正版6.3.4、IBMの役割別パッチとコンテナー留保、Bookingsのホスト型サービス限定と提供側の修復未確認を明記。実悪用の一次資料あり26項目・悪性パッケージ3項目は不変。既存212カード・359 CVE・28履歴を保持。</description>
       <pubDate>Fri, 09 Oct 2026 17:19:38 GMT</pubDate>
       <dcterms:created>2026-10-09T17:19:38.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>16 UTC確認の公開一次資料からAhsayCBS2件、10月8日KEV追加の旧5件、NetScaler107406、openPDC / openHistorian6件を8カード・14 CVEとして収</title>
@@ -263,6 +340,8 @@
       <description>16 UTC確認の公開一次資料からAhsayCBS2件、10月8日KEV追加の旧5件、NetScaler107406、openPDC / openHistorian6件を8カード・14 CVEとして収録補完し、212項目・359 CVEへ。AhsayCBSの実悪用と10.3.4も影響するHuntress後続を旧CNA修正記録と区別し、正式修正版を留保。KEVの旧5件は新しい脆弱性公表ではなく実悪用記録の補完。NetScalerのversion別SAML条件、openPDCのnative修正とDocker未修正・upgrade後binding、各主体の版表・CVSS競合を保持。実悪用の一次資料ありは26項目、悪性packageは3項目で不変。既存204カード・345 CVE・27履歴の全内容とIDを保持し、他の未反映候補を含めない。</description>
       <pubDate>Fri, 09 Oct 2026 16:18:48 GMT</pubDate>
       <dcterms:created>2026-10-09T16:18:48.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>13 UTC確認の新規CVE catalog登録4件をKaravan・Sipayの2カードとして追加し、204項目・345CVEへ</title>
@@ -271,6 +350,8 @@
       <description>13 UTC確認の新規CVE catalog登録4件をKaravan・Sipayの2カードとして追加し、204項目・345CVEへ。Karavanの認証済みproject外書込・Kubernetes適用権限と唯一の修正版4.22.1を確認。CNA申告の10月7日advisory公開・9月29日release、GitHubの9月30日配布公開、10月9日catalog登録を分離。Sipayの申告公表時刻12:01/12:47 UTCとcatalog時刻12:28/12:52、module別影響版・v3.1 9.8・26.9.1以降の推奨とvendor配布未確認を明記。既存Reactを含む202カード・26履歴を保持し、旧未反映候補は含めない。新たな実悪用の確認はなく20項目・悪性3項目不変。</description>
       <pubDate>Fri, 09 Oct 2026 13:33:47 GMT</pubDate>
       <dcterms:created>2026-10-09T13:33:47.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>ユーザー指定のReact Server Components CVE-2026-23870 / GHSA-rv78-f8rc-xrxhを1カード・1CVE追加し、202項目・341CVEへ</title>
@@ -279,6 +360,8 @@
       <description>ユーザー指定のReact Server Components CVE-2026-23870 / GHSA-rv78-f8rc-xrxhを1カード・1CVE追加し、202項目・341CVEへ。5月6日のMeta初公表・修正境界と、10月8日の研究者技術解説・PoC、10月9日の紹介記事を分離。対象3 package・RSC/server到達条件・CVSS v3.1 7.5・parcel 19.0.6の配布確認留保を明記。既存201カード・25履歴を保持し、未反映の別項目は追加しない。新しい実悪用の確認はなく20項目・悪性3項目不変。</description>
       <pubDate>Fri, 09 Oct 2026 12:53:44 GMT</pubDate>
       <dcterms:created>2026-10-09T12:53:44.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>RSS初回配信訂正：脆弱性レポートの過去履歴</title>
@@ -288,6 +371,8 @@
       <description>これはRSS配信表示の訂正で、新しい脆弱性や実悪用の確認ではありません。専用RSSの初回生成では、当時の過去25回のレポート更新を1項目にまとめ、掲載日時を誤ってマージ日時の2026-10-07 17:04:29 UTCとしていました。各更新を実際の掲載日時へ復元しました。この訂正は誤配信した項目と同じGUIDで届け、各レポート更新は別項目として保持します。正しい履歴の復元は2026-10-07 17:06:35 UTCのWorkersデプロイで反映しました。この訂正通知の日時は通知を作成した2026-10-07 17:18:29 UTCで、以後のビルドで動かしません。</description>
       <pubDate>Wed, 07 Oct 2026 17:18:29 GMT</pubDate>
       <dcterms:created>2026-10-07T17:18:29.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>15 UTC確認分を201項目・340CVEへ補完</title>
@@ -296,6 +381,8 @@
       <description>15 UTC確認分を201項目・340CVEへ補完。Backstage5CVE、Expat2CVE、PraisonAI有効2CVE、Actual1CVE、Fanvil8CVEを6新カード・18CVE追加し、NTFS-3Gへ46570を1CVE追記。Windows KB不足解消・kube-compare4.19.50・旧Backstage2件の対処後続を含む既存5カードを補足。195旧カードの全IDと24履歴を保持、他190カードはbyte-exact。CVSSversion/評価主体・元公表/提供/索引時刻・PoC/実悪用・package/core版・棄却duplicate・未確定修正版を区別。新しい実悪用の確認はなく20項目/悪性3項目不変。</description>
       <pubDate>Wed, 07 Oct 2026 15:23:16 GMT</pubDate>
       <dcterms:created>2026-10-07T15:23:16.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>14 UTCの公開一次資料からTelegram107181、llama.cpp107183、Sungrow107194、NTFS-3G6CVE、wger5CVEを5カード・14CVE収録補完し、既掲載</title>
@@ -304,6 +391,8 @@
       <description>14 UTCの公開一次資料からTelegram107181、llama.cpp107183、Sungrow107194、NTFS-3G6CVE、wger5CVEを5カード・14CVE収録補完し、既掲載Zammad102489/102490カードにCNA版表の限定訂正を追加。195項目・321CVE。元公表・提供済み修正・hosted provider報告・版表競合・PoC/研究者RCE申告と実悪用を分離。新しい実悪用の確認はなく20項目・悪性3項目不変。既存190IDと23履歴を保存し、既存1項目以外の189カードはbyte-exact保持。</description>
       <pubDate>Wed, 07 Oct 2026 14:26:05 GMT</pubDate>
       <dcterms:created>2026-10-07T14:26:05.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>13 UTCの公開一次資料からClaude Code103435、Obot105138/139/140、MISP107180、Express Gateway107162/177を5カード・7CVE補完</title>
@@ -312,6 +401,8 @@
       <description>13 UTCの公開一次資料からClaude Code103435、Obot105138/139/140、MISP107180、Express Gateway107162/177を5カード・7CVE補完し、既掲載Forti104286のCloud事業者対処とAtlassian21589の公開PoCとCNA版表和解を更新。190項目・307 CVE。元公表・正式修正・migration/rotation条件・CNA/研究者評価・実証範囲を分離。新しい実悪用の確認はなく実悪用20項目・悪性3項目不変。既存185カード/全ID、22履歴と構造を保存し、既存2項目以外の183カードはbyte-exact保持。Cloud対応とappliance版表競合、AtlassianPoCと実悪用、正式fix未確認を混同しない。</description>
       <pubDate>Wed, 07 Oct 2026 13:23:54 GMT</pubDate>
       <dcterms:created>2026-10-07T13:23:54.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>12 UTCの公開一次資料からpatool106057、Rundeck106056、GitAhead106058/106059を新規CNA掲載の3カード・4CVEとして追加</title>
@@ -320,6 +411,8 @@
       <description>12 UTCの公開一次資料からpatool106057、Rundeck106056、GitAhead106058/106059を新規CNA掲載の3カード・4CVEとして追加。185項目・300 CVE。9月の正式修正4.0.6/6.2.0と10月4/5日のGitAhead原報告を分離し、Windows shell・job-run・global filter・Finder click条件と未実証のPoCを明記。実悪用20項目・悪性パッケージ3項目は不変。既存182カード・21履歴・全公開IDと構造を保存。ADP/索引のみの変更は再告知せず、Cisco版表競合とlwIP正式stable版未確認は維持。</description>
       <pubDate>Wed, 07 Oct 2026 12:19:29 GMT</pubDate>
       <dcterms:created>2026-10-07T12:19:29.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>11 UTCの公開一次資料からCisco IOS XE7CVE分類とlwIP SMTP client15340を既公表の重要情報として2カード・8CVE補完</title>
@@ -328,6 +421,8 @@
       <description>11 UTCの公開一次資料からCisco IOS XE7CVE分類とlwIP SMTP client15340を既公表の重要情報として2カード・8CVE補完。182項目・296 CVE。Ciscoの10月2日vendor推奨fixとCNA機械版表の競合・bundled CVE識別不足、lwIPの5月source修正とPoC・10月6日CISA通知・正式stable版未確認を分離。新しい実悪用の確認ではなく、実悪用20項目・悪性パッケージ3項目は不変。既存180カード・20履歴・全公開IDと構造を保存。索引・ADPだけの変更は再告知しない。</description>
       <pubDate>Wed, 07 Oct 2026 11:10:20 GMT</pubDate>
       <dcterms:created>2026-10-07T11:10:20.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>10 UTCの公開一次資料からLMCache105192のmultiprocess ZMQ認証不要pickle RCEを追加し、IBM Langflow OSS104334/93674を既公表補完</title>
@@ -336,6 +431,8 @@
       <description>10 UTCの公開一次資料からLMCache105192のmultiprocess ZMQ認証不要pickle RCEを追加し、IBM Langflow OSS104334/93674を既公表補完。180項目・288 CVE。LMCacheの既定loopbackとroutable multi-node・正式修正版未確認、Langflowの1.12.3正式修正と個別GHSA対応未確認を分離。実悪用20項目・悪性パッケージ3項目は不変。既存178カード・19履歴・全公開IDと構造を保存。Nexi/Impala等のADP追加やMovable Type新CNA・Chrome155採点だけでは再告知・カード更新しない。</description>
       <pubDate>Wed, 07 Oct 2026 10:28:12 GMT</pubDate>
       <dcterms:created>2026-10-07T10:28:12.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>09 UTCの公開一次資料からVeeam2件、Apache Impala、NetX Duo TLS 1.3 client、Zephyr BLE Meshを5カード・5 CVEで補完</title>
@@ -344,6 +441,8 @@
       <description>09 UTCの公開一次資料からVeeam2件、Apache Impala、NetX Duo TLS 1.3 client、Zephyr BLE Meshを5カード・5 CVEで補完。178項目・285 CVE。元vendor公表・正式build提供と10月7日のCNA公表を分離し、権限・非既定機能・接続/無線条件、CVSS主体/versionと未採点を保持。PoC link・再現testと実証RCE・実悪用を区別。実悪用20項目・悪性パッケージ3項目は不変。既存173カードと18履歴を保存。</description>
       <pubDate>Wed, 07 Oct 2026 09:29:25 GMT</pubDate>
       <dcterms:created>2026-10-07T09:29:25.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>08 UTCのRed Hat CNA差分としてPulp103868/103869のAAP2.4/2.5 hub-rhel8 imagesをaffectedからunaffectedへ訂正</title>
@@ -352,6 +451,8 @@
       <description>08 UTCのRed Hat CNA差分としてPulp103868/103869のAAP2.4/2.5 hub-rhel8 imagesをaffectedからunaffectedへ訂正。AAP2.6/2.7、Python3.12、Satelliteの掲載区分と正式fix/RHSA未確認を保持。173項目・280 CVE・実悪用20項目・悪性パッケージ3項目は不変。既存172カードをbyte-exactで保持し、17件の履歴を保存。新しい脆弱性・修正版提供・悪用観測ではない。</description>
       <pubDate>Wed, 07 Oct 2026 08:33:45 GMT</pubDate>
       <dcterms:created>2026-10-07T08:33:45.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>07 UTCの公開一次資料差分としてLinux RDMA siw/rxe2件のLinux CNA新CVSS評価と、Nexi XPay Buildの認証不要注文支払状態改ざん2件を3カード・4 CVEで</title>
@@ -360,6 +461,8 @@
       <description>07 UTCの公開一次資料差分としてLinux RDMA siw/rxe2件のLinux CNA新CVSS評価と、Nexi XPay Buildの認証不要注文支払状態改ざん2件を3カード・4 CVEで追加。173項目・280 CVE。原CVE公表と9月修正commit・10月3日配布を分離し、RDMAの構成条件と別々の修正系列を保持。Nexi Buildの恒久閉鎖・修正版未確認、PoC参照タグの限界を明記。実悪用20項目・悪性パッケージ3項目は不変。既存170カードと16履歴を保存。</description>
       <pubDate>Wed, 07 Oct 2026 07:15:13 GMT</pubDate>
       <dcterms:created>2026-10-07T07:15:13.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>06 UTCの公開一次資料差分としてMovable Typeの認証不要upgrade RCE・検索SQL injection、VMware Workstation/Fusionのguest→host実</title>
@@ -368,6 +471,8 @@
       <description>06 UTCの公開一次資料差分としてMovable Typeの認証不要upgrade RCE・検索SQL injection、VMware Workstation/Fusionのguest→host実行2件、Pulpの別remote認証情報漏えい2件を3カード・6 CVEで補完。170項目・276 CVE。原vendor公表日・CNA掲載日、CVSS主体/version、guest管理者・sync権限・未確認の正式修正版を明記。実悪用20項目・悪性パッケージ3項目は不変。既存167カードと15履歴を保存。</description>
       <pubDate>Wed, 07 Oct 2026 06:20:12 GMT</pubDate>
       <dcterms:created>2026-10-07T06:20:12.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>05 UTCの公開一次資料差分としてFlexNet Publisher lmadminの新規Critical認証回避と、kube-compareのOpenShift 4.20修正対応を追加</title>
@@ -376,6 +481,8 @@
       <description>05 UTCの公開一次資料差分としてFlexNet Publisher lmadminの新規Critical認証回避と、kube-compareのOpenShift 4.20修正対応を追加。167項目・270 CVE。新規CNA公表はFlexNet 1件で、kube-compareは9月28日公表・10月6日修正提供の補完。正式修正版不明・操作条件・評価主体を明記。実悪用20項目・悪性パッケージ3項目は不変。既存165カードと14履歴を保存。</description>
       <pubDate>Wed, 07 Oct 2026 05:10:20 GMT</pubDate>
       <dcterms:created>2026-10-07T05:10:20.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>未反映の公開一次資料による実質的な差分・収録漏れを一括反映</title>
@@ -384,6 +491,8 @@
       <description>未反映の公開一次資料による実質的な差分・収録漏れを一括反映。79カードを追加し、Chrome desktop/Android、GHES、Devolutions、Pixel Bluetooth、Arista、F5の条件付きCloudflare WAF緩和を補足。165項目・268 CVE・実悪用20項目・悪性パッケージ3項目。実悪用追加5件は過去に公表された観測の収録補完。Gitea・Backstage・AWS・vLLM等の修正系列・構成条件と資料差を保持。HPE・Office・Authlib等の未確認情報を推測で埋めず、公開済み全86 ID・全13件の履歴を保存。後続確認でASUSTORの正式修正版提供、wolfSSH2件、Octopus・pgvectorを追加し、ChromeのHigh3件をCISA別採点とplatform条件付きで補完。新しい実悪用の確認はない。</description>
       <pubDate>Wed, 07 Oct 2026 04:06:03 GMT</pubDate>
       <dcterms:created>2026-10-07T04:06:03.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>19 UTC確認：76項目/124 CVEから86項目/144 CVEへ</title>
@@ -392,6 +501,8 @@
       <description>19 UTC確認：76項目/124 CVEから86項目/144 CVEへ。既公表の実悪用SharePoint・Zimbra・HFSを補完し、実悪用項目は12から15へ（新しい19 UTCの攻撃確認ではない）。Dell DSU5件、GHES2件、Devolutions3件、Pixel固有Critical3件、Knowns、MLflow、WeasyPrintを追加。Chromeの246→247と新公開CNAの影響・sandbox条件を訂正/補足し、Langflow既存MCP項目へ105740のREST1.9.0境界を追加。MLflowは公式GHSAの最小修正3.10.0への訂正と開発版の表記差を保持。全76既存ID・全12既存履歴を保存し、変更2項目以外の74項目は不変。</description>
       <pubDate>Tue, 06 Oct 2026 19:21:18 GMT</pubDate>
       <dcterms:created>2026-10-06T19:21:18.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>18 UTC確認：公開既存54項目/75 CVEから76項目/124 CVEへ</title>
@@ -400,6 +511,8 @@
       <description>18 UTC確認：公開既存54項目/75 CVEから76項目/124 CVEへ。Chrome155のCritical4件、Quasar SSR2件、SageMaker・AAS Edge Client・Tendaを追加。先に確認したSonicWall/SPIP、Android/Atlassian、Payload3.90.0関連とPenpot/ConvertX/Next.js/Capacitor/Langflowも再確認して収録。Payload既存2項目・MCP TypeScript資料不足・Langflow評価を後続補足し、既存Chrome2項目に最新Desktop推奨版を追記。元の修正境界・初公表日は維持し、新たな実悪用は未確認。既存全54 ID・全11履歴を保存、変更6項目以外の48項目は不変。</description>
       <pubDate>Tue, 06 Oct 2026 18:13:43 GMT</pubDate>
       <dcterms:created>2026-10-06T18:13:43.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>同確認中の後続：source-map-js CVE-2026-93749 / GHSA-68fv-2mgg-jv7qを1項目追加</title>
@@ -408,6 +521,8 @@
       <description>同確認中の後続：source-map-js CVE-2026-93749 / GHSA-68fv-2mgg-jv7qを1項目追加。非信頼indexed source mapの再生成に限ったサービス停止、修正版1.2.2、9月の公開・修正と10月5日のレビューを区別。sharpは当初未検証だった公式GHSAのCVSS v4.0 8.9を後続補足し、Red Hat CNA v3.1 7.8・修正版0.35.5・実悪用未確認を維持。直前の53項目・全履歴を保存し、Sharp以外の52項目は変更なし。</description>
       <pubDate>Tue, 06 Oct 2026 16:28:02 GMT</pubDate>
       <dcterms:created>2026-10-06T16:28:02.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>重要情報を5項目追加：Payload CVE-2026-105844 / 105845とMCPプラグイン105806、External Secrets Operator CVE-2026-26287、</title>
@@ -416,6 +531,8 @@
       <description>重要情報を5項目追加：Payload CVE-2026-105844 / 105845とMCPプラグイン105806、External Secrets Operator CVE-2026-26287、MCP TypeScript CVE-2026-104850 / GHSA-6qxp-vccf-f47h、dormakaba evolo Service CVE-2026-37719。実悪用は未確認。元の通知・修正版公開と10月6日のCVE / GHSA索引・CISA評価追加を区別。MCPの更新後設定と現行CVE JSON未取得、evolo Serviceの修正版未確認を明記。Dell CSMは同じ通知の後続8 CVE（67273 / 67270 / 76105 / 61411 / 70411 / 63689 / 63691 / 63690）を補足し、対策版1.18.0は維持。既存48項目のID・全履歴を保存し、Dell以外の47項目は変更なし。</description>
       <pubDate>Tue, 06 Oct 2026 16:18:29 GMT</pubDate>
       <dcterms:created>2026-10-06T16:18:29.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>同確認中の後続：openapi-python-client CVE-2026-105801を1項目追加</title>
@@ -424,6 +541,8 @@
       <description>同確認中の後続：openapi-python-client CVE-2026-105801を1項目追加。生成クライアントをimportする時点のコード実行、修正版0.29.1、以前の生成物確認・カスタムテンプレートの互換性変更を記録。Dell CSMには固定資格情報CVE-2026-54472/61421の新規CNA公開を後続補足し、修正基準1.18.0と実悪用未確認を維持。直前の47項目・すべての履歴を保存。</description>
       <pubDate>Tue, 06 Oct 2026 15:14:31 GMT</pubDate>
       <dcterms:created>2026-10-06T15:14:31.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>重要情報を7項目追加：Dell CSM CVE-2026-63688/63692/67269、MsQuic CVE-2026-105794、Microsoft UFO CVE-2026-105788/</title>
@@ -432,6 +551,8 @@
       <description>重要情報を7項目追加：Dell CSM CVE-2026-63688/63692/67269、MsQuic CVE-2026-105794、Microsoft UFO CVE-2026-105788/105793/105791、Kiota CVE-2026-105796、Struts CVE-2026-104711、Langflow MCP CVE-2026-105697、Mooncake CVE-2026-106037〜106041。元のGHSA・通知・修正版公開と10月6日のCVE公開・CISA評価を区別。新しい実悪用は未確認。UFOのGHSA旧修正欄とCNA後続境界、Struts・MsQuicの評価主体差、Mooncakeの正式修正版未確認・認証案未マージを明記。既存40項目・すべての更新履歴・公開IDを保存。日本時間10月7日の追記で、参照したCVE公開日は10月6日UTC。</description>
       <pubDate>Tue, 06 Oct 2026 15:09:45 GMT</pubDate>
       <dcterms:created>2026-10-06T15:09:45.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>高影響情報を6項目追加：shell-quote CVE-2026-102422、Langflow GHSA-8qpj-27x8-pwpq、sharp/librsvg CVE-2026-96889、Pr</title>
@@ -440,6 +561,8 @@
       <description>高影響情報を6項目追加：shell-quote CVE-2026-102422、Langflow GHSA-8qpj-27x8-pwpq、sharp/librsvg CVE-2026-96889、Progress ARCGenAI-Generator CVE-2026-91140、PLANKA CVE-2026-105835、uldaq CVE-2026-19477。元の公表日と10月6日のCVE・JVN・GHSA索引掲載日を区別。Langflowは一般索引のCVE-2026-10561関連付けとIBM CNAの条件・修正境界が一致せずID対応を留保。Progressの配布詳細とPLANKAの提供済み修正版は未確認。OpenOffice CVE-2026-59265はCISA ADPのCVSS v3.1 8.8追加を後続情報として補足し、過去の確認と実悪用未確認・修正版待ちの記録を維持。既存34項目と全履歴を保存。</description>
       <pubDate>Tue, 06 Oct 2026 14:17:54 GMT</pubDate>
       <dcterms:created>2026-10-06T14:17:54.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>重要な既公表情報等を7項目追加：実悪用されたArista VCO CVE-2026-93952とChrome V8 CVE-2026-85046/87491、proxy-addrのIP偽装、Nx Do</title>
@@ -448,6 +571,8 @@
       <description>重要な既公表情報等を7項目追加：実悪用されたArista VCO CVE-2026-93952とChrome V8 CVE-2026-85046/87491、proxy-addrのIP偽装、Nx Docker releaseのCIコマンド実行、MCPのHTTP本文・セッション保持DoS、SmartyのキャッシュPHP実行、HPE iLO 7の遠隔ユーザー検証不備。SmartyのCVE公開は10月6日だがGHSAと修正版は10月4日。HPEは正確な修正ファームウェア版を未確認として明記。実悪用・PoC・CVSS評価の主体を区別し、過去の公表を10月6日の新しい攻撃とは扱わない。既存27項目と全更新履歴を維持。</description>
       <pubDate>Tue, 06 Oct 2026 13:05:12 GMT</pubDate>
       <dcterms:created>2026-10-06T13:05:12.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>既公表の重要項目を7件追加：実悪用されたFortiMail CVE-2026-104286、Cisco SD-WAN CVE-2026-76504、Apple CoreGraphics CVE-202</title>
@@ -456,6 +581,8 @@
       <description>既公表の重要項目を7件追加：実悪用されたFortiMail CVE-2026-104286、Cisco SD-WAN CVE-2026-76504、Apple CoreGraphics CVE-2026-86950と、MCP Python SDK、Open WebUI、Cloudflare Containers/Sandbox、vm2の別GHSA。FortiMailの前回未解決版表を公式CSAFで補足。vm2の旧CVE単体の修正3.11.8は維持し、別問題を含む3.12.2への対処を追記。Cloudflareは事業者対策済みで追加作業不要。元の公表日・実悪用の限定条件を維持し、10月6日の新規発生とは扱わない。既存20項目と全履歴を維持。</description>
       <pubDate>Tue, 06 Oct 2026 12:07:01 GMT</pubDate>
       <dcterms:created>2026-10-06T12:07:01.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>既公表の重要項目を3件追加：OpenOffice CVE-2026-59265、LibreOffice CVE-2026-63277、Exchange CVE-2026-96940</title>
@@ -464,6 +591,8 @@
       <description>既公表の重要項目を3件追加：OpenOffice CVE-2026-59265、LibreOffice CVE-2026-63277、Exchange CVE-2026-96940。OpenOfficeは正式修正版の公開待ち、LibreOfficeは修正済み配布版あり、Exchangeは10月2日のSUv2とESU制約を区別。Serovalの影響範囲を構造化CNA/GHSAの&amp;gt;=0.12.0,&amp;lt;1.6.2へ訂正し、1.6.1を安全と判断しない。10月6日の新規発生・実悪用確認とは扱わず、既存17項目と全履歴を維持。</description>
       <pubDate>Tue, 06 Oct 2026 11:08:06 GMT</pubDate>
       <dcterms:created>2026-10-06T11:08:06.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>既公表の重要項目を追加：Zammadの実悪用2件と10月5日のベンダー評価、GitLab AI Gateway、vm2、Tinypool、Seroval、cPanel/WHM</title>
@@ -472,6 +601,8 @@
       <description>既公表の重要項目を追加：Zammadの実悪用2件と10月5日のベンダー評価、GitLab AI Gateway、vm2、Tinypool、Seroval、cPanel/WHM。元の公表・GHSA索引日を区別し、今日の新規発生とは扱わない。CISA公式GitHubのKEV取得を補足し、FortiMailの版表差異は未解決として明記。既存11項目と初版訂正履歴は維持。</description>
       <pubDate>Tue, 06 Oct 2026 10:13:41 GMT</pubDate>
       <dcterms:created>2026-10-06T10:13:41.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>初版の版境界を訂正：CVE-2026-19445のPython 3.15系列は3.15.0rc3未満、CVE-2026-85880のServer 2012 R2除外境界は6.3.9600.23398</title>
@@ -480,6 +611,8 @@
       <description>初版の版境界を訂正：CVE-2026-19445のPython 3.15系列は3.15.0rc3未満、CVE-2026-85880のServer 2012 R2除外境界は6.3.9600.23398。現行CNA JSONで再確認。3.15.0rc3の10月2日公開も追記。新規脆弱性の発生や新しい悪用報告ではありません。</description>
       <pubDate>Tue, 06 Oct 2026 06:00:48 GMT</pubDate>
       <dcterms:created>2026-10-06T06:00:48.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>初版</title>
@@ -488,6 +621,8 @@
       <description>初版。実悪用されたネットワーク製品と、ブラウザー・OS・開発環境・悪性パッケージの重要情報を公開資料で整理。</description>
       <pubDate>Tue, 06 Oct 2026 05:47:01 GMT</pubDate>
       <dcterms:created>2026-10-06T05:47:01.000Z</dcterms:created>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
   </channel>
 </rss>
