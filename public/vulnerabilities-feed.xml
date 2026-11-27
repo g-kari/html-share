@@ -7,7 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/vulnerabilities-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Fri, 27 Nov 2026 08:46:03 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 27 Nov 2026 09:45:53 GMT</lastBuildDate>
+    <item>
+      <title>KEV 2026-11-25追加分のうち一次資料照合済みのDanfoss AK-SM 800A Series 3件（CVE-2023-25914／25915・CVE-2025-41450）を同一系列1</title>
+      <link>https://share.0g0.xyz/vulnerabilities</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/vulnerabilities-feed.xml#e6f7cfa3558182dd294b79a03d6d12466e53226218aeb77636931331498bec3d</guid>
+      <description>KEV 2026-11-25追加分のうち一次資料照合済みのDanfoss AK-SM 800A Series 3件（CVE-2023-25914／25915・CVE-2025-41450）を同一系列1項目として追加。Danfoss公式アドバイザリとCVE記録で、2023年2件は認証済み攻撃者によるパス・トラバーサル／任意コマンド実行で影響3.3未満・修正3.3、41450は認証バイパスによる情報開示で影響4.2未満・修正4.2を確認。スコアは評価者ごとに分かれるため帰属を分け、41450のforensic triageは断定しない。これでKEV 2026-11-25追加分10件は全件反映済み。</description>
+      <pubDate>Fri, 27 Nov 2026 09:45:53 GMT</pubDate>
+      <dcterms:created>2026-11-27T09:45:53.000Z</dcterms:created>
+    </item>
     <item>
       <title>KEV 2026-11-25追加分のうち一次資料照合済みのHPE Juniper Session Smart Conductor CVE-2026-103406を1項目として追加</title>
       <link>https://share.0g0.xyz/vulnerabilities</link>
