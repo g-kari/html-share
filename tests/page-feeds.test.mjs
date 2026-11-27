@@ -35,6 +35,16 @@ test("page feed carries one page item whose description and image show the lates
   } finally { await rm(cwd, { recursive: true, force: true }); }
 });
 
+test("same-day register entries order newest-appended first", async () => {
+  const { recentChanges, updateDescription } = await import("../scripts/page-feeds.mjs");
+  const recent = recentChanges({ changes: [
+    { date: "2026-11-27", summary: "朝の更新" },
+    { date: "2026-11-27", summary: "夜の更新" },
+    { date: "2026-11-26", summary: "前日の更新" },
+  ] });
+  assert.equal(updateDescription(recent), "最新の更新（2026年11月27日）：夜の更新 前回（2026年11月27日）：朝の更新 前々回（2026年11月26日）：前日の更新");
+});
+
 test("the authored emergency page register parses and renders its newest recorded update", async () => {
   const source = await readFile(path.join(root, "public", feed.relativePath), "utf8");
   const data = pageUpdateData(source, feed);
