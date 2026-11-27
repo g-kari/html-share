@@ -125,15 +125,18 @@ export function pageDates(root, relativePath, fingerprint, previous) {
 
 export function renderFeed(pages) {
   const ordered = [...pages].sort((a, b) => Date.parse(b.updated) - Date.parse(a.updated) || a.route.localeCompare(b.route, "en"));
-  const items = ordered.map(({ route, title, description, published, updated }) => {
+  const items = ordered.map(({ route, title, description, feedDescription, image, published, updated }) => {
     const url = SITE_URL + route;
     // RSS descriptions allow HTML. Encode the public summary as plain text
     // inside that HTML representation before escaping it for the XML envelope.
-    const summary = escapeHtml(description || `${title}をHTML Shareで共有しています。`);
-    return `    <item>\n      <title>${escapeXml(title)}</title>\n      <link>${escapeXml(url)}</link>\n      <guid isPermaLink="true">${escapeXml(url)}</guid>\n      <description>${escapeXml(summary)}</description>\n      <pubDate>${new Date(timestamp(updated)).toUTCString()}</pubDate>\n      <dcterms:created>${timestamp(published)}</dcterms:created>\n      <dcterms:modified>${timestamp(updated)}</dcterms:modified>\n    </item>`;
+    // Pages with an update register pass feedDescription so their single
+    // page item in this feed also says what the latest update changed.
+    const summary = escapeHtml(feedDescription || description || `${title}をHTML Shareで共有しています。`);
+    const media = image ? `\n      <media:content url="${escapeXml(image.url)}" type="${escapeXml(image.type)}" medium="image"/>\n      <media:thumbnail url="${escapeXml(image.url)}"/>` : "";
+    return `    <item>\n      <title>${escapeXml(title)}</title>\n      <link>${escapeXml(url)}</link>\n      <guid isPermaLink="true">${escapeXml(url)}</guid>\n      <description>${escapeXml(summary)}</description>\n      <pubDate>${new Date(timestamp(updated)).toUTCString()}</pubDate>\n      <dcterms:created>${timestamp(published)}</dcterms:created>\n      <dcterms:modified>${timestamp(updated)}</dcterms:modified>${media}\n    </item>`;
   }).join("\n");
   const newest = ordered[0]?.updated;
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dcterms="http://purl.org/dc/terms/">\n  <channel>\n    <title>${SITE_NAME}</title>\n    <link>${SITE_URL}/</link>\n    <description>HTML Shareの共有ページの新規公開・更新</description>\n    <language>ja</language>\n    <atom:link href="${SITE_URL}${FEED_PATH}" rel="self" type="application/rss+xml"/>\n    <ttl>5</ttl>\n${newest ? `    <lastBuildDate>${new Date(timestamp(newest)).toUTCString()}</lastBuildDate>\n` : ""}${items}${items ? "\n" : ""}  </channel>\n</rss>\n`;
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:media="http://search.yahoo.com/mrss/">\n  <channel>\n    <title>${SITE_NAME}</title>\n    <link>${SITE_URL}/</link>\n    <description>HTML Shareの共有ページの新規公開・更新</description>\n    <language>ja</language>\n    <atom:link href="${SITE_URL}${FEED_PATH}" rel="self" type="application/rss+xml"/>\n    <ttl>5</ttl>\n${newest ? `    <lastBuildDate>${new Date(timestamp(newest)).toUTCString()}</lastBuildDate>\n` : ""}${items}${items ? "\n" : ""}  </channel>\n</rss>\n`;
 }
 
 export async function writeFeed(root, pages) {

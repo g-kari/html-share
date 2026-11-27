@@ -2,7 +2,7 @@ import { createHash } from "node:crypto";
 import { execFileSync } from "node:child_process";
 import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
-import { escapeHtml, scanTags, SITE_URL } from "./social-metadata.mjs";
+import { escapeHtml, pageImage, scanTags, SITE_URL } from "./social-metadata.mjs";
 import { escapeXml } from "./rss-feed.mjs";
 import { committedReportSource, reportSourcePaths } from "./report-source.mjs";
 
@@ -193,15 +193,25 @@ export async function readDeliveryCorrections(root) {
   });
 }
 
-export function renderReportFeed(feed, items) {
+export function renderReportFeed(feed, items, options = {}) {
   const ordered = [...items].sort((a, b) => Date.parse(b.published) - Date.parse(a.published) || a.fingerprint.localeCompare(b.fingerprint, "en"));
   const url = SITE_URL + "/" + feed.key;
+  const image = options.image || null;
+  const media = image ? `\n      <media:content url="${escapeXml(image.url)}" type="${escapeXml(image.type)}" medium="image"/>\n      <media:thumbnail url="${escapeXml(image.url)}"/>` : "";
+  const withPrecision = (item) => item.summary + (item.precision === "day" ? ` 更新履歴の日付（JST）：${item.declaredDate}。時刻は記録なし。` : "");
   const xml = ordered.map((item) => {
-    const summary = item.summary + (item.precision === "day" ? ` 更新履歴の日付（JST）：${item.declaredDate}。時刻は記録なし。` : "");
+    const summary = withPrecision(item);
     const title = item.title || cleanText(item.summary.split(/[。\n]/)[0]).slice(0, 100);
-    return `    <item>\n      <title>${escapeXml(title)}</title>\n      <link>${escapeXml(url)}</link>\n      <guid isPermaLink="false">${escapeXml(`${SITE_URL}${feed.path}#${item.fingerprint}`)}</guid>\n${item.deliveryCorrection ? "      <category>RSS初回配信訂正</category>\n" : ""}      <description>${escapeXml(escapeHtml(summary))}</description>\n      <pubDate>${new Date(item.published).toUTCString()}</pubDate>\n      <dcterms:created>${isoTimestamp(item.published)}</dcterms:created>\n    </item>`;
+    return `    <item>\n      <title>${escapeXml(title)}</title>\n      <link>${escapeXml(url)}</link>\n      <guid isPermaLink="false">${escapeXml(`${SITE_URL}${feed.path}#${item.fingerprint}`)}</guid>\n${item.deliveryCorrection ? "      <category>RSS初回配信訂正</category>\n" : ""}      <description>${escapeXml(escapeHtml(summary))}</description>\n      <pubDate>${new Date(item.published).toUTCString()}</pubDate>\n      <dcterms:created>${isoTimestamp(item.published)}</dcterms:created>${media}\n    </item>`;
   }).join("\n");
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dcterms="http://purl.org/dc/terms/">\n  <channel>\n    <title>${escapeXml(feed.title)}</title>\n    <link>${url}</link>\n    <description>レポートの追加・訂正・重要な続報を更新ごとの別項目で配信。項目の日付はレポート掲載日時で、脆弱性・事件の発生日時ではありません。</description>\n    <language>ja</language>\n    <atom:link href="${SITE_URL}${feed.path}" rel="self" type="application/rss+xml"/>\n    <ttl>5</ttl>\n${ordered.length ? `    <lastBuildDate>${new Date(ordered[0].published).toUTCString()}</lastBuildDate>\n` : ""}${xml}${xml ? "\n" : ""}  </channel>\n</rss>\n`;
+  // The lead item represents the page itself: its GUID is the page URL and
+  // its description is the newest material update, so a reader can tell
+  // what changed from the page's own entry (and its image) alone. The
+  // per-update items below keep the full history and their stable GUIDs.
+  const lead = ordered.find((item) => !item.deliveryCorrection);
+  const pageItem = lead ? `    <item>\n      <title>${escapeXml(options.title || feed.title)}</title>\n      <link>${escapeXml(url)}</link>\n      <guid isPermaLink="true">${escapeXml(url)}</guid>\n      <description>${escapeXml(escapeHtml(`最新の更新：${withPrecision(lead)}`))}</description>\n      <pubDate>${new Date(lead.published).toUTCString()}</pubDate>\n      <dcterms:modified>${isoTimestamp(lead.published)}</dcterms:modified>${media}\n    </item>` : "";
+  const body = [pageItem, xml].filter(Boolean).join("\n");
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:media="http://search.yahoo.com/mrss/">\n  <channel>\n    <title>${escapeXml(feed.title)}</title>\n    <link>${url}</link>\n    <description>先頭の項目はページ全体の最新更新で、説明に最新の更新内容とページの画像が入ります。続く項目でレポートの追加・訂正・重要な続報を更新ごとの別項目で配信。項目の日付はレポート掲載日時で、脆弱性・事件の発生日時ではありません。</description>\n    <language>ja</language>\n${image ? `    <image>\n      <url>${escapeXml(image.url)}</url>\n      <title>${escapeXml(feed.title)}</title>\n      <link>${url}</link>\n    </image>\n` : ""}    <atom:link href="${SITE_URL}${feed.path}" rel="self" type="application/rss+xml"/>\n    <ttl>5</ttl>\n${ordered.length ? `    <lastBuildDate>${new Date(ordered[0].published).toUTCString()}</lastBuildDate>\n` : ""}${body}${body ? "\n" : ""}  </channel>\n</rss>\n`;
 }
 
 function isShallowRepository(root) {
@@ -262,10 +272,10 @@ export async function writeReportFeeds(root, pages) {
     reports[feed.key] = { records, journal, items, cursor: historical?.cursor || old?.cursor || null };
     const delivery = corrections.filter((item) => item.topic === feed.key);
     if (delivery.some((item) => items.some((material) => material.fingerprint === item.fingerprint))) throw new Error(`RSS correction GUID collides with a material ${feed.key} update.`);
-    outputs.push([feed, [...items, ...delivery]]);
+    outputs.push([feed, [...items, ...delivery], { title: page.title || feed.title, image: pageImage(page.source, feed.relativePath) }]);
   }
   // Validate both topics before writing. Main generation stages the complete
   // generated set together and refetches/retries if concurrent main changes.
-  for (const [feed, items] of outputs) await writeFile(path.join(root, "public", feed.path.slice(1)), renderReportFeed(feed, items), "utf8");
+  for (const [feed, items, options] of outputs) await writeFile(path.join(root, "public", feed.path.slice(1)), renderReportFeed(feed, items, options), "utf8");
   await writeFile(path.join(root, REPORT_STATE_FILE), JSON.stringify({ version: 1, reports }, null, 2) + "\n", "utf8");
 }

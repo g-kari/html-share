@@ -89,6 +89,27 @@ export function pageDetails(html, fallbackTitle) {
   return { title: title || fallbackTitle, description: descriptionTag?.attrs.get("content")?.value.trim() || "" };
 }
 
+// The page's social image as feeds should present it: the first authored
+// og:image (absolutized), its declared type when present, else the common
+// card. Feed items reuse this so a reader shows the same image as a share.
+export function pageImage(source, relativePath) {
+  const { tags } = headTags(source);
+  const routeUrl = SITE_URL + routeFor(relativePath);
+  const keyOf = (tag) => tag.attrs.get("property")?.value.toLowerCase() || tag.attrs.get("name")?.value.toLowerCase() || "";
+  const roots = tags.filter((tag) => tag.name === "meta" && /^(og:image|og:image:url)$/.test(keyOf(tag)));
+  const raw = roots[0]?.attrs.get("content")?.value || "";
+  const url = raw ? absoluteUrl(raw, routeUrl) : DEFAULT_IMAGE;
+  let type = "";
+  if (roots[0]) {
+    for (const tag of tags.slice(tags.indexOf(roots[0]) + 1)) {
+      if (/^(og:image|og:image:url)$/.test(keyOf(tag))) break;
+      if (keyOf(tag) === "og:image:type") { type = tag.attrs.get("content")?.value || ""; break; }
+    }
+  }
+  if (!type) type = url.endsWith(".jpg") || url.endsWith(".jpeg") ? "image/jpeg" : url.endsWith(".webp") ? "image/webp" : "image/png";
+  return { url, type };
+}
+
 export function routeFor(relativePath) {
   const normalized = relativePath.split(path.sep).join("/");
   const route = normalized === "index.html" ? "" : normalized.endsWith("/index.html")

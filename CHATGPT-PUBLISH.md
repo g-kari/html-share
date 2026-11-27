@@ -55,7 +55,7 @@ Examples:
 - `.github/workflows/generate-index.yml` が index を自動更新
 - `public/index.html` は生成物として扱う
 - `public/assets/search/index-*.json` も生成物。サイト全体の全文検索は公開HTML本文だけを読み、検索時のみ索引を取得する。新ページは自動で検索対象になり、非公開原本やscript/JSONは索引に含めない
-- `public/feed.xml`、`public/vulnerabilities-feed.xml`、`public/security-incidents-feed.xml`、`.feed-state.json`、`.report-feed-state.json` も生成物として扱い、手編集しない
+- `public/feed.xml`、`public/vulnerabilities-feed.xml`、`public/security-incidents-feed.xml`、`public/emergency-maintenance-feed.xml`、`.feed-state.json`、`.report-feed-state.json` も生成物として扱い、手編集しない
 - RSSの購読URLは `https://share.0g0.xyz/feed.xml`。公開ページを追加・更新すると自動反映される
 - ページの公開URLを固定GUIDとし、内容変更commitの日時で更新する。生成部分だけの再生成は更新にしない
 - 脆弱性・事案の専用RSSは更新ごとの別GUID。各レポートのJSON `records` / `incidents` に実質的な追加・訂正をする際は `changes[].summary` に具体的な変更概要を同時に記録する（先頭・末尾追加どちらも可）。事案では対象IDも記録することを推奨（過去のID未記録の実質的履歴も扱う）
