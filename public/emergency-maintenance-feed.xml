@@ -12,14 +12,14 @@
     </image>
     <atom:link href="https://share.0g0.xyz/emergency-maintenance-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Fri, 27 Nov 2026 09:27:00 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 28 Nov 2026 03:27:00 GMT</lastBuildDate>
     <item>
-      <title>緊急メンテナンス続報まとめ（2026年11月27日時点）：継続中・一部復旧・復旧済み</title>
+      <title>緊急メンテナンス続報まとめ（2026年11月28日時点）：継続中・一部復旧・復旧済み</title>
       <link>https://share.0g0.xyz/emergency-maintenance-2026-11</link>
       <guid isPermaLink="true">https://share.0g0.xyz/emergency-maintenance-2026-11</guid>
-      <description>最新の更新（2026年11月27日 18:27）：ミンカブ「MINKABU／みんかぶアセットプランナー」への不正アクセスを新規追加。メールアドレス約15万3,000件と、口座連携先・金額とみられる情報約1万9,000件が漏えいした可能性があり、アセプラの該当機能は11月26日から停止中。アクサ損害保険は第3報で、ロードサービス委託先側の対象が約49万4,000件（銀行口座情報2,697件を含む）と判明したと発表。 前回（2026年11月27日 15:27）：佐川急便が第8報で停止していた残り5サービスを再開し、不正アクセスに伴い停止していたWebサービスはすべて再開。NTTドコモ第7報でiPhone版「My docomo」アプリが11月26日15:00頃に復旧（オンラインショップは継続）。カンフェティが11月26日20:15から緊急メンテナンス中で再開時期は未定。バリューHRの健診予約システムへの不正アクセス（健診予約情報が閲覧・取得された可能性）を新規追加。 前々回（2026年11月27日 12:27）：ALL.Net／Aimeが英傑大戦の対人戦、HOUSE OF THE DEAD、BINGO THEATER、P-ras MULTI Ver.3（一部タイトルを除く）の試験稼働を順次再開。SIP4Dは緊急メンテナンス期間の延長と一部サービス再開を発表。三井ショッピングパークアプリは11月26日の続報で対象が約311万9,000人に。TSUTAYAは公式ページが11月27日に更新され、復旧日時未定のまま継続を確認。</description>
-      <pubDate>Fri, 27 Nov 2026 09:27:00 GMT</pubDate>
-      <dcterms:modified>2026-11-27T09:27:00.000Z</dcterms:modified>
+      <description>最新の更新（2026年11月28日 12:27）：カンフェティは第一報で不正アクセスによる会員情報の外部流出を確認（退会者を含む全会員が影響範囲、件数は調査中）。東京海上ダイレクトは「＆e」の手続き・マイページ・アプリを再開（ドコモの自動車保険は停止継続）。Qzoo（モニタス）は第2報で再開がさらに1か月以上先の見通し、LIFULL不動産クラウドファンディングは10月29日からマイページ機能のメンテナンスが継続。17LIVEは11月28日に緊急メンテナンスで全サービスを一時停止（同日15:00頃終了予定）。 前回（2026年11月28日 09:27）：teketは11月30日の再開を延期し、再開は12月下旬ごろの見込みに（次回案内は12月4日まで）。みまもりGPSは11月27日18:30にサービスを再開し全機能が通常利用可能に。コトブキヤは11月27日から一部Webサイトで新たな緊急メンテナンスを開始し、終了時期は未定。 前々回（2026年11月27日 18:27）：ミンカブ「MINKABU／みんかぶアセットプランナー」への不正アクセスを新規追加。メールアドレス約15万3,000件と、口座連携先・金額とみられる情報約1万9,000件が漏えいした可能性があり、アセプラの該当機能は11月26日から停止中。アクサ損害保険は第3報で、ロードサービス委託先側の対象が約49万4,000件（銀行口座情報2,697件を含む）と判明したと発表。</description>
+      <pubDate>Sat, 28 Nov 2026 03:27:00 GMT</pubDate>
+      <dcterms:modified>2026-11-28T03:27:00.000Z</dcterms:modified>
       <media:content url="https://share.0g0.xyz/assets/emergency-maintenance-2026-11-ogp-v1.jpg" type="image/jpeg" medium="image"/>
       <media:thumbnail url="https://share.0g0.xyz/assets/emergency-maintenance-2026-11-ogp-v1.jpg"/>
     </item>
