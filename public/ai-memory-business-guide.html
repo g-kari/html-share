@@ -3,337 +3,73 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AIメモリと業務利用のリスク：ChatGPTとClaudeのメモリ機能を比較</title>
-<meta name="description" content="ChatGPTとClaudeのメモリ機能を公式資料で比較します。保存メモリと履歴参照、プロジェクト単位の分離、一時チャット、学習・保持・削除の違いを分け、業務利用の結論（条件付き有効化と案件単位の分離）、混同とメモリポイズニングのリスク、定期点検と混在テスト、効率を測る3条件の枠組みを整理します。">
+<title>ChatGPT・Claudeのメモリ機能と業務利用のリスク</title>
+<meta name="description" content="ChatGPTとClaudeのメモリ機能、情報混在リスク、プロジェクト分離、学習・保持・削除の違い、企業での推奨設定を公式資料に基づいて比較する。">
+<meta name="color-scheme" content="light dark">
 <link rel="canonical" href="https://share.0g0.xyz/ai-memory-business-guide">
-<link rel="stylesheet" href="/assets/site.css">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:title" content="AIメモリと業務利用のリスク：ChatGPTとClaudeのメモリ機能を比較">
-<meta property="og:description" content="条件付き有効化と案件単位の分離が基本。保存メモリ、プロジェクト分離、一時チャット、学習・保持・削除の違いと、混同・ポイズニングへの対処を公式資料で確認します。">
+<meta property="og:title" content="ChatGPT・Claudeのメモリ機能と業務利用のリスク">
+<meta property="og:description" content="ChatGPTとClaudeのメモリ機能、情報混在リスク、プロジェクト分離、学習・保持・削除の違い、企業での推奨設定を公式資料に基づいて比較する。">
 <meta property="og:url" content="https://share.0g0.xyz/ai-memory-business-guide">
-<meta property="og:image" content="https://share.0g0.xyz/assets/ai-memory-business-guide-ogp-v1.png">
-<meta property="og:image:type" content="image/png">
+<meta property="og:image" content="https://share.0g0.xyz/assets/ai-memory-business-guide-ogp-v1.jpg">
+<meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="AIメモリと業務利用のリスク。ChatGPTとClaudeのメモリ機能を比較">
+<meta property="og:image:height" content="628">
+<meta property="og:image:alt" content="AIのメモリと業務利用。過去の会話から記憶を蓄積し、プロジェクトごとに参照範囲を整理する">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://share.0g0.xyz/assets/ai-memory-business-guide-ogp-v1.png">
-<meta name="twitter:image:alt" content="AIメモリと業務利用のリスク。ChatGPTとClaudeのメモリ機能を比較">
+<meta name="twitter:image" content="https://share.0g0.xyz/assets/ai-memory-business-guide-ogp-v1.jpg">
+<meta name="twitter:image:alt" content="AIのメモリと業務利用。過去の会話から記憶を蓄積し、プロジェクトごとに参照範囲を整理する">
 <style>
-:root{--accent:#c8102e;--accent-dark:#ff4d4f}
-.fig{margin:1.25rem 0;max-inline-size:46rem}
-.fig svg{display:block;width:100%;height:auto;border:1px solid var(--line);background:var(--bg)}
-.fig figcaption{font-size:.9rem;margin-top:.55rem}
-table.cmp{border-collapse:collapse;margin:1rem 0;width:100%}
-table.cmp th,table.cmp td{border:1px solid var(--line);padding:.45rem .7rem;text-align:left;vertical-align:top}
+:root{color-scheme:light dark;--paper:#fff;--ink:#18181b;--muted:#52525b;--line:#a1a1aa;--soft:#f4f4f5;--accent:#a31525;--link:#9f1239;--space:1.15rem}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:1rem}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.8 system-ui,"Noto Sans JP","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;overflow-wrap:anywhere}a{color:var(--link);text-underline-offset:.2em}a:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:4px}header,.wrap,footer{width:min(1120px,calc(100% - 2rem));margin:auto}header{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;border-bottom:1px solid var(--line);padding:.7rem 0}header a{font-weight:700;text-decoration:none}header nav{display:flex;gap:1rem}main{padding:1.5rem 0 2rem}h1,h2,h3{line-height:1.4;letter-spacing:.01em;text-wrap:balance}h1{font-size:clamp(1.7rem,3.9vw,2.85rem);margin:.35rem 0 1rem}h2{font-size:clamp(1.25rem,2.5vw,1.7rem);border-top:1px solid var(--line);padding-top:1.1rem;margin:2.3rem 0 .9rem}h3{font-size:1.1rem;margin:1.25rem 0 .4rem}p{margin:.6rem 0 1rem}ul,ol{padding-left:1.5rem;margin:.5rem 0 1rem}li{margin:.35rem 0}.meta,figcaption,.note{font-size:.88rem;color:var(--muted)}.lead{font-size:1.1rem;max-width:75ch}.recommend{border-left:4px solid var(--accent);padding:0 0 0 1rem;font-size:1.14rem;font-weight:700}.toc{border-block:1px solid var(--line);padding:.75rem 0;display:flex;flex-wrap:wrap;gap:.35rem 1.25rem}.table-wrap{overflow-x:auto;max-width:100%}table{border-collapse:collapse;width:100%;font-size:.95rem}th,td{padding:.7rem .75rem;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}thead th{background:var(--soft);font-weight:700}tbody th{font-weight:650;width:23%}.wide-table{min-width:650px}.table-wrap[tabindex]{scrollbar-width:thin}details{border-bottom:1px solid var(--line);padding:.65rem 0}summary{cursor:pointer;font-weight:650;padding:.2rem .1rem}details[open] summary{color:var(--accent)}figure{margin:1.1rem 0 1.4rem;min-width:0}figcaption{margin:.55rem 0 0}.flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;gap:.7rem;padding:1rem 0}.flow.triad{grid-template-columns:repeat(3,minmax(0,1fr))}.flow-node{min-width:0;border-block:1px solid var(--line);padding:.75rem .2rem;text-align:center}.flow-node b{display:block;font-size:1.05rem}.flow-node span{display:block;font-size:.88rem;color:var(--muted)}.arrow{font-size:1.6rem;color:var(--accent);text-align:center}.compare{display:grid;grid-template-columns:1fr 1fr;gap:1.8rem}.compare>div{min-width:0}.lanes{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;text-align:center}.lane{border:1px solid var(--line);padding:.65rem .4rem}.join{grid-column:1/-1;border-block:1px solid var(--line);padding:.55rem}.danger{color:var(--accent);font-weight:700}.status{font-weight:700;color:var(--accent)}.sources li{margin-bottom:.5rem}.policy{padding:.1rem 0 .1rem 1rem;border-left:3px solid var(--line)}.policy li{margin:.6rem 0}.checklist{list-style:none;padding-left:0}.checklist li{border-bottom:1px solid var(--line);padding:.55rem 0}.checklist label{display:flex;align-items:flex-start;gap:.65rem;cursor:pointer}.checklist input{accent-color:var(--accent);margin-top:.48rem;inline-size:1.1rem;block-size:1.1rem;flex:none}.risk td:first-child{font-weight:650}.src{font-size:.79em;white-space:nowrap}footer{border-top:1px solid var(--line);padding:1rem 0 1.5rem;font-size:.9rem;color:var(--muted)}@media(prefers-color-scheme:dark){:root{--paper:#17171a;--ink:#f4f4f5;--muted:#c5c5cb;--line:#71717a;--soft:#26262b;--accent:#ff8490;--link:#ffabb4}}@media(max-width:680px){body{font-size:15px}header,.wrap,footer{width:calc(100% - 1.4rem)}.compare{grid-template-columns:1fr;gap:.8rem}.flow,.flow.triad{grid-template-columns:1fr;gap:.15rem}.arrow{transform:rotate(90deg);line-height:1.4}.flow-node{padding:.5rem}.table-wrap table{font-size:.9rem}.wide-table{min-width:630px}th,td{padding:.5rem}h2{margin-top:1.7rem}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}@media print{header,.toc,.checklist input{display:none}body{font-size:11pt;color:#000;background:#fff}details:not([open])>:not(summary){display:block}.table-wrap{overflow:visible}.wide-table{min-width:0}a{color:#000}h2{break-after:avoid}tr,figure{break-inside:avoid}}
 </style>
-  <!-- html-share: social metadata -->
-  <meta property="og:site_name" content="HTML Share">
-  <meta name="twitter:title" content="AIメモリと業務利用のリスク：ChatGPTとClaudeのメモリ機能を比較">
-  <meta name="twitter:description" content="条件付き有効化と案件単位の分離が基本。保存メモリ、プロジェクト分離、一時チャット、学習・保持・削除の違いと、混同・ポイズニングへの対処を公式資料で確認します。">
-  <!-- /html-share: social metadata -->
-  <!-- html-share: rss discovery -->
-  <link rel="alternate" type="application/rss+xml" title="HTML Share RSS" href="https://share.0g0.xyz/feed.xml">
-  <!-- /html-share: rss discovery -->
 </head>
 <body>
-<div class="wrap">
-<nav class="sitebar" aria-label="サイト内"><a class="brand" href="/">HTML Share</a><nav><a href="/">一覧</a><a href="/feed.xml">RSS</a></nav></nav>
-<header class="top">
-<div class="kicker">AIの業務利用とメモリ</div>
-<h1>AIメモリと業務利用のリスク：ChatGPTとClaudeのメモリ機能を比較</h1>
-<p class="meta">確認日：2026年11月28日<br>一次資料はOpenAI公式ヘルプ（メモリ、Projects、一時チャット、データコントロール、保持、法人向けメモリFAQ）、Claude公式サポート（メモリと過去チャット検索、Projects、Incognitoチャット、学習利用）、OWASP GenAI Security ProjectのASI06です。製品の仕様は公式ページで確認できた範囲だけを書き、確認できなかった点は「未確認の点」に分けます。</p>
-</header>
-
-<div class="summary3">
-<div class="ttl">要点</div>
-<ol>
-<li>結論：許可された一般業務では、メモリは条件付きで有効化するのが基本です。案件ごとに参照範囲を分け、機密性が高い案件や契約で制限が必要な案件では無効化または利用制限を選びます。一律の無効化は安全側ですが、毎回のプロンプト作成、再説明、手戻りが増えるコストがあります。</li>
-<li>メモリが参照する情報は3層に分けて考えます。アカウント共通の指示（回答形式などの一般ルール）、プロジェクトの文脈（仕様、経緯、資料）、そのチャットの今回の依頼です。混同は主に2層目で起きます。</li>
-<li>製品側の分離設定と、自然言語で「この案件の情報だけ使って」と頼むことは別物です。後者はアクセス制御の代替にはなりません。分離は設定（ChatGPTのプロジェクト専用メモリ、ClaudeのUse account memoryオフ）で担保します。</li>
-<li>学習、保持、削除はメモリとは別の仕組みです。チャットを削除しても<a class="gloss" href="/glossary#term-saved-memory" title="ChatGPTで、利用者が明示的に覚えるよう頼んだ詳細や、ChatGPTが有用な文脈として保存した詳細。チャット履歴とは別に保存される。">保存メモリ</a>は自動では消えません。逆に、メモリを切っても学習設定は変わりません。項目ごとに分けて確認が必要です。</li>
-<li>リスクは、他案件の情報、古い前提、過去の承認が混ざる「混同」と、汚染された情報がメモリに残って将来の回答を歪める「<a class="gloss" href="/glossary#term-memory-poisoning" title="汚染された情報がAIのメモリや検索用の保存領域に入り込み、将来の回答や行動を歪める攻撃・現象。OWASP GenAI Security ProjectのASI06で扱われる。">メモリポイズニング</a>」です。対策は、定期点検と、架空データでの混在テストです。</li>
-</ol>
-</div>
-
-<nav class="toc">
-<div class="ttl">目次</div>
-<ol>
-<li><a href="#layers">メモリが参照する3つの層</a></li>
-<li><a href="#chatgpt">ChatGPTのメモリ：保存メモリと履歴参照</a></li>
-<li><a href="#claude">Claudeのメモリ：トピック保存とプロジェクトメモリ</a></li>
-<li><a href="#temporary">一時的な会話：一時チャットとIncognito</a></li>
-<li><a href="#retention">学習・保持・削除はメモリとは別</a></li>
-<li><a href="#admin">法人・組織での管理</a></li>
-<li><a href="#risks">リスク：混同とメモリポイズニング</a></li>
-<li><a href="#operations">運用：定期点検と混在テスト</a></li>
-<li><a href="#efficiency">効率を測る：3条件の比較枠組み</a></li>
-<li><a href="#glossary-notes">用語補足</a></li>
-<li><a href="#limits">未確認の点</a></li>
-<li><a href="#sources">資料と出典</a></li>
-</ol>
-</nav>
-
-<h2 id="layers">メモリが参照する3つの層</h2>
-<p>「メモリをオンにするか」だけでは設計できません。回答に効いてくる情報は、出どころと効く範囲が違う3層に分かれます。第1層はアカウント共通の指示で、回答形式や一般的な進め方など、案件を問わないルールです。第2層はプロジェクトの文脈で、仕様、経緯、資料、過去の決定など、案件に閉じるべき情報です。第3層はそのチャットの今回の依頼で、会話が終われば効かなくてよい情報です。</p>
-<p>業務利用で問題になるのは、主に第2層の扱いです。第2層が案件をまたいで参照されると、他案件の仕様や古い前提が混ざります。逆に第1層まで毎回チャットに書き直す運用にすると、無効化のコストがそのまま作業時間に乗ります。層ごとに「覚えさせるか」「どの範囲で参照させるか」を決めるのが、この記事の前提です。</p>
-<figure class="fig">
-<svg viewBox="0 0 720 300" role="img" aria-label="メモリが参照する3層の図。第1層はアカウント共通の指示で全チャットに効く。第2層はプロジェクトの文脈で案件単位に分ける。第3層はそのチャットの今回の依頼だけで、会話が終われば効かない。">
-<rect x="60" y="20" width="600" height="70" fill="none" stroke="currentColor" stroke-width="2"/>
-<text x="80" y="50" font-size="17" fill="currentColor">第1層 アカウント共通の指示</text>
-<text x="80" y="76" font-size="14" fill="currentColor">回答形式・一般ルール。全チャットに効く</text>
-<rect x="60" y="115" width="600" height="70" fill="none" stroke="#c8102e" stroke-width="2.5"/>
-<text x="80" y="145" font-size="17" fill="currentColor">第2層 プロジェクトの文脈</text>
-<text x="80" y="171" font-size="14" fill="currentColor">仕様・経緯・資料。案件単位に分ける（混同が起きる層）</text>
-<rect x="60" y="210" width="600" height="70" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="6 4"/>
-<text x="80" y="240" font-size="17" fill="currentColor">第3層 今回の依頼</text>
-<text x="80" y="266" font-size="14" fill="currentColor">そのチャット限り。会話が終われば効かなくてよい</text>
-</svg>
-<figcaption>図：メモリが参照する3層。分離の設計が要るのは第2層で、第1層まで毎回書き直す運用は無効化のコストを増やす。</figcaption>
-</figure>
-
-<h2 id="chatgpt">ChatGPTのメモリ：保存メモリと履歴参照</h2>
-<p>ChatGPTのメモリには、性質の違う2つがあります。「保存したメモリ」は、利用者が明示的に覚えるよう頼んだ詳細や、ChatGPTが有用な文脈として保存した詳細で、チャット履歴とは別に保存されます。「チャット履歴を参照」は、過去の会話の関連情報を今後の応答に使う仕組みで、保存メモリとは別にオン・オフできます。ただし連動があり、「保存したメモリを参照」をオフにすると「チャット履歴を参照」もオフになります。</p>
-<p>新しい形として、継続的に更新される広い概要（メモリの要約）を使う「改善されたメモリ」もあり、従来の項目リスト型の保存メモリと切り替えられます。改善されたメモリでは、プロジェクト専用メモリで文脈を特定プロジェクト内に限定できます（同じプロジェクト内のみ相互参照し、プロジェクト外とは相互に参照しません）。</p>
-<p>プロジェクトのメモリ設定は、Enterprise／Edu向けの公式表で確認できます。プロジェクト内チャットでメモリが「default」の場合はChatGPTメモリを利用できますが、「project-only」の場合はChatGPTメモリは使えず、参照はプロジェクト内のみに限られます。どちらの場合も、カスタム指示は使えず、プロジェクト指示のみが適用されます。</p>
-<p>設定場所は「設定 ＞ パーソナライズ ＞ メモリ」です。メモリをオフにしても過去のチャットは削除されません。再度オンにすると、履歴に残っているチャットから新たに情報を覚えることがあります。</p>
-<figure class="fig">
-<svg viewBox="0 0 720 260" role="img" aria-label="ChatGPTのメモリの動き。通常のチャットから、保存メモリと履歴参照の2経路で情報が蓄えられ、次のチャットの回答に使われる。プロジェクト専用メモリでは参照がプロジェクト内に閉じる。">
-<rect x="30" y="90" width="150" height="80" fill="none" stroke="currentColor" stroke-width="2"/>
-<text x="55" y="125" font-size="16" fill="currentColor">通常のチャット</text>
-<text x="55" y="150" font-size="13" fill="currentColor">会話・依頼</text>
-<rect x="285" y="30" width="180" height="70" fill="none" stroke="currentColor" stroke-width="2"/>
-<text x="305" y="60" font-size="16" fill="currentColor">保存したメモリ</text>
-<text x="305" y="84" font-size="13" fill="currentColor">履歴とは別に保存</text>
-<rect x="285" y="160" width="180" height="70" fill="none" stroke="currentColor" stroke-width="2"/>
-<text x="305" y="190" font-size="16" fill="currentColor">チャット履歴を参照</text>
-<text x="305" y="214" font-size="13" fill="currentColor">過去の会話から参照</text>
-<rect x="560" y="90" width="140" height="80" fill="none" stroke="#c8102e" stroke-width="2.5"/>
-<text x="585" y="125" font-size="16" fill="currentColor">次の回答</text>
-<text x="585" y="150" font-size="13" fill="currentColor">パーソナライズ</text>
-<path d="M180 110 L285 70" stroke="currentColor" stroke-width="2" fill="none" marker-end="url(#arr)"/>
-<path d="M180 150 L285 195" stroke="currentColor" stroke-width="2" fill="none" marker-end="url(#arr)"/>
-<path d="M465 65 L560 110" stroke="currentColor" stroke-width="2" fill="none" marker-end="url(#arr)"/>
-<path d="M465 195 L560 150" stroke="currentColor" stroke-width="2" fill="none" marker-end="url(#arr)"/>
-<defs><marker id="arr" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="currentColor"/></marker></defs>
-</svg>
-<figcaption>図：ChatGPTのメモリの動き。保存メモリと履歴参照は別の経路で、片方を切ってももう片方のデータが消えるとは限らない。</figcaption>
-</figure>
-
-<h2 id="claude">Claudeのメモリ：トピック保存とプロジェクトメモリ</h2>
-<p>Claudeのメモリは、会話の終了後にまとめて要約するのではなく、チャット中に個別の「トピック」として随時保存されます。利用者が「これを覚えて」と指示して直接保存させることもできます。オン・オフは「Settings ＞ Your Claude」の「Generate memory from chats」で切り替え、覚えている内容は同じ画面の「Your memory」からトピックごとに確認、編集、削除できます。変更は以降の全会話に適用されます。</p>
-<p>メモリとは別に「過去チャット検索」があります。有料プラン（Pro、Max、Ultra、Team、Enterprise）向けで、展開時点でデフォルト有効です。過去の会話を検索して参照し、参照時は元のチャットへのリンクが表示されます。「Search and reference chats」のトグルでオフにできます。</p>
-<p><a class="gloss" href="/glossary#term-project-memory" title="AIのプロジェクト単位で保持されるメモリ。案件ごとに参照範囲を分けるための単位で、製品ごとに分離の設定方法が異なる。">プロジェクトメモリ</a>はプロジェクトごとに独立しています。ただしデフォルトでは、プロジェクト内のチャットは「そのプロジェクトのメモリ」に加えて「プロジェクト外チャットのメモリ」も使います。他のプロジェクトのメモリは使いません。新しいメモリはそのプロジェクトに保存されますが、メモリがオンの間はプロジェクト外のチャットからも参照され得ます。完全に分離したい場合は、プロジェクトページのMemory欄で「Use account memory」をオフにします。これが、この記事の結論でいう「製品側の分離設定」の実例です。</p>
-<p>1つのチャットだけメモリを切りたい場合は、新規チャット開始時に「+」メニューでMemoryをオフにします。そのチャットではメモリを使わず、保存もせず、過去チャット検索もしません。ただし履歴には残り、他の会話からの過去チャット検索では見つけられます。開始後に切り替えることはできず、変える場合は新しいチャットが必要です。センシティブな話題（健康、人種、宗教的信条、政治など）はデフォルトでは保存されず、保存するには専用設定のオプトインが必要です。</p>
-<figure class="fig">
-<svg viewBox="0 0 720 280" role="img" aria-label="Claudeのプロジェクトメモリの分離。プロジェクトAのメモリとプロジェクトBのメモリは互いに使わない。デフォルトではアカウントメモリがプロジェクト内でも使われるが、Use account memoryをオフにするとプロジェクト内に閉じる。">
-<rect x="40" y="30" width="280" height="100" fill="none" stroke="currentColor" stroke-width="2"/>
-<text x="60" y="62" font-size="16" fill="currentColor">プロジェクトAのメモリ</text>
-<text x="60" y="88" font-size="13" fill="currentColor">Aのチャットから保存</text>
-<text x="60" y="110" font-size="13" fill="currentColor">Bのメモリは使わない</text>
-<rect x="400" y="30" width="280" height="100" fill="none" stroke="currentColor" stroke-width="2"/>
-<text x="420" y="62" font-size="16" fill="currentColor">プロジェクトBのメモリ</text>
-<text x="420" y="88" font-size="13" fill="currentColor">Bのチャットから保存</text>
-<text x="420" y="110" font-size="13" fill="currentColor">Aのメモリは使わない</text>
-<rect x="190" y="180" width="340" height="70" fill="none" stroke="#c8102e" stroke-width="2.5"/>
-<text x="210" y="210" font-size="16" fill="currentColor">アカウントメモリ（デフォルトで併用）</text>
-<text x="210" y="234" font-size="13" fill="currentColor">Use account memoryオフで分離が完成</text>
-<path d="M180 130 L260 180" stroke="currentColor" stroke-width="2" fill="none" stroke-dasharray="6 4"/>
-<path d="M540 130 L460 180" stroke="currentColor" stroke-width="2" fill="none" stroke-dasharray="6 4"/>
-</svg>
-<figcaption>図：Claudeのプロジェクトメモリ。プロジェクト同士は分かれているが、アカウントメモリの併用がデフォルトのため、分離は設定で仕上げる必要がある。</figcaption>
-</figure>
-
-<h2 id="temporary">一時的な会話：一時チャットとIncognito</h2>
-<p>どちらの製品にも、メモリに残さない一時的な会話の仕組みがあります。ChatGPTの一時チャットは、保存しない限り履歴に表示されず、その会話の間はメモリを作成・更新せず、モデル改善にも使われません。開始前に「パーソナライズあり」を選んだ場合だけ、既存のメモリを使って回答します。保存すると通常のチャットに変換され、通常の保持とモデル改善設定が適用されます。安全上の目的で、コピーが最長30日間保持される場合があります。</p>
-<p>ClaudeのIncognitoチャットは、チャット履歴にもメモリにも保存されず、過去チャット検索でも引き出されません。プロジェクト内では使えません（プロジェクト内では、1チャットだけメモリをオフにする方法が代替として案内されています）。閉じたIncognitoチャットは再び開けず、通常チャットへの変換もできません。プロフィール情報（カスタムスタイルや個人の好み）にはアクセスできる点は、一時チャットでパーソナライズありを選んだ場合と似ています。</p>
-<p>使い分けの目安は単純です。履歴にも残したくない一時的な相談はIncognito（Claude）か一時チャット（ChatGPT）。履歴は残してよいが、メモリに混ぜたくない作業は、Claudeならメモリ・オフで開始したチャットが該当します。</p>
-<figure class="fig">
-<svg viewBox="0 0 720 240" role="img" aria-label="一時的な会話の比較。通常チャットは履歴とメモリに残る。一時チャットとIncognitoはメモリに残らない。Incognitoは履歴にも残らない。">
-<rect x="40" y="40" width="190" height="150" fill="none" stroke="currentColor" stroke-width="2"/>
-<text x="60" y="72" font-size="16" fill="currentColor">通常チャット</text>
-<text x="60" y="104" font-size="14" fill="currentColor">履歴：残る</text>
-<text x="60" y="130" font-size="14" fill="currentColor">メモリ：残る</text>
-<text x="60" y="156" font-size="14" fill="currentColor">検索対象：なる</text>
-<rect x="265" y="40" width="190" height="150" fill="none" stroke="currentColor" stroke-width="2"/>
-<text x="285" y="72" font-size="16" fill="currentColor">一時チャット</text>
-<text x="285" y="104" font-size="14" fill="currentColor">履歴：残らない</text>
-<text x="285" y="130" font-size="14" fill="currentColor">メモリ：作らない</text>
-<text x="285" y="156" font-size="14" fill="currentColor">学習：使われない</text>
-<rect x="490" y="40" width="190" height="150" fill="none" stroke="#c8102e" stroke-width="2.5"/>
-<text x="510" y="72" font-size="16" fill="currentColor">Incognito</text>
-<text x="510" y="104" font-size="14" fill="currentColor">履歴：残らない</text>
-<text x="510" y="130" font-size="14" fill="currentColor">メモリ：残らない</text>
-<text x="510" y="156" font-size="14" fill="currentColor">検索対象：ならない</text>
-</svg>
-<figcaption>図：一時的な会話の残り方の違い。名称は製品ごとに違うが、「履歴」「メモリ」「検索・学習」の3点で比べると選びやすい。</figcaption>
-</figure>
-
-<h2 id="retention">学習・保持・削除はメモリとは別</h2>
-<p>メモリ、学習、保持、削除は、それぞれ別の設定と別の動きをします。OpenAIのデータコントロールのページは、メモリはパーソナライズを制御するもので、モデルトレーニングの設定とは別だと明記しています。メモリをオフにしても学習設定は変わらず、学習をオフにしてもメモリは消えません。</p>
-<p>学習の既定値はプランで分かれます。ChatGPTの個人向け（Free、Plus、Pro）では「すべての人のためにモデルを改善する」がデフォルトで有効で、チャットや記憶した情報がモデル改善に使われることがあります。Business、Enterprise、Edu、ヘルスケア向けのワークスペースでは、デフォルトでは学習に使われません。Claudeでは、商用製品（Claude for Work、Anthropic APIなど）はデフォルトで入力・出力を学習に使いません。ただし、利用者がフィードバック（サムズアップ／ダウンなど）を送った場合は例外で、その会話全体が最大5年間保存され、学習に使われることがあります。</p>
-<p>保持と削除で実務上いちばん重要なのは、ChatGPTで「チャットを削除しても、そこから別途保存されたメモリは自動では消えない」点です。完全に消すには、保存済みメモリの項目を削除し、その情報に言及したチャットを削除し、ライブラリやSpaceのファイル、接続済みアプリ側に情報があればそちらからも削除する必要があります。削除の反映にも段階があり、チャットは表示からは即時に消えますが、システムからの完全削除は30日以内が目安です。「チャット履歴を参照」をオフにした場合も、過去のチャットから覚えた情報は30日以内に削除される予定です。削除された保存メモリのログが、安全性とデバッグの目的で最長30日間保持される場合もあります。</p>
-<p>通常チャットの保持は、ChatGPTでは利用者が削除するか、ワークスペースの保持ポリシーで削除されるまで続きます。Claudeのメモリは、既存のチャットデータ保持ポリシーに従って保持されると公式ページにあります（具体的な日数は公式ページに記載がありませんでした）。</p>
-<figure class="fig">
-<svg viewBox="0 0 720 250" role="img" aria-label="チャット削除だけでは消えない経路の図。元のチャットを削除しても、保存メモリ、ファイル、接続済みアプリ側のコピーは別に残るため、それぞれ削除が必要。">
-<rect x="40" y="85" width="170" height="80" fill="none" stroke="currentColor" stroke-width="2"/>
-<text x="60" y="118" font-size="16" fill="currentColor">元のチャット</text>
-<text x="60" y="143" font-size="13" fill="currentColor">削除しても…</text>
-<rect x="300" y="20" width="180" height="60" fill="none" stroke="#c8102e" stroke-width="2.5"/>
-<text x="320" y="56" font-size="15" fill="currentColor">保存メモリ（別保存）</text>
-<rect x="300" y="100" width="180" height="60" fill="none" stroke="#c8102e" stroke-width="2.5"/>
-<text x="320" y="136" font-size="15" fill="currentColor">ファイル（ライブラリ等）</text>
-<rect x="300" y="180" width="180" height="60" fill="none" stroke="#c8102e" stroke-width="2.5"/>
-<text x="320" y="216" font-size="15" fill="currentColor">接続済みアプリ側</text>
-<rect x="540" y="85" width="150" height="80" fill="none" stroke="currentColor" stroke-width="2"/>
-<text x="560" y="118" font-size="16" fill="currentColor">完全な削除</text>
-<text x="560" y="143" font-size="13" fill="currentColor">各経路を個別に</text>
-<path d="M210 105 L300 55" stroke="currentColor" stroke-width="2" fill="none"/>
-<path d="M210 125 L300 130" stroke="currentColor" stroke-width="2" fill="none"/>
-<path d="M210 145 L300 205" stroke="currentColor" stroke-width="2" fill="none"/>
-<path d="M480 50 L540 100" stroke="currentColor" stroke-width="2" fill="none" stroke-dasharray="6 4"/>
-<path d="M480 130 L540 125" stroke="currentColor" stroke-width="2" fill="none" stroke-dasharray="6 4"/>
-<path d="M480 210 L540 150" stroke="currentColor" stroke-width="2" fill="none" stroke-dasharray="6 4"/>
-</svg>
-<figcaption>図：削除の経路。チャットの削除と、保存メモリ・ファイル・接続先の削除は別操作で、完全な削除には各経路の処理が要る。</figcaption>
-</figure>
-
-<h2 id="admin">法人・組織での管理</h2>
-<p>法人利用では、個人設定の上に組織の管理が乗ります。ChatGPT Businessでは、メモリは各個人のアカウントに紐づき、同じワークスペースの他メンバーとは共有されません。メモリとパーソナライズの制御は個人とワークスペースの両方にあり、ワークスペースの所有者が全体でオフにすると、そのワークスペースの既存の保存メモリは削除されます。Businessのデータ（会話とメモリを含む）は、デフォルトではモデル学習に使われません。</p>
-<p>ClaudeのTeam／Enterpriseでは、組織のOwnerがメモリの利用可否を管理します。組織全体の設定はデフォルトでオンで、その間は個人が自分の設定を管理します。Ownerが組織でメモリをオフにすると、全ユーザーで利用と保存が止まり、個人は再びオンにできません。Ownerでも個人のメモリを閲覧・編集はできません。組織の作成時期によって初期状態が違い、2026年10月31日（太平洋時間）以降に作成された組織では各メンバーのメモリは初期オン、それより古い組織では各メンバーがオンにするまでオフです。HIPAA有効組織など一部の組織では初期オンになりません。</p>
-<p>管理者にとっての確認点は3つです。組織の既定値（オンかオフか）、個人が変えられる範囲、オフにしたときに既存メモリがどうなるか（削除されるのか、使えなくなるだけか）。この3点は製品ごとに答えが違うため、導入時に公式ページで確認して社内ルールに書き写しておくのが安全です。</p>
-<figure class="fig">
-<svg viewBox="0 0 720 250" role="img" aria-label="組織管理の階層図。組織の管理者が全体の可否を決め、その範囲内で個人が自分のメモリ設定を管理する。管理者がオフにすると個人はオンにできない。">
-<rect x="160" y="20" width="400" height="60" fill="none" stroke="currentColor" stroke-width="2"/>
-<text x="180" y="56" font-size="16" fill="currentColor">組織の管理者（全体の可否・既定値）</text>
-<rect x="160" y="110" width="400" height="60" fill="none" stroke="currentColor" stroke-width="2"/>
-<text x="180" y="146" font-size="16" fill="currentColor">個人の設定（許可された範囲で変更）</text>
-<rect x="160" y="200" width="400" height="40" fill="none" stroke="#c8102e" stroke-width="2.5"/>
-<text x="180" y="226" font-size="15" fill="currentColor">管理者がオフ → 個人はオンにできない</text>
-<path d="M360 80 L360 110" stroke="currentColor" stroke-width="2" fill="none"/>
-<path d="M360 170 L360 200" stroke="currentColor" stroke-width="2" fill="none"/>
-</svg>
-<figcaption>図：組織管理の階層。個人設定の前に、組織の既定値と「オフ時の既存メモリの扱い」を確認する。</figcaption>
-</figure>
-
-<h2 id="risks">リスク：混同とメモリポイズニング</h2>
-<p>1つ目のリスクは混同です。他案件の情報、古い前提、過去に承認された内容が、別の案件の回答に混ざります。原因は、分離されていない第2層（プロジェクトの文脈）が案件をまたいで参照されることです。症状は「前の案件の仕様で答える」「終了したはずの前提で計画する」「過去の承認を現在の承認と取り違える」などで、回答自体は自然な文章で出てくるため、気づきにくいのが特徴です。</p>
-<p>2つ目はメモリポイズニングです。OWASP GenAI Security ProjectのASI06（Memory &amp; Context Poisoning）は、汚染された情報がメモリや検索用の保存領域に入り、将来の推論、計画、ツールの使い方を歪めるリスクを扱います。入り口は、アップロード、APIフィード、利用者の入力、エージェント同士のやり取りなどです。一度保存されると汚染はセッションをまたいで残り、目標の解釈やツールの選択にまで影響し得ます。対策として挙げられているのは、メモリへの書き込み前の内容検証、メモリの分離（セグメンテーション）、保持の最小化、出所の記録と異常な更新の検知、未検証メモリの失効、スナップショットとロールバック、高リスク操作への人間のレビューです。</p>
-<p>どちらのリスクも、「この案件の話だけ使って」と自然言語で頼むことでは防げません。それはモデルへのお願いであり、アクセス制御ではありません。防ぐのは、製品側の分離設定、メモリに何が入っているかの点検、そして混入を検知するテストです。</p>
-<figure class="fig">
-<svg viewBox="0 0 720 250" role="img" aria-label="メモリポイズニングの伝播図。アップロードや入力などの入口から汚染された情報がメモリに入り、将来の別セッションの回答や行動を歪める。書き込み前の検証と分離が防御になる。">
-<rect x="30" y="85" width="150" height="80" fill="none" stroke="currentColor" stroke-width="2"/>
-<text x="50" y="115" font-size="15" fill="currentColor">入口</text>
-<text x="50" y="140" font-size="13" fill="currentColor">入力・資料・連携</text>
-<rect x="225" y="85" width="120" height="80" fill="none" stroke="#c8102e" stroke-width="2.5"/>
-<text x="245" y="115" font-size="15" fill="currentColor">検証</text>
-<text x="245" y="140" font-size="13" fill="currentColor">書き込み前</text>
-<rect x="390" y="85" width="130" height="80" fill="none" stroke="currentColor" stroke-width="2"/>
-<text x="410" y="115" font-size="15" fill="currentColor">メモリ</text>
-<text x="410" y="140" font-size="13" fill="currentColor">保存・蓄積</text>
-<rect x="565" y="85" width="140" height="80" fill="none" stroke="currentColor" stroke-width="2"/>
-<text x="585" y="115" font-size="15" fill="currentColor">将来の回答</text>
-<text x="585" y="140" font-size="13" fill="currentColor">別セッション</text>
-<path d="M180 125 L225 125" stroke="currentColor" stroke-width="2" fill="none"/>
-<path d="M345 125 L390 125" stroke="currentColor" stroke-width="2" fill="none"/>
-<path d="M520 125 L565 125" stroke="currentColor" stroke-width="2" fill="none"/>
-<text x="225" y="55" font-size="14" fill="currentColor">検証と分離をすり抜けると、汚染はセッションをまたいで残る</text>
-</svg>
-<figcaption>図：メモリポイズニングの伝播。入口での検証と、メモリの分離・失効が、汚染を将来の回答へ持ち越さないための防御になる。</figcaption>
-</figure>
-
-<h2 id="operations">運用：定期点検と混在テスト</h2>
-<p>有効化したメモリは、置きっぱなしにせず運用します。点検は3点です。第1に、メモリの中身の棚卸しです。ChatGPTなら保存済みメモリ（またはメモリの要約）、ClaudeならYour memoryのトピック一覧を開き、古い前提、終了した案件、誤って入った他案件の情報がないかを確認して、編集または削除します。第2に、参照範囲の確認です。案件が増えた、担当が変わった、契約条件が変わったタイミングで、プロジェクトの分離設定（プロジェクト専用メモリ、Use account memory）が意図どおりかを見直します。第3に、混在テストです。</p>
-<p>混在テストは、架空の2案件を使って行います。案件Aと案件Bに、それぞれ固有の架空の数値や名称（実データは使わない）を覚えさせ、AのチャットでBの前提が混ざらないか、BのチャットでAの数値が出てこないかを確認します。分離設定を変えたとき、プランや製品の仕様が変わったときにも同じテストを繰り返します。結果は「混ざった／混ざらなかった」と、混ざった場合はどの設定で起きたかを記録します。</p>
-<figure class="fig">
-<svg viewBox="0 0 720 230" role="img" aria-label="定期点検のサイクル図。メモリの棚卸し、参照範囲の確認、架空データでの混在テスト、結果の記録を繰り返す。">
-<rect x="30" y="70" width="150" height="80" fill="none" stroke="currentColor" stroke-width="2"/>
-<text x="50" y="103" font-size="15" fill="currentColor">1. 棚卸し</text>
-<text x="50" y="128" font-size="13" fill="currentColor">中身の確認・削除</text>
-<rect x="210" y="70" width="150" height="80" fill="none" stroke="currentColor" stroke-width="2"/>
-<text x="230" y="103" font-size="15" fill="currentColor">2. 範囲の確認</text>
-<text x="230" y="128" font-size="13" fill="currentColor">分離設定の見直し</text>
-<rect x="390" y="70" width="150" height="80" fill="none" stroke="#c8102e" stroke-width="2.5"/>
-<text x="410" y="103" font-size="15" fill="currentColor">3. 混在テスト</text>
-<text x="410" y="128" font-size="13" fill="currentColor">架空データで検証</text>
-<rect x="570" y="70" width="130" height="80" fill="none" stroke="currentColor" stroke-width="2"/>
-<text x="590" y="103" font-size="15" fill="currentColor">4. 記録</text>
-<text x="590" y="128" font-size="13" fill="currentColor">結果を残す</text>
-<path d="M180 110 L210 110" stroke="currentColor" stroke-width="2" fill="none"/>
-<path d="M360 110 L390 110" stroke="currentColor" stroke-width="2" fill="none"/>
-<path d="M540 110 L570 110" stroke="currentColor" stroke-width="2" fill="none"/>
-<path d="M635 150 L635 185 L105 185 L105 150" stroke="currentColor" stroke-width="2" fill="none" stroke-dasharray="6 4"/>
-<text x="300" y="205" font-size="13" fill="currentColor">案件・契約・仕様が変わるたびに繰り返す</text>
-</svg>
-<figcaption>図：定期点検のサイクル。棚卸しと範囲確認だけでは混入は検知できないため、架空データの混在テストを組み合わせる。</figcaption>
-</figure>
-
-<h2 id="efficiency">効率を測る：3条件の比較枠組み</h2>
-<p>「メモリでどれだけ速くなるか」には、製品共通の公式な測定値がありません。導入判断には、自組織の作業で測る必要があります。測り方は、同じ種類の作業を次の3条件で比べる枠組みです。数値は実測するもので、この記事では作りません（未測定の効率値は掲載しません）。</p>
-<table class="cmp">
-<tr><th>条件</th><th>設定</th><th>何が分かるか</th></tr>
-<tr><td>A：無効＋指示なし</td><td>メモリ無効。毎回、文脈をプロンプトに書く</td><td>基準線。安全だが再説明のコストが最大</td></tr>
-<tr><td>B：無効＋固定指示</td><td>メモリ無効。第1層（共通の指示）だけを固定文として毎回渡す</td><td>固定指示で代替できる範囲と、残る再説明の量</td></tr>
-<tr><td>C：有効・分離＋指示あり</td><td>メモリ有効。案件単位に分離し、固定指示も併用</td><td>メモリ自体の効果と、混同の発生有無</td></tr>
-</table>
-<p>測る指標は4つです。プロンプト作成時間（作業開始から送信まで）、修正回数（意図と違う前提を直した回数）、品質（出来上がりの評価を同じ物差しで）、混在件数（他案件の情報や古い前提が混ざった件数）。条件Cで時間が短くても、混在件数が増えるなら分離設定の見直しが先です。逆に条件Bで条件Cとほぼ同じ結果なら、その作業ではメモリを使わない選択が合理的です。</p>
-<figure class="fig">
-<svg viewBox="0 0 720 210" role="img" aria-label="3条件の比較の流れ。同じ作業を条件A（無効＋指示なし）、条件B（無効＋固定指示）、条件C（有効・分離＋指示あり）で実行し、プロンプト作成時間、修正回数、品質、混在件数の4指標で比べる。">
-<rect x="30" y="30" width="130" height="60" fill="none" stroke="currentColor" stroke-width="2"/>
-<text x="50" y="66" font-size="15" fill="currentColor">条件A 無効</text>
-<rect x="30" y="110" width="130" height="60" fill="none" stroke="currentColor" stroke-width="2"/>
-<text x="50" y="146" font-size="15" fill="currentColor">条件B 固定指示</text>
-<rect x="200" y="70" width="180" height="60" fill="none" stroke="currentColor" stroke-width="2"/>
-<text x="220" y="95" font-size="15" fill="currentColor">同じ作業を実行</text>
-<text x="220" y="118" font-size="13" fill="currentColor">条件ごとに繰り返す</text>
-<rect x="430" y="30" width="260" height="140" fill="none" stroke="#c8102e" stroke-width="2.5"/>
-<text x="450" y="60" font-size="15" fill="currentColor">測る4指標</text>
-<text x="450" y="88" font-size="14" fill="currentColor">プロンプト作成時間／修正回数</text>
-<text x="450" y="114" font-size="14" fill="currentColor">品質／混在件数</text>
-<text x="450" y="140" font-size="13" fill="currentColor">数値は実測のみ。推定値は使わない</text>
-<path d="M160 60 L200 90" stroke="currentColor" stroke-width="2" fill="none"/>
-<path d="M160 140 L200 110" stroke="currentColor" stroke-width="2" fill="none"/>
-<path d="M380 100 L430 100" stroke="currentColor" stroke-width="2" fill="none"/>
-</svg>
-<figcaption>図：効率の測り方。時間だけでなく混在件数を必ずセットで測り、速さと混同を天秤にかける。</figcaption>
-</figure>
-
-<h2 id="glossary-notes">用語補足</h2>
-<dl>
-<dt>保存メモリ（Saved memories）</dt>
-<dd>ChatGPTで、利用者が明示的に覚えるよう頼んだ詳細や、ChatGPTが有用な文脈として保存した詳細。チャット履歴とは別に保存され、元のチャットを削除しても自動では消えません。</dd>
-<dt>プロジェクトメモリ</dt>
-<dd>プロジェクト単位で保持されるメモリの総称。ChatGPTのプロジェクト専用メモリ、Claudeのプロジェクトごとのメモリが該当します。案件単位の分離はこの単位で行います。</dd>
-<dt>メモリポイズニング（Memory poisoning）</dt>
-<dd>汚染された情報がAIのメモリや検索用の保存領域に入り込み、将来の回答、計画、ツールの使い方を歪める攻撃・現象。OWASP GenAI Security ProjectのASI06で扱われます。</dd>
-</dl>
-
-<h2 id="limits">未確認の点</h2>
-<ul>
-<li>ChatGPTのProjectsについて、個人向けプラン（Free、Plus、Pro）でのプロジェクト専用メモリの詳細仕様と、プラン別の利用可否・上限は、公式ヘルプの取得範囲では確認できませんでした。</li>
-<li>Claudeの消費者向けプラン（Free、Pro、Max）での学習利用の条件とオプトアウト方法は、今回確認した学習利用の公式ページが商用製品向けだったため、確認できませんでした。消費者向けの別ページでの確認が必要です。</li>
-<li>Claudeのメモリの具体的な保持日数は、公式ページに記載がありませんでした（既存のチャットデータ保持ポリシーに従う、との記載のみ）。</li>
-<li>メモリの効率（時間短縮や品質への効果）について、両社とも公式の測定値は公表していないため、この記事では数値を示していません。3条件の枠組みで自組織で測る前提です。</li>
-<li>この記事の校正は手作業で行いました（自動校正ツール yomiyasu の実行環境が未確認のため）。設定名・数値・出典は一次資料と照合しています。</li>
-</ul>
-
-<h2 id="sources">資料と出典</h2>
-<ul>
-<li>OpenAI公式ヘルプ「Memory in ChatGPT」 https://help.openai.com/ja-jp/articles/8590148-memory-in-chatgpt （2026-11-28確認）</li>
-<li>OpenAI公式ヘルプ「Projects in ChatGPT」 https://help.openai.com/en/articles/10169521-projects-in-chatgpt （2026-11-28確認）</li>
-<li>OpenAI公式ヘルプ「Temporary Chat in ChatGPT」 https://help.openai.com/ja-jp/articles/8914046-temporary-chat-in-chatgpt （2026-11-28確認）</li>
-<li>OpenAI公式ヘルプ「Data Controls FAQ」 https://help.openai.com/en/articles/7730893-data-controls-in-chatgpt （2026-11-28確認）</li>
-<li>OpenAI公式ヘルプ「Chat and File Retention Policies in ChatGPT」 https://help.openai.com/en/articles/8983778-chat-and-file-retention-in-chatgpt （2026-11-28確認）</li>
-<li>OpenAI公式ヘルプ「Memory FAQ (Business Version)」 https://help.openai.com/en/articles/9295112-memory-faq-business-version （2026-11-28確認）</li>
-<li>Claude公式サポート「Use Claude's chat search and memory to build on previous context」 https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context （2026-11-28確認）</li>
-<li>Claude公式サポート「How can I create and manage projects?」 https://support.claude.com/en/articles/9519177-how-can-i-create-and-manage-projects （2026-11-28確認）</li>
-<li>Claude公式サポート「Use incognito chats」 https://support.claude.com/en/articles/12260368-use-incognito-chats （2026-11-28確認）</li>
-<li>Claude公式プライバシー「Is my data used for model training?」 https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training （2026-11-28確認、商用製品向けの記載）</li>
-<li>OWASP GenAI Security Project「ASI06: Memory &amp; Context Poisoning」 https://genai.owasp.org/agentic-applications-2026/asi06-memory-context-poisoning/ （2026-11-28確認）</li>
-</ul>
-
-</div>
-<script type="module" src="/assets/site.js"></script>
-</body>
-</html>
+<header><a href="https://share.0g0.xyz/">HTML Share</a><nav aria-label="サイト"><a href="https://share.0g0.xyz/">記事一覧</a><a href="https://share.0g0.xyz/feed.xml">RSS</a></nav></header>
+<main class="wrap">
+<p class="meta"><time datetime="2026-11-28">2026年11月28日</time> 公式資料確認・改訂稿 ｜ 未公開・公開前検証待ち</p>
+<h1>ChatGPT・Claudeのメモリ機能と業務利用のリスク</h1>
+<p class="recommend">承認済みの業務環境では、メモリを条件付きで有効にし、案件固有の情報はプロジェクト単位で分離する。分離ができない業務や機密性の高い単発作業では無効化を選ぶ。</p>
+<p class="lead">メモリは以前の会話などから得た情報を別の会話で利用する機能です。説明を繰り返す手間を減らせる一方、別案件の情報や古い仕様が回答に混ざる可能性があります。機密性だけでなく、回答の正確さと業務上の判断にも関係します。一方、メモリを使わない場合は前提の説明、認識のすり合わせ、訂正に時間がかかります。安全性と手戻り削減の両方を評価し、参照範囲を管理して使う方法を推奨します。</p>
+<figure><img src="/assets/ai-memory-business-guide-overview-v1.jpg" width="1200" height="675" loading="lazy" style="max-width:100%;height:auto" alt="AIのメモリと業務利用の全体像。過去の会話から記憶（メモリ）を蓄積し、プロジェクトAとプロジェクトBへ振り分ける。共通メモリでは案件Aと案件Bの情報が出力に混ざる可能性があるのに対し、プロジェクト単位の分離では案件ごとの記憶とチャットが分かれる"><figcaption>メモリの蓄積と、共通メモリとプロジェクト単位の分離の違い</figcaption></figure>
+<nav class="toc" aria-label="目次"><a href="#mechanism">仕組み</a><a href="#benefits">メリット</a><a href="#risks">リスク</a><a href="#compare">製品比較</a><a href="#retention">学習・保持・削除</a><a href="#policy">推奨ルール</a><a href="#pilot">導入時の検証</a><a href="#sources">出典</a></nav>
+<section aria-labelledby="mechanism"><h2 id="mechanism">1. メモリの仕組み</h2>
+<figure><div class="flow" role="img" aria-label="過去の会話などから情報を抽出・記録し、新しい会話で関連する情報を参照する概念図"><div class="flow-node"><b>過去の会話・情報源</b><span>役割、要件、好みなど</span></div><div class="arrow" aria-hidden="true">→</div><div class="flow-node"><b>メモリ・履歴参照</b><span>情報の記録・抽出・選択</span></div><div class="arrow" aria-hidden="true">→</div><div class="flow-node"><b>新しい会話</b><span>現在の依頼と合わせて回答</span></div></div><figcaption>概念図。実際の内部実装や、全情報の記録・参照を保証する図ではありません。</figcaption></figure>
+<p>メモリは通常、AIモデル自体を利用者ごとに再学習させる機能ではありません。回答を作るときに、過去の情報を追加の文脈として利用する仕組みです。ChatGPTは会話に加え、利用条件によって保存ファイルや接続アプリなども情報源になり得ます。Claudeにも過去チャット検索とメモリがあります。<a class="src" href="#s1">[1]</a> <a class="src" href="#s7">[7]</a></p>
+<div class="table-wrap" role="region" aria-label="情報利用機能の違い" tabindex="0"><table><thead><tr><th>機能</th><th>何をするか</th></tr></thead><tbody><tr><th>現在のチャット</th><td>同じ会話で入力した情報を利用する。メモリを無効にしても使われる。</td></tr><tr><th>メモリ</th><td>別の会話にも引き継ぐため、情報を保存・更新・参照する。</td></tr><tr><th>過去のチャット検索</th><td>履歴から関連する会話を探す。メモリの保存・参照とは区別して管理する。</td></tr><tr><th>カスタム指示</th><td>利用者が明示した回答形式や条件を適用する。</td></tr><tr><th>プロジェクト資料・接続アプリ</th><td>指定した資料やアクセスできる外部データを利用する。権限管理は別途必要。</td></tr><tr><th>モデル学習</th><td>提供元がモデルの改善にデータを使うかどうか。メモリ設定とは別。</td></tr></tbody></table></div>
+</section>
+<section aria-labelledby="benefits"><h2 id="benefits">2. 有効にするメリット</h2><div class="table-wrap" tabindex="0" role="region" aria-label="メリットと利用例"><table><thead><tr><th>メリット</th><th>利用例</th><th>条件</th></tr></thead><tbody><tr><th>説明の削減</th><td>回答の長さ、用語、使用言語を毎回指定しなくてよい。</td><td>共有してよい安定した好み。</td></tr><tr><th>継続作業</th><td>調査や開発の前回の論点を引き継げる。</td><td>案件ごとに分離する。</td></tr><tr><th>品質の統一</th><td>報告書の形式やレビュー観点を揃える。</td><td>正式な規程を優先する。</td></tr><tr><th>適応</th><td>専門知識や役割に合わせた説明が得られる。</td><td>誤った推定は訂正する。</td></tr><tr><th>手戻りの削減</th><td>繰り返し指摘した注意事項を考慮できる。</td><td>成果物は別途確認する。</td></tr></tbody></table></div><p>これらは期待できる効果であり、特定の時間短縮率や精度向上を保証するものではありません。導入時には実際の業務で測定してください。</p><h3>メモリを無効にした場合の負担</h3><p>新しい会話を始めるたびに目的、前提条件、出力形式、過去の指摘を説明すると、依頼の準備や回答の訂正に時間がかかります。メモリを有効にしても、今回の目的や変更点、正式な仕様は明示する必要があります。繰り返しの説明を減らしつつ、重要な判断の確認は残すことが目標です。プロジェクト指示や管理された資料でも同じ前提を再利用できるため、メモリと組み合わせて使います。</p></section>
+<section aria-labelledby="risks"><h2 id="risks">3. 情報が混ざるリスク</h2>
+<figure><div class="compare" role="img" aria-label="共通メモリでは案件Aと案件Bの情報が混ざる可能性がある。分離したメモリでは案件ごとに情報を限定する概念図"><div><h3>共通メモリ</h3><div class="lanes"><div class="lane">A社の条件</div><div class="lane">B社の条件</div><div class="join">↓ 共通メモリ ↓</div><div class="join danger">B社向け回答にA社の条件が混ざる可能性</div></div></div><div><h3>参照範囲を分離</h3><div class="lanes"><div class="lane">A社の条件<br>↓</div><div class="lane">B社の条件<br>↓</div><div class="lane">A社専用の文脈<br>↓</div><div class="lane">B社専用の文脈<br>↓</div><div class="lane">A社向け回答</div><div class="lane">B社向け回答</div></div></div></div><figcaption>仮想例。実際の事故を示すものではありません。分離設定は入力ミス、ファイルの誤共有、外部アプリによる取得まで防ぐものではありません。</figcaption></figure>
+<div class="table-wrap" tabindex="0" role="region" aria-label="業務リスクと対策"><table class="wide-table risk"><thead><tr><th>リスク</th><th>想定される業務上の影響</th><th>対策</th></tr></thead><tbody><tr><td>顧客・案件間の混在</td><td>A社の契約単価や制約をB社向け文書に含める。</td><td>案件分離、外部送信前の確認。</td></tr><tr><td>古い情報</td><td>廃止した仕様や過去の障害対応を現在の手順と誤認する。</td><td>更新日・原典・最新バージョンを確認。</td></tr><tr><td>個人と会社の混在</td><td>個人の好みを社内ルールと誤認する。</td><td>仕事用と私用の環境を分離。</td></tr><tr><td>誤った承認の引継ぎ</td><td>前回の操作許可を別の作業にも適用する。</td><td>承認対象・期限・範囲は正式記録で照合。</td></tr><tr><td>メモリ汚染</td><td>誤情報や悪意のある指示が後の回答・ツール操作に影響する。</td><td>入力元を確認し、メモリを権限の根拠にしない。</td></tr><tr><td>削除・監査の漏れ</td><td>チャットを消しても抽出情報や別保存のファイルが残る。</td><td>元データ、メモリ、履歴、ファイルを区別して管理。</td></tr><tr><td>過剰な個人化</td><td>過去の判断に偏り、代替案や最新情報を見落とす。</td><td>重要判断ではメモリなしの回答と比較する。</td></tr></tbody></table></div>
+<details><summary>メモリ汚染とAIエージェントの関係</summary><p>OWASP Agentic ApplicationsのASI06は、再利用される文脈に有害・誤った情報が入り、将来の判断や操作に影響する問題を扱っています。業務エージェントでツール操作まで可能な場合、回答の誤りが外部送信や変更操作につながり得ます。記憶された指示に操作権限を付与しない設計、信頼できる情報源の確認、承認の再照合を推奨します。これは一般的な脅威モデルであり、両製品の個別の脆弱性や実際の悪用を確認したという意味ではありません。<a class="src" href="#s12">[12]</a></p></details></section>
+<section aria-labelledby="compare"><h2 id="compare">4. ChatGPTとClaudeの比較</h2><p>2026年11月28日に確認した公式説明に基づきます。新旧の機能、プラン、地域、組織の設定で異なるため、導入する環境で実際の設定画面を確認してください。</p>
+<div class="table-wrap" role="region" aria-label="ChatGPTとClaudeの機能比較" tabindex="0"><table class="wide-table"><thead><tr><th>比較項目</th><th>ChatGPT</th><th>Claude</th></tr></thead><tbody><tr><th>記憶の方式</th><td>改善版ではメモリの概要が自動更新される。従来方式では保存メモリと履歴参照を区別する。</td><td>新方式では会話中にトピックごとの情報を記録する。旧方式では約24時間ごとに概要を更新する。</td></tr><tr><th>利用者の設定</th><td>設定 → パーソナライズ → メモリ。利用可能な項目はアカウントで異なる。</td><td>設定 → Your Claude（旧画面ではMemory等）。メモリ生成と過去チャット検索を区別。</td></tr><tr><th>プロジェクト分離</th><td>Project-only memoryを選ぶと、メモリ参照は同じプロジェクト内に限定される。</td><td>新方式では通常のプロジェクトにもアカウントメモリが使われ得る。Use account memoryをオフにして分離する。</td></tr><tr><th>単発の会話</th><td>一時チャットの「パーソナライズなし」。通常のメモリを使わず、新規メモリも作らない。</td><td>新規チャットの「＋」からMemoryをオフ。またはプロジェクト外でIncognitoを選ぶ。</td></tr><tr><th>組織の制御</th><td>Businessの管理者、Enterpriseの権限設定で機能の利用可否を制御できる。</td><td>Team・Enterpriseの所有者が組織全体の機能を制御する。</td></tr><tr><th>学習利用</th><td>Business・Enterprise・Eduでは既定でモデル学習に利用しない。</td><td>Team・Enterprise等の商用製品では既定でモデル学習に利用しない。</td></tr></tbody></table></div><p class="note">出典：<a href="#s1">[1]</a> <a href="#s2">[2]</a> <a href="#s3">[3]</a> <a href="#s4">[4]</a> <a href="#s6">[6]</a> <a href="#s7">[7]</a> <a href="#s8">[8]</a> <a href="#s9">[9]</a> <a href="#s10">[10]</a>。安全性のための処理や明示的なフィードバックなどは別途確認が必要です。</p>
+<details><summary>ChatGPT：Project-onlyとDefault memoryの違い</summary><p>Businessを含む非Enterpriseプランでは、Default memoryのプロジェクトが他のチャットと文脈を共有する場合があります。Enterprise・EduではDefaultでもプロジェクト外の会話参照が制限されますが、個人メモリが使われ得ます。案件の文脈を限定したい場合はProject-onlyを選びます。共有プロジェクトでは自動的にProject-onlyとなります。利用にはワークスペースと利用者側のメモリ許可が必要な場合があります。現行の公式説明では作成後も設定変更が可能で、反映まで数時間かかる場合があります。共有プロジェクトはProject-onlyのままです。機能世代により設定項目がなければ、新しいProject-onlyプロジェクトで開始してください。<a class="src" href="#s2">[2]</a></p></details>
+<details><summary>Claude：新方式と旧方式、個人・組織の設定</summary><p>新方式ではプロジェクト内の記憶に加えてアカウントの記憶を参照でき、プロジェクトの記憶が外側で利用される場合もあります。メモリの参照範囲を分けるにはプロジェクトのUse account memoryをオフにします。旧方式はプロジェクトごとの独立した概要を利用します。個人プランではメモリは既定でオン。Team・Enterpriseは所有者の制御に従い、2026年10月31日（米国太平洋時間）以降に作成された多くの組織ではメンバーの初期値もオンです。旧組織や一部契約等には例外があります。クラウド版Coworkとチャット間でメモリを共有する新方式にも注意してください。<a class="src" href="#s7">[7]</a> <a class="src" href="#s8">[8]</a></p></details>
+<details><summary>単発の会話でメモリを避ける操作</summary><p>ChatGPT：新しい一時チャットを開始し、選択肢があればパーソナライズなしを指定してから送信します。パーソナライズありでは既存メモリを参照できます。一時チャットを通常の会話として保存すると、通常の設定が適用されます。</p><p>Claude：最初の送信前に「＋」からMemoryをオフにした通常チャットは履歴に残り、他の会話の検索対象になり得ます。履歴検索からも除きたい場合はプロジェクト外でIncognitoを使用します。ただし、Incognitoでもプロフィール等が使われる場合があります。個別チャットでのメモリ無効化は完全な削除や無保存を意味しません。<a class="src" href="#s3">[3]</a> <a class="src" href="#s7">[7]</a> <a class="src" href="#s9">[9]</a></p></details>
+</section>
+<section aria-labelledby="retention"><h2 id="retention">5. 学習・保持・削除は別々に管理する</h2>
+<figure><div class="flow triad" role="img" aria-label="メモリ設定、保存と削除の設定、モデル学習の設定は目的の違う独立した管理項目"><div class="flow-node"><b>メモリ</b><span>次の回答に利用するか</span></div><div class="flow-node"><b>保持・削除</b><span>データが残るか、いつ消えるか</span></div><div class="flow-node"><b>モデル学習</b><span>提供元のモデル改善に使うか</span></div></div><figcaption>3つの設定は別の目的を持ちます。どれか一つを無効にしても、残りが自動的に無効になるとは限りません。</figcaption></figure>
+<p>法人向けプランが学習に利用しない設定であっても、組織内の履歴参照、メモリ混在、共有ミス、保存・監査の問題は残ります。逆にメモリをオフにしても、チャット履歴やファイルが自動的に消えるわけではありません。</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="無効化と削除の違い"><table class="wide-table"><thead><tr><th>操作</th><th>ChatGPT</th><th>Claude</th></tr></thead><tbody><tr><th>メモリ停止</th><td>通常の履歴は残る。再有効化時に履歴をもとに記憶される場合がある。</td><td>Pauseは既存の記憶を保持しつつ利用と記録を停止。停止中の会話は後からメモリに追加されないと説明されている。</td></tr><tr><th>メモリの削除</th><td>改善版の概要から訂正・削除。完全に除去するには関連する元の会話や別の情報源も確認する。</td><td>新方式では個別項目を削除できる。Resetはプロジェクトを含む記憶を削除するため、事前の影響確認が必要。</td></tr><tr><th>元のチャット削除</th><td>別保存メモリやライブラリのファイルは残り得る。</td><td>新方式では抽出済みメモリが残る。旧方式の概要は削除に伴って更新される。</td></tr><tr><th>一時・Incognito</th><td>一時チャットは安全目的で最長30日保持される場合があり、対象EnterpriseのCompliance APIから30日参照可能。</td><td>Incognitoは安全目的で30日、組織方針によってはさらに長く保持。組織のエクスポートや対象Enterpriseの監査から除外されない。</td></tr></tbody></table></div><p class="note">出典：<a href="#s1">[1]</a> <a href="#s3">[3]</a> <a href="#s5">[5]</a> <a href="#s7">[7]</a> <a href="#s9">[9]</a>。契約上の保持期間や法的・安全上の例外は管理者が確認してください。</p>
+<details><summary>法人管理と監査で確認すべき項目</summary><p>ChatGPT Businessの公式FAQでは、所有者がワークスペースのメモリを無効にすると保存済みメモリが削除されるとされています。Claudeでは、組織で機能を停止しても既存メモリが残り、再度有効にすると使われ得ます。Claude Enterpriseでは組織設定変更が監査ログの対象ですが、個人によるメモリ編集は記録されないと説明されています。新方式のClaudeでは組織のカスタム保持期間の適用条件と、プロジェクト記憶の例外も確認が必要です。<a class="src" href="#s6">[6]</a> <a class="src" href="#s7">[7]</a></p><p>個人契約で業務情報を取り扱う場合には、学習への提供設定も別途確認します。両社の法人向けの学習に関する既定値を、個人契約にそのまま適用して考えないでください。フィードバックを送る場合の例外もあります。<a class="src" href="#s4">[4]</a> <a class="src" href="#s10">[10]</a> <a class="src" href="#s11">[11]</a></p></details>
+<details><summary>意図しない情報を記憶・参照した場合の対処</summary><ol><li>外部送信や操作を止め、送信済みか未送信かを確認する。漏洩が疑われる場合は社内のインシデント手順に従う。</li><li>メモリ利用と必要に応じて履歴検索を停止し、影響範囲を確認する。</li><li>メモリの該当内容、元の会話、アーカイブ、保存ファイル、接続アプリなどを調べる。証拠保全や保存義務に従って不要な情報を削除する。</li><li>新しい会話で、該当情報が参照されない設定になっているか確認する。再テストで出力されないことは、全データが消去された証明ではない。</li><li>認証情報が含まれた場合は、組織の手順に従って失効・再発行等を検討する。</li></ol></details></section>
+<section aria-labelledby="policy"><h2 id="policy">6. 企業での推奨ルール</h2><p>以下は製品の必須設定ではなく、情報分類、手戻り削減の効果、組織の管理能力に応じた運用案です。機密情報を入力してよいかどうかは、先に契約と社内規程で判断します。一般的な業務では管理条件を満たせばメモリを有効にし、個別案件には専用の参照範囲を設けます。</p>
+<div class="table-wrap" role="region" aria-label="業務別推奨設定" tabindex="0"><table><thead><tr><th>用途</th><th>推奨</th><th>記憶してよい例・条件</th></tr></thead><tbody><tr><th>一般的な学習・個人利用</th><td>有効</td><td>公開情報、説明の好み。</td></tr><tr><th>一般業務・社内文書</th><td>条件付き有効</td><td>承認済みの環境で、機密性の低い形式や用語を利用する。自動記憶を許可リストだけに制限できるとは限らないため、入力範囲と保存内容を点検する。</td></tr><tr><th>開発・長期案件</th><td>案件内に限定</td><td>承認済みの開発規約、作業の経緯。正式仕様を優先。</td></tr><tr><th>複数の顧客・委託案件</th><td>厳格に分離</td><td>顧客ごとに許可された情報のみ。契約次第で専用環境または無効。</td></tr><tr><th>人事・法務・未公表情報・監査</th><td>原則無効</td><td>入力自体が許可される場合に限る。必要な文脈をその場で明示。</td></tr><tr><th>パスワード・秘密鍵・トークン</th><td class="danger">入力しない</td><td>組織が承認した秘密管理方式を利用する。</td></tr></tbody></table></div>
+<h3 id="context-design">コンテキストの3層管理</h3>
+<figure><div class="flow triad" role="img" aria-label="共通指示には共通ルール、プロジェクトには専用メモリと資料、個別チャットには今回の依頼を置く。プロジェクト間のメモリ参照は製品設定で分離する。"><div class="flow-node"><b>アカウント共通</b><span>言語、回答形式、共通ルール</span></div><div class="flow-node"><b>プロジェクト専用</b><span>案件別のメモリ、指示、資料</span></div><div class="flow-node"><b>個別チャット</b><span>今回の目的、変更点、例外</span></div></div><figcaption>管理対象を3層に分ける運用案。すべての設定で共通指示が自動継承されるという意味ではありません。</figcaption></figure>
+<p>全体に適用するルールは明示したカスタム指示やプロフィール指示に置き、顧客情報や業務固有の要件は案件内のメモリとプロジェクト指示・資料に置きます。共有プロジェクトなどで共通指示が引き継がれない場合は、管理された共通ルールを各プロジェクトの指示に登録します。契約条件や最新仕様は正式資料を正本とします。<a class="src" href="#s2">[2]</a> <a class="src" href="#s8">[8]</a> <a class="src" href="#s13">[13]</a></p>
+<details open><summary>製品設定とプロジェクト指示の使い分け</summary>
+<p>「他の案件を参照しない」と書く方法は、AIの回答を誘導する補助策です。参照権限を制限する仕組みではありません。先にChatGPTのProject-only memoryやClaudeのUse account memoryの無効化でメモリの参照範囲を分け、次にプロジェクト指示で参照すべき資料や判断のルールを定めます。外部アプリ、共有権限、手動で貼り付けた情報は別途制御します。<a class="src" href="#s2">[2]</a> <a class="src" href="#s7">[7]</a> <a class="src" href="#s8">[8]</a></p>
+<p>プロジェクト指示の例（架空の案件）：</p><div class="policy"><p>このプロジェクトは案件Aの業務専用です。案件Aに登録された正式資料と会話を参照してください。別の案件や私的な情報を検索・利用しないでください。メモリと正式資料が矛盾する場合は最新版の正式資料を優先し、解決できない場合は確認してください。記憶された作業許可を別の操作に流用しないでください。</p></div><p class="note">この指示を登録しただけで情報の分離を保証することはできません。自動的に記憶する情報を完全に選別できるとも限りません。</p></details>
+<details open><summary>AI利用規程に使える文案</summary><div class="policy"><p>会社の業務情報を扱うAIサービスは、会社が承認した契約およびワークスペースを使用する。</p><ol><li>組織が承認した環境と用途で、メモリの参照範囲および保持条件を管理できる場合は、メモリを有効にしてよい。顧客固有の情報は共通メモリへの入力を避け、プロジェクト専用の参照範囲を利用する。分離や管理の条件を満たせない場合はメモリを無効にするか、専用環境を利用する。</li><li>顧客・案件・権限の境界を越えて記憶が参照されないよう、製品の分離設定や専用ワークスペースを選び、実際の利用条件で検証する。共通指示とプロジェクト指示は補助として使い、プロンプトだけをアクセス制御とみなさない。</li><li>認証情報および規程で禁止された情報は入力しない。機密情報を扱う場合は、入力可否、保持期間、監査、接続アプリの権限を別途確認する。</li><li>過去のメモリを最新仕様、契約、承認の証拠として扱わない。業務判断や外部送信の前に正式資料と照合する。</li><li>管理者は記憶範囲、学習利用設定、データ保持、共有権限を定期的に確認する。異動・案件終了・退職・設定変更時に対象データの取扱いを見直す。</li></ol></div></details></section>
+<section aria-labelledby="pilot"><h2 id="pilot">7. 導入前のテストと運用チェック</h2><p>本物の機密情報ではなく、架空の情報を使って試します。例として、架空の案件Aに「テスト用の識別語 ALPHA-TEST-123」、案件Bに「BETA-TEST-456」を与えます。新規チャット、プロジェクト内外、メモリ停止後で参照結果を比較します。</p>
+<div class="table-wrap" role="region" tabindex="0" aria-label="検証項目と合格基準"><table class="wide-table"><thead><tr><th>テスト</th><th>合格基準</th></tr></thead><tbody><tr><th>有効時の継続性</th><td>許可した文脈を再説明せず使える。誤りや不明点は断定しない。</td></tr><tr><th>案件間分離</th><td>新規の案件Bの会話に、案件Aの識別語や条件が出ない。逆方向も実施。</td></tr><tr><th>単発会話・検索</th><td>記録と参照を止める各設定を別々に試す。履歴が残る方式との違いを確認する。</td></tr><tr><th>停止・削除・再開</th><td>文書化された設定の挙動を把握し、再開時に不必要な記憶を利用しない手順を確認する。</td></tr><tr><th>権限・監査</th><td>許可されない利用者の設定変更や共有が防止され、必要な記録を取得できる。</td></tr><tr><th>業務効果</th><td>同種の作業をメモリなし、プロジェクト指示・資料のみ、分離したメモリと指示の併用の3条件で比較する。依頼準備時間、訂正回数、確認時間、混在件数、最終成果物の品質を記録する。</td></tr></tbody></table></div><p class="note">生成結果は試行ごとに変わる場合があります。複数回検証し、合格しても完全な分離や将来の安全性の証明とはみなしません。実際の両サービスへの検証ログインや組織設定変更は本調査の範囲外です。</p>
+<h3>管理者向けチェックリスト</h3><p class="note">このページのチェック欄は外部に送信せず、アプリ独自の永続保存も行いません。</p><ul class="checklist"><li><label><input type="checkbox"> 承認済みの法人契約・ワークスペースを用意した。</label></li><li><label><input type="checkbox"> 情報分類とメモリ利用の許可範囲を定めた。</label></li><li><label><input type="checkbox"> 仕事と私用、顧客間の参照範囲を確認した。</label></li><li><label><input type="checkbox"> 学習・保持・削除・監査・フィードバックの扱いを確認した。</label></li><li><label><input type="checkbox"> 接続アプリ、共有リンク、エージェントの操作権限を確認した。</label></li><li><label><input type="checkbox"> 架空のデータで混在・停止・再開のテストを実施した。</label></li><li><label><input type="checkbox"> 誤記憶・情報混入の報告先と対応手順を定めた。</label></li></ul>
+<p>低リスク業務で参照範囲と安全性を検証し、同等の品質を得るまでにかかった総時間を比較します。分離と管理の条件を満たした業務では有効化を標準とし、効果が小さい業務や条件を満たさない業務は無効のままにする方法が現実的です。</p></section>
+<section aria-labelledby="sources"><h2 id="sources">8. 公式資料と調査範囲</h2><p>確認日：2026年11月28日。Web・デスクトップ・モバイルの対話型ChatGPTとClaudeのメモリを主な対象とし、API、Codex、Claude Codeの独自の記憶やファイル保存、エージェントの固有メモリは別の管理対象とします。公式資料間で新旧の仕様が異なる箇所は、機能世代・利用条件を区別しました。製品内部の実装、記憶の完全性、具体的な漏洩発生率は未確認です。</p>
+<ol class="sources"><li id="s1"><a href="https://help.openai.com/ja-jp/articles/8590148-memory-in-chatgpt">OpenAI：ChatGPTのメモリ</a></li><li id="s2"><a href="https://help.openai.com/en/articles/10169521-projects-in-chatgpt">OpenAI：Projects in ChatGPT</a></li><li id="s3"><a href="https://help.openai.com/ja-jp/articles/8914046-temporary-chat-in-chatgpt">OpenAI：ChatGPTの一時チャット</a></li><li id="s4"><a href="https://help.openai.com/en/articles/7730893-data-controls-in-chatgpt">OpenAI：Data controls in ChatGPT</a></li><li id="s5"><a href="https://help.openai.com/en/articles/8983778-chat-and-file-retention-in-chatgpt">OpenAI：Chat and file retention in ChatGPT</a></li><li id="s6"><a href="https://help.openai.com/en/articles/9295112-memory-faq-business-version">OpenAI：Memory FAQ (Business)</a> ／ <a href="https://help.openai.com/en/articles/8411955-managing-workspace-settings-in-chatgpt-enterprise">Enterpriseの管理設定</a></li><li id="s7"><a href="https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context">Anthropic：Claudeのチャット検索とメモリ（英語版・新旧方式）</a></li><li id="s8"><a href="https://support.claude.com/en/articles/9519177-how-can-i-create-and-manage-projects">Anthropic：プロジェクトの作成・管理</a></li><li id="s9"><a href="https://support.claude.com/en/articles/12260368-use-incognito-chats">Anthropic：Incognito chats</a></li><li id="s10"><a href="https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training">Anthropic：商用製品のモデル学習</a></li><li id="s11"><a href="https://privacy.claude.com/en/articles/12109829-how-do-i-change-my-model-improvement-privacy-settings">Anthropic：個人向けモデル改善設定</a></li><li id="s12"><a href="https://genai.owasp.org/agentic-applications-2026/asi06-memory-context-poisoning/">OWASP：ASI06 Memory &amp; Context Poisoning</a></li><li id="s13"><a href="https://support.claude.com/en/articles/10185728-understanding-claude-s-personalization-features">Anthropic：Claudeのパーソナライゼーション機能</a></li></ol>
+<p class="note">更新履歴：2026年11月28日 初稿、同日改訂。業務効率と手戻り削減を踏まえた条件付き有効化、3層管理、設定と指示の違い、比較検証の方法を追記。公開前に必要な専用OGP・生成説明画像・yomiyasuの検査は未完了。</p></section>
+</main><footer>製品名は識別のために記載しています。各提供元による認定・推奨を示すものではありません。</footer>
+</body></html>
