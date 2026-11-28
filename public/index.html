@@ -126,7 +126,7 @@
       <details class="guide-item" data-guide-section="search"><summary>本文まで探す・更新を受け取る</summary><div><p>下の検索はスペース区切りのAND検索です。RSSは申込みなしで購読アプリに追加できます。</p><ul><li><a href="#site-search">本文を検索する</a></li><li><a href="/feed.xml">全ページの更新RSS</a></li><li><a href="/vulnerabilities-feed.xml">脆弱性の更新RSS</a></li><li><a href="/security-incidents-feed.xml">事案の更新RSS</a></li><li><a href="/emergency-maintenance-feed.xml">緊急メンテナンスの更新RSS</a></li></ul></div></details>
     </div>
     <div id="site-guide-enhanced" aria-label="ページの探し方と購読" hidden></div>
-    <form id="site-search" class="search" role="search" data-index="/assets/search/index-1888044f244c6172.json" hidden>
+    <form id="site-search" class="search" role="search" data-index="/assets/search/index-54689b6cc75d96dd.json" hidden>
       <label for="search-query">タイトル・本文を検索</label>
       <div class="search-controls">
         <input id="search-query" name="q" type="search" placeholder="例：Cloudflare 日本語" maxlength="200" enterkeyhint="search" autocomplete="off" aria-describedby="search-help search-status">
@@ -140,6 +140,22 @@
     <section id="search-results" class="grid" aria-label="検索結果" hidden></section>
     <button id="search-more" type="button" hidden>さらに20件を表示</button>
     <section id="page-list" class="grid" aria-label="共有ページ一覧">
+
+      <article class="card">
+        <a href="/vulnerabilities">
+          <h2>脆弱性レポート | 実悪用・修正版・対処</h2>
+          <p>重要な脆弱性の影響製品・実悪用・修正版・対処を公開一次資料で確認するレポート。CVSSと条件付き対処優先度を分けて掲載します。</p>
+          <code>/vulnerabilities</code>
+        </a>
+      </article>
+
+      <article class="card">
+        <a href="/glossary">
+          <h2>用語集：HTML Shareの記事に出てくる専門用語</h2>
+          <p>HTML Shareの記事に出てくる専門用語の短い説明の一覧です。記事本文では、辞書に登録された用語の初出が自動でこの用語集へリンクされます。</p>
+          <code>/glossary</code>
+        </a>
+      </article>
 
       <article class="card">
         <a href="/ai-memory-business-guide">
@@ -158,26 +174,10 @@
       </article>
 
       <article class="card">
-        <a href="/glossary">
-          <h2>用語集：HTML Shareの記事に出てくる専門用語</h2>
-          <p>HTML Shareの記事に出てくる専門用語の短い説明の一覧です。記事本文では、辞書に登録された用語の初出が自動でこの用語集へリンクされます。</p>
-          <code>/glossary</code>
-        </a>
-      </article>
-
-      <article class="card">
         <a href="/cve-watch-2026-11-28">
           <h2>CVE監視 第5号（2026年11月28日）：NGINX map 正規表現マッチのヒープオーバーフロー</h2>
           <p>2026年11月27日から28日に確認したCVEのうち、関心技術に関わる High 以上で未掲載の1件、NGINX map の正規表現マッチのヒープオーバーフロー（CVE-2026-93479、CVSS 8.1）を、対象版・修正版・成立条件つきで整理した監視の第5号。2026年11月27日に GitHub へ実証コードが公開された。</p>
           <code>/cve-watch-2026-11-28</code>
-        </a>
-      </article>
-
-      <article class="card">
-        <a href="/vulnerabilities">
-          <h2>脆弱性レポート | 実悪用・修正版・対処</h2>
-          <p>重要な脆弱性の影響製品・実悪用・修正版・対処を公開一次資料で確認するレポート。CVSSと条件付き対処優先度を分けて掲載します。</p>
-          <code>/vulnerabilities</code>
         </a>
       </article>
 
