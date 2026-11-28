@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Sat, 28 Nov 2026 00:55:06 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 28 Nov 2026 00:59:59 GMT</lastBuildDate>
+    <item>
+      <title>用語集：HTML Shareの記事に出てくる専門用語</title>
+      <link>https://share.0g0.xyz/glossary</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/glossary</guid>
+      <description>HTML Shareの記事に出てくる専門用語の短い説明の一覧です。記事本文では、辞書に登録された用語の初出が自動でこの用語集へリンクされます。</description>
+      <pubDate>Sat, 28 Nov 2026 00:59:59 GMT</pubDate>
+      <dcterms:created>2026-11-24T01:37:31.000Z</dcterms:created>
+      <dcterms:modified>2026-11-28T00:59:59.000Z</dcterms:modified>
+    </item>
     <item>
       <title>CVE監視 第5号（2026年11月28日）：NGINX map 正規表現マッチのヒープオーバーフロー</title>
       <link>https://share.0g0.xyz/cve-watch-2026-11-28</link>
@@ -60,15 +69,6 @@
       <dcterms:modified>2026-11-26T17:49:54.000Z</dcterms:modified>
     </item>
     <item>
-      <title>用語集：HTML Shareの記事に出てくる専門用語</title>
-      <link>https://share.0g0.xyz/glossary</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/glossary</guid>
-      <description>HTML Shareの記事に出てくる専門用語の短い説明の一覧です。記事本文では、辞書に登録された用語の初出が自動でこの用語集へリンクされます。</description>
-      <pubDate>Thu, 26 Nov 2026 00:57:45 GMT</pubDate>
-      <dcterms:created>2026-11-24T01:37:31.000Z</dcterms:created>
-      <dcterms:modified>2026-11-26T00:57:45.000Z</dcterms:modified>
-    </item>
-    <item>
       <title>CVE監視 第4号（2026年11月26日）：PHP-CGI 引数インジェクションと OpenSSL 無限ループ</title>
       <link>https://share.0g0.xyz/cve-watch-2026-11-26</link>
       <guid isPermaLink="true">https://share.0g0.xyz/cve-watch-2026-11-26</guid>
@@ -76,6 +76,15 @@
       <pubDate>Thu, 26 Nov 2026 00:52:57 GMT</pubDate>
       <dcterms:created>2026-11-26T00:52:57.000Z</dcterms:created>
       <dcterms:modified>2026-11-26T00:52:57.000Z</dcterms:modified>
+    </item>
+    <item>
+      <title>Google Workspaceの端末管理：Windows・Androidと契約プラン徹底比較</title>
+      <link>https://share.0g0.xyz/google-workspace-uem-guide</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/google-workspace-uem-guide</guid>
+      <description>Google WorkspaceのWindows・Android端末管理を会社導入と個人利用に分けて解説。必要なプラン、料金、登録手順、個人Gmailとの違いを公式資料で比較。</description>
+      <pubDate>Wed, 25 Nov 2026 16:09:48 GMT</pubDate>
+      <dcterms:created>2026-11-13T15:05:14.000Z</dcterms:created>
+      <dcterms:modified>2026-11-25T16:09:48.000Z</dcterms:modified>
     </item>
     <item>
       <title>Gemini Helium は来週出るのか：X投稿を公式情報で検証した</title>
@@ -526,15 +535,6 @@
       <pubDate>Sun, 15 Nov 2026 00:01:29 GMT</pubDate>
       <dcterms:created>2026-10-08T23:59:03.000Z</dcterms:created>
       <dcterms:modified>2026-11-15T00:01:29.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>Google Workspaceの端末管理：Windows・Androidと契約プラン徹底比較</title>
-      <link>https://share.0g0.xyz/google-workspace-uem-guide</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/google-workspace-uem-guide</guid>
-      <description>Google WorkspaceのWindows・Android端末管理を会社導入と個人利用に分けて解説。必要なプラン、料金、登録手順、個人Gmailとの違いを公式資料で比較。</description>
-      <pubDate>Fri, 13 Nov 2026 21:05:59 GMT</pubDate>
-      <dcterms:created>2026-11-13T15:05:14.000Z</dcterms:created>
-      <dcterms:modified>2026-11-13T21:05:59.000Z</dcterms:modified>
     </item>
     <item>
       <title>緊急メンテナンス一覧｜2026年10月21日前後・公式告知と再開予定</title>
