@@ -7,15 +7,15 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Sat, 28 Nov 2026 08:40:07 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 28 Nov 2026 08:46:02 GMT</lastBuildDate>
     <item>
       <title>ChatGPT・Claudeのメモリ機能と業務利用のリスク</title>
       <link>https://share.0g0.xyz/ai-memory-business-guide</link>
       <guid isPermaLink="true">https://share.0g0.xyz/ai-memory-business-guide</guid>
       <description>ChatGPTとClaudeのメモリ機能、情報混在リスク、プロジェクト分離、学習・保持・削除の違い、企業での推奨設定を公式資料に基づいて比較する。</description>
-      <pubDate>Sat, 28 Nov 2026 08:40:07 GMT</pubDate>
+      <pubDate>Sat, 28 Nov 2026 08:46:02 GMT</pubDate>
       <dcterms:created>2026-11-28T04:57:54.000Z</dcterms:created>
-      <dcterms:modified>2026-11-28T08:40:07.000Z</dcterms:modified>
+      <dcterms:modified>2026-11-28T08:46:02.000Z</dcterms:modified>
     </item>
     <item>
       <title>脆弱性レポート | 実悪用・修正版・対処</title>
