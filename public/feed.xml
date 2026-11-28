@@ -7,7 +7,16 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Fri, 27 Nov 2026 10:39:59 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 28 Nov 2026 00:55:06 GMT</lastBuildDate>
+    <item>
+      <title>CVE監視 第5号（2026年11月28日）：NGINX map 正規表現マッチのヒープオーバーフロー</title>
+      <link>https://share.0g0.xyz/cve-watch-2026-11-28</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/cve-watch-2026-11-28</guid>
+      <description>2026年11月27日から28日に確認したCVEのうち、関心技術に関わる High 以上で未掲載の1件、NGINX map の正規表現マッチのヒープオーバーフロー（CVE-2026-93479、CVSS 8.1）を、対象版・修正版・成立条件つきで整理した監視の第5号。2026年11月27日に GitHub へ実証コードが公開された。</description>
+      <pubDate>Sat, 28 Nov 2026 00:55:06 GMT</pubDate>
+      <dcterms:created>2026-11-28T00:55:06.000Z</dcterms:created>
+      <dcterms:modified>2026-11-28T00:55:06.000Z</dcterms:modified>
+    </item>
     <item>
       <title>緊急メンテナンス続報まとめ（2026年11月27日時点）：継続中・一部復旧・復旧済み</title>
       <link>https://share.0g0.xyz/emergency-maintenance-2026-11</link>
