@@ -111,7 +111,6 @@
         "cve-2026-88771": "99f6245619b542e82c3ffdf32dca84be9a09699e78add3027dc8f84e1fbeb6d7",
         "cve-2026-88779": "f9da3b36e5fc8f7286130594677f25843065fefce6afe59bb9167fa194b9db02",
         "cve-2026-94127": "80d084fdf355f91cd697e6d1b3ee738d8497bad89503d91957ea811011343f1c",
-        "danfoss-ak-sm-800a-multiple-25914": "7a6d362a2e521a4e0ed65ff1e81fbe514fcbd77ed2ce7cb031fec059c961e2eb",
         "dell-command-configure-mixed-encoding-eop": "17ee28a353cd17198f8b9e31bca80aac710d8020cf0585d0f1a012c5bfc0430b",
         "dell-csm-authentication-cluster-boundaries": "56b9b0bc653c8f56457998ef9eb543a45c53ce4bee3c12aeff4763104fc4ad39",
         "dell-system-update-root-path-and-permissions": "e2349581b1cf61fa9fad11e69144b5439dc8b6ec4be69175eadc7c9e33f5b8cb",
@@ -187,7 +186,6 @@
         "hpe-clearpass-october-client-integrity-rce": "2c60a69b0db1cbb989c36f7bd4bcb71f94d48d39d9a055c00406fcc1ec7e848e",
         "hpe-clearpass-october-critical-server-boundaries": "85fc9d42b184d74f5744c24dd7110eb3272386e4d35b102eb756173bdbe3e8b8",
         "hpe-ilo7-user-validation": "8e0f2c16a1ad700b952c97786125817306f7b06697f128d78c0c8838b7ff8229",
-        "hpe-juniper-session-smart-conductor-103406": "c2cd5ded6e2b80c451696b8d7f7a52d7c201c40147cdd78a0aaed8d18edd23ff",
         "ibm-aspera-faspex-authorization-bypass-123218": "8f8a6c3b1be5a435f6caff238ba2fecdf7c370f662f8450495f90a5886717c69",
         "ibm-datapower-ldap-jws-and-memory-rce": "2a9d1374ea79d9291094e06da0269527120db637d7f97ed31d03cf14d44754a2",
         "ibm-guardium-edge-authentication-and-native-boundaries": "6ee88e27fa6ba849fbcbab5e6027501eadcc95ab1b45ad715af597f3c0264888",
@@ -246,7 +244,6 @@
         "mindsearch-planner-unsandboxed-python-execution": "62aeb76c55594d571cfaee0847de2af2f21573529087e4e1f34bb38dc130c86b",
         "misp-mandatory-totp-enrolment-nonbrowser-session-bypass": "8026f35ec515bb82f51f1cef275752277124c24d1454ac459f7eed2f01247de1",
         "misp-sachertortephp-download-filename-stored-xss": "93b0a38c345eb61ffb6e64468aac30dd41449271912cdf83a6cd19b07bf91b44",
-        "mitel-micollab-awv-multiple-133275": "bb8418f140c69fd461f5a79cd54c41765fba17a0ff4f55585d94b526646128cb",
         "mlflow-multipart-cross-user-artifact-poisoning": "ff129d6d084b9d9c886ac10d44f2f7a283bae321bea8bbc4103757522f93e136",
         "monai-label-datastore-path-traversal-rce-133968": "a90b906d934f779480402f2154bd849c70c0dcc6dc3e6ad3bbacc9c79ca3c72b",
         "mooncake-store-unauthenticated-rest-rpc": "171a7f0caab7c88784a8b00541a03d963b7d075e41c0c6123543b8fc95e5628b",
@@ -371,7 +368,6 @@
         "unitytls-emudhra-ca-trust": "08fb4d7e7e0a80560e547526e8d7878415017c7a9a3da4ad5b128fbe473afb88",
         "unrealircd-labeled-response-privilege-escalation-114713": "f2d5774b12c61410eb184902eb888258906d9164a712040a0f18f5e057a76836",
         "uptime-kuma-public-ping-badge-resource-dos": "5f271286bda5e8194576686034cedf77818a6a6040414a4603e0ce87d75192d1",
-        "vates-xen-orchestra-auth-bypass-133469": "fc1330de6783d22c5afaedfc4c9c5582f27331bfac3ad21e5e9222c59e11f0bf",
         "veeam-backup-viewer-system-rce": "1c44858ba7f94d378bcb8ac2b3e348d3f7905e1f0329bc5f19d94a211181d954",
         "veeam-cloud-connect-tenant-host-file-read": "6edc206a28e6d4fefce1488008997120ac3db952ca5edd4eeae14d364afba3f0",
         "virtualbox-pcnet-guest-host-oob-write": "78803d2c56a95eda4ab48af77bcc22ff1cdfc4994b36e1dcce0b5dae52f60276",
@@ -1089,6 +1085,12 @@
             "danfoss-ak-sm-800a-multiple-25914"
           ],
           "date": "2026-11-27"
+        },
+        {
+          "signature": "ae8cd0a37860c1783a89b02b63f73bcfa81ab8bd51bc95585e7ad63d5e35ee29",
+          "summary": "掲載範囲の見直しにより、2026-11-27にKEV 2026-11-25追加分として追加した関心技術外の10件を取り消した。内訳はMitel MiCollab AWV系列5件（CVE-2026-133275／133303／133311／133323／133324）、HPE Juniper Session Smart Conductor 1件（CVE-2026-103406）、Vates Xen Orchestra 1件（CVE-2026-133469）、Danfoss AK-SM 800A Series 3件（CVE-2023-25914／25915・CVE-2025-41450）。取り消したのはこの10件だけで、他の収録項目は変更していない。",
+          "ids": [],
+          "date": "2026-11-28"
         }
       ],
       "items": [
@@ -2253,9 +2255,23 @@
           ],
           "published": "2026-11-27T09:45:53.000Z",
           "precision": "second"
+        },
+        {
+          "fingerprint": "e5b93fee9d90cfe4b40c672d041b2051bbc84c751980037631de74a6fd8e28ae",
+          "summary": "掲載範囲の見直しにより、2026-11-27にKEV 2026-11-25追加分として追加した関心技術外の10件を取り消した。内訳はMitel MiCollab AWV系列5件（CVE-2026-133275／133303／133311／133323／133324）、HPE Juniper Session Smart Conductor 1件（CVE-2026-103406）、Vates Xen Orchestra 1件（CVE-2026-133469）、Danfoss AK-SM 800A Series 3件（CVE-2023-25914／25915・CVE-2025-41450）。取り消したのはこの10件だけで、他の収録項目は変更していない。",
+          "journal": [
+            {
+              "signature": "ae8cd0a37860c1783a89b02b63f73bcfa81ab8bd51bc95585e7ad63d5e35ee29",
+              "summary": "掲載範囲の見直しにより、2026-11-27にKEV 2026-11-25追加分として追加した関心技術外の10件を取り消した。内訳はMitel MiCollab AWV系列5件（CVE-2026-133275／133303／133311／133323／133324）、HPE Juniper Session Smart Conductor 1件（CVE-2026-103406）、Vates Xen Orchestra 1件（CVE-2026-133469）、Danfoss AK-SM 800A Series 3件（CVE-2023-25914／25915・CVE-2025-41450）。取り消したのはこの10件だけで、他の収録項目は変更していない。",
+              "ids": [],
+              "date": "2026-11-28"
+            }
+          ],
+          "published": "2026-11-28T05:03:05.000Z",
+          "precision": "second"
         }
       ],
-      "cursor": "48bf5697aeb6b0720c8000e042640de1a236abc9"
+      "cursor": "a9f5103d0b9549726525e23ab330fd825bb958e8"
     },
     "security-incidents": {
       "records": {

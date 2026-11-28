@@ -7,7 +7,27 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Sat, 28 Nov 2026 04:57:54 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 28 Nov 2026 05:03:05 GMT</lastBuildDate>
+    <item>
+      <title>脆弱性レポート | 実悪用・修正版・対処</title>
+      <link>https://share.0g0.xyz/vulnerabilities</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/vulnerabilities</guid>
+      <description>最新の更新（2026年11月28日）：掲載範囲の見直しにより、2026-11-27にKEV 2026-11-25追加分として追加した関心技術外の10件を取り消した。内訳はMitel MiCollab AWV系列5件（CVE-2026-133275／133303／133311／133323／133324）、HPE Juniper Session Smart Conductor 1件（CVE-2026-103406）、Vates Xen Orchestra 1件（CVE-2026-133469）、Danfoss AK-SM 800A Series 3件（CVE-2023-25914／25915・CVE-2025-41450）。取り消したのはこの10件だけで、他の収録項目は変更していない。 前回（2026年11月27日）：KEV 2026-11-25追加分のうち一次資料照合済みのDanfoss AK-SM 800A Series 3件（CVE-2023-25914／25915・CVE-2025-41450）を同一系列1項目として追加。Danfoss公式アドバイザリとCVE記録で、2023年2件は認証済み攻撃者によるパス・トラバーサル／任意コマンド実行で影響3.3未満・修正3.3、41450は認証バイパスによる情報開示で影響4.2未満・修正4.2を確認。スコアは評価者ごとに分かれるため帰属を分け、41450のforensic triageは断定しない。これでKEV 2026-11-25追加分10件は全件反映済み。 前々回（2026年11月27日）：KEV 2026-11-25追加分のうち一次資料照合済みのHPE Juniper Session Smart Conductor CVE-2026-103406を1項目として追加。Juniper JSA112183とCVE記録で、AutomatedProvisionerで細工したsalt minion ID経由のrootでの任意コマンド実行、実悪用の明言、影響はConductorの7.0.5未満／7.1.0以上7.1.7未満／7.2.0以上7.2.3未満、修正は同各版以降を確認。本CVE自体の対象は一次資料上Conductorであり、KEV名に含まれるRouter単体で影響を受けるとは書かない線引きを明記。残るKEV 2026-11-25追加分はDanfoss 3件。</description>
+      <pubDate>Sat, 28 Nov 2026 05:03:05 GMT</pubDate>
+      <dcterms:created>2026-10-06T05:47:01.000Z</dcterms:created>
+      <dcterms:modified>2026-11-28T05:03:05.000Z</dcterms:modified>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
+    </item>
+    <item>
+      <title>用語集：HTML Shareの記事に出てくる専門用語</title>
+      <link>https://share.0g0.xyz/glossary</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/glossary</guid>
+      <description>HTML Shareの記事に出てくる専門用語の短い説明の一覧です。記事本文では、辞書に登録された用語の初出が自動でこの用語集へリンクされます。</description>
+      <pubDate>Sat, 28 Nov 2026 05:02:19 GMT</pubDate>
+      <dcterms:created>2026-11-24T01:37:31.000Z</dcterms:created>
+      <dcterms:modified>2026-11-28T05:02:19.000Z</dcterms:modified>
+    </item>
     <item>
       <title>AIメモリと業務利用のリスク：ChatGPTとClaudeのメモリ機能を比較</title>
       <link>https://share.0g0.xyz/ai-memory-business-guide</link>
@@ -29,15 +49,6 @@
       <media:thumbnail url="https://share.0g0.xyz/assets/emergency-maintenance-2026-11-ogp-v1.jpg"/>
     </item>
     <item>
-      <title>用語集：HTML Shareの記事に出てくる専門用語</title>
-      <link>https://share.0g0.xyz/glossary</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/glossary</guid>
-      <description>HTML Shareの記事に出てくる専門用語の短い説明の一覧です。記事本文では、辞書に登録された用語の初出が自動でこの用語集へリンクされます。</description>
-      <pubDate>Sat, 28 Nov 2026 00:59:59 GMT</pubDate>
-      <dcterms:created>2026-11-24T01:37:31.000Z</dcterms:created>
-      <dcterms:modified>2026-11-28T00:59:59.000Z</dcterms:modified>
-    </item>
-    <item>
       <title>CVE監視 第5号（2026年11月28日）：NGINX map 正規表現マッチのヒープオーバーフロー</title>
       <link>https://share.0g0.xyz/cve-watch-2026-11-28</link>
       <guid isPermaLink="true">https://share.0g0.xyz/cve-watch-2026-11-28</guid>
@@ -45,17 +56,6 @@
       <pubDate>Sat, 28 Nov 2026 00:55:06 GMT</pubDate>
       <dcterms:created>2026-11-28T00:55:06.000Z</dcterms:created>
       <dcterms:modified>2026-11-28T00:55:06.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>脆弱性レポート | 実悪用・修正版・対処</title>
-      <link>https://share.0g0.xyz/vulnerabilities</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/vulnerabilities</guid>
-      <description>最新の更新（2026年11月27日）：KEV 2026-11-25追加分のうち一次資料照合済みのDanfoss AK-SM 800A Series 3件（CVE-2023-25914／25915・CVE-2025-41450）を同一系列1項目として追加。Danfoss公式アドバイザリとCVE記録で、2023年2件は認証済み攻撃者によるパス・トラバーサル／任意コマンド実行で影響3.3未満・修正3.3、41450は認証バイパスによる情報開示で影響4.2未満・修正4.2を確認。スコアは評価者ごとに分かれるため帰属を分け、41450のforensic triageは断定しない。これでKEV 2026-11-25追加分10件は全件反映済み。 前回（2026年11月27日）：KEV 2026-11-25追加分のうち一次資料照合済みのHPE Juniper Session Smart Conductor CVE-2026-103406を1項目として追加。Juniper JSA112183とCVE記録で、AutomatedProvisionerで細工したsalt minion ID経由のrootでの任意コマンド実行、実悪用の明言、影響はConductorの7.0.5未満／7.1.0以上7.1.7未満／7.2.0以上7.2.3未満、修正は同各版以降を確認。本CVE自体の対象は一次資料上Conductorであり、KEV名に含まれるRouter単体で影響を受けるとは書かない線引きを明記。残るKEV 2026-11-25追加分はDanfoss 3件。 前々回（2026年11月27日）：KEV 2026-11-25追加分のうち一次資料照合済みのVates Xen Orchestra CVE-2026-133469を1項目として追加。Vates VSA-2026-062とGitHub Advisoryで、REST cookieの空オブジェクトが最初のtokenの所有者として認証される仕組み、攻撃者はtokenを選べず未失効で存在するユーザーのtokenが最初に返される場合にのみ成功すること、実悪用の明言、影響はstable 6.9.2未満／latest 6.10.1未満、修正は同各版を確認。CVSS 9.8はCVE記録（CNA: GitHub）の評価として帰属を分け、VatesのCVSS 4.0は未提供と明記。残るKEV 2026-11-25追加分は4件。</description>
-      <pubDate>Fri, 27 Nov 2026 09:45:53 GMT</pubDate>
-      <dcterms:created>2026-10-06T05:47:01.000Z</dcterms:created>
-      <dcterms:modified>2026-11-27T09:45:53.000Z</dcterms:modified>
-      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
-      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
     <item>
       <title>2026年 不正アクセス・情報漏えいウォッチ｜原因・出典・続報</title>

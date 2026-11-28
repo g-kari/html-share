@@ -12,14 +12,24 @@
     </image>
     <atom:link href="https://share.0g0.xyz/vulnerabilities-feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Fri, 27 Nov 2026 09:45:53 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 28 Nov 2026 05:03:05 GMT</lastBuildDate>
     <item>
       <title>脆弱性レポート | 実悪用・修正版・対処</title>
       <link>https://share.0g0.xyz/vulnerabilities</link>
       <guid isPermaLink="true">https://share.0g0.xyz/vulnerabilities</guid>
-      <description>最新の更新：KEV 2026-11-25追加分のうち一次資料照合済みのDanfoss AK-SM 800A Series 3件（CVE-2023-25914／25915・CVE-2025-41450）を同一系列1項目として追加。Danfoss公式アドバイザリとCVE記録で、2023年2件は認証済み攻撃者によるパス・トラバーサル／任意コマンド実行で影響3.3未満・修正3.3、41450は認証バイパスによる情報開示で影響4.2未満・修正4.2を確認。スコアは評価者ごとに分かれるため帰属を分け、41450のforensic triageは断定しない。これでKEV 2026-11-25追加分10件は全件反映済み。</description>
-      <pubDate>Fri, 27 Nov 2026 09:45:53 GMT</pubDate>
-      <dcterms:modified>2026-11-27T09:45:53.000Z</dcterms:modified>
+      <description>最新の更新：掲載範囲の見直しにより、2026-11-27にKEV 2026-11-25追加分として追加した関心技術外の10件を取り消した。内訳はMitel MiCollab AWV系列5件（CVE-2026-133275／133303／133311／133323／133324）、HPE Juniper Session Smart Conductor 1件（CVE-2026-103406）、Vates Xen Orchestra 1件（CVE-2026-133469）、Danfoss AK-SM 800A Series 3件（CVE-2023-25914／25915・CVE-2025-41450）。取り消したのはこの10件だけで、他の収録項目は変更していない。</description>
+      <pubDate>Sat, 28 Nov 2026 05:03:05 GMT</pubDate>
+      <dcterms:modified>2026-11-28T05:03:05.000Z</dcterms:modified>
+      <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
+    </item>
+    <item>
+      <title>掲載範囲の見直しにより、2026-11-27にKEV 2026-11-25追加分として追加した関心技術外の10件を取り消した</title>
+      <link>https://share.0g0.xyz/vulnerabilities</link>
+      <guid isPermaLink="false">https://share.0g0.xyz/vulnerabilities-feed.xml#e5b93fee9d90cfe4b40c672d041b2051bbc84c751980037631de74a6fd8e28ae</guid>
+      <description>掲載範囲の見直しにより、2026-11-27にKEV 2026-11-25追加分として追加した関心技術外の10件を取り消した。内訳はMitel MiCollab AWV系列5件（CVE-2026-133275／133303／133311／133323／133324）、HPE Juniper Session Smart Conductor 1件（CVE-2026-103406）、Vates Xen Orchestra 1件（CVE-2026-133469）、Danfoss AK-SM 800A Series 3件（CVE-2023-25914／25915・CVE-2025-41450）。取り消したのはこの10件だけで、他の収録項目は変更していない。</description>
+      <pubDate>Sat, 28 Nov 2026 05:03:05 GMT</pubDate>
+      <dcterms:created>2026-11-28T05:03:05.000Z</dcterms:created>
       <media:content url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png" type="image/png" medium="image"/>
       <media:thumbnail url="https://share.0g0.xyz/assets/vulnerabilities-checklist-20261030.png"/>
     </item>
