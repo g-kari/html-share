@@ -683,6 +683,35 @@
       ],
       "category": "土台の技術",
       "description": "正規表現のキャプチャグループに名前を付ける書き方。番号ではなく名前で、一致した部分を参照できる。"
+    },
+    {
+      "aliases": [
+        "Memory poisoning",
+        "メモリ汚染"
+      ],
+      "category": "セキュリティ",
+      "description": "汚染された情報がAIのメモリや検索用の保存領域に入り込み、将来の回答や行動を歪める攻撃・現象。OWASP GenAI Security ProjectのASI06で扱われる。",
+      "id": "memory-poisoning",
+      "term": "メモリポイズニング"
+    },
+    {
+      "aliases": [
+        "Saved memories",
+        "保存したメモリ"
+      ],
+      "category": "AI基盤",
+      "description": "ChatGPTで、利用者が明示的に覚えるよう頼んだ詳細や、ChatGPTが有用な文脈として保存した詳細。チャット履歴とは別に保存される。",
+      "id": "saved-memory",
+      "term": "保存メモリ"
+    },
+    {
+      "aliases": [
+        "Project memory"
+      ],
+      "category": "AI基盤",
+      "description": "AIのプロジェクト単位で保持されるメモリ。案件ごとに参照範囲を分けるための単位で、製品ごとに分離の設定方法が異なる。",
+      "id": "project-memory",
+      "term": "プロジェクトメモリ"
     }
   ],
   "version": 1
