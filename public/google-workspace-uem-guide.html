@@ -194,24 +194,26 @@ code{background:#eee;padding:2px 5px}footer{margin-top:36px;border-top:2px solid
 <h2 id="overview">05　共通：全体の管理構造</h2>
 <figure class="feature-figure"><img src="/assets/google-workspace-uem-guide-management-20261114.jpg" width="1672" height="941" loading="lazy" decoding="async" alt="Windowsの管理をログイン・端末設定・Chromeブラウザに分け、Androidでは仕事用と個人用の領域を分ける模式図"><figcaption class="caption">Windowsはログイン・OS・ブラウザの制御が別機能。Androidは登録モードにより業務領域と個人領域の境界が変わる。利用できる機能は上記ライセンス表と登録状態に従う。</figcaption></figure>
 <figure class="diagram motion" id="architecture">
-<figcaption>管理対象と機能の分担。青い破線は、管理コンソールからの設定・状態連携を模式的に示す。</figcaption>
+<figcaption>WindowsへのログインとPCの設定管理は別機能。青い破線は管理コンソールとの連携を示す。</figcaption>
 <svg viewBox="0 0 920 365" role="img" aria-labelledby="arch-title arch-desc">
 <title id="arch-title">Google WorkspaceによるWindowsとAndroidの管理構造</title>
-<desc id="arch-desc">管理コンソールがWindows管理群とAndroid Enterprise管理群に分岐する。WindowsはEndpoint Verification、GCPW、Windows MDM、Chrome管理に分かれる。Androidは基本管理と詳細管理に分かれる。</desc>
+<desc id="arch-desc">管理コンソールからWindowsとAndroidを管理する。Windowsでは端末情報の確認、GCPWによるGoogleアカウントでのログイン、Windows MDMによるOS設定を分けて示す。Chromeの管理は別機能。Androidには基本管理と詳細管理がある。</desc>
 <defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="none" stroke="#005b94" stroke-width="1.5"/></marker></defs>
 <rect class="dark" x="280" y="10" width="360" height="64"/><text class="inverse" x="460" y="39" text-anchor="middle">Google管理コンソール</text><text x="460" y="60" fill="#ccc" font-size="12" text-anchor="middle">組織部門・ポリシー・端末一覧</text>
 <path class="accent signal" d="M460 74 V99 H230 V125" marker-end="url(#arrow)"/><path class="accent signal" d="M460 99 H690 V125" marker-end="url(#arrow)"/>
 <rect class="node" x="45" y="125" width="370" height="52"/><text class="label" x="230" y="155" text-anchor="middle">Windows 10 / 11</text>
 <rect class="node" x="505" y="125" width="370" height="52"/><text class="label" x="690" y="155" text-anchor="middle">Android Enterprise</text>
-<path class="line" d="M230 177 V195 H126 V216 M230 195 H334 V216 M690 177 V195 H601 V216 M690 195 H784 V216"/>
-<rect class="node" x="35" y="216" width="182" height="65"/><text class="label" x="126" y="240" text-anchor="middle">Endpoint Verification</text><text class="sub" x="126" y="261" text-anchor="middle">端末情報・アクセス</text>
-<rect class="node" x="243" y="216" width="182" height="65"/><text class="label" x="334" y="240" text-anchor="middle">GCPW / Windows MDM</text><text class="sub" x="334" y="261" text-anchor="middle">ログイン・OSポリシー</text>
+<path class="line" d="M230 177 V195 M90 216 V195 H370 V216 M230 195 V216 M690 177 V195 H601 V216 M690 195 H784 V216"/>
+<rect class="node" x="25" y="216" width="130" height="65"/><text class="label" x="90" y="240" text-anchor="middle">端末情報</text><text class="sub" x="90" y="261" text-anchor="middle">Endpoint Verification</text>
+<rect class="node" x="165" y="216" width="130" height="65"/><text class="label" x="230" y="240" text-anchor="middle">GCPW</text><text class="sub" x="230" y="261" text-anchor="middle">Windowsにログイン</text>
+<rect class="node" x="305" y="216" width="130" height="65"/><text class="label" x="370" y="240" text-anchor="middle">Windows MDM</text><text class="sub" x="370" y="261" text-anchor="middle">OS設定を配る</text>
 <rect class="node" x="510" y="216" width="182" height="65"/><text class="label" x="601" y="240" text-anchor="middle">基本管理</text><text class="sub" x="601" y="261" text-anchor="middle">アカウント中心</text>
 <rect class="node" x="712" y="216" width="182" height="65"/><text class="label" x="803" y="240" text-anchor="middle">詳細管理</text><text class="sub" x="803" y="261" text-anchor="middle">Work Profile・アプリ</text>
 <text class="sub" x="230" y="318" text-anchor="middle">Chrome管理は別の制御レイヤー</text><text class="sub" x="690" y="318" text-anchor="middle">所有形態でワイプや分離の範囲が変わる</text>
 </svg>
 <div class="controls"><button type="button" class="motion-toggle" data-target="architecture" aria-pressed="false">アニメーションを停止</button><span class="meta">動きが無効な環境では静止図で表示</span></div>
 </figure>
+<p class="note" id="windows-login-vs-mdm"><strong>GCPWとWindows MDMは別機能。</strong> GCPWは組織のGoogleアカウントでWindowsにログインするための機能。Business StarterとBusiness Standardでも使えるが、GCPWだけではBitLockerやWindows Updateの設定は配れない。PCの設定を配るには、Business Plusなどの対応ライセンスでWindowsデバイス管理（MDM）に登録する。<a href="https://knowledge.workspace.google.com/admin/devices/overview-enhanced-desktop-security-for-windows?hl=ja">Google公式：Windowsの管理範囲</a></p>
 <div class="layout">
 <div><h3>Windows：管理を組み合わせる</h3><div class="rule"><strong>Endpoint Verification</strong>端末情報の収集とアクセス判定支援</div><div class="rule"><strong>GCPW</strong>Googleアカウントを使ったWindowsログイン</div><div class="rule"><strong>Windows端末管理</strong>対応端末へのMDMポリシー配布</div><div class="rule"><strong>Chrome管理</strong>ブラウザの機能・拡張機能・ポリシー</div></div>
 <div><h3>Android：管理レベルを選ぶ</h3><div class="rule"><strong>基本管理</strong>画面ロックなどの最低限のセキュリティと業務アカウント管理</div><div class="rule"><strong>詳細管理</strong>業務プロファイル、より詳細な制限、Managed Google Play</div><div class="rule"><strong>所有形態</strong>BYOD・業務専用・会社所有個人利用許可で管理権限が異なる</div></div>
