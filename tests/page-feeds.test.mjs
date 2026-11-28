@@ -75,10 +75,10 @@ test("generator wires the emergency feed into discovery, the index and the gener
     assert.ok(index.includes(`href="${feed.path}"`), "index offers the emergency feed subscription");
     const dedicated = await readFile(path.join(cwd, "public", feed.path.slice(1)), "utf8");
     assert.equal(count(dedicated), 1);
-    assert.match(dedicated, /最新の更新（2026年11月28日 12:27）/);
+    assert.match(dedicated, /最新の更新（2026年11月28日 18:27）/);
     const general = await readFile(path.join(cwd, "public/feed.xml"), "utf8");
     const item = general.slice(general.indexOf("emergency-maintenance-2026-11"));
-    assert.match(general, /最新の更新（2026年11月28日 12:27）：/);
+    assert.match(general, /最新の更新（2026年11月28日 18:27）：/);
     assert.ok(item.includes("emergency-maintenance-2026-11-ogp-v1.jpg"), "general feed item carries the page image");
     const headers = await readFile(path.join(root, "public/_headers"), "utf8");
     assert.ok(headers.includes(`${feed.path}\n  Content-Type: application/rss+xml; charset=utf-8\n  Cache-Control: public, max-age=300, must-revalidate\n  X-Content-Type-Options: nosniff`));
