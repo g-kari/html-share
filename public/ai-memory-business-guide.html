@@ -28,6 +28,14 @@
 table.cmp{border-collapse:collapse;margin:1rem 0;width:100%}
 table.cmp th,table.cmp td{border:1px solid var(--line);padding:.45rem .7rem;text-align:left;vertical-align:top}
 </style>
+  <!-- html-share: social metadata -->
+  <meta property="og:site_name" content="HTML Share">
+  <meta name="twitter:title" content="AIメモリと業務利用のリスク：ChatGPTとClaudeのメモリ機能を比較">
+  <meta name="twitter:description" content="条件付き有効化と案件単位の分離が基本。保存メモリ、プロジェクト分離、一時チャット、学習・保持・削除の違いと、混同・ポイズニングへの対処を公式資料で確認します。">
+  <!-- /html-share: social metadata -->
+  <!-- html-share: rss discovery -->
+  <link rel="alternate" type="application/rss+xml" title="HTML Share RSS" href="https://share.0g0.xyz/feed.xml">
+  <!-- /html-share: rss discovery -->
 </head>
 <body>
 <div class="wrap">
@@ -44,8 +52,8 @@ table.cmp th,table.cmp td{border:1px solid var(--line);padding:.45rem .7rem;text
 <li>結論：許可された一般業務では、メモリは条件付きで有効化するのが基本です。案件ごとに参照範囲を分け、機密性が高い案件や契約で制限が必要な案件では無効化または利用制限を選びます。一律の無効化は安全側ですが、毎回のプロンプト作成、再説明、手戻りが増えるコストがあります。</li>
 <li>メモリが参照する情報は3層に分けて考えます。アカウント共通の指示（回答形式などの一般ルール）、プロジェクトの文脈（仕様、経緯、資料）、そのチャットの今回の依頼です。混同は主に2層目で起きます。</li>
 <li>製品側の分離設定と、自然言語で「この案件の情報だけ使って」と頼むことは別物です。後者はアクセス制御の代替にはなりません。分離は設定（ChatGPTのプロジェクト専用メモリ、ClaudeのUse account memoryオフ）で担保します。</li>
-<li>学習、保持、削除はメモリとは別の仕組みです。チャットを削除しても保存メモリは自動では消えません。逆に、メモリを切っても学習設定は変わりません。項目ごとに分けて確認が必要です。</li>
-<li>リスクは、他案件の情報、古い前提、過去の承認が混ざる「混同」と、汚染された情報がメモリに残って将来の回答を歪める「メモリポイズニング」です。対策は、定期点検と、架空データでの混在テストです。</li>
+<li>学習、保持、削除はメモリとは別の仕組みです。チャットを削除しても<a class="gloss" href="/glossary#term-saved-memory" title="ChatGPTで、利用者が明示的に覚えるよう頼んだ詳細や、ChatGPTが有用な文脈として保存した詳細。チャット履歴とは別に保存される。">保存メモリ</a>は自動では消えません。逆に、メモリを切っても学習設定は変わりません。項目ごとに分けて確認が必要です。</li>
+<li>リスクは、他案件の情報、古い前提、過去の承認が混ざる「混同」と、汚染された情報がメモリに残って将来の回答を歪める「<a class="gloss" href="/glossary#term-memory-poisoning" title="汚染された情報がAIのメモリや検索用の保存領域に入り込み、将来の回答や行動を歪める攻撃・現象。OWASP GenAI Security ProjectのASI06で扱われる。">メモリポイズニング</a>」です。対策は、定期点検と、架空データでの混在テストです。</li>
 </ol>
 </div>
 
@@ -116,7 +124,7 @@ table.cmp th,table.cmp td{border:1px solid var(--line);padding:.45rem .7rem;text
 <h2 id="claude">Claudeのメモリ：トピック保存とプロジェクトメモリ</h2>
 <p>Claudeのメモリは、会話の終了後にまとめて要約するのではなく、チャット中に個別の「トピック」として随時保存されます。利用者が「これを覚えて」と指示して直接保存させることもできます。オン・オフは「Settings ＞ Your Claude」の「Generate memory from chats」で切り替え、覚えている内容は同じ画面の「Your memory」からトピックごとに確認、編集、削除できます。変更は以降の全会話に適用されます。</p>
 <p>メモリとは別に「過去チャット検索」があります。有料プラン（Pro、Max、Ultra、Team、Enterprise）向けで、展開時点でデフォルト有効です。過去の会話を検索して参照し、参照時は元のチャットへのリンクが表示されます。「Search and reference chats」のトグルでオフにできます。</p>
-<p>プロジェクトメモリはプロジェクトごとに独立しています。ただしデフォルトでは、プロジェクト内のチャットは「そのプロジェクトのメモリ」に加えて「プロジェクト外チャットのメモリ」も使います。他のプロジェクトのメモリは使いません。新しいメモリはそのプロジェクトに保存されますが、メモリがオンの間はプロジェクト外のチャットからも参照され得ます。完全に分離したい場合は、プロジェクトページのMemory欄で「Use account memory」をオフにします。これが、この記事の結論でいう「製品側の分離設定」の実例です。</p>
+<p><a class="gloss" href="/glossary#term-project-memory" title="AIのプロジェクト単位で保持されるメモリ。案件ごとに参照範囲を分けるための単位で、製品ごとに分離の設定方法が異なる。">プロジェクトメモリ</a>はプロジェクトごとに独立しています。ただしデフォルトでは、プロジェクト内のチャットは「そのプロジェクトのメモリ」に加えて「プロジェクト外チャットのメモリ」も使います。他のプロジェクトのメモリは使いません。新しいメモリはそのプロジェクトに保存されますが、メモリがオンの間はプロジェクト外のチャットからも参照され得ます。完全に分離したい場合は、プロジェクトページのMemory欄で「Use account memory」をオフにします。これが、この記事の結論でいう「製品側の分離設定」の実例です。</p>
 <p>1つのチャットだけメモリを切りたい場合は、新規チャット開始時に「+」メニューでMemoryをオフにします。そのチャットではメモリを使わず、保存もせず、過去チャット検索もしません。ただし履歴には残り、他の会話からの過去チャット検索では見つけられます。開始後に切り替えることはできず、変える場合は新しいチャットが必要です。センシティブな話題（健康、人種、宗教的信条、政治など）はデフォルトでは保存されず、保存するには専用設定のオプトインが必要です。</p>
 <figure class="fig">
 <svg viewBox="0 0 720 280" role="img" aria-label="Claudeのプロジェクトメモリの分離。プロジェクトAのメモリとプロジェクトBのメモリは互いに使わない。デフォルトではアカウントメモリがプロジェクト内でも使われるが、Use account memoryをオフにするとプロジェクト内に閉じる。">
