@@ -7,7 +7,18 @@
     <language>ja</language>
     <atom:link href="https://share.0g0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <ttl>5</ttl>
-    <lastBuildDate>Sat, 28 Nov 2026 09:10:21 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 28 Nov 2026 09:31:53 GMT</lastBuildDate>
+    <item>
+      <title>緊急メンテナンス続報まとめ（2026年11月28日時点）：継続中・一部復旧・復旧済み</title>
+      <link>https://share.0g0.xyz/emergency-maintenance-2026-11</link>
+      <guid isPermaLink="true">https://share.0g0.xyz/emergency-maintenance-2026-11</guid>
+      <description>最新の更新（2026年11月28日 18:27）：17LIVEは終了予定が2026年11月29日未明へ再延長（ウェブサイト画面では01:00頃、アプリ告知では01:30までと表示に差がある）。DIPS 2.0（国土交通省のドローン手続き）は臨時メンテナンスの長時間停止から一部手続きが11月27日19:00に再開し、登録申請・技能証明・機体認証の申請は停止継続、11月30日予定の全機能メンテナンスは延期された。 前回（2026年11月28日 15:27）：RUNNET（ランネット）は外部攻撃とみられる不審なアクセスを検知し、緊急メンテナンスでサービスを一時停止（影響範囲は調査中、再開時期は未定）。17LIVEは終了予定が15:00頃から17:00頃へ変更され停止継続。電通デジタル「TONARIWA」は第3報で、漏えい確認の導入企業が3社、運用担当者のログイン情報等が全導入企業で計833件漏えいしたと発表し、再開は未定のまま。 前々回（2026年11月28日 12:27）：カンフェティは第一報で不正アクセスによる会員情報の外部流出を確認（退会者を含む全会員が影響範囲、件数は調査中）。東京海上ダイレクトは「＆e」の手続き・マイページ・アプリを再開（ドコモの自動車保険は停止継続）。Qzoo（モニタス）は第2報で再開がさらに1か月以上先の見通し、LIFULL不動産クラウドファンディングは10月29日からマイページ機能のメンテナンスが継続。17LIVEは11月28日に緊急メンテナンスで全サービスを一時停止（同日15:00頃終了予定）。</description>
+      <pubDate>Sat, 28 Nov 2026 09:31:53 GMT</pubDate>
+      <dcterms:created>2026-11-25T00:55:12.000Z</dcterms:created>
+      <dcterms:modified>2026-11-28T09:31:53.000Z</dcterms:modified>
+      <media:content url="https://share.0g0.xyz/assets/emergency-maintenance-2026-11-ogp-v1.jpg" type="image/jpeg" medium="image"/>
+      <media:thumbnail url="https://share.0g0.xyz/assets/emergency-maintenance-2026-11-ogp-v1.jpg"/>
+    </item>
     <item>
       <title>ChatGPT・Claudeのメモリ機能と業務利用のリスク</title>
       <link>https://share.0g0.xyz/ai-memory-business-guide</link>
@@ -36,17 +47,6 @@
       <pubDate>Sat, 28 Nov 2026 05:02:19 GMT</pubDate>
       <dcterms:created>2026-11-24T01:37:31.000Z</dcterms:created>
       <dcterms:modified>2026-11-28T05:02:19.000Z</dcterms:modified>
-    </item>
-    <item>
-      <title>緊急メンテナンス続報まとめ（2026年11月28日時点）：継続中・一部復旧・復旧済み</title>
-      <link>https://share.0g0.xyz/emergency-maintenance-2026-11</link>
-      <guid isPermaLink="true">https://share.0g0.xyz/emergency-maintenance-2026-11</guid>
-      <description>最新の更新（2026年11月28日 12:27）：カンフェティは第一報で不正アクセスによる会員情報の外部流出を確認（退会者を含む全会員が影響範囲、件数は調査中）。東京海上ダイレクトは「＆e」の手続き・マイページ・アプリを再開（ドコモの自動車保険は停止継続）。Qzoo（モニタス）は第2報で再開がさらに1か月以上先の見通し、LIFULL不動産クラウドファンディングは10月29日からマイページ機能のメンテナンスが継続。17LIVEは11月28日に緊急メンテナンスで全サービスを一時停止（同日15:00頃終了予定）。 前回（2026年11月28日 09:27）：teketは11月30日の再開を延期し、再開は12月下旬ごろの見込みに（次回案内は12月4日まで）。みまもりGPSは11月27日18:30にサービスを再開し全機能が通常利用可能に。コトブキヤは11月27日から一部Webサイトで新たな緊急メンテナンスを開始し、終了時期は未定。 前々回（2026年11月27日 18:27）：ミンカブ「MINKABU／みんかぶアセットプランナー」への不正アクセスを新規追加。メールアドレス約15万3,000件と、口座連携先・金額とみられる情報約1万9,000件が漏えいした可能性があり、アセプラの該当機能は11月26日から停止中。アクサ損害保険は第3報で、ロードサービス委託先側の対象が約49万4,000件（銀行口座情報2,697件を含む）と判明したと発表。</description>
-      <pubDate>Sat, 28 Nov 2026 03:44:34 GMT</pubDate>
-      <dcterms:created>2026-11-25T00:55:12.000Z</dcterms:created>
-      <dcterms:modified>2026-11-28T03:44:34.000Z</dcterms:modified>
-      <media:content url="https://share.0g0.xyz/assets/emergency-maintenance-2026-11-ogp-v1.jpg" type="image/jpeg" medium="image"/>
-      <media:thumbnail url="https://share.0g0.xyz/assets/emergency-maintenance-2026-11-ogp-v1.jpg"/>
     </item>
     <item>
       <title>CVE監視 第5号（2026年11月28日）：NGINX map 正規表現マッチのヒープオーバーフロー</title>
